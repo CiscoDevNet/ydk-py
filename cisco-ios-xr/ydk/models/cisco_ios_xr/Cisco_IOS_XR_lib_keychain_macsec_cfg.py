@@ -148,7 +148,7 @@ class MacSecKeychains(Entity):
     .. attribute:: mac_sec_keychain
     
     	Name of the key chain for MACSec
-    	**type**\: list of    :py:class:`MacSecKeychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain>`
+    	**type**\: list of  		 :py:class:`MacSecKeychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain>`
     
     
 
@@ -182,12 +182,14 @@ class MacSecKeychains(Entity):
         .. attribute:: chain_name  <key>
         
         	Name of the key chain
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: keies
         
         	Configure a Key
-        	**type**\:   :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain.Keies>`
+        	**type**\:  :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain.Keies>`
         
         
 
@@ -226,7 +228,7 @@ class MacSecKeychains(Entity):
             .. attribute:: key
             
             	Key Identifier
-            	**type**\: list of    :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain.Keies.Key>`
+            	**type**\: list of  		 :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain.Keies.Key>`
             
             
 
@@ -259,17 +261,19 @@ class MacSecKeychains(Entity):
                 .. attribute:: key_id  <key>
                 
                 	48\-bit Key identifier
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: lifetime
                 
                 	Configure a key Lifetime
-                	**type**\:   :py:class:`Lifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain.Keies.Key.Lifetime>`
+                	**type**\:  :py:class:`Lifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain.Keies.Key.Lifetime>`
                 
                 .. attribute:: key_string
                 
                 	Configure a clear text/encrypted Key string along with cryptographic algorithm
-                	**type**\:   :py:class:`KeyString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain.Keies.Key.KeyString>`
+                	**type**\:  :py:class:`KeyString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain.Keies.Key.KeyString>`
                 
                 	**presence node**\: True
                 
@@ -313,14 +317,14 @@ class MacSecKeychains(Entity):
                     .. attribute:: start_hour
                     
                     	Start Hour
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..23
                     
                     .. attribute:: start_minutes
                     
                     	Start Minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..59
                     
@@ -329,7 +333,7 @@ class MacSecKeychains(Entity):
                     .. attribute:: start_seconds
                     
                     	Start Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..59
                     
@@ -338,26 +342,26 @@ class MacSecKeychains(Entity):
                     .. attribute:: start_date
                     
                     	Start Date
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..31
                     
                     .. attribute:: start_month
                     
                     	Start Month
-                    	**type**\:   :py:class:`MacSecKeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeyChainMonth>`
+                    	**type**\:  :py:class:`MacSecKeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeyChainMonth>`
                     
                     .. attribute:: start_year
                     
                     	Start Year
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1993..2035
                     
                     .. attribute:: life_time
                     
                     	Lifetime duration in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..2147483647
                     
@@ -366,19 +370,19 @@ class MacSecKeychains(Entity):
                     .. attribute:: infinite_flag
                     
                     	Infinite Lifetime flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: end_hour
                     
                     	End Hour
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..23
                     
                     .. attribute:: end_minutes
                     
                     	End Minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..59
                     
@@ -387,7 +391,7 @@ class MacSecKeychains(Entity):
                     .. attribute:: end_seconds
                     
                     	End Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..59
                     
@@ -396,19 +400,19 @@ class MacSecKeychains(Entity):
                     .. attribute:: end_date
                     
                     	End Date
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..31
                     
                     .. attribute:: end_month
                     
                     	End Month
-                    	**type**\:   :py:class:`MacSecKeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeyChainMonth>`
+                    	**type**\:  :py:class:`MacSecKeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeyChainMonth>`
                     
                     .. attribute:: end_year
                     
                     	End Year
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1993..2035
                     
@@ -470,21 +474,23 @@ class MacSecKeychains(Entity):
                     .. attribute:: string
                     
                     	Key String
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (!.+)\|([^!].+)
                     
                     	**mandatory**\: True
                     
                     .. attribute:: cryptographic_algorithm
                     
                     	Cryptographic Algorithm
-                    	**type**\:   :py:class:`MacSecCryptoAlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecCryptoAlg>`
+                    	**type**\:  :py:class:`MacSecCryptoAlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecCryptoAlg>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: encryption_type
                     
                     	encryption type used to store key
-                    	**type**\:   :py:class:`MacSecEncryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecEncryption>`
+                    	**type**\:  :py:class:`MacSecEncryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecEncryption>`
                     
                     	**default value**\: type7
                     

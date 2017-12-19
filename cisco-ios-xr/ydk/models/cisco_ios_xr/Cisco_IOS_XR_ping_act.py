@@ -21,12 +21,12 @@ class Ping(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output>`
     
     
 
@@ -65,17 +65,17 @@ class Ping(Entity):
         .. attribute:: destination
         
         	
-        	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Input.Destination>`
+        	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Input.Destination>`
         
         .. attribute:: ipv4
         
         	
-        	**type**\: list of    :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Input.Ipv4>`
+        	**type**\: list of  		 :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Input.Ipv4>`
         
         .. attribute:: ipv6
         
         	
-        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Input.Ipv6>`
+        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Input.Ipv6>`
         
         
 
@@ -119,14 +119,14 @@ class Ping(Entity):
             .. attribute:: destination
             
             	Ping destination address or hostname
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
             .. attribute:: repeat_count
             
             	Number of ping packets to be sent out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..64
             
@@ -135,7 +135,7 @@ class Ping(Entity):
             .. attribute:: data_size
             
             	Size of ping packet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 36..18024
             
@@ -144,7 +144,7 @@ class Ping(Entity):
             .. attribute:: timeout
             
             	Timeout in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..36
             
@@ -153,7 +153,7 @@ class Ping(Entity):
             .. attribute:: interval
             
             	Ping interval in milli seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..3600
             
@@ -162,56 +162,58 @@ class Ping(Entity):
             .. attribute:: pattern
             
             	Pattern of payload data
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{1,8}
             
             .. attribute:: sweep
             
             	Sweep is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: vrf_name
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: source
             
             	Source address or interface
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: verbose
             
             	Validate return packet
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: type_of_service
             
             	Type of Service
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: do_not_frag
             
             	Do Not Fragment
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: validate
             
             	Validate return packet
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: priority
             
             	Priority of the packet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..15
             
             .. attribute:: outgoing_interface
             
             	Outgoing interface, needed in case of ping to link local address
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -273,14 +275,14 @@ class Ping(Entity):
             .. attribute:: destination  <key>
             
             	Ping destination address or hostname
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
             .. attribute:: repeat_count
             
             	Number of ping packets to be sent out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..64
             
@@ -289,7 +291,7 @@ class Ping(Entity):
             .. attribute:: data_size
             
             	Size of ping packet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 36..18024
             
@@ -298,7 +300,7 @@ class Ping(Entity):
             .. attribute:: timeout
             
             	Timeout in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..36
             
@@ -307,7 +309,7 @@ class Ping(Entity):
             .. attribute:: interval
             
             	Ping interval in milli seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..3600
             
@@ -316,44 +318,46 @@ class Ping(Entity):
             .. attribute:: pattern
             
             	Pattern of payload data
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{1,8}
             
             .. attribute:: sweep
             
             	Sweep is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: vrf_name
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: source
             
             	Source address or interface
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: verbose
             
             	Validate return packet
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: type_of_service
             
             	Type of Service
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: do_not_frag
             
             	Do Not Fragment
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: validate
             
             	Validate return packet
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -411,14 +415,14 @@ class Ping(Entity):
             .. attribute:: destination
             
             	Ping destination address or hostname
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
             .. attribute:: repeat_count
             
             	Number of ping packets to be sent out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..64
             
@@ -427,7 +431,7 @@ class Ping(Entity):
             .. attribute:: data_size
             
             	Size of ping packet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 36..18024
             
@@ -436,7 +440,7 @@ class Ping(Entity):
             .. attribute:: timeout
             
             	Timeout in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..36
             
@@ -445,7 +449,7 @@ class Ping(Entity):
             .. attribute:: interval
             
             	Ping interval in milli seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..3600
             
@@ -454,39 +458,41 @@ class Ping(Entity):
             .. attribute:: pattern
             
             	Pattern of payload data
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{1,8}
             
             .. attribute:: sweep
             
             	Sweep is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: vrf_name
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: source
             
             	Source address or interface
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: verbose
             
             	Validate return packet
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: priority
             
             	Priority of the packet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..15
             
             .. attribute:: outgoing_interface
             
             	Outgoing interface, needed in case of ping to link local address
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -542,7 +548,7 @@ class Ping(Entity):
         .. attribute:: ping_response
         
         	
-        	**type**\:   :py:class:`PingResponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse>`
+        	**type**\:  :py:class:`PingResponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse>`
         
         
 
@@ -576,12 +582,12 @@ class Ping(Entity):
             .. attribute:: ipv4
             
             	
-            	**type**\: list of    :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4>`
+            	**type**\: list of  		 :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4>`
             
             .. attribute:: ipv6
             
             	
-            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv6>`
+            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv6>`
             
             
 
@@ -620,14 +626,14 @@ class Ping(Entity):
                 .. attribute:: destination  <key>
                 
                 	Ping destination address or hostname
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
                 .. attribute:: repeat_count
                 
                 	Number of ping packets to be sent out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..64
                 
@@ -636,7 +642,7 @@ class Ping(Entity):
                 .. attribute:: data_size
                 
                 	Size of ping packet
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 36..18024
                 
@@ -645,7 +651,7 @@ class Ping(Entity):
                 .. attribute:: timeout
                 
                 	Timeout in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..36
                 
@@ -654,7 +660,7 @@ class Ping(Entity):
                 .. attribute:: interval
                 
                 	Ping interval in milli seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..3600
                 
@@ -663,83 +669,85 @@ class Ping(Entity):
                 .. attribute:: pattern
                 
                 	Pattern of payload data
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: sweep
                 
                 	Sweep is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: replies
                 
                 	
-                	**type**\:   :py:class:`Replies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4.Replies>`
+                	**type**\:  :py:class:`Replies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4.Replies>`
                 
                 .. attribute:: hits
                 
                 	Number of packets reach to destination and get reply back
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: total
                 
                 	Total number of packets sent out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: success_rate
                 
                 	Successful rate of ping
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rtt_min
                 
                 	Minimum value of Round Trip Time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rtt_avg
                 
                 	Average value of Round Trip Time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rtt_max
                 
                 	Maximum value of Round Trip Time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: sweep_min
                 
                 	Minimum value of sweep size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sweep_max
                 
                 	Maximum value of sweep size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rotate_pattern
                 
                 	Rotate Pattern is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: ping_error_response
                 
                 	Error response for each ping, in case of bulk ping
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -810,7 +818,7 @@ class Ping(Entity):
                     .. attribute:: reply
                     
                     	
-                    	**type**\: list of    :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4.Replies.Reply>`
+                    	**type**\: list of  		 :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4.Replies.Reply>`
                     
                     
 
@@ -843,19 +851,19 @@ class Ping(Entity):
                         .. attribute:: reply_index  <key>
                         
                         	Index of the reply list
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..2147483647
                         
                         .. attribute:: result
                         
                         	Response for each packet
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: broadcast_reply_addresses
                         
                         	
-                        	**type**\:   :py:class:`BroadcastReplyAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses>`
+                        	**type**\:  :py:class:`BroadcastReplyAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses>`
                         
                         
 
@@ -895,7 +903,7 @@ class Ping(Entity):
                             .. attribute:: broadcast_reply_address
                             
                             	
-                            	**type**\: list of    :py:class:`BroadcastReplyAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress>`
+                            	**type**\: list of  		 :py:class:`BroadcastReplyAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress>`
                             
                             
 
@@ -928,12 +936,12 @@ class Ping(Entity):
                                 .. attribute:: reply_address  <key>
                                 
                                 	Broadcast reply address
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: result
                                 
                                 	Sign for each reply packet
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -968,14 +976,14 @@ class Ping(Entity):
                 .. attribute:: destination
                 
                 	Ping destination address or hostname
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
                 .. attribute:: repeat_count
                 
                 	Number of ping packets to be sent out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..64
                 
@@ -984,7 +992,7 @@ class Ping(Entity):
                 .. attribute:: data_size
                 
                 	Size of ping packet
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 36..18024
                 
@@ -993,7 +1001,7 @@ class Ping(Entity):
                 .. attribute:: timeout
                 
                 	Timeout in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..36
                 
@@ -1002,7 +1010,7 @@ class Ping(Entity):
                 .. attribute:: interval
                 
                 	Ping interval in milli seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..3600
                 
@@ -1011,76 +1019,78 @@ class Ping(Entity):
                 .. attribute:: pattern
                 
                 	Pattern of payload data
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: sweep
                 
                 	Sweep is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: sweep_min
                 
                 	Minimum value of sweep size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sweep_max
                 
                 	Maximum value of sweep size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rotate_pattern
                 
                 	Rotate Pattern is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: replies
                 
                 	
-                	**type**\:   :py:class:`Replies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv6.Replies>`
+                	**type**\:  :py:class:`Replies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv6.Replies>`
                 
                 .. attribute:: hits
                 
                 	Number of packets reach to destination and get reply back
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: total
                 
                 	Total number of packets sent out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: success_rate
                 
                 	Successful rate of ping
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rtt_min
                 
                 	Minimum value of Round Trip Time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rtt_avg
                 
                 	Average value of Round Trip Time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rtt_max
                 
                 	Maximum value of Round Trip Time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1151,7 +1161,7 @@ class Ping(Entity):
                     .. attribute:: reply
                     
                     	
-                    	**type**\: list of    :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv6.Replies.Reply>`
+                    	**type**\: list of  		 :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act.Ping.Output.PingResponse.Ipv6.Replies.Reply>`
                     
                     
 
@@ -1185,14 +1195,14 @@ class Ping(Entity):
                         .. attribute:: reply_index  <key>
                         
                         	Index of the reply list
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..2147483647
                         
                         .. attribute:: result
                         
                         	Response for each packet
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 

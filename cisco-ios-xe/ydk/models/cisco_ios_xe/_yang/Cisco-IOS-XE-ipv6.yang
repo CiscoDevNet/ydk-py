@@ -34,6 +34,14 @@ submodule Cisco-IOS-XE-ipv6 {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-07-05 {
+    description
+      "Adding model for ipv6 router ospf *";
+  }
+  revision 2017-05-17 {
+    description    
+      "This revision fixes the problem in ipv6 route";
+  }
   revision 2017-02-23 {
     description    
       "Changes to support openconfig-network-instance mapping";
@@ -46,18 +54,8 @@ submodule Cisco-IOS-XE-ipv6 {
 
 
   grouping ipv6-route-options-grouping {
-    leaf next-hop {
-      description
-        "IPv6 address of next-hop";
-      type inet:ipv6-address;
-    }
     leaf distance {
       type uint8;
-    }
-    leaf name {
-      description
-        "Specify name of the next hop";
-      type string;
     }
     choice type-choice {
       leaf multicast {
@@ -81,6 +79,11 @@ submodule Cisco-IOS-XE-ipv6 {
         "Tracked";
       type uint32;
     }
+    leaf name {
+      description
+        "Specify name of the next hop";
+      type string;
+    }
   }
 
   grouping ipv6-route-grouping {
@@ -100,6 +103,15 @@ submodule Cisco-IOS-XE-ipv6 {
              type inet:ipv6-address;
              type string;
            }
+        }
+        list interface-next-hop {
+          description
+            "IPv6 address of next-hop";
+          key ipv6-address;
+          leaf ipv6-address {
+            type inet:ipv6-address;
+          }
+          uses ipv6-route-options-grouping;
         }
         uses ipv6-route-options-grouping;
       }
@@ -133,6 +145,20 @@ submodule Cisco-IOS-XE-ipv6 {
               type empty;
             }
           }
+          container deny {
+            description "Block data traffic";
+            leaf global-autoconf {
+              description "Drop data traffic from global autoconfigued addresses";
+              type empty;
+            }
+          }			
+          container permit {
+            description "Allow data traffic";
+            leaf link-local {
+              description "Allow data traffic from all Link-local addresses";
+              type empty;
+            }
+          }			
         }
       }
 
@@ -251,6 +277,18 @@ submodule Cisco-IOS-XE-ipv6 {
           leaf id {
             description
               "Autonomous System ID";
+            type uint16 {
+              range "1..65535";
+            }
+          }
+        }
+        list ospf {
+          description
+            "Open Shortest Path First (OSPFv3)";
+          key "id";
+          leaf id {
+            description
+              "Process ID";
             type uint16 {
               range "1..65535";
             }

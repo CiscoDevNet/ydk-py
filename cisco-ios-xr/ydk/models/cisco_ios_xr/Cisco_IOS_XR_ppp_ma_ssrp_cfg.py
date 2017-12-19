@@ -30,7 +30,7 @@ class Ssrp(Entity):
     .. attribute:: profiles
     
     	Table of SSRP Profiles
-    	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_ssrp_cfg.Ssrp.Profiles>`
+    	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_ssrp_cfg.Ssrp.Profiles>`
     
     
 
@@ -64,7 +64,7 @@ class Ssrp(Entity):
         .. attribute:: profile
         
         	SSRP Profile configuration
-        	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_ssrp_cfg.Ssrp.Profiles.Profile>`
+        	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_ssrp_cfg.Ssrp.Profiles.Profile>`
         
         
 
@@ -98,19 +98,23 @@ class Ssrp(Entity):
             .. attribute:: name  <key>
             
             	The name of the profile
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: max_hops
             
             	This specifies the maximum number of hops for packets on the SSO channel
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: peer_ipv4_address
             
             	This specifies the remote end's IPv4\-address for the SSO channel
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             
 

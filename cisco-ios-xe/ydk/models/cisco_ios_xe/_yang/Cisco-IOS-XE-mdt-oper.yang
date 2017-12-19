@@ -28,6 +28,11 @@ module Cisco-IOS-XE-mdt-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-07-01 {
+    description
+      "Add support for VRFs";
+    reference "2.0.0";
+  }
   revision 2017-03-02 {
     description
       "Initial revision";
@@ -242,6 +247,17 @@ module Cisco-IOS-XE-mdt-oper {
       description
         "Network port";
     }
+    leaf source-vrf {
+      type string;
+      description
+        "Network instance name for the VRF that the
+         connection originates from.";
+    }
+    leaf source-address {
+      type inet:ip-address;
+      description
+        "The source address used for the connection.";
+    }
   }
 
   grouping mdt-connection-data {
@@ -312,7 +328,7 @@ module Cisco-IOS-XE-mdt-oper {
       uses mdt-oper:mdt-subscription-oper;
     }
     list mdt-connections {
-      key "address port";
+      key "address port source-vrf source-address";
       description
         "MDT subscription connection operational data.";
       uses mdt-oper:mdt-connection-data;

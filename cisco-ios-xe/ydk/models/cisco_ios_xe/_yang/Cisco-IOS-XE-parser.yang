@@ -71,7 +71,6 @@ submodule Cisco-IOS-XE-parser {
             type uint8;
           }
           list command-list {
-            ordered-by user;
             key "command";
             leaf command {
 	      description

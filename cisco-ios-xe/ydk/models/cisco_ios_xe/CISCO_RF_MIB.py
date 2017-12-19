@@ -644,32 +644,32 @@ class CISCORFMIB(Entity):
     .. attribute:: crfstatus
     
     	
-    	**type**\:   :py:class:`Crfstatus <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfstatus>`
+    	**type**\:  :py:class:`Crfstatus <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfstatus>`
     
     .. attribute:: crfcfg
     
     	
-    	**type**\:   :py:class:`Crfcfg <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfcfg>`
+    	**type**\:  :py:class:`Crfcfg <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfcfg>`
     
     .. attribute:: crfhistory
     
     	
-    	**type**\:   :py:class:`Crfhistory <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfhistory>`
+    	**type**\:  :py:class:`Crfhistory <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfhistory>`
     
     .. attribute:: crfstatusrfmodecapstable
     
     	This table containing a list of redundancy modes that can be supported on the device
-    	**type**\:   :py:class:`Crfstatusrfmodecapstable <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfstatusrfmodecapstable>`
+    	**type**\:  :py:class:`Crfstatusrfmodecapstable <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfstatusrfmodecapstable>`
     
     .. attribute:: crfhistoryswitchovertable
     
     	A table that tracks the history of all switchovers that have occurred since system initialization. The maximum number of entries permissible in this table is defined by cRFHistoryTableMaxLength. When the number of entries in the table reaches the maximum limit, the next entry would replace the oldest existing entry in the table
-    	**type**\:   :py:class:`Crfhistoryswitchovertable <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfhistoryswitchovertable>`
+    	**type**\:  :py:class:`Crfhistoryswitchovertable <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfhistoryswitchovertable>`
     
     .. attribute:: crfstatusrfclienttable
     
     	This table contains a list of RF clients that are registered on the device.   RF clients are applications that have registered with  the Redundancy Facility (RF) to receive RF events and  notifications. The purpose of RF clients is to synchronize  any relevant data with the standby unit
-    	**type**\:   :py:class:`Crfstatusrfclienttable <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfstatusrfclienttable>`
+    	**type**\:  :py:class:`Crfstatusrfclienttable <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfstatusrfclienttable>`
     
     
 
@@ -728,82 +728,82 @@ class CISCORFMIB(Entity):
         .. attribute:: crfstatusunitid
         
         	A unique identifier for this redundant unit. This identifier is implementation\-specific but the method for selecting the id must remain consistent throughout the redundant system.  Some example identifiers include\: slot id, physical or logical entity id, or a unique id assigned internally by the RF subsystem
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
         .. attribute:: crfstatusunitstate
         
         	The current state of RF on this unit
-        	**type**\:   :py:class:`RFState <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFState>`
+        	**type**\:  :py:class:`RFState <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFState>`
         
         .. attribute:: crfstatuspeerunitid
         
         	A unique identifier for the redundant peer unit. This identifier is implementation\-specific but the method for selecting the id must remain consistent throughout the redundant system.  Some example identifiers include\: slot id, physical or logical entity id, or a unique id assigned internally by the RF subsystem
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
         .. attribute:: crfstatuspeerunitstate
         
         	The current state of RF on the peer unit
-        	**type**\:   :py:class:`RFState <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFState>`
+        	**type**\:  :py:class:`RFState <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFState>`
         
         .. attribute:: crfstatusprimarymode
         
         	Indicates whether this is the primary redundant unit or not. If this unit is the primary unit, this object is true. If this unit is the secondary unit, this object is false.  Note that the terms 'primary/secondary' are not synonymous with the terms 'active/standby'. At any given time, the primary unit may be the active unit, or the primary unit may be the standby unit. Likewise,   the secondary unit, at any given time, may be the active unit, or the secondary unit may be the standby unit.  The primary unit is given a higher priority or precedence over the secondary unit. In a race condition (usually at initialization time) or any situation where the redundant units are unable to successfully negotiate activity between themselves, the primary unit will always become the active unit and the secondary unit will fall back to standby. Only one redundant unit can be the primary unit at any given time.  The algorithm for determining the primary unit is system dependent, such as 'the redundant unit with the lower numeric unit id is always the primary unit.'
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: crfstatusduplexmode
         
         	Indicates whether the redundant peer unit has been detected or not. If the redundant peer unit is detected, this object is true. If the redundant peer unit is not detected, this object is false
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: crfstatusmanualswactinhibit
         
         	Indicates whether a manual switch of activity is permitted. If a manual switch of activity is allowed, this object is false. If a manual switch of activity is not allowed, this object is true. Note that the value of this object is the inverse of the status of manual SWACTs.  This object does not indicate whether a switch of activity is or has occurred. This object only indicates if the user\-controllable capability is enabled or not.  A switch of activity is the event in which the standby redundant unit becomes active and the previously active unit becomes standby
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: crfstatuslastswactreasoncode
         
         	The reason for the last switch of activity
-        	**type**\:   :py:class:`RFSwactReasonType <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFSwactReasonType>`
+        	**type**\:  :py:class:`RFSwactReasonType <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFSwactReasonType>`
         
         .. attribute:: crfstatusfailovertime
         
         	The value of sysUpTime when the primary redundant unit took over as active. The value of this object will be 0 till the first switchover
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: crfstatuspeerstandbyentrytime
         
         	The value of sysUpTime when the peer redundant unit entered the standbyHot state. The value will be 0 on system initialization
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: crfstatusissustate
         
         	The current ISSU state of the system
-        	**type**\:   :py:class:`RFIssuState <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFIssuState>`
+        	**type**\:  :py:class:`RFIssuState <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFIssuState>`
         
         	**status**\: deprecated
         
         .. attribute:: crfstatusissustaterev1
         
         	The current ISSU state of the system
-        	**type**\:   :py:class:`RFIssuStateRev1 <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFIssuStateRev1>`
+        	**type**\:  :py:class:`RFIssuStateRev1 <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFIssuStateRev1>`
         
         .. attribute:: crfstatusissufromversion
         
         	The IOS version from with the user is upgrading
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: crfstatusissutoversion
         
         	The IOS version to with the user is upgrading
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -863,35 +863,35 @@ class CISCORFMIB(Entity):
         .. attribute:: crfcfgsplitmode
         
         	Indicates whether redundant units may communicate synchronization messages with each other. If communication is not permitted, this object is set to true. If communication is permitted, this object is set to false.  In split mode (true), the active unit will not communicate with the standby unit. The standby unit progression will not occur. When split mode is disabled (false), the standby unit is reset to recover.  Split mode (true) is useful for maintenance operations
-        	**type**\:  bool
+        	**type**\: bool
         
         	**status**\: deprecated
         
         .. attribute:: crfcfgkeepalivethresh
         
         	On platforms that support keep\-alives, the keep\-alive threshold value designates the number of lost keep\-alives tolerated before a failure condition is declared. If this occurs, a SWACT notification is sent.  On platforms that do not support keep\-alives, this object has no purpose or effect
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: crfcfgkeepalivethreshmin
         
         	The minimum acceptable value for the cRFCfgKeepaliveThresh object
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: crfcfgkeepalivethreshmax
         
         	The maximum acceptable value for the cRFCfgKeepaliveThresh object
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: crfcfgkeepalivetimer
         
         	On platforms that support keep\-alives, the keep\-alive timer value is used to guard against lost keep\-alives. The RF subsystem expects to receive a keep\-alive within this period. If a keep\-alive is not received within this time period, a SWACT notification is sent.  On platforms that do not support keep\-alives, this object has no purpose or effect
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -900,7 +900,7 @@ class CISCORFMIB(Entity):
         .. attribute:: crfcfgkeepalivetimermin
         
         	The minimum acceptable value for the cRFCfgKeepaliveTimer object
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -909,7 +909,7 @@ class CISCORFMIB(Entity):
         .. attribute:: crfcfgkeepalivetimermax
         
         	The maximum acceptable value for the cRFCfgKeepaliveTimer object
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -918,7 +918,7 @@ class CISCORFMIB(Entity):
         .. attribute:: crfcfgnotiftimer
         
         	Note that the term 'notification' here refers to an RF notification and not an SNMP notification.  As the standby unit progresses to the 'standbyHot' state, asynchronous messages are sent from the active unit to the standby unit which must then be acknowledged by the standby unit. If the active unit receives the acknowledgement during the time period specified by this object, progression proceeds as normal. If the timer expires and an acknowledgement was not received by the active unit, a switch of activity occurs
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -927,7 +927,7 @@ class CISCORFMIB(Entity):
         .. attribute:: crfcfgnotiftimermin
         
         	The minimum acceptable value for the cRFCfgNotifTimer object
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -936,7 +936,7 @@ class CISCORFMIB(Entity):
         .. attribute:: crfcfgnotiftimermax
         
         	The maximum acceptable value for the cRFCfgNotifTimer object
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -945,32 +945,32 @@ class CISCORFMIB(Entity):
         .. attribute:: crfcfgadminaction
         
         	This variable is set to invoke RF subsystem action commands. The commands are useful for maintenance and software upgrade activities
-        	**type**\:   :py:class:`RFAction <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFAction>`
+        	**type**\:  :py:class:`RFAction <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFAction>`
         
         .. attribute:: crfcfgnotifsenabled
         
         	Allows enabling/disabling of RF subsystem notifications
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: crfcfgmaintenancemode
         
         	Indicates whether redundant units may communicate synchronization messages with each other. If communication is not permitted, this object is set to 'true'. If communication is permitted, this object is set to 'false'.  If the value of this object is 'true', the redundant system is considered to be in a maintenance mode of operation. If the value of this object is 'false', the redundant system is considered to be in a normal (non\-maintenance) mode of operation.  In maintenance mode (true), the active unit will not communicate with the standby unit. The standby unit progression will not occur. When maintenance mode is disabled (false), the standby unit is reset to recover.  Maintenance mode (true) is useful for maintenance\-type operations
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: crfcfgredundancymode
         
         	Indicates the redundancy mode configured on the device
-        	**type**\:   :py:class:`RFMode <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFMode>`
+        	**type**\:  :py:class:`RFMode <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFMode>`
         
         .. attribute:: crfcfgredundancymodedescr
         
         	Further clarifies or describes the redundancy mode indicated by cRFCfgRedundancyMode. Implementation\-specific terminology associated with the current redundancy mode may be presented here
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: crfcfgredundancyopermode
         
         	Indicate the operational redundancy mode of the device
-        	**type**\:   :py:class:`RFMode <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFMode>`
+        	**type**\:  :py:class:`RFMode <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFMode>`
         
         
 
@@ -1034,21 +1034,21 @@ class CISCORFMIB(Entity):
         .. attribute:: crfhistorytablemaxlength
         
         	Maximum number of entries permissible in the history table. A value of 0 will result in no history being maintained
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..50
         
         .. attribute:: crfhistorycoldstarts
         
         	Indicates the number of system cold starts. This includes the number of system cold starts due to switchover failure and the number of manual restarts
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: crfhistorystandbyavailtime
         
         	Indicates the cumulative time that a standby redundant unit has been available since last system initialization
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
@@ -1089,7 +1089,7 @@ class CISCORFMIB(Entity):
         .. attribute:: crfstatusrfmodecapsentry
         
         	An entry containing the device implementation specific terminology associated with the redundancy mode that can be supported on the device
-        	**type**\: list of    :py:class:`Crfstatusrfmodecapsentry <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfstatusrfmodecapstable.Crfstatusrfmodecapsentry>`
+        	**type**\: list of  		 :py:class:`Crfstatusrfmodecapsentry <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfstatusrfmodecapstable.Crfstatusrfmodecapsentry>`
         
         
 
@@ -1125,12 +1125,12 @@ class CISCORFMIB(Entity):
             .. attribute:: crfstatusrfmodecapsmode  <key>
             
             	The redundancy mode that can be supported on the device
-            	**type**\:   :py:class:`RFMode <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFMode>`
+            	**type**\:  :py:class:`RFMode <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFMode>`
             
             .. attribute:: crfstatusrfmodecapsmodedescr
             
             	The description of the device implementation specific terminology associated with its supported redundancy mode
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -1171,7 +1171,7 @@ class CISCORFMIB(Entity):
         .. attribute:: crfhistoryswitchoverentry
         
         	The entries in this table contain the switchover information. Each entry in the table is indexed by cRFHistorySwitchOverIndex. The index wraps around to 1 after reaching the maximum value
-        	**type**\: list of    :py:class:`Crfhistoryswitchoverentry <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfhistoryswitchovertable.Crfhistoryswitchoverentry>`
+        	**type**\: list of  		 :py:class:`Crfhistoryswitchoverentry <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfhistoryswitchovertable.Crfhistoryswitchoverentry>`
         
         
 
@@ -1208,33 +1208,33 @@ class CISCORFMIB(Entity):
             .. attribute:: crfhistoryswitchoverindex  <key>
             
             	A monotonically increasing integer for the purpose of indexing history table. After reaching maximum value, it wraps around to 1
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: crfhistoryprevactiveunitid
             
             	Indicates the primary redundant unit that went down
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: crfhistorycurractiveunitid
             
             	Indicates the secondary redundant unit that took over as active
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: crfhistoryswitchoverreason
             
             	Indicates the reason for the switchover
-            	**type**\:   :py:class:`RFSwactReasonType <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFSwactReasonType>`
+            	**type**\:  :py:class:`RFSwactReasonType <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFSwactReasonType>`
             
             .. attribute:: crfhistoryswacttime
             
             	Indicates the Date & Time when switchover occurred
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -1282,7 +1282,7 @@ class CISCORFMIB(Entity):
         .. attribute:: crfstatusrfcliententry
         
         	An entry containing information on various clients registered with the Redundancy Facility (RF). Entries in this table are always created by the system.  An entry is created in this table when a redundancy aware  application registers with the Redundancy Facility. The entry  is destroyed when that application deregisters from the  Redundancy Facility
-        	**type**\: list of    :py:class:`Crfstatusrfcliententry <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfstatusrfclienttable.Crfstatusrfcliententry>`
+        	**type**\: list of  		 :py:class:`Crfstatusrfcliententry <ydk.models.cisco_ios_xe.CISCO_RF_MIB.CISCORFMIB.Crfstatusrfclienttable.Crfstatusrfcliententry>`
         
         
 
@@ -1323,26 +1323,26 @@ class CISCORFMIB(Entity):
             .. attribute:: crfstatusrfclientid  <key>
             
             	A unique identifier for the client which registered with the Redundancy Facility
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: crfstatusrfclientdescr
             
             	The description of the client which has registered with the Redundancy Facility
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: crfstatusrfclientseq
             
             	The sequence number of the client. The system assigns the sequence numbers based on the order of registration of the Redundancy Facility clients.  This is used for deciding order of RF events sent to clients
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: crfstatusrfclientredtime
             
             	Time taken for this client to become Redundant. This value is meaningful when the value of cRFStatusRFClientStatus is not 'noStatus'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1351,7 +1351,7 @@ class CISCORFMIB(Entity):
             .. attribute:: crfstatusrfclientstatus
             
             	This object provides the status of the Redundancy Facility client
-            	**type**\:   :py:class:`RFClientStatus <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFClientStatus>`
+            	**type**\:  :py:class:`RFClientStatus <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFClientStatus>`
             
             
 

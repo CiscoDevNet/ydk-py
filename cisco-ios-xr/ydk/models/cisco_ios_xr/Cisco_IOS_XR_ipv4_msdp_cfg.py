@@ -67,26 +67,26 @@ class Msdp(Entity):
     .. attribute:: vrfs
     
     	VRF Table
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs>`
     
     .. attribute:: default_context
     
     	Default Context
-    	**type**\:   :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext>`
+    	**type**\:  :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext>`
     
     	**presence node**\: True
     
     .. attribute:: global_max_sa
     
     	Configure the global MAX SA state for the router
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..75000
     
     .. attribute:: nsr_delay
     
     	NSR\-Ready delay period for MSDP Peer
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 5..90
     
@@ -135,7 +135,7 @@ class Msdp(Entity):
         .. attribute:: vrf
         
         	VRF Name
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf>`
         
         
 
@@ -169,67 +169,73 @@ class Msdp(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: ttl_threshold
             
             	Configure TTL Threshold for MSDP Peer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: max_peer_sa
             
             	Configure inheritable MAX SA state for peers
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..75000
             
             .. attribute:: default_peer
             
             	Configure default peers for the box
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: originator_id
             
             	Configure interface name used as originator ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: max_sa
             
             	Configure context's MAX SA state for the router
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..75000
             
             .. attribute:: cache_state
             
             	Configure this systems SA cache access\-lists
-            	**type**\:   :py:class:`CacheState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.CacheState>`
+            	**type**\:  :py:class:`CacheState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.CacheState>`
             
             .. attribute:: keep_alive
             
             	MSDP keep alive period
-            	**type**\:   :py:class:`KeepAlive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.KeepAlive>`
+            	**type**\:  :py:class:`KeepAlive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.KeepAlive>`
             
             	**presence node**\: True
             
             .. attribute:: peers
             
             	Entering Peer Configuration
-            	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.Peers>`
+            	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.Peers>`
             
             .. attribute:: connect_source
             
             	Configure interface name used for MSDP connection
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: sa_filters
             
             	Filter SA messages from peer
-            	**type**\:   :py:class:`SaFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.SaFilters>`
+            	**type**\:  :py:class:`SaFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.SaFilters>`
             
             
 
@@ -294,7 +300,7 @@ class Msdp(Entity):
                 .. attribute:: sa_holdtime
                 
                 	SA State Holdtime period
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 150..3600
                 
@@ -305,14 +311,14 @@ class Msdp(Entity):
                 .. attribute:: list
                 
                 	Access list name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: rp_list
                 
                 	Access\-list for originating RP
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -351,7 +357,7 @@ class Msdp(Entity):
                 .. attribute:: keep_alive_period
                 
                 	Keep alive period in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..60
                 
@@ -362,7 +368,7 @@ class Msdp(Entity):
                 .. attribute:: peer_timeout_period
                 
                 	Peer timeout period in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..75
                 
@@ -406,7 +412,7 @@ class Msdp(Entity):
                 .. attribute:: peer
                 
                 	Peer address
-                	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.Peers.Peer>`
+                	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.Peers.Peer>`
                 
                 
 
@@ -439,79 +445,85 @@ class Msdp(Entity):
                     .. attribute:: peer_address  <key>
                     
                     	Peer address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: remote_as
                     
                     	Configure the remote AS of this peer
-                    	**type**\:   :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.Peers.Peer.RemoteAs>`
+                    	**type**\:  :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.Peers.Peer.RemoteAs>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: shutdown
                     
                     	MSDP Peer Shutdown
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: description
                     
                     	Up to 80 characters describing this peer
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..80
                     
                     .. attribute:: enable
                     
                     	Enabling Peer Configuration
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: max_sa
                     
                     	Maximum SA accepted from this peer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..75000
                     
                     .. attribute:: nsr_down
                     
                     	Disable NSR for the peer
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: peer_password
                     
                     	Configuration of password of peer
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (!.+)\|([^!].+)
                     
                     .. attribute:: mesh_group
                     
                     	Configure an MSDP mesh\-group
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: ttl_threshold
                     
                     	Configure TTL Threshold for MSDP Peer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..255
                     
                     .. attribute:: keep_alive
                     
                     	MSDP keep alive period
-                    	**type**\:   :py:class:`KeepAlive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.Peers.Peer.KeepAlive>`
+                    	**type**\:  :py:class:`KeepAlive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.Peers.Peer.KeepAlive>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: connect_source
                     
                     	Configure interface name used for MSDP connection
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: sa_filters
                     
                     	Filter SA messages from peer
-                    	**type**\:   :py:class:`SaFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.Peers.Peer.SaFilters>`
+                    	**type**\:  :py:class:`SaFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.Peers.Peer.SaFilters>`
                     
                     
 
@@ -575,7 +587,7 @@ class Msdp(Entity):
                         .. attribute:: as_xx
                         
                         	First half of ASN in asdot format or 0 in asplain
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -584,7 +596,7 @@ class Msdp(Entity):
                         .. attribute:: as_yy
                         
                         	Second half of ASN in asdot format or complete ASN in asplain
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -626,7 +638,7 @@ class Msdp(Entity):
                         .. attribute:: keep_alive_period
                         
                         	Keep alive period in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..60
                         
@@ -637,7 +649,7 @@ class Msdp(Entity):
                         .. attribute:: peer_timeout_period
                         
                         	Peer timeout period in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..75
                         
@@ -681,7 +693,7 @@ class Msdp(Entity):
                         .. attribute:: sa_filter
                         
                         	SA\-Filter incoming/outgoing list or RPlist
-                        	**type**\: list of    :py:class:`SaFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter>`
+                        	**type**\: list of  		 :py:class:`SaFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter>`
                         
                         
 
@@ -714,17 +726,17 @@ class Msdp(Entity):
                             .. attribute:: list  <key>
                             
                             	Src List/RP List
-                            	**type**\:   :py:class:`MsdpListTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrf>`
+                            	**type**\:  :py:class:`MsdpListTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrf>`
                             
                             .. attribute:: filter_type  <key>
                             
                             	Incoming/Outgoing ACL
-                            	**type**\:   :py:class:`MsdpFilterTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrf>`
+                            	**type**\:  :py:class:`MsdpFilterTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrf>`
                             
                             .. attribute:: access_list_name
                             
                             	Access list name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..64
                             
@@ -765,7 +777,7 @@ class Msdp(Entity):
                 .. attribute:: sa_filter
                 
                 	SA\-Filter incoming/outgoing list or RPlist
-                	**type**\: list of    :py:class:`SaFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.SaFilters.SaFilter>`
+                	**type**\: list of  		 :py:class:`SaFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.Vrfs.Vrf.SaFilters.SaFilter>`
                 
                 
 
@@ -798,17 +810,17 @@ class Msdp(Entity):
                     .. attribute:: list  <key>
                     
                     	Src List/RP List
-                    	**type**\:   :py:class:`MsdpListTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrf>`
+                    	**type**\:  :py:class:`MsdpListTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrf>`
                     
                     .. attribute:: filter_type  <key>
                     
                     	Incoming/Outgoing ACL
-                    	**type**\:   :py:class:`MsdpFilterTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrf>`
+                    	**type**\:  :py:class:`MsdpFilterTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrf>`
                     
                     .. attribute:: access_list_name
                     
                     	Access list name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -849,60 +861,66 @@ class Msdp(Entity):
         .. attribute:: ttl_threshold
         
         	Configure TTL Threshold for MSDP Peer
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..255
         
         .. attribute:: max_peer_sa
         
         	Configure inheritable MAX SA state for peers
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..75000
         
         .. attribute:: default_peer
         
         	Configure default peers for the box
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         .. attribute:: originator_id
         
         	Configure interface name used as originator ID
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         .. attribute:: max_sa
         
         	Configure context's MAX SA state for the router
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..75000
         
         .. attribute:: cache_state
         
         	Configure this systems SA cache access\-lists
-        	**type**\:   :py:class:`CacheState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.CacheState>`
+        	**type**\:  :py:class:`CacheState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.CacheState>`
         
         .. attribute:: keep_alive
         
         	MSDP keep alive period
-        	**type**\:   :py:class:`KeepAlive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.KeepAlive>`
+        	**type**\:  :py:class:`KeepAlive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.KeepAlive>`
         
         	**presence node**\: True
         
         .. attribute:: peers
         
         	Entering Peer Configuration
-        	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.Peers>`
+        	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.Peers>`
         
         .. attribute:: connect_source
         
         	Configure interface name used for MSDP connection
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         .. attribute:: sa_filters
         
         	Filter SA messages from peer
-        	**type**\:   :py:class:`SaFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.SaFilters>`
+        	**type**\:  :py:class:`SaFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.SaFilters>`
         
         
 
@@ -968,7 +986,7 @@ class Msdp(Entity):
             .. attribute:: sa_holdtime
             
             	SA State Holdtime period
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 150..3600
             
@@ -979,14 +997,14 @@ class Msdp(Entity):
             .. attribute:: list
             
             	Access list name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: rp_list
             
             	Access\-list for originating RP
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
@@ -1026,7 +1044,7 @@ class Msdp(Entity):
             .. attribute:: keep_alive_period
             
             	Keep alive period in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..60
             
@@ -1037,7 +1055,7 @@ class Msdp(Entity):
             .. attribute:: peer_timeout_period
             
             	Peer timeout period in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..75
             
@@ -1082,7 +1100,7 @@ class Msdp(Entity):
             .. attribute:: peer
             
             	Peer address
-            	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.Peers.Peer>`
+            	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.Peers.Peer>`
             
             
 
@@ -1116,79 +1134,85 @@ class Msdp(Entity):
                 .. attribute:: peer_address  <key>
                 
                 	Peer address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: remote_as
                 
                 	Configure the remote AS of this peer
-                	**type**\:   :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.Peers.Peer.RemoteAs>`
+                	**type**\:  :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.Peers.Peer.RemoteAs>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: shutdown
                 
                 	MSDP Peer Shutdown
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: description
                 
                 	Up to 80 characters describing this peer
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..80
                 
                 .. attribute:: enable
                 
                 	Enabling Peer Configuration
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: max_sa
                 
                 	Maximum SA accepted from this peer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..75000
                 
                 .. attribute:: nsr_down
                 
                 	Disable NSR for the peer
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: peer_password
                 
                 	Configuration of password of peer
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (!.+)\|([^!].+)
                 
                 .. attribute:: mesh_group
                 
                 	Configure an MSDP mesh\-group
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: ttl_threshold
                 
                 	Configure TTL Threshold for MSDP Peer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..255
                 
                 .. attribute:: keep_alive
                 
                 	MSDP keep alive period
-                	**type**\:   :py:class:`KeepAlive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.Peers.Peer.KeepAlive>`
+                	**type**\:  :py:class:`KeepAlive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.Peers.Peer.KeepAlive>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: connect_source
                 
                 	Configure interface name used for MSDP connection
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: sa_filters
                 
                 	Filter SA messages from peer
-                	**type**\:   :py:class:`SaFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.Peers.Peer.SaFilters>`
+                	**type**\:  :py:class:`SaFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.Peers.Peer.SaFilters>`
                 
                 
 
@@ -1253,7 +1277,7 @@ class Msdp(Entity):
                     .. attribute:: as_xx
                     
                     	First half of ASN in asdot format or 0 in asplain
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -1262,7 +1286,7 @@ class Msdp(Entity):
                     .. attribute:: as_yy
                     
                     	Second half of ASN in asdot format or complete ASN in asplain
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1304,7 +1328,7 @@ class Msdp(Entity):
                     .. attribute:: keep_alive_period
                     
                     	Keep alive period in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..60
                     
@@ -1315,7 +1339,7 @@ class Msdp(Entity):
                     .. attribute:: peer_timeout_period
                     
                     	Peer timeout period in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..75
                     
@@ -1359,7 +1383,7 @@ class Msdp(Entity):
                     .. attribute:: sa_filter
                     
                     	SA\-Filter incoming/outgoing list or RPlist
-                    	**type**\: list of    :py:class:`SaFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter>`
+                    	**type**\: list of  		 :py:class:`SaFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter>`
                     
                     
 
@@ -1392,17 +1416,17 @@ class Msdp(Entity):
                         .. attribute:: list  <key>
                         
                         	Src List/RP List
-                        	**type**\:   :py:class:`MsdpListTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrf>`
+                        	**type**\:  :py:class:`MsdpListTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrf>`
                         
                         .. attribute:: filter_type  <key>
                         
                         	Incoming/Outgoing ACL
-                        	**type**\:   :py:class:`MsdpFilterTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrf>`
+                        	**type**\:  :py:class:`MsdpFilterTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrf>`
                         
                         .. attribute:: access_list_name
                         
                         	Access list name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -1443,7 +1467,7 @@ class Msdp(Entity):
             .. attribute:: sa_filter
             
             	SA\-Filter incoming/outgoing list or RPlist
-            	**type**\: list of    :py:class:`SaFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.SaFilters.SaFilter>`
+            	**type**\: list of  		 :py:class:`SaFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.Msdp.DefaultContext.SaFilters.SaFilter>`
             
             
 
@@ -1477,17 +1501,17 @@ class Msdp(Entity):
                 .. attribute:: list  <key>
                 
                 	Src List/RP List
-                	**type**\:   :py:class:`MsdpListTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrf>`
+                	**type**\:  :py:class:`MsdpListTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrf>`
                 
                 .. attribute:: filter_type  <key>
                 
                 	Incoming/Outgoing ACL
-                	**type**\:   :py:class:`MsdpFilterTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrf>`
+                	**type**\:  :py:class:`MsdpFilterTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrf>`
                 
                 .. attribute:: access_list_name
                 
                 	Access list name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 

@@ -527,17 +527,17 @@ class Evpn(Entity):
     .. attribute:: nodes
     
     	Table of EVPN operational data for a particular node
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes>`
     
     .. attribute:: active
     
     	Active EVPN operational data
-    	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active>`
+    	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active>`
     
     .. attribute:: standby
     
     	Standby EVPN operational data
-    	**type**\:   :py:class:`Standby <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby>`
+    	**type**\:  :py:class:`Standby <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby>`
     
     
 
@@ -582,7 +582,7 @@ class Evpn(Entity):
         .. attribute:: node
         
         	EVPN operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node>`
         
         
 
@@ -616,32 +616,34 @@ class Evpn(Entity):
             .. attribute:: node_id  <key>
             
             	Location
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: evis
             
             	L2VPN EVPN EVI Table
-            	**type**\:   :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Evis>`
+            	**type**\:  :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Evis>`
             
             .. attribute:: summary
             
             	L2VPN EVPN Summary
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Summary>`
+            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Summary>`
             
             .. attribute:: evi_detail
             
             	L2VPN EVI Detail Table
-            	**type**\:   :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail>`
+            	**type**\:  :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail>`
             
             .. attribute:: ethernet_segments
             
             	EVPN Ethernet\-Segment Table
-            	**type**\:   :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments>`
+            	**type**\:  :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments>`
             
             .. attribute:: ac_ids
             
             	EVPN AC ID table
-            	**type**\:   :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.AcIds>`
+            	**type**\:  :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.AcIds>`
             
             
 
@@ -700,7 +702,7 @@ class Evpn(Entity):
                 .. attribute:: evi
                 
                 	L2VPN EVPN EVI Entry
-                	**type**\: list of    :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Evis.Evi>`
+                	**type**\: list of  		 :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Evis.Evi>`
                 
                 
 
@@ -733,26 +735,26 @@ class Evpn(Entity):
                     .. attribute:: evi  <key>
                     
                     	EVPN id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: evi_xr
                     
                     	E\-VPN id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bd_name
                     
                     	Bridge domain name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: type
                     
                     	Service Type
-                    	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                     
                     
 
@@ -791,136 +793,140 @@ class Evpn(Entity):
                 .. attribute:: router_id
                 
                 	EVPN Router ID
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: as_
                 
                 	BGP AS number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: ev_is
                 
                 	Number of EVI DB Entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: local_mac_routes
                 
                 	Number of Local MAC Routes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: local_ipv4_mac_routes
                 
                 	Number of Local IPv4 MAC\-IP Routes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: local_ipv6_mac_routes
                 
                 	Number of Local IPv6 MAC\-IP Routes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: es_global_mac_routes
                 
                 	Number of ES\:Global MAC Routes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: remote_mac_routes
                 
                 	Number of Remote MAC Routes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: remote_soo_mac_routes
                 
                 	Number of Remote Soo MAC Routes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: remote_ipv4_mac_routes
                 
                 	Number of Remote IPv4 MAC\-IP Routes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: remote_ipv6_mac_routes
                 
                 	Number of Remote IPv6 MAC\-IP Routes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: local_imcast_routes
                 
                 	Number of Local IMCAST Routes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: remote_imcast_routes
                 
                 	Number of Remote IMCAST Routes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: labels
                 
                 	Number of Internal Labels
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: es_entries
                 
                 	Number of ES Entries in DB
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: neighbor_entries
                 
                 	Number of neighbor Entries in DB
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: local_ead_routes
                 
                 	Number of Local EAD Entries in DB
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: remote_ead_routes
                 
                 	Number of Remote EAD Entries in DB
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: global_source_mac
                 
                 	Global Source MAC Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: peering_time
                 
                 	EVPN ES Peering Time (seconds)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -929,7 +935,7 @@ class Evpn(Entity):
                 .. attribute:: recovery_time
                 
                 	EVPN ES Recovery Time (seconds)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -938,40 +944,40 @@ class Evpn(Entity):
                 .. attribute:: mac_secure_move_count
                 
                 	Number of moves within the move interval before locking the MAC
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: mac_secure_move_interval
                 
                 	Interval to watch for subsequent mac moves before locking the MAC
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: mac_secure_freeze_time
                 
                 	Length of time to lock the mac after a MAC security violation
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: mac_secure_retry_count
                 
                 	Number of times to retry after a MAC un\-freezes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: cost_out
                 
                 	EVPN Node Cost\-out
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: startup_cost_in_time
                 
                 	EVPN Node startup cost\-in Time (minutes)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -980,12 +986,12 @@ class Evpn(Entity):
                 .. attribute:: l2rib_throttle
                 
                 	Send to L2RIB Throttled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: logging_df_election_enabled
                 
                 	Logging EVPN Designated Forwarder changes enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -1074,12 +1080,12 @@ class Evpn(Entity):
                 .. attribute:: elements
                 
                 	EVI BGP RT Detail Info Elements
-                	**type**\:   :py:class:`Elements <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements>`
+                	**type**\:  :py:class:`Elements <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements>`
                 
                 .. attribute:: evi_children
                 
                 	Container for all EVI detail info
-                	**type**\:   :py:class:`EviChildren <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren>`
+                	**type**\:  :py:class:`EviChildren <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren>`
                 
                 
 
@@ -1117,7 +1123,7 @@ class Evpn(Entity):
                     .. attribute:: element
                     
                     	EVI BGP RT Detail Info
-                    	**type**\: list of    :py:class:`Element <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element>`
+                    	**type**\: list of  		 :py:class:`Element <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element>`
                     
                     
 
@@ -1150,134 +1156,134 @@ class Evpn(Entity):
                         .. attribute:: evi  <key>
                         
                         	EVPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: flow_label
                         
                         	Flow Label Information
-                        	**type**\:   :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel>`
+                        	**type**\:  :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel>`
                         
                         .. attribute:: rd_auto
                         
                         	Automatic Route Distingtuisher
-                        	**type**\:   :py:class:`RdAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto>`
+                        	**type**\:  :py:class:`RdAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto>`
                         
                         .. attribute:: rd_configured
                         
                         	Configured Route Distinguisher
-                        	**type**\:   :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured>`
+                        	**type**\:  :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured>`
                         
                         .. attribute:: rt_auto
                         
                         	Automatic Route Target
-                        	**type**\:   :py:class:`RtAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto>`
+                        	**type**\:  :py:class:`RtAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto>`
                         
                         .. attribute:: rt_auto_stitching
                         
                         	Automatic Route Target Stitching
-                        	**type**\:   :py:class:`RtAutoStitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching>`
+                        	**type**\:  :py:class:`RtAutoStitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching>`
                         
                         .. attribute:: evi_xr
                         
                         	E\-VPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: description
                         
                         	EVI description
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: bd_name
                         
                         	Bridge domain name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: type
                         
                         	Service Type
-                        	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                        	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                         
                         .. attribute:: unicast_label
                         
                         	Unicast Label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: multicast_label
                         
                         	Multicast Label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: cw_disable
                         
                         	Control\-Word Disable
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: table_policy_name
                         
                         	Table\-policy Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: forward_class
                         
                         	Forward Class attribute
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: rt_import_block_set
                         
                         	Is Import RT None set
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: rt_export_block_set
                         
                         	Is Export RT None set
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: advertise_mac
                         
                         	Advertise MAC\-only routes on this EVI
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: advertise_bvi_mac
                         
                         	Advertise BVI MACs routes on this EVI
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: aliasing_disabled
                         
                         	Route Aliasing is disabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: unknown_unicast_flooding_disabled
                         
                         	Unknown\-unicast flooding is disabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: reoriginate_disabled
                         
                         	Route Re\-origination is disabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: stitching
                         
                         	EVPN Instance is Regular/Stitching side
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: encapsulation
                         
                         	EVPN Instance encapsulation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
@@ -1373,12 +1379,12 @@ class Evpn(Entity):
                             .. attribute:: static_flow_label
                             
                             	Static flow label
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: global_flow_label
                             
                             	Globally configured flow label
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -1413,27 +1419,27 @@ class Evpn(Entity):
                             .. attribute:: auto
                             
                             	auto
-                            	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto>`
+                            	**type**\:  :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto>`
                             
                             .. attribute:: two_byte_as
                             
                             	two byte as
-                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
+                            	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
                             
                             .. attribute:: four_byte_as
                             
                             	four byte as
-                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs>`
+                            	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs>`
                             
                             .. attribute:: v4_addr
                             
                             	v4 addr
-                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr>`
+                            	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr>`
                             
                             .. attribute:: rd
                             
                             	RD
-                            	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                            	**type**\:  :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
                             
                             
 
@@ -1486,12 +1492,14 @@ class Evpn(Entity):
                                 .. attribute:: router_id
                                 
                                 	BGP Router ID
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: auto_index
                                 
                                 	Auto\-generated Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -1528,14 +1536,14 @@ class Evpn(Entity):
                                 .. attribute:: two_byte_as
                                 
                                 	2 Byte AS Number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: four_byte_index
                                 
                                 	4 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1572,14 +1580,14 @@ class Evpn(Entity):
                                 .. attribute:: four_byte_as
                                 
                                 	4 Byte AS Number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -1616,12 +1624,14 @@ class Evpn(Entity):
                                 .. attribute:: ipv4_address
                                 
                                 	IPv4 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -1658,27 +1668,27 @@ class Evpn(Entity):
                             .. attribute:: auto
                             
                             	auto
-                            	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto>`
+                            	**type**\:  :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto>`
                             
                             .. attribute:: two_byte_as
                             
                             	two byte as
-                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
+                            	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
                             
                             .. attribute:: four_byte_as
                             
                             	four byte as
-                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
+                            	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
                             
                             .. attribute:: v4_addr
                             
                             	v4 addr
-                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr>`
+                            	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr>`
                             
                             .. attribute:: rd
                             
                             	RD
-                            	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                            	**type**\:  :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
                             
                             
 
@@ -1731,12 +1741,14 @@ class Evpn(Entity):
                                 .. attribute:: router_id
                                 
                                 	BGP Router ID
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: auto_index
                                 
                                 	Auto\-generated Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -1773,14 +1785,14 @@ class Evpn(Entity):
                                 .. attribute:: two_byte_as
                                 
                                 	2 Byte AS Number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: four_byte_index
                                 
                                 	4 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1817,14 +1829,14 @@ class Evpn(Entity):
                                 .. attribute:: four_byte_as
                                 
                                 	4 Byte AS Number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -1861,12 +1873,14 @@ class Evpn(Entity):
                                 .. attribute:: ipv4_address
                                 
                                 	IPv4 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -1903,27 +1917,27 @@ class Evpn(Entity):
                             .. attribute:: two_byte_as
                             
                             	two byte as
-                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
+                            	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
                             
                             .. attribute:: four_byte_as
                             
                             	four byte as
-                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs>`
+                            	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs>`
                             
                             .. attribute:: v4_addr
                             
                             	v4 addr
-                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr>`
+                            	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr>`
                             
                             .. attribute:: es_import
                             
                             	es import
-                            	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport>`
+                            	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport>`
                             
                             .. attribute:: rt
                             
                             	RT
-                            	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                            	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                             
                             
 
@@ -1976,14 +1990,14 @@ class Evpn(Entity):
                                 .. attribute:: two_byte_as
                                 
                                 	2 Byte AS Number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: four_byte_index
                                 
                                 	4 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2020,14 +2034,14 @@ class Evpn(Entity):
                                 .. attribute:: four_byte_as
                                 
                                 	4 Byte AS Number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -2064,12 +2078,14 @@ class Evpn(Entity):
                                 .. attribute:: ipv4_address
                                 
                                 	IPv4 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -2106,14 +2122,14 @@ class Evpn(Entity):
                                 .. attribute:: high_bytes
                                 
                                 	Top 4 bytes of ES Import
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: low_bytes
                                 
                                 	Low 2 bytes of ES Import
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -2150,27 +2166,27 @@ class Evpn(Entity):
                             .. attribute:: two_byte_as
                             
                             	two byte as
-                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs>`
+                            	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs>`
                             
                             .. attribute:: four_byte_as
                             
                             	four byte as
-                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs>`
+                            	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs>`
                             
                             .. attribute:: v4_addr
                             
                             	v4 addr
-                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr>`
+                            	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr>`
                             
                             .. attribute:: es_import
                             
                             	es import
-                            	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport>`
+                            	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport>`
                             
                             .. attribute:: rt
                             
                             	RT
-                            	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                            	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                             
                             
 
@@ -2223,14 +2239,14 @@ class Evpn(Entity):
                                 .. attribute:: two_byte_as
                                 
                                 	2 Byte AS Number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: four_byte_index
                                 
                                 	4 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2267,14 +2283,14 @@ class Evpn(Entity):
                                 .. attribute:: four_byte_as
                                 
                                 	4 Byte AS Number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -2311,12 +2327,14 @@ class Evpn(Entity):
                                 .. attribute:: ipv4_address
                                 
                                 	IPv4 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -2353,14 +2371,14 @@ class Evpn(Entity):
                                 .. attribute:: high_bytes
                                 
                                 	Top 4 bytes of ES Import
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: low_bytes
                                 
                                 	Low 2 bytes of ES Import
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -2397,27 +2415,27 @@ class Evpn(Entity):
                     .. attribute:: neighbors
                     
                     	EVPN Neighbor table
-                    	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors>`
+                    	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors>`
                     
                     .. attribute:: ethernet_auto_discoveries
                     
                     	EVPN Ethernet Auto\-Discovery table
-                    	**type**\:   :py:class:`EthernetAutoDiscoveries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries>`
+                    	**type**\:  :py:class:`EthernetAutoDiscoveries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries>`
                     
                     .. attribute:: inclusive_multicasts
                     
                     	L2VPN EVPN IMCAST table
-                    	**type**\:   :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts>`
+                    	**type**\:  :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts>`
                     
                     .. attribute:: route_targets
                     
                     	L2VPN EVPN EVI RT Child Table
-                    	**type**\:   :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets>`
+                    	**type**\:  :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets>`
                     
                     .. attribute:: macs
                     
                     	L2VPN EVPN EVI MAC table
-                    	**type**\:   :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs>`
+                    	**type**\:  :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs>`
                     
                     
 
@@ -2470,7 +2488,7 @@ class Evpn(Entity):
                         .. attribute:: neighbor
                         
                         	EVPN Neighbor table
-                        	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor>`
+                        	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor>`
                         
                         
 
@@ -2503,34 +2521,36 @@ class Evpn(Entity):
                             .. attribute:: evi
                             
                             	EVPN id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: neighbor_ip
                             
                             	Neighbor IP
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: evi_xr
                             
                             	E\-VPN id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: neighbor
                             
                             	Neighbor IP
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -2569,7 +2589,7 @@ class Evpn(Entity):
                         .. attribute:: ethernet_auto_discovery
                         
                         	EVPN Ethernet Auto\-Discovery Entry
-                        	**type**\: list of    :py:class:`EthernetAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery>`
+                        	**type**\: list of  		 :py:class:`EthernetAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery>`
                         
                         
 
@@ -2602,106 +2622,118 @@ class Evpn(Entity):
                             .. attribute:: evi
                             
                             	EVPN id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: esi1
                             
                             	ES id (part 1/5)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
                             .. attribute:: esi2
                             
                             	ES id (part 2/5)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
                             .. attribute:: esi3
                             
                             	ES id (part 3/5)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
                             .. attribute:: esi4
                             
                             	ES id (part 4/5)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
                             .. attribute:: esi5
                             
                             	ES id (part 5/5)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
                             .. attribute:: ethernet_tag
                             
                             	Ethernet Tag ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: ethernet_vpnid
                             
                             	E\-VPN id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: type
                             
                             	Service Type
-                            	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                             
                             .. attribute:: ethernet_tag_xr
                             
                             	Ethernet Tag
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: local_next_hop
                             
                             	Local nexthop IP
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: local_label
                             
                             	Associated local label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: is_local_ead
                             
                             	Indication of EthernetAutoDiscovery Route is local
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: encap
                             
                             	Encap type of local or remote EAD
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: redundancy_single_active
                             
                             	Single\-active redundancy configured at remote EAD
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: num_paths
                             
                             	 Number of items in path list buffer
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: ethernet_segment_identifier
                             
                             	Ethernet Segment id
-                            	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
+                            	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
                             
                             .. attribute:: path_buffer
                             
                             	Path List Buffer
-                            	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
+                            	**type**\: list of  		 :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
                             
                             
 
@@ -2767,7 +2799,7 @@ class Evpn(Entity):
                                 .. attribute:: entry
                                 
                                 	
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
@@ -2802,19 +2834,23 @@ class Evpn(Entity):
                                 .. attribute:: next_hop
                                 
                                 	Next\-hop IP address (v6 format)
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: output_label
                                 
                                 	Output Label
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: srte_tunnel
                                 
                                 	Segment\-Routing Traffic Engineering Tunnel Interface Handle
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 
 
@@ -2851,7 +2887,7 @@ class Evpn(Entity):
                         .. attribute:: inclusive_multicast
                         
                         	L2VPN EVPN IMCAST table
-                        	**type**\: list of    :py:class:`InclusiveMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast>`
+                        	**type**\: list of  		 :py:class:`InclusiveMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast>`
                         
                         
 
@@ -2884,75 +2920,79 @@ class Evpn(Entity):
                             .. attribute:: evi
                             
                             	EVPN id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: ethernet_tag
                             
                             	Ethernet Tag
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: originating_ip
                             
                             	Originating IP
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: evi_xr
                             
                             	E\-VPN id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: ethernet_tag_xr
                             
                             	Ethernet Tag
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: originating_ip_xr
                             
                             	Originating IP
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: next_hop
                             
                             	IP of nexthop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: output_label
                             
                             	Output label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: is_local_entry
                             
                             	Local entry
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_proxy_entry
                             
                             	Proxy entry
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: encap_type
                             
                             	Encap type of local or remote IMCAST route
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -3007,7 +3047,7 @@ class Evpn(Entity):
                         .. attribute:: route_target
                         
                         	L2VPN EVPN EVI RT Table
-                        	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget>`
+                        	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget>`
                         
                         
 
@@ -3040,77 +3080,79 @@ class Evpn(Entity):
                             .. attribute:: evi
                             
                             	EVPN id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: role
                             
                             	Role of the route target
-                            	**type**\:   :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
+                            	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
                             
                             .. attribute:: type
                             
                             	Type of the route target
-                            	**type**\:   :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTarget>`
+                            	**type**\:  :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTarget>`
                             
                             .. attribute:: format
                             
                             	Format of the route target
-                            	**type**\:   :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
+                            	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
                             
                             .. attribute:: as_
                             
                             	Two or Four byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
                             .. attribute:: as_index
                             
                             	RT AS Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: addr_index
                             
                             	RT IP Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: address
                             
                             	RT IPv4 Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: route_target
                             
                             	Route Target
-                            	**type**\:   :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
+                            	**type**\:  :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
                             
                             .. attribute:: bd_name
                             
                             	Bridge Domain Name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: evi_xr
                             
                             	VPN ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: route_target_role
                             
                             	RT Role
-                            	**type**\:   :py:class:`L2vpnAdRtRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRtRole>`
+                            	**type**\:  :py:class:`L2vpnAdRtRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRtRole>`
                             
                             .. attribute:: route_target_stitching
                             
                             	RT Stitching
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -3170,27 +3212,27 @@ class Evpn(Entity):
                                 .. attribute:: two_byte_as
                                 
                                 	two byte as
-                                	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
+                                	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
                                 
                                 .. attribute:: four_byte_as
                                 
                                 	four byte as
-                                	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
+                                	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
                                 
                                 .. attribute:: v4_addr
                                 
                                 	v4 addr
-                                	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
+                                	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
                                 
                                 .. attribute:: es_import
                                 
                                 	es import
-                                	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
+                                	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
                                 
                                 .. attribute:: rt
                                 
                                 	RT
-                                	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                                	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                                 
                                 
 
@@ -3243,14 +3285,14 @@ class Evpn(Entity):
                                     .. attribute:: two_byte_as
                                     
                                     	2 Byte AS Number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: four_byte_index
                                     
                                     	4 Byte Index
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -3287,14 +3329,14 @@ class Evpn(Entity):
                                     .. attribute:: four_byte_as
                                     
                                     	4 Byte AS Number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: two_byte_index
                                     
                                     	2 Byte Index
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -3331,12 +3373,14 @@ class Evpn(Entity):
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 Address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: two_byte_index
                                     
                                     	2 Byte Index
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -3373,14 +3417,14 @@ class Evpn(Entity):
                                     .. attribute:: high_bytes
                                     
                                     	Top 4 bytes of ES Import
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: low_bytes
                                     
                                     	Low 2 bytes of ES Import
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -3417,7 +3461,7 @@ class Evpn(Entity):
                         .. attribute:: mac
                         
                         	L2VPN EVPN MAC table
-                        	**type**\: list of    :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac>`
+                        	**type**\: list of  		 :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac>`
                         
                         
 
@@ -3450,193 +3494,205 @@ class Evpn(Entity):
                             .. attribute:: evi
                             
                             	EVPN id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: ethernet_tag
                             
                             	Ethernet Tag ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: mac_address
                             
                             	MAC address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             .. attribute:: ip_address
                             
                             	IP Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: ethernet_tag_xr
                             
                             	Ethernet Tag
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mac_address_xr
                             
                             	MAC address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             .. attribute:: ip_address_xr
                             
                             	IP address (v6 format)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: local_label
                             
                             	Associated local label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: num_paths
                             
                             	 Number of items in path list buffer
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: is_local_mac
                             
                             	Indication of MAC being locally generated
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_proxy_entry
                             
                             	Proxy entry
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_remote_mac
                             
                             	Indication of MAC being remotely generated
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: soo_nexthop
                             
                             	SOO nexthop (v6 format)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: ipnh_address
                             
                             	IP nexthop address (v6 format)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: esi_port_key
                             
                             	ESI port key
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: local_encap_type
                             
                             	Encap type of local MAC
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: remote_encap_type
                             
                             	Encap type of remote MAC
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: learned_bridge_port_name
                             
                             	Port the MAC was learned on
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: local_seq_id
                             
                             	local seq id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: remote_seq_id
                             
                             	remote seq id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: local_l3_label
                             
                             	local l3 label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: router_mac_address
                             
                             	Router MAC address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             .. attribute:: mac_flush_requested
                             
                             	Number of flushes requested 
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: mac_flush_received
                             
                             	Number of flushes received 
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: internal_label
                             
                             	MPLS Internal Label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: resolved
                             
                             	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: local_is_static
                             
                             	Indication if Local MAC is statically configured
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: remote_is_static
                             
                             	Indication if Remote MAC is statically configured
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: local_ethernet_segment_identifier
                             
                             	Local Ethernet Segment id
-                            	**type**\: list of    :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
+                            	**type**\: list of  		 :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
                             
                             .. attribute:: remote_ethernet_segment_identifier
                             
                             	Remote Ethernet Segment id
-                            	**type**\: list of    :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
+                            	**type**\: list of  		 :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
                             
                             .. attribute:: path_buffer
                             
                             	Path List Buffer
-                            	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
+                            	**type**\: list of  		 :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
                             
                             
 
@@ -3727,7 +3783,7 @@ class Evpn(Entity):
                                 .. attribute:: entry
                                 
                                 	
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
@@ -3762,7 +3818,7 @@ class Evpn(Entity):
                                 .. attribute:: entry
                                 
                                 	
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
@@ -3797,19 +3853,23 @@ class Evpn(Entity):
                                 .. attribute:: next_hop
                                 
                                 	Next\-hop IP address (v6 format)
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: output_label
                                 
                                 	Output Label
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: srte_tunnel
                                 
                                 	Segment\-Routing Traffic Engineering Tunnel Interface Handle
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 
 
@@ -3846,7 +3906,7 @@ class Evpn(Entity):
                 .. attribute:: ethernet_segment
                 
                 	EVPN Ethernet\-Segment Entry
-                	**type**\: list of    :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment>`
+                	**type**\: list of  		 :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment>`
                 
                 
 
@@ -3879,131 +3939,151 @@ class Evpn(Entity):
                     .. attribute:: interface_name
                     
                     	Interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: esi1
                     
                     	ES id (part 1/5)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
                     .. attribute:: esi2
                     
                     	ES id (part 2/5)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
                     .. attribute:: esi3
                     
                     	ES id (part 3/5)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
                     .. attribute:: esi4
                     
                     	ES id (part 4/5)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
                     .. attribute:: esi5
                     
                     	ES id (part 5/5)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
                     .. attribute:: esi_type
                     
                     	ESI Type
-                    	**type**\:   :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
+                    	**type**\:  :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
                     
                     .. attribute:: ethernet_segment_name
                     
                     	Ethernet Segment Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: ethernet_segment_state
                     
                     	State of the ethernet segment
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: if_handle
                     
                     	Main port ifhandle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: main_port_role
                     
                     	Main port redundancy group role
-                    	**type**\:   :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
+                    	**type**\:  :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
                     
                     .. attribute:: main_port_mac
                     
                     	Main Port MAC Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: num_up_p_ws
                     
                     	Number of PWs in Up state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: route_target
                     
                     	ES\-Import Route Target
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: rt_origin
                     
                     	Origin of operational ES\-Import RT
-                    	**type**\:   :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
+                    	**type**\:  :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
                     
                     .. attribute:: es_bgp_gates
                     
                     	ES BGP Gates
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: es_l2fib_gates
                     
                     	ES L2FIB Gates
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: mac_flushing_mode_config
                     
                     	Configured MAC Flushing mode
-                    	**type**\:   :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
+                    	**type**\:  :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
                     
                     .. attribute:: load_balance_mode_config
                     
                     	Configured load balancing mode
-                    	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                    	**type**\:  :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
                     
                     .. attribute:: load_balance_mode_is_default
                     
                     	Load balancing mode is default
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: load_balance_mode_oper
                     
                     	Operational load balancing mode
-                    	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                    	**type**\:  :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
                     
                     .. attribute:: force_single_home
                     
                     	Ethernet\-Segment forced to single home
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: source_mac_oper
                     
                     	Operational Source MAC address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: source_mac_origin
                     
                     	Origin of operational source MAC address
-                    	**type**\:   :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
+                    	**type**\:  :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
                     
                     .. attribute:: peering_timer
                     
                     	Configured timer for triggering DF election (seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4012,7 +4092,7 @@ class Evpn(Entity):
                     .. attribute:: peering_timer_left
                     
                     	Milliseconds left on DF election timer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4021,7 +4101,7 @@ class Evpn(Entity):
                     .. attribute:: recovery_timer
                     
                     	Configured timer for (STP) recovery (seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4030,7 +4110,7 @@ class Evpn(Entity):
                     .. attribute:: recovery_timer_left
                     
                     	Milliseconds left on (STP) recovery timer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4039,124 +4119,124 @@ class Evpn(Entity):
                     .. attribute:: service_carving_mode
                     
                     	Service carving mode
-                    	**type**\:   :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
+                    	**type**\:  :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
                     
                     .. attribute:: primary_services_input
                     
                     	Input string of Primary services ESI/I\-SIDs
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: secondary_services_input
                     
                     	Input string of Secondary services ESI/I\-SIDs
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: forwarder_ports
                     
                     	Count of Forwarders (AC, AC PW, VFI PW)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: permanent_forwarder_ports
                     
                     	Count of Forwarders with permanent service
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: elected_forwarder_ports
                     
                     	Count of Forwarders with elected service
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: not_elected_forwarder_ports
                     
                     	Count of Forwarders with not elected service
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: not_config_forwarder_ports
                     
                     	Count of forwarders with missing config detected
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mp_protected
                     
                     	MP is protected and not under EVPN control
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: nve_anycast_vtep
                     
                     	Anycast VTEP mode on NVE main\-interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: nve_ingress_replication
                     
                     	Ingress\-Replication is configured on NVE main\-interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: local_split_horizon_group_label
                     
                     	Local split horizon group label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ethernet_segment_identifier
                     
                     	Ethernet Segment id
-                    	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
+                    	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
                     
                     .. attribute:: primary_service
                     
                     	List of Primary services ESI/I\-SIDs
-                    	**type**\: list of    :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService>`
+                    	**type**\: list of  		 :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService>`
                     
                     .. attribute:: secondary_service
                     
                     	List of Secondary services ESI/I\-SIDs
-                    	**type**\: list of    :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService>`
+                    	**type**\: list of  		 :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService>`
                     
                     .. attribute:: service_carving_i_sidelected_result
                     
                     	Elected ISID service carving results
-                    	**type**\: list of    :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
+                    	**type**\: list of  		 :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
                     
                     .. attribute:: service_carving_isid_not_elected_result
                     
                     	Not elected ISID service carving results
-                    	**type**\: list of    :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
+                    	**type**\: list of  		 :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
                     
                     .. attribute:: service_carving_evi_elected_result
                     
                     	Elected EVI service carving results
-                    	**type**\: list of    :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
+                    	**type**\: list of  		 :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
                     
                     .. attribute:: service_carving_evi_not_elected_result
                     
                     	Not elected EVI service carving results
-                    	**type**\: list of    :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
+                    	**type**\: list of  		 :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
                     
                     .. attribute:: next_hop
                     
                     	List of nexthop IPv6 addresses
-                    	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop>`
+                    	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop>`
                     
                     .. attribute:: service_carving_vpws_permanent_result
                     
                     	Permanent EVPN VPWS service carving results
-                    	**type**\: list of    :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
+                    	**type**\: list of  		 :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
                     
                     .. attribute:: remote_split_horizon_group_label
                     
                     	Remote split horizon group labels
-                    	**type**\: list of    :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
+                    	**type**\: list of  		 :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
                     
                     
 
@@ -4278,7 +4358,7 @@ class Evpn(Entity):
                         .. attribute:: entry
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
@@ -4313,7 +4393,7 @@ class Evpn(Entity):
                         .. attribute:: entry
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4348,7 +4428,7 @@ class Evpn(Entity):
                         .. attribute:: entry
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4383,7 +4463,7 @@ class Evpn(Entity):
                         .. attribute:: entry
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4418,7 +4498,7 @@ class Evpn(Entity):
                         .. attribute:: entry
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4453,7 +4533,7 @@ class Evpn(Entity):
                         .. attribute:: entry
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4488,7 +4568,7 @@ class Evpn(Entity):
                         .. attribute:: entry
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4523,7 +4603,9 @@ class Evpn(Entity):
                         .. attribute:: next_hop
                         
                         	Next\-hop IP address (v6 format)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -4556,19 +4638,19 @@ class Evpn(Entity):
                         .. attribute:: vpn_id
                         
                         	VPN ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: type
                         
                         	Service Type
-                        	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                        	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                         
                         .. attribute:: ethernet_tag
                         
                         	Ethernet Tag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4607,12 +4689,14 @@ class Evpn(Entity):
                         .. attribute:: next_hop
                         
                         	Next\-hop IP address (v6 format)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: label
                         
                         	Split horizon label associated with next\-hop address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4649,7 +4733,7 @@ class Evpn(Entity):
                 .. attribute:: ac_id
                 
                 	EVPN AC ID table
-                	**type**\: list of    :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.AcIds.AcId>`
+                	**type**\: list of  		 :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.AcIds.AcId>`
                 
                 
 
@@ -4682,28 +4766,30 @@ class Evpn(Entity):
                     .. attribute:: evi
                     
                     	EVPN id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: ac_id
                     
                     	AC ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: evi_xr
                     
                     	E\-VPN id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: neighbor
                     
                     	Neighbor IP
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -4742,27 +4828,27 @@ class Evpn(Entity):
         .. attribute:: evis
         
         	L2VPN EVPN EVI Table
-        	**type**\:   :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Evis>`
+        	**type**\:  :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Evis>`
         
         .. attribute:: summary
         
         	L2VPN EVPN Summary
-        	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Summary>`
+        	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Summary>`
         
         .. attribute:: evi_detail
         
         	L2VPN EVI Detail Table
-        	**type**\:   :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail>`
+        	**type**\:  :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail>`
         
         .. attribute:: ethernet_segments
         
         	EVPN Ethernet\-Segment Table
-        	**type**\:   :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments>`
+        	**type**\:  :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments>`
         
         .. attribute:: ac_ids
         
         	EVPN AC ID table
-        	**type**\:   :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.AcIds>`
+        	**type**\:  :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.AcIds>`
         
         
 
@@ -4816,7 +4902,7 @@ class Evpn(Entity):
             .. attribute:: evi
             
             	L2VPN EVPN EVI Entry
-            	**type**\: list of    :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Evis.Evi>`
+            	**type**\: list of  		 :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Evis.Evi>`
             
             
 
@@ -4850,26 +4936,26 @@ class Evpn(Entity):
                 .. attribute:: evi  <key>
                 
                 	EVPN id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: evi_xr
                 
                 	E\-VPN id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bd_name
                 
                 	Bridge domain name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: type
                 
                 	Service Type
-                	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                 
                 
 
@@ -4909,136 +4995,140 @@ class Evpn(Entity):
             .. attribute:: router_id
             
             	EVPN Router ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: as_
             
             	BGP AS number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ev_is
             
             	Number of EVI DB Entries
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_mac_routes
             
             	Number of Local MAC Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_ipv4_mac_routes
             
             	Number of Local IPv4 MAC\-IP Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_ipv6_mac_routes
             
             	Number of Local IPv6 MAC\-IP Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: es_global_mac_routes
             
             	Number of ES\:Global MAC Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_mac_routes
             
             	Number of Remote MAC Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_soo_mac_routes
             
             	Number of Remote Soo MAC Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_ipv4_mac_routes
             
             	Number of Remote IPv4 MAC\-IP Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_ipv6_mac_routes
             
             	Number of Remote IPv6 MAC\-IP Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_imcast_routes
             
             	Number of Local IMCAST Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_imcast_routes
             
             	Number of Remote IMCAST Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: labels
             
             	Number of Internal Labels
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: es_entries
             
             	Number of ES Entries in DB
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: neighbor_entries
             
             	Number of neighbor Entries in DB
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_ead_routes
             
             	Number of Local EAD Entries in DB
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_ead_routes
             
             	Number of Remote EAD Entries in DB
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: global_source_mac
             
             	Global Source MAC Address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             .. attribute:: peering_time
             
             	EVPN ES Peering Time (seconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -5047,7 +5137,7 @@ class Evpn(Entity):
             .. attribute:: recovery_time
             
             	EVPN ES Recovery Time (seconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -5056,40 +5146,40 @@ class Evpn(Entity):
             .. attribute:: mac_secure_move_count
             
             	Number of moves within the move interval before locking the MAC
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: mac_secure_move_interval
             
             	Interval to watch for subsequent mac moves before locking the MAC
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: mac_secure_freeze_time
             
             	Length of time to lock the mac after a MAC security violation
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: mac_secure_retry_count
             
             	Number of times to retry after a MAC un\-freezes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cost_out
             
             	EVPN Node Cost\-out
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: startup_cost_in_time
             
             	EVPN Node startup cost\-in Time (minutes)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -5098,12 +5188,12 @@ class Evpn(Entity):
             .. attribute:: l2rib_throttle
             
             	Send to L2RIB Throttled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: logging_df_election_enabled
             
             	Logging EVPN Designated Forwarder changes enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -5193,12 +5283,12 @@ class Evpn(Entity):
             .. attribute:: elements
             
             	EVI BGP RT Detail Info Elements
-            	**type**\:   :py:class:`Elements <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements>`
+            	**type**\:  :py:class:`Elements <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements>`
             
             .. attribute:: evi_children
             
             	Container for all EVI detail info
-            	**type**\:   :py:class:`EviChildren <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren>`
+            	**type**\:  :py:class:`EviChildren <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren>`
             
             
 
@@ -5237,7 +5327,7 @@ class Evpn(Entity):
                 .. attribute:: element
                 
                 	EVI BGP RT Detail Info
-                	**type**\: list of    :py:class:`Element <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element>`
+                	**type**\: list of  		 :py:class:`Element <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element>`
                 
                 
 
@@ -5271,134 +5361,134 @@ class Evpn(Entity):
                     .. attribute:: evi  <key>
                     
                     	EVPN id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: flow_label
                     
                     	Flow Label Information
-                    	**type**\:   :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.FlowLabel>`
+                    	**type**\:  :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.FlowLabel>`
                     
                     .. attribute:: rd_auto
                     
                     	Automatic Route Distingtuisher
-                    	**type**\:   :py:class:`RdAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto>`
+                    	**type**\:  :py:class:`RdAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto>`
                     
                     .. attribute:: rd_configured
                     
                     	Configured Route Distinguisher
-                    	**type**\:   :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured>`
+                    	**type**\:  :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured>`
                     
                     .. attribute:: rt_auto
                     
                     	Automatic Route Target
-                    	**type**\:   :py:class:`RtAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto>`
+                    	**type**\:  :py:class:`RtAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto>`
                     
                     .. attribute:: rt_auto_stitching
                     
                     	Automatic Route Target Stitching
-                    	**type**\:   :py:class:`RtAutoStitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching>`
+                    	**type**\:  :py:class:`RtAutoStitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching>`
                     
                     .. attribute:: evi_xr
                     
                     	E\-VPN id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: description
                     
                     	EVI description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: bd_name
                     
                     	Bridge domain name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: type
                     
                     	Service Type
-                    	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                     
                     .. attribute:: unicast_label
                     
                     	Unicast Label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: multicast_label
                     
                     	Multicast Label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: cw_disable
                     
                     	Control\-Word Disable
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: table_policy_name
                     
                     	Table\-policy Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: forward_class
                     
                     	Forward Class attribute
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: rt_import_block_set
                     
                     	Is Import RT None set
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: rt_export_block_set
                     
                     	Is Export RT None set
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: advertise_mac
                     
                     	Advertise MAC\-only routes on this EVI
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: advertise_bvi_mac
                     
                     	Advertise BVI MACs routes on this EVI
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: aliasing_disabled
                     
                     	Route Aliasing is disabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: unknown_unicast_flooding_disabled
                     
                     	Unknown\-unicast flooding is disabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: reoriginate_disabled
                     
                     	Route Re\-origination is disabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: stitching
                     
                     	EVPN Instance is Regular/Stitching side
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: encapsulation
                     
                     	EVPN Instance encapsulation
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -5495,12 +5585,12 @@ class Evpn(Entity):
                         .. attribute:: static_flow_label
                         
                         	Static flow label
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: global_flow_label
                         
                         	Globally configured flow label
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -5535,27 +5625,27 @@ class Evpn(Entity):
                         .. attribute:: auto
                         
                         	auto
-                        	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto>`
+                        	**type**\:  :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto>`
                         
                         .. attribute:: two_byte_as
                         
                         	two byte as
-                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
+                        	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs>`
+                        	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs>`
                         
                         .. attribute:: v4_addr
                         
                         	v4 addr
-                        	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr>`
+                        	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr>`
                         
                         .. attribute:: rd
                         
                         	RD
-                        	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                        	**type**\:  :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
                         
                         
 
@@ -5608,12 +5698,14 @@ class Evpn(Entity):
                             .. attribute:: router_id
                             
                             	BGP Router ID
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: auto_index
                             
                             	Auto\-generated Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -5650,14 +5742,14 @@ class Evpn(Entity):
                             .. attribute:: two_byte_as
                             
                             	2 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -5694,14 +5786,14 @@ class Evpn(Entity):
                             .. attribute:: four_byte_as
                             
                             	4 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -5738,12 +5830,14 @@ class Evpn(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -5780,27 +5874,27 @@ class Evpn(Entity):
                         .. attribute:: auto
                         
                         	auto
-                        	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto>`
+                        	**type**\:  :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto>`
                         
                         .. attribute:: two_byte_as
                         
                         	two byte as
-                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
+                        	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
+                        	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
                         
                         .. attribute:: v4_addr
                         
                         	v4 addr
-                        	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr>`
+                        	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr>`
                         
                         .. attribute:: rd
                         
                         	RD
-                        	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                        	**type**\:  :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
                         
                         
 
@@ -5853,12 +5947,14 @@ class Evpn(Entity):
                             .. attribute:: router_id
                             
                             	BGP Router ID
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: auto_index
                             
                             	Auto\-generated Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -5895,14 +5991,14 @@ class Evpn(Entity):
                             .. attribute:: two_byte_as
                             
                             	2 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -5939,14 +6035,14 @@ class Evpn(Entity):
                             .. attribute:: four_byte_as
                             
                             	4 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -5983,12 +6079,14 @@ class Evpn(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -6025,27 +6123,27 @@ class Evpn(Entity):
                         .. attribute:: two_byte_as
                         
                         	two byte as
-                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
+                        	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs>`
+                        	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs>`
                         
                         .. attribute:: v4_addr
                         
                         	v4 addr
-                        	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr>`
+                        	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr>`
                         
                         .. attribute:: es_import
                         
                         	es import
-                        	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport>`
+                        	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport>`
                         
                         .. attribute:: rt
                         
                         	RT
-                        	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                        	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                         
                         
 
@@ -6098,14 +6196,14 @@ class Evpn(Entity):
                             .. attribute:: two_byte_as
                             
                             	2 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -6142,14 +6240,14 @@ class Evpn(Entity):
                             .. attribute:: four_byte_as
                             
                             	4 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -6186,12 +6284,14 @@ class Evpn(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -6228,14 +6328,14 @@ class Evpn(Entity):
                             .. attribute:: high_bytes
                             
                             	Top 4 bytes of ES Import
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: low_bytes
                             
                             	Low 2 bytes of ES Import
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -6272,27 +6372,27 @@ class Evpn(Entity):
                         .. attribute:: two_byte_as
                         
                         	two byte as
-                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs>`
+                        	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs>`
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.FourByteAs>`
+                        	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.FourByteAs>`
                         
                         .. attribute:: v4_addr
                         
                         	v4 addr
-                        	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.V4Addr>`
+                        	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.V4Addr>`
                         
                         .. attribute:: es_import
                         
                         	es import
-                        	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport>`
+                        	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport>`
                         
                         .. attribute:: rt
                         
                         	RT
-                        	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                        	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                         
                         
 
@@ -6345,14 +6445,14 @@ class Evpn(Entity):
                             .. attribute:: two_byte_as
                             
                             	2 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -6389,14 +6489,14 @@ class Evpn(Entity):
                             .. attribute:: four_byte_as
                             
                             	4 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -6433,12 +6533,14 @@ class Evpn(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -6475,14 +6577,14 @@ class Evpn(Entity):
                             .. attribute:: high_bytes
                             
                             	Top 4 bytes of ES Import
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: low_bytes
                             
                             	Low 2 bytes of ES Import
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -6519,27 +6621,27 @@ class Evpn(Entity):
                 .. attribute:: neighbors
                 
                 	EVPN Neighbor table
-                	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Neighbors>`
+                	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Neighbors>`
                 
                 .. attribute:: ethernet_auto_discoveries
                 
                 	EVPN Ethernet Auto\-Discovery table
-                	**type**\:   :py:class:`EthernetAutoDiscoveries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries>`
+                	**type**\:  :py:class:`EthernetAutoDiscoveries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries>`
                 
                 .. attribute:: inclusive_multicasts
                 
                 	L2VPN EVPN IMCAST table
-                	**type**\:   :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts>`
+                	**type**\:  :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts>`
                 
                 .. attribute:: route_targets
                 
                 	L2VPN EVPN EVI RT Child Table
-                	**type**\:   :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets>`
+                	**type**\:  :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets>`
                 
                 .. attribute:: macs
                 
                 	L2VPN EVPN EVI MAC table
-                	**type**\:   :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs>`
+                	**type**\:  :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs>`
                 
                 
 
@@ -6593,7 +6695,7 @@ class Evpn(Entity):
                     .. attribute:: neighbor
                     
                     	EVPN Neighbor table
-                    	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor>`
+                    	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor>`
                     
                     
 
@@ -6627,34 +6729,36 @@ class Evpn(Entity):
                         .. attribute:: evi
                         
                         	EVPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: neighbor_ip
                         
                         	Neighbor IP
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: evi_xr
                         
                         	E\-VPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: neighbor
                         
                         	Neighbor IP
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -6694,7 +6798,7 @@ class Evpn(Entity):
                     .. attribute:: ethernet_auto_discovery
                     
                     	EVPN Ethernet Auto\-Discovery Entry
-                    	**type**\: list of    :py:class:`EthernetAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery>`
+                    	**type**\: list of  		 :py:class:`EthernetAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery>`
                     
                     
 
@@ -6728,106 +6832,118 @@ class Evpn(Entity):
                         .. attribute:: evi
                         
                         	EVPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: esi1
                         
                         	ES id (part 1/5)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: esi2
                         
                         	ES id (part 2/5)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: esi3
                         
                         	ES id (part 3/5)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: esi4
                         
                         	ES id (part 4/5)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: esi5
                         
                         	ES id (part 5/5)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: ethernet_tag
                         
                         	Ethernet Tag ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ethernet_vpnid
                         
                         	E\-VPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: type
                         
                         	Service Type
-                        	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                        	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                         
                         .. attribute:: ethernet_tag_xr
                         
                         	Ethernet Tag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: local_next_hop
                         
                         	Local nexthop IP
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: local_label
                         
                         	Associated local label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_local_ead
                         
                         	Indication of EthernetAutoDiscovery Route is local
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: encap
                         
                         	Encap type of local or remote EAD
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: redundancy_single_active
                         
                         	Single\-active redundancy configured at remote EAD
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: num_paths
                         
                         	 Number of items in path list buffer
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ethernet_segment_identifier
                         
                         	Ethernet Segment id
-                        	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
+                        	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
                         
                         .. attribute:: path_buffer
                         
                         	Path List Buffer
-                        	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
+                        	**type**\: list of  		 :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
                         
                         
 
@@ -6894,7 +7010,7 @@ class Evpn(Entity):
                             .. attribute:: entry
                             
                             	
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -6930,19 +7046,23 @@ class Evpn(Entity):
                             .. attribute:: next_hop
                             
                             	Next\-hop IP address (v6 format)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: output_label
                             
                             	Output Label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: srte_tunnel
                             
                             	Segment\-Routing Traffic Engineering Tunnel Interface Handle
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -6980,7 +7100,7 @@ class Evpn(Entity):
                     .. attribute:: inclusive_multicast
                     
                     	L2VPN EVPN IMCAST table
-                    	**type**\: list of    :py:class:`InclusiveMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast>`
+                    	**type**\: list of  		 :py:class:`InclusiveMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast>`
                     
                     
 
@@ -7014,75 +7134,79 @@ class Evpn(Entity):
                         .. attribute:: evi
                         
                         	EVPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ethernet_tag
                         
                         	Ethernet Tag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: originating_ip
                         
                         	Originating IP
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: evi_xr
                         
                         	E\-VPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ethernet_tag_xr
                         
                         	Ethernet Tag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: originating_ip_xr
                         
                         	Originating IP
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: next_hop
                         
                         	IP of nexthop
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: output_label
                         
                         	Output label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_local_entry
                         
                         	Local entry
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_proxy_entry
                         
                         	Proxy entry
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: encap_type
                         
                         	Encap type of local or remote IMCAST route
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
@@ -7138,7 +7262,7 @@ class Evpn(Entity):
                     .. attribute:: route_target
                     
                     	L2VPN EVPN EVI RT Table
-                    	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget>`
+                    	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget>`
                     
                     
 
@@ -7172,77 +7296,79 @@ class Evpn(Entity):
                         .. attribute:: evi
                         
                         	EVPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: role
                         
                         	Role of the route target
-                        	**type**\:   :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
+                        	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
                         
                         .. attribute:: type
                         
                         	Type of the route target
-                        	**type**\:   :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTarget>`
+                        	**type**\:  :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTarget>`
                         
                         .. attribute:: format
                         
                         	Format of the route target
-                        	**type**\:   :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
+                        	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
                         
                         .. attribute:: as_
                         
                         	Two or Four byte AS Number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4294967295
                         
                         .. attribute:: as_index
                         
                         	RT AS Index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: addr_index
                         
                         	RT IP Index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: address
                         
                         	RT IPv4 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: route_target
                         
                         	Route Target
-                        	**type**\:   :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
+                        	**type**\:  :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
                         
                         .. attribute:: bd_name
                         
                         	Bridge Domain Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: evi_xr
                         
                         	VPN ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: route_target_role
                         
                         	RT Role
-                        	**type**\:   :py:class:`L2vpnAdRtRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRtRole>`
+                        	**type**\:  :py:class:`L2vpnAdRtRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRtRole>`
                         
                         .. attribute:: route_target_stitching
                         
                         	RT Stitching
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -7303,27 +7429,27 @@ class Evpn(Entity):
                             .. attribute:: two_byte_as
                             
                             	two byte as
-                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
+                            	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
                             
                             .. attribute:: four_byte_as
                             
                             	four byte as
-                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
+                            	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
                             
                             .. attribute:: v4_addr
                             
                             	v4 addr
-                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
+                            	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
                             
                             .. attribute:: es_import
                             
                             	es import
-                            	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
+                            	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
                             
                             .. attribute:: rt
                             
                             	RT
-                            	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                            	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                             
                             
 
@@ -7377,14 +7503,14 @@ class Evpn(Entity):
                                 .. attribute:: two_byte_as
                                 
                                 	2 Byte AS Number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: four_byte_index
                                 
                                 	4 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -7422,14 +7548,14 @@ class Evpn(Entity):
                                 .. attribute:: four_byte_as
                                 
                                 	4 Byte AS Number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -7467,12 +7593,14 @@ class Evpn(Entity):
                                 .. attribute:: ipv4_address
                                 
                                 	IPv4 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -7510,14 +7638,14 @@ class Evpn(Entity):
                                 .. attribute:: high_bytes
                                 
                                 	Top 4 bytes of ES Import
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: low_bytes
                                 
                                 	Low 2 bytes of ES Import
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -7555,7 +7683,7 @@ class Evpn(Entity):
                     .. attribute:: mac
                     
                     	L2VPN EVPN MAC table
-                    	**type**\: list of    :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac>`
+                    	**type**\: list of  		 :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac>`
                     
                     
 
@@ -7589,193 +7717,205 @@ class Evpn(Entity):
                         .. attribute:: evi
                         
                         	EVPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ethernet_tag
                         
                         	Ethernet Tag ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: mac_address
                         
                         	MAC address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: ip_address
                         
                         	IP Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: ethernet_tag_xr
                         
                         	Ethernet Tag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mac_address_xr
                         
                         	MAC address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: ip_address_xr
                         
                         	IP address (v6 format)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: local_label
                         
                         	Associated local label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: num_paths
                         
                         	 Number of items in path list buffer
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_local_mac
                         
                         	Indication of MAC being locally generated
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_proxy_entry
                         
                         	Proxy entry
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_remote_mac
                         
                         	Indication of MAC being remotely generated
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: soo_nexthop
                         
                         	SOO nexthop (v6 format)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipnh_address
                         
                         	IP nexthop address (v6 format)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: esi_port_key
                         
                         	ESI port key
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: local_encap_type
                         
                         	Encap type of local MAC
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: remote_encap_type
                         
                         	Encap type of remote MAC
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: learned_bridge_port_name
                         
                         	Port the MAC was learned on
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: local_seq_id
                         
                         	local seq id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: remote_seq_id
                         
                         	remote seq id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: local_l3_label
                         
                         	local l3 label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: router_mac_address
                         
                         	Router MAC address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: mac_flush_requested
                         
                         	Number of flushes requested 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: mac_flush_received
                         
                         	Number of flushes received 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: internal_label
                         
                         	MPLS Internal Label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: resolved
                         
                         	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: local_is_static
                         
                         	Indication if Local MAC is statically configured
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: remote_is_static
                         
                         	Indication if Remote MAC is statically configured
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: local_ethernet_segment_identifier
                         
                         	Local Ethernet Segment id
-                        	**type**\: list of    :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
+                        	**type**\: list of  		 :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
                         
                         .. attribute:: remote_ethernet_segment_identifier
                         
                         	Remote Ethernet Segment id
-                        	**type**\: list of    :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
+                        	**type**\: list of  		 :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
                         
                         .. attribute:: path_buffer
                         
                         	Path List Buffer
-                        	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
+                        	**type**\: list of  		 :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
                         
                         
 
@@ -7867,7 +8007,7 @@ class Evpn(Entity):
                             .. attribute:: entry
                             
                             	
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -7903,7 +8043,7 @@ class Evpn(Entity):
                             .. attribute:: entry
                             
                             	
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -7939,19 +8079,23 @@ class Evpn(Entity):
                             .. attribute:: next_hop
                             
                             	Next\-hop IP address (v6 format)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: output_label
                             
                             	Output Label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: srte_tunnel
                             
                             	Segment\-Routing Traffic Engineering Tunnel Interface Handle
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -7989,7 +8133,7 @@ class Evpn(Entity):
             .. attribute:: ethernet_segment
             
             	EVPN Ethernet\-Segment Entry
-            	**type**\: list of    :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment>`
+            	**type**\: list of  		 :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment>`
             
             
 
@@ -8023,131 +8167,151 @@ class Evpn(Entity):
                 .. attribute:: interface_name
                 
                 	Interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: esi1
                 
                 	ES id (part 1/5)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: esi2
                 
                 	ES id (part 2/5)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: esi3
                 
                 	ES id (part 3/5)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: esi4
                 
                 	ES id (part 4/5)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: esi5
                 
                 	ES id (part 5/5)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: esi_type
                 
                 	ESI Type
-                	**type**\:   :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
+                	**type**\:  :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
                 
                 .. attribute:: ethernet_segment_name
                 
                 	Ethernet Segment Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ethernet_segment_state
                 
                 	State of the ethernet segment
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: if_handle
                 
                 	Main port ifhandle
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: main_port_role
                 
                 	Main port redundancy group role
-                	**type**\:   :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
+                	**type**\:  :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
                 
                 .. attribute:: main_port_mac
                 
                 	Main Port MAC Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: num_up_p_ws
                 
                 	Number of PWs in Up state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: route_target
                 
                 	ES\-Import Route Target
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: rt_origin
                 
                 	Origin of operational ES\-Import RT
-                	**type**\:   :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
+                	**type**\:  :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
                 
                 .. attribute:: es_bgp_gates
                 
                 	ES BGP Gates
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: es_l2fib_gates
                 
                 	ES L2FIB Gates
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: mac_flushing_mode_config
                 
                 	Configured MAC Flushing mode
-                	**type**\:   :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
+                	**type**\:  :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
                 
                 .. attribute:: load_balance_mode_config
                 
                 	Configured load balancing mode
-                	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                	**type**\:  :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
                 
                 .. attribute:: load_balance_mode_is_default
                 
                 	Load balancing mode is default
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: load_balance_mode_oper
                 
                 	Operational load balancing mode
-                	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                	**type**\:  :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
                 
                 .. attribute:: force_single_home
                 
                 	Ethernet\-Segment forced to single home
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: source_mac_oper
                 
                 	Operational Source MAC address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: source_mac_origin
                 
                 	Origin of operational source MAC address
-                	**type**\:   :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
+                	**type**\:  :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
                 
                 .. attribute:: peering_timer
                 
                 	Configured timer for triggering DF election (seconds)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -8156,7 +8320,7 @@ class Evpn(Entity):
                 .. attribute:: peering_timer_left
                 
                 	Milliseconds left on DF election timer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -8165,7 +8329,7 @@ class Evpn(Entity):
                 .. attribute:: recovery_timer
                 
                 	Configured timer for (STP) recovery (seconds)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -8174,7 +8338,7 @@ class Evpn(Entity):
                 .. attribute:: recovery_timer_left
                 
                 	Milliseconds left on (STP) recovery timer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -8183,124 +8347,124 @@ class Evpn(Entity):
                 .. attribute:: service_carving_mode
                 
                 	Service carving mode
-                	**type**\:   :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
+                	**type**\:  :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
                 
                 .. attribute:: primary_services_input
                 
                 	Input string of Primary services ESI/I\-SIDs
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: secondary_services_input
                 
                 	Input string of Secondary services ESI/I\-SIDs
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: forwarder_ports
                 
                 	Count of Forwarders (AC, AC PW, VFI PW)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: permanent_forwarder_ports
                 
                 	Count of Forwarders with permanent service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: elected_forwarder_ports
                 
                 	Count of Forwarders with elected service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: not_elected_forwarder_ports
                 
                 	Count of Forwarders with not elected service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: not_config_forwarder_ports
                 
                 	Count of forwarders with missing config detected
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: mp_protected
                 
                 	MP is protected and not under EVPN control
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: nve_anycast_vtep
                 
                 	Anycast VTEP mode on NVE main\-interface
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: nve_ingress_replication
                 
                 	Ingress\-Replication is configured on NVE main\-interface
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: local_split_horizon_group_label
                 
                 	Local split horizon group label
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: ethernet_segment_identifier
                 
                 	Ethernet Segment id
-                	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
+                	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
                 
                 .. attribute:: primary_service
                 
                 	List of Primary services ESI/I\-SIDs
-                	**type**\: list of    :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService>`
+                	**type**\: list of  		 :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService>`
                 
                 .. attribute:: secondary_service
                 
                 	List of Secondary services ESI/I\-SIDs
-                	**type**\: list of    :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService>`
+                	**type**\: list of  		 :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService>`
                 
                 .. attribute:: service_carving_i_sidelected_result
                 
                 	Elected ISID service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
+                	**type**\: list of  		 :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
                 
                 .. attribute:: service_carving_isid_not_elected_result
                 
                 	Not elected ISID service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
+                	**type**\: list of  		 :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
                 
                 .. attribute:: service_carving_evi_elected_result
                 
                 	Elected EVI service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
+                	**type**\: list of  		 :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
                 
                 .. attribute:: service_carving_evi_not_elected_result
                 
                 	Not elected EVI service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
+                	**type**\: list of  		 :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
                 
                 .. attribute:: next_hop
                 
                 	List of nexthop IPv6 addresses
-                	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.NextHop>`
+                	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.NextHop>`
                 
                 .. attribute:: service_carving_vpws_permanent_result
                 
                 	Permanent EVPN VPWS service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
+                	**type**\: list of  		 :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
                 
                 .. attribute:: remote_split_horizon_group_label
                 
                 	Remote split horizon group labels
-                	**type**\: list of    :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
+                	**type**\: list of  		 :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
                 
                 
 
@@ -8423,7 +8587,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -8459,7 +8623,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8495,7 +8659,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8531,7 +8695,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8567,7 +8731,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8603,7 +8767,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8639,7 +8803,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8675,7 +8839,9 @@ class Evpn(Entity):
                     .. attribute:: next_hop
                     
                     	Next\-hop IP address (v6 format)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -8709,19 +8875,19 @@ class Evpn(Entity):
                     .. attribute:: vpn_id
                     
                     	VPN ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: type
                     
                     	Service Type
-                    	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                     
                     .. attribute:: ethernet_tag
                     
                     	Ethernet Tag
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8761,12 +8927,14 @@ class Evpn(Entity):
                     .. attribute:: next_hop
                     
                     	Next\-hop IP address (v6 format)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: label
                     
                     	Split horizon label associated with next\-hop address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8804,7 +8972,7 @@ class Evpn(Entity):
             .. attribute:: ac_id
             
             	EVPN AC ID table
-            	**type**\: list of    :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.AcIds.AcId>`
+            	**type**\: list of  		 :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.AcIds.AcId>`
             
             
 
@@ -8838,28 +9006,30 @@ class Evpn(Entity):
                 .. attribute:: evi
                 
                 	EVPN id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ac_id
                 
                 	AC ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: evi_xr
                 
                 	E\-VPN id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: neighbor
                 
                 	Neighbor IP
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 
 
@@ -8899,27 +9069,27 @@ class Evpn(Entity):
         .. attribute:: evis
         
         	L2VPN EVPN EVI Table
-        	**type**\:   :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Evis>`
+        	**type**\:  :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Evis>`
         
         .. attribute:: summary
         
         	L2VPN EVPN Summary
-        	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Summary>`
+        	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Summary>`
         
         .. attribute:: evi_detail
         
         	L2VPN EVI Detail Table
-        	**type**\:   :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail>`
+        	**type**\:  :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail>`
         
         .. attribute:: ethernet_segments
         
         	EVPN Ethernet\-Segment Table
-        	**type**\:   :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments>`
+        	**type**\:  :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments>`
         
         .. attribute:: ac_ids
         
         	EVPN AC ID table
-        	**type**\:   :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.AcIds>`
+        	**type**\:  :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.AcIds>`
         
         
 
@@ -8973,7 +9143,7 @@ class Evpn(Entity):
             .. attribute:: evi
             
             	L2VPN EVPN EVI Entry
-            	**type**\: list of    :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Evis.Evi>`
+            	**type**\: list of  		 :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Evis.Evi>`
             
             
 
@@ -9007,26 +9177,26 @@ class Evpn(Entity):
                 .. attribute:: evi  <key>
                 
                 	EVPN id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: evi_xr
                 
                 	E\-VPN id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bd_name
                 
                 	Bridge domain name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: type
                 
                 	Service Type
-                	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                 
                 
 
@@ -9066,136 +9236,140 @@ class Evpn(Entity):
             .. attribute:: router_id
             
             	EVPN Router ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: as_
             
             	BGP AS number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ev_is
             
             	Number of EVI DB Entries
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_mac_routes
             
             	Number of Local MAC Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_ipv4_mac_routes
             
             	Number of Local IPv4 MAC\-IP Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_ipv6_mac_routes
             
             	Number of Local IPv6 MAC\-IP Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: es_global_mac_routes
             
             	Number of ES\:Global MAC Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_mac_routes
             
             	Number of Remote MAC Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_soo_mac_routes
             
             	Number of Remote Soo MAC Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_ipv4_mac_routes
             
             	Number of Remote IPv4 MAC\-IP Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_ipv6_mac_routes
             
             	Number of Remote IPv6 MAC\-IP Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_imcast_routes
             
             	Number of Local IMCAST Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_imcast_routes
             
             	Number of Remote IMCAST Routes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: labels
             
             	Number of Internal Labels
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: es_entries
             
             	Number of ES Entries in DB
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: neighbor_entries
             
             	Number of neighbor Entries in DB
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_ead_routes
             
             	Number of Local EAD Entries in DB
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: remote_ead_routes
             
             	Number of Remote EAD Entries in DB
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: global_source_mac
             
             	Global Source MAC Address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             .. attribute:: peering_time
             
             	EVPN ES Peering Time (seconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -9204,7 +9378,7 @@ class Evpn(Entity):
             .. attribute:: recovery_time
             
             	EVPN ES Recovery Time (seconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -9213,40 +9387,40 @@ class Evpn(Entity):
             .. attribute:: mac_secure_move_count
             
             	Number of moves within the move interval before locking the MAC
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: mac_secure_move_interval
             
             	Interval to watch for subsequent mac moves before locking the MAC
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: mac_secure_freeze_time
             
             	Length of time to lock the mac after a MAC security violation
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: mac_secure_retry_count
             
             	Number of times to retry after a MAC un\-freezes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cost_out
             
             	EVPN Node Cost\-out
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: startup_cost_in_time
             
             	EVPN Node startup cost\-in Time (minutes)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -9255,12 +9429,12 @@ class Evpn(Entity):
             .. attribute:: l2rib_throttle
             
             	Send to L2RIB Throttled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: logging_df_election_enabled
             
             	Logging EVPN Designated Forwarder changes enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -9350,12 +9524,12 @@ class Evpn(Entity):
             .. attribute:: elements
             
             	EVI BGP RT Detail Info Elements
-            	**type**\:   :py:class:`Elements <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements>`
+            	**type**\:  :py:class:`Elements <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements>`
             
             .. attribute:: evi_children
             
             	Container for all EVI detail info
-            	**type**\:   :py:class:`EviChildren <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren>`
+            	**type**\:  :py:class:`EviChildren <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren>`
             
             
 
@@ -9394,7 +9568,7 @@ class Evpn(Entity):
                 .. attribute:: element
                 
                 	EVI BGP RT Detail Info
-                	**type**\: list of    :py:class:`Element <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element>`
+                	**type**\: list of  		 :py:class:`Element <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element>`
                 
                 
 
@@ -9428,134 +9602,134 @@ class Evpn(Entity):
                     .. attribute:: evi  <key>
                     
                     	EVPN id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: flow_label
                     
                     	Flow Label Information
-                    	**type**\:   :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.FlowLabel>`
+                    	**type**\:  :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.FlowLabel>`
                     
                     .. attribute:: rd_auto
                     
                     	Automatic Route Distingtuisher
-                    	**type**\:   :py:class:`RdAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto>`
+                    	**type**\:  :py:class:`RdAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto>`
                     
                     .. attribute:: rd_configured
                     
                     	Configured Route Distinguisher
-                    	**type**\:   :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured>`
+                    	**type**\:  :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured>`
                     
                     .. attribute:: rt_auto
                     
                     	Automatic Route Target
-                    	**type**\:   :py:class:`RtAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto>`
+                    	**type**\:  :py:class:`RtAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto>`
                     
                     .. attribute:: rt_auto_stitching
                     
                     	Automatic Route Target Stitching
-                    	**type**\:   :py:class:`RtAutoStitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching>`
+                    	**type**\:  :py:class:`RtAutoStitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching>`
                     
                     .. attribute:: evi_xr
                     
                     	E\-VPN id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: description
                     
                     	EVI description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: bd_name
                     
                     	Bridge domain name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: type
                     
                     	Service Type
-                    	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                     
                     .. attribute:: unicast_label
                     
                     	Unicast Label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: multicast_label
                     
                     	Multicast Label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: cw_disable
                     
                     	Control\-Word Disable
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: table_policy_name
                     
                     	Table\-policy Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: forward_class
                     
                     	Forward Class attribute
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: rt_import_block_set
                     
                     	Is Import RT None set
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: rt_export_block_set
                     
                     	Is Export RT None set
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: advertise_mac
                     
                     	Advertise MAC\-only routes on this EVI
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: advertise_bvi_mac
                     
                     	Advertise BVI MACs routes on this EVI
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: aliasing_disabled
                     
                     	Route Aliasing is disabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: unknown_unicast_flooding_disabled
                     
                     	Unknown\-unicast flooding is disabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: reoriginate_disabled
                     
                     	Route Re\-origination is disabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: stitching
                     
                     	EVPN Instance is Regular/Stitching side
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: encapsulation
                     
                     	EVPN Instance encapsulation
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -9652,12 +9826,12 @@ class Evpn(Entity):
                         .. attribute:: static_flow_label
                         
                         	Static flow label
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: global_flow_label
                         
                         	Globally configured flow label
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -9692,27 +9866,27 @@ class Evpn(Entity):
                         .. attribute:: auto
                         
                         	auto
-                        	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto>`
+                        	**type**\:  :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto>`
                         
                         .. attribute:: two_byte_as
                         
                         	two byte as
-                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
+                        	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs>`
+                        	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs>`
                         
                         .. attribute:: v4_addr
                         
                         	v4 addr
-                        	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr>`
+                        	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr>`
                         
                         .. attribute:: rd
                         
                         	RD
-                        	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                        	**type**\:  :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
                         
                         
 
@@ -9765,12 +9939,14 @@ class Evpn(Entity):
                             .. attribute:: router_id
                             
                             	BGP Router ID
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: auto_index
                             
                             	Auto\-generated Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -9807,14 +9983,14 @@ class Evpn(Entity):
                             .. attribute:: two_byte_as
                             
                             	2 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -9851,14 +10027,14 @@ class Evpn(Entity):
                             .. attribute:: four_byte_as
                             
                             	4 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -9895,12 +10071,14 @@ class Evpn(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -9937,27 +10115,27 @@ class Evpn(Entity):
                         .. attribute:: auto
                         
                         	auto
-                        	**type**\:   :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto>`
+                        	**type**\:  :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto>`
                         
                         .. attribute:: two_byte_as
                         
                         	two byte as
-                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
+                        	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
+                        	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
                         
                         .. attribute:: v4_addr
                         
                         	v4 addr
-                        	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr>`
+                        	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr>`
                         
                         .. attribute:: rd
                         
                         	RD
-                        	**type**\:   :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                        	**type**\:  :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
                         
                         
 
@@ -10010,12 +10188,14 @@ class Evpn(Entity):
                             .. attribute:: router_id
                             
                             	BGP Router ID
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: auto_index
                             
                             	Auto\-generated Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -10052,14 +10232,14 @@ class Evpn(Entity):
                             .. attribute:: two_byte_as
                             
                             	2 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -10096,14 +10276,14 @@ class Evpn(Entity):
                             .. attribute:: four_byte_as
                             
                             	4 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -10140,12 +10320,14 @@ class Evpn(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -10182,27 +10364,27 @@ class Evpn(Entity):
                         .. attribute:: two_byte_as
                         
                         	two byte as
-                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
+                        	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs>`
+                        	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs>`
                         
                         .. attribute:: v4_addr
                         
                         	v4 addr
-                        	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr>`
+                        	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr>`
                         
                         .. attribute:: es_import
                         
                         	es import
-                        	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport>`
+                        	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport>`
                         
                         .. attribute:: rt
                         
                         	RT
-                        	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                        	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                         
                         
 
@@ -10255,14 +10437,14 @@ class Evpn(Entity):
                             .. attribute:: two_byte_as
                             
                             	2 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -10299,14 +10481,14 @@ class Evpn(Entity):
                             .. attribute:: four_byte_as
                             
                             	4 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -10343,12 +10525,14 @@ class Evpn(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -10385,14 +10569,14 @@ class Evpn(Entity):
                             .. attribute:: high_bytes
                             
                             	Top 4 bytes of ES Import
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: low_bytes
                             
                             	Low 2 bytes of ES Import
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -10429,27 +10613,27 @@ class Evpn(Entity):
                         .. attribute:: two_byte_as
                         
                         	two byte as
-                        	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs>`
+                        	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs>`
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
-                        	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.FourByteAs>`
+                        	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.FourByteAs>`
                         
                         .. attribute:: v4_addr
                         
                         	v4 addr
-                        	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.V4Addr>`
+                        	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.V4Addr>`
                         
                         .. attribute:: es_import
                         
                         	es import
-                        	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport>`
+                        	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport>`
                         
                         .. attribute:: rt
                         
                         	RT
-                        	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                        	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                         
                         
 
@@ -10502,14 +10686,14 @@ class Evpn(Entity):
                             .. attribute:: two_byte_as
                             
                             	2 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -10546,14 +10730,14 @@ class Evpn(Entity):
                             .. attribute:: four_byte_as
                             
                             	4 Byte AS Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -10590,12 +10774,14 @@ class Evpn(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -10632,14 +10818,14 @@ class Evpn(Entity):
                             .. attribute:: high_bytes
                             
                             	Top 4 bytes of ES Import
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: low_bytes
                             
                             	Low 2 bytes of ES Import
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -10676,27 +10862,27 @@ class Evpn(Entity):
                 .. attribute:: neighbors
                 
                 	EVPN Neighbor table
-                	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Neighbors>`
+                	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Neighbors>`
                 
                 .. attribute:: ethernet_auto_discoveries
                 
                 	EVPN Ethernet Auto\-Discovery table
-                	**type**\:   :py:class:`EthernetAutoDiscoveries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries>`
+                	**type**\:  :py:class:`EthernetAutoDiscoveries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries>`
                 
                 .. attribute:: inclusive_multicasts
                 
                 	L2VPN EVPN IMCAST table
-                	**type**\:   :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts>`
+                	**type**\:  :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts>`
                 
                 .. attribute:: route_targets
                 
                 	L2VPN EVPN EVI RT Child Table
-                	**type**\:   :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets>`
+                	**type**\:  :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets>`
                 
                 .. attribute:: macs
                 
                 	L2VPN EVPN EVI MAC table
-                	**type**\:   :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs>`
+                	**type**\:  :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs>`
                 
                 
 
@@ -10750,7 +10936,7 @@ class Evpn(Entity):
                     .. attribute:: neighbor
                     
                     	EVPN Neighbor table
-                    	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor>`
+                    	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor>`
                     
                     
 
@@ -10784,34 +10970,36 @@ class Evpn(Entity):
                         .. attribute:: evi
                         
                         	EVPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: neighbor_ip
                         
                         	Neighbor IP
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: evi_xr
                         
                         	E\-VPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: neighbor
                         
                         	Neighbor IP
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -10851,7 +11039,7 @@ class Evpn(Entity):
                     .. attribute:: ethernet_auto_discovery
                     
                     	EVPN Ethernet Auto\-Discovery Entry
-                    	**type**\: list of    :py:class:`EthernetAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery>`
+                    	**type**\: list of  		 :py:class:`EthernetAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery>`
                     
                     
 
@@ -10885,106 +11073,118 @@ class Evpn(Entity):
                         .. attribute:: evi
                         
                         	EVPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: esi1
                         
                         	ES id (part 1/5)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: esi2
                         
                         	ES id (part 2/5)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: esi3
                         
                         	ES id (part 3/5)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: esi4
                         
                         	ES id (part 4/5)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: esi5
                         
                         	ES id (part 5/5)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: ethernet_tag
                         
                         	Ethernet Tag ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ethernet_vpnid
                         
                         	E\-VPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: type
                         
                         	Service Type
-                        	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                        	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                         
                         .. attribute:: ethernet_tag_xr
                         
                         	Ethernet Tag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: local_next_hop
                         
                         	Local nexthop IP
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: local_label
                         
                         	Associated local label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_local_ead
                         
                         	Indication of EthernetAutoDiscovery Route is local
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: encap
                         
                         	Encap type of local or remote EAD
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: redundancy_single_active
                         
                         	Single\-active redundancy configured at remote EAD
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: num_paths
                         
                         	 Number of items in path list buffer
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ethernet_segment_identifier
                         
                         	Ethernet Segment id
-                        	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
+                        	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
                         
                         .. attribute:: path_buffer
                         
                         	Path List Buffer
-                        	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
+                        	**type**\: list of  		 :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
                         
                         
 
@@ -11051,7 +11251,7 @@ class Evpn(Entity):
                             .. attribute:: entry
                             
                             	
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -11087,19 +11287,23 @@ class Evpn(Entity):
                             .. attribute:: next_hop
                             
                             	Next\-hop IP address (v6 format)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: output_label
                             
                             	Output Label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: srte_tunnel
                             
                             	Segment\-Routing Traffic Engineering Tunnel Interface Handle
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -11137,7 +11341,7 @@ class Evpn(Entity):
                     .. attribute:: inclusive_multicast
                     
                     	L2VPN EVPN IMCAST table
-                    	**type**\: list of    :py:class:`InclusiveMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast>`
+                    	**type**\: list of  		 :py:class:`InclusiveMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast>`
                     
                     
 
@@ -11171,75 +11375,79 @@ class Evpn(Entity):
                         .. attribute:: evi
                         
                         	EVPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ethernet_tag
                         
                         	Ethernet Tag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: originating_ip
                         
                         	Originating IP
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: evi_xr
                         
                         	E\-VPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ethernet_tag_xr
                         
                         	Ethernet Tag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: originating_ip_xr
                         
                         	Originating IP
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: next_hop
                         
                         	IP of nexthop
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: output_label
                         
                         	Output label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_local_entry
                         
                         	Local entry
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_proxy_entry
                         
                         	Proxy entry
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: encap_type
                         
                         	Encap type of local or remote IMCAST route
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
@@ -11295,7 +11503,7 @@ class Evpn(Entity):
                     .. attribute:: route_target
                     
                     	L2VPN EVPN EVI RT Table
-                    	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget>`
+                    	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget>`
                     
                     
 
@@ -11329,77 +11537,79 @@ class Evpn(Entity):
                         .. attribute:: evi
                         
                         	EVPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: role
                         
                         	Role of the route target
-                        	**type**\:   :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
+                        	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
                         
                         .. attribute:: type
                         
                         	Type of the route target
-                        	**type**\:   :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTarget>`
+                        	**type**\:  :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTarget>`
                         
                         .. attribute:: format
                         
                         	Format of the route target
-                        	**type**\:   :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
+                        	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
                         
                         .. attribute:: as_
                         
                         	Two or Four byte AS Number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4294967295
                         
                         .. attribute:: as_index
                         
                         	RT AS Index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: addr_index
                         
                         	RT IP Index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: address
                         
                         	RT IPv4 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: route_target
                         
                         	Route Target
-                        	**type**\:   :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
+                        	**type**\:  :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
                         
                         .. attribute:: bd_name
                         
                         	Bridge Domain Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: evi_xr
                         
                         	VPN ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: route_target_role
                         
                         	RT Role
-                        	**type**\:   :py:class:`L2vpnAdRtRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRtRole>`
+                        	**type**\:  :py:class:`L2vpnAdRtRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRtRole>`
                         
                         .. attribute:: route_target_stitching
                         
                         	RT Stitching
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -11460,27 +11670,27 @@ class Evpn(Entity):
                             .. attribute:: two_byte_as
                             
                             	two byte as
-                            	**type**\:   :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
+                            	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
                             
                             .. attribute:: four_byte_as
                             
                             	four byte as
-                            	**type**\:   :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
+                            	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
                             
                             .. attribute:: v4_addr
                             
                             	v4 addr
-                            	**type**\:   :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
+                            	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
                             
                             .. attribute:: es_import
                             
                             	es import
-                            	**type**\:   :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
+                            	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
                             
                             .. attribute:: rt
                             
                             	RT
-                            	**type**\:   :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                            	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
                             
                             
 
@@ -11534,14 +11744,14 @@ class Evpn(Entity):
                                 .. attribute:: two_byte_as
                                 
                                 	2 Byte AS Number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: four_byte_index
                                 
                                 	4 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -11579,14 +11789,14 @@ class Evpn(Entity):
                                 .. attribute:: four_byte_as
                                 
                                 	4 Byte AS Number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -11624,12 +11834,14 @@ class Evpn(Entity):
                                 .. attribute:: ipv4_address
                                 
                                 	IPv4 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -11667,14 +11879,14 @@ class Evpn(Entity):
                                 .. attribute:: high_bytes
                                 
                                 	Top 4 bytes of ES Import
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: low_bytes
                                 
                                 	Low 2 bytes of ES Import
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -11712,7 +11924,7 @@ class Evpn(Entity):
                     .. attribute:: mac
                     
                     	L2VPN EVPN MAC table
-                    	**type**\: list of    :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac>`
+                    	**type**\: list of  		 :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac>`
                     
                     
 
@@ -11746,193 +11958,205 @@ class Evpn(Entity):
                         .. attribute:: evi
                         
                         	EVPN id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ethernet_tag
                         
                         	Ethernet Tag ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: mac_address
                         
                         	MAC address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: ip_address
                         
                         	IP Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: ethernet_tag_xr
                         
                         	Ethernet Tag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mac_address_xr
                         
                         	MAC address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: ip_address_xr
                         
                         	IP address (v6 format)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: local_label
                         
                         	Associated local label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: num_paths
                         
                         	 Number of items in path list buffer
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_local_mac
                         
                         	Indication of MAC being locally generated
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_proxy_entry
                         
                         	Proxy entry
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_remote_mac
                         
                         	Indication of MAC being remotely generated
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: soo_nexthop
                         
                         	SOO nexthop (v6 format)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipnh_address
                         
                         	IP nexthop address (v6 format)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: esi_port_key
                         
                         	ESI port key
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: local_encap_type
                         
                         	Encap type of local MAC
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: remote_encap_type
                         
                         	Encap type of remote MAC
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: learned_bridge_port_name
                         
                         	Port the MAC was learned on
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: local_seq_id
                         
                         	local seq id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: remote_seq_id
                         
                         	remote seq id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: local_l3_label
                         
                         	local l3 label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: router_mac_address
                         
                         	Router MAC address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: mac_flush_requested
                         
                         	Number of flushes requested 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: mac_flush_received
                         
                         	Number of flushes received 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: internal_label
                         
                         	MPLS Internal Label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: resolved
                         
                         	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: local_is_static
                         
                         	Indication if Local MAC is statically configured
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: remote_is_static
                         
                         	Indication if Remote MAC is statically configured
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: local_ethernet_segment_identifier
                         
                         	Local Ethernet Segment id
-                        	**type**\: list of    :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
+                        	**type**\: list of  		 :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
                         
                         .. attribute:: remote_ethernet_segment_identifier
                         
                         	Remote Ethernet Segment id
-                        	**type**\: list of    :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
+                        	**type**\: list of  		 :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
                         
                         .. attribute:: path_buffer
                         
                         	Path List Buffer
-                        	**type**\: list of    :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
+                        	**type**\: list of  		 :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
                         
                         
 
@@ -12024,7 +12248,7 @@ class Evpn(Entity):
                             .. attribute:: entry
                             
                             	
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -12060,7 +12284,7 @@ class Evpn(Entity):
                             .. attribute:: entry
                             
                             	
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -12096,19 +12320,23 @@ class Evpn(Entity):
                             .. attribute:: next_hop
                             
                             	Next\-hop IP address (v6 format)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: output_label
                             
                             	Output Label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: srte_tunnel
                             
                             	Segment\-Routing Traffic Engineering Tunnel Interface Handle
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -12146,7 +12374,7 @@ class Evpn(Entity):
             .. attribute:: ethernet_segment
             
             	EVPN Ethernet\-Segment Entry
-            	**type**\: list of    :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment>`
+            	**type**\: list of  		 :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment>`
             
             
 
@@ -12180,131 +12408,151 @@ class Evpn(Entity):
                 .. attribute:: interface_name
                 
                 	Interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: esi1
                 
                 	ES id (part 1/5)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: esi2
                 
                 	ES id (part 2/5)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: esi3
                 
                 	ES id (part 3/5)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: esi4
                 
                 	ES id (part 4/5)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: esi5
                 
                 	ES id (part 5/5)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: esi_type
                 
                 	ESI Type
-                	**type**\:   :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
+                	**type**\:  :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
                 
                 .. attribute:: ethernet_segment_name
                 
                 	Ethernet Segment Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ethernet_segment_state
                 
                 	State of the ethernet segment
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: if_handle
                 
                 	Main port ifhandle
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: main_port_role
                 
                 	Main port redundancy group role
-                	**type**\:   :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
+                	**type**\:  :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
                 
                 .. attribute:: main_port_mac
                 
                 	Main Port MAC Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: num_up_p_ws
                 
                 	Number of PWs in Up state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: route_target
                 
                 	ES\-Import Route Target
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: rt_origin
                 
                 	Origin of operational ES\-Import RT
-                	**type**\:   :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
+                	**type**\:  :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
                 
                 .. attribute:: es_bgp_gates
                 
                 	ES BGP Gates
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: es_l2fib_gates
                 
                 	ES L2FIB Gates
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: mac_flushing_mode_config
                 
                 	Configured MAC Flushing mode
-                	**type**\:   :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
+                	**type**\:  :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
                 
                 .. attribute:: load_balance_mode_config
                 
                 	Configured load balancing mode
-                	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                	**type**\:  :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
                 
                 .. attribute:: load_balance_mode_is_default
                 
                 	Load balancing mode is default
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: load_balance_mode_oper
                 
                 	Operational load balancing mode
-                	**type**\:   :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                	**type**\:  :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
                 
                 .. attribute:: force_single_home
                 
                 	Ethernet\-Segment forced to single home
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: source_mac_oper
                 
                 	Operational Source MAC address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: source_mac_origin
                 
                 	Origin of operational source MAC address
-                	**type**\:   :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
+                	**type**\:  :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
                 
                 .. attribute:: peering_timer
                 
                 	Configured timer for triggering DF election (seconds)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -12313,7 +12561,7 @@ class Evpn(Entity):
                 .. attribute:: peering_timer_left
                 
                 	Milliseconds left on DF election timer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -12322,7 +12570,7 @@ class Evpn(Entity):
                 .. attribute:: recovery_timer
                 
                 	Configured timer for (STP) recovery (seconds)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -12331,7 +12579,7 @@ class Evpn(Entity):
                 .. attribute:: recovery_timer_left
                 
                 	Milliseconds left on (STP) recovery timer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -12340,124 +12588,124 @@ class Evpn(Entity):
                 .. attribute:: service_carving_mode
                 
                 	Service carving mode
-                	**type**\:   :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
+                	**type**\:  :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
                 
                 .. attribute:: primary_services_input
                 
                 	Input string of Primary services ESI/I\-SIDs
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: secondary_services_input
                 
                 	Input string of Secondary services ESI/I\-SIDs
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: forwarder_ports
                 
                 	Count of Forwarders (AC, AC PW, VFI PW)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: permanent_forwarder_ports
                 
                 	Count of Forwarders with permanent service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: elected_forwarder_ports
                 
                 	Count of Forwarders with elected service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: not_elected_forwarder_ports
                 
                 	Count of Forwarders with not elected service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: not_config_forwarder_ports
                 
                 	Count of forwarders with missing config detected
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: mp_protected
                 
                 	MP is protected and not under EVPN control
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: nve_anycast_vtep
                 
                 	Anycast VTEP mode on NVE main\-interface
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: nve_ingress_replication
                 
                 	Ingress\-Replication is configured on NVE main\-interface
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: local_split_horizon_group_label
                 
                 	Local split horizon group label
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: ethernet_segment_identifier
                 
                 	Ethernet Segment id
-                	**type**\: list of    :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
+                	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
                 
                 .. attribute:: primary_service
                 
                 	List of Primary services ESI/I\-SIDs
-                	**type**\: list of    :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService>`
+                	**type**\: list of  		 :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService>`
                 
                 .. attribute:: secondary_service
                 
                 	List of Secondary services ESI/I\-SIDs
-                	**type**\: list of    :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService>`
+                	**type**\: list of  		 :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService>`
                 
                 .. attribute:: service_carving_i_sidelected_result
                 
                 	Elected ISID service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
+                	**type**\: list of  		 :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
                 
                 .. attribute:: service_carving_isid_not_elected_result
                 
                 	Not elected ISID service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
+                	**type**\: list of  		 :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
                 
                 .. attribute:: service_carving_evi_elected_result
                 
                 	Elected EVI service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
+                	**type**\: list of  		 :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
                 
                 .. attribute:: service_carving_evi_not_elected_result
                 
                 	Not elected EVI service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
+                	**type**\: list of  		 :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
                 
                 .. attribute:: next_hop
                 
                 	List of nexthop IPv6 addresses
-                	**type**\: list of    :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.NextHop>`
+                	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.NextHop>`
                 
                 .. attribute:: service_carving_vpws_permanent_result
                 
                 	Permanent EVPN VPWS service carving results
-                	**type**\: list of    :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
+                	**type**\: list of  		 :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
                 
                 .. attribute:: remote_split_horizon_group_label
                 
                 	Remote split horizon group labels
-                	**type**\: list of    :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
+                	**type**\: list of  		 :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
                 
                 
 
@@ -12580,7 +12828,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -12616,7 +12864,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -12652,7 +12900,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -12688,7 +12936,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -12724,7 +12972,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -12760,7 +13008,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -12796,7 +13044,7 @@ class Evpn(Entity):
                     .. attribute:: entry
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -12832,7 +13080,9 @@ class Evpn(Entity):
                     .. attribute:: next_hop
                     
                     	Next\-hop IP address (v6 format)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -12866,19 +13116,19 @@ class Evpn(Entity):
                     .. attribute:: vpn_id
                     
                     	VPN ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: type
                     
                     	Service Type
-                    	**type**\:   :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                     
                     .. attribute:: ethernet_tag
                     
                     	Ethernet Tag
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -12918,12 +13168,14 @@ class Evpn(Entity):
                     .. attribute:: next_hop
                     
                     	Next\-hop IP address (v6 format)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: label
                     
                     	Split horizon label associated with next\-hop address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -12961,7 +13213,7 @@ class Evpn(Entity):
             .. attribute:: ac_id
             
             	EVPN AC ID table
-            	**type**\: list of    :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.AcIds.AcId>`
+            	**type**\: list of  		 :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.AcIds.AcId>`
             
             
 
@@ -12995,28 +13247,30 @@ class Evpn(Entity):
                 .. attribute:: evi
                 
                 	EVPN id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ac_id
                 
                 	AC ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: evi_xr
                 
                 	E\-VPN id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: neighbor
                 
                 	Neighbor IP
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 
 

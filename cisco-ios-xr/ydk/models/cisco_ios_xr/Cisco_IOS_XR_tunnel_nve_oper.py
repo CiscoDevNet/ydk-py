@@ -25,12 +25,12 @@ class Nve(Entity):
     .. attribute:: vnis
     
     	Table for VNIs
-    	**type**\:   :py:class:`Vnis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_oper.Nve.Vnis>`
+    	**type**\:  :py:class:`Vnis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_oper.Nve.Vnis>`
     
     .. attribute:: interfaces
     
     	Table for NVE interface attributes
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_oper.Nve.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_oper.Nve.Interfaces>`
     
     
 
@@ -69,7 +69,7 @@ class Nve(Entity):
         .. attribute:: vni
         
         	The attributes for a particular VNI
-        	**type**\: list of    :py:class:`Vni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_oper.Nve.Vnis.Vni>`
+        	**type**\: list of  		 :py:class:`Vni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_oper.Nve.Vnis.Vni>`
         
         
 
@@ -103,135 +103,141 @@ class Nve(Entity):
             .. attribute:: vni  <key>
             
             	VNI ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: interface_name
             
             	NVE Interface name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: vni_xr
             
             	VNI Number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: state
             
             	State
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-128..127
             
             .. attribute:: mcast_ipv4_address
             
             	MCAST IPv4 Address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: flags
             
             	Flags
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: vni_min
             
             	VNI Min in Range
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: vni_max
             
             	VNI Max in Range
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: mcast_flags
             
             	McastFlags
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: udp_port
             
             	UDP Port
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: bvi_ifh
             
             	BVI Interface Handle
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: bvi_state
             
             	BVI Interface Oper State
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: bvi_mac
             
             	BVI MAC address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
             
             .. attribute:: vrf_name
             
             	L3 VRF Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: vrf_id
             
             	L3 VRF ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ipv4_tbl_id
             
             	IPv4 Table ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ipv6_tbl_id
             
             	IPv6 Table ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: vrf_vni
             
             	VRF VNI
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: topo_valid
             
             	TOPO ID valid flag
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: topo_id
             
             	L2RIB Topology ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: topo_name
             
             	L2RIB Topology Name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..50
             
@@ -307,7 +313,7 @@ class Nve(Entity):
         .. attribute:: interface
         
         	The attributes for a particular interface
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_oper.Nve.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_oper.Nve.Interfaces.Interface>`
         
         
 
@@ -341,98 +347,106 @@ class Nve(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface Name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: interface_name_xr
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: state
             
             	State
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-128..127
             
             .. attribute:: admin_state
             
             	Admin State
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-128..127
             
             .. attribute:: flags
             
             	Flags
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: encap
             
             	Encap
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-128..127
             
             .. attribute:: source_interface_name
             
             	Source Interface name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: source_ipv4_address
             
             	Source IPv4 Address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: if_handle
             
             	NVE IfHandle
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: source_state
             
             	Source Intf State
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-128..127
             
             .. attribute:: udp_port
             
             	UDP Port
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: any_cast_source_interface_name
             
             	Anycast Source Interface name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: any_cast_source_ipv4_address
             
             	Anycast Source IPv4 Address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: any_cast_source_state
             
             	Anycast Source Interface State
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-128..127
             
             .. attribute:: sync_mcast_ipv4_address
             
             	MCAST sync group IPv4 Address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: sync_mcast_flags
             
             	Sync McastFlags
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

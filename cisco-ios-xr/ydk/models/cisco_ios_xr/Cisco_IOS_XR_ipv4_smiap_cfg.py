@@ -25,12 +25,12 @@ class Ipv4Virtual(Entity):
     .. attribute:: vrfs
     
     	VRFs for the virtual IPv4 addresses
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_smiap_cfg.Ipv4Virtual.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_smiap_cfg.Ipv4Virtual.Vrfs>`
     
     .. attribute:: use_as_source_address
     
     	Enable use as default source address on sourced packets
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -69,7 +69,7 @@ class Ipv4Virtual(Entity):
         .. attribute:: vrf
         
         	A VRF for a virtual IPv4 address.  Specify 'default' for VRF default
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_smiap_cfg.Ipv4Virtual.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_smiap_cfg.Ipv4Virtual.Vrfs.Vrf>`
         
         
 
@@ -104,12 +104,14 @@ class Ipv4Virtual(Entity):
             .. attribute:: vrf_name  <key>
             
             	Name of VRF
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: address
             
             	IPv4 sddress and mask
-            	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_smiap_cfg.Ipv4Virtual.Vrfs.Vrf.Address>`
+            	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_smiap_cfg.Ipv4Virtual.Vrfs.Vrf.Address>`
             
             	**presence node**\: True
             
@@ -149,14 +151,16 @@ class Ipv4Virtual(Entity):
                 .. attribute:: address
                 
                 	IPv4 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 	**mandatory**\: True
                 
                 .. attribute:: netmask
                 
                 	IPv4 address mask
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..32
                 

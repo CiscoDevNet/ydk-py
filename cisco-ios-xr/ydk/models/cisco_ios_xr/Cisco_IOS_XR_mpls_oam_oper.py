@@ -142,17 +142,17 @@ class MplsOam(Entity):
     .. attribute:: interface
     
     	MPLS OAM interface operational data
-    	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface>`
+    	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface>`
     
     .. attribute:: packet
     
     	LSPV packet counters operational data
-    	**type**\:   :py:class:`Packet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet>`
+    	**type**\:  :py:class:`Packet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet>`
     
     .. attribute:: global_
     
     	LSPV global counters operational data
-    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_>`
+    	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_>`
     
     
 
@@ -196,12 +196,12 @@ class MplsOam(Entity):
         .. attribute:: briefs
         
         	MPLS OAM interface detail data
-        	**type**\:   :py:class:`Briefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Briefs>`
+        	**type**\:  :py:class:`Briefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Briefs>`
         
         .. attribute:: details
         
         	MPLS OAM interface detail data
-        	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details>`
+        	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details>`
         
         
 
@@ -240,7 +240,7 @@ class MplsOam(Entity):
             .. attribute:: brief
             
             	MPLS OAM interface operational data
-            	**type**\: list of    :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Briefs.Brief>`
+            	**type**\: list of  		 :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Briefs.Brief>`
             
             
 
@@ -274,48 +274,56 @@ class MplsOam(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	Interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: interface_name_xr
                 
                 	Interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: state
                 
                 	Interface state
-                	**type**\:   :py:class:`LspvBagInterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.LspvBagInterfaceState>`
+                	**type**\:  :py:class:`LspvBagInterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.LspvBagInterfaceState>`
                 
                 .. attribute:: mtu
                 
                 	Interface MTU
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: prefix_length
                 
                 	Prefix length (IPv4)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: prefix_length_v6
                 
                 	Prefix length (IPv6)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: primary_address
                 
                 	Primary interface address (IPv4)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: primary_address_v6
                 
                 	Primary interface address (IPv6)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 
 
@@ -363,7 +371,7 @@ class MplsOam(Entity):
             .. attribute:: detail
             
             	MPLS OAM interface operational data
-            	**type**\: list of    :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail>`
+            	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail>`
             
             
 
@@ -397,17 +405,19 @@ class MplsOam(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	Interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: interface_brief
                 
                 	Interface brief
-                	**type**\:   :py:class:`InterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.InterfaceBrief>`
+                	**type**\:  :py:class:`InterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.InterfaceBrief>`
                 
                 .. attribute:: packet_statistics
                 
                 	Packet statistics
-                	**type**\:   :py:class:`PacketStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics>`
+                	**type**\:  :py:class:`PacketStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics>`
                 
                 
 
@@ -451,43 +461,49 @@ class MplsOam(Entity):
                     .. attribute:: interface_name_xr
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: state
                     
                     	Interface state
-                    	**type**\:   :py:class:`LspvBagInterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.LspvBagInterfaceState>`
+                    	**type**\:  :py:class:`LspvBagInterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.LspvBagInterfaceState>`
                     
                     .. attribute:: mtu
                     
                     	Interface MTU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prefix_length
                     
                     	Prefix length (IPv4)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prefix_length_v6
                     
                     	Prefix length (IPv6)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: primary_address
                     
                     	Primary interface address (IPv4)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: primary_address_v6
                     
                     	Primary interface address (IPv6)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -532,32 +548,32 @@ class MplsOam(Entity):
                     .. attribute:: received
                     
                     	Packet reception counts
-                    	**type**\:   :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received>`
+                    	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received>`
                     
                     .. attribute:: sent
                     
                     	Packet transmit counts
-                    	**type**\:   :py:class:`Sent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent>`
+                    	**type**\:  :py:class:`Sent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent>`
                     
                     .. attribute:: working_req_sent
                     
                     	Working Request Packet transmit counts
-                    	**type**\:   :py:class:`WorkingReqSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent>`
+                    	**type**\:  :py:class:`WorkingReqSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent>`
                     
                     .. attribute:: working_rep_sent
                     
                     	Working Reply Packet transmit counts
-                    	**type**\:   :py:class:`WorkingRepSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent>`
+                    	**type**\:  :py:class:`WorkingRepSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent>`
                     
                     .. attribute:: protect_req_sent
                     
                     	Protect Request Packet transmit counts
-                    	**type**\:   :py:class:`ProtectReqSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent>`
+                    	**type**\:  :py:class:`ProtectReqSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent>`
                     
                     .. attribute:: protect_rep_sent
                     
                     	Protect Reply Packet transmit counts
-                    	**type**\:   :py:class:`ProtectRepSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent>`
+                    	**type**\:  :py:class:`ProtectRepSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent>`
                     
                     
 
@@ -615,72 +631,72 @@ class MplsOam(Entity):
                         .. attribute:: received_good_request
                         
                         	Received good request
-                        	**type**\:   :py:class:`ReceivedGoodRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest>`
+                        	**type**\:  :py:class:`ReceivedGoodRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest>`
                         
                         .. attribute:: received_good_reply
                         
                         	Received good reply
-                        	**type**\:   :py:class:`ReceivedGoodReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply>`
+                        	**type**\:  :py:class:`ReceivedGoodReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply>`
                         
                         .. attribute:: received_unknown
                         
                         	Received unknown packets
-                        	**type**\:   :py:class:`ReceivedUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown>`
+                        	**type**\:  :py:class:`ReceivedUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown>`
                         
                         .. attribute:: received_error_ip_header
                         
                         	IP header error
-                        	**type**\:   :py:class:`ReceivedErrorIpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader>`
+                        	**type**\:  :py:class:`ReceivedErrorIpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader>`
                         
                         .. attribute:: received_error_udp_header
                         
                         	UDP header error
-                        	**type**\:   :py:class:`ReceivedErrorUdpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader>`
+                        	**type**\:  :py:class:`ReceivedErrorUdpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader>`
                         
                         .. attribute:: received_error_runt
                         
                         	RUNT error
-                        	**type**\:   :py:class:`ReceivedErrorRunt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt>`
+                        	**type**\:  :py:class:`ReceivedErrorRunt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt>`
                         
                         .. attribute:: received_error_queue_full
                         
                         	Dropped queue full
-                        	**type**\:   :py:class:`ReceivedErrorQueueFull <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull>`
+                        	**type**\:  :py:class:`ReceivedErrorQueueFull <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull>`
                         
                         .. attribute:: received_error_general
                         
                         	General error
-                        	**type**\:   :py:class:`ReceivedErrorGeneral <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral>`
+                        	**type**\:  :py:class:`ReceivedErrorGeneral <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral>`
                         
                         .. attribute:: received_error_no_interface
                         
                         	Error no Interfaces
-                        	**type**\:   :py:class:`ReceivedErrorNoInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface>`
+                        	**type**\:  :py:class:`ReceivedErrorNoInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface>`
                         
                         .. attribute:: received_error_no_memory
                         
                         	Error no memory
-                        	**type**\:   :py:class:`ReceivedErrorNoMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory>`
+                        	**type**\:  :py:class:`ReceivedErrorNoMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory>`
                         
                         .. attribute:: protect_protocol_received_good_request
                         
                         	Protect Protocol Received good request
-                        	**type**\:   :py:class:`ProtectProtocolReceivedGoodRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest>`
+                        	**type**\:  :py:class:`ProtectProtocolReceivedGoodRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest>`
                         
                         .. attribute:: protect_protocol_received_good_reply
                         
                         	Protect Protocol Received good reply
-                        	**type**\:   :py:class:`ProtectProtocolReceivedGoodReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply>`
+                        	**type**\:  :py:class:`ProtectProtocolReceivedGoodReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply>`
                         
                         .. attribute:: received_good_bfd_request
                         
                         	Received Reqeust with BFD TLV
-                        	**type**\:   :py:class:`ReceivedGoodBfdRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest>`
+                        	**type**\:  :py:class:`ReceivedGoodBfdRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest>`
                         
                         .. attribute:: received_good_bfd_reply
                         
                         	Received Reply with BFD TLV
-                        	**type**\:   :py:class:`ReceivedGoodBfdReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply>`
+                        	**type**\:  :py:class:`ReceivedGoodBfdReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply>`
                         
                         
 
@@ -778,14 +794,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -824,14 +840,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -870,14 +886,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -916,14 +932,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -962,14 +978,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1008,14 +1024,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1054,14 +1070,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1100,14 +1116,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1146,14 +1162,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1192,14 +1208,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1238,14 +1254,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1284,14 +1300,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1330,14 +1346,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1376,14 +1392,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1422,22 +1438,22 @@ class MplsOam(Entity):
                         .. attribute:: transmit_good
                         
                         	Transmit good packets
-                        	**type**\:   :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood>`
+                        	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood>`
                         
                         .. attribute:: transmit_drop
                         
                         	Transmit drop packets
-                        	**type**\:   :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop>`
+                        	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop>`
                         
                         .. attribute:: transmit_bfd_good
                         
                         	Transmit good BFD request packets
-                        	**type**\:   :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood>`
+                        	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood>`
                         
                         .. attribute:: bfd_no_reply
                         
                         	No Reply action for echo reqeust of BFD bootstrap
-                        	**type**\:   :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply>`
+                        	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply>`
                         
                         
 
@@ -1485,14 +1501,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1531,14 +1547,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1577,14 +1593,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1624,14 +1640,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1670,22 +1686,22 @@ class MplsOam(Entity):
                         .. attribute:: transmit_good
                         
                         	Transmit good packets
-                        	**type**\:   :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood>`
+                        	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood>`
                         
                         .. attribute:: transmit_drop
                         
                         	Transmit drop packets
-                        	**type**\:   :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop>`
+                        	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop>`
                         
                         .. attribute:: transmit_bfd_good
                         
                         	Transmit good BFD request packets
-                        	**type**\:   :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood>`
+                        	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood>`
                         
                         .. attribute:: bfd_no_reply
                         
                         	No Reply action for echo reqeust of BFD bootstrap
-                        	**type**\:   :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply>`
+                        	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply>`
                         
                         
 
@@ -1733,14 +1749,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1779,14 +1795,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1825,14 +1841,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1872,14 +1888,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1918,22 +1934,22 @@ class MplsOam(Entity):
                         .. attribute:: transmit_good
                         
                         	Transmit good packets
-                        	**type**\:   :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood>`
+                        	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood>`
                         
                         .. attribute:: transmit_drop
                         
                         	Transmit drop packets
-                        	**type**\:   :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop>`
+                        	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop>`
                         
                         .. attribute:: transmit_bfd_good
                         
                         	Transmit good BFD request packets
-                        	**type**\:   :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood>`
+                        	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood>`
                         
                         .. attribute:: bfd_no_reply
                         
                         	No Reply action for echo reqeust of BFD bootstrap
-                        	**type**\:   :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply>`
+                        	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply>`
                         
                         
 
@@ -1981,14 +1997,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2027,14 +2043,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2073,14 +2089,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2120,14 +2136,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2166,22 +2182,22 @@ class MplsOam(Entity):
                         .. attribute:: transmit_good
                         
                         	Transmit good packets
-                        	**type**\:   :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood>`
+                        	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood>`
                         
                         .. attribute:: transmit_drop
                         
                         	Transmit drop packets
-                        	**type**\:   :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop>`
+                        	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop>`
                         
                         .. attribute:: transmit_bfd_good
                         
                         	Transmit good BFD request packets
-                        	**type**\:   :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood>`
+                        	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood>`
                         
                         .. attribute:: bfd_no_reply
                         
                         	No Reply action for echo reqeust of BFD bootstrap
-                        	**type**\:   :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply>`
+                        	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply>`
                         
                         
 
@@ -2229,14 +2245,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2275,14 +2291,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2321,14 +2337,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2368,14 +2384,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2414,22 +2430,22 @@ class MplsOam(Entity):
                         .. attribute:: transmit_good
                         
                         	Transmit good packets
-                        	**type**\:   :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood>`
+                        	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood>`
                         
                         .. attribute:: transmit_drop
                         
                         	Transmit drop packets
-                        	**type**\:   :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop>`
+                        	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop>`
                         
                         .. attribute:: transmit_bfd_good
                         
                         	Transmit good BFD request packets
-                        	**type**\:   :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood>`
+                        	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood>`
                         
                         .. attribute:: bfd_no_reply
                         
                         	No Reply action for echo reqeust of BFD bootstrap
-                        	**type**\:   :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply>`
+                        	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply>`
                         
                         
 
@@ -2477,14 +2493,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2523,14 +2539,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2569,14 +2585,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2616,14 +2632,14 @@ class MplsOam(Entity):
                             .. attribute:: packets
                             
                             	Packet counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: bytes
                             
                             	Byte counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2662,32 +2678,32 @@ class MplsOam(Entity):
         .. attribute:: received
         
         	Packet reception counts
-        	**type**\:   :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received>`
+        	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received>`
         
         .. attribute:: sent
         
         	Packet transmit counts
-        	**type**\:   :py:class:`Sent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent>`
+        	**type**\:  :py:class:`Sent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent>`
         
         .. attribute:: working_req_sent
         
         	Working Request Packet transmit counts
-        	**type**\:   :py:class:`WorkingReqSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent>`
+        	**type**\:  :py:class:`WorkingReqSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent>`
         
         .. attribute:: working_rep_sent
         
         	Working Reply Packet transmit counts
-        	**type**\:   :py:class:`WorkingRepSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent>`
+        	**type**\:  :py:class:`WorkingRepSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent>`
         
         .. attribute:: protect_req_sent
         
         	Protect Request Packet transmit counts
-        	**type**\:   :py:class:`ProtectReqSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent>`
+        	**type**\:  :py:class:`ProtectReqSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent>`
         
         .. attribute:: protect_rep_sent
         
         	Protect Reply Packet transmit counts
-        	**type**\:   :py:class:`ProtectRepSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent>`
+        	**type**\:  :py:class:`ProtectRepSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent>`
         
         
 
@@ -2746,72 +2762,72 @@ class MplsOam(Entity):
             .. attribute:: received_good_request
             
             	Received good request
-            	**type**\:   :py:class:`ReceivedGoodRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedGoodRequest>`
+            	**type**\:  :py:class:`ReceivedGoodRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedGoodRequest>`
             
             .. attribute:: received_good_reply
             
             	Received good reply
-            	**type**\:   :py:class:`ReceivedGoodReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedGoodReply>`
+            	**type**\:  :py:class:`ReceivedGoodReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedGoodReply>`
             
             .. attribute:: received_unknown
             
             	Received unknown packets
-            	**type**\:   :py:class:`ReceivedUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedUnknown>`
+            	**type**\:  :py:class:`ReceivedUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedUnknown>`
             
             .. attribute:: received_error_ip_header
             
             	IP header error
-            	**type**\:   :py:class:`ReceivedErrorIpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorIpHeader>`
+            	**type**\:  :py:class:`ReceivedErrorIpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorIpHeader>`
             
             .. attribute:: received_error_udp_header
             
             	UDP header error
-            	**type**\:   :py:class:`ReceivedErrorUdpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorUdpHeader>`
+            	**type**\:  :py:class:`ReceivedErrorUdpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorUdpHeader>`
             
             .. attribute:: received_error_runt
             
             	RUNT error
-            	**type**\:   :py:class:`ReceivedErrorRunt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorRunt>`
+            	**type**\:  :py:class:`ReceivedErrorRunt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorRunt>`
             
             .. attribute:: received_error_queue_full
             
             	Dropped queue full
-            	**type**\:   :py:class:`ReceivedErrorQueueFull <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorQueueFull>`
+            	**type**\:  :py:class:`ReceivedErrorQueueFull <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorQueueFull>`
             
             .. attribute:: received_error_general
             
             	General error
-            	**type**\:   :py:class:`ReceivedErrorGeneral <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorGeneral>`
+            	**type**\:  :py:class:`ReceivedErrorGeneral <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorGeneral>`
             
             .. attribute:: received_error_no_interface
             
             	Error no Interfaces
-            	**type**\:   :py:class:`ReceivedErrorNoInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorNoInterface>`
+            	**type**\:  :py:class:`ReceivedErrorNoInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorNoInterface>`
             
             .. attribute:: received_error_no_memory
             
             	Error no memory
-            	**type**\:   :py:class:`ReceivedErrorNoMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorNoMemory>`
+            	**type**\:  :py:class:`ReceivedErrorNoMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorNoMemory>`
             
             .. attribute:: protect_protocol_received_good_request
             
             	Protect Protocol Received good request
-            	**type**\:   :py:class:`ProtectProtocolReceivedGoodRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest>`
+            	**type**\:  :py:class:`ProtectProtocolReceivedGoodRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest>`
             
             .. attribute:: protect_protocol_received_good_reply
             
             	Protect Protocol Received good reply
-            	**type**\:   :py:class:`ProtectProtocolReceivedGoodReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply>`
+            	**type**\:  :py:class:`ProtectProtocolReceivedGoodReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply>`
             
             .. attribute:: received_good_bfd_request
             
             	Received Reqeust with BFD TLV
-            	**type**\:   :py:class:`ReceivedGoodBfdRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedGoodBfdRequest>`
+            	**type**\:  :py:class:`ReceivedGoodBfdRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedGoodBfdRequest>`
             
             .. attribute:: received_good_bfd_reply
             
             	Received Reply with BFD TLV
-            	**type**\:   :py:class:`ReceivedGoodBfdReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedGoodBfdReply>`
+            	**type**\:  :py:class:`ReceivedGoodBfdReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedGoodBfdReply>`
             
             
 
@@ -2910,14 +2926,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -2957,14 +2973,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3004,14 +3020,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3051,14 +3067,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3098,14 +3114,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3145,14 +3161,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3192,14 +3208,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3239,14 +3255,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3286,14 +3302,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3333,14 +3349,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3380,14 +3396,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3427,14 +3443,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3474,14 +3490,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3521,14 +3537,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3568,22 +3584,22 @@ class MplsOam(Entity):
             .. attribute:: transmit_good
             
             	Transmit good packets
-            	**type**\:   :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent.TransmitGood>`
+            	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent.TransmitGood>`
             
             .. attribute:: transmit_drop
             
             	Transmit drop packets
-            	**type**\:   :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent.TransmitDrop>`
+            	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent.TransmitDrop>`
             
             .. attribute:: transmit_bfd_good
             
             	Transmit good BFD request packets
-            	**type**\:   :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent.TransmitBfdGood>`
+            	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent.TransmitBfdGood>`
             
             .. attribute:: bfd_no_reply
             
             	No Reply action for echo reqeust of BFD bootstrap
-            	**type**\:   :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent.BfdNoReply>`
+            	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent.BfdNoReply>`
             
             
 
@@ -3632,14 +3648,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3679,14 +3695,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3726,14 +3742,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3774,14 +3790,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3821,22 +3837,22 @@ class MplsOam(Entity):
             .. attribute:: transmit_good
             
             	Transmit good packets
-            	**type**\:   :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent.TransmitGood>`
+            	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent.TransmitGood>`
             
             .. attribute:: transmit_drop
             
             	Transmit drop packets
-            	**type**\:   :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent.TransmitDrop>`
+            	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent.TransmitDrop>`
             
             .. attribute:: transmit_bfd_good
             
             	Transmit good BFD request packets
-            	**type**\:   :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent.TransmitBfdGood>`
+            	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent.TransmitBfdGood>`
             
             .. attribute:: bfd_no_reply
             
             	No Reply action for echo reqeust of BFD bootstrap
-            	**type**\:   :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent.BfdNoReply>`
+            	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent.BfdNoReply>`
             
             
 
@@ -3885,14 +3901,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3932,14 +3948,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3979,14 +3995,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4027,14 +4043,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4074,22 +4090,22 @@ class MplsOam(Entity):
             .. attribute:: transmit_good
             
             	Transmit good packets
-            	**type**\:   :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent.TransmitGood>`
+            	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent.TransmitGood>`
             
             .. attribute:: transmit_drop
             
             	Transmit drop packets
-            	**type**\:   :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent.TransmitDrop>`
+            	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent.TransmitDrop>`
             
             .. attribute:: transmit_bfd_good
             
             	Transmit good BFD request packets
-            	**type**\:   :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent.TransmitBfdGood>`
+            	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent.TransmitBfdGood>`
             
             .. attribute:: bfd_no_reply
             
             	No Reply action for echo reqeust of BFD bootstrap
-            	**type**\:   :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent.BfdNoReply>`
+            	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent.BfdNoReply>`
             
             
 
@@ -4138,14 +4154,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4185,14 +4201,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4232,14 +4248,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4280,14 +4296,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4327,22 +4343,22 @@ class MplsOam(Entity):
             .. attribute:: transmit_good
             
             	Transmit good packets
-            	**type**\:   :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent.TransmitGood>`
+            	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent.TransmitGood>`
             
             .. attribute:: transmit_drop
             
             	Transmit drop packets
-            	**type**\:   :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent.TransmitDrop>`
+            	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent.TransmitDrop>`
             
             .. attribute:: transmit_bfd_good
             
             	Transmit good BFD request packets
-            	**type**\:   :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent.TransmitBfdGood>`
+            	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent.TransmitBfdGood>`
             
             .. attribute:: bfd_no_reply
             
             	No Reply action for echo reqeust of BFD bootstrap
-            	**type**\:   :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent.BfdNoReply>`
+            	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent.BfdNoReply>`
             
             
 
@@ -4391,14 +4407,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4438,14 +4454,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4485,14 +4501,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4533,14 +4549,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4580,22 +4596,22 @@ class MplsOam(Entity):
             .. attribute:: transmit_good
             
             	Transmit good packets
-            	**type**\:   :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent.TransmitGood>`
+            	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent.TransmitGood>`
             
             .. attribute:: transmit_drop
             
             	Transmit drop packets
-            	**type**\:   :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent.TransmitDrop>`
+            	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent.TransmitDrop>`
             
             .. attribute:: transmit_bfd_good
             
             	Transmit good BFD request packets
-            	**type**\:   :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent.TransmitBfdGood>`
+            	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent.TransmitBfdGood>`
             
             .. attribute:: bfd_no_reply
             
             	No Reply action for echo reqeust of BFD bootstrap
-            	**type**\:   :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent.BfdNoReply>`
+            	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent.BfdNoReply>`
             
             
 
@@ -4644,14 +4660,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4691,14 +4707,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4738,14 +4754,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4786,14 +4802,14 @@ class MplsOam(Entity):
                 .. attribute:: packets
                 
                 	Packet counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes
                 
                 	Byte counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4833,17 +4849,17 @@ class MplsOam(Entity):
         .. attribute:: message_statistics
         
         	Message statistics
-        	**type**\:   :py:class:`MessageStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_.MessageStatistics>`
+        	**type**\:  :py:class:`MessageStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_.MessageStatistics>`
         
         .. attribute:: collaborator_statistics
         
         	Collaborator statistics
-        	**type**\:   :py:class:`CollaboratorStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_.CollaboratorStatistics>`
+        	**type**\:  :py:class:`CollaboratorStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_.CollaboratorStatistics>`
         
         .. attribute:: total_clients
         
         	Number of clients
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -4889,77 +4905,77 @@ class MplsOam(Entity):
             .. attribute:: register_messages
             
             	Message register count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: unregister_messages
             
             	Message unregister count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: echo_submit_messages
             
             	Message echo submit count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: echo_cancel_messages
             
             	Message echo cancel count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: get_result_messages
             
             	Message get results count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: get_config_messages
             
             	Message get configiuration count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: get_response_messages
             
             	Message get response count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: property_response_messages
             
             	Message property response count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: property_request_messages
             
             	Message property request count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: property_block_messages
             
             	Message property block count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: thread_request_messages
             
             	Message thread request count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -5015,22 +5031,22 @@ class MplsOam(Entity):
             .. attribute:: collaborator_i_parm
             
             	Collaborator IPARM counts
-            	**type**\:   :py:class:`CollaboratorIParm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_.CollaboratorStatistics.CollaboratorIParm>`
+            	**type**\:  :py:class:`CollaboratorIParm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_.CollaboratorStatistics.CollaboratorIParm>`
             
             .. attribute:: collaborator_im
             
             	Collaborator IM counts
-            	**type**\:   :py:class:`CollaboratorIm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_.CollaboratorStatistics.CollaboratorIm>`
+            	**type**\:  :py:class:`CollaboratorIm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_.CollaboratorStatistics.CollaboratorIm>`
             
             .. attribute:: collaborator_net_io
             
             	Collaborator NetIO counts
-            	**type**\:   :py:class:`CollaboratorNetIo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_.CollaboratorStatistics.CollaboratorNetIo>`
+            	**type**\:  :py:class:`CollaboratorNetIo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_.CollaboratorStatistics.CollaboratorNetIo>`
             
             .. attribute:: collaborator_rib
             
             	Collaborator RIB counts
-            	**type**\:   :py:class:`CollaboratorRib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_.CollaboratorStatistics.CollaboratorRib>`
+            	**type**\:  :py:class:`CollaboratorRib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global_.CollaboratorStatistics.CollaboratorRib>`
             
             
 
@@ -5079,14 +5095,14 @@ class MplsOam(Entity):
                 .. attribute:: ups
                 
                 	Collaborator up counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: downs
                 
                 	Collaborator down counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5124,14 +5140,14 @@ class MplsOam(Entity):
                 .. attribute:: ups
                 
                 	Collaborator up counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: downs
                 
                 	Collaborator down counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5169,14 +5185,14 @@ class MplsOam(Entity):
                 .. attribute:: ups
                 
                 	Collaborator up counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: downs
                 
                 	Collaborator down counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5214,14 +5230,14 @@ class MplsOam(Entity):
                 .. attribute:: ups
                 
                 	Collaborator up counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: downs
                 
                 	Collaborator down counter
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 

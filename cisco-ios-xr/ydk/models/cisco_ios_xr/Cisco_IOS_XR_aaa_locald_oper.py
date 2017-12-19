@@ -25,57 +25,57 @@ class Aaa(Entity):
     .. attribute:: all_tasks
     
     	All tasks supported by system
-    	**type**\:   :py:class:`AllTasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.AllTasks>`
+    	**type**\:  :py:class:`AllTasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.AllTasks>`
     
     .. attribute:: currentuser_detail
     
     	Current user specific details
-    	**type**\:   :py:class:`CurrentuserDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.CurrentuserDetail>`
+    	**type**\:  :py:class:`CurrentuserDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.CurrentuserDetail>`
     
     .. attribute:: task_map
     
     	Task map of current user
-    	**type**\:   :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.TaskMap>`
+    	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.TaskMap>`
     
     .. attribute:: taskgroups
     
     	Individual taskgroups container
-    	**type**\:   :py:class:`Taskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups>`
+    	**type**\:  :py:class:`Taskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups>`
     
     .. attribute:: users
     
     	Container for individual local user information
-    	**type**\:   :py:class:`Users <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users>`
+    	**type**\:  :py:class:`Users <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users>`
     
     .. attribute:: usergroups
     
     	Container for individual usergroup Information
-    	**type**\:   :py:class:`Usergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups>`
+    	**type**\:  :py:class:`Usergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups>`
     
     .. attribute:: authen_method
     
     	Current users authentication method
-    	**type**\:   :py:class:`AuthenMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.AuthenMethod>`
+    	**type**\:  :py:class:`AuthenMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.AuthenMethod>`
     
     .. attribute:: current_usergroup
     
     	Specific Usergroup Information
-    	**type**\:   :py:class:`CurrentUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.CurrentUsergroup>`
+    	**type**\:  :py:class:`CurrentUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.CurrentUsergroup>`
     
     .. attribute:: diameter
     
     	Diameter operational data
-    	**type**\:   :py:class:`Diameter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter>`
+    	**type**\:  :py:class:`Diameter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter>`
     
     .. attribute:: radius
     
     	RADIUS operational data
-    	**type**\:   :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius>`
+    	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius>`
     
     .. attribute:: tacacs
     
     	TACACS operational data
-    	**type**\:   :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs>`
+    	**type**\:  :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs>`
     
     
 
@@ -92,7 +92,7 @@ class Aaa(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-aaa-locald-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"all-tasks" : ("all_tasks", Aaa.AllTasks), "currentuser-detail" : ("currentuser_detail", Aaa.CurrentuserDetail), "task-map" : ("task_map", Aaa.TaskMap), "taskgroups" : ("taskgroups", Aaa.Taskgroups), "users" : ("users", Aaa.Users), "usergroups" : ("usergroups", Aaa.Usergroups), "authen-method" : ("authen_method", Aaa.AuthenMethod), "current-usergroup" : ("current_usergroup", Aaa.CurrentUsergroup), "diameter" : ("diameter", Aaa.Diameter), "radius" : ("radius", Aaa.Radius), "tacacs" : ("tacacs", Aaa.Tacacs)}
+        self._child_container_classes = {"all-tasks" : ("all_tasks", Aaa.AllTasks), "currentuser-detail" : ("currentuser_detail", Aaa.CurrentuserDetail), "task-map" : ("task_map", Aaa.TaskMap), "taskgroups" : ("taskgroups", Aaa.Taskgroups), "users" : ("users", Aaa.Users), "usergroups" : ("usergroups", Aaa.Usergroups), "authen-method" : ("authen_method", Aaa.AuthenMethod), "current-usergroup" : ("current_usergroup", Aaa.CurrentUsergroup), "Cisco-IOS-XR-aaa-diameter-oper:diameter" : ("diameter", Aaa.Diameter), "Cisco-IOS-XR-aaa-protocol-radius-oper:radius" : ("radius", Aaa.Radius), "Cisco-IOS-XR-aaa-tacacs-oper:tacacs" : ("tacacs", Aaa.Tacacs)}
         self._child_list_classes = {}
 
         self.all_tasks = Aaa.AllTasks()
@@ -159,7 +159,7 @@ class Aaa(Entity):
         .. attribute:: task_id
         
         	Names of available task\-ids
-        	**type**\:  list of str
+        	**type**\: list of str
         
         
 
@@ -193,24 +193,24 @@ class Aaa(Entity):
         .. attribute:: name
         
         	Name of the usergroup
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: authenmethod
         
         	Authentication method
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: usergroup
         
         	Component usergroups
-        	**type**\:  list of str
+        	**type**\: list of str
         
         .. attribute:: taskmap
         
         	Task map details
-        	**type**\:  list of str
+        	**type**\: list of str
         
         
 
@@ -250,24 +250,24 @@ class Aaa(Entity):
         .. attribute:: name
         
         	Name of the usergroup
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: authenmethod
         
         	Authentication method
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: usergroup
         
         	Component usergroups
-        	**type**\:  list of str
+        	**type**\: list of str
         
         .. attribute:: taskmap
         
         	Task map details
-        	**type**\:  list of str
+        	**type**\: list of str
         
         
 
@@ -307,7 +307,7 @@ class Aaa(Entity):
         .. attribute:: taskgroup
         
         	Specific Taskgroup Information
-        	**type**\: list of    :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup>`
+        	**type**\: list of  		 :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup>`
         
         
 
@@ -341,22 +341,22 @@ class Aaa(Entity):
             .. attribute:: name  <key>
             
             	Taskgroup name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: included_task_ids
             
             	Task\-ids included
-            	**type**\:   :py:class:`IncludedTaskIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.IncludedTaskIds>`
+            	**type**\:  :py:class:`IncludedTaskIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.IncludedTaskIds>`
             
             .. attribute:: task_map
             
             	Computed task map
-            	**type**\:   :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.TaskMap>`
+            	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.TaskMap>`
             
             .. attribute:: name_xr
             
             	Name of the taskgroup
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -402,7 +402,7 @@ class Aaa(Entity):
                 .. attribute:: tasks
                 
                 	List of permitted tasks
-                	**type**\: list of    :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks>`
+                	**type**\: list of  		 :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks>`
                 
                 
 
@@ -435,27 +435,27 @@ class Aaa(Entity):
                     .. attribute:: task_id
                     
                     	Name of the task\-id
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: read
                     
                     	Is read permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: write
                     
                     	Is write permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: execute
                     
                     	Is execute permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: debug
                     
                     	Is debug permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -496,7 +496,7 @@ class Aaa(Entity):
                 .. attribute:: tasks
                 
                 	List of permitted tasks
-                	**type**\: list of    :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.TaskMap.Tasks>`
+                	**type**\: list of  		 :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.TaskMap.Tasks>`
                 
                 
 
@@ -529,27 +529,27 @@ class Aaa(Entity):
                     .. attribute:: task_id
                     
                     	Name of the task\-id
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: read
                     
                     	Is read permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: write
                     
                     	Is write permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: execute
                     
                     	Is execute permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: debug
                     
                     	Is debug permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -590,7 +590,7 @@ class Aaa(Entity):
         .. attribute:: user
         
         	Specific local user information
-        	**type**\: list of    :py:class:`User <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User>`
+        	**type**\: list of  		 :py:class:`User <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User>`
         
         
 
@@ -624,32 +624,32 @@ class Aaa(Entity):
             .. attribute:: name  <key>
             
             	Username
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: task_map
             
             	Computed taskmap
-            	**type**\:   :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User.TaskMap>`
+            	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User.TaskMap>`
             
             .. attribute:: name_xr
             
             	Username
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: admin_user
             
             	Is admin plane user ?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: first_user
             
             	Is first user ?
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: usergroup
             
             	Member usergroups
-            	**type**\:  list of str
+            	**type**\: list of str
             
             
 
@@ -696,7 +696,7 @@ class Aaa(Entity):
                 .. attribute:: tasks
                 
                 	List of permitted tasks
-                	**type**\: list of    :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User.TaskMap.Tasks>`
+                	**type**\: list of  		 :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User.TaskMap.Tasks>`
                 
                 
 
@@ -729,27 +729,27 @@ class Aaa(Entity):
                     .. attribute:: task_id
                     
                     	Name of the task\-id
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: read
                     
                     	Is read permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: write
                     
                     	Is write permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: execute
                     
                     	Is execute permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: debug
                     
                     	Is debug permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -790,7 +790,7 @@ class Aaa(Entity):
         .. attribute:: usergroup
         
         	Specific Usergroup Information
-        	**type**\: list of    :py:class:`Usergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup>`
+        	**type**\: list of  		 :py:class:`Usergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup>`
         
         
 
@@ -824,22 +824,22 @@ class Aaa(Entity):
             .. attribute:: name  <key>
             
             	Usergroup name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: task_map
             
             	Computed task map
-            	**type**\:   :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.TaskMap>`
+            	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.TaskMap>`
             
             .. attribute:: name_xr
             
             	Name of the usergroup
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: taskgroup
             
             	Component taskgroups
-            	**type**\: list of    :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup>`
+            	**type**\: list of  		 :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup>`
             
             
 
@@ -882,7 +882,7 @@ class Aaa(Entity):
                 .. attribute:: tasks
                 
                 	List of permitted tasks
-                	**type**\: list of    :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.TaskMap.Tasks>`
+                	**type**\: list of  		 :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.TaskMap.Tasks>`
                 
                 
 
@@ -915,27 +915,27 @@ class Aaa(Entity):
                     .. attribute:: task_id
                     
                     	Name of the task\-id
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: read
                     
                     	Is read permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: write
                     
                     	Is write permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: execute
                     
                     	Is execute permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: debug
                     
                     	Is debug permitted?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -976,17 +976,17 @@ class Aaa(Entity):
                 .. attribute:: included_task_ids
                 
                 	Task\-ids included
-                	**type**\:   :py:class:`IncludedTaskIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds>`
+                	**type**\:  :py:class:`IncludedTaskIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds>`
                 
                 .. attribute:: task_map
                 
                 	Computed task map
-                	**type**\:   :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.TaskMap>`
+                	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.TaskMap>`
                 
                 .. attribute:: name_xr
                 
                 	Name of the taskgroup
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -1029,7 +1029,7 @@ class Aaa(Entity):
                     .. attribute:: tasks
                     
                     	List of permitted tasks
-                    	**type**\: list of    :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks>`
+                    	**type**\: list of  		 :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks>`
                     
                     
 
@@ -1062,27 +1062,27 @@ class Aaa(Entity):
                         .. attribute:: task_id
                         
                         	Name of the task\-id
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: read
                         
                         	Is read permitted?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: write
                         
                         	Is write permitted?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: execute
                         
                         	Is execute permitted?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: debug
                         
                         	Is debug permitted?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -1123,7 +1123,7 @@ class Aaa(Entity):
                     .. attribute:: tasks
                     
                     	List of permitted tasks
-                    	**type**\: list of    :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks>`
+                    	**type**\: list of  		 :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks>`
                     
                     
 
@@ -1156,27 +1156,27 @@ class Aaa(Entity):
                         .. attribute:: task_id
                         
                         	Name of the task\-id
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: read
                         
                         	Is read permitted?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: write
                         
                         	Is write permitted?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: execute
                         
                         	Is execute permitted?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: debug
                         
                         	Is debug permitted?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -1217,24 +1217,24 @@ class Aaa(Entity):
         .. attribute:: name
         
         	Name of the usergroup
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: authenmethod
         
         	Authentication method
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: usergroup
         
         	Component usergroups
-        	**type**\:  list of str
+        	**type**\: list of str
         
         .. attribute:: taskmap
         
         	Task map details
-        	**type**\:  list of str
+        	**type**\: list of str
         
         
 
@@ -1274,24 +1274,24 @@ class Aaa(Entity):
         .. attribute:: name
         
         	Name of the usergroup
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: authenmethod
         
         	Authentication method
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: usergroup
         
         	Component usergroups
-        	**type**\:  list of str
+        	**type**\: list of str
         
         .. attribute:: taskmap
         
         	Task map details
-        	**type**\:  list of str
+        	**type**\: list of str
         
         
 
@@ -1331,52 +1331,52 @@ class Aaa(Entity):
         .. attribute:: gy
         
         	Diameter global gy data
-        	**type**\:   :py:class:`Gy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Gy>`
+        	**type**\:  :py:class:`Gy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Gy>`
         
         .. attribute:: gx_statistics
         
         	Diameter Gx Statistics data
-        	**type**\:   :py:class:`GxStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GxStatistics>`
+        	**type**\:  :py:class:`GxStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GxStatistics>`
         
         .. attribute:: gx
         
         	Diameter global gx data
-        	**type**\:   :py:class:`Gx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Gx>`
+        	**type**\:  :py:class:`Gx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Gx>`
         
         .. attribute:: peers
         
         	Diameter peer global data
-        	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Peers>`
+        	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Peers>`
         
         .. attribute:: nas
         
         	Diameter NAS data
-        	**type**\:   :py:class:`Nas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Nas>`
+        	**type**\:  :py:class:`Nas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Nas>`
         
         .. attribute:: nas_summary
         
         	Diameter NAS summary
-        	**type**\:   :py:class:`NasSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.NasSummary>`
+        	**type**\:  :py:class:`NasSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.NasSummary>`
         
         .. attribute:: gy_session_ids
         
         	Diameter Gy Session data list
-        	**type**\:   :py:class:`GySessionIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GySessionIds>`
+        	**type**\:  :py:class:`GySessionIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GySessionIds>`
         
         .. attribute:: gy_statistics
         
         	Diameter Gy Statistics data
-        	**type**\:   :py:class:`GyStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GyStatistics>`
+        	**type**\:  :py:class:`GyStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GyStatistics>`
         
         .. attribute:: gx_session_ids
         
         	Diameter Gx Session data list
-        	**type**\:   :py:class:`GxSessionIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GxSessionIds>`
+        	**type**\:  :py:class:`GxSessionIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GxSessionIds>`
         
         .. attribute:: nas_session
         
         	Diameter Nas Session data
-        	**type**\:   :py:class:`NasSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.NasSession>`
+        	**type**\:  :py:class:`NasSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.NasSession>`
         
         
 
@@ -1455,12 +1455,12 @@ class Aaa(Entity):
             .. attribute:: is_enabled
             
             	Gy state
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: tx_timer
             
             	Gy transaction timer in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1469,7 +1469,7 @@ class Aaa(Entity):
             .. attribute:: retransmits
             
             	Gy retransmit count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1509,224 +1509,224 @@ class Aaa(Entity):
             .. attribute:: ccr_init_messages
             
             	CCR Initial Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_init_failed_messages
             
             	CCR Initial Messages Failed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_init_timed_out_messages
             
             	CCR Initial Messages Timed Out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_init_retry_messages
             
             	CCR Initial Messages retry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_update_messages
             
             	CCR Update Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_update_failed_messages
             
             	CCR Update Messages Failed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_update_timed_out_messages
             
             	CCR Update Messages Timed Out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_update_retry_messages
             
             	CCR Update Messages retry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_final_messages
             
             	CCR Final Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_final_failed_messages
             
             	CCR Final Messages Failed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_final_timed_out_messages
             
             	CCR Final Messages Timed Out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_final_retry_messages
             
             	CCR Final Messages retry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cca_init_messages
             
             	CCA Initial Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cca_init_error_messages
             
             	CCA Initial Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cca_update_messages
             
             	CCA Update Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cca_update_error_messages
             
             	CCA Update Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cca_final_messages
             
             	CCA Final Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cca_final_error_messages
             
             	CCA Final Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rar_received_messages
             
             	RAR Received Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rar_received_error_messages
             
             	RAR Received Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: raa_sent_messages
             
             	RAA Sent Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: raa_sent_error_messages
             
             	RAA Sent Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: asr_received_messages
             
             	ASR Received Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: asr_received_error_messages
             
             	ASR Received Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: asa_sent_messsages
             
             	ASA Sent Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: asa_sent_error_messages
             
             	ASA Sent Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: session_termination_messages
             
             	Session Termination from server
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: unknown_request_messages
             
             	Unknown Request Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: restore_sessions
             
             	Restore Sessions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: open_sessions
             
             	Total Opened Sessions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: close_sessions
             
             	Total Closed Sessions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: active_sessions
             
             	Total Active Sessions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1824,12 +1824,12 @@ class Aaa(Entity):
             .. attribute:: is_enabled
             
             	Gx state
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: tx_timer
             
             	Gx transaction timer in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1838,7 +1838,7 @@ class Aaa(Entity):
             .. attribute:: retransmits
             
             	Gx retransmit count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1878,27 +1878,27 @@ class Aaa(Entity):
             .. attribute:: origin_host
             
             	Origin Host
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: origin_realm
             
             	Origin Realm
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: source_interface
             
             	Source Interface
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: tls_trustpoint
             
             	TLS Trustpoint
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: conn_retry_timer
             
             	Connection retry timer in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1907,7 +1907,7 @@ class Aaa(Entity):
             .. attribute:: watchdog_timer
             
             	Watch dog timer in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1916,7 +1916,7 @@ class Aaa(Entity):
             .. attribute:: transaction_timer
             
             	Transaction timer in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1925,21 +1925,21 @@ class Aaa(Entity):
             .. attribute:: trans_total
             
             	Total number of transactions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: trans_max
             
             	Maximum number of transactions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: peer
             
             	Peer List
-            	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Peers.Peer>`
+            	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Peers.Peer>`
             
             
 
@@ -1991,48 +1991,48 @@ class Aaa(Entity):
                 .. attribute:: peer_name
                 
                 	Peer Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: peer_index
                 
                 	Peer Index
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: address
                 
                 	IPv4 or IPv6 address of DIAMETER peer
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: port
                 
                 	Port number on which the peeris running
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: port_connect
                 
                 	Local Connection port
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: protocol_type
                 
                 	Protocol Type
-                	**type**\:   :py:class:`ProtocolTypeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.ProtocolTypeValue>`
+                	**type**\:  :py:class:`ProtocolTypeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.ProtocolTypeValue>`
                 
                 .. attribute:: security_type
                 
                 	Security type used to transport
-                	**type**\:   :py:class:`SecurityTypeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.SecurityTypeValue>`
+                	**type**\:  :py:class:`SecurityTypeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.SecurityTypeValue>`
                 
                 .. attribute:: conn_retry_timer
                 
                 	Connection retry timer in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2041,7 +2041,7 @@ class Aaa(Entity):
                 .. attribute:: watchdog_timer
                 
                 	Watch dog timer in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2050,7 +2050,7 @@ class Aaa(Entity):
                 .. attribute:: transaction_timer
                 
                 	Transaction timer in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2059,39 +2059,39 @@ class Aaa(Entity):
                 .. attribute:: vrf_name
                 
                 	Vrf Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: source_interface
                 
                 	Source Interface
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: destination_host
                 
                 	Destination host name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: destination_realm
                 
                 	Destination realm
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: peer_type
                 
                 	Peer Type
-                	**type**\:   :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.Peer>`
+                	**type**\:  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.Peer>`
                 
                 .. attribute:: firmware_revision
                 
                 	Firmware revision
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: state_duration
                 
                 	State Duration in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2100,311 +2100,311 @@ class Aaa(Entity):
                 .. attribute:: last_disconnect_cause
                 
                 	Last Disconnect Reason
-                	**type**\:   :py:class:`DisconnectCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.DisconnectCause>`
+                	**type**\:  :py:class:`DisconnectCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.DisconnectCause>`
                 
                 .. attribute:: who_init_disconnect
                 
                 	Who Initiated Disconnect
-                	**type**\:   :py:class:`WhoInitiatedDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.WhoInitiatedDisconnect>`
+                	**type**\:  :py:class:`WhoInitiatedDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.WhoInitiatedDisconnect>`
                 
                 .. attribute:: in_as_rs
                 
                 	Incoming ASRs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_as_rs
                 
                 	Outgoing ASRs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_as_as
                 
                 	Incoming ASAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_as_as
                 
                 	Outgoing ASAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_ac_rs
                 
                 	Incoming ACRs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_ac_rs
                 
                 	Outgoing ACRs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_ac_as
                 
                 	Incoming ACAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_ac_as
                 
                 	Outgoing ACAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_ce_rs
                 
                 	Incoming CERs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_ce_rs
                 
                 	Outgoing CERs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_ce_as
                 
                 	Incoming CEAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_ce_as
                 
                 	Outgoing CEAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_dw_rs
                 
                 	Incoming DWRs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_dw_rs
                 
                 	Outgoing DWRs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_dw_as
                 
                 	Incoming DWAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_dw_as
                 
                 	Outgoing DWAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_dp_rs
                 
                 	Incoming DPRs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_dp_rs
                 
                 	Outgoing DPRs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_dp_as
                 
                 	Incoming DPAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_dp_as
                 
                 	Outgoing DPAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_ra_rs
                 
                 	Incoming RARs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_ra_rs
                 
                 	Outgoing RARs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_ra_as
                 
                 	Incoming RAAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_ra_as
                 
                 	Outgoing RAAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_st_rs
                 
                 	Incoming STRs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_st_rs
                 
                 	Outgoing STRs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_st_as
                 
                 	Incoming STAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_st_as
                 
                 	Outgoing STAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_cc_rs
                 
                 	Incoming CCRs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_cc_rs
                 
                 	Outgoing CCRs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_cc_as
                 
                 	Incoming CCAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_cc_as
                 
                 	Outgoing CCAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_aa_rs
                 
                 	Outgoing AARs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: in_aa_as
                 
                 	Incoming AAAs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: malformed_requests
                 
                 	Malformed Requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: received_proto_errors
                 
                 	Protocol Error Received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sent_proto_errors
                 
                 	Protocol Error Sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: received_transient_fails
                 
                 	Transient failures Received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sent_transient_fails
                 
                 	Transient failures Sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: received_permanent_fails
                 
                 	Permanent Failures Received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sent_permanent_fails
                 
                 	Permanent Failures Sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: transport_down
                 
                 	Transport Down
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: state
                 
                 	Peer Connection Status
-                	**type**\:   :py:class:`PeerStateValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.PeerStateValue>`
+                	**type**\:  :py:class:`PeerStateValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.PeerStateValue>`
                 
                 
 
@@ -2560,12 +2560,12 @@ class Aaa(Entity):
             .. attribute:: aaanas_id
             
             	AAA NAS id
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: list_of_nas
             
             	List of NAS Entries
-            	**type**\: list of    :py:class:`ListOfNas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Nas.ListOfNas>`
+            	**type**\: list of  		 :py:class:`ListOfNas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Nas.ListOfNas>`
             
             
 
@@ -2601,71 +2601,71 @@ class Aaa(Entity):
                 .. attribute:: aaa_session_id
                 
                 	AAA session id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: diameter_session_id
                 
                 	Diameter session id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: authentication_status
                 
                 	Diameter AAR status
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: authorization_status
                 
                 	Diameter AAR status
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_status
                 
                 	Diameter ACR status start
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_status_stop
                 
                 	Diameter ACR status stop
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: disconnect_status
                 
                 	Diameter STR status
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_intrim_in_packets
                 
                 	Accounting intrim packet response in
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_intrim_out_packets
                 
                 	Accounting intrim requests packets out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: method_list
                 
                 	Method list used for authentication
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: server_used_list
                 
                 	Server used for authentication
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -2719,336 +2719,336 @@ class Aaa(Entity):
             .. attribute:: authen_response_in_packets
             
             	Authentication response pkt in
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: authen_request_out_packets
             
             	Authentication request pkt out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: authen_request_in_packets
             
             	Authentication request from client
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: authen_response_out_packets
             
             	Authentication response frwd to client
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: authen_success_packets
             
             	Authentication response with success
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: authen_response_fail_packets
             
             	Authentication response with failure
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: authorization_in_packets
             
             	Authorization response packet in
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: authorization_out_packets
             
             	Authorization request packet out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: authorization_request_in_packets
             
             	Authourization request from cleint
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: authorization_response_out_packets
             
             	Authourization response frwd to client
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: authorization_response_success_packets
             
             	Authentication response with success
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: authorization_response_fail_packets
             
             	Authentication response with failure
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_response_in_packets
             
             	Accounting packet response in
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_request_out_packets
             
             	Accounting requests packets out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_start_request_packets
             
             	Accounting start request from cleint
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_start_response_packets
             
             	Accounting start response forward to client
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_start_success_packets
             
             	Accounting start response with success
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_start_failed_packets
             
             	Accounting start response with failure
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_stop_response_in_packets
             
             	Accounting stop packet response in
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_stop_request_out_packets
             
             	Accounting stop requests packets out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_stop_request_in_packets
             
             	Acct stop request from cleint
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_stop_response_out_packets
             
             	Acct stop response forward to client
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_stop_success_response_packets
             
             	Accounting stop response with success
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_stop_failed_packets
             
             	Accounting stop response with failure
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_intrim_response_in_packets
             
             	Accounting interim packet response in
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_interim_request_out_packets
             
             	Accounting interim requests packets out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_interim_request_in_packets
             
             	Accounting Interim request from cleint
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_interim_response_out_packets
             
             	Accounting interim response frwd to client
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_interim_success_packets
             
             	Accounting interim response with success
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_interim_failed_packets
             
             	Accounting interim response with failure
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: disconnect_response_in_packets
             
             	Disconnect response packets in
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: disconnect_request_out_packets
             
             	Disconnect request pkt out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: disconnect_request_in_packets
             
             	Disconnect request from cleint
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: disconnect_response_out_packets
             
             	Disconnect response forward to client
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: disconnect_success_response_packets
             
             	Disconnect response with success
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: disconnect_failed_response_packets
             
             	Disconnect response with failure
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: coa_request_in_packets
             
             	COA/RAR Request packet in
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: coa_response_out_packets
             
             	COA/RAR Response packet out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: coa_request_packets
             
             	COA request from client
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: coa_response_packets
             
             	COA response forward to client
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: coa_success_packets
             
             	COA response with success
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: coa_failed_packets
             
             	COA response with failure
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: pod_in_packets
             
             	POD/RAR Request packets in
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: pod_out_packets
             
             	PAD/RAR Response packets out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: pod_request_in_packets
             
             	POD request from cleint
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: pod_response_out_packets
             
             	POD response forward to client
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: pod_success_packets
             
             	POD response with success
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: pod_failed_packets
             
             	POD response with failure
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3178,7 +3178,7 @@ class Aaa(Entity):
             .. attribute:: gy_session_id
             
             	Diameter Gy Session data
-            	**type**\: list of    :py:class:`GySessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GySessionIds.GySessionId>`
+            	**type**\: list of  		 :py:class:`GySessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GySessionIds.GySessionId>`
             
             
 
@@ -3212,50 +3212,50 @@ class Aaa(Entity):
                 .. attribute:: session_id  <key>
                 
                 	Session Id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: aaa_session_id
                 
                 	AAA session id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: parent_aaa_session_id
                 
                 	AAA Parent session id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: diameter_session_id
                 
                 	Diameter session id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: request_number
                 
                 	Request Number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: session_state
                 
                 	Session State
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: request_type
                 
                 	Request Type
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: retry_count
                 
                 	Gy Retry count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3305,217 +3305,217 @@ class Aaa(Entity):
             .. attribute:: ccr_init_messages
             
             	CCR Initial Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_init_failed_messages
             
             	CCR Initial Messages Failed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_init_timed_out_messages
             
             	CCR Initial Messages Timed Out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_init_retry_messages
             
             	CCR Initial Messages retry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_update_messages
             
             	CCR Update Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_update_failed_messages
             
             	CCR Update Messages Failed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_update_timed_out_messages
             
             	CCR Update Messages Timed Out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_update_retry_messages
             
             	CCR Update Messages retry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_final_messages
             
             	CCR Final Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_final_failed_messages
             
             	CCR Final Messages Failed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_final_timed_out_messages
             
             	CCR Final Messages Timed Out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccr_final_retry_messages
             
             	CCR Final Messages retry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cca_init_messages
             
             	CCA Initial Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cca_init_error_messages
             
             	CCA Initial Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cca_update_messages
             
             	CCA Update Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cca_update_error_messages
             
             	CCA Update Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cca_final_messages
             
             	CCA Final Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cca_final_error_messages
             
             	CCA Final Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rar_received_messages
             
             	RAR Received Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rar_received_error_messages
             
             	RAR Received Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: raa_sent_messages
             
             	RAA Sent Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: raa_sent_error_messages
             
             	RAA Sent Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: asr_received_messages
             
             	ASR Received Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: asr_received_error_messages
             
             	ASR Received Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: asa_sent_messages
             
             	ASA Sent Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: asa_sent_error_messages
             
             	ASA Sent Messages Error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: unknown_request_messages
             
             	Unknown Request Messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: restore_sessions
             
             	Restore Sessions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: open_sessions
             
             	Total Opened Sessions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: close_sessions
             
             	Total Closed Sessions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: active_sessions
             
             	Total Active Sessions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3611,7 +3611,7 @@ class Aaa(Entity):
             .. attribute:: gx_session_id
             
             	Diameter Gx Session data
-            	**type**\: list of    :py:class:`GxSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GxSessionIds.GxSessionId>`
+            	**type**\: list of  		 :py:class:`GxSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GxSessionIds.GxSessionId>`
             
             
 
@@ -3645,43 +3645,43 @@ class Aaa(Entity):
                 .. attribute:: session_id  <key>
                 
                 	Session Id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: aaa_session_id
                 
                 	AAA session id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: diameter_session_id
                 
                 	Diameter session id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: request_number
                 
                 	Request Number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: session_state
                 
                 	Session State
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: request_type
                 
                 	Request Type
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: retry_count
                 
                 	Gx Retry count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3729,12 +3729,12 @@ class Aaa(Entity):
             .. attribute:: aaanas_id
             
             	AAA NAS id
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: list_of_nas
             
             	List of NAS Entries
-            	**type**\: list of    :py:class:`ListOfNas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.NasSession.ListOfNas>`
+            	**type**\: list of  		 :py:class:`ListOfNas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.NasSession.ListOfNas>`
             
             
 
@@ -3770,71 +3770,71 @@ class Aaa(Entity):
                 .. attribute:: aaa_session_id
                 
                 	AAA session id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: diameter_session_id
                 
                 	Diameter session id
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: authentication_status
                 
                 	Diameter AAR status
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: authorization_status
                 
                 	Diameter AAR status
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_status
                 
                 	Diameter ACR status start
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_status_stop
                 
                 	Diameter ACR status stop
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: disconnect_status
                 
                 	Diameter STR status
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_intrim_in_packets
                 
                 	Accounting intrim packet response in
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_intrim_out_packets
                 
                 	Accounting intrim requests packets out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: method_list
                 
                 	Method list used for authentication
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: server_used_list
                 
                 	Server used for authentication
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -3888,17 +3888,17 @@ class Aaa(Entity):
         .. attribute:: servers
         
         	List of RADIUS servers configured
-        	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers>`
+        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers>`
         
         .. attribute:: radius_source_interface
         
         	RADIUS source interfaces
-        	**type**\:   :py:class:`RadiusSourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.RadiusSourceInterface>`
+        	**type**\:  :py:class:`RadiusSourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.RadiusSourceInterface>`
         
         .. attribute:: global_
         
         	RADIUS Client Information
-        	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Global_>`
+        	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Global_>`
         
         
 
@@ -3942,7 +3942,7 @@ class Aaa(Entity):
             .. attribute:: server
             
             	RADIUS Server
-            	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers.Server>`
+            	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers.Server>`
             
             
 
@@ -3976,46 +3976,48 @@ class Aaa(Entity):
                 .. attribute:: ip_address
                 
                 	IP address of RADIUS server
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: auth_port_number
                 
                 	Authentication Port number (standard port 1645)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
                 .. attribute:: acct_port_number
                 
                 	Accounting Port number (standard port 1646)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
                 .. attribute:: ipv4_address
                 
                 	IP address of RADIUS server
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: priority
                 
                 	A number that indicates the priority             of the server
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: timeout_xr
                 
                 	Per\-server timeout in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4024,14 +4026,14 @@ class Aaa(Entity):
                 .. attribute:: retransmit
                 
                 	Per\-server retransmit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: dead_time
                 
                 	Per\-server deadtime in minutes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4040,7 +4042,7 @@ class Aaa(Entity):
                 .. attribute:: dead_detect_time
                 
                 	Per\-server dead\-detect time in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4049,89 +4051,89 @@ class Aaa(Entity):
                 .. attribute:: dead_detect_tries
                 
                 	Per\-server dead\-detect tries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: authentication_port
                 
                 	Authentication port
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_port
                 
                 	Accounting port
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: state
                 
                 	State of the server UP/DOWN
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: current_state_duration
                 
                 	Elapsed time the server has been in              current state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: previous_state_duration
                 
                 	Elapsed time the server was been in              previous state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: packets_in
                 
                 	Total number of incoming packets read
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: packets_out
                 
                 	Total number of outgoing packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: timeouts
                 
                 	Total number of packets timed\-out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: aborts
                 
                 	Total number of requests aborted
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: replies_expected
                 
                 	Number of replies expected to arrive
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: redirected_requests
                 
                 	Number of requests redirected
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: authentication_rtt
                 
                 	Round\-trip time for authentication               in milliseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4140,217 +4142,217 @@ class Aaa(Entity):
                 .. attribute:: access_requests
                 
                 	Number of access requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: access_request_retransmits
                 
                 	Number of retransmitted                          access requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: access_accepts
                 
                 	Number of access accepts
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: access_rejects
                 
                 	Number of access rejects
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: access_challenges
                 
                 	Number of access challenges
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bad_access_responses
                 
                 	Number of bad access responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bad_access_authenticators
                 
                 	Number of bad access authenticators
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: pending_access_requests
                 
                 	Number of pending access requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: access_timeouts
                 
                 	Number of access packets timed\-out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: unknown_access_types
                 
                 	Number of packets received with unknown          type from authentication server
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: dropped_access_responses
                 
                 	Number of access responses dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: throttled_access_reqs
                 
                 	No of throttled access reqs stats
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: throttled_timed_out_reqs
                 
                 	No of access reqs that is throttled is timedout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: throttled_dropped_reqs
                 
                 	No of discarded access reqs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: max_throttled_access_reqs
                 
                 	Max throttled access reqs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: currently_throttled_access_reqs
                 
                 	No of currently throttled access reqs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: authen_response_time
                 
                 	Average response time for authentication requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: authen_transaction_successess
                 
                 	Number of succeeded authentication transactions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: authen_transaction_failure
                 
                 	Number of failed authentication transactions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: authen_unexpected_responses
                 
                 	Number of unexpected authentication responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: authen_server_error_responses
                 
                 	Number of server error authentication responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: authen_incorrect_responses
                 
                 	Number of incorrect authentication responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: author_requests
                 
                 	Number of access requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: author_request_timeouts
                 
                 	Number of access packets timed out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: author_response_time
                 
                 	Average response time for authorization requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: author_transaction_successess
                 
                 	Number of succeeded authorization transactions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: author_transaction_failure
                 
                 	Number of failed authorization transactions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: author_unexpected_responses
                 
                 	Number of unexpected authorization responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: author_server_error_responses
                 
                 	Number of server error authorization responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: author_incorrect_responses
                 
                 	Number of incorrect authorization responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_rtt
                 
                 	Round\-trip time for accounting                   in milliseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4359,237 +4361,237 @@ class Aaa(Entity):
                 .. attribute:: accounting_requests
                 
                 	Number of accounting requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_retransmits
                 
                 	Number of retransmitted                          accounting requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_responses
                 
                 	Number of accounting responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bad_accounting_responses
                 
                 	Number of bad accounting responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bad_accounting_authenticators
                 
                 	Number of bad accounting                         authenticators
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: pending_accounting_requets
                 
                 	Number of pending accounting requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: accounting_timeouts
                 
                 	Number of accounting packets                     timed\-out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: unknown_accounting_types
                 
                 	Number of packets received with unknown          type from accounting server
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: dropped_accounting_responses
                 
                 	Number of accounting responses                   dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: is_a_private_server
                 
                 	Is a private server
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: total_test_auth_reqs
                 
                 	Total auth test request
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_test_auth_timeouts
                 
                 	Total auth test timeouts
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_test_auth_response
                 
                 	Total auth test response
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_test_auth_pending
                 
                 	Total auth test pending
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_test_acct_reqs
                 
                 	 Total acct test req
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_test_acct_timeouts
                 
                 	Total acct test timeouts
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_test_acct_response
                 
                 	Total acct test response
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_test_acct_pending
                 
                 	Total acct test pending
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: throttled_acct_transactions
                 
                 	No of throttled acct transactions stats
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: throttled_acct_timed_out_stats
                 
                 	No of acct transaction that is throttled is timedout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: throttled_acct_failures_stats
                 
                 	No of acct discarded transaction
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: max_acct_throttled
                 
                 	Max throttled acct transactions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: throttleda_acct_transactions
                 
                 	No of currently throttled acct transactions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: acct_unexpected_responses
                 
                 	Number of unexpected accounting responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: acct_server_error_responses
                 
                 	Number of server error accounting responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: acct_incorrect_responses
                 
                 	Number of incorrect accounting responses
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: acct_response_time
                 
                 	Average response time for authentication requests
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: acct_transaction_successess
                 
                 	Number of succeeded authentication transactions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: acct_transaction_failure
                 
                 	Number of failed authentication transactions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_deadtime
                 
                 	Total time of Server being in DEAD               state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: last_deadtime
                 
                 	Time of Server being in DEAD state,              after last UP
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: is_quarantined
                 
                 	flag to indicate Server is quarantined           or not (Automated TEST in progress)
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: group_name
                 
                 	Server group name for private server
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ip_address_xr
                 
                 	IP address buffer
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: family
                 
                 	IP address Family
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -4797,7 +4799,7 @@ class Aaa(Entity):
             .. attribute:: list_of_source_interface
             
             	List of source interfaces
-            	**type**\: list of    :py:class:`ListOfSourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface>`
+            	**type**\: list of  		 :py:class:`ListOfSourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface>`
             
             
 
@@ -4831,26 +4833,26 @@ class Aaa(Entity):
                 .. attribute:: interface_name
                 
                 	Name of the source interface
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ipaddrv4
                 
                 	IP address buffer
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..16
                 
                 .. attribute:: ipaddrv6
                 
                 	IP address buffer
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..46
                 
                 .. attribute:: vrfid
                 
                 	VRF Id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4892,26 +4894,26 @@ class Aaa(Entity):
             .. attribute:: unknown_authentication_response
             
             	Number of RADIUS Access\-Responsepackets received from unknownaddresses
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: authentication_nas_id
             
             	NAS\-Identifier of the RADIUSauthentication client
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: unknown_accounting_response
             
             	Number of RADIUS Accounting\-Responsepackets received from unknownaddresses
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: accounting_nas_id
             
             	NAS\-Identifier of the RADIUSaccounting client
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -4951,17 +4953,17 @@ class Aaa(Entity):
         .. attribute:: requests
         
         	TACACS Active Request List
-        	**type**\:   :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
+        	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
         
         .. attribute:: servers
         
         	TACACS server Information
-        	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
+        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
         
         .. attribute:: server_groups
         
         	TACACS sg Information
-        	**type**\:   :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
+        	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
         
         
 
@@ -5005,7 +5007,7 @@ class Aaa(Entity):
             .. attribute:: request
             
             	request
-            	**type**\: list of    :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
+            	**type**\: list of  		 :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
             
             
 
@@ -5039,7 +5041,7 @@ class Aaa(Entity):
                 .. attribute:: tacacs_requestbag
                 
                 	tacacs requestbag
-                	**type**\: list of    :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
+                	**type**\: list of  		 :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
                 
                 
 
@@ -5073,14 +5075,14 @@ class Aaa(Entity):
                     .. attribute:: time_remaining
                     
                     	time remaining for this request
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bytes_out
                     
                     	bytes written
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5089,14 +5091,14 @@ class Aaa(Entity):
                     .. attribute:: out_pak_size
                     
                     	size of the packet to be sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bytes_in
                     
                     	bytes read from socket
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5105,26 +5107,26 @@ class Aaa(Entity):
                     .. attribute:: in_pak_size
                     
                     	size of the packet to be received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pak_type
                     
                     	the type of packet
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: session_id
                     
                     	same as in pkt hdr
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: sock
                     
                     	socket number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -5174,7 +5176,7 @@ class Aaa(Entity):
             .. attribute:: server
             
             	server
-            	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
+            	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
             
             
 
@@ -5208,26 +5210,28 @@ class Aaa(Entity):
                 .. attribute:: addr
                 
                 	internet address of T+ server
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: timeout
                 
                 	per\-server timeout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: port
                 
                 	per server port to use
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: bytes_in
                 
                 	# of bytes read
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5236,7 +5240,7 @@ class Aaa(Entity):
                 .. attribute:: bytes_out
                 
                 	# of bytes out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5245,90 +5249,90 @@ class Aaa(Entity):
                 .. attribute:: closes
                 
                 	socket closes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: opens
                 
                 	socket opens
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: errors
                 
                 	error count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: aborts
                 
                 	abort count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: paks_in
                 
                 	# of incoming packets read
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: paks_out
                 
                 	# of outgoing packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: replies_expected
                 
                 	# of replies expected to arrive
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: up
                 
                 	is the server UP or down ?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: conn_up
                 
                 	is the server connected ?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: single_connect
                 
                 	is this a single connect server ?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_private
                 
                 	is this a private server ?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: vrf_name
                 
                 	VRF in which server is reachable
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..33
                 
                 .. attribute:: addr_buf
                 
                 	IP address buffer
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..46
                 
                 .. attribute:: family
                 
                 	IP address Family
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..5
                 
@@ -5400,7 +5404,7 @@ class Aaa(Entity):
             .. attribute:: server_group
             
             	server group
-            	**type**\: list of    :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
+            	**type**\: list of  		 :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
             
             
 
@@ -5434,26 +5438,26 @@ class Aaa(Entity):
                 .. attribute:: group_name
                 
                 	name of the server group
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: sg_map_num
                 
                 	server group mapped number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: vrf_name
                 
                 	vrf of the group
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..33
                 
                 .. attribute:: server
                 
                 	list of servers in this group
-                	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
+                	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
                 
                 
 
@@ -5493,26 +5497,28 @@ class Aaa(Entity):
                     .. attribute:: addr
                     
                     	internet address of T+ server
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: timeout
                     
                     	per\-server timeout
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: port
                     
                     	per server port to use
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bytes_in
                     
                     	# of bytes read
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5521,7 +5527,7 @@ class Aaa(Entity):
                     .. attribute:: bytes_out
                     
                     	# of bytes out
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5530,90 +5536,90 @@ class Aaa(Entity):
                     .. attribute:: closes
                     
                     	socket closes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: opens
                     
                     	socket opens
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: errors
                     
                     	error count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: aborts
                     
                     	abort count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: paks_in
                     
                     	# of incoming packets read
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: paks_out
                     
                     	# of outgoing packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: replies_expected
                     
                     	# of replies expected to arrive
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: up
                     
                     	is the server UP or down ?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: conn_up
                     
                     	is the server connected ?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: single_connect
                     
                     	is this a single connect server ?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_private
                     
                     	is this a private server ?
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: vrf_name
                     
                     	VRF in which server is reachable
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..33
                     
                     .. attribute:: addr_buf
                     
                     	IP address buffer
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..46
                     
                     .. attribute:: family
                     
                     	IP address Family
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..5
                     

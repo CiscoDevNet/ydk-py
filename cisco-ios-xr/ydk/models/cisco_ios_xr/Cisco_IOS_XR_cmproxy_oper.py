@@ -25,7 +25,7 @@ class SdrInventoryVm(Entity):
     .. attribute:: nodes
     
     	Node directory
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class SdrInventoryVm(Entity):
         .. attribute:: node
         
         	Node name
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node>`
         
         
 
@@ -93,12 +93,14 @@ class SdrInventoryVm(Entity):
             .. attribute:: name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: node_entries
             
             	VM Information
-            	**type**\:   :py:class:`NodeEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node.NodeEntries>`
+            	**type**\:  :py:class:`NodeEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node.NodeEntries>`
             
             
 
@@ -137,7 +139,7 @@ class SdrInventoryVm(Entity):
                 .. attribute:: node_entry
                 
                 	VM information for a node
-                	**type**\: list of    :py:class:`NodeEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry>`
+                	**type**\: list of  		 :py:class:`NodeEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry>`
                 
                 
 
@@ -170,110 +172,112 @@ class SdrInventoryVm(Entity):
                     .. attribute:: name  <key>
                     
                     	Node name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: valid
                     
                     	valid flag
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: card_type
                     
                     	card type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: card_type_string
                     
                     	card type string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: nodeid
                     
                     	node ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: node_name
                     
                     	node name string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: partner_id
                     
                     	partner node id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: partner_name
                     
                     	partner name string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: red_state
                     
                     	redundancy state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: red_state_string
                     
                     	redundancy state string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: node_sw_state
                     
                     	current software state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: node_sw_state_string
                     
                     	current software state string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: prev_sw_state
                     
                     	previous software state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prev_sw_state_string
                     
                     	previous software state string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: node_ip
                     
                     	node IP address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: node_ipv4_string
                     
                     	node IPv4 address string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..16
                     

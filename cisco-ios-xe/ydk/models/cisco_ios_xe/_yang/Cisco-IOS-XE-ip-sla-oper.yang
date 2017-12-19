@@ -25,6 +25,11 @@ module Cisco-IOS-XE-ip-sla-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-08-22 {
+    description
+      "Addition of ICMP echo operational type enum";
+    reference "2.1.0";
+  }
   revision 2017-04-01 {
     description
       "Enum name changes. Remove when clauses";
@@ -73,6 +78,9 @@ module Cisco-IOS-XE-ip-sla-oper {
       }
       enum "oper-type-path-jitter" {
         value 11;
+      }
+      enum "oper-type-icmp-echo" {
+        value 12;
       }
     }
     description

@@ -39,17 +39,17 @@ class INTEGRATEDSERVICESMIB(Entity):
     .. attribute:: intsrvgenobjects
     
     	
-    	**type**\:   :py:class:`Intsrvgenobjects <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvgenobjects>`
+    	**type**\:  :py:class:`Intsrvgenobjects <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvgenobjects>`
     
     .. attribute:: intsrvifattribtable
     
     	The reservable attributes of the system's  in\- terfaces
-    	**type**\:   :py:class:`Intsrvifattribtable <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvifattribtable>`
+    	**type**\:  :py:class:`Intsrvifattribtable <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvifattribtable>`
     
     .. attribute:: intsrvflowtable
     
     	Information describing the reserved flows  us\- ing the system's interfaces
-    	**type**\:   :py:class:`Intsrvflowtable <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvflowtable>`
+    	**type**\:  :py:class:`Intsrvflowtable <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvflowtable>`
     
     
 
@@ -93,7 +93,7 @@ class INTEGRATEDSERVICESMIB(Entity):
         .. attribute:: intsrvflownewindex
         
         	This  object  is  used  to  assign  values  to intSrvFlowNumber  as described in 'Textual Con\- ventions  for  SNMPv2'.   The  network  manager reads  the  object,  and  then writes the value back in the SET that creates a new instance  of intSrvFlowEntry.   If  the  SET  fails with the code 'inconsistentValue', then the process must be  repeated; If the SET succeeds, then the ob\- ject is incremented, and the  new  instance  is created according to the manager's directions
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
@@ -130,7 +130,7 @@ class INTEGRATEDSERVICESMIB(Entity):
         .. attribute:: intsrvifattribentry
         
         	The reservable attributes of  a  given  inter\- face
-        	**type**\: list of    :py:class:`Intsrvifattribentry <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvifattribtable.Intsrvifattribentry>`
+        	**type**\: list of  		 :py:class:`Intsrvifattribentry <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvifattribtable.Intsrvifattribentry>`
         
         
 
@@ -165,7 +165,7 @@ class INTEGRATEDSERVICESMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -174,7 +174,7 @@ class INTEGRATEDSERVICESMIB(Entity):
             .. attribute:: intsrvifattriballocatedbits
             
             	The number of bits/second currently  allocated to reserved sessions on the interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -183,7 +183,7 @@ class INTEGRATEDSERVICESMIB(Entity):
             .. attribute:: intsrvifattribmaxallocatedbits
             
             	The maximum number of bits/second that may  be allocated  to  reserved  sessions on the inter\- face
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -192,7 +192,7 @@ class INTEGRATEDSERVICESMIB(Entity):
             .. attribute:: intsrvifattriballocatedbuffer
             
             	The amount of buffer space  required  to  hold the simultaneous burst of all reserved flows on the interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -201,14 +201,14 @@ class INTEGRATEDSERVICESMIB(Entity):
             .. attribute:: intsrvifattribflows
             
             	The number of reserved flows currently  active on  this  interface.  A flow can be created ei\- ther from a reservation protocol (such as  RSVP or ST\-II) or via configuration information
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: intsrvifattribpropagationdelay
             
             	The amount of propagation delay that this  in\- terface  introduces  in addition to that intro\- diced by bit propagation delays
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -217,7 +217,7 @@ class INTEGRATEDSERVICESMIB(Entity):
             .. attribute:: intsrvifattribstatus
             
             	'active' on interfaces that are configured for RSVP
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -264,7 +264,7 @@ class INTEGRATEDSERVICESMIB(Entity):
         .. attribute:: intsrvflowentry
         
         	Information describing the use of a given  in\- terface   by   a   given   flow.   The  counter intSrvFlowPoliced starts counting  at  the  in\- stallation of the flow
-        	**type**\: list of    :py:class:`Intsrvflowentry <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvflowtable.Intsrvflowentry>`
+        	**type**\: list of  		 :py:class:`Intsrvflowentry <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvflowtable.Intsrvflowentry>`
         
         
 
@@ -301,96 +301,96 @@ class INTEGRATEDSERVICESMIB(Entity):
             .. attribute:: intsrvflownumber  <key>
             
             	The number of this flow.  This is for SNMP In\- dexing purposes only and has no relation to any protocol value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: intsrvflowtype
             
             	The type of session (IP4, IP6, IP6  with  flow information, etc)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: intsrvflowowner
             
             	The process that installed this  flow  in  the queue policy database
-            	**type**\:   :py:class:`Intsrvflowowner <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvflowtable.Intsrvflowentry.Intsrvflowowner>`
+            	**type**\:  :py:class:`Intsrvflowowner <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.Intsrvflowtable.Intsrvflowentry.Intsrvflowowner>`
             
             .. attribute:: intsrvflowdestaddr
             
             	The destination address used by all senders in this  session.   This object may not be changed when the value of the RowStatus object is  'ac\- tive'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: intsrvflowsenderaddr
             
             	The source address of the sender  selected  by this  reservation.  The value of all zeroes in\- dicates 'all senders'.  This object may not  be changed  when the value of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: intsrvflowdestaddrlength
             
             	The length of the destination address in bits. This  is  the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.  This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..128
             
             .. attribute:: intsrvflowsenderaddrlength
             
             	The length of the sender's  address  in  bits. This  is  the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.  This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..128
             
             .. attribute:: intsrvflowprotocol
             
             	The IP Protocol used by a session.   This  ob\- ject  may  not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: intsrvflowdestport
             
             	The UDP or TCP port number used as a  destina\- tion  port for all senders in this session.  If the  IP   protocol   in   use,   specified   by intSrvResvFwdProtocol,  is 50 (ESP) or 51 (AH), this  represents  a  virtual  destination  port number.   A value of zero indicates that the IP protocol in use does not have ports.  This  ob\- ject  may  not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2..4
             
             .. attribute:: intsrvflowport
             
             	The UDP or TCP port number used  as  a  source port  for  this sender in this session.  If the IP    protocol    in    use,    specified    by intSrvResvFwdProtocol  is  50 (ESP) or 51 (AH), this represents a generalized  port  identifier (GPI).   A  value of zero indicates that the IP protocol in use does not have ports.  This  ob\- ject  may  not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2..4
             
             .. attribute:: intsrvflowflowid
             
             	The flow ID that  this  sender  is  using,  if this  is  an IPv6 session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..16777215
             
             .. attribute:: intsrvflowinterface
             
             	The ifIndex value of the  interface  on  which this reservation exists
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: intsrvflowifaddr
             
             	The IP Address on the ifEntry  on  which  this reservation  exists.  This is present primarily to support those interfaces which layer  multi\- ple IP Addresses on the interface
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: intsrvflowrate
             
             	The Reserved Rate of the sender's data stream. If this is a Controlled Load service flow, this rate is derived from the Tspec  rate  parameter (r).   If  this  is  a Guaranteed service flow, this rate is derived from  the  Rspec  clearing rate parameter (R)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -399,7 +399,7 @@ class INTEGRATEDSERVICESMIB(Entity):
             .. attribute:: intsrvflowburst
             
             	The size of the largest  burst  expected  from the sender at a time.  If this is less than  the  sender's  advertised burst  size, the receiver is asking the network to provide flow pacing  beyond  what  would  be provided  under normal circumstances. Such pac\- ing is at the network's option
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -408,66 +408,66 @@ class INTEGRATEDSERVICESMIB(Entity):
             .. attribute:: intsrvflowweight
             
             	The weight used  to  prioritize  the  traffic. Note  that the interpretation of this object is implementation\-specific,   as   implementations vary in their use of weighting procedures
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: intsrvflowqueue
             
             	The number of the queue used by this  traffic. Note  that the interpretation of this object is implementation\-specific,   as   implementations vary in their use of queue identifiers
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: intsrvflowmintu
             
             	The minimum message size for  this  flow.  The policing  algorithm will treat smaller messages as though they are this size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: intsrvflowmaxtu
             
             	The maximum datagram size for this  flow  that will conform to the traffic specification. This value cannot exceed the MTU of the interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: intsrvflowbesteffort
             
             	The number of packets that  were  remanded  to best effort service
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: intsrvflowpoliced
             
             	The number of packets policed since the incep\- tion of the flow's service
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: intsrvflowdiscard
             
             	If 'true', the flow  is  to  incur  loss  when traffic is policed.  If 'false', policed traff\- ic is treated as best effort traffic
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: intsrvflowservice
             
             	The QoS service being applied to this flow
-            	**type**\:   :py:class:`QosService <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.QosService>`
+            	**type**\:  :py:class:`QosService <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.QosService>`
             
             .. attribute:: intsrvfloworder
             
             	In the event of ambiguity, the order in  which the  classifier  should  make  its comparisons. The row with intSrvFlowOrder=0 is tried  first, and  comparisons  proceed  in  the order of in\- creasing value.  Non\-serial implementations  of the classifier should emulate this behavior
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: intsrvflowstatus
             
             	'active' for all active  flows.   This  object may be used to install static classifier infor\- mation, delete classifier information,  or  au\- thorize such
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 

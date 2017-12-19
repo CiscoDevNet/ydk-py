@@ -40,7 +40,7 @@ class FabVqiConfig(Entity):
     .. attribute:: mode
     
     	Mode Type
-    	**type**\:   :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fab_cfg.FabVqiConfig.Mode>`
+    	**type**\:  :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fab_cfg.FabVqiConfig.Mode>`
     
     
 
@@ -74,12 +74,12 @@ class FabVqiConfig(Entity):
         .. attribute:: fab_mode_type_xr
         
         	Mode Type
-        	**type**\:   :py:class:`Asr9kFabMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fab_cfg.Asr9kFabMode>`
+        	**type**\:  :py:class:`Asr9kFabMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fab_cfg.Asr9kFabMode>`
         
         .. attribute:: fab_mode_type
         
         	Mode Type
-        	**type**\:   :py:class:`Asr9kFabMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fab_cfg.Asr9kFabMode>`
+        	**type**\:  :py:class:`Asr9kFabMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fab_cfg.Asr9kFabMode>`
         
         
 

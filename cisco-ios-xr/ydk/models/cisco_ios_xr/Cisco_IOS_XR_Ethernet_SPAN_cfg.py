@@ -129,7 +129,7 @@ class SpanMonitorSession(Entity):
     .. attribute:: sessions
     
     	Monitor\-session configuration commands
-    	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions>`
+    	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions>`
     
     
 
@@ -163,7 +163,7 @@ class SpanMonitorSession(Entity):
         .. attribute:: session
         
         	Configuration for a particular Monitor Session
-        	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session>`
+        	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session>`
         
         
 
@@ -197,19 +197,19 @@ class SpanMonitorSession(Entity):
             .. attribute:: session  <key>
             
             	Session Name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..79
             
             .. attribute:: destination
             
             	Specify a destination
-            	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session.Destination>`
+            	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session.Destination>`
             
             .. attribute:: class_
             
             	Enable a Monitor Session.  Setting this item causes the Monitor Session to be created
-            	**type**\:   :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
+            	**type**\:  :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
             
             	**default value**\: ethernet
             
@@ -252,22 +252,28 @@ class SpanMonitorSession(Entity):
                 .. attribute:: destination_type
                 
                 	Specify the type of destination
-                	**type**\:   :py:class:`SpanDestination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanDestination>`
+                	**type**\:  :py:class:`SpanDestination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanDestination>`
                 
                 .. attribute:: destination_interface_name
                 
                 	Specify the destination interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: destination_ipv4_address
                 
                 	Specify the destination next\-hop IPv4 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: destination_ipv6_address
                 
                 	Specify the destination next\-hop IPv6 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 
 

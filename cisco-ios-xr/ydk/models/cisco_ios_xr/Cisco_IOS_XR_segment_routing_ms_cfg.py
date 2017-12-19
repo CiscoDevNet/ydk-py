@@ -46,26 +46,26 @@ class Sr(Entity):
     .. attribute:: global_block
     
     	Global Block Segment Routing
-    	**type**\:   :py:class:`GlobalBlock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.GlobalBlock>`
+    	**type**\:  :py:class:`GlobalBlock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.GlobalBlock>`
     
     	**presence node**\: True
     
     .. attribute:: local_block
     
     	Segment Routing Local Block of Labels
-    	**type**\:   :py:class:`LocalBlock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.LocalBlock>`
+    	**type**\:  :py:class:`LocalBlock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.LocalBlock>`
     
     	**presence node**\: True
     
     .. attribute:: mappings
     
     	Mapping Server
-    	**type**\:   :py:class:`Mappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.Mappings>`
+    	**type**\:  :py:class:`Mappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.Mappings>`
     
     .. attribute:: enable
     
     	enable SR
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -112,7 +112,7 @@ class Sr(Entity):
         .. attribute:: lower_bound
         
         	SRGB Lower Bound
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 16000..1048574
         
@@ -121,7 +121,7 @@ class Sr(Entity):
         .. attribute:: upper_bound
         
         	SRGB Upper Bound
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 16001..1048575
         
@@ -164,7 +164,7 @@ class Sr(Entity):
         .. attribute:: lower_bound
         
         	SRLB Lower Bound
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 15000..1048574
         
@@ -173,7 +173,7 @@ class Sr(Entity):
         .. attribute:: upper_bound
         
         	SRLB Upper Bound
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 15001..1048575
         
@@ -216,7 +216,7 @@ class Sr(Entity):
         .. attribute:: mapping
         
         	IP prefix to SID mapping
-        	**type**\: list of    :py:class:`Mapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.Mappings.Mapping>`
+        	**type**\: list of  		 :py:class:`Mapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.Mappings.Mapping>`
         
         
 
@@ -250,38 +250,42 @@ class Sr(Entity):
             .. attribute:: af  <key>
             
             	Address Family
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: ip  <key>
             
             	IP prefix
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: mask  <key>
             
             	Mask
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: sid_start
             
             	Start of SID index range
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1048575
             
             .. attribute:: sid_range
             
             	Range (number of SIDs)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: flag_attached
             
             	Enable/Disable Attached flag
-            	**type**\:   :py:class:`SrmsMiFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.SrmsMiFlag>`
+            	**type**\:  :py:class:`SrmsMiFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.SrmsMiFlag>`
             
             
 

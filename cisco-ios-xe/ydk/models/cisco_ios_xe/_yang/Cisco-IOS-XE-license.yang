@@ -26,6 +26,10 @@ submodule Cisco-IOS-XE-license {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-05-25 {
+    description
+      "Add licenses ax and security";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -235,6 +239,20 @@ submodule Cisco-IOS-XE-license {
               leaf appxk9 {
                 description
                   "Appxk9 License Level";
+                type empty;
+              }
+            }
+            case ax-case {
+              leaf ax {
+                description
+                  "ax(ipb+sec+appx) License Level";
+                type empty;
+              }
+            }
+            case security-case {
+              leaf security {
+                description
+                  "Security License Level";
                 type empty;
               }
             }

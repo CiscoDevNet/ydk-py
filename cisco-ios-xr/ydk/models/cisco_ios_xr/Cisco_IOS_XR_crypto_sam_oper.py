@@ -254,32 +254,32 @@ class Sam(Entity):
     .. attribute:: system_information
     
     	SAM system information
-    	**type**\:   :py:class:`SystemInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.SystemInformation>`
+    	**type**\:  :py:class:`SystemInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.SystemInformation>`
     
     .. attribute:: log_contents
     
     	SAM log content table information
-    	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents>`
+    	**type**\:  :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents>`
     
     .. attribute:: devices
     
     	Certificate device table information
-    	**type**\:   :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices>`
+    	**type**\:  :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices>`
     
     .. attribute:: packages
     
     	SAM certificate information  package
-    	**type**\:   :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages>`
+    	**type**\:  :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages>`
     
     .. attribute:: certificate_revocations
     
     	Certificate revocation list index table information
-    	**type**\:   :py:class:`CertificateRevocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations>`
+    	**type**\:  :py:class:`CertificateRevocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations>`
     
     .. attribute:: certificate_revocation_list_summary
     
     	Certificate revocation list summary information 
-    	**type**\:   :py:class:`CertificateRevocationListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary>`
+    	**type**\:  :py:class:`CertificateRevocationListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary>`
     
     
 
@@ -338,12 +338,12 @@ class Sam(Entity):
         .. attribute:: is_running
         
         	True if SAM status information runs
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: prompt_interval
         
         	Prompt interval atreboot time in seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -352,7 +352,7 @@ class Sam(Entity):
         .. attribute:: is_default_response
         
         	True if promptdefault response is true
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -390,7 +390,7 @@ class Sam(Entity):
         .. attribute:: log_content
         
         	Number of lines for SAM log message
-        	**type**\: list of    :py:class:`LogContent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent>`
+        	**type**\: list of  		 :py:class:`LogContent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent>`
         
         
 
@@ -424,28 +424,28 @@ class Sam(Entity):
             .. attribute:: number_of_lines  <key>
             
             	Number of lines
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: total_entries
             
             	Total log entries available
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: entries_shown
             
             	Total entries shown
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: logs
             
             	SAM logs
-            	**type**\: list of    :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent.Logs>`
+            	**type**\: list of  		 :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent.Logs>`
             
             
 
@@ -485,61 +485,61 @@ class Sam(Entity):
                 .. attribute:: time
                 
                 	Log time
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: code
                 
                 	Log code
-                	**type**\:   :py:class:`LogCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogCode>`
+                	**type**\:  :py:class:`LogCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogCode>`
                 
                 .. attribute:: target_device
                 
                 	Target device
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: index
                 
                 	Device index
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: error
                 
                 	Log error message
-                	**type**\:   :py:class:`LogError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogError>`
+                	**type**\:  :py:class:`LogError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogError>`
                 
                 .. attribute:: issuer
                 
                 	Issuer of the certificate
-                	**type**\:   :py:class:`CertificateIssuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.CertificateIssuer>`
+                	**type**\:  :py:class:`CertificateIssuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.CertificateIssuer>`
                 
                 .. attribute:: serial_no
                 
                 	Serial number
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: sam_table_index
                 
                 	SAM table index
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: update_time
                 
                 	Last update time of the certificate
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: source_device
                 
                 	source device name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: table
                 
                 	Log table information
-                	**type**\:   :py:class:`LogTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogTables>`
+                	**type**\:  :py:class:`LogTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogTables>`
                 
                 
 
@@ -592,7 +592,7 @@ class Sam(Entity):
         .. attribute:: device
         
         	Certificate table device information
-        	**type**\: list of    :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device>`
+        	**type**\: list of  		 :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device>`
         
         
 
@@ -626,12 +626,14 @@ class Sam(Entity):
             .. attribute:: device_name  <key>
             
             	Specify device name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: certificate
             
             	Certificate table information
-            	**type**\:   :py:class:`Certificate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate>`
+            	**type**\:  :py:class:`Certificate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate>`
             
             
 
@@ -670,12 +672,12 @@ class Sam(Entity):
                 .. attribute:: brief
                 
                 	Certificate table brief information
-                	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.Brief>`
+                	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.Brief>`
                 
                 .. attribute:: certificate_indexes
                 
                 	Certificate detail index table information
-                	**type**\:   :py:class:`CertificateIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes>`
+                	**type**\:  :py:class:`CertificateIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes>`
                 
                 
 
@@ -713,17 +715,17 @@ class Sam(Entity):
                     .. attribute:: certificate_flags
                     
                     	Certificate flags
-                    	**type**\:   :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.Brief.CertificateFlags>`
+                    	**type**\:  :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.Brief.CertificateFlags>`
                     
                     .. attribute:: location
                     
                     	Certificate location
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: certificate_index
                     
                     	Certificate index
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -765,22 +767,22 @@ class Sam(Entity):
                         .. attribute:: is_trusted
                         
                         	Trusted flag
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_revoked
                         
                         	Revoked flag
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_expired
                         
                         	Expired flag
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_validated
                         
                         	Validated flag
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -819,7 +821,7 @@ class Sam(Entity):
                     .. attribute:: certificate_index
                     
                     	Certificate detail index information
-                    	**type**\: list of    :py:class:`CertificateIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex>`
+                    	**type**\: list of  		 :py:class:`CertificateIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex>`
                     
                     
 
@@ -852,14 +854,14 @@ class Sam(Entity):
                         .. attribute:: index  <key>
                         
                         	Specify certificate index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: detail
                         
                         	Certificate table detail information
-                        	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail>`
+                        	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail>`
                         
                         
 
@@ -897,17 +899,17 @@ class Sam(Entity):
                             .. attribute:: certificate_flags
                             
                             	Certificate flags
-                            	**type**\:   :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags>`
+                            	**type**\:  :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags>`
                             
                             .. attribute:: location
                             
                             	Certificate location
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: certificate_index
                             
                             	Certificate index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -949,22 +951,22 @@ class Sam(Entity):
                                 .. attribute:: is_trusted
                                 
                                 	Trusted flag
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: is_revoked
                                 
                                 	Revoked flag
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: is_expired
                                 
                                 	Expired flag
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: is_validated
                                 
                                 	Validated flag
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -1003,7 +1005,7 @@ class Sam(Entity):
         .. attribute:: package
         
         	SAM certificate information for a specific package
-        	**type**\: list of    :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages.Package>`
+        	**type**\: list of  		 :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages.Package>`
         
         
 
@@ -1038,22 +1040,22 @@ class Sam(Entity):
             .. attribute:: package_name  <key>
             
             	Specify package name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: certificate_flags
             
             	Certificate flags
-            	**type**\:   :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages.Package.CertificateFlags>`
+            	**type**\:  :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages.Package.CertificateFlags>`
             
             .. attribute:: location
             
             	Certificate location
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: certificate_index
             
             	Certificate index
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -1098,22 +1100,22 @@ class Sam(Entity):
                 .. attribute:: is_trusted
                 
                 	Trusted flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_revoked
                 
                 	Revoked flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_expired
                 
                 	Expired flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_validated
                 
                 	Validated flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -1153,7 +1155,7 @@ class Sam(Entity):
         .. attribute:: certificate_revocation
         
         	Certificate revocation list index information
-        	**type**\: list of    :py:class:`CertificateRevocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation>`
+        	**type**\: list of  		 :py:class:`CertificateRevocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation>`
         
         
 
@@ -1187,14 +1189,14 @@ class Sam(Entity):
             .. attribute:: crl_index  <key>
             
             	CRL index
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: certificate_revocation_list_detail
             
             	Certificate revocation list detail information
-            	**type**\:   :py:class:`CertificateRevocationListDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail>`
+            	**type**\:  :py:class:`CertificateRevocationListDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail>`
             
             
 
@@ -1233,19 +1235,19 @@ class Sam(Entity):
                 .. attribute:: issuer
                 
                 	Issuer name
-                	**type**\:   :py:class:`Issuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer>`
+                	**type**\:  :py:class:`Issuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer>`
                 
                 .. attribute:: crl_index
                 
                 	 CRL index
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: updates
                 
                 	Updated time of CRL is displayed
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -1285,17 +1287,17 @@ class Sam(Entity):
                     .. attribute:: common_name
                     
                     	Common name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: organization
                     
                     	Organization
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: country
                     
                     	Country
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -1332,19 +1334,19 @@ class Sam(Entity):
         .. attribute:: issuer
         
         	Issuer name
-        	**type**\:   :py:class:`Issuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary.Issuer>`
+        	**type**\:  :py:class:`Issuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary.Issuer>`
         
         .. attribute:: crl_index
         
         	 CRL index
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
         .. attribute:: updates
         
         	Updated time of CRL is displayed
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -1385,17 +1387,17 @@ class Sam(Entity):
             .. attribute:: common_name
             
             	Common name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: organization
             
             	Organization
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: country
             
             	Country
-            	**type**\:  str
+            	**type**\: str
             
             
 

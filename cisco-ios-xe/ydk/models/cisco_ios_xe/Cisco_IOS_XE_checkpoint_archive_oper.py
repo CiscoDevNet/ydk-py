@@ -20,26 +20,26 @@ class CheckpointArchives(Entity):
     .. attribute:: max
     
     	The maxium number of archives
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..255
     
     .. attribute:: current
     
     	The current number of archives
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..255
     
     .. attribute:: recent
     
     	The most recent archive
-    	**type**\:  str
+    	**type**\: str
     
     .. attribute:: archives
     
     	Archive information
-    	**type**\:   :py:class:`Archives <ydk.models.cisco_ios_xe.Cisco_IOS_XE_checkpoint_archive_oper.CheckpointArchives.Archives>`
+    	**type**\:  :py:class:`Archives <ydk.models.cisco_ios_xe.Cisco_IOS_XE_checkpoint_archive_oper.CheckpointArchives.Archives>`
     
     
 
@@ -82,7 +82,7 @@ class CheckpointArchives(Entity):
         .. attribute:: archive
         
         	List of archives
-        	**type**\: list of    :py:class:`Archive <ydk.models.cisco_ios_xe.Cisco_IOS_XE_checkpoint_archive_oper.CheckpointArchives.Archives.Archive>`
+        	**type**\: list of  		 :py:class:`Archive <ydk.models.cisco_ios_xe.Cisco_IOS_XE_checkpoint_archive_oper.CheckpointArchives.Archives.Archive>`
         
         
 
@@ -116,14 +116,14 @@ class CheckpointArchives(Entity):
             .. attribute:: number  <key>
             
             	The archive number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: name
             
             	The name of the archive
-            	**type**\:  str
+            	**type**\: str
             
             
 

@@ -361,67 +361,67 @@ class Ptp(Entity):
     .. attribute:: nodes
     
     	Table for node\-specific operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes>`
     
     .. attribute:: interface_configuration_errors
     
     	Table for interface configuration error operational data
-    	**type**\:   :py:class:`InterfaceConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceConfigurationErrors>`
+    	**type**\:  :py:class:`InterfaceConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceConfigurationErrors>`
     
     .. attribute:: interface_foreign_masters
     
     	Table for interface foreign master clock operational data
-    	**type**\:   :py:class:`InterfaceForeignMasters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters>`
+    	**type**\:  :py:class:`InterfaceForeignMasters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters>`
     
     .. attribute:: local_clock
     
     	Local clock operational data
-    	**type**\:   :py:class:`LocalClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LocalClock>`
+    	**type**\:  :py:class:`LocalClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LocalClock>`
     
     .. attribute:: interface_packet_counters
     
     	Table for interface packet counter operational data
-    	**type**\:   :py:class:`InterfacePacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters>`
+    	**type**\:  :py:class:`InterfacePacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters>`
     
     .. attribute:: advertised_clock
     
     	Advertised clock operational data
-    	**type**\:   :py:class:`AdvertisedClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.AdvertisedClock>`
+    	**type**\:  :py:class:`AdvertisedClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.AdvertisedClock>`
     
     .. attribute:: leap_seconds
     
     	Upcoming leap\-seconds information
-    	**type**\:   :py:class:`LeapSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LeapSeconds>`
+    	**type**\:  :py:class:`LeapSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LeapSeconds>`
     
     .. attribute:: interfaces
     
     	Table for interface operational data
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces>`
     
     .. attribute:: dataset
     
     	Global PTP datasets
-    	**type**\:   :py:class:`Dataset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset>`
+    	**type**\:  :py:class:`Dataset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset>`
     
     .. attribute:: global_configuration_error
     
     	Global configuration error operational data
-    	**type**\:   :py:class:`GlobalConfigurationError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.GlobalConfigurationError>`
+    	**type**\:  :py:class:`GlobalConfigurationError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.GlobalConfigurationError>`
     
     .. attribute:: grandmaster
     
     	Grandmaster clock operational data
-    	**type**\:   :py:class:`Grandmaster <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster>`
+    	**type**\:  :py:class:`Grandmaster <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster>`
     
     .. attribute:: interface_unicast_peers
     
     	Table for interface unicast peers operational data
-    	**type**\:   :py:class:`InterfaceUnicastPeers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers>`
+    	**type**\:  :py:class:`InterfaceUnicastPeers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers>`
     
     .. attribute:: platform
     
     	PTP platform specific data
-    	**type**\:   :py:class:`Platform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform>`
+    	**type**\:  :py:class:`Platform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform>`
     
     
 
@@ -438,7 +438,7 @@ class Ptp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ptp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Ptp.Nodes), "interface-configuration-errors" : ("interface_configuration_errors", Ptp.InterfaceConfigurationErrors), "interface-foreign-masters" : ("interface_foreign_masters", Ptp.InterfaceForeignMasters), "local-clock" : ("local_clock", Ptp.LocalClock), "interface-packet-counters" : ("interface_packet_counters", Ptp.InterfacePacketCounters), "advertised-clock" : ("advertised_clock", Ptp.AdvertisedClock), "leap-seconds" : ("leap_seconds", Ptp.LeapSeconds), "interfaces" : ("interfaces", Ptp.Interfaces), "dataset" : ("dataset", Ptp.Dataset), "global-configuration-error" : ("global_configuration_error", Ptp.GlobalConfigurationError), "grandmaster" : ("grandmaster", Ptp.Grandmaster), "interface-unicast-peers" : ("interface_unicast_peers", Ptp.InterfaceUnicastPeers), "platform" : ("platform", Ptp.Platform)}
+        self._child_container_classes = {"nodes" : ("nodes", Ptp.Nodes), "interface-configuration-errors" : ("interface_configuration_errors", Ptp.InterfaceConfigurationErrors), "interface-foreign-masters" : ("interface_foreign_masters", Ptp.InterfaceForeignMasters), "local-clock" : ("local_clock", Ptp.LocalClock), "interface-packet-counters" : ("interface_packet_counters", Ptp.InterfacePacketCounters), "advertised-clock" : ("advertised_clock", Ptp.AdvertisedClock), "leap-seconds" : ("leap_seconds", Ptp.LeapSeconds), "interfaces" : ("interfaces", Ptp.Interfaces), "dataset" : ("dataset", Ptp.Dataset), "global-configuration-error" : ("global_configuration_error", Ptp.GlobalConfigurationError), "grandmaster" : ("grandmaster", Ptp.Grandmaster), "interface-unicast-peers" : ("interface_unicast_peers", Ptp.InterfaceUnicastPeers), "Cisco-IOS-XR-ptp-pd-oper:platform" : ("platform", Ptp.Platform)}
         self._child_list_classes = {}
 
         self.nodes = Ptp.Nodes()
@@ -515,7 +515,7 @@ class Ptp(Entity):
         .. attribute:: node
         
         	Node\-specific operational data for a given node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node>`
         
         
 
@@ -549,32 +549,34 @@ class Ptp(Entity):
             .. attribute:: node_name  <key>
             
             	Node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: node_interface_foreign_masters
             
             	Table for node foreign master clock operational data
-            	**type**\:   :py:class:`NodeInterfaceForeignMasters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters>`
+            	**type**\:  :py:class:`NodeInterfaceForeignMasters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters>`
             
             .. attribute:: summary
             
             	Node summary operational data
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.Summary>`
+            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.Summary>`
             
             .. attribute:: node_interfaces
             
             	Table for node interface operational data
-            	**type**\:   :py:class:`NodeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces>`
+            	**type**\:  :py:class:`NodeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces>`
             
             .. attribute:: node_interface_unicast_peers
             
             	Table for node unicast peers operational data
-            	**type**\:   :py:class:`NodeInterfaceUnicastPeers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers>`
+            	**type**\:  :py:class:`NodeInterfaceUnicastPeers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers>`
             
             .. attribute:: packet_counters
             
             	Node packet counter operational data
-            	**type**\:   :py:class:`PacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.PacketCounters>`
+            	**type**\:  :py:class:`PacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.PacketCounters>`
             
             
 
@@ -634,7 +636,7 @@ class Ptp(Entity):
                 .. attribute:: node_interface_foreign_master
                 
                 	Node interface foreign master clock operational data
-                	**type**\: list of    :py:class:`NodeInterfaceForeignMaster <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster>`
+                	**type**\: list of  		 :py:class:`NodeInterfaceForeignMaster <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster>`
                 
                 
 
@@ -668,19 +670,21 @@ class Ptp(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: port_number
                     
                     	Port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: foreign_clock
                     
                     	Foreign clocks received on this interface
-                    	**type**\: list of    :py:class:`ForeignClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock>`
+                    	**type**\: list of  		 :py:class:`ForeignClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock>`
                     
                     
 
@@ -717,52 +721,52 @@ class Ptp(Entity):
                         .. attribute:: foreign_clock
                         
                         	Foreign clock information
-                        	**type**\:   :py:class:`ForeignClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock>`
+                        	**type**\:  :py:class:`ForeignClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock>`
                         
                         .. attribute:: address
                         
                         	The address of the clock
-                        	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address>`
+                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address>`
                         
                         .. attribute:: announce_grant
                         
                         	Unicast grant information for announce messages
-                        	**type**\:   :py:class:`AnnounceGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.AnnounceGrant>`
+                        	**type**\:  :py:class:`AnnounceGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.AnnounceGrant>`
                         
                         .. attribute:: sync_grant
                         
                         	Unicast grant information for sync messages
-                        	**type**\:   :py:class:`SyncGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.SyncGrant>`
+                        	**type**\:  :py:class:`SyncGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.SyncGrant>`
                         
                         .. attribute:: delay_response_grant
                         
                         	Unicast grant information for delay\-response messages
-                        	**type**\:   :py:class:`DelayResponseGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.DelayResponseGrant>`
+                        	**type**\:  :py:class:`DelayResponseGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.DelayResponseGrant>`
                         
                         .. attribute:: is_qualified
                         
                         	The clock is qualified for best master clock selection
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_grandmaster
                         
                         	This clock is the currently selected grand master clock
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: communication_model
                         
                         	The communication model configured on this clock
-                        	**type**\:   :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
+                        	**type**\:  :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
                         
                         .. attribute:: is_known
                         
                         	This clock is known by this router
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: time_known_for
                         
                         	How long the clock has been known by this router for, in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -771,40 +775,40 @@ class Ptp(Entity):
                         .. attribute:: foreign_domain
                         
                         	The PTP domain that the foreign clock is in
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: configured_priority
                         
                         	Priority configured for the clock, if any
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: configured_clock_class
                         
                         	Clock class configured for the clock, if any
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: delay_asymmetry
                         
                         	Delay asymmetry configured for the clock, if any
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ptsf_loss_announce
                         
                         	Announced messages are not being received from the master
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: ptsf_loss_sync
                         
                         	Sync messages are not being received from the master
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -882,110 +886,110 @@ class Ptp(Entity):
                             .. attribute:: utc_offset
                             
                             	UTC offset
-                            	**type**\:   :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock.UtcOffset>`
+                            	**type**\:  :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock.UtcOffset>`
                             
                             .. attribute:: receiver
                             
                             	Receiver
-                            	**type**\:   :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock.Receiver>`
+                            	**type**\:  :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock.Receiver>`
                             
                             .. attribute:: sender
                             
                             	Sender
-                            	**type**\:   :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock.Sender>`
+                            	**type**\:  :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock.Sender>`
                             
                             .. attribute:: clock_id
                             
                             	Clock ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: priority1
                             
                             	Priority 1
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: priority2
                             
                             	Priority 2
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: class_
                             
                             	Class
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: accuracy
                             
                             	Accuracy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: offset_log_variance
                             
                             	Offset log variance
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: steps_removed
                             
                             	Steps removed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: time_source
                             
                             	Time source
-                            	**type**\:   :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
+                            	**type**\:  :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
                             
                             .. attribute:: frequency_traceable
                             
                             	The clock is frequency traceable
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: time_traceable
                             
                             	The clock is time traceable
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: timescale
                             
                             	Timescale
-                            	**type**\:   :py:class:`PtpBagClockTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimescale>`
+                            	**type**\:  :py:class:`PtpBagClockTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimescale>`
                             
                             .. attribute:: leap_seconds
                             
                             	Leap Seconds
-                            	**type**\:   :py:class:`PtpBagClockLeapSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockLeapSeconds>`
+                            	**type**\:  :py:class:`PtpBagClockLeapSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockLeapSeconds>`
                             
                             	**units**\: second
                             
                             .. attribute:: local
                             
                             	The clock is the local clock
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: configured_clock_class
                             
                             	The configured clock class
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: configured_priority
                             
                             	The configured priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -1063,14 +1067,14 @@ class Ptp(Entity):
                                 .. attribute:: current_offset
                                 
                                 	Current offset
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-32768..32767
                                 
                                 .. attribute:: offset_valid
                                 
                                 	The current offset is valid
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -1105,14 +1109,14 @@ class Ptp(Entity):
                                 .. attribute:: clock_id
                                 
                                 	Clock ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: port_number
                                 
                                 	Port number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -1149,14 +1153,14 @@ class Ptp(Entity):
                                 .. attribute:: clock_id
                                 
                                 	Clock ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: port_number
                                 
                                 	Port number
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -1193,27 +1197,29 @@ class Ptp(Entity):
                             .. attribute:: mac_address
                             
                             	Ethernet MAC address
-                            	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.MacAddress>`
+                            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.MacAddress>`
                             
                             .. attribute:: ipv6_address
                             
                             	IPv6 address
-                            	**type**\:   :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.Ipv6Address>`
+                            	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.Ipv6Address>`
                             
                             .. attribute:: encapsulation
                             
                             	Encapsulation
-                            	**type**\:   :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
+                            	**type**\:  :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
                             
                             .. attribute:: address_unknown
                             
                             	Unknown address type
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -1260,7 +1266,9 @@ class Ptp(Entity):
                                 .. attribute:: macaddr
                                 
                                 	macaddr
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
                                 
 
@@ -1293,7 +1301,9 @@ class Ptp(Entity):
                                 .. attribute:: ipv6_address
                                 
                                 	IPv6 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -1326,14 +1336,14 @@ class Ptp(Entity):
                             .. attribute:: log_grant_interval
                             
                             	Log of the interval which has been granted
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-128..127
                             
                             .. attribute:: grant_duration
                             
                             	Duraction of the grant
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1370,14 +1380,14 @@ class Ptp(Entity):
                             .. attribute:: log_grant_interval
                             
                             	Log of the interval which has been granted
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-128..127
                             
                             .. attribute:: grant_duration
                             
                             	Duraction of the grant
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1415,14 +1425,14 @@ class Ptp(Entity):
                             .. attribute:: log_grant_interval
                             
                             	Log of the interval which has been granted
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-128..127
                             
                             .. attribute:: grant_duration
                             
                             	Duraction of the grant
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1459,70 +1469,70 @@ class Ptp(Entity):
                 .. attribute:: port_state_init_count
                 
                 	Number of interfaces in 'Init' port state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: port_state_listening_count
                 
                 	Number of interfaces in 'Listening' port state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: port_state_passive_count
                 
                 	Number of interfaces in 'Passive' port state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: port_state_pre_master_count
                 
                 	Number of interfaces in 'Pre\-Master' port state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: port_state_master_count
                 
                 	Number of interfaces in 'Master' port state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: port_state_slave_count
                 
                 	Number of interfaces in 'Slave' port state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: port_state_uncalibrated_count
                 
                 	Number of interfaces in 'Uncalibrated port state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: port_state_faulty_count
                 
                 	Number of interfaces in 'Faulty' port state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_interfaces
                 
                 	Total number of interfaces
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_interfaces_valid_port_num
                 
                 	Total number of interfaces with a valid port number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1575,7 +1585,7 @@ class Ptp(Entity):
                 .. attribute:: node_interface
                 
                 	Node interface operational data
-                	**type**\: list of    :py:class:`NodeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface>`
+                	**type**\: list of  		 :py:class:`NodeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface>`
                 
                 
 
@@ -1608,183 +1618,189 @@ class Ptp(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mac_address
                     
                     	MAC address, if Ethernet encapsulation is being used
-                    	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MacAddress>`
+                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MacAddress>`
                     
                     .. attribute:: port_state
                     
                     	Port state
-                    	**type**\:   :py:class:`PtpBagPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagPortState>`
+                    	**type**\:  :py:class:`PtpBagPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagPortState>`
                     
                     .. attribute:: port_number
                     
                     	Port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: line_state
                     
                     	Line state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: encapsulation
                     
                     	Encapsulation
-                    	**type**\:   :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
+                    	**type**\:  :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
                     
                     .. attribute:: ipv6_address
                     
                     	Ipv6 address, if IPv6 encapsulation is being used
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: ipv4_address
                     
                     	IPv4 address, if IPv4 encapsulation is being used
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: two_step
                     
                     	Two step delay\-request mechanism is being used
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: communication_model
                     
                     	Communication model configured on the interface
-                    	**type**\:   :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
+                    	**type**\:  :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
                     
                     .. attribute:: log_sync_interval
                     
                     	Log of the interface's sync interval
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: log_announce_interval
                     
                     	Log of the interface's announce interval
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: announce_timeout
                     
                     	Announce timeout
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: log_min_delay_request_interval
                     
                     	Log of the interface's Minimum delay\-request interval
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: configured_port_state
                     
                     	The configured port state
-                    	**type**\:   :py:class:`PtpBagRestrictPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagRestrictPortState>`
+                    	**type**\:  :py:class:`PtpBagRestrictPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagRestrictPortState>`
                     
                     .. attribute:: supports_one_step
                     
                     	The interface supports one\-step operation
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: supports_two_step
                     
                     	The interface supports two\-step operation
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: supports_ethernet
                     
                     	The interface supports ethernet transport
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: supports_multicast
                     
                     	The interface supports multicast
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: supports_ipv6
                     
                     	The interface supports IPv6 transport
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: supports_slave
                     
                     	The interface supports operation in slave mode
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: supports_source_ip
                     
                     	The interface supports source ip configuration
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: max_sync_rate
                     
                     	The maximum rate of sync packets on the interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: event_cos
                     
                     	The class of service used on the interface for event messages
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: general_cos
                     
                     	The class of service used on the interface for general messages
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: event_dscp
                     
                     	The DSCP class used on the interface for event messages
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: general_dscp
                     
                     	The DSCP class used on the interface for general messages
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unicast_peers
                     
                     	The number of unicast peers known by the interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: local_priority
                     
                     	Local priority, for the G.8275.1 PTP profile
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: signal_fail
                     
                     	Signal fail status of the interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: master_table
                     
                     	The interface's master table
-                    	**type**\: list of    :py:class:`MasterTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable>`
+                    	**type**\: list of  		 :py:class:`MasterTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable>`
                     
                     
 
@@ -1881,7 +1897,9 @@ class Ptp(Entity):
                         .. attribute:: macaddr
                         
                         	macaddr
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         
 
@@ -1914,53 +1932,53 @@ class Ptp(Entity):
                         .. attribute:: address
                         
                         	The address of the master clock
-                        	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address>`
+                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address>`
                         
                         .. attribute:: communication_model
                         
                         	The configured communication model of the master clock
-                        	**type**\:   :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
+                        	**type**\:  :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
                         
                         .. attribute:: priority
                         
                         	The priority of the master clock, if it is set
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: known
                         
                         	Whether the interface is receiving messages from this master
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: qualified
                         
                         	The master is qualified for best master clock selection
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_grandmaster
                         
                         	Whether this is the grandmaster
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: ptsf_loss_announce
                         
                         	Announced messages are not being received from the master
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: ptsf_loss_sync
                         
                         	Sync messages are not being received from the master
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: is_nonnegotiated
                         
                         	Whether this master uses non\-negotiated unicast
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -2012,27 +2030,29 @@ class Ptp(Entity):
                             .. attribute:: mac_address
                             
                             	Ethernet MAC address
-                            	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.MacAddress>`
+                            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.MacAddress>`
                             
                             .. attribute:: ipv6_address
                             
                             	IPv6 address
-                            	**type**\:   :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.Ipv6Address>`
+                            	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.Ipv6Address>`
                             
                             .. attribute:: encapsulation
                             
                             	Encapsulation
-                            	**type**\:   :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
+                            	**type**\:  :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
                             
                             .. attribute:: address_unknown
                             
                             	Unknown address type
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -2079,7 +2099,9 @@ class Ptp(Entity):
                                 .. attribute:: macaddr
                                 
                                 	macaddr
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
                                 
 
@@ -2112,7 +2134,9 @@ class Ptp(Entity):
                                 .. attribute:: ipv6_address
                                 
                                 	IPv6 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -2145,7 +2169,7 @@ class Ptp(Entity):
                 .. attribute:: node_interface_unicast_peer
                 
                 	Node interface unicast peers operational data
-                	**type**\: list of    :py:class:`NodeInterfaceUnicastPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer>`
+                	**type**\: list of  		 :py:class:`NodeInterfaceUnicastPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer>`
                 
                 
 
@@ -2178,24 +2202,26 @@ class Ptp(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: name
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: port_number
                     
                     	Port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: peers
                     
                     	Unicast Peers
-                    	**type**\: list of    :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers>`
+                    	**type**\: list of  		 :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers>`
                     
                     
 
@@ -2234,22 +2260,22 @@ class Ptp(Entity):
                         .. attribute:: address
                         
                         	The address of the unicast peer
-                        	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address>`
+                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address>`
                         
                         .. attribute:: announce_grant
                         
                         	Unicast grant information for announce messages
-                        	**type**\:   :py:class:`AnnounceGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.AnnounceGrant>`
+                        	**type**\:  :py:class:`AnnounceGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.AnnounceGrant>`
                         
                         .. attribute:: sync_grant
                         
                         	Unicast grant information for sync messages
-                        	**type**\:   :py:class:`SyncGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.SyncGrant>`
+                        	**type**\:  :py:class:`SyncGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.SyncGrant>`
                         
                         .. attribute:: delay_response_grant
                         
                         	Unicast grant information for delay\-response messages
-                        	**type**\:   :py:class:`DelayResponseGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.DelayResponseGrant>`
+                        	**type**\:  :py:class:`DelayResponseGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.DelayResponseGrant>`
                         
                         
 
@@ -2297,27 +2323,29 @@ class Ptp(Entity):
                             .. attribute:: mac_address
                             
                             	Ethernet MAC address
-                            	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address.MacAddress>`
+                            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address.MacAddress>`
                             
                             .. attribute:: ipv6_address
                             
                             	IPv6 address
-                            	**type**\:   :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address.Ipv6Address>`
+                            	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceUnicastPeers.NodeInterfaceUnicastPeer.Peers.Address.Ipv6Address>`
                             
                             .. attribute:: encapsulation
                             
                             	Encapsulation
-                            	**type**\:   :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
+                            	**type**\:  :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
                             
                             .. attribute:: address_unknown
                             
                             	Unknown address type
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -2364,7 +2392,9 @@ class Ptp(Entity):
                                 .. attribute:: macaddr
                                 
                                 	macaddr
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
                                 
 
@@ -2397,7 +2427,9 @@ class Ptp(Entity):
                                 .. attribute:: ipv6_address
                                 
                                 	IPv6 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -2430,14 +2462,14 @@ class Ptp(Entity):
                             .. attribute:: log_grant_interval
                             
                             	Log of the interval which has been granted
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-128..127
                             
                             .. attribute:: grant_duration
                             
                             	Duraction of the grant
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2474,14 +2506,14 @@ class Ptp(Entity):
                             .. attribute:: log_grant_interval
                             
                             	Log of the interval which has been granted
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-128..127
                             
                             .. attribute:: grant_duration
                             
                             	Duraction of the grant
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2519,14 +2551,14 @@ class Ptp(Entity):
                             .. attribute:: log_grant_interval
                             
                             	Log of the interval which has been granted
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-128..127
                             
                             .. attribute:: grant_duration
                             
                             	Duraction of the grant
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2563,12 +2595,12 @@ class Ptp(Entity):
                 .. attribute:: counters
                 
                 	Packet counters
-                	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.PacketCounters.Counters>`
+                	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.PacketCounters.Counters>`
                 
                 .. attribute:: drop_reasons
                 
                 	Drop reasons
-                	**type**\:   :py:class:`DropReasons <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.PacketCounters.DropReasons>`
+                	**type**\:  :py:class:`DropReasons <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.PacketCounters.DropReasons>`
                 
                 
 
@@ -2606,252 +2638,252 @@ class Ptp(Entity):
                     .. attribute:: announce_sent
                     
                     	Number of announce packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: announce_received
                     
                     	Number of announce packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: announce_dropped
                     
                     	Number of announce packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sync_sent
                     
                     	Number of sync packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sync_received
                     
                     	Number of sync packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sync_dropped
                     
                     	Number of sync packetsdropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: follow_up_sent
                     
                     	Number of follow\-up packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: follow_up_received
                     
                     	Number of follow\-up packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: follow_up_dropped
                     
                     	Number of follow\-up packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_request_sent
                     
                     	Number of delay\-request packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_request_received
                     
                     	Number of delay\-request packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_request_dropped
                     
                     	Number of delay\-request packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_response_sent
                     
                     	Number of delay\-response packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_response_received
                     
                     	Number of delay\-response packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_response_dropped
                     
                     	Number of delay\-response packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_request_sent
                     
                     	Number of peer\-delay\-request packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_request_received
                     
                     	Number of peer\-delay\-request packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_request_dropped
                     
                     	Number of peer\-delay\-request packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_response_sent
                     
                     	Number of peer\-delay\-response packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_response_received
                     
                     	Number of peer\-delay\-response packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_response_dropped
                     
                     	Number of peer\-delay\-response packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_response_follow_up_sent
                     
                     	Number of peer\-delay\-response follow\-up packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_response_follow_up_received
                     
                     	Number of peer\-delay\-response follow\-up packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_response_follow_up_dropped
                     
                     	Number of peer\-delay\-response follow\-up packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: signaling_sent
                     
                     	Number of signaling packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: signaling_received
                     
                     	Number of signaling packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: signaling_dropped
                     
                     	Number of signaling packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: management_sent
                     
                     	Number of management messages sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: management_received
                     
                     	Number of management messages received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: management_dropped
                     
                     	Number of management messages dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: other_packets_sent
                     
                     	Number of other packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: other_packets_received
                     
                     	Number of other packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: other_packets_dropped
                     
                     	Number of other packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_packets_sent
                     
                     	Total number of packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_packets_received
                     
                     	Total number of packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_packets_dropped
                     
                     	Total number of packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2956,168 +2988,168 @@ class Ptp(Entity):
                     .. attribute:: not_ready
                     
                     	Not ready for packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: wrong_domain
                     
                     	Wrong domain number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: too_short
                     
                     	Packet too short
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: looped_same_port
                     
                     	Local packet received, same port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: looped_higher_port
                     
                     	Local packet received, higher port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: looped_lower_port
                     
                     	Local packet received, lower port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: no_timestamp
                     
                     	No timestamp received with packet
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: zero_timestamp
                     
                     	Zero timestamp received with packet
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: invalid_tl_vs
                     
                     	Invalid TLVs received in packet
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: not_for_us
                     
                     	Packet not for us
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: not_listening
                     
                     	Not listening for packets on this interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: wrong_master
                     
                     	Packet from incorrect master
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unknown_master
                     
                     	Packet from unknown master
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: not_master
                     
                     	Packet only handled in Master state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: not_slave
                     
                     	Packet only handled in Slave state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: not_granted
                     
                     	Packet from peer not granted unicast
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: too_slow
                     
                     	Packet received too late
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: invalid_packet
                     
                     	Invalid packet or packet metadata
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: wrong_sequence_id
                     
                     	Unexpected sequence ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: no_offload_session
                     
                     	No offload session
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: not_supported
                     
                     	PTP packet type not supported
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: min_clock_class
                     
                     	Clock class below minimum
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: g8275_1_incompatible
                     
                     	Packet not compatible with G.8275.1 profile
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: g8275_2_incompatible
                     
                     	Packet not compatible with G.8275.2 profile
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3199,7 +3231,7 @@ class Ptp(Entity):
         .. attribute:: interface_configuration_error
         
         	Interface configuration error operational data
-        	**type**\: list of    :py:class:`InterfaceConfigurationError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError>`
+        	**type**\: list of  		 :py:class:`InterfaceConfigurationError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError>`
         
         
 
@@ -3233,32 +3265,34 @@ class Ptp(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: configuration_errors
             
             	Configuration Errors
-            	**type**\:   :py:class:`ConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError.ConfigurationErrors>`
+            	**type**\:  :py:class:`ConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError.ConfigurationErrors>`
             
             .. attribute:: configuration_profile_name
             
             	Configuration profile name, if a profile is selected
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: clock_profile
             
             	The clock profile
-            	**type**\:   :py:class:`PtpBagProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagProfile>`
+            	**type**\:  :py:class:`PtpBagProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagProfile>`
             
             .. attribute:: telecom_clock_type
             
             	The telecom clock type
-            	**type**\:   :py:class:`PtpBagTelecomClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagTelecomClock>`
+            	**type**\:  :py:class:`PtpBagTelecomClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagTelecomClock>`
             
             .. attribute:: restrict_port_state
             
             	Restriction on the port state
-            	**type**\:   :py:class:`PtpBagRestrictPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagRestrictPortState>`
+            	**type**\:  :py:class:`PtpBagRestrictPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagRestrictPortState>`
             
             
 
@@ -3305,132 +3339,132 @@ class Ptp(Entity):
                 .. attribute:: global_ptp
                 
                 	PTP enabled on interface but not globally
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: ethernet_transport
                 
                 	Ethernet transport configured but not supported
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: one_step
                 
                 	One step clock operation configured but not supported
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: slave
                 
                 	Slave\-operation configured but not supported
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: ipv6
                 
                 	IPv6 transport configured but not supported
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: multicast
                 
                 	Multicast configured but not supported
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_not_global
                 
                 	Profile is referenced but not globally configured
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: local_priority
                 
                 	Local priority configuration is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_ethernet
                 
                 	Ethernet transport is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_ipv4
                 
                 	IPv6 transport is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_ipv6
                 
                 	IPv6 transport is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_unicast
                 
                 	Unicast is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_multicast
                 
                 	Multicast is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_mixed
                 
                 	Mixed\-mode multicast is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_master_unicast
                 
                 	Unicast master is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_master_multicast
                 
                 	Multicast master is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_master_mixed
                 
                 	Mixed\-mode multicast master is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: target_address_ipv4
                 
                 	Ethernet multicast target\-address is configured, but transport is IPv4
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: target_address_ipv6
                 
                 	Ethernet multicast target\-address is configured, but transport is IPv6
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_port_state
                 
                 	Port state restriction is not compatible with telecom clock type
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_announce_interval
                 
                 	Announce interval is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_sync_interval
                 
                 	Sync interval is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_delay_req_interval
                 
                 	Delay request interval is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_sync_timeout
                 
                 	Sync timeout configuration is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: profile_delay_resp_timeout
                 
                 	Delay response timeout configuration is not compatible with profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: invalid_grant_reduction
                 
                 	Reducing invalid unicast grants is not compatible with configured profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -3514,7 +3548,7 @@ class Ptp(Entity):
         .. attribute:: interface_foreign_master
         
         	Interface foreign master clock operational data
-        	**type**\: list of    :py:class:`InterfaceForeignMaster <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster>`
+        	**type**\: list of  		 :py:class:`InterfaceForeignMaster <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster>`
         
         
 
@@ -3548,19 +3582,21 @@ class Ptp(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: port_number
             
             	Port number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: foreign_clock
             
             	Foreign clocks received on this interface
-            	**type**\: list of    :py:class:`ForeignClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock>`
+            	**type**\: list of  		 :py:class:`ForeignClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock>`
             
             
 
@@ -3598,52 +3634,52 @@ class Ptp(Entity):
                 .. attribute:: foreign_clock
                 
                 	Foreign clock information
-                	**type**\:   :py:class:`ForeignClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock>`
+                	**type**\:  :py:class:`ForeignClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock>`
                 
                 .. attribute:: address
                 
                 	The address of the clock
-                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address>`
+                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address>`
                 
                 .. attribute:: announce_grant
                 
                 	Unicast grant information for announce messages
-                	**type**\:   :py:class:`AnnounceGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.AnnounceGrant>`
+                	**type**\:  :py:class:`AnnounceGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.AnnounceGrant>`
                 
                 .. attribute:: sync_grant
                 
                 	Unicast grant information for sync messages
-                	**type**\:   :py:class:`SyncGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.SyncGrant>`
+                	**type**\:  :py:class:`SyncGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.SyncGrant>`
                 
                 .. attribute:: delay_response_grant
                 
                 	Unicast grant information for delay\-response messages
-                	**type**\:   :py:class:`DelayResponseGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.DelayResponseGrant>`
+                	**type**\:  :py:class:`DelayResponseGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.DelayResponseGrant>`
                 
                 .. attribute:: is_qualified
                 
                 	The clock is qualified for best master clock selection
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_grandmaster
                 
                 	This clock is the currently selected grand master clock
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: communication_model
                 
                 	The communication model configured on this clock
-                	**type**\:   :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
+                	**type**\:  :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
                 
                 .. attribute:: is_known
                 
                 	This clock is known by this router
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: time_known_for
                 
                 	How long the clock has been known by this router for, in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3652,40 +3688,40 @@ class Ptp(Entity):
                 .. attribute:: foreign_domain
                 
                 	The PTP domain that the foreign clock is in
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: configured_priority
                 
                 	Priority configured for the clock, if any
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: configured_clock_class
                 
                 	Clock class configured for the clock, if any
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: delay_asymmetry
                 
                 	Delay asymmetry configured for the clock, if any
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ptsf_loss_announce
                 
                 	Announced messages are not being received from the master
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: ptsf_loss_sync
                 
                 	Sync messages are not being received from the master
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -3763,110 +3799,110 @@ class Ptp(Entity):
                     .. attribute:: utc_offset
                     
                     	UTC offset
-                    	**type**\:   :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock.UtcOffset>`
+                    	**type**\:  :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock.UtcOffset>`
                     
                     .. attribute:: receiver
                     
                     	Receiver
-                    	**type**\:   :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock.Receiver>`
+                    	**type**\:  :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock.Receiver>`
                     
                     .. attribute:: sender
                     
                     	Sender
-                    	**type**\:   :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock.Sender>`
+                    	**type**\:  :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock.Sender>`
                     
                     .. attribute:: clock_id
                     
                     	Clock ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: priority1
                     
                     	Priority 1
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: priority2
                     
                     	Priority 2
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: class_
                     
                     	Class
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: accuracy
                     
                     	Accuracy
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: offset_log_variance
                     
                     	Offset log variance
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: steps_removed
                     
                     	Steps removed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: time_source
                     
                     	Time source
-                    	**type**\:   :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
+                    	**type**\:  :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
                     
                     .. attribute:: frequency_traceable
                     
                     	The clock is frequency traceable
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: time_traceable
                     
                     	The clock is time traceable
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: timescale
                     
                     	Timescale
-                    	**type**\:   :py:class:`PtpBagClockTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimescale>`
+                    	**type**\:  :py:class:`PtpBagClockTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimescale>`
                     
                     .. attribute:: leap_seconds
                     
                     	Leap Seconds
-                    	**type**\:   :py:class:`PtpBagClockLeapSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockLeapSeconds>`
+                    	**type**\:  :py:class:`PtpBagClockLeapSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockLeapSeconds>`
                     
                     	**units**\: second
                     
                     .. attribute:: local
                     
                     	The clock is the local clock
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: configured_clock_class
                     
                     	The configured clock class
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: configured_priority
                     
                     	The configured priority
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -3944,14 +3980,14 @@ class Ptp(Entity):
                         .. attribute:: current_offset
                         
                         	Current offset
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-32768..32767
                         
                         .. attribute:: offset_valid
                         
                         	The current offset is valid
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -3986,14 +4022,14 @@ class Ptp(Entity):
                         .. attribute:: clock_id
                         
                         	Clock ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: port_number
                         
                         	Port number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -4030,14 +4066,14 @@ class Ptp(Entity):
                         .. attribute:: clock_id
                         
                         	Clock ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: port_number
                         
                         	Port number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -4074,27 +4110,29 @@ class Ptp(Entity):
                     .. attribute:: mac_address
                     
                     	Ethernet MAC address
-                    	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.MacAddress>`
+                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.MacAddress>`
                     
                     .. attribute:: ipv6_address
                     
                     	IPv6 address
-                    	**type**\:   :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.Ipv6Address>`
+                    	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.Ipv6Address>`
                     
                     .. attribute:: encapsulation
                     
                     	Encapsulation
-                    	**type**\:   :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
+                    	**type**\:  :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
                     
                     .. attribute:: address_unknown
                     
                     	Unknown address type
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ipv4_address
                     
                     	IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -4141,7 +4179,9 @@ class Ptp(Entity):
                         .. attribute:: macaddr
                         
                         	macaddr
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         
 
@@ -4174,7 +4214,9 @@ class Ptp(Entity):
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -4207,14 +4249,14 @@ class Ptp(Entity):
                     .. attribute:: log_grant_interval
                     
                     	Log of the interval which has been granted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-128..127
                     
                     .. attribute:: grant_duration
                     
                     	Duraction of the grant
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4251,14 +4293,14 @@ class Ptp(Entity):
                     .. attribute:: log_grant_interval
                     
                     	Log of the interval which has been granted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-128..127
                     
                     .. attribute:: grant_duration
                     
                     	Duraction of the grant
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4296,14 +4338,14 @@ class Ptp(Entity):
                     .. attribute:: log_grant_interval
                     
                     	Log of the interval which has been granted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-128..127
                     
                     .. attribute:: grant_duration
                     
                     	Duraction of the grant
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -4340,12 +4382,12 @@ class Ptp(Entity):
         .. attribute:: clock_properties
         
         	Local clock
-        	**type**\:   :py:class:`ClockProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LocalClock.ClockProperties>`
+        	**type**\:  :py:class:`ClockProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LocalClock.ClockProperties>`
         
         .. attribute:: domain
         
         	The PTP domain of the local clock
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -4386,110 +4428,110 @@ class Ptp(Entity):
             .. attribute:: utc_offset
             
             	UTC offset
-            	**type**\:   :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LocalClock.ClockProperties.UtcOffset>`
+            	**type**\:  :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LocalClock.ClockProperties.UtcOffset>`
             
             .. attribute:: receiver
             
             	Receiver
-            	**type**\:   :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LocalClock.ClockProperties.Receiver>`
+            	**type**\:  :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LocalClock.ClockProperties.Receiver>`
             
             .. attribute:: sender
             
             	Sender
-            	**type**\:   :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LocalClock.ClockProperties.Sender>`
+            	**type**\:  :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LocalClock.ClockProperties.Sender>`
             
             .. attribute:: clock_id
             
             	Clock ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: priority1
             
             	Priority 1
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: priority2
             
             	Priority 2
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: class_
             
             	Class
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: accuracy
             
             	Accuracy
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: offset_log_variance
             
             	Offset log variance
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: steps_removed
             
             	Steps removed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: time_source
             
             	Time source
-            	**type**\:   :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
+            	**type**\:  :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
             
             .. attribute:: frequency_traceable
             
             	The clock is frequency traceable
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: time_traceable
             
             	The clock is time traceable
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: timescale
             
             	Timescale
-            	**type**\:   :py:class:`PtpBagClockTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimescale>`
+            	**type**\:  :py:class:`PtpBagClockTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimescale>`
             
             .. attribute:: leap_seconds
             
             	Leap Seconds
-            	**type**\:   :py:class:`PtpBagClockLeapSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockLeapSeconds>`
+            	**type**\:  :py:class:`PtpBagClockLeapSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockLeapSeconds>`
             
             	**units**\: second
             
             .. attribute:: local
             
             	The clock is the local clock
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: configured_clock_class
             
             	The configured clock class
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: configured_priority
             
             	The configured priority
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -4568,14 +4610,14 @@ class Ptp(Entity):
                 .. attribute:: current_offset
                 
                 	Current offset
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-32768..32767
                 
                 .. attribute:: offset_valid
                 
                 	The current offset is valid
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -4611,14 +4653,14 @@ class Ptp(Entity):
                 .. attribute:: clock_id
                 
                 	Clock ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: port_number
                 
                 	Port number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -4656,14 +4698,14 @@ class Ptp(Entity):
                 .. attribute:: clock_id
                 
                 	Clock ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: port_number
                 
                 	Port number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -4702,7 +4744,7 @@ class Ptp(Entity):
         .. attribute:: interface_packet_counter
         
         	Interface packet counter operational data
-        	**type**\: list of    :py:class:`InterfacePacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter>`
+        	**type**\: list of  		 :py:class:`InterfacePacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter>`
         
         
 
@@ -4736,17 +4778,19 @@ class Ptp(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: counters
             
             	Packet counters
-            	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter.Counters>`
+            	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter.Counters>`
             
             .. attribute:: peer_counter
             
             	Packet counters for each peer on this interface
-            	**type**\: list of    :py:class:`PeerCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter>`
+            	**type**\: list of  		 :py:class:`PeerCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter>`
             
             
 
@@ -4787,252 +4831,252 @@ class Ptp(Entity):
                 .. attribute:: announce_sent
                 
                 	Number of announce packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: announce_received
                 
                 	Number of announce packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: announce_dropped
                 
                 	Number of announce packets dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sync_sent
                 
                 	Number of sync packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sync_received
                 
                 	Number of sync packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sync_dropped
                 
                 	Number of sync packetsdropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: follow_up_sent
                 
                 	Number of follow\-up packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: follow_up_received
                 
                 	Number of follow\-up packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: follow_up_dropped
                 
                 	Number of follow\-up packets dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: delay_request_sent
                 
                 	Number of delay\-request packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: delay_request_received
                 
                 	Number of delay\-request packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: delay_request_dropped
                 
                 	Number of delay\-request packets dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: delay_response_sent
                 
                 	Number of delay\-response packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: delay_response_received
                 
                 	Number of delay\-response packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: delay_response_dropped
                 
                 	Number of delay\-response packets dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: peer_delay_request_sent
                 
                 	Number of peer\-delay\-request packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: peer_delay_request_received
                 
                 	Number of peer\-delay\-request packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: peer_delay_request_dropped
                 
                 	Number of peer\-delay\-request packets dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: peer_delay_response_sent
                 
                 	Number of peer\-delay\-response packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: peer_delay_response_received
                 
                 	Number of peer\-delay\-response packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: peer_delay_response_dropped
                 
                 	Number of peer\-delay\-response packets dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: peer_delay_response_follow_up_sent
                 
                 	Number of peer\-delay\-response follow\-up packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: peer_delay_response_follow_up_received
                 
                 	Number of peer\-delay\-response follow\-up packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: peer_delay_response_follow_up_dropped
                 
                 	Number of peer\-delay\-response follow\-up packets dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: signaling_sent
                 
                 	Number of signaling packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: signaling_received
                 
                 	Number of signaling packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: signaling_dropped
                 
                 	Number of signaling packets dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: management_sent
                 
                 	Number of management messages sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: management_received
                 
                 	Number of management messages received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: management_dropped
                 
                 	Number of management messages dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: other_packets_sent
                 
                 	Number of other packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: other_packets_received
                 
                 	Number of other packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: other_packets_dropped
                 
                 	Number of other packets dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_packets_sent
                 
                 	Total number of packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_packets_received
                 
                 	Total number of packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_packets_dropped
                 
                 	Total number of packets dropped
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5137,12 +5181,12 @@ class Ptp(Entity):
                 .. attribute:: address
                 
                 	Peer address
-                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address>`
+                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address>`
                 
                 .. attribute:: counters
                 
                 	Packet counters
-                	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Counters>`
+                	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Counters>`
                 
                 
 
@@ -5180,27 +5224,29 @@ class Ptp(Entity):
                     .. attribute:: mac_address
                     
                     	Ethernet MAC address
-                    	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address.MacAddress>`
+                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address.MacAddress>`
                     
                     .. attribute:: ipv6_address
                     
                     	IPv6 address
-                    	**type**\:   :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address.Ipv6Address>`
+                    	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfacePacketCounters.InterfacePacketCounter.PeerCounter.Address.Ipv6Address>`
                     
                     .. attribute:: encapsulation
                     
                     	Encapsulation
-                    	**type**\:   :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
+                    	**type**\:  :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
                     
                     .. attribute:: address_unknown
                     
                     	Unknown address type
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ipv4_address
                     
                     	IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -5247,7 +5293,9 @@ class Ptp(Entity):
                         .. attribute:: macaddr
                         
                         	macaddr
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         
 
@@ -5280,7 +5328,9 @@ class Ptp(Entity):
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -5313,252 +5363,252 @@ class Ptp(Entity):
                     .. attribute:: announce_sent
                     
                     	Number of announce packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: announce_received
                     
                     	Number of announce packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: announce_dropped
                     
                     	Number of announce packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sync_sent
                     
                     	Number of sync packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sync_received
                     
                     	Number of sync packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sync_dropped
                     
                     	Number of sync packetsdropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: follow_up_sent
                     
                     	Number of follow\-up packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: follow_up_received
                     
                     	Number of follow\-up packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: follow_up_dropped
                     
                     	Number of follow\-up packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_request_sent
                     
                     	Number of delay\-request packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_request_received
                     
                     	Number of delay\-request packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_request_dropped
                     
                     	Number of delay\-request packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_response_sent
                     
                     	Number of delay\-response packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_response_received
                     
                     	Number of delay\-response packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delay_response_dropped
                     
                     	Number of delay\-response packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_request_sent
                     
                     	Number of peer\-delay\-request packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_request_received
                     
                     	Number of peer\-delay\-request packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_request_dropped
                     
                     	Number of peer\-delay\-request packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_response_sent
                     
                     	Number of peer\-delay\-response packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_response_received
                     
                     	Number of peer\-delay\-response packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_response_dropped
                     
                     	Number of peer\-delay\-response packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_response_follow_up_sent
                     
                     	Number of peer\-delay\-response follow\-up packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_response_follow_up_received
                     
                     	Number of peer\-delay\-response follow\-up packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_delay_response_follow_up_dropped
                     
                     	Number of peer\-delay\-response follow\-up packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: signaling_sent
                     
                     	Number of signaling packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: signaling_received
                     
                     	Number of signaling packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: signaling_dropped
                     
                     	Number of signaling packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: management_sent
                     
                     	Number of management messages sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: management_received
                     
                     	Number of management messages received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: management_dropped
                     
                     	Number of management messages dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: other_packets_sent
                     
                     	Number of other packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: other_packets_received
                     
                     	Number of other packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: other_packets_dropped
                     
                     	Number of other packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_packets_sent
                     
                     	Total number of packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_packets_received
                     
                     	Total number of packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_packets_dropped
                     
                     	Total number of packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5663,34 +5713,34 @@ class Ptp(Entity):
         .. attribute:: clock_properties
         
         	Advertised Clock
-        	**type**\:   :py:class:`ClockProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.AdvertisedClock.ClockProperties>`
+        	**type**\:  :py:class:`ClockProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.AdvertisedClock.ClockProperties>`
         
         .. attribute:: domain
         
         	The PTP domain of that the advertised clock is in
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: time_source_configured
         
         	Whether the advertised time source is configured
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: received_time_source
         
         	The time source received from the parent clock
-        	**type**\:   :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
+        	**type**\:  :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
         
         .. attribute:: timescale_configured
         
         	Whether the advertised timescale is configured
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: received_timescale
         
         	The timescale received from the parent clock
-        	**type**\:   :py:class:`PtpBagClockTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimescale>`
+        	**type**\:  :py:class:`PtpBagClockTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimescale>`
         
         
 
@@ -5737,110 +5787,110 @@ class Ptp(Entity):
             .. attribute:: utc_offset
             
             	UTC offset
-            	**type**\:   :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.AdvertisedClock.ClockProperties.UtcOffset>`
+            	**type**\:  :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.AdvertisedClock.ClockProperties.UtcOffset>`
             
             .. attribute:: receiver
             
             	Receiver
-            	**type**\:   :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.AdvertisedClock.ClockProperties.Receiver>`
+            	**type**\:  :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.AdvertisedClock.ClockProperties.Receiver>`
             
             .. attribute:: sender
             
             	Sender
-            	**type**\:   :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.AdvertisedClock.ClockProperties.Sender>`
+            	**type**\:  :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.AdvertisedClock.ClockProperties.Sender>`
             
             .. attribute:: clock_id
             
             	Clock ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: priority1
             
             	Priority 1
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: priority2
             
             	Priority 2
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: class_
             
             	Class
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: accuracy
             
             	Accuracy
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: offset_log_variance
             
             	Offset log variance
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: steps_removed
             
             	Steps removed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: time_source
             
             	Time source
-            	**type**\:   :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
+            	**type**\:  :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
             
             .. attribute:: frequency_traceable
             
             	The clock is frequency traceable
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: time_traceable
             
             	The clock is time traceable
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: timescale
             
             	Timescale
-            	**type**\:   :py:class:`PtpBagClockTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimescale>`
+            	**type**\:  :py:class:`PtpBagClockTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimescale>`
             
             .. attribute:: leap_seconds
             
             	Leap Seconds
-            	**type**\:   :py:class:`PtpBagClockLeapSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockLeapSeconds>`
+            	**type**\:  :py:class:`PtpBagClockLeapSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockLeapSeconds>`
             
             	**units**\: second
             
             .. attribute:: local
             
             	The clock is the local clock
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: configured_clock_class
             
             	The configured clock class
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: configured_priority
             
             	The configured priority
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -5919,14 +5969,14 @@ class Ptp(Entity):
                 .. attribute:: current_offset
                 
                 	Current offset
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-32768..32767
                 
                 .. attribute:: offset_valid
                 
                 	The current offset is valid
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -5962,14 +6012,14 @@ class Ptp(Entity):
                 .. attribute:: clock_id
                 
                 	Clock ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: port_number
                 
                 	Port number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -6007,14 +6057,14 @@ class Ptp(Entity):
                 .. attribute:: clock_id
                 
                 	Clock ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: port_number
                 
                 	Port number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -6052,7 +6102,7 @@ class Ptp(Entity):
         .. attribute:: current_offset
         
         	The current UTC offset, in seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-32768..32767
         
@@ -6061,19 +6111,19 @@ class Ptp(Entity):
         .. attribute:: offset_valid
         
         	Is the current UTC offset known to be valid?
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: source_file
         
         	The URL of the file containing upcoming leap seconds
-        	**type**\:  str
+        	**type**\: str
         
         	**units**\: second
         
         .. attribute:: source_expiry_date
         
         	Source file expiry timestamp, in seconds since UNIX epoch
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -6082,7 +6132,7 @@ class Ptp(Entity):
         .. attribute:: polling_frequency
         
         	Source file polling frequency, in days
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -6091,7 +6141,7 @@ class Ptp(Entity):
         .. attribute:: leap_second
         
         	The list of upcoming leap second updates
-        	**type**\: list of    :py:class:`LeapSecond <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LeapSeconds.LeapSecond>`
+        	**type**\: list of  		 :py:class:`LeapSecond <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.LeapSeconds.LeapSecond>`
         
         
 
@@ -6135,7 +6185,7 @@ class Ptp(Entity):
             .. attribute:: offset
             
             	The UTC offset (TAI \- UTC), in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-32768..32767
             
@@ -6144,14 +6194,14 @@ class Ptp(Entity):
             .. attribute:: offset_start_date
             
             	The UNIX timestamp at which the offset becomes valid
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: offset_applied
             
             	Indicates whether the offset has been applied
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -6189,7 +6239,7 @@ class Ptp(Entity):
         .. attribute:: interface
         
         	Interface operational data
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface>`
         
         
 
@@ -6223,183 +6273,189 @@ class Ptp(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: mac_address
             
             	MAC address, if Ethernet encapsulation is being used
-            	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MacAddress>`
+            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MacAddress>`
             
             .. attribute:: port_state
             
             	Port state
-            	**type**\:   :py:class:`PtpBagPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagPortState>`
+            	**type**\:  :py:class:`PtpBagPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagPortState>`
             
             .. attribute:: port_number
             
             	Port number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: line_state
             
             	Line state
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: encapsulation
             
             	Encapsulation
-            	**type**\:   :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
+            	**type**\:  :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
             
             .. attribute:: ipv6_address
             
             	Ipv6 address, if IPv6 encapsulation is being used
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ipv4_address
             
             	IPv4 address, if IPv4 encapsulation is being used
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: two_step
             
             	Two step delay\-request mechanism is being used
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: communication_model
             
             	Communication model configured on the interface
-            	**type**\:   :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
+            	**type**\:  :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
             
             .. attribute:: log_sync_interval
             
             	Log of the interface's sync interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: log_announce_interval
             
             	Log of the interface's announce interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: announce_timeout
             
             	Announce timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: log_min_delay_request_interval
             
             	Log of the interface's Minimum delay\-request interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: configured_port_state
             
             	The configured port state
-            	**type**\:   :py:class:`PtpBagRestrictPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagRestrictPortState>`
+            	**type**\:  :py:class:`PtpBagRestrictPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagRestrictPortState>`
             
             .. attribute:: supports_one_step
             
             	The interface supports one\-step operation
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: supports_two_step
             
             	The interface supports two\-step operation
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: supports_ethernet
             
             	The interface supports ethernet transport
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: supports_multicast
             
             	The interface supports multicast
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: supports_ipv6
             
             	The interface supports IPv6 transport
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: supports_slave
             
             	The interface supports operation in slave mode
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: supports_source_ip
             
             	The interface supports source ip configuration
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: max_sync_rate
             
             	The maximum rate of sync packets on the interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: event_cos
             
             	The class of service used on the interface for event messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: general_cos
             
             	The class of service used on the interface for general messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: event_dscp
             
             	The DSCP class used on the interface for event messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: general_dscp
             
             	The DSCP class used on the interface for general messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: unicast_peers
             
             	The number of unicast peers known by the interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_priority
             
             	Local priority, for the G.8275.1 PTP profile
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: signal_fail
             
             	Signal fail status of the interface
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: master_table
             
             	The interface's master table
-            	**type**\: list of    :py:class:`MasterTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MasterTable>`
+            	**type**\: list of  		 :py:class:`MasterTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MasterTable>`
             
             
 
@@ -6497,7 +6553,9 @@ class Ptp(Entity):
                 .. attribute:: macaddr
                 
                 	macaddr
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 
 
@@ -6530,53 +6588,53 @@ class Ptp(Entity):
                 .. attribute:: address
                 
                 	The address of the master clock
-                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MasterTable.Address>`
+                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MasterTable.Address>`
                 
                 .. attribute:: communication_model
                 
                 	The configured communication model of the master clock
-                	**type**\:   :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
+                	**type**\:  :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
                 
                 .. attribute:: priority
                 
                 	The priority of the master clock, if it is set
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: known
                 
                 	Whether the interface is receiving messages from this master
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: qualified
                 
                 	The master is qualified for best master clock selection
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_grandmaster
                 
                 	Whether this is the grandmaster
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: ptsf_loss_announce
                 
                 	Announced messages are not being received from the master
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: ptsf_loss_sync
                 
                 	Sync messages are not being received from the master
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: is_nonnegotiated
                 
                 	Whether this master uses non\-negotiated unicast
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -6628,27 +6686,29 @@ class Ptp(Entity):
                     .. attribute:: mac_address
                     
                     	Ethernet MAC address
-                    	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MasterTable.Address.MacAddress>`
+                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MasterTable.Address.MacAddress>`
                     
                     .. attribute:: ipv6_address
                     
                     	IPv6 address
-                    	**type**\:   :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MasterTable.Address.Ipv6Address>`
+                    	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MasterTable.Address.Ipv6Address>`
                     
                     .. attribute:: encapsulation
                     
                     	Encapsulation
-                    	**type**\:   :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
+                    	**type**\:  :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
                     
                     .. attribute:: address_unknown
                     
                     	Unknown address type
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ipv4_address
                     
                     	IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -6695,7 +6755,9 @@ class Ptp(Entity):
                         .. attribute:: macaddr
                         
                         	macaddr
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         
 
@@ -6728,7 +6790,9 @@ class Ptp(Entity):
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -6761,27 +6825,27 @@ class Ptp(Entity):
         .. attribute:: default_ds
         
         	defaultDS information as described in IEEE 1588\-2008
-        	**type**\:   :py:class:`DefaultDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset.DefaultDs>`
+        	**type**\:  :py:class:`DefaultDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset.DefaultDs>`
         
         .. attribute:: current_ds
         
         	currentDS information as described in IEEE 1588\-2008
-        	**type**\:   :py:class:`CurrentDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset.CurrentDs>`
+        	**type**\:  :py:class:`CurrentDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset.CurrentDs>`
         
         .. attribute:: parent_ds
         
         	parentDS information as described in IEEE 1588\-2008
-        	**type**\:   :py:class:`ParentDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset.ParentDs>`
+        	**type**\:  :py:class:`ParentDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset.ParentDs>`
         
         .. attribute:: port_dses
         
         	Table for portDS information
-        	**type**\:   :py:class:`PortDses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset.PortDses>`
+        	**type**\:  :py:class:`PortDses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset.PortDses>`
         
         .. attribute:: time_properties_ds
         
         	timePropertiesDS information as described in IEEE 1588\-2008
-        	**type**\:   :py:class:`TimePropertiesDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset.TimePropertiesDs>`
+        	**type**\:  :py:class:`TimePropertiesDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset.TimePropertiesDs>`
         
         
 
@@ -6836,80 +6900,80 @@ class Ptp(Entity):
             .. attribute:: two_step_flag
             
             	Is the twoStepFlag set for this clock
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: clock_id
             
             	The local\-clock ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: number_ports
             
             	The number of active PTP ports on this clock
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: clock_class
             
             	The clock class of the local\-clock
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: clock_accuracy
             
             	The accuracy of the local\-clock
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: oslv
             
             	The offset scaled log variance of the local\-clock
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: priority1
             
             	The priority1 of the local\-clock
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: priority2
             
             	The priority2 of the local\-clock
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: domain_number
             
             	The domain of the local\-clock
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: slave_only
             
             	Whether the local\-clock is globally configured as slave\-only
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: local_priority
             
             	Local priority of the local clock
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: signal_fail
             
             	Signal fail status of the local clock
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -6966,21 +7030,21 @@ class Ptp(Entity):
             .. attribute:: steps_removed
             
             	How many steps removed this clock is from the GM
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: offset_from_master
             
             	The UTC offset of the local\-clock from the GM
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-9223372036854775808..9223372036854775807
             
             .. attribute:: mean_path_delay
             
             	The mean path delay bewteen the foreign\-master and the local\-clock
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-9223372036854775808..9223372036854775807
             
@@ -7021,75 +7085,75 @@ class Ptp(Entity):
             .. attribute:: parent_clock_id
             
             	The Clock ID of the parent clock
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: parent_port_number
             
             	The port number on which the parent clock is received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: parent_stats
             
             	Whether the parentStats is valid
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: observed_parent_oslv
             
             	The observed parent offset scaled log variance
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: observed_parent_clock_phase_change_rate
             
             	The observed rate of change of phase of the parent clock
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: gm_clock_id
             
             	The Clock ID of the GM
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: gm_clock_class
             
             	The clock class of the GM
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: gm_clock_accuracy
             
             	The clock accuracy of the GM
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: gmoslv
             
             	The offset scaled log variance of the GM
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: gm_priority1
             
             	The priority1 of the GM
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: gm_priority2
             
             	The priority2 of the GM
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -7145,7 +7209,7 @@ class Ptp(Entity):
             .. attribute:: port_ds
             
             	PortDS information
-            	**type**\: list of    :py:class:`PortDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset.PortDses.PortDs>`
+            	**type**\: list of  		 :py:class:`PortDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Dataset.PortDses.PortDs>`
             
             
 
@@ -7179,97 +7243,99 @@ class Ptp(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	Interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: clock_id
                 
                 	The ID of the local\-clock
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: port_number
                 
                 	The port number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: port_state
                 
                 	The port state
-                	**type**\:   :py:class:`PtpBagPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagPortState>`
+                	**type**\:  :py:class:`PtpBagPortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagPortState>`
                 
                 .. attribute:: log_min_delay_req_interval
                 
                 	The log (base 2) of the minimum delay\-request interval
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-32768..32767
                 
                 .. attribute:: peer_mean_path_delay
                 
                 	The mean path delay between peers
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
                 .. attribute:: log_announce_interval
                 
                 	The log (base 2) of the announce interval
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-32768..32767
                 
                 .. attribute:: annoucne_receipt_timeout
                 
                 	The announce timeout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: log_sync_interval
                 
                 	The log (base 2) of the sync interval
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-32768..32767
                 
                 .. attribute:: delay_mechanism
                 
                 	The delay mechanism being used on this port
-                	**type**\:   :py:class:`PtpBagDelayMechanism <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagDelayMechanism>`
+                	**type**\:  :py:class:`PtpBagDelayMechanism <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagDelayMechanism>`
                 
                 .. attribute:: log_min_p_delay_req_interval
                 
                 	The log (base 2) of the minimum peer\-delay\-request interval
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-32768..32767
                 
                 .. attribute:: version_number
                 
                 	The version of IEEE 1588 being run
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: local_priority
                 
                 	Local priority of the local clock
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: master_only
                 
                 	Is the port master\-only?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: signal_fail
                 
                 	Signal fail status of the port
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -7332,44 +7398,44 @@ class Ptp(Entity):
             .. attribute:: current_utc_offset
             
             	The current UTC offset
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-32768..32767
             
             .. attribute:: current_utc_offset_valid
             
             	Whether the current UTC offset is valid
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: leap59
             
             	Whether the last minute of the day has 59 seconds
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: leap61
             
             	Whether the last minute of the day has 61 seconds
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: time_traceable
             
             	Whether the time\-of\-day source is traceable
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: frequency_traceable
             
             	Whther the frequency source is traceable
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ptp_timescale
             
             	Whether the timescale being used is the PTP timescale
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: time_source
             
             	The physical time\-source of the GM clock
-            	**type**\:   :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
+            	**type**\:  :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
             
             
 
@@ -7417,34 +7483,34 @@ class Ptp(Entity):
         .. attribute:: configuration_errors
         
         	Configuration Errors
-        	**type**\:   :py:class:`ConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.GlobalConfigurationError.ConfigurationErrors>`
+        	**type**\:  :py:class:`ConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.GlobalConfigurationError.ConfigurationErrors>`
         
         .. attribute:: clock_profile
         
         	The clock profile
-        	**type**\:   :py:class:`PtpBagProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagProfile>`
+        	**type**\:  :py:class:`PtpBagProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagProfile>`
         
         .. attribute:: clock_profile_set
         
         	Is the clock profile set
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: telecom_clock_type
         
         	Configured telecom clock type
-        	**type**\:   :py:class:`PtpBagTelecomClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagTelecomClock>`
+        	**type**\:  :py:class:`PtpBagTelecomClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagTelecomClock>`
         
         .. attribute:: domain_number
         
         	The PTP domain
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: priority2
         
         	The configured priority2 value
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -7493,17 +7559,17 @@ class Ptp(Entity):
             .. attribute:: domain
             
             	Domain not compatible with configured profile
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: profile_priority1_config
             
             	Priority1 configuration is not compatible with configured profile
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: profile_priority2_value
             
             	Priority2 value is not compatible with configured profile
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -7541,27 +7607,27 @@ class Ptp(Entity):
         .. attribute:: clock_properties
         
         	Grandmaster clock
-        	**type**\:   :py:class:`ClockProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.ClockProperties>`
+        	**type**\:  :py:class:`ClockProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.ClockProperties>`
         
         .. attribute:: address
         
         	The grandmaster's address information
-        	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.Address>`
+        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.Address>`
         
         .. attribute:: used_for_time
         
         	Whether the grandmaster is setting time\-of\-day on the system
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: used_for_frequency
         
         	Whether the grandmaster is setting frequency on the system
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: known_for_time
         
         	How long the clock has been grandmaster for, in seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -7570,7 +7636,7 @@ class Ptp(Entity):
         .. attribute:: domain
         
         	The PTP domain that the grandmaster is in
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -7622,110 +7688,110 @@ class Ptp(Entity):
             .. attribute:: utc_offset
             
             	UTC offset
-            	**type**\:   :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.ClockProperties.UtcOffset>`
+            	**type**\:  :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.ClockProperties.UtcOffset>`
             
             .. attribute:: receiver
             
             	Receiver
-            	**type**\:   :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.ClockProperties.Receiver>`
+            	**type**\:  :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.ClockProperties.Receiver>`
             
             .. attribute:: sender
             
             	Sender
-            	**type**\:   :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.ClockProperties.Sender>`
+            	**type**\:  :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.ClockProperties.Sender>`
             
             .. attribute:: clock_id
             
             	Clock ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: priority1
             
             	Priority 1
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: priority2
             
             	Priority 2
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: class_
             
             	Class
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: accuracy
             
             	Accuracy
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: offset_log_variance
             
             	Offset log variance
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: steps_removed
             
             	Steps removed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: time_source
             
             	Time source
-            	**type**\:   :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
+            	**type**\:  :py:class:`PtpBagClockTimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimeSource>`
             
             .. attribute:: frequency_traceable
             
             	The clock is frequency traceable
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: time_traceable
             
             	The clock is time traceable
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: timescale
             
             	Timescale
-            	**type**\:   :py:class:`PtpBagClockTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimescale>`
+            	**type**\:  :py:class:`PtpBagClockTimescale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockTimescale>`
             
             .. attribute:: leap_seconds
             
             	Leap Seconds
-            	**type**\:   :py:class:`PtpBagClockLeapSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockLeapSeconds>`
+            	**type**\:  :py:class:`PtpBagClockLeapSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagClockLeapSeconds>`
             
             	**units**\: second
             
             .. attribute:: local
             
             	The clock is the local clock
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: configured_clock_class
             
             	The configured clock class
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: configured_priority
             
             	The configured priority
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -7804,14 +7870,14 @@ class Ptp(Entity):
                 .. attribute:: current_offset
                 
                 	Current offset
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-32768..32767
                 
                 .. attribute:: offset_valid
                 
                 	The current offset is valid
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -7847,14 +7913,14 @@ class Ptp(Entity):
                 .. attribute:: clock_id
                 
                 	Clock ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: port_number
                 
                 	Port number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -7892,14 +7958,14 @@ class Ptp(Entity):
                 .. attribute:: clock_id
                 
                 	Clock ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: port_number
                 
                 	Port number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -7937,27 +8003,29 @@ class Ptp(Entity):
             .. attribute:: mac_address
             
             	Ethernet MAC address
-            	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.Address.MacAddress>`
+            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.Address.MacAddress>`
             
             .. attribute:: ipv6_address
             
             	IPv6 address
-            	**type**\:   :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.Address.Ipv6Address>`
+            	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.Address.Ipv6Address>`
             
             .. attribute:: encapsulation
             
             	Encapsulation
-            	**type**\:   :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
+            	**type**\:  :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
             
             .. attribute:: address_unknown
             
             	Unknown address type
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ipv4_address
             
             	IPv4 address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             
 
@@ -8005,7 +8073,9 @@ class Ptp(Entity):
                 .. attribute:: macaddr
                 
                 	macaddr
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 
 
@@ -8039,7 +8109,9 @@ class Ptp(Entity):
                 .. attribute:: ipv6_address
                 
                 	IPv6 Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 
 
@@ -8074,7 +8146,7 @@ class Ptp(Entity):
         .. attribute:: interface_unicast_peer
         
         	Interface unicast peers operational data
-        	**type**\: list of    :py:class:`InterfaceUnicastPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer>`
+        	**type**\: list of  		 :py:class:`InterfaceUnicastPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer>`
         
         
 
@@ -8108,24 +8180,26 @@ class Ptp(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: name
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: port_number
             
             	Port number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: peers
             
             	Unicast Peers
-            	**type**\: list of    :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers>`
+            	**type**\: list of  		 :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers>`
             
             
 
@@ -8165,22 +8239,22 @@ class Ptp(Entity):
                 .. attribute:: address
                 
                 	The address of the unicast peer
-                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address>`
+                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address>`
                 
                 .. attribute:: announce_grant
                 
                 	Unicast grant information for announce messages
-                	**type**\:   :py:class:`AnnounceGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.AnnounceGrant>`
+                	**type**\:  :py:class:`AnnounceGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.AnnounceGrant>`
                 
                 .. attribute:: sync_grant
                 
                 	Unicast grant information for sync messages
-                	**type**\:   :py:class:`SyncGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.SyncGrant>`
+                	**type**\:  :py:class:`SyncGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.SyncGrant>`
                 
                 .. attribute:: delay_response_grant
                 
                 	Unicast grant information for delay\-response messages
-                	**type**\:   :py:class:`DelayResponseGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.DelayResponseGrant>`
+                	**type**\:  :py:class:`DelayResponseGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.DelayResponseGrant>`
                 
                 
 
@@ -8228,27 +8302,29 @@ class Ptp(Entity):
                     .. attribute:: mac_address
                     
                     	Ethernet MAC address
-                    	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address.MacAddress>`
+                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address.MacAddress>`
                     
                     .. attribute:: ipv6_address
                     
                     	IPv6 address
-                    	**type**\:   :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address.Ipv6Address>`
+                    	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceUnicastPeers.InterfaceUnicastPeer.Peers.Address.Ipv6Address>`
                     
                     .. attribute:: encapsulation
                     
                     	Encapsulation
-                    	**type**\:   :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
+                    	**type**\:  :py:class:`PtpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagEncap>`
                     
                     .. attribute:: address_unknown
                     
                     	Unknown address type
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ipv4_address
                     
                     	IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -8295,7 +8371,9 @@ class Ptp(Entity):
                         .. attribute:: macaddr
                         
                         	macaddr
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         
 
@@ -8328,7 +8406,9 @@ class Ptp(Entity):
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -8361,14 +8441,14 @@ class Ptp(Entity):
                     .. attribute:: log_grant_interval
                     
                     	Log of the interval which has been granted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-128..127
                     
                     .. attribute:: grant_duration
                     
                     	Duraction of the grant
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8405,14 +8485,14 @@ class Ptp(Entity):
                     .. attribute:: log_grant_interval
                     
                     	Log of the interval which has been granted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-128..127
                     
                     .. attribute:: grant_duration
                     
                     	Duraction of the grant
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8450,14 +8530,14 @@ class Ptp(Entity):
                     .. attribute:: log_grant_interval
                     
                     	Log of the interval which has been granted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-128..127
                     
                     .. attribute:: grant_duration
                     
                     	Duraction of the grant
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8494,7 +8574,7 @@ class Ptp(Entity):
         .. attribute:: servo
         
         	PTP servo related parameters
-        	**type**\:   :py:class:`Servo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo>`
+        	**type**\:  :py:class:`Servo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo>`
         
         
 
@@ -8528,167 +8608,167 @@ class Ptp(Entity):
             .. attribute:: last_set_time
             
             	last input of setTime
-            	**type**\:   :py:class:`LastSetTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastSetTime>`
+            	**type**\:  :py:class:`LastSetTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastSetTime>`
             
             .. attribute:: last_received_t1
             
             	last T1 timestamp received
-            	**type**\:   :py:class:`LastReceivedT1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastReceivedT1>`
+            	**type**\:  :py:class:`LastReceivedT1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastReceivedT1>`
             
             .. attribute:: last_received_t2
             
             	last T2 timestamp received
-            	**type**\:   :py:class:`LastReceivedT2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastReceivedT2>`
+            	**type**\:  :py:class:`LastReceivedT2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastReceivedT2>`
             
             .. attribute:: last_received_t3
             
             	last T3 timestamp received
-            	**type**\:   :py:class:`LastReceivedT3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastReceivedT3>`
+            	**type**\:  :py:class:`LastReceivedT3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastReceivedT3>`
             
             .. attribute:: last_received_t4
             
             	last T4 timestamp received
-            	**type**\:   :py:class:`LastReceivedT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastReceivedT4>`
+            	**type**\:  :py:class:`LastReceivedT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.LastReceivedT4>`
             
             .. attribute:: pre_received_t1
             
             	pre T1 timestamp received
-            	**type**\:   :py:class:`PreReceivedT1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.PreReceivedT1>`
+            	**type**\:  :py:class:`PreReceivedT1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.PreReceivedT1>`
             
             .. attribute:: pre_received_t2
             
             	pre T2 timestamp received
-            	**type**\:   :py:class:`PreReceivedT2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.PreReceivedT2>`
+            	**type**\:  :py:class:`PreReceivedT2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.PreReceivedT2>`
             
             .. attribute:: pre_received_t3
             
             	pre T3 timestamp received
-            	**type**\:   :py:class:`PreReceivedT3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.PreReceivedT3>`
+            	**type**\:  :py:class:`PreReceivedT3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.PreReceivedT3>`
             
             .. attribute:: pre_received_t4
             
             	pre T4 timestamp received
-            	**type**\:   :py:class:`PreReceivedT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.PreReceivedT4>`
+            	**type**\:  :py:class:`PreReceivedT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Platform.Servo.PreReceivedT4>`
             
             .. attribute:: lock_status
             
             	lock status of device
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: running
             
             	running status of apr
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: device_status
             
             	status of device
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..50
             
             .. attribute:: log_level
             
             	log level of apr
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: phase_accuracy_last
             
             	 last phase alignment accuracy
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-9223372036854775808..9223372036854775807
             
             .. attribute:: num_sync_timestamp
             
             	number of sync timestamp received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: num_delay_timestamp
             
             	number of delay timestamp received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: num_set_time
             
             	number of setTime() been called
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: num_step_time
             
             	number of stepTime() been called
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: num_adjust_freq
             
             	number of adjustFreq() been called
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: num_adjust_freq_time
             
             	number of adjustFreqTime() been called
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: last_adjust_freq
             
             	last input of adjustFreq
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: last_step_time
             
             	last input of stepTime
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: num_discard_sync_timestamp
             
             	number of sync timestamp discarded
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: num_discard_delay_timestamp
             
             	number of delay timestamp discarded
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: flagof_last_set_time
             
             	last input flag of setTime
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: offset_from_master
             
             	Time Offset From Master
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-9223372036854775808..9223372036854775807
             
             .. attribute:: mean_path_delay
             
             	Mean Path Delay
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-9223372036854775808..9223372036854775807
             
@@ -8803,14 +8883,14 @@ class Ptp(Entity):
                 .. attribute:: second
                 
                 	value of second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nano_second
                 
                 	value of nano second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -8848,14 +8928,14 @@ class Ptp(Entity):
                 .. attribute:: second
                 
                 	value of second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nano_second
                 
                 	value of nano second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -8893,14 +8973,14 @@ class Ptp(Entity):
                 .. attribute:: second
                 
                 	value of second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nano_second
                 
                 	value of nano second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -8938,14 +9018,14 @@ class Ptp(Entity):
                 .. attribute:: second
                 
                 	value of second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nano_second
                 
                 	value of nano second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -8983,14 +9063,14 @@ class Ptp(Entity):
                 .. attribute:: second
                 
                 	value of second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nano_second
                 
                 	value of nano second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -9028,14 +9108,14 @@ class Ptp(Entity):
                 .. attribute:: second
                 
                 	value of second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nano_second
                 
                 	value of nano second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -9073,14 +9153,14 @@ class Ptp(Entity):
                 .. attribute:: second
                 
                 	value of second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nano_second
                 
                 	value of nano second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -9118,14 +9198,14 @@ class Ptp(Entity):
                 .. attribute:: second
                 
                 	value of second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nano_second
                 
                 	value of nano second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -9163,14 +9243,14 @@ class Ptp(Entity):
                 .. attribute:: second
                 
                 	value of second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: nano_second
                 
                 	value of nano second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 

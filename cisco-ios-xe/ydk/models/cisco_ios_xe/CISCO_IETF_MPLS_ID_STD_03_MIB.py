@@ -23,7 +23,7 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
     .. attribute:: cmplsidobjects
     
     	
-    	**type**\:   :py:class:`Cmplsidobjects <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_ID_STD_03_MIB.CISCOIETFMPLSIDSTD03MIB.Cmplsidobjects>`
+    	**type**\:  :py:class:`Cmplsidobjects <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_ID_STD_03_MIB.CISCOIETFMPLSIDSTD03MIB.Cmplsidobjects>`
     
     
 
@@ -57,21 +57,21 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
         .. attribute:: cmplsglobalid
         
         	This object allows the administrator to assign a unique operator identifier also called MPLS\-TP Global\_ID
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 4
         
         .. attribute:: cmplsicc
         
         	This object allows the operator or service provider to assign a unique MPLS\-TP ITU\-T Carrier Code (ICC) to a network
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..6
         
         .. attribute:: cmplsnodeid
         
         	This object allows the operator or service provider to assign a unique MPLS\-TP Node\_ID.  The Node\_ID is assigned within the scope of the Global\_ID
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         

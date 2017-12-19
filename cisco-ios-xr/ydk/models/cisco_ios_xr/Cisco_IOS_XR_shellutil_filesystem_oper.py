@@ -25,7 +25,7 @@ class FileSystem(Entity):
     .. attribute:: node
     
     	Node ID
-    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node>`
+    	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node>`
     
     
 
@@ -59,12 +59,14 @@ class FileSystem(Entity):
         .. attribute:: node_name  <key>
         
         	Node name
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
         .. attribute:: file_system
         
         	Available file systems
-        	**type**\: list of    :py:class:`FileSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node.FileSystem>`
+        	**type**\: list of  		 :py:class:`FileSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node.FileSystem>`
         
         
 
@@ -100,31 +102,31 @@ class FileSystem(Entity):
             .. attribute:: size
             
             	Size of the file system in bytes
-            	**type**\:  str
+            	**type**\: str
             
             	**units**\: byte
             
             .. attribute:: free
             
             	Free space in the file system in bytes
-            	**type**\:  str
+            	**type**\: str
             
             	**units**\: byte
             
             .. attribute:: type
             
             	Type of file system
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: flags
             
             	Flags of file system
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: prefixes
             
             	Prefixes of file system
-            	**type**\:  str
+            	**type**\: str
             
             
 

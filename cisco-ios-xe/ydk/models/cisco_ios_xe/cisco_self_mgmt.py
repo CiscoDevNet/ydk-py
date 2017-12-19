@@ -17,12 +17,12 @@ class NetconfYang(Entity):
     .. attribute:: cisco_ia
     
     	Customize the behavior of the DMI applications
-    	**type**\:   :py:class:`CiscoIa <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa>`
+    	**type**\:  :py:class:`CiscoIa <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa>`
     
     .. attribute:: cisco_odm
     
     	
-    	**type**\:   :py:class:`CiscoOdm <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoOdm>`
+    	**type**\:  :py:class:`CiscoOdm <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoOdm>`
     
     
 
@@ -39,7 +39,7 @@ class NetconfYang(Entity):
         self.yang_parent_name = "cisco-self-mgmt"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cisco-ia" : ("cisco_ia", NetconfYang.CiscoIa), "cisco-odm" : ("cisco_odm", NetconfYang.CiscoOdm)}
+        self._child_container_classes = {"cisco-ia:cisco-ia" : ("cisco_ia", NetconfYang.CiscoIa), "cisco-odm:cisco-odm" : ("cisco_odm", NetconfYang.CiscoOdm)}
         self._child_list_classes = {}
 
         self.cisco_ia = NetconfYang.CiscoIa()
@@ -61,33 +61,33 @@ class NetconfYang(Entity):
         .. attribute:: auto_sync
         
         	Enables automatic synchronization of the network element's running configuration with the DMI database
-        	**type**\:   :py:class:`CiaSyncType <ydk.models.cisco_ios_xe.cisco_ia.CiaSyncType>`
+        	**type**\:  :py:class:`CiaSyncType <ydk.models.cisco_ios_xe.cisco_ia.CiaSyncType>`
         
         	**default value**\: without-defaults
         
         .. attribute:: init_sync
         
         	Enables synchronization of the network element's running configuration with the DMI database when DMI initializes
-        	**type**\:   :py:class:`CiaSyncType <ydk.models.cisco_ios_xe.cisco_ia.CiaSyncType>`
+        	**type**\:  :py:class:`CiaSyncType <ydk.models.cisco_ios_xe.cisco_ia.CiaSyncType>`
         
         	**default value**\: without-defaults
         
         .. attribute:: intelligent_sync
         
         	When enabled, intelligent\-sync monitors all  ttys for configuration changes and replays  these changes to the DMI database once the tty exits configuration mode.  When  disabled, the complete running\-configuration is used to synchronize the DMI database whenever a CLI configuration change is  detected
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: true
         
         .. attribute:: snmp_trap_control
         
         	This container describes the configuration parameters for SNMP Trap to NetConf notification processing
-        	**type**\:   :py:class:`SnmpTrapControl <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.SnmpTrapControl>`
+        	**type**\:  :py:class:`SnmpTrapControl <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.SnmpTrapControl>`
         
         .. attribute:: message_diag_level
         
         	0 = Disabled,  1 = Save input message, DMI debugs, and response,  2 = Level 1 + Save "before" and "after"      running\-config, 3 = Level 2 + rollback file and configuration diff
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..3
         
@@ -96,7 +96,7 @@ class NetconfYang(Entity):
         .. attribute:: max_diag_messages_saved
         
         	The maximum number of messages whose diagnostic data  in kept in persistent storage
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..199
         
@@ -105,14 +105,14 @@ class NetconfYang(Entity):
         .. attribute:: post_sync_acl_process
         
         	Run "show ip access\-list" and send to ConfD
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: true
         
         .. attribute:: config_change_delay
         
         	Delay in ms before applying CDB change to NE
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-32768..32767
         
@@ -121,72 +121,72 @@ class NetconfYang(Entity):
         .. attribute:: process_missing_prc
         
         	Process any parser output from configuration changes as a possible error
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: true
         
         .. attribute:: snmp_community_string
         
         	The community string for communication with the SNMP         agent
-        	**type**\:  str
+        	**type**\: str
         
         	**default value**\: private
         
         .. attribute:: preserve_paths_enabled
         
         	Preserve specified model paths in the NED model when performing a sync from the  network element
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: preserve_ned_path
         
         	Model paths from the NED model to preserve upon a sync from the network element. These paths are not cleared from the  running data store prior to the sync. These are expressed as nodes separated by  slash '/', e.g.  /native/ip/access\-list
-        	**type**\: list of    :py:class:`PreserveNedPath <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.PreserveNedPath>`
+        	**type**\: list of  		 :py:class:`PreserveNedPath <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.PreserveNedPath>`
         
         .. attribute:: parser_msg_ignore
         
         	Parser output from configuration  change that is informational only, not an error. This is a read only list containing known informational  messages
-        	**type**\: list of    :py:class:`ParserMsgIgnore <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.ParserMsgIgnore>`
+        	**type**\: list of  		 :py:class:`ParserMsgIgnore <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.ParserMsgIgnore>`
         
         .. attribute:: conf_parser_msg_ignore
         
         	Parser output from configuration  change that is informational only, not an error
-        	**type**\: list of    :py:class:`ConfParserMsgIgnore <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.ConfParserMsgIgnore>`
+        	**type**\: list of  		 :py:class:`ConfParserMsgIgnore <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.ConfParserMsgIgnore>`
         
         .. attribute:: full_sync_cli
         
         	IOS commands that result in other automatic configurations being applied for which a complete sync is required
-        	**type**\: list of    :py:class:`FullSyncCli <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.FullSyncCli>`
+        	**type**\: list of  		 :py:class:`FullSyncCli <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.FullSyncCli>`
         
         .. attribute:: conf_full_sync_cli
         
         	A user\-configurable list of IOS commands  that result in other automatic configurations  being applied for which a complete sync  is required
-        	**type**\: list of    :py:class:`ConfFullSyncCli <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.ConfFullSyncCli>`
+        	**type**\: list of  		 :py:class:`ConfFullSyncCli <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.ConfFullSyncCli>`
         
         .. attribute:: nes_ttynum
         
         	TTY number used by NetworkElementSynchronizer
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-32768..32767
         
         .. attribute:: restored
         
         	Indicates if CDB restored from NES running\-config
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: logging
         
         	Controls logging behavior of DMI applications
-        	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.Logging>`
+        	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.Logging>`
         
         .. attribute:: blocking
         
         	Controls blocking of command lines, either  from the NE to Confd or disallowing manual input from the console/vty
-        	**type**\:   :py:class:`Blocking <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.Blocking>`
+        	**type**\:  :py:class:`Blocking <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.Blocking>`
         
         
 
@@ -264,14 +264,14 @@ class NetconfYang(Entity):
             .. attribute:: global_forwarding
             
             	This leaf enables or disables forwarding for all SNMP traps
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: true
             
             .. attribute:: trap_list
             
             	This list describes SNMP Traps that are  supported for automatic translation to NetConf notifications
-            	**type**\: list of    :py:class:`TrapList <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.SnmpTrapControl.TrapList>`
+            	**type**\: list of  		 :py:class:`TrapList <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.SnmpTrapControl.TrapList>`
             
             
 
@@ -309,17 +309,19 @@ class NetconfYang(Entity):
                 .. attribute:: trap_oid  <key>
                 
                 	This leaf contains the OID for the  SNMP trap to be forwarded
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
                 
                 .. attribute:: description
                 
                 	This leaf contains the name of the SNMP trap to be  forwarded
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: forward
                 
                 	This leaf enables or disables forwarding for this SNMP trap
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: true
                 
@@ -364,7 +366,7 @@ class NetconfYang(Entity):
             .. attribute:: xpath  <key>
             
             	An XPath from the NED model
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..1024
             
@@ -404,7 +406,7 @@ class NetconfYang(Entity):
             .. attribute:: message  <key>
             
             	A regular expression to match parser output to be ignored
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..255
             
@@ -442,7 +444,7 @@ class NetconfYang(Entity):
             .. attribute:: message  <key>
             
             	A regular expression to match parser output to be ignored
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..255
             
@@ -480,7 +482,7 @@ class NetconfYang(Entity):
             .. attribute:: command  <key>
             
             	A regular expression matching command lines which cause other automatic configuration changes
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..255
             
@@ -519,7 +521,7 @@ class NetconfYang(Entity):
             .. attribute:: command  <key>
             
             	A regular expression matching command lines which cause other automatic configuration changes
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..255
             
@@ -555,42 +557,42 @@ class NetconfYang(Entity):
             .. attribute:: confd_log_level
             
             	Logging level for Confd
-            	**type**\:   :py:class:`SyslogSeverity <ydk.models.cisco_ios_xe.cisco_ia.SyslogSeverity>`
+            	**type**\:  :py:class:`SyslogSeverity <ydk.models.cisco_ios_xe.cisco_ia.SyslogSeverity>`
             
             	**default value**\: error
             
             .. attribute:: ciaauthd_log_level
             
             	Logging level for CiaAuthDaemon
-            	**type**\:   :py:class:`CiaLogLevel <ydk.models.cisco_ios_xe.cisco_ia.CiaLogLevel>`
+            	**type**\:  :py:class:`CiaLogLevel <ydk.models.cisco_ios_xe.cisco_ia.CiaLogLevel>`
             
             	**default value**\: error
             
             .. attribute:: nes_log_level
             
             	Logging level for Network Element Synchronizer
-            	**type**\:   :py:class:`CiaLogLevel <ydk.models.cisco_ios_xe.cisco_ia.CiaLogLevel>`
+            	**type**\:  :py:class:`CiaLogLevel <ydk.models.cisco_ios_xe.cisco_ia.CiaLogLevel>`
             
             	**default value**\: error
             
             .. attribute:: onep_log_level
             
             	Logging level for ONEP
-            	**type**\:   :py:class:`OnepLogLevel <ydk.models.cisco_ios_xe.cisco_ia.OnepLogLevel>`
+            	**type**\:  :py:class:`OnepLogLevel <ydk.models.cisco_ios_xe.cisco_ia.OnepLogLevel>`
             
             	**default value**\: error
             
             .. attribute:: odm_log_level
             
             	Logging level for  Operational Data Manager
-            	**type**\:   :py:class:`CiaLogLevel <ydk.models.cisco_ios_xe.cisco_ia.CiaLogLevel>`
+            	**type**\:  :py:class:`CiaLogLevel <ydk.models.cisco_ios_xe.cisco_ia.CiaLogLevel>`
             
             	**default value**\: error
             
             .. attribute:: sync_log_level
             
             	Logging level for Sync\-From Daemon
-            	**type**\:   :py:class:`CiaLogLevel <ydk.models.cisco_ios_xe.cisco_ia.CiaLogLevel>`
+            	**type**\:  :py:class:`CiaLogLevel <ydk.models.cisco_ios_xe.cisco_ia.CiaLogLevel>`
             
             	**default value**\: error
             
@@ -638,26 +640,26 @@ class NetconfYang(Entity):
             .. attribute:: cli_blocking_enabled
             
             	Enables blocking of designated command lines via the  network element's CLI
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
             .. attribute:: network_element_command
             
             	Command line pattern to disallow via the network element's CLI
-            	**type**\: list of    :py:class:`NetworkElementCommand <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.Blocking.NetworkElementCommand>`
+            	**type**\: list of  		 :py:class:`NetworkElementCommand <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.Blocking.NetworkElementCommand>`
             
             .. attribute:: confd_cfg_blocking_enabled
             
             	Enables blocking of designated command lines via the  network element's CLI
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: true
             
             .. attribute:: confd_cfg_command
             
             	Command line pattern to omit syncing to Confd CDB
-            	**type**\: list of    :py:class:`ConfdCfgCommand <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.Blocking.ConfdCfgCommand>`
+            	**type**\: list of  		 :py:class:`ConfdCfgCommand <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.Blocking.ConfdCfgCommand>`
             
             
 
@@ -697,7 +699,7 @@ class NetconfYang(Entity):
                 .. attribute:: command  <key>
                 
                 	A regular expression matching command lines which should be blocked from entry via console/vty
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..255
                 
@@ -733,7 +735,7 @@ class NetconfYang(Entity):
                 .. attribute:: command  <key>
                 
                 	A regular expression matching command lines which should be blocked from being sent to Confd from the network element
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -767,14 +769,14 @@ class NetconfYang(Entity):
         .. attribute:: polling_enable
         
         	
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: on_demand_default_time
         
         	
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 500..4294967295
         
@@ -785,7 +787,7 @@ class NetconfYang(Entity):
         .. attribute:: on_demand_enable
         
         	
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
@@ -794,7 +796,7 @@ class NetconfYang(Entity):
         .. attribute:: actions
         
         	
-        	**type**\: list of    :py:class:`Actions <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoOdm.Actions>`
+        	**type**\: list of  		 :py:class:`Actions <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoOdm.Actions>`
         
         
 
@@ -834,12 +836,12 @@ class NetconfYang(Entity):
             .. attribute:: action_name  <key>
             
             	
-            	**type**\:   :py:class:`Parsername <ydk.models.cisco_ios_xe.cisco_odm.Parsername>`
+            	**type**\:  :py:class:`Parsername <ydk.models.cisco_ios_xe.cisco_odm.Parsername>`
             
             .. attribute:: polling_interval
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -848,14 +850,14 @@ class NetconfYang(Entity):
             .. attribute:: mode
             
             	
-            	**type**\:   :py:class:`Mode <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoOdm.Actions.Mode>`
+            	**type**\:  :py:class:`Mode <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoOdm.Actions.Mode>`
             
             	**default value**\: poll
             
             .. attribute:: cdb_xpath
             
             	
-            	**type**\:  str
+            	**type**\: str
             
             
 

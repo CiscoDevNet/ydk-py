@@ -38,6 +38,13 @@ module tailf-common-query {
      functions as groupings.  The protocol-specific modules that use
      these groupings encapsulate them in protocol-specifc operations.";
 
+  revision 2017-04-27 {
+    description
+      "Released as part of ConfD-6.4.1 / NCS-4.4.1.
+
+       Added 'timeout' as parameter for start-query and reset-query.";
+  }
+
   revision 2015-03-19 {
     description
       "Released as part of ConfD-5.4 / NCS-3.4.
@@ -175,6 +182,16 @@ module tailf-common-query {
       }
       default 1;
     }
+    leaf timeout {
+      type uint32 {
+        range "1..max";
+      }
+      description
+        "The maximum time (in seconds) before a query times out. Resets every
+        new request, i.e. subsequent function calls starts a new timeout
+        timer.";
+      default 600;
+    }
   }
 
   grouping query-handle {
@@ -235,6 +252,16 @@ module tailf-common-query {
         range "1..max";
       }
       default 1;
+    }
+    leaf timeout {
+      type uint32 {
+        range "1..max";
+      }
+      description
+        "The maximum time (in seconds) before a query times out. Resets every
+        new request, i.e. subsequent function calls starts a new timeout
+        timer.";
+      default 600;
     }
   }
 

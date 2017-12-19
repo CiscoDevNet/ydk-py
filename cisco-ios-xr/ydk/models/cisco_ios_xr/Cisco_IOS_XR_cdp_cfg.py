@@ -29,7 +29,7 @@ class Cdp(Entity):
     .. attribute:: timer
     
     	Specify the rate at which CDP packets are sent
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 5..255
     
@@ -38,19 +38,19 @@ class Cdp(Entity):
     .. attribute:: advertise_v1_only
     
     	Enable CDPv1 only advertisements
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: enable
     
     	Enable or disable CDP globally
-    	**type**\:  bool
+    	**type**\: bool
     
     	**default value**\: true
     
     .. attribute:: hold_time
     
     	Length of time (in sec) that the receiver must keep a CDP packet
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 10..255
     
@@ -59,7 +59,7 @@ class Cdp(Entity):
     .. attribute:: log_adjacency
     
     	Enable logging of adjacency changes
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 

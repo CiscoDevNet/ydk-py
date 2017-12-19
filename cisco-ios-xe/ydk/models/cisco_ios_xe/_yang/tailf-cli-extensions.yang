@@ -5,7 +5,7 @@ submodule tailf-cli-extensions {
   }
 
   include tailf-meta-extensions {
-    revision-date 2016-11-24;
+    revision-date 2017-03-08;
   }
 
   organization "Tail-f Systems";
@@ -16,6 +16,20 @@ submodule tailf-cli-extensions {
 
      See also the 'display-' statements and the 'alt-name' statement
      in tailf-common.yang.";
+
+  revision 2017-08-23 {
+    description
+      "Released as part of Confd-6.4.3 / NCS-4.4.3.
+
+       Added tailf:cli-only-in-autowizard for leafs with sensitive data.";
+  }
+
+  revision 2017-03-08 {
+    description
+      "Released as part of Confd-6.4 / NCS-4.4.
+
+       Included latest revision of the tailf-meta-extensions submodule.";
+  }
 
   revision 2017-01-26 {
     description
@@ -2203,6 +2217,16 @@ submodule tailf-cli-extensions {
       "Specifies that elements in a leaf-list should be entered without
       surrounding brackets. Also, multiple elements can be added to a list
       or deleted from a list.
+
+      Used in J-, I- and C-style CLIs.";
+  }
+
+  extension cli-only-in-autowizard {
+    tailf:use-in "leaf";
+    description
+      "Force leaf values to be entered in the autowizard. This
+      is intended to prevent users from entering passwords and
+      other sensitive information in plain text.
 
       Used in J-, I- and C-style CLIs.";
   }

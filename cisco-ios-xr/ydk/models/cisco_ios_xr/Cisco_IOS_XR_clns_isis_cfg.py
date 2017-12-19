@@ -1241,7 +1241,7 @@ class Isis(Entity):
     .. attribute:: instances
     
     	IS\-IS instance configuration
-    	**type**\:   :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances>`
+    	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances>`
     
     
 
@@ -1275,7 +1275,7 @@ class Isis(Entity):
         .. attribute:: instance
         
         	Configuration for a single IS\-IS instance
-        	**type**\: list of    :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance>`
+        	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance>`
         
         
 
@@ -1309,144 +1309,144 @@ class Isis(Entity):
             .. attribute:: instance_name  <key>
             
             	Instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..40
             
             .. attribute:: srgb
             
             	Segment Routing Global Block configuration
-            	**type**\:   :py:class:`Srgb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Srgb>`
+            	**type**\:  :py:class:`Srgb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Srgb>`
             
             	**presence node**\: True
             
             .. attribute:: lsp_generation_intervals
             
             	LSP generation\-interval configuration
-            	**type**\:   :py:class:`LspGenerationIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspGenerationIntervals>`
+            	**type**\:  :py:class:`LspGenerationIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspGenerationIntervals>`
             
             .. attribute:: lsp_arrival_times
             
             	LSP arrival time configuration
-            	**type**\:   :py:class:`LspArrivalTimes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspArrivalTimes>`
+            	**type**\:  :py:class:`LspArrivalTimes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspArrivalTimes>`
             
             .. attribute:: trace_buffer_size
             
             	Trace buffer size configuration
-            	**type**\:   :py:class:`TraceBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.TraceBufferSize>`
+            	**type**\:  :py:class:`TraceBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.TraceBufferSize>`
             
             .. attribute:: max_link_metrics
             
             	Max Link Metric configuration
-            	**type**\:   :py:class:`MaxLinkMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.MaxLinkMetrics>`
+            	**type**\:  :py:class:`MaxLinkMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.MaxLinkMetrics>`
             
             .. attribute:: adjacency_stagger
             
             	Stagger ISIS adjacency bring up
-            	**type**\:   :py:class:`AdjacencyStagger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.AdjacencyStagger>`
+            	**type**\:  :py:class:`AdjacencyStagger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.AdjacencyStagger>`
             
             	**presence node**\: True
             
             .. attribute:: afs
             
             	Per\-address\-family configuration
-            	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs>`
+            	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs>`
             
             .. attribute:: lsp_refresh_intervals
             
             	LSP refresh\-interval configuration
-            	**type**\:   :py:class:`LspRefreshIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspRefreshIntervals>`
+            	**type**\:  :py:class:`LspRefreshIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspRefreshIntervals>`
             
             .. attribute:: distribute
             
             	IS\-IS Distribute BGP\-LS configuration
-            	**type**\:   :py:class:`Distribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Distribute>`
+            	**type**\:  :py:class:`Distribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Distribute>`
             
             	**presence node**\: True
             
             .. attribute:: lsp_accept_passwords
             
             	LSP/SNP accept password configuration
-            	**type**\:   :py:class:`LspAcceptPasswords <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspAcceptPasswords>`
+            	**type**\:  :py:class:`LspAcceptPasswords <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspAcceptPasswords>`
             
             .. attribute:: lsp_mtus
             
             	LSP MTU configuration
-            	**type**\:   :py:class:`LspMtus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspMtus>`
+            	**type**\:  :py:class:`LspMtus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspMtus>`
             
             .. attribute:: nsf
             
             	IS\-IS NSF configuration
-            	**type**\:   :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Nsf>`
+            	**type**\:  :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Nsf>`
             
             .. attribute:: link_groups
             
             	Link Group
-            	**type**\:   :py:class:`LinkGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LinkGroups>`
+            	**type**\:  :py:class:`LinkGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LinkGroups>`
             
             .. attribute:: lsp_check_intervals
             
             	LSP checksum check interval configuration
-            	**type**\:   :py:class:`LspCheckIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspCheckIntervals>`
+            	**type**\:  :py:class:`LspCheckIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspCheckIntervals>`
             
             .. attribute:: lsp_passwords
             
             	LSP/SNP password configuration
-            	**type**\:   :py:class:`LspPasswords <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspPasswords>`
+            	**type**\:  :py:class:`LspPasswords <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspPasswords>`
             
             .. attribute:: nets
             
             	NET configuration
-            	**type**\:   :py:class:`Nets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Nets>`
+            	**type**\:  :py:class:`Nets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Nets>`
             
             .. attribute:: lsp_lifetimes
             
             	LSP lifetime configuration
-            	**type**\:   :py:class:`LspLifetimes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspLifetimes>`
+            	**type**\:  :py:class:`LspLifetimes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspLifetimes>`
             
             .. attribute:: overload_bits
             
             	LSP overload\-bit configuration
-            	**type**\:   :py:class:`OverloadBits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.OverloadBits>`
+            	**type**\:  :py:class:`OverloadBits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.OverloadBits>`
             
             .. attribute:: interfaces
             
             	Per\-interface configuration
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces>`
             
             .. attribute:: running
             
             	Flag to indicate that instance should be running.  This must be the first object created when an IS\-IS instance is configured, and the last object deleted when it is deconfigured.  When this object is deleted, the IS\-IS instance will exit
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: log_adjacency_changes
             
             	Log changes in adjacency state
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: ignore_lsp_errors
             
             	If TRUE, LSPs recieved with bad checksums will result in the purging of that LSP from the LSP DB. If FALSE or not set, the received LSP will just be ignored
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_type
             
             	IS type of the IS\-IS process
-            	**type**\:   :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
+            	**type**\:  :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
             
             	**default value**\: level1-and2
             
             .. attribute:: tracing_mode
             
             	Tracing mode configuration
-            	**type**\:   :py:class:`IsisTracingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisTracingMode>`
+            	**type**\:  :py:class:`IsisTracingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisTracingMode>`
             
             	**default value**\: basic
             
             .. attribute:: instance_id
             
             	Instance ID of the IS\-IS process
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -1455,17 +1455,17 @@ class Isis(Entity):
             .. attribute:: dynamic_host_name
             
             	If TRUE, dynamic hostname resolution is disabled, and system IDs will always be displayed by show and debug output
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: nsr
             
             	IS\-IS NSR configuration
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: log_pdu_drops
             
             	Log PDU drops
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1609,7 +1609,7 @@ class Isis(Entity):
                 .. attribute:: lower_bound
                 
                 	The lower bound of the SRGB
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 16000..1048574
                 
@@ -1618,7 +1618,7 @@ class Isis(Entity):
                 .. attribute:: upper_bound
                 
                 	The upper bound of the SRGB
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 16001..1048575
                 
@@ -1660,7 +1660,7 @@ class Isis(Entity):
                 .. attribute:: lsp_generation_interval
                 
                 	LSP generation scheduling parameters
-                	**type**\: list of    :py:class:`LspGenerationInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval>`
+                	**type**\: list of  		 :py:class:`LspGenerationInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval>`
                 
                 
 
@@ -1693,12 +1693,12 @@ class Isis(Entity):
                     .. attribute:: level  <key>
                     
                     	Level to which configuration applies
-                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                     
                     .. attribute:: maximum_wait
                     
                     	Maximum wait before generating local LSP in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..120000
                     
@@ -1707,7 +1707,7 @@ class Isis(Entity):
                     .. attribute:: initial_wait
                     
                     	Initial wait before generating local LSP in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..120000
                     
@@ -1716,7 +1716,7 @@ class Isis(Entity):
                     .. attribute:: secondary_wait
                     
                     	Secondary wait before generating local LSP in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..120000
                     
@@ -1759,7 +1759,7 @@ class Isis(Entity):
                 .. attribute:: lsp_arrival_time
                 
                 	Minimum LSP arrival time
-                	**type**\: list of    :py:class:`LspArrivalTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime>`
+                	**type**\: list of  		 :py:class:`LspArrivalTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime>`
                 
                 
 
@@ -1792,12 +1792,12 @@ class Isis(Entity):
                     .. attribute:: level  <key>
                     
                     	Level to which configuration applies
-                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                     
                     .. attribute:: maximum_wait
                     
                     	Maximum delay expected to take since last LSPin milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..120000
                     
@@ -1806,7 +1806,7 @@ class Isis(Entity):
                     .. attribute:: initial_wait
                     
                     	Initial delay expected to take since last LSPin milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..120000
                     
@@ -1815,7 +1815,7 @@ class Isis(Entity):
                     .. attribute:: secondary_wait
                     
                     	Secondary delay expected to take since last LSPin milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..120000
                     
@@ -1858,28 +1858,28 @@ class Isis(Entity):
                 .. attribute:: detailed
                 
                 	Buffer size for detailed traces
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..1000000
                 
                 .. attribute:: standard
                 
                 	Buffer size for standard traces
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..1000000
                 
                 .. attribute:: severe
                 
                 	Buffer size for severe trace
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..1000000
                 
                 .. attribute:: hello
                 
                 	Buffer size for hello trace
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..1000000
                 
@@ -1920,7 +1920,7 @@ class Isis(Entity):
                 .. attribute:: max_link_metric
                 
                 	Max Link Metric
-                	**type**\: list of    :py:class:`MaxLinkMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric>`
+                	**type**\: list of  		 :py:class:`MaxLinkMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric>`
                 
                 
 
@@ -1953,7 +1953,7 @@ class Isis(Entity):
                     .. attribute:: level  <key>
                     
                     	Level to which configuration applies
-                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                     
                     
 
@@ -1986,7 +1986,7 @@ class Isis(Entity):
                 .. attribute:: initial_nbr
                 
                 	Adjacency Stagger\: Initial number of neighbors to bring up per area
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 2..65000
                 
@@ -1995,7 +1995,7 @@ class Isis(Entity):
                 .. attribute:: max_nbr
                 
                 	Adjacency Stagger\: Subsequent simultaneous number of neighbors to bring up
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 2..65000
                 
@@ -2037,7 +2037,7 @@ class Isis(Entity):
                 .. attribute:: af
                 
                 	Configuration for an IS\-IS address\-family. If a named (non\-default) topology is being created it must be multicast
-                	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af>`
+                	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af>`
                 
                 
 
@@ -2072,24 +2072,24 @@ class Isis(Entity):
                     .. attribute:: af_name  <key>
                     
                     	Address family
-                    	**type**\:   :py:class:`IsisAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisAddressFamily>`
+                    	**type**\:  :py:class:`IsisAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisAddressFamily>`
                     
                     .. attribute:: saf_name  <key>
                     
                     	Sub address family
-                    	**type**\:   :py:class:`IsisSubAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisSubAddressFamily>`
+                    	**type**\:  :py:class:`IsisSubAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisSubAddressFamily>`
                     
                     .. attribute:: af_data
                     
                     	Data container
-                    	**type**\:   :py:class:`AfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData>`
+                    	**type**\:  :py:class:`AfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: topology_name
                     
                     	keys\: topology\-name
-                    	**type**\: list of    :py:class:`TopologyName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName>`
+                    	**type**\: list of  		 :py:class:`TopologyName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName>`
                     
                     
 
@@ -2130,136 +2130,136 @@ class Isis(Entity):
                         .. attribute:: segment_routing
                         
                         	Enable Segment Routing configuration
-                        	**type**\:   :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting>`
+                        	**type**\:  :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting>`
                         
                         .. attribute:: metric_styles
                         
                         	Metric\-style configuration
-                        	**type**\:   :py:class:`MetricStyles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MetricStyles>`
+                        	**type**\:  :py:class:`MetricStyles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MetricStyles>`
                         
                         .. attribute:: frr_table
                         
                         	Fast\-ReRoute configuration
-                        	**type**\:   :py:class:`FrrTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable>`
+                        	**type**\:  :py:class:`FrrTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable>`
                         
                         .. attribute:: router_id
                         
                         	Stable IP address for system. Will only be applied for the unicast sub\-address\-family
-                        	**type**\:   :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.RouterId>`
+                        	**type**\:  :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.RouterId>`
                         
                         .. attribute:: spf_prefix_priorities
                         
                         	SPF Prefix Priority configuration
-                        	**type**\:   :py:class:`SpfPrefixPriorities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities>`
+                        	**type**\:  :py:class:`SpfPrefixPriorities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities>`
                         
                         .. attribute:: summary_prefixes
                         
                         	Summary\-prefix configuration
-                        	**type**\:   :py:class:`SummaryPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes>`
+                        	**type**\:  :py:class:`SummaryPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes>`
                         
                         .. attribute:: micro_loop_avoidance
                         
                         	Micro Loop Avoidance configuration
-                        	**type**\:   :py:class:`MicroLoopAvoidance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance>`
+                        	**type**\:  :py:class:`MicroLoopAvoidance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance>`
                         
                         .. attribute:: ucmp
                         
                         	UCMP (UnEqual Cost MultiPath) configuration
-                        	**type**\:   :py:class:`Ucmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ucmp>`
+                        	**type**\:  :py:class:`Ucmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ucmp>`
                         
                         .. attribute:: max_redist_prefixes
                         
                         	Maximum number of redistributed prefixesconfiguration
-                        	**type**\:   :py:class:`MaxRedistPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes>`
+                        	**type**\:  :py:class:`MaxRedistPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes>`
                         
                         .. attribute:: propagations
                         
                         	Route propagation configuration
-                        	**type**\:   :py:class:`Propagations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Propagations>`
+                        	**type**\:  :py:class:`Propagations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Propagations>`
                         
                         .. attribute:: redistributions
                         
                         	Protocol redistribution configuration
-                        	**type**\:   :py:class:`Redistributions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions>`
+                        	**type**\:  :py:class:`Redistributions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions>`
                         
                         .. attribute:: spf_periodic_intervals
                         
                         	Peoridic SPF configuration
-                        	**type**\:   :py:class:`SpfPeriodicIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals>`
+                        	**type**\:  :py:class:`SpfPeriodicIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals>`
                         
                         .. attribute:: spf_intervals
                         
                         	SPF\-interval configuration
-                        	**type**\:   :py:class:`SpfIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals>`
+                        	**type**\:  :py:class:`SpfIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals>`
                         
                         .. attribute:: monitor_convergence
                         
                         	Enable convergence monitoring
-                        	**type**\:   :py:class:`MonitorConvergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence>`
+                        	**type**\:  :py:class:`MonitorConvergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence>`
                         
                         .. attribute:: default_information
                         
                         	Control origination of a default route with the option of using a policy.  If no policy is specified the default route is advertised with zero cost in level 2 only
-                        	**type**\:   :py:class:`DefaultInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation>`
+                        	**type**\:  :py:class:`DefaultInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation>`
                         
                         .. attribute:: admin_distances
                         
                         	Per\-route administrative distanceconfiguration
-                        	**type**\:   :py:class:`AdminDistances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.AdminDistances>`
+                        	**type**\:  :py:class:`AdminDistances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.AdminDistances>`
                         
                         .. attribute:: ispf
                         
                         	ISPF configuration
-                        	**type**\:   :py:class:`Ispf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ispf>`
+                        	**type**\:  :py:class:`Ispf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ispf>`
                         
                         .. attribute:: mpls_ldp_global
                         
                         	MPLS LDP configuration. MPLS LDP configuration will only be applied for the IPv4\-unicast address\-family
-                        	**type**\:   :py:class:`MplsLdpGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal>`
+                        	**type**\:  :py:class:`MplsLdpGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal>`
                         
                         .. attribute:: mpls
                         
                         	MPLS configuration. MPLS configuration will only be applied for the IPv4\-unicast address\-family
-                        	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Mpls>`
+                        	**type**\:  :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Mpls>`
                         
                         .. attribute:: maximum_paths
                         
                         	Maximum number of active parallel paths per route
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..64
                         
                         .. attribute:: topology_id
                         
                         	Set the topology ID for a named (non\-default) topology. This object must be set before any other configuration is supplied for a named (non\-default) topology , and must be the last configuration object to be removed. This item should not be supplied for the non\-named default topologies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 6..4095
                         
                         .. attribute:: single_topology
                         
                         	Run IPv6 Unicast using the standard (IPv4 Unicast) topology
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: adjacency_check
                         
                         	Suppress check for consistent AF support on received IIHs
-                        	**type**\:   :py:class:`IsisAdjCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAdjCheck>`
+                        	**type**\:  :py:class:`IsisAdjCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAdjCheck>`
                         
                         .. attribute:: advertise_link_attributes
                         
                         	If TRUE, advertise additional link attributes in our LSP
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: apply_weight
                         
                         	Apply weights to UCMP or ECMP only
-                        	**type**\:   :py:class:`IsisApplyWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisApplyWeight>`
+                        	**type**\:  :py:class:`IsisApplyWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisApplyWeight>`
                         
                         .. attribute:: default_admin_distance
                         
                         	Default IS\-IS administrative distance configuration
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
@@ -2268,39 +2268,39 @@ class Isis(Entity):
                         .. attribute:: advertise_passive_only
                         
                         	If enabled, advertise prefixes of passive interfaces only
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: ignore_attached_bit
                         
                         	If TRUE, Ignore other routers attached bit
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: attached_bit
                         
                         	Set the attached bit in this router's level 1 System LSP
-                        	**type**\:   :py:class:`IsisAttachedBit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAttachedBit>`
+                        	**type**\:  :py:class:`IsisAttachedBit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAttachedBit>`
                         
                         	**default value**\: area
                         
                         .. attribute:: route_source_first_hop
                         
                         	If TRUE, routes will be installed with the IP address of the first\-hop node as the source instead of the originating node
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: manual_adj_sids
                         
                         	Manual Adjacecy SID configuration
-                        	**type**\:   :py:class:`ManualAdjSids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids>`
+                        	**type**\:  :py:class:`ManualAdjSids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids>`
                         
                         .. attribute:: metrics
                         
                         	Metric configuration
-                        	**type**\:   :py:class:`Metrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Metrics>`
+                        	**type**\:  :py:class:`Metrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Metrics>`
                         
                         .. attribute:: weights
                         
                         	Weight configuration
-                        	**type**\:   :py:class:`Weights <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Weights>`
+                        	**type**\:  :py:class:`Weights <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Weights>`
                         
                         
 
@@ -2466,17 +2466,17 @@ class Isis(Entity):
                             .. attribute:: prefix_sid_map
                             
                             	Enable Segment Routing prefix SID map configuration
-                            	**type**\:   :py:class:`PrefixSidMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap>`
+                            	**type**\:  :py:class:`PrefixSidMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap>`
                             
                             .. attribute:: bundle_member_adj_sid
                             
                             	Enable per bundle member adjacency SID
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: mpls
                             
                             	Prefer segment routing labels over LDP labels
-                            	**type**\:   :py:class:`IsisLabelPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisLabelPreference>`
+                            	**type**\:  :py:class:`IsisLabelPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisLabelPreference>`
                             
                             
 
@@ -2517,12 +2517,12 @@ class Isis(Entity):
                                 .. attribute:: advertise_local
                                 
                                 	Enable Segment Routing prefix SID map advertise local
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: receive
                                 
                                 	If TRUE, remote prefix SID map advertisements will be used. If FALSE, they will not be used
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -2557,7 +2557,7 @@ class Isis(Entity):
                             .. attribute:: metric_style
                             
                             	Configuration of metric style in LSPs
-                            	**type**\: list of    :py:class:`MetricStyle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle>`
+                            	**type**\: list of  		 :py:class:`MetricStyle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle>`
                             
                             
 
@@ -2590,19 +2590,19 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: style
                                 
                                 	Metric Style
-                                	**type**\:   :py:class:`IsisMetricStyle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyle>`
+                                	**type**\:  :py:class:`IsisMetricStyle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyle>`
                                 
                                 	**default value**\: old-metric-style
                                 
                                 .. attribute:: transition_state
                                 
                                 	Transition state
-                                	**type**\:   :py:class:`IsisMetricStyleTransition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyleTransition>`
+                                	**type**\:  :py:class:`IsisMetricStyleTransition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyleTransition>`
                                 
                                 	**default value**\: disabled
                                 
@@ -2641,27 +2641,27 @@ class Isis(Entity):
                             .. attribute:: frr_load_sharings
                             
                             	Load share prefixes across multiple backups
-                            	**type**\:   :py:class:`FrrLoadSharings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings>`
+                            	**type**\:  :py:class:`FrrLoadSharings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings>`
                             
                             .. attribute:: priority_limits
                             
                             	FRR prefix\-limit configuration
-                            	**type**\:   :py:class:`PriorityLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits>`
+                            	**type**\:  :py:class:`PriorityLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits>`
                             
                             .. attribute:: frr_remote_lfa_prefixes
                             
                             	FRR remote LFA prefix list filter configuration
-                            	**type**\:   :py:class:`FrrRemoteLfaPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes>`
+                            	**type**\:  :py:class:`FrrRemoteLfaPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes>`
                             
                             .. attribute:: frr_tiebreakers
                             
                             	FRR tiebreakers configuration
-                            	**type**\:   :py:class:`FrrTiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers>`
+                            	**type**\:  :py:class:`FrrTiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers>`
                             
                             .. attribute:: frr_use_cand_onlies
                             
                             	FRR use candidate only configuration
-                            	**type**\:   :py:class:`FrrUseCandOnlies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies>`
+                            	**type**\:  :py:class:`FrrUseCandOnlies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies>`
                             
                             
 
@@ -2715,7 +2715,7 @@ class Isis(Entity):
                                 .. attribute:: frr_load_sharing
                                 
                                 	Disable load sharing
-                                	**type**\: list of    :py:class:`FrrLoadSharing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing>`
+                                	**type**\: list of  		 :py:class:`FrrLoadSharing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing>`
                                 
                                 
 
@@ -2748,12 +2748,12 @@ class Isis(Entity):
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
-                                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
                                     .. attribute:: load_sharing
                                     
                                     	Load sharing
-                                    	**type**\:   :py:class:`IsisfrrLoadSharing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrLoadSharing>`
+                                    	**type**\:  :py:class:`IsisfrrLoadSharing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrLoadSharing>`
                                     
                                     	**mandatory**\: True
                                     
@@ -2790,7 +2790,7 @@ class Isis(Entity):
                                 .. attribute:: priority_limit
                                 
                                 	Limit backup computation upto the prefix priority
-                                	**type**\: list of    :py:class:`PriorityLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit>`
+                                	**type**\: list of  		 :py:class:`PriorityLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit>`
                                 
                                 
 
@@ -2824,17 +2824,17 @@ class Isis(Entity):
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
-                                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
                                     .. attribute:: frr_type  <key>
                                     
                                     	Computation Type
-                                    	**type**\:   :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
+                                    	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
                                     
                                     .. attribute:: priority
                                     
                                     	Compute for all prefixes upto the specified priority
-                                    	**type**\:   :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
+                                    	**type**\:  :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
                                     
                                     	**mandatory**\: True
                                     
@@ -2874,7 +2874,7 @@ class Isis(Entity):
                                 .. attribute:: frr_remote_lfa_prefix
                                 
                                 	Filter remote LFA router IDs using prefix\-list
-                                	**type**\: list of    :py:class:`FrrRemoteLfaPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix>`
+                                	**type**\: list of  		 :py:class:`FrrRemoteLfaPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix>`
                                 
                                 
 
@@ -2908,12 +2908,12 @@ class Isis(Entity):
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
-                                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
                                     .. attribute:: prefix_list_name
                                     
                                     	Name of the prefix list
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..32
                                     
@@ -2952,7 +2952,7 @@ class Isis(Entity):
                                 .. attribute:: frr_tiebreaker
                                 
                                 	Configure tiebreaker for multiple backups
-                                	**type**\: list of    :py:class:`FrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker>`
+                                	**type**\: list of  		 :py:class:`FrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker>`
                                 
                                 
 
@@ -2985,17 +2985,17 @@ class Isis(Entity):
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
-                                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
                                     .. attribute:: tiebreaker  <key>
                                     
                                     	Tiebreaker for which configuration applies
-                                    	**type**\:   :py:class:`IsisfrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrTiebreaker>`
+                                    	**type**\:  :py:class:`IsisfrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrTiebreaker>`
                                     
                                     .. attribute:: index
                                     
                                     	Preference order among tiebreakers
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..255
                                     
@@ -3036,7 +3036,7 @@ class Isis(Entity):
                                 .. attribute:: frr_use_cand_only
                                 
                                 	Configure use candidate only to exclude interfaces as backup
-                                	**type**\: list of    :py:class:`FrrUseCandOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly>`
+                                	**type**\: list of  		 :py:class:`FrrUseCandOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly>`
                                 
                                 
 
@@ -3070,12 +3070,12 @@ class Isis(Entity):
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
-                                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
                                     .. attribute:: frr_type  <key>
                                     
                                     	Computation Type
-                                    	**type**\:   :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
+                                    	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
                                     
                                     
 
@@ -3111,20 +3111,22 @@ class Isis(Entity):
                             .. attribute:: address
                             
                             	IPv4/IPv6 address to be used as a router ID. Precisely one of Address and Interface must be specified
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: interface_name
                             
                             	Interface with designated stable IP address to be used as a router ID. This must be a Loopback interface. Precisely one of Address and Interface must be specified
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -3159,7 +3161,7 @@ class Isis(Entity):
                             .. attribute:: spf_prefix_priority
                             
                             	Determine SPF priority for prefixes
-                            	**type**\: list of    :py:class:`SpfPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority>`
+                            	**type**\: list of  		 :py:class:`SpfPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority>`
                             
                             
 
@@ -3192,24 +3194,24 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	SPF Level for prefix prioritization
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: prefix_priority_type  <key>
                                 
                                 	SPF Priority to assign matching prefixes
-                                	**type**\:   :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
+                                	**type**\:  :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
                                 
                                 .. attribute:: admin_tag
                                 
                                 	Tag value to determine prefixes for this priority
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..4294967295
                                 
                                 .. attribute:: access_list_name
                                 
                                 	Access List to determine prefixes for this priority
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..64
                                 
@@ -3250,7 +3252,7 @@ class Isis(Entity):
                             .. attribute:: summary_prefix
                             
                             	Configure IP address prefixes to advertise
-                            	**type**\: list of    :py:class:`SummaryPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes.SummaryPrefix>`
+                            	**type**\: list of  		 :py:class:`SummaryPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes.SummaryPrefix>`
                             
                             
 
@@ -3283,27 +3285,27 @@ class Isis(Entity):
                                 .. attribute:: address_prefix  <key>
                                 
                                 	IP summary address prefix
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                 
-                                ----
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                 
-                                ----
                                 .. attribute:: tag
                                 
                                 	The tag value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..4294967295
                                 
                                 .. attribute:: level
                                 
                                 	Level in which to summarize routes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..2
                                 
@@ -3342,14 +3344,14 @@ class Isis(Entity):
                             .. attribute:: enable
                             
                             	MicroLoop avoidance enable configuration
-                            	**type**\:   :py:class:`IsisMicroLoopAvoidance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMicroLoopAvoidance>`
+                            	**type**\:  :py:class:`IsisMicroLoopAvoidance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMicroLoopAvoidance>`
                             
                             	**default value**\: micro-loop-avoidance-all
                             
                             .. attribute:: rib_update_delay
                             
                             	Value of delay in msecs in updating RIB
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1000..65535
                             
@@ -3390,17 +3392,17 @@ class Isis(Entity):
                             .. attribute:: enable
                             
                             	UCMP feature enable configuration
-                            	**type**\:   :py:class:`Enable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable>`
+                            	**type**\:  :py:class:`Enable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable>`
                             
                             .. attribute:: exclude_interfaces
                             
                             	Interfaces excluded from UCMP path computation
-                            	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces>`
+                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces>`
                             
                             .. attribute:: delay_interval
                             
                             	Delay in msecs between primary SPF and UCMP computation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 100..65535
                             
@@ -3449,7 +3451,7 @@ class Isis(Entity):
                                 .. attribute:: variance
                                 
                                 	Value of variance
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 101..10000
                                 
@@ -3458,7 +3460,7 @@ class Isis(Entity):
                                 .. attribute:: prefix_list_name
                                 
                                 	Name of the Prefix List
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..32
                                 
@@ -3496,7 +3498,7 @@ class Isis(Entity):
                                 .. attribute:: exclude_interface
                                 
                                 	Exclude this interface from UCMP path computation
-                                	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces.ExcludeInterface>`
+                                	**type**\: list of  		 :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces.ExcludeInterface>`
                                 
                                 
 
@@ -3530,7 +3532,9 @@ class Isis(Entity):
                                     .. attribute:: interface_name  <key>
                                     
                                     	Name of the interface to be excluded
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                                     
                                     
 
@@ -3564,7 +3568,7 @@ class Isis(Entity):
                             .. attribute:: max_redist_prefix
                             
                             	An upper limit on the number of redistributed prefixes which may be included in the local system's LSP
-                            	**type**\: list of    :py:class:`MaxRedistPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix>`
+                            	**type**\: list of  		 :py:class:`MaxRedistPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix>`
                             
                             
 
@@ -3599,12 +3603,12 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: prefix_limit
                                 
                                 	Max number of prefixes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..28000
                                 
@@ -3643,7 +3647,7 @@ class Isis(Entity):
                             .. attribute:: propagation
                             
                             	Propagate routes between IS\-IS levels
-                            	**type**\: list of    :py:class:`Propagation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation>`
+                            	**type**\: list of  		 :py:class:`Propagation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation>`
                             
                             
 
@@ -3676,17 +3680,17 @@ class Isis(Entity):
                                 .. attribute:: source_level  <key>
                                 
                                 	Source level for routes
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: destination_level  <key>
                                 
                                 	Destination level for routes.  Must differ from SourceLevel
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: route_policy_name
                                 
                                 	Route policy limiting routes to be propagated
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..64
                                 
@@ -3727,7 +3731,7 @@ class Isis(Entity):
                             .. attribute:: redistribution
                             
                             	Redistribution of other protocols into this IS\-IS instance
-                            	**type**\: list of    :py:class:`Redistribution <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution>`
+                            	**type**\: list of  		 :py:class:`Redistribution <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution>`
                             
                             
 
@@ -3761,29 +3765,29 @@ class Isis(Entity):
                                 .. attribute:: protocol_name  <key>
                                 
                                 	The protocol to be redistributed.  OSPFv3 may not be specified for an IPv4 topology and OSPF may not be specified for an IPv6 topology
-                                	**type**\:   :py:class:`IsisRedistProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisRedistProto>`
+                                	**type**\:  :py:class:`IsisRedistProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisRedistProto>`
                                 
                                 .. attribute:: connected_or_static_or_rip_or_subscriber_or_mobile
                                 
                                 	connected or static or rip or subscriber or mobile
-                                	**type**\:   :py:class:`ConnectedOrStaticOrRipOrSubscriberOrMobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile>`
+                                	**type**\:  :py:class:`ConnectedOrStaticOrRipOrSubscriberOrMobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile>`
                                 
                                 	**presence node**\: True
                                 
                                 .. attribute:: ospf_or_ospfv3_or_isis_or_application
                                 
                                 	ospf or ospfv3 or isis or application
-                                	**type**\: list of    :py:class:`OspfOrOspfv3OrIsisOrApplication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication>`
+                                	**type**\: list of  		 :py:class:`OspfOrOspfv3OrIsisOrApplication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication>`
                                 
                                 .. attribute:: bgp
                                 
                                 	bgp
-                                	**type**\: list of    :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp>`
+                                	**type**\: list of  		 :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp>`
                                 
                                 .. attribute:: eigrp
                                 
                                 	eigrp
-                                	**type**\: list of    :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp>`
+                                	**type**\: list of  		 :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp>`
                                 
                                 
 
@@ -3825,31 +3829,31 @@ class Isis(Entity):
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..16777215
                                     
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\:   :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
+                                    	**type**\:  :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
                                     
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy to control redistribution
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\:   :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
+                                    	**type**\:  :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
                                     
                                     .. attribute:: ospf_route_type
                                     
                                     	OSPF route types to redistribute.  May only be specified if Protocol is OSPF
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
@@ -3895,38 +3899,38 @@ class Isis(Entity):
                                     .. attribute:: instance_name  <key>
                                     
                                     	Protocol Instance Identifier.  Mandatory for ISIS, OSPF and application, must not be specified otherwise
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..16777215
                                     
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\:   :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
+                                    	**type**\:  :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
                                     
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy to control redistribution
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\:   :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
+                                    	**type**\:  :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
                                     
                                     .. attribute:: ospf_route_type
                                     
                                     	OSPF route types to redistribute.  May only be specified if Protocol is OSPF
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
@@ -3971,45 +3975,45 @@ class Isis(Entity):
                                     .. attribute:: as_xx  <key>
                                     
                                     	First half of BGP AS number in XX.YY format.  Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: as_yy  <key>
                                     
                                     	Second half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if first half is zero
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..16777215
                                     
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\:   :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
+                                    	**type**\:  :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
                                     
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy to control redistribution
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\:   :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
+                                    	**type**\:  :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
                                     
                                     .. attribute:: ospf_route_type
                                     
                                     	OSPF route types to redistribute.  May only be specified if Protocol is OSPF
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
@@ -4056,38 +4060,38 @@ class Isis(Entity):
                                     .. attribute:: as_zz  <key>
                                     
                                     	Eigrp as number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..65535
                                     
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..16777215
                                     
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\:   :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
+                                    	**type**\:  :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
                                     
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy to control redistribution
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\:   :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
+                                    	**type**\:  :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
                                     
                                     .. attribute:: ospf_route_type
                                     
                                     	OSPF route types to redistribute.  May only be specified if Protocol is OSPF
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
@@ -4132,7 +4136,7 @@ class Isis(Entity):
                             .. attribute:: spf_periodic_interval
                             
                             	Maximum interval between spf runs
-                            	**type**\: list of    :py:class:`SpfPeriodicInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval>`
+                            	**type**\: list of  		 :py:class:`SpfPeriodicInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval>`
                             
                             
 
@@ -4165,12 +4169,12 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: periodic_interval
                                 
                                 	Maximum interval in between SPF runs in seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..3600
                                 
@@ -4211,7 +4215,7 @@ class Isis(Entity):
                             .. attribute:: spf_interval
                             
                             	Route calculation scheduling parameters
-                            	**type**\: list of    :py:class:`SpfInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval>`
+                            	**type**\: list of  		 :py:class:`SpfInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval>`
                             
                             
 
@@ -4244,12 +4248,12 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: maximum_wait
                                 
                                 	Maximum wait before running a route calculation in milliseconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..120000
                                 
@@ -4258,7 +4262,7 @@ class Isis(Entity):
                                 .. attribute:: initial_wait
                                 
                                 	Initial wait before running a route calculation in milliseconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..120000
                                 
@@ -4267,7 +4271,7 @@ class Isis(Entity):
                                 .. attribute:: secondary_wait
                                 
                                 	Secondary wait before running a route calculation in milliseconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..120000
                                 
@@ -4310,17 +4314,17 @@ class Isis(Entity):
                             .. attribute:: enable
                             
                             	Enable convergence monitoring
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: track_ip_frr
                             
                             	Enable the Tracking of IP\-Frr Convergence
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: prefix_list
                             
                             	Enable the monitoring of individual prefixes (prefix list name)
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..32
                             
@@ -4362,19 +4366,19 @@ class Isis(Entity):
                             .. attribute:: use_policy
                             
                             	Flag to indicate whether default origination is controlled using a policy
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: policy_name
                             
                             	Policy name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..64
                             
                             .. attribute:: external
                             
                             	Flag to indicate that the default prefix should be originated as an external route
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -4412,7 +4416,7 @@ class Isis(Entity):
                             .. attribute:: admin_distance
                             
                             	Administrative distance configuration. The supplied distance is applied to all routes discovered from the specified source, or only those that match the supplied prefix list if this is specified
-                            	**type**\: list of    :py:class:`AdminDistance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.AdminDistances.AdminDistance>`
+                            	**type**\: list of  		 :py:class:`AdminDistance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.AdminDistances.AdminDistance>`
                             
                             
 
@@ -4449,20 +4453,20 @@ class Isis(Entity):
                                 .. attribute:: address_prefix  <key>
                                 
                                 	IP route source prefix
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                 
-                                ----
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                 
-                                ----
                                 .. attribute:: distance
                                 
                                 	Administrative distance
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..255
                                 
@@ -4471,7 +4475,7 @@ class Isis(Entity):
                                 .. attribute:: prefix_list
                                 
                                 	List of prefixes to which this distance applies
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..32
                                 
@@ -4510,7 +4514,7 @@ class Isis(Entity):
                             .. attribute:: states
                             
                             	ISPF state (enable/disable)
-                            	**type**\:   :py:class:`States <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ispf.States>`
+                            	**type**\:  :py:class:`States <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ispf.States>`
                             
                             
 
@@ -4543,7 +4547,7 @@ class Isis(Entity):
                                 .. attribute:: state
                                 
                                 	Enable/disable ISPF
-                                	**type**\: list of    :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State>`
+                                	**type**\: list of  		 :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State>`
                                 
                                 
 
@@ -4576,12 +4580,12 @@ class Isis(Entity):
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
-                                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
                                     .. attribute:: state
                                     
                                     	State
-                                    	**type**\:   :py:class:`IsisispfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisispfState>`
+                                    	**type**\:  :py:class:`IsisispfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisispfState>`
                                     
                                     	**mandatory**\: True
                                     
@@ -4620,7 +4624,7 @@ class Isis(Entity):
                             .. attribute:: auto_config
                             
                             	If TRUE, LDP will be enabled onall IS\-IS interfaces enabled for this address\-family
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -4655,22 +4659,22 @@ class Isis(Entity):
                             .. attribute:: router_id
                             
                             	Traffic Engineering stable IP address for system
-                            	**type**\:   :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId>`
+                            	**type**\:  :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId>`
                             
                             .. attribute:: level
                             
                             	Enable MPLS for an IS\-IS at the given levels
-                            	**type**\:   :py:class:`Level <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Mpls.Level>`
+                            	**type**\:  :py:class:`Level <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Mpls.Level>`
                             
                             .. attribute:: igp_intact
                             
                             	Install TE and non\-TE nexthops in the RIB
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: multicast_intact
                             
                             	Install non\-TE nexthops in the RIB for use by multicast
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -4716,12 +4720,16 @@ class Isis(Entity):
                                 .. attribute:: address
                                 
                                 	IPv4 address to be used as a router ID. Precisely one of Address and Interface must be specified
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: interface_name
                                 
                                 	Interface with designated stable IP address to be used as a router ID. This must be a Loopback interface. Precisely one of Address and Interface must be specified
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 
 
@@ -4757,12 +4765,12 @@ class Isis(Entity):
                                 .. attribute:: level1
                                 
                                 	Level 1 enabled
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: level2
                                 
                                 	Level 2 enabled
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -4797,7 +4805,7 @@ class Isis(Entity):
                             .. attribute:: manual_adj_sid
                             
                             	Assign adjancency SID to an interface
-                            	**type**\: list of    :py:class:`ManualAdjSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids.ManualAdjSid>`
+                            	**type**\: list of  		 :py:class:`ManualAdjSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids.ManualAdjSid>`
                             
                             
 
@@ -4830,24 +4838,24 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: sid_type  <key>
                                 
                                 	Sid type aboslute or index
-                                	**type**\:   :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
+                                	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
                                 
                                 .. attribute:: sid  <key>
                                 
                                 	Sid value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..1048575
                                 
                                 .. attribute:: protected
                                 
                                 	Enable/Disable SID protection
-                                	**type**\:   :py:class:`IsissidProtected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsissidProtected>`
+                                	**type**\:  :py:class:`IsissidProtected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsissidProtected>`
                                 
                                 	**mandatory**\: True
                                 
@@ -4888,7 +4896,7 @@ class Isis(Entity):
                             .. attribute:: metric
                             
                             	Metric configuration. Legal value depends on the metric\-style specified for the topology. If the metric\-style defined is narrow, then only a value between <1\-63> is allowed and if the metric\-style is defined as wide, then a value between <1\-16777215> is allowed as the metric value.  All routers exclude links with the maximum wide metric (16777215) from their SPF
-                            	**type**\: list of    :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric>`
+                            	**type**\: list of  		 :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric>`
                             
                             
 
@@ -4928,27 +4936,21 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: metric
                                 
                                 	Allowed metric\: <1\-63> for narrow, <1\-16777215> for wide
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:   :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric>`
+                                		**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric>`
                                 
-                                	**mandatory**\: True
+                                		**type**\: int
                                 
-                                
-                                ----
-                                	**type**\:  int
-                                
-                                	**range:** 1..16777215
+                                			**range:** 1..16777215
                                 
                                 	**mandatory**\: True
                                 
-                                
-                                ----
                                 
 
                                 """
@@ -5001,7 +5003,7 @@ class Isis(Entity):
                             .. attribute:: weight
                             
                             	Weight configuration under interface for load balancing
-                            	**type**\: list of    :py:class:`Weight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight>`
+                            	**type**\: list of  		 :py:class:`Weight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight>`
                             
                             
 
@@ -5035,12 +5037,12 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: weight
                                 
                                 	Weight to be configured under interface for Load Balancing. Allowed weight\: <1\-16777215>
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..16777214
                                 
@@ -5079,143 +5081,143 @@ class Isis(Entity):
                         .. attribute:: topology_name  <key>
                         
                         	Topology Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..32
                         
                         .. attribute:: segment_routing
                         
                         	Enable Segment Routing configuration
-                        	**type**\:   :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting>`
+                        	**type**\:  :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting>`
                         
                         .. attribute:: metric_styles
                         
                         	Metric\-style configuration
-                        	**type**\:   :py:class:`MetricStyles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles>`
+                        	**type**\:  :py:class:`MetricStyles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles>`
                         
                         .. attribute:: frr_table
                         
                         	Fast\-ReRoute configuration
-                        	**type**\:   :py:class:`FrrTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable>`
+                        	**type**\:  :py:class:`FrrTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable>`
                         
                         .. attribute:: router_id
                         
                         	Stable IP address for system. Will only be applied for the unicast sub\-address\-family
-                        	**type**\:   :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.RouterId>`
+                        	**type**\:  :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.RouterId>`
                         
                         .. attribute:: spf_prefix_priorities
                         
                         	SPF Prefix Priority configuration
-                        	**type**\:   :py:class:`SpfPrefixPriorities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities>`
+                        	**type**\:  :py:class:`SpfPrefixPriorities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities>`
                         
                         .. attribute:: summary_prefixes
                         
                         	Summary\-prefix configuration
-                        	**type**\:   :py:class:`SummaryPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes>`
+                        	**type**\:  :py:class:`SummaryPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes>`
                         
                         .. attribute:: micro_loop_avoidance
                         
                         	Micro Loop Avoidance configuration
-                        	**type**\:   :py:class:`MicroLoopAvoidance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance>`
+                        	**type**\:  :py:class:`MicroLoopAvoidance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance>`
                         
                         .. attribute:: ucmp
                         
                         	UCMP (UnEqual Cost MultiPath) configuration
-                        	**type**\:   :py:class:`Ucmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp>`
+                        	**type**\:  :py:class:`Ucmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp>`
                         
                         .. attribute:: max_redist_prefixes
                         
                         	Maximum number of redistributed prefixesconfiguration
-                        	**type**\:   :py:class:`MaxRedistPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes>`
+                        	**type**\:  :py:class:`MaxRedistPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes>`
                         
                         .. attribute:: propagations
                         
                         	Route propagation configuration
-                        	**type**\:   :py:class:`Propagations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Propagations>`
+                        	**type**\:  :py:class:`Propagations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Propagations>`
                         
                         .. attribute:: redistributions
                         
                         	Protocol redistribution configuration
-                        	**type**\:   :py:class:`Redistributions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions>`
+                        	**type**\:  :py:class:`Redistributions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions>`
                         
                         .. attribute:: spf_periodic_intervals
                         
                         	Peoridic SPF configuration
-                        	**type**\:   :py:class:`SpfPeriodicIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals>`
+                        	**type**\:  :py:class:`SpfPeriodicIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals>`
                         
                         .. attribute:: spf_intervals
                         
                         	SPF\-interval configuration
-                        	**type**\:   :py:class:`SpfIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals>`
+                        	**type**\:  :py:class:`SpfIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals>`
                         
                         .. attribute:: monitor_convergence
                         
                         	Enable convergence monitoring
-                        	**type**\:   :py:class:`MonitorConvergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence>`
+                        	**type**\:  :py:class:`MonitorConvergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence>`
                         
                         .. attribute:: default_information
                         
                         	Control origination of a default route with the option of using a policy.  If no policy is specified the default route is advertised with zero cost in level 2 only
-                        	**type**\:   :py:class:`DefaultInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation>`
+                        	**type**\:  :py:class:`DefaultInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation>`
                         
                         .. attribute:: admin_distances
                         
                         	Per\-route administrative distanceconfiguration
-                        	**type**\:   :py:class:`AdminDistances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances>`
+                        	**type**\:  :py:class:`AdminDistances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances>`
                         
                         .. attribute:: ispf
                         
                         	ISPF configuration
-                        	**type**\:   :py:class:`Ispf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ispf>`
+                        	**type**\:  :py:class:`Ispf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ispf>`
                         
                         .. attribute:: mpls_ldp_global
                         
                         	MPLS LDP configuration. MPLS LDP configuration will only be applied for the IPv4\-unicast address\-family
-                        	**type**\:   :py:class:`MplsLdpGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal>`
+                        	**type**\:  :py:class:`MplsLdpGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal>`
                         
                         .. attribute:: mpls
                         
                         	MPLS configuration. MPLS configuration will only be applied for the IPv4\-unicast address\-family
-                        	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Mpls>`
+                        	**type**\:  :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Mpls>`
                         
                         .. attribute:: maximum_paths
                         
                         	Maximum number of active parallel paths per route
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..64
                         
                         .. attribute:: topology_id
                         
                         	Set the topology ID for a named (non\-default) topology. This object must be set before any other configuration is supplied for a named (non\-default) topology , and must be the last configuration object to be removed. This item should not be supplied for the non\-named default topologies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 6..4095
                         
                         .. attribute:: single_topology
                         
                         	Run IPv6 Unicast using the standard (IPv4 Unicast) topology
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: adjacency_check
                         
                         	Suppress check for consistent AF support on received IIHs
-                        	**type**\:   :py:class:`IsisAdjCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAdjCheck>`
+                        	**type**\:  :py:class:`IsisAdjCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAdjCheck>`
                         
                         .. attribute:: advertise_link_attributes
                         
                         	If TRUE, advertise additional link attributes in our LSP
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: apply_weight
                         
                         	Apply weights to UCMP or ECMP only
-                        	**type**\:   :py:class:`IsisApplyWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisApplyWeight>`
+                        	**type**\:  :py:class:`IsisApplyWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisApplyWeight>`
                         
                         .. attribute:: default_admin_distance
                         
                         	Default IS\-IS administrative distance configuration
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
@@ -5224,39 +5226,39 @@ class Isis(Entity):
                         .. attribute:: advertise_passive_only
                         
                         	If enabled, advertise prefixes of passive interfaces only
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: ignore_attached_bit
                         
                         	If TRUE, Ignore other routers attached bit
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: attached_bit
                         
                         	Set the attached bit in this router's level 1 System LSP
-                        	**type**\:   :py:class:`IsisAttachedBit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAttachedBit>`
+                        	**type**\:  :py:class:`IsisAttachedBit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAttachedBit>`
                         
                         	**default value**\: area
                         
                         .. attribute:: route_source_first_hop
                         
                         	If TRUE, routes will be installed with the IP address of the first\-hop node as the source instead of the originating node
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: manual_adj_sids
                         
                         	Manual Adjacecy SID configuration
-                        	**type**\:   :py:class:`ManualAdjSids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids>`
+                        	**type**\:  :py:class:`ManualAdjSids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids>`
                         
                         .. attribute:: metrics
                         
                         	Metric configuration
-                        	**type**\:   :py:class:`Metrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Metrics>`
+                        	**type**\:  :py:class:`Metrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Metrics>`
                         
                         .. attribute:: weights
                         
                         	Weight configuration
-                        	**type**\:   :py:class:`Weights <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Weights>`
+                        	**type**\:  :py:class:`Weights <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Weights>`
                         
                         
 
@@ -5421,17 +5423,17 @@ class Isis(Entity):
                             .. attribute:: prefix_sid_map
                             
                             	Enable Segment Routing prefix SID map configuration
-                            	**type**\:   :py:class:`PrefixSidMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap>`
+                            	**type**\:  :py:class:`PrefixSidMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap>`
                             
                             .. attribute:: bundle_member_adj_sid
                             
                             	Enable per bundle member adjacency SID
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: mpls
                             
                             	Prefer segment routing labels over LDP labels
-                            	**type**\:   :py:class:`IsisLabelPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisLabelPreference>`
+                            	**type**\:  :py:class:`IsisLabelPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisLabelPreference>`
                             
                             
 
@@ -5472,12 +5474,12 @@ class Isis(Entity):
                                 .. attribute:: advertise_local
                                 
                                 	Enable Segment Routing prefix SID map advertise local
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: receive
                                 
                                 	If TRUE, remote prefix SID map advertisements will be used. If FALSE, they will not be used
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -5512,7 +5514,7 @@ class Isis(Entity):
                             .. attribute:: metric_style
                             
                             	Configuration of metric style in LSPs
-                            	**type**\: list of    :py:class:`MetricStyle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle>`
+                            	**type**\: list of  		 :py:class:`MetricStyle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle>`
                             
                             
 
@@ -5545,19 +5547,19 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: style
                                 
                                 	Metric Style
-                                	**type**\:   :py:class:`IsisMetricStyle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyle>`
+                                	**type**\:  :py:class:`IsisMetricStyle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyle>`
                                 
                                 	**default value**\: old-metric-style
                                 
                                 .. attribute:: transition_state
                                 
                                 	Transition state
-                                	**type**\:   :py:class:`IsisMetricStyleTransition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyleTransition>`
+                                	**type**\:  :py:class:`IsisMetricStyleTransition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyleTransition>`
                                 
                                 	**default value**\: disabled
                                 
@@ -5596,27 +5598,27 @@ class Isis(Entity):
                             .. attribute:: frr_load_sharings
                             
                             	Load share prefixes across multiple backups
-                            	**type**\:   :py:class:`FrrLoadSharings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings>`
+                            	**type**\:  :py:class:`FrrLoadSharings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings>`
                             
                             .. attribute:: priority_limits
                             
                             	FRR prefix\-limit configuration
-                            	**type**\:   :py:class:`PriorityLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits>`
+                            	**type**\:  :py:class:`PriorityLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits>`
                             
                             .. attribute:: frr_remote_lfa_prefixes
                             
                             	FRR remote LFA prefix list filter configuration
-                            	**type**\:   :py:class:`FrrRemoteLfaPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes>`
+                            	**type**\:  :py:class:`FrrRemoteLfaPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes>`
                             
                             .. attribute:: frr_tiebreakers
                             
                             	FRR tiebreakers configuration
-                            	**type**\:   :py:class:`FrrTiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers>`
+                            	**type**\:  :py:class:`FrrTiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers>`
                             
                             .. attribute:: frr_use_cand_onlies
                             
                             	FRR use candidate only configuration
-                            	**type**\:   :py:class:`FrrUseCandOnlies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies>`
+                            	**type**\:  :py:class:`FrrUseCandOnlies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies>`
                             
                             
 
@@ -5670,7 +5672,7 @@ class Isis(Entity):
                                 .. attribute:: frr_load_sharing
                                 
                                 	Disable load sharing
-                                	**type**\: list of    :py:class:`FrrLoadSharing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing>`
+                                	**type**\: list of  		 :py:class:`FrrLoadSharing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing>`
                                 
                                 
 
@@ -5703,12 +5705,12 @@ class Isis(Entity):
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
-                                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
                                     .. attribute:: load_sharing
                                     
                                     	Load sharing
-                                    	**type**\:   :py:class:`IsisfrrLoadSharing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrLoadSharing>`
+                                    	**type**\:  :py:class:`IsisfrrLoadSharing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrLoadSharing>`
                                     
                                     	**mandatory**\: True
                                     
@@ -5745,7 +5747,7 @@ class Isis(Entity):
                                 .. attribute:: priority_limit
                                 
                                 	Limit backup computation upto the prefix priority
-                                	**type**\: list of    :py:class:`PriorityLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit>`
+                                	**type**\: list of  		 :py:class:`PriorityLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit>`
                                 
                                 
 
@@ -5779,17 +5781,17 @@ class Isis(Entity):
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
-                                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
                                     .. attribute:: frr_type  <key>
                                     
                                     	Computation Type
-                                    	**type**\:   :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
+                                    	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
                                     
                                     .. attribute:: priority
                                     
                                     	Compute for all prefixes upto the specified priority
-                                    	**type**\:   :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
+                                    	**type**\:  :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
                                     
                                     	**mandatory**\: True
                                     
@@ -5829,7 +5831,7 @@ class Isis(Entity):
                                 .. attribute:: frr_remote_lfa_prefix
                                 
                                 	Filter remote LFA router IDs using prefix\-list
-                                	**type**\: list of    :py:class:`FrrRemoteLfaPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix>`
+                                	**type**\: list of  		 :py:class:`FrrRemoteLfaPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix>`
                                 
                                 
 
@@ -5863,12 +5865,12 @@ class Isis(Entity):
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
-                                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
                                     .. attribute:: prefix_list_name
                                     
                                     	Name of the prefix list
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..32
                                     
@@ -5907,7 +5909,7 @@ class Isis(Entity):
                                 .. attribute:: frr_tiebreaker
                                 
                                 	Configure tiebreaker for multiple backups
-                                	**type**\: list of    :py:class:`FrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker>`
+                                	**type**\: list of  		 :py:class:`FrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker>`
                                 
                                 
 
@@ -5940,17 +5942,17 @@ class Isis(Entity):
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
-                                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
                                     .. attribute:: tiebreaker  <key>
                                     
                                     	Tiebreaker for which configuration applies
-                                    	**type**\:   :py:class:`IsisfrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrTiebreaker>`
+                                    	**type**\:  :py:class:`IsisfrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrTiebreaker>`
                                     
                                     .. attribute:: index
                                     
                                     	Preference order among tiebreakers
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..255
                                     
@@ -5991,7 +5993,7 @@ class Isis(Entity):
                                 .. attribute:: frr_use_cand_only
                                 
                                 	Configure use candidate only to exclude interfaces as backup
-                                	**type**\: list of    :py:class:`FrrUseCandOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly>`
+                                	**type**\: list of  		 :py:class:`FrrUseCandOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly>`
                                 
                                 
 
@@ -6025,12 +6027,12 @@ class Isis(Entity):
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
-                                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
                                     .. attribute:: frr_type  <key>
                                     
                                     	Computation Type
-                                    	**type**\:   :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
+                                    	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
                                     
                                     
 
@@ -6066,20 +6068,22 @@ class Isis(Entity):
                             .. attribute:: address
                             
                             	IPv4/IPv6 address to be used as a router ID. Precisely one of Address and Interface must be specified
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: interface_name
                             
                             	Interface with designated stable IP address to be used as a router ID. This must be a Loopback interface. Precisely one of Address and Interface must be specified
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -6114,7 +6118,7 @@ class Isis(Entity):
                             .. attribute:: spf_prefix_priority
                             
                             	Determine SPF priority for prefixes
-                            	**type**\: list of    :py:class:`SpfPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority>`
+                            	**type**\: list of  		 :py:class:`SpfPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority>`
                             
                             
 
@@ -6147,24 +6151,24 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	SPF Level for prefix prioritization
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: prefix_priority_type  <key>
                                 
                                 	SPF Priority to assign matching prefixes
-                                	**type**\:   :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
+                                	**type**\:  :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
                                 
                                 .. attribute:: admin_tag
                                 
                                 	Tag value to determine prefixes for this priority
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..4294967295
                                 
                                 .. attribute:: access_list_name
                                 
                                 	Access List to determine prefixes for this priority
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..64
                                 
@@ -6205,7 +6209,7 @@ class Isis(Entity):
                             .. attribute:: summary_prefix
                             
                             	Configure IP address prefixes to advertise
-                            	**type**\: list of    :py:class:`SummaryPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes.SummaryPrefix>`
+                            	**type**\: list of  		 :py:class:`SummaryPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes.SummaryPrefix>`
                             
                             
 
@@ -6238,27 +6242,27 @@ class Isis(Entity):
                                 .. attribute:: address_prefix  <key>
                                 
                                 	IP summary address prefix
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                 
-                                ----
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                 
-                                ----
                                 .. attribute:: tag
                                 
                                 	The tag value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..4294967295
                                 
                                 .. attribute:: level
                                 
                                 	Level in which to summarize routes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..2
                                 
@@ -6297,14 +6301,14 @@ class Isis(Entity):
                             .. attribute:: enable
                             
                             	MicroLoop avoidance enable configuration
-                            	**type**\:   :py:class:`IsisMicroLoopAvoidance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMicroLoopAvoidance>`
+                            	**type**\:  :py:class:`IsisMicroLoopAvoidance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMicroLoopAvoidance>`
                             
                             	**default value**\: micro-loop-avoidance-all
                             
                             .. attribute:: rib_update_delay
                             
                             	Value of delay in msecs in updating RIB
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1000..65535
                             
@@ -6345,17 +6349,17 @@ class Isis(Entity):
                             .. attribute:: enable
                             
                             	UCMP feature enable configuration
-                            	**type**\:   :py:class:`Enable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable>`
+                            	**type**\:  :py:class:`Enable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable>`
                             
                             .. attribute:: exclude_interfaces
                             
                             	Interfaces excluded from UCMP path computation
-                            	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces>`
+                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces>`
                             
                             .. attribute:: delay_interval
                             
                             	Delay in msecs between primary SPF and UCMP computation
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 100..65535
                             
@@ -6404,7 +6408,7 @@ class Isis(Entity):
                                 .. attribute:: variance
                                 
                                 	Value of variance
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 101..10000
                                 
@@ -6413,7 +6417,7 @@ class Isis(Entity):
                                 .. attribute:: prefix_list_name
                                 
                                 	Name of the Prefix List
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..32
                                 
@@ -6451,7 +6455,7 @@ class Isis(Entity):
                                 .. attribute:: exclude_interface
                                 
                                 	Exclude this interface from UCMP path computation
-                                	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces.ExcludeInterface>`
+                                	**type**\: list of  		 :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces.ExcludeInterface>`
                                 
                                 
 
@@ -6485,7 +6489,9 @@ class Isis(Entity):
                                     .. attribute:: interface_name  <key>
                                     
                                     	Name of the interface to be excluded
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                                     
                                     
 
@@ -6519,7 +6525,7 @@ class Isis(Entity):
                             .. attribute:: max_redist_prefix
                             
                             	An upper limit on the number of redistributed prefixes which may be included in the local system's LSP
-                            	**type**\: list of    :py:class:`MaxRedistPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix>`
+                            	**type**\: list of  		 :py:class:`MaxRedistPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix>`
                             
                             
 
@@ -6554,12 +6560,12 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: prefix_limit
                                 
                                 	Max number of prefixes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..28000
                                 
@@ -6598,7 +6604,7 @@ class Isis(Entity):
                             .. attribute:: propagation
                             
                             	Propagate routes between IS\-IS levels
-                            	**type**\: list of    :py:class:`Propagation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation>`
+                            	**type**\: list of  		 :py:class:`Propagation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation>`
                             
                             
 
@@ -6631,17 +6637,17 @@ class Isis(Entity):
                                 .. attribute:: source_level  <key>
                                 
                                 	Source level for routes
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: destination_level  <key>
                                 
                                 	Destination level for routes.  Must differ from SourceLevel
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: route_policy_name
                                 
                                 	Route policy limiting routes to be propagated
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..64
                                 
@@ -6682,7 +6688,7 @@ class Isis(Entity):
                             .. attribute:: redistribution
                             
                             	Redistribution of other protocols into this IS\-IS instance
-                            	**type**\: list of    :py:class:`Redistribution <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution>`
+                            	**type**\: list of  		 :py:class:`Redistribution <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution>`
                             
                             
 
@@ -6716,29 +6722,29 @@ class Isis(Entity):
                                 .. attribute:: protocol_name  <key>
                                 
                                 	The protocol to be redistributed.  OSPFv3 may not be specified for an IPv4 topology and OSPF may not be specified for an IPv6 topology
-                                	**type**\:   :py:class:`IsisRedistProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisRedistProto>`
+                                	**type**\:  :py:class:`IsisRedistProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisRedistProto>`
                                 
                                 .. attribute:: connected_or_static_or_rip_or_subscriber_or_mobile
                                 
                                 	connected or static or rip or subscriber or mobile
-                                	**type**\:   :py:class:`ConnectedOrStaticOrRipOrSubscriberOrMobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile>`
+                                	**type**\:  :py:class:`ConnectedOrStaticOrRipOrSubscriberOrMobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile>`
                                 
                                 	**presence node**\: True
                                 
                                 .. attribute:: ospf_or_ospfv3_or_isis_or_application
                                 
                                 	ospf or ospfv3 or isis or application
-                                	**type**\: list of    :py:class:`OspfOrOspfv3OrIsisOrApplication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication>`
+                                	**type**\: list of  		 :py:class:`OspfOrOspfv3OrIsisOrApplication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication>`
                                 
                                 .. attribute:: bgp
                                 
                                 	bgp
-                                	**type**\: list of    :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp>`
+                                	**type**\: list of  		 :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp>`
                                 
                                 .. attribute:: eigrp
                                 
                                 	eigrp
-                                	**type**\: list of    :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp>`
+                                	**type**\: list of  		 :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp>`
                                 
                                 
 
@@ -6780,31 +6786,31 @@ class Isis(Entity):
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..16777215
                                     
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\:   :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
+                                    	**type**\:  :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
                                     
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy to control redistribution
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\:   :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
+                                    	**type**\:  :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
                                     
                                     .. attribute:: ospf_route_type
                                     
                                     	OSPF route types to redistribute.  May only be specified if Protocol is OSPF
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
@@ -6850,38 +6856,38 @@ class Isis(Entity):
                                     .. attribute:: instance_name  <key>
                                     
                                     	Protocol Instance Identifier.  Mandatory for ISIS, OSPF and application, must not be specified otherwise
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..16777215
                                     
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\:   :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
+                                    	**type**\:  :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
                                     
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy to control redistribution
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\:   :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
+                                    	**type**\:  :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
                                     
                                     .. attribute:: ospf_route_type
                                     
                                     	OSPF route types to redistribute.  May only be specified if Protocol is OSPF
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
@@ -6926,45 +6932,45 @@ class Isis(Entity):
                                     .. attribute:: as_xx  <key>
                                     
                                     	First half of BGP AS number in XX.YY format.  Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: as_yy  <key>
                                     
                                     	Second half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if first half is zero
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..16777215
                                     
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\:   :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
+                                    	**type**\:  :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
                                     
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy to control redistribution
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\:   :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
+                                    	**type**\:  :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
                                     
                                     .. attribute:: ospf_route_type
                                     
                                     	OSPF route types to redistribute.  May only be specified if Protocol is OSPF
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
@@ -7011,38 +7017,38 @@ class Isis(Entity):
                                     .. attribute:: as_zz  <key>
                                     
                                     	Eigrp as number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..65535
                                     
                                     .. attribute:: metric
                                     
                                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..16777215
                                     
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\:   :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
+                                    	**type**\:  :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
                                     
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy to control redistribution
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\:   :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
+                                    	**type**\:  :py:class:`IsisMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMetric>`
                                     
                                     .. attribute:: ospf_route_type
                                     
                                     	OSPF route types to redistribute.  May only be specified if Protocol is OSPF
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
@@ -7087,7 +7093,7 @@ class Isis(Entity):
                             .. attribute:: spf_periodic_interval
                             
                             	Maximum interval between spf runs
-                            	**type**\: list of    :py:class:`SpfPeriodicInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval>`
+                            	**type**\: list of  		 :py:class:`SpfPeriodicInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval>`
                             
                             
 
@@ -7120,12 +7126,12 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: periodic_interval
                                 
                                 	Maximum interval in between SPF runs in seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..3600
                                 
@@ -7166,7 +7172,7 @@ class Isis(Entity):
                             .. attribute:: spf_interval
                             
                             	Route calculation scheduling parameters
-                            	**type**\: list of    :py:class:`SpfInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval>`
+                            	**type**\: list of  		 :py:class:`SpfInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval>`
                             
                             
 
@@ -7199,12 +7205,12 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: maximum_wait
                                 
                                 	Maximum wait before running a route calculation in milliseconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..120000
                                 
@@ -7213,7 +7219,7 @@ class Isis(Entity):
                                 .. attribute:: initial_wait
                                 
                                 	Initial wait before running a route calculation in milliseconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..120000
                                 
@@ -7222,7 +7228,7 @@ class Isis(Entity):
                                 .. attribute:: secondary_wait
                                 
                                 	Secondary wait before running a route calculation in milliseconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..120000
                                 
@@ -7265,17 +7271,17 @@ class Isis(Entity):
                             .. attribute:: enable
                             
                             	Enable convergence monitoring
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: track_ip_frr
                             
                             	Enable the Tracking of IP\-Frr Convergence
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: prefix_list
                             
                             	Enable the monitoring of individual prefixes (prefix list name)
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..32
                             
@@ -7317,19 +7323,19 @@ class Isis(Entity):
                             .. attribute:: use_policy
                             
                             	Flag to indicate whether default origination is controlled using a policy
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: policy_name
                             
                             	Policy name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..64
                             
                             .. attribute:: external
                             
                             	Flag to indicate that the default prefix should be originated as an external route
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -7367,7 +7373,7 @@ class Isis(Entity):
                             .. attribute:: admin_distance
                             
                             	Administrative distance configuration. The supplied distance is applied to all routes discovered from the specified source, or only those that match the supplied prefix list if this is specified
-                            	**type**\: list of    :py:class:`AdminDistance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances.AdminDistance>`
+                            	**type**\: list of  		 :py:class:`AdminDistance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances.AdminDistance>`
                             
                             
 
@@ -7404,20 +7410,20 @@ class Isis(Entity):
                                 .. attribute:: address_prefix  <key>
                                 
                                 	IP route source prefix
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                 
-                                ----
-                                	**type**\:  str
+                                		**type**\: str
                                 
+                                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                 
-                                ----
                                 .. attribute:: distance
                                 
                                 	Administrative distance
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..255
                                 
@@ -7426,7 +7432,7 @@ class Isis(Entity):
                                 .. attribute:: prefix_list
                                 
                                 	List of prefixes to which this distance applies
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..32
                                 
@@ -7465,7 +7471,7 @@ class Isis(Entity):
                             .. attribute:: states
                             
                             	ISPF state (enable/disable)
-                            	**type**\:   :py:class:`States <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States>`
+                            	**type**\:  :py:class:`States <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States>`
                             
                             
 
@@ -7498,7 +7504,7 @@ class Isis(Entity):
                                 .. attribute:: state
                                 
                                 	Enable/disable ISPF
-                                	**type**\: list of    :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State>`
+                                	**type**\: list of  		 :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State>`
                                 
                                 
 
@@ -7531,12 +7537,12 @@ class Isis(Entity):
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
-                                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
                                     .. attribute:: state
                                     
                                     	State
-                                    	**type**\:   :py:class:`IsisispfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisispfState>`
+                                    	**type**\:  :py:class:`IsisispfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisispfState>`
                                     
                                     	**mandatory**\: True
                                     
@@ -7575,7 +7581,7 @@ class Isis(Entity):
                             .. attribute:: auto_config
                             
                             	If TRUE, LDP will be enabled onall IS\-IS interfaces enabled for this address\-family
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -7610,22 +7616,22 @@ class Isis(Entity):
                             .. attribute:: router_id
                             
                             	Traffic Engineering stable IP address for system
-                            	**type**\:   :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId>`
+                            	**type**\:  :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId>`
                             
                             .. attribute:: level
                             
                             	Enable MPLS for an IS\-IS at the given levels
-                            	**type**\:   :py:class:`Level <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.Level>`
+                            	**type**\:  :py:class:`Level <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.Level>`
                             
                             .. attribute:: igp_intact
                             
                             	Install TE and non\-TE nexthops in the RIB
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: multicast_intact
                             
                             	Install non\-TE nexthops in the RIB for use by multicast
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -7671,12 +7677,16 @@ class Isis(Entity):
                                 .. attribute:: address
                                 
                                 	IPv4 address to be used as a router ID. Precisely one of Address and Interface must be specified
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: interface_name
                                 
                                 	Interface with designated stable IP address to be used as a router ID. This must be a Loopback interface. Precisely one of Address and Interface must be specified
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 
 
@@ -7712,12 +7722,12 @@ class Isis(Entity):
                                 .. attribute:: level1
                                 
                                 	Level 1 enabled
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: level2
                                 
                                 	Level 2 enabled
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -7752,7 +7762,7 @@ class Isis(Entity):
                             .. attribute:: manual_adj_sid
                             
                             	Assign adjancency SID to an interface
-                            	**type**\: list of    :py:class:`ManualAdjSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids.ManualAdjSid>`
+                            	**type**\: list of  		 :py:class:`ManualAdjSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids.ManualAdjSid>`
                             
                             
 
@@ -7785,24 +7795,24 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: sid_type  <key>
                                 
                                 	Sid type aboslute or index
-                                	**type**\:   :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
+                                	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
                                 
                                 .. attribute:: sid  <key>
                                 
                                 	Sid value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..1048575
                                 
                                 .. attribute:: protected
                                 
                                 	Enable/Disable SID protection
-                                	**type**\:   :py:class:`IsissidProtected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsissidProtected>`
+                                	**type**\:  :py:class:`IsissidProtected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsissidProtected>`
                                 
                                 	**mandatory**\: True
                                 
@@ -7843,7 +7853,7 @@ class Isis(Entity):
                             .. attribute:: metric
                             
                             	Metric configuration. Legal value depends on the metric\-style specified for the topology. If the metric\-style defined is narrow, then only a value between <1\-63> is allowed and if the metric\-style is defined as wide, then a value between <1\-16777215> is allowed as the metric value.  All routers exclude links with the maximum wide metric (16777215) from their SPF
-                            	**type**\: list of    :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric>`
+                            	**type**\: list of  		 :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric>`
                             
                             
 
@@ -7883,27 +7893,21 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: metric
                                 
                                 	Allowed metric\: <1\-63> for narrow, <1\-16777215> for wide
-                                	**type**\: one of the below types:
+                                	**type**\: union of the below types:
                                 
-                                	**type**\:   :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric>`
+                                		**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric>`
                                 
-                                	**mandatory**\: True
+                                		**type**\: int
                                 
-                                
-                                ----
-                                	**type**\:  int
-                                
-                                	**range:** 1..16777215
+                                			**range:** 1..16777215
                                 
                                 	**mandatory**\: True
                                 
-                                
-                                ----
                                 
 
                                 """
@@ -7956,7 +7960,7 @@ class Isis(Entity):
                             .. attribute:: weight
                             
                             	Weight configuration under interface for load balancing
-                            	**type**\: list of    :py:class:`Weight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight>`
+                            	**type**\: list of  		 :py:class:`Weight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight>`
                             
                             
 
@@ -7990,12 +7994,12 @@ class Isis(Entity):
                                 .. attribute:: level  <key>
                                 
                                 	Level to which configuration applies
-                                	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
                                 .. attribute:: weight
                                 
                                 	Weight to be configured under interface for Load Balancing. Allowed weight\: <1\-16777215>
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..16777214
                                 
@@ -8034,7 +8038,7 @@ class Isis(Entity):
                 .. attribute:: lsp_refresh_interval
                 
                 	Interval between re\-flooding of unchanged LSPs
-                	**type**\: list of    :py:class:`LspRefreshInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval>`
+                	**type**\: list of  		 :py:class:`LspRefreshInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval>`
                 
                 
 
@@ -8068,12 +8072,12 @@ class Isis(Entity):
                     .. attribute:: level  <key>
                     
                     	Level to which configuration applies
-                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                     
                     .. attribute:: interval
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -8114,19 +8118,19 @@ class Isis(Entity):
                 .. attribute:: dist_inst_id
                 
                 	Instance ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
                 .. attribute:: level
                 
                 	Level
-                	**type**\:   :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
+                	**type**\:  :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
                 
                 .. attribute:: dist_throttle
                 
                 	Seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..20
                 
@@ -8170,7 +8174,7 @@ class Isis(Entity):
                 .. attribute:: lsp_accept_password
                 
                 	LSP/SNP accept passwords. This requires the existence of an LSPPassword of the same level 
-                	**type**\: list of    :py:class:`LspAcceptPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword>`
+                	**type**\: list of  		 :py:class:`LspAcceptPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword>`
                 
                 
 
@@ -8205,12 +8209,14 @@ class Isis(Entity):
                     .. attribute:: level  <key>
                     
                     	Level to which configuration applies
-                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                     
                     .. attribute:: password
                     
                     	Password
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (!.+)\|([^!].+)
                     
                     	**mandatory**\: True
                     
@@ -8247,7 +8253,7 @@ class Isis(Entity):
                 .. attribute:: lsp_mtu
                 
                 	LSP MTU
-                	**type**\: list of    :py:class:`LspMtu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspMtus.LspMtu>`
+                	**type**\: list of  		 :py:class:`LspMtu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspMtus.LspMtu>`
                 
                 
 
@@ -8280,12 +8286,12 @@ class Isis(Entity):
                     .. attribute:: level  <key>
                     
                     	Level to which configuration applies
-                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                     
                     .. attribute:: mtu
                     
                     	Bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 128..4352
                     
@@ -8326,12 +8332,12 @@ class Isis(Entity):
                 .. attribute:: flavor
                 
                 	NSF not configured if item is deleted
-                	**type**\:   :py:class:`IsisNsfFlavor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisNsfFlavor>`
+                	**type**\:  :py:class:`IsisNsfFlavor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisNsfFlavor>`
                 
                 .. attribute:: interface_timer
                 
                 	Per\-interface time period to wait for a restart ACK during an IETF\-NSF restart. This configuration has no effect if IETF\-NSF is not configured
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..20
                 
@@ -8342,7 +8348,7 @@ class Isis(Entity):
                 .. attribute:: max_interface_timer_expiry
                 
                 	Maximum number of times an interface timer may expire during an IETF\-NSF restart before the NSF restart is aborted. This configuration has no effect if IETF NSF is not configured
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..10
                 
@@ -8351,7 +8357,7 @@ class Isis(Entity):
                 .. attribute:: lifetime
                 
                 	Maximum route lifetime following restart. When this lifetime expires, old routes will be purged from the RIB
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 5..300
                 
@@ -8396,7 +8402,7 @@ class Isis(Entity):
                 .. attribute:: link_group
                 
                 	Configuration for link group name
-                	**type**\: list of    :py:class:`LinkGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LinkGroups.LinkGroup>`
+                	**type**\: list of  		 :py:class:`LinkGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LinkGroups.LinkGroup>`
                 
                 
 
@@ -8429,26 +8435,26 @@ class Isis(Entity):
                     .. attribute:: link_group_name  <key>
                     
                     	Link Group Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..40
                     
                     .. attribute:: enable
                     
                     	Flag to indicate that linkgroup should be running.  This must be the first object created when a linkgroup is configured, and the last object deleted when it is deconfigured.  When this object is deleted, the IS\-IS linkgroup will be removed
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: metric_offset
                     
                     	Metric for redistributed routes\: <0\-63> for narrow, <0\-16777215> for wide
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..16777215
                     
                     .. attribute:: revert_members
                     
                     	Revert Members
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 2..64
                     
@@ -8457,7 +8463,7 @@ class Isis(Entity):
                     .. attribute:: minimum_members
                     
                     	Minimum Members
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 2..64
                     
@@ -8502,7 +8508,7 @@ class Isis(Entity):
                 .. attribute:: lsp_check_interval
                 
                 	LSP checksum check interval parameters
-                	**type**\: list of    :py:class:`LspCheckInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval>`
+                	**type**\: list of  		 :py:class:`LspCheckInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval>`
                 
                 
 
@@ -8535,12 +8541,12 @@ class Isis(Entity):
                     .. attribute:: level  <key>
                     
                     	Level to which configuration applies
-                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                     
                     .. attribute:: interval
                     
                     	LSP checksum check interval time in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 10..65535
                     
@@ -8581,7 +8587,7 @@ class Isis(Entity):
                 .. attribute:: lsp_password
                 
                 	LSP/SNP passwords. This must exist if an LSPAcceptPassword of the same level exists
-                	**type**\: list of    :py:class:`LspPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspPasswords.LspPassword>`
+                	**type**\: list of  		 :py:class:`LspPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspPasswords.LspPassword>`
                 
                 
 
@@ -8615,33 +8621,35 @@ class Isis(Entity):
                     .. attribute:: level  <key>
                     
                     	Level to which configuration applies
-                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                     
                     .. attribute:: algorithm
                     
                     	Algorithm
-                    	**type**\:   :py:class:`IsisAuthenticationAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationAlgorithm>`
+                    	**type**\:  :py:class:`IsisAuthenticationAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationAlgorithm>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: failure_mode
                     
                     	Failure Mode
-                    	**type**\:   :py:class:`IsisAuthenticationFailureMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationFailureMode>`
+                    	**type**\:  :py:class:`IsisAuthenticationFailureMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationFailureMode>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: authentication_type
                     
                     	SNP packet authentication mode
-                    	**type**\:   :py:class:`IsisSnpAuth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisSnpAuth>`
+                    	**type**\:  :py:class:`IsisSnpAuth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisSnpAuth>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: password
                     
                     	Password or unencrypted Key Chain name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (!.+)\|([^!].+)
                     
                     	**mandatory**\: True
                     
@@ -8684,7 +8692,7 @@ class Isis(Entity):
                 .. attribute:: net
                 
                 	Network Entity Title (NET)
-                	**type**\: list of    :py:class:`Net <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Nets.Net>`
+                	**type**\: list of  		 :py:class:`Net <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Nets.Net>`
                 
                 
 
@@ -8717,7 +8725,9 @@ class Isis(Entity):
                     .. attribute:: net_name  <key>
                     
                     	Network Entity Title
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-fA\-F0\-9]{2}(\\.[a\-fA\-F0\-9]{4}){3,9}\\.[a\-fA\-F0\-9]{2}
                     
                     
 
@@ -8750,7 +8760,7 @@ class Isis(Entity):
                 .. attribute:: lsp_lifetime
                 
                 	Maximum LSP lifetime
-                	**type**\: list of    :py:class:`LspLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspLifetimes.LspLifetime>`
+                	**type**\: list of  		 :py:class:`LspLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.LspLifetimes.LspLifetime>`
                 
                 
 
@@ -8783,12 +8793,12 @@ class Isis(Entity):
                     .. attribute:: level  <key>
                     
                     	Level to which configuration applies
-                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                     
                     .. attribute:: lifetime
                     
                     	Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -8829,7 +8839,7 @@ class Isis(Entity):
                 .. attribute:: overload_bit
                 
                 	Set the overload bit in the System LSP so that other routers avoid this one in SPF calculations. This may be done either unconditionally, or on startup until either a set time has passed or IS\-IS is informed that BGP has converged. This is an Object with a union discriminated on an integer value of the ISISOverloadBitModeType
-                	**type**\: list of    :py:class:`OverloadBit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.OverloadBits.OverloadBit>`
+                	**type**\: list of  		 :py:class:`OverloadBit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.OverloadBits.OverloadBit>`
                 
                 
 
@@ -8869,17 +8879,17 @@ class Isis(Entity):
                     .. attribute:: level  <key>
                     
                     	Level to which configuration applies
-                    	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                    	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                     
                     .. attribute:: overload_bit_mode
                     
                     	Circumstances under which the overload bit is set in the system LSP
-                    	**type**\:   :py:class:`IsisOverloadBitMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisOverloadBitMode>`
+                    	**type**\:  :py:class:`IsisOverloadBitMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisOverloadBitMode>`
                     
                     .. attribute:: hippity_period
                     
                     	Time in seconds to advertise ourself as overloaded after process startup
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 5..86400
                     
@@ -8888,12 +8898,12 @@ class Isis(Entity):
                     .. attribute:: external_adv_type
                     
                     	Advertise prefixes from other protocols
-                    	**type**\:   :py:class:`IsisAdvTypeExternal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAdvTypeExternal>`
+                    	**type**\:  :py:class:`IsisAdvTypeExternal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAdvTypeExternal>`
                     
                     .. attribute:: inter_level_adv_type
                     
                     	Advertise prefixes across ISIS levels
-                    	**type**\:   :py:class:`IsisAdvTypeInterLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAdvTypeInterLevel>`
+                    	**type**\:  :py:class:`IsisAdvTypeInterLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAdvTypeInterLevel>`
                     
                     
 
@@ -8934,7 +8944,7 @@ class Isis(Entity):
                 .. attribute:: interface
                 
                 	Configuration for an IS\-IS interface
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface>`
                 
                 
 
@@ -8967,119 +8977,117 @@ class Isis(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: lsp_retransmit_throttle_intervals
                     
                     	LSP\-retransmission\-throttle\-interval configuration
-                    	**type**\:   :py:class:`LspRetransmitThrottleIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals>`
+                    	**type**\:  :py:class:`LspRetransmitThrottleIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals>`
                     
                     .. attribute:: lsp_retransmit_intervals
                     
                     	LSP\-retransmission\-interval configuration
-                    	**type**\:   :py:class:`LspRetransmitIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals>`
+                    	**type**\:  :py:class:`LspRetransmitIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals>`
                     
                     .. attribute:: bfd
                     
                     	BFD configuration
-                    	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.Bfd>`
+                    	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.Bfd>`
                     
                     .. attribute:: priorities
                     
                     	DIS\-election priority configuration
-                    	**type**\:   :py:class:`Priorities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.Priorities>`
+                    	**type**\:  :py:class:`Priorities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.Priorities>`
                     
                     .. attribute:: hello_accept_passwords
                     
                     	IIH accept password configuration
-                    	**type**\:   :py:class:`HelloAcceptPasswords <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords>`
+                    	**type**\:  :py:class:`HelloAcceptPasswords <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords>`
                     
                     .. attribute:: hello_passwords
                     
                     	IIH password configuration
-                    	**type**\:   :py:class:`HelloPasswords <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloPasswords>`
+                    	**type**\:  :py:class:`HelloPasswords <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloPasswords>`
                     
                     .. attribute:: hello_paddings
                     
                     	Hello\-padding configuration
-                    	**type**\:   :py:class:`HelloPaddings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloPaddings>`
+                    	**type**\:  :py:class:`HelloPaddings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloPaddings>`
                     
                     .. attribute:: hello_multipliers
                     
                     	Hello\-multiplier configuration
-                    	**type**\:   :py:class:`HelloMultipliers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers>`
+                    	**type**\:  :py:class:`HelloMultipliers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers>`
                     
                     .. attribute:: lsp_fast_flood_thresholds
                     
                     	LSP fast flood threshold configuration
-                    	**type**\:   :py:class:`LspFastFloodThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds>`
+                    	**type**\:  :py:class:`LspFastFloodThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds>`
                     
                     .. attribute:: prefix_attribute_n_flag_clears
                     
                     	Prefix attribute N flag clear configuration
-                    	**type**\:   :py:class:`PrefixAttributeNFlagClears <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears>`
+                    	**type**\:  :py:class:`PrefixAttributeNFlagClears <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears>`
                     
                     .. attribute:: hello_intervals
                     
                     	Hello\-interval configuration
-                    	**type**\:   :py:class:`HelloIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloIntervals>`
+                    	**type**\:  :py:class:`HelloIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloIntervals>`
                     
                     .. attribute:: interface_afs
                     
                     	Per\-interface address\-family configuration
-                    	**type**\:   :py:class:`InterfaceAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs>`
+                    	**type**\:  :py:class:`InterfaceAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs>`
                     
                     .. attribute:: csnp_intervals
                     
                     	CSNP\-interval configuration
-                    	**type**\:   :py:class:`CsnpIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals>`
+                    	**type**\:  :py:class:`CsnpIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals>`
                     
                     .. attribute:: lsp_intervals
                     
                     	LSP\-interval configuration
-                    	**type**\:   :py:class:`LspIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspIntervals>`
+                    	**type**\:  :py:class:`LspIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspIntervals>`
                     
                     .. attribute:: running
                     
                     	This object must be set before any other configuration is supplied for an interface, and must be the last per\-interface configuration object to be removed
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: circuit_type
                     
                     	Configure circuit type for interface
-                    	**type**\:   :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
+                    	**type**\:  :py:class:`IsisConfigurableLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels>`
                     
                     	**default value**\: level1-and2
                     
                     .. attribute:: point_to_point
                     
                     	IS\-IS will attempt to form point\-to\-point over LAN adjacencies over this interface
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: state
                     
                     	Enable/Disable routing
-                    	**type**\:   :py:class:`IsisInterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceState>`
+                    	**type**\:  :py:class:`IsisInterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceState>`
                     
                     .. attribute:: mesh_group
                     
                     	Mesh\-group configuration
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:   :py:class:`MeshGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.MeshGroup>`
+                    		**type**\:  :py:class:`MeshGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.MeshGroup>`
                     
+                    		**type**\: int
                     
-                    ----
-                    	**type**\:  int
+                    			**range:** 0..4294967295
                     
-                    	**range:** 0..4294967295
-                    
-                    
-                    ----
                     .. attribute:: link_down_fast_detect
                     
                     	Configure high priority detection of interface down event
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -9212,7 +9220,7 @@ class Isis(Entity):
                         .. attribute:: lsp_retransmit_throttle_interval
                         
                         	Minimum interval betwen retransissions of different LSPs
-                        	**type**\: list of    :py:class:`LspRetransmitThrottleInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval>`
+                        	**type**\: list of  		 :py:class:`LspRetransmitThrottleInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval>`
                         
                         
 
@@ -9246,12 +9254,12 @@ class Isis(Entity):
                             .. attribute:: level  <key>
                             
                             	Level to which configuration applies
-                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                             
                             .. attribute:: interval
                             
                             	Milliseconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -9292,7 +9300,7 @@ class Isis(Entity):
                         .. attribute:: lsp_retransmit_interval
                         
                         	Interval between retransmissions of the same LSP
-                        	**type**\: list of    :py:class:`LspRetransmitInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval>`
+                        	**type**\: list of  		 :py:class:`LspRetransmitInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval>`
                         
                         
 
@@ -9326,12 +9334,12 @@ class Isis(Entity):
                             .. attribute:: level  <key>
                             
                             	Level to which configuration applies
-                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                             
                             .. attribute:: interval
                             
                             	Seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -9372,17 +9380,17 @@ class Isis(Entity):
                         .. attribute:: enable_ipv6
                         
                         	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: enable_ipv4
                         
                         	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: interval
                         
                         	Hello interval for BFD sessions created by isis
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 3..30000
                         
@@ -9391,7 +9399,7 @@ class Isis(Entity):
                         .. attribute:: detection_multiplier
                         
                         	Detection multiplier for BFD sessions created by isis
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 2..50
                         
@@ -9432,7 +9440,7 @@ class Isis(Entity):
                         .. attribute:: priority
                         
                         	DIS\-election priority
-                        	**type**\: list of    :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority>`
+                        	**type**\: list of  		 :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority>`
                         
                         
 
@@ -9465,12 +9473,12 @@ class Isis(Entity):
                             .. attribute:: level  <key>
                             
                             	Level to which configuration applies
-                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                             
                             .. attribute:: priority_value
                             
                             	Priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..127
                             
@@ -9509,7 +9517,7 @@ class Isis(Entity):
                         .. attribute:: hello_accept_password
                         
                         	IIH accept passwords. This requires the existence of a HelloPassword of the same level
-                        	**type**\: list of    :py:class:`HelloAcceptPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword>`
+                        	**type**\: list of  		 :py:class:`HelloAcceptPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword>`
                         
                         
 
@@ -9544,12 +9552,14 @@ class Isis(Entity):
                             .. attribute:: level  <key>
                             
                             	Level to which configuration applies
-                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                             
                             .. attribute:: password
                             
                             	Password
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (!.+)\|([^!].+)
                             
                             	**mandatory**\: True
                             
@@ -9586,7 +9596,7 @@ class Isis(Entity):
                         .. attribute:: hello_password
                         
                         	IIH passwords. This must exist if a HelloAcceptPassword of the same level exists
-                        	**type**\: list of    :py:class:`HelloPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword>`
+                        	**type**\: list of  		 :py:class:`HelloPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword>`
                         
                         
 
@@ -9621,26 +9631,28 @@ class Isis(Entity):
                             .. attribute:: level  <key>
                             
                             	Level to which configuration applies
-                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                             
                             .. attribute:: algorithm
                             
                             	Algorithm
-                            	**type**\:   :py:class:`IsisAuthenticationAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationAlgorithm>`
+                            	**type**\:  :py:class:`IsisAuthenticationAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationAlgorithm>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: failure_mode
                             
                             	Failure Mode
-                            	**type**\:   :py:class:`IsisAuthenticationFailureMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationFailureMode>`
+                            	**type**\:  :py:class:`IsisAuthenticationFailureMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationFailureMode>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: password
                             
                             	Password or unencrypted Key Chain name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (!.+)\|([^!].+)
                             
                             	**mandatory**\: True
                             
@@ -9681,7 +9693,7 @@ class Isis(Entity):
                         .. attribute:: hello_padding
                         
                         	Pad IIHs to the interface MTU
-                        	**type**\: list of    :py:class:`HelloPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding>`
+                        	**type**\: list of  		 :py:class:`HelloPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding>`
                         
                         
 
@@ -9714,12 +9726,12 @@ class Isis(Entity):
                             .. attribute:: level  <key>
                             
                             	Level to which configuration applies
-                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                             
                             .. attribute:: padding_type
                             
                             	Hello padding type value
-                            	**type**\:   :py:class:`IsisHelloPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisHelloPadding>`
+                            	**type**\:  :py:class:`IsisHelloPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisHelloPadding>`
                             
                             	**mandatory**\: True
                             
@@ -9756,7 +9768,7 @@ class Isis(Entity):
                         .. attribute:: hello_multiplier
                         
                         	Hello\-multiplier configuration. The number of successive IIHs that may be missed on an adjacency before it is considered down
-                        	**type**\: list of    :py:class:`HelloMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier>`
+                        	**type**\: list of  		 :py:class:`HelloMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier>`
                         
                         
 
@@ -9791,12 +9803,12 @@ class Isis(Entity):
                             .. attribute:: level  <key>
                             
                             	Level to which configuration applies
-                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                             
                             .. attribute:: multiplier
                             
                             	Hello multiplier value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 3..1000
                             
@@ -9835,7 +9847,7 @@ class Isis(Entity):
                         .. attribute:: lsp_fast_flood_threshold
                         
                         	Number of LSPs to send back to back on an interface
-                        	**type**\: list of    :py:class:`LspFastFloodThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold>`
+                        	**type**\: list of  		 :py:class:`LspFastFloodThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold>`
                         
                         
 
@@ -9869,12 +9881,12 @@ class Isis(Entity):
                             .. attribute:: level  <key>
                             
                             	Level to which configuration applies
-                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                             
                             .. attribute:: count
                             
                             	Count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -9913,7 +9925,7 @@ class Isis(Entity):
                         .. attribute:: prefix_attribute_n_flag_clear
                         
                         	Clear the N flag in prefix attribute flags sub\-TLV
-                        	**type**\: list of    :py:class:`PrefixAttributeNFlagClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear>`
+                        	**type**\: list of  		 :py:class:`PrefixAttributeNFlagClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear>`
                         
                         
 
@@ -9947,7 +9959,7 @@ class Isis(Entity):
                             .. attribute:: level  <key>
                             
                             	Level to which configuration applies
-                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                             
                             
 
@@ -9980,7 +9992,7 @@ class Isis(Entity):
                         .. attribute:: hello_interval
                         
                         	Hello\-interval configuration. The interval at which IIH packets will be sent. This will be three times quicker on a LAN interface which has been electted DIS
-                        	**type**\: list of    :py:class:`HelloInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval>`
+                        	**type**\: list of  		 :py:class:`HelloInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval>`
                         
                         
 
@@ -10016,12 +10028,12 @@ class Isis(Entity):
                             .. attribute:: level  <key>
                             
                             	Level to which configuration applies
-                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                             
                             .. attribute:: interval
                             
                             	Seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..65535
                             
@@ -10062,7 +10074,7 @@ class Isis(Entity):
                         .. attribute:: interface_af
                         
                         	Configuration for an IS\-IS address\-family on a single interface. If a named (non\-default) topology is being created it must be multicast. Also the topology ID mustbe set first and delete last in the router configuration
-                        	**type**\: list of    :py:class:`InterfaceAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf>`
+                        	**type**\: list of  		 :py:class:`InterfaceAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf>`
                         
                         
 
@@ -10100,22 +10112,22 @@ class Isis(Entity):
                             .. attribute:: af_name  <key>
                             
                             	Address family
-                            	**type**\:   :py:class:`IsisAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisAddressFamily>`
+                            	**type**\:  :py:class:`IsisAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisAddressFamily>`
                             
                             .. attribute:: saf_name  <key>
                             
                             	Sub address family
-                            	**type**\:   :py:class:`IsisSubAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisSubAddressFamily>`
+                            	**type**\:  :py:class:`IsisSubAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisSubAddressFamily>`
                             
                             .. attribute:: interface_af_data
                             
                             	Data container
-                            	**type**\:   :py:class:`InterfaceAfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData>`
+                            	**type**\:  :py:class:`InterfaceAfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData>`
                             
                             .. attribute:: topology_name
                             
                             	keys\: topology\-name
-                            	**type**\: list of    :py:class:`TopologyName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName>`
+                            	**type**\: list of  		 :py:class:`TopologyName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName>`
                             
                             
 
@@ -10157,68 +10169,68 @@ class Isis(Entity):
                                 .. attribute:: prefix_sid
                                 
                                 	Assign prefix SID to an interface, ISISPHPFlag will be rejected if set to disable, ISISEXPLICITNULLFlag will override the value of ISISPHPFlag
-                                	**type**\:   :py:class:`PrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid>`
+                                	**type**\:  :py:class:`PrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid>`
                                 
                                 	**presence node**\: True
                                 
                                 .. attribute:: interface_frr_table
                                 
                                 	Fast\-ReRoute configuration
-                                	**type**\:   :py:class:`InterfaceFrrTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable>`
+                                	**type**\:  :py:class:`InterfaceFrrTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable>`
                                 
                                 .. attribute:: mpls_ldp
                                 
                                 	MPLS LDP configuration
-                                	**type**\:   :py:class:`MplsLdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp>`
+                                	**type**\:  :py:class:`MplsLdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp>`
                                 
                                 .. attribute:: prefix_sspfsid
                                 
                                 	Assign prefix SSPF SID to an interface, ISISPHPFlag will be rejected if set to disable, ISISEXPLICITNULLFlag will override the value of ISISPHPFlag
-                                	**type**\:   :py:class:`PrefixSspfsid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid>`
+                                	**type**\:  :py:class:`PrefixSspfsid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid>`
                                 
                                 	**presence node**\: True
                                 
                                 .. attribute:: auto_metrics
                                 
                                 	AutoMetric configuration
-                                	**type**\:   :py:class:`AutoMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics>`
+                                	**type**\:  :py:class:`AutoMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics>`
                                 
                                 .. attribute:: admin_tags
                                 
                                 	admin\-tag configuration
-                                	**type**\:   :py:class:`AdminTags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags>`
+                                	**type**\:  :py:class:`AdminTags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags>`
                                 
                                 .. attribute:: interface_link_group
                                 
                                 	Provide link group name and level
-                                	**type**\:   :py:class:`InterfaceLinkGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup>`
+                                	**type**\:  :py:class:`InterfaceLinkGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup>`
                                 
                                 	**presence node**\: True
                                 
                                 .. attribute:: interface_af_state
                                 
                                 	Interface state
-                                	**type**\:   :py:class:`IsisInterfaceAfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceAfState>`
+                                	**type**\:  :py:class:`IsisInterfaceAfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceAfState>`
                                 
                                 .. attribute:: running
                                 
                                 	The presence of this object allows an address\-family to be run over the interface in question.This must be the first object created under the InterfaceAddressFamily container, and the last one deleted
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: manual_adj_sids
                                 
                                 	Manual Adjacecy SID configuration
-                                	**type**\:   :py:class:`ManualAdjSids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids>`
+                                	**type**\:  :py:class:`ManualAdjSids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids>`
                                 
                                 .. attribute:: metrics
                                 
                                 	Metric configuration
-                                	**type**\:   :py:class:`Metrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics>`
+                                	**type**\:  :py:class:`Metrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics>`
                                 
                                 .. attribute:: weights
                                 
                                 	Weight configuration
-                                	**type**\:   :py:class:`Weights <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights>`
+                                	**type**\:  :py:class:`Weights <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights>`
                                 
                                 
 
@@ -10303,14 +10315,14 @@ class Isis(Entity):
                                     .. attribute:: type
                                     
                                     	SID type for the interface
-                                    	**type**\:   :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
+                                    	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
                                     
                                     	**mandatory**\: True
                                     
                                     .. attribute:: value
                                     
                                     	SID value for the interface
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..1048575
                                     
@@ -10319,21 +10331,21 @@ class Isis(Entity):
                                     .. attribute:: php
                                     
                                     	Enable/Disable Penultimate Hop Popping
-                                    	**type**\:   :py:class:`IsisphpFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlag>`
+                                    	**type**\:  :py:class:`IsisphpFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlag>`
                                     
                                     	**mandatory**\: True
                                     
                                     .. attribute:: explicit_null
                                     
                                     	Enable/Disable Explicit\-NULL flag
-                                    	**type**\:   :py:class:`IsisexplicitNullFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlag>`
+                                    	**type**\:  :py:class:`IsisexplicitNullFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlag>`
                                     
                                     	**mandatory**\: True
                                     
                                     .. attribute:: nflag_clear
                                     
                                     	Clear N\-flag for the prefix\-SID
-                                    	**type**\:   :py:class:`NflagClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.NflagClear>`
+                                    	**type**\:  :py:class:`NflagClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.NflagClear>`
                                     
                                     	**mandatory**\: True
                                     
@@ -10379,42 +10391,42 @@ class Isis(Entity):
                                     .. attribute:: frrlfa_candidate_interfaces
                                     
                                     	FRR LFA candidate configuration
-                                    	**type**\:   :py:class:`FrrlfaCandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces>`
+                                    	**type**\:  :py:class:`FrrlfaCandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces>`
                                     
                                     .. attribute:: frr_remote_lfa_max_metrics
                                     
                                     	Remote LFA maxmimum metric
-                                    	**type**\:   :py:class:`FrrRemoteLfaMaxMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics>`
+                                    	**type**\:  :py:class:`FrrRemoteLfaMaxMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics>`
                                     
                                     .. attribute:: frr_types
                                     
                                     	Type of FRR computation per level
-                                    	**type**\:   :py:class:`FrrTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes>`
+                                    	**type**\:  :py:class:`FrrTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes>`
                                     
                                     .. attribute:: frr_remote_lfa_types
                                     
                                     	Remote LFA Enable
-                                    	**type**\:   :py:class:`FrrRemoteLfaTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes>`
+                                    	**type**\:  :py:class:`FrrRemoteLfaTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes>`
                                     
                                     .. attribute:: interface_frr_tiebreaker_defaults
                                     
                                     	Interface FRR Default tiebreaker configuration
-                                    	**type**\:   :py:class:`InterfaceFrrTiebreakerDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults>`
+                                    	**type**\:  :py:class:`InterfaceFrrTiebreakerDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults>`
                                     
                                     .. attribute:: frrtilfa_types
                                     
                                     	TI LFA Enable
-                                    	**type**\:   :py:class:`FrrtilfaTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes>`
+                                    	**type**\:  :py:class:`FrrtilfaTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes>`
                                     
                                     .. attribute:: frr_exclude_interfaces
                                     
                                     	FRR exclusion configuration
-                                    	**type**\:   :py:class:`FrrExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces>`
+                                    	**type**\:  :py:class:`FrrExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces>`
                                     
                                     .. attribute:: interface_frr_tiebreakers
                                     
                                     	Interface FRR tiebreakers configuration
-                                    	**type**\:   :py:class:`InterfaceFrrTiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers>`
+                                    	**type**\:  :py:class:`InterfaceFrrTiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers>`
                                     
                                     
 
@@ -10482,7 +10494,7 @@ class Isis(Entity):
                                         .. attribute:: frrlfa_candidate_interface
                                         
                                         	Include an interface to LFA candidate in computation
-                                        	**type**\: list of    :py:class:`FrrlfaCandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface>`
+                                        	**type**\: list of  		 :py:class:`FrrlfaCandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface>`
                                         
                                         
 
@@ -10516,17 +10528,19 @@ class Isis(Entity):
                                             .. attribute:: interface_name  <key>
                                             
                                             	Interface
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                                             
                                             .. attribute:: frr_type  <key>
                                             
                                             	Computation Type
-                                            	**type**\:   :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
+                                            	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
                                             
                                             .. attribute:: level
                                             
                                             	Level
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..2
                                             
@@ -10567,7 +10581,7 @@ class Isis(Entity):
                                         .. attribute:: frr_remote_lfa_max_metric
                                         
                                         	Configure the maximum metric for selecting a remote LFA node
-                                        	**type**\: list of    :py:class:`FrrRemoteLfaMaxMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric>`
+                                        	**type**\: list of  		 :py:class:`FrrRemoteLfaMaxMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric>`
                                         
                                         
 
@@ -10601,12 +10615,12 @@ class Isis(Entity):
                                             .. attribute:: level  <key>
                                             
                                             	Level to which configuration applies
-                                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
                                             .. attribute:: max_metric
                                             
                                             	Value of the metric
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 1..16777215
                                             
@@ -10645,7 +10659,7 @@ class Isis(Entity):
                                         .. attribute:: frr_type
                                         
                                         	Type of computation for prefixes reachable via interface
-                                        	**type**\: list of    :py:class:`FrrType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType>`
+                                        	**type**\: list of  		 :py:class:`FrrType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType>`
                                         
                                         
 
@@ -10679,12 +10693,12 @@ class Isis(Entity):
                                             .. attribute:: level  <key>
                                             
                                             	Level to which configuration applies
-                                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
                                             .. attribute:: type
                                             
                                             	Computation Type
-                                            	**type**\:   :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
+                                            	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
                                             
                                             	**mandatory**\: True
                                             
@@ -10721,7 +10735,7 @@ class Isis(Entity):
                                         .. attribute:: frr_remote_lfa_type
                                         
                                         	Enable remote lfa for a particular level
-                                        	**type**\: list of    :py:class:`FrrRemoteLfaType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType>`
+                                        	**type**\: list of  		 :py:class:`FrrRemoteLfaType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType>`
                                         
                                         
 
@@ -10755,12 +10769,12 @@ class Isis(Entity):
                                             .. attribute:: level  <key>
                                             
                                             	Level to which configuration applies
-                                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
                                             .. attribute:: type
                                             
                                             	Remote LFA Type
-                                            	**type**\:   :py:class:`IsisRemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisRemoteLfa>`
+                                            	**type**\:  :py:class:`IsisRemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisRemoteLfa>`
                                             
                                             	**mandatory**\: True
                                             
@@ -10798,7 +10812,7 @@ class Isis(Entity):
                                         .. attribute:: interface_frr_tiebreaker_default
                                         
                                         	Configure default tiebreaker
-                                        	**type**\: list of    :py:class:`InterfaceFrrTiebreakerDefault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault>`
+                                        	**type**\: list of  		 :py:class:`InterfaceFrrTiebreakerDefault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault>`
                                         
                                         
 
@@ -10831,7 +10845,7 @@ class Isis(Entity):
                                             .. attribute:: level  <key>
                                             
                                             	Level to which configuration applies
-                                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
                                             
 
@@ -10864,7 +10878,7 @@ class Isis(Entity):
                                         .. attribute:: frrtilfa_type
                                         
                                         	Enable TI lfa for a particular level
-                                        	**type**\: list of    :py:class:`FrrtilfaType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType>`
+                                        	**type**\: list of  		 :py:class:`FrrtilfaType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType>`
                                         
                                         
 
@@ -10897,7 +10911,7 @@ class Isis(Entity):
                                             .. attribute:: level  <key>
                                             
                                             	Level to which configuration applies
-                                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
                                             
 
@@ -10930,7 +10944,7 @@ class Isis(Entity):
                                         .. attribute:: frr_exclude_interface
                                         
                                         	Exclude an interface from computation
-                                        	**type**\: list of    :py:class:`FrrExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface>`
+                                        	**type**\: list of  		 :py:class:`FrrExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface>`
                                         
                                         
 
@@ -10963,17 +10977,19 @@ class Isis(Entity):
                                             .. attribute:: interface_name  <key>
                                             
                                             	Interface
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                                             
                                             .. attribute:: frr_type  <key>
                                             
                                             	Computation Type
-                                            	**type**\:   :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
+                                            	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
                                             
                                             .. attribute:: level
                                             
                                             	Level
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..2
                                             
@@ -11014,7 +11030,7 @@ class Isis(Entity):
                                         .. attribute:: interface_frr_tiebreaker
                                         
                                         	Configure tiebreaker for multiple backups
-                                        	**type**\: list of    :py:class:`InterfaceFrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker>`
+                                        	**type**\: list of  		 :py:class:`InterfaceFrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker>`
                                         
                                         
 
@@ -11048,17 +11064,17 @@ class Isis(Entity):
                                             .. attribute:: level  <key>
                                             
                                             	Level to which configuration applies
-                                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
                                             .. attribute:: tiebreaker  <key>
                                             
                                             	Tiebreaker for which configuration applies
-                                            	**type**\:   :py:class:`IsisInterfaceFrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceFrrTiebreaker>`
+                                            	**type**\:  :py:class:`IsisInterfaceFrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceFrrTiebreaker>`
                                             
                                             .. attribute:: index
                                             
                                             	Preference order among tiebreakers
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 1..255
                                             
@@ -11099,7 +11115,7 @@ class Isis(Entity):
                                     .. attribute:: sync_level
                                     
                                     	Enable MPLS LDP Synchronization for an IS\-IS level
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..2
                                     
@@ -11139,14 +11155,14 @@ class Isis(Entity):
                                     .. attribute:: type
                                     
                                     	SID type for the interface
-                                    	**type**\:   :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
+                                    	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
                                     
                                     	**mandatory**\: True
                                     
                                     .. attribute:: value
                                     
                                     	SID value for the interface
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..1048575
                                     
@@ -11155,21 +11171,21 @@ class Isis(Entity):
                                     .. attribute:: php
                                     
                                     	Enable/Disable Penultimate Hop Popping
-                                    	**type**\:   :py:class:`IsisphpFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlag>`
+                                    	**type**\:  :py:class:`IsisphpFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlag>`
                                     
                                     	**mandatory**\: True
                                     
                                     .. attribute:: explicit_null
                                     
                                     	Enable/Disable Explicit\-NULL flag
-                                    	**type**\:   :py:class:`IsisexplicitNullFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlag>`
+                                    	**type**\:  :py:class:`IsisexplicitNullFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlag>`
                                     
                                     	**mandatory**\: True
                                     
                                     .. attribute:: nflag_clear
                                     
                                     	Clear N\-flag for the prefix\-SID
-                                    	**type**\:   :py:class:`NflagClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.NflagClear>`
+                                    	**type**\:  :py:class:`NflagClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.NflagClear>`
                                     
                                     	**mandatory**\: True
                                     
@@ -11215,7 +11231,7 @@ class Isis(Entity):
                                     .. attribute:: auto_metric
                                     
                                     	AutoMetric Proactive\-Protect configuration. Legal value depends on the metric\-style specified for the topology. If the metric\-style defined is narrow, then only a value between <1\-63> is allowed and if the metric\-style is defined as wide, then a value between <1\-16777214> is allowed as the auto\-metric value
-                                    	**type**\: list of    :py:class:`AutoMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric>`
+                                    	**type**\: list of  		 :py:class:`AutoMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric>`
                                     
                                     
 
@@ -11256,12 +11272,12 @@ class Isis(Entity):
                                         .. attribute:: level  <key>
                                         
                                         	Level to which configuration applies
-                                        	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                        	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                         
                                         .. attribute:: proactive_protect
                                         
                                         	Allowed auto metric\:<1\-63> for narrow ,<1\-16777214> for wide
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..16777214
                                         
@@ -11300,7 +11316,7 @@ class Isis(Entity):
                                     .. attribute:: admin_tag
                                     
                                     	Admin tag for advertised interface connected routes
-                                    	**type**\: list of    :py:class:`AdminTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag>`
+                                    	**type**\: list of  		 :py:class:`AdminTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag>`
                                     
                                     
 
@@ -11334,12 +11350,12 @@ class Isis(Entity):
                                         .. attribute:: level  <key>
                                         
                                         	Level to which configuration applies
-                                        	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                        	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                         
                                         .. attribute:: admin_tag
                                         
                                         	Tag to associate with connected routes
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..4294967295
                                         
@@ -11378,7 +11394,7 @@ class Isis(Entity):
                                     .. attribute:: link_group
                                     
                                     	Link Group
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..40
                                     
@@ -11387,7 +11403,7 @@ class Isis(Entity):
                                     .. attribute:: level
                                     
                                     	Level in which link group will be effective
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..2
                                     
@@ -11429,7 +11445,7 @@ class Isis(Entity):
                                     .. attribute:: manual_adj_sid
                                     
                                     	Assign adjancency SID to an interface
-                                    	**type**\: list of    :py:class:`ManualAdjSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids.ManualAdjSid>`
+                                    	**type**\: list of  		 :py:class:`ManualAdjSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids.ManualAdjSid>`
                                     
                                     
 
@@ -11462,24 +11478,24 @@ class Isis(Entity):
                                         .. attribute:: level  <key>
                                         
                                         	Level to which configuration applies
-                                        	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                        	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                         
                                         .. attribute:: sid_type  <key>
                                         
                                         	Sid type aboslute or index
-                                        	**type**\:   :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
+                                        	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
                                         
                                         .. attribute:: sid  <key>
                                         
                                         	Sid value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..1048575
                                         
                                         .. attribute:: protected
                                         
                                         	Enable/Disable SID protection
-                                        	**type**\:   :py:class:`IsissidProtected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsissidProtected>`
+                                        	**type**\:  :py:class:`IsissidProtected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsissidProtected>`
                                         
                                         	**mandatory**\: True
                                         
@@ -11520,7 +11536,7 @@ class Isis(Entity):
                                     .. attribute:: metric
                                     
                                     	Metric configuration. Legal value depends on the metric\-style specified for the topology. If the metric\-style defined is narrow, then only a value between <1\-63> is allowed and if the metric\-style is defined as wide, then a value between <1\-16777215> is allowed as the metric value.  All routers exclude links with the maximum wide metric (16777215) from their SPF
-                                    	**type**\: list of    :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric>`
+                                    	**type**\: list of  		 :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric>`
                                     
                                     
 
@@ -11560,27 +11576,21 @@ class Isis(Entity):
                                         .. attribute:: level  <key>
                                         
                                         	Level to which configuration applies
-                                        	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                        	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                         
                                         .. attribute:: metric
                                         
                                         	Allowed metric\: <1\-63> for narrow, <1\-16777215> for wide
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:   :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric>`
+                                        		**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric>`
                                         
-                                        	**mandatory**\: True
+                                        		**type**\: int
                                         
-                                        
-                                        ----
-                                        	**type**\:  int
-                                        
-                                        	**range:** 1..16777215
+                                        			**range:** 1..16777215
                                         
                                         	**mandatory**\: True
                                         
-                                        
-                                        ----
                                         
 
                                         """
@@ -11633,7 +11643,7 @@ class Isis(Entity):
                                     .. attribute:: weight
                                     
                                     	Weight configuration under interface for load balancing
-                                    	**type**\: list of    :py:class:`Weight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight>`
+                                    	**type**\: list of  		 :py:class:`Weight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight>`
                                     
                                     
 
@@ -11667,12 +11677,12 @@ class Isis(Entity):
                                         .. attribute:: level  <key>
                                         
                                         	Level to which configuration applies
-                                        	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                        	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                         
                                         .. attribute:: weight
                                         
                                         	Weight to be configured under interface for Load Balancing. Allowed weight\: <1\-16777215>
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..16777214
                                         
@@ -11711,75 +11721,75 @@ class Isis(Entity):
                                 .. attribute:: topology_name  <key>
                                 
                                 	Topology Name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..32
                                 
                                 .. attribute:: prefix_sid
                                 
                                 	Assign prefix SID to an interface, ISISPHPFlag will be rejected if set to disable, ISISEXPLICITNULLFlag will override the value of ISISPHPFlag
-                                	**type**\:   :py:class:`PrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid>`
+                                	**type**\:  :py:class:`PrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid>`
                                 
                                 	**presence node**\: True
                                 
                                 .. attribute:: interface_frr_table
                                 
                                 	Fast\-ReRoute configuration
-                                	**type**\:   :py:class:`InterfaceFrrTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable>`
+                                	**type**\:  :py:class:`InterfaceFrrTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable>`
                                 
                                 .. attribute:: mpls_ldp
                                 
                                 	MPLS LDP configuration
-                                	**type**\:   :py:class:`MplsLdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp>`
+                                	**type**\:  :py:class:`MplsLdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp>`
                                 
                                 .. attribute:: prefix_sspfsid
                                 
                                 	Assign prefix SSPF SID to an interface, ISISPHPFlag will be rejected if set to disable, ISISEXPLICITNULLFlag will override the value of ISISPHPFlag
-                                	**type**\:   :py:class:`PrefixSspfsid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid>`
+                                	**type**\:  :py:class:`PrefixSspfsid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid>`
                                 
                                 	**presence node**\: True
                                 
                                 .. attribute:: auto_metrics
                                 
                                 	AutoMetric configuration
-                                	**type**\:   :py:class:`AutoMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics>`
+                                	**type**\:  :py:class:`AutoMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics>`
                                 
                                 .. attribute:: admin_tags
                                 
                                 	admin\-tag configuration
-                                	**type**\:   :py:class:`AdminTags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags>`
+                                	**type**\:  :py:class:`AdminTags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags>`
                                 
                                 .. attribute:: interface_link_group
                                 
                                 	Provide link group name and level
-                                	**type**\:   :py:class:`InterfaceLinkGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup>`
+                                	**type**\:  :py:class:`InterfaceLinkGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup>`
                                 
                                 	**presence node**\: True
                                 
                                 .. attribute:: interface_af_state
                                 
                                 	Interface state
-                                	**type**\:   :py:class:`IsisInterfaceAfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceAfState>`
+                                	**type**\:  :py:class:`IsisInterfaceAfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceAfState>`
                                 
                                 .. attribute:: running
                                 
                                 	The presence of this object allows an address\-family to be run over the interface in question.This must be the first object created under the InterfaceAddressFamily container, and the last one deleted
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: manual_adj_sids
                                 
                                 	Manual Adjacecy SID configuration
-                                	**type**\:   :py:class:`ManualAdjSids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids>`
+                                	**type**\:  :py:class:`ManualAdjSids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids>`
                                 
                                 .. attribute:: metrics
                                 
                                 	Metric configuration
-                                	**type**\:   :py:class:`Metrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics>`
+                                	**type**\:  :py:class:`Metrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics>`
                                 
                                 .. attribute:: weights
                                 
                                 	Weight configuration
-                                	**type**\:   :py:class:`Weights <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights>`
+                                	**type**\:  :py:class:`Weights <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights>`
                                 
                                 
 
@@ -11866,14 +11876,14 @@ class Isis(Entity):
                                     .. attribute:: type
                                     
                                     	SID type for the interface
-                                    	**type**\:   :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
+                                    	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
                                     
                                     	**mandatory**\: True
                                     
                                     .. attribute:: value
                                     
                                     	SID value for the interface
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..1048575
                                     
@@ -11882,21 +11892,21 @@ class Isis(Entity):
                                     .. attribute:: php
                                     
                                     	Enable/Disable Penultimate Hop Popping
-                                    	**type**\:   :py:class:`IsisphpFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlag>`
+                                    	**type**\:  :py:class:`IsisphpFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlag>`
                                     
                                     	**mandatory**\: True
                                     
                                     .. attribute:: explicit_null
                                     
                                     	Enable/Disable Explicit\-NULL flag
-                                    	**type**\:   :py:class:`IsisexplicitNullFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlag>`
+                                    	**type**\:  :py:class:`IsisexplicitNullFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlag>`
                                     
                                     	**mandatory**\: True
                                     
                                     .. attribute:: nflag_clear
                                     
                                     	Clear N\-flag for the prefix\-SID
-                                    	**type**\:   :py:class:`NflagClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.NflagClear>`
+                                    	**type**\:  :py:class:`NflagClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.NflagClear>`
                                     
                                     	**mandatory**\: True
                                     
@@ -11942,42 +11952,42 @@ class Isis(Entity):
                                     .. attribute:: frrlfa_candidate_interfaces
                                     
                                     	FRR LFA candidate configuration
-                                    	**type**\:   :py:class:`FrrlfaCandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces>`
+                                    	**type**\:  :py:class:`FrrlfaCandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces>`
                                     
                                     .. attribute:: frr_remote_lfa_max_metrics
                                     
                                     	Remote LFA maxmimum metric
-                                    	**type**\:   :py:class:`FrrRemoteLfaMaxMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics>`
+                                    	**type**\:  :py:class:`FrrRemoteLfaMaxMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics>`
                                     
                                     .. attribute:: frr_types
                                     
                                     	Type of FRR computation per level
-                                    	**type**\:   :py:class:`FrrTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes>`
+                                    	**type**\:  :py:class:`FrrTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes>`
                                     
                                     .. attribute:: frr_remote_lfa_types
                                     
                                     	Remote LFA Enable
-                                    	**type**\:   :py:class:`FrrRemoteLfaTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes>`
+                                    	**type**\:  :py:class:`FrrRemoteLfaTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes>`
                                     
                                     .. attribute:: interface_frr_tiebreaker_defaults
                                     
                                     	Interface FRR Default tiebreaker configuration
-                                    	**type**\:   :py:class:`InterfaceFrrTiebreakerDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults>`
+                                    	**type**\:  :py:class:`InterfaceFrrTiebreakerDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults>`
                                     
                                     .. attribute:: frrtilfa_types
                                     
                                     	TI LFA Enable
-                                    	**type**\:   :py:class:`FrrtilfaTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes>`
+                                    	**type**\:  :py:class:`FrrtilfaTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes>`
                                     
                                     .. attribute:: frr_exclude_interfaces
                                     
                                     	FRR exclusion configuration
-                                    	**type**\:   :py:class:`FrrExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces>`
+                                    	**type**\:  :py:class:`FrrExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces>`
                                     
                                     .. attribute:: interface_frr_tiebreakers
                                     
                                     	Interface FRR tiebreakers configuration
-                                    	**type**\:   :py:class:`InterfaceFrrTiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers>`
+                                    	**type**\:  :py:class:`InterfaceFrrTiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers>`
                                     
                                     
 
@@ -12045,7 +12055,7 @@ class Isis(Entity):
                                         .. attribute:: frrlfa_candidate_interface
                                         
                                         	Include an interface to LFA candidate in computation
-                                        	**type**\: list of    :py:class:`FrrlfaCandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface>`
+                                        	**type**\: list of  		 :py:class:`FrrlfaCandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface>`
                                         
                                         
 
@@ -12079,17 +12089,19 @@ class Isis(Entity):
                                             .. attribute:: interface_name  <key>
                                             
                                             	Interface
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                                             
                                             .. attribute:: frr_type  <key>
                                             
                                             	Computation Type
-                                            	**type**\:   :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
+                                            	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
                                             
                                             .. attribute:: level
                                             
                                             	Level
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..2
                                             
@@ -12130,7 +12142,7 @@ class Isis(Entity):
                                         .. attribute:: frr_remote_lfa_max_metric
                                         
                                         	Configure the maximum metric for selecting a remote LFA node
-                                        	**type**\: list of    :py:class:`FrrRemoteLfaMaxMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric>`
+                                        	**type**\: list of  		 :py:class:`FrrRemoteLfaMaxMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric>`
                                         
                                         
 
@@ -12164,12 +12176,12 @@ class Isis(Entity):
                                             .. attribute:: level  <key>
                                             
                                             	Level to which configuration applies
-                                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
                                             .. attribute:: max_metric
                                             
                                             	Value of the metric
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 1..16777215
                                             
@@ -12208,7 +12220,7 @@ class Isis(Entity):
                                         .. attribute:: frr_type
                                         
                                         	Type of computation for prefixes reachable via interface
-                                        	**type**\: list of    :py:class:`FrrType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType>`
+                                        	**type**\: list of  		 :py:class:`FrrType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType>`
                                         
                                         
 
@@ -12242,12 +12254,12 @@ class Isis(Entity):
                                             .. attribute:: level  <key>
                                             
                                             	Level to which configuration applies
-                                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
                                             .. attribute:: type
                                             
                                             	Computation Type
-                                            	**type**\:   :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
+                                            	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
                                             
                                             	**mandatory**\: True
                                             
@@ -12284,7 +12296,7 @@ class Isis(Entity):
                                         .. attribute:: frr_remote_lfa_type
                                         
                                         	Enable remote lfa for a particular level
-                                        	**type**\: list of    :py:class:`FrrRemoteLfaType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType>`
+                                        	**type**\: list of  		 :py:class:`FrrRemoteLfaType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType>`
                                         
                                         
 
@@ -12318,12 +12330,12 @@ class Isis(Entity):
                                             .. attribute:: level  <key>
                                             
                                             	Level to which configuration applies
-                                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
                                             .. attribute:: type
                                             
                                             	Remote LFA Type
-                                            	**type**\:   :py:class:`IsisRemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisRemoteLfa>`
+                                            	**type**\:  :py:class:`IsisRemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisRemoteLfa>`
                                             
                                             	**mandatory**\: True
                                             
@@ -12361,7 +12373,7 @@ class Isis(Entity):
                                         .. attribute:: interface_frr_tiebreaker_default
                                         
                                         	Configure default tiebreaker
-                                        	**type**\: list of    :py:class:`InterfaceFrrTiebreakerDefault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault>`
+                                        	**type**\: list of  		 :py:class:`InterfaceFrrTiebreakerDefault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault>`
                                         
                                         
 
@@ -12394,7 +12406,7 @@ class Isis(Entity):
                                             .. attribute:: level  <key>
                                             
                                             	Level to which configuration applies
-                                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
                                             
 
@@ -12427,7 +12439,7 @@ class Isis(Entity):
                                         .. attribute:: frrtilfa_type
                                         
                                         	Enable TI lfa for a particular level
-                                        	**type**\: list of    :py:class:`FrrtilfaType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType>`
+                                        	**type**\: list of  		 :py:class:`FrrtilfaType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType>`
                                         
                                         
 
@@ -12460,7 +12472,7 @@ class Isis(Entity):
                                             .. attribute:: level  <key>
                                             
                                             	Level to which configuration applies
-                                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
                                             
 
@@ -12493,7 +12505,7 @@ class Isis(Entity):
                                         .. attribute:: frr_exclude_interface
                                         
                                         	Exclude an interface from computation
-                                        	**type**\: list of    :py:class:`FrrExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface>`
+                                        	**type**\: list of  		 :py:class:`FrrExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface>`
                                         
                                         
 
@@ -12526,17 +12538,19 @@ class Isis(Entity):
                                             .. attribute:: interface_name  <key>
                                             
                                             	Interface
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                                             
                                             .. attribute:: frr_type  <key>
                                             
                                             	Computation Type
-                                            	**type**\:   :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
+                                            	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
                                             
                                             .. attribute:: level
                                             
                                             	Level
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..2
                                             
@@ -12577,7 +12591,7 @@ class Isis(Entity):
                                         .. attribute:: interface_frr_tiebreaker
                                         
                                         	Configure tiebreaker for multiple backups
-                                        	**type**\: list of    :py:class:`InterfaceFrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker>`
+                                        	**type**\: list of  		 :py:class:`InterfaceFrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker>`
                                         
                                         
 
@@ -12611,17 +12625,17 @@ class Isis(Entity):
                                             .. attribute:: level  <key>
                                             
                                             	Level to which configuration applies
-                                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
                                             .. attribute:: tiebreaker  <key>
                                             
                                             	Tiebreaker for which configuration applies
-                                            	**type**\:   :py:class:`IsisInterfaceFrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceFrrTiebreaker>`
+                                            	**type**\:  :py:class:`IsisInterfaceFrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceFrrTiebreaker>`
                                             
                                             .. attribute:: index
                                             
                                             	Preference order among tiebreakers
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 1..255
                                             
@@ -12662,7 +12676,7 @@ class Isis(Entity):
                                     .. attribute:: sync_level
                                     
                                     	Enable MPLS LDP Synchronization for an IS\-IS level
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..2
                                     
@@ -12702,14 +12716,14 @@ class Isis(Entity):
                                     .. attribute:: type
                                     
                                     	SID type for the interface
-                                    	**type**\:   :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
+                                    	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
                                     
                                     	**mandatory**\: True
                                     
                                     .. attribute:: value
                                     
                                     	SID value for the interface
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..1048575
                                     
@@ -12718,21 +12732,21 @@ class Isis(Entity):
                                     .. attribute:: php
                                     
                                     	Enable/Disable Penultimate Hop Popping
-                                    	**type**\:   :py:class:`IsisphpFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlag>`
+                                    	**type**\:  :py:class:`IsisphpFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlag>`
                                     
                                     	**mandatory**\: True
                                     
                                     .. attribute:: explicit_null
                                     
                                     	Enable/Disable Explicit\-NULL flag
-                                    	**type**\:   :py:class:`IsisexplicitNullFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlag>`
+                                    	**type**\:  :py:class:`IsisexplicitNullFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlag>`
                                     
                                     	**mandatory**\: True
                                     
                                     .. attribute:: nflag_clear
                                     
                                     	Clear N\-flag for the prefix\-SID
-                                    	**type**\:   :py:class:`NflagClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.NflagClear>`
+                                    	**type**\:  :py:class:`NflagClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.NflagClear>`
                                     
                                     	**mandatory**\: True
                                     
@@ -12778,7 +12792,7 @@ class Isis(Entity):
                                     .. attribute:: auto_metric
                                     
                                     	AutoMetric Proactive\-Protect configuration. Legal value depends on the metric\-style specified for the topology. If the metric\-style defined is narrow, then only a value between <1\-63> is allowed and if the metric\-style is defined as wide, then a value between <1\-16777214> is allowed as the auto\-metric value
-                                    	**type**\: list of    :py:class:`AutoMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric>`
+                                    	**type**\: list of  		 :py:class:`AutoMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric>`
                                     
                                     
 
@@ -12819,12 +12833,12 @@ class Isis(Entity):
                                         .. attribute:: level  <key>
                                         
                                         	Level to which configuration applies
-                                        	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                        	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                         
                                         .. attribute:: proactive_protect
                                         
                                         	Allowed auto metric\:<1\-63> for narrow ,<1\-16777214> for wide
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..16777214
                                         
@@ -12863,7 +12877,7 @@ class Isis(Entity):
                                     .. attribute:: admin_tag
                                     
                                     	Admin tag for advertised interface connected routes
-                                    	**type**\: list of    :py:class:`AdminTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag>`
+                                    	**type**\: list of  		 :py:class:`AdminTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag>`
                                     
                                     
 
@@ -12897,12 +12911,12 @@ class Isis(Entity):
                                         .. attribute:: level  <key>
                                         
                                         	Level to which configuration applies
-                                        	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                        	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                         
                                         .. attribute:: admin_tag
                                         
                                         	Tag to associate with connected routes
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..4294967295
                                         
@@ -12941,7 +12955,7 @@ class Isis(Entity):
                                     .. attribute:: link_group
                                     
                                     	Link Group
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..40
                                     
@@ -12950,7 +12964,7 @@ class Isis(Entity):
                                     .. attribute:: level
                                     
                                     	Level in which link group will be effective
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..2
                                     
@@ -12992,7 +13006,7 @@ class Isis(Entity):
                                     .. attribute:: manual_adj_sid
                                     
                                     	Assign adjancency SID to an interface
-                                    	**type**\: list of    :py:class:`ManualAdjSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids.ManualAdjSid>`
+                                    	**type**\: list of  		 :py:class:`ManualAdjSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids.ManualAdjSid>`
                                     
                                     
 
@@ -13025,24 +13039,24 @@ class Isis(Entity):
                                         .. attribute:: level  <key>
                                         
                                         	Level to which configuration applies
-                                        	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                        	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                         
                                         .. attribute:: sid_type  <key>
                                         
                                         	Sid type aboslute or index
-                                        	**type**\:   :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
+                                        	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
                                         
                                         .. attribute:: sid  <key>
                                         
                                         	Sid value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..1048575
                                         
                                         .. attribute:: protected
                                         
                                         	Enable/Disable SID protection
-                                        	**type**\:   :py:class:`IsissidProtected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsissidProtected>`
+                                        	**type**\:  :py:class:`IsissidProtected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsissidProtected>`
                                         
                                         	**mandatory**\: True
                                         
@@ -13083,7 +13097,7 @@ class Isis(Entity):
                                     .. attribute:: metric
                                     
                                     	Metric configuration. Legal value depends on the metric\-style specified for the topology. If the metric\-style defined is narrow, then only a value between <1\-63> is allowed and if the metric\-style is defined as wide, then a value between <1\-16777215> is allowed as the metric value.  All routers exclude links with the maximum wide metric (16777215) from their SPF
-                                    	**type**\: list of    :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric>`
+                                    	**type**\: list of  		 :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric>`
                                     
                                     
 
@@ -13123,27 +13137,21 @@ class Isis(Entity):
                                         .. attribute:: level  <key>
                                         
                                         	Level to which configuration applies
-                                        	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                        	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                         
                                         .. attribute:: metric
                                         
                                         	Allowed metric\: <1\-63> for narrow, <1\-16777215> for wide
-                                        	**type**\: one of the below types:
+                                        	**type**\: union of the below types:
                                         
-                                        	**type**\:   :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric>`
+                                        		**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric>`
                                         
-                                        	**mandatory**\: True
+                                        		**type**\: int
                                         
-                                        
-                                        ----
-                                        	**type**\:  int
-                                        
-                                        	**range:** 1..16777215
+                                        			**range:** 1..16777215
                                         
                                         	**mandatory**\: True
                                         
-                                        
-                                        ----
                                         
 
                                         """
@@ -13196,7 +13204,7 @@ class Isis(Entity):
                                     .. attribute:: weight
                                     
                                     	Weight configuration under interface for load balancing
-                                    	**type**\: list of    :py:class:`Weight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight>`
+                                    	**type**\: list of  		 :py:class:`Weight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight>`
                                     
                                     
 
@@ -13230,12 +13238,12 @@ class Isis(Entity):
                                         .. attribute:: level  <key>
                                         
                                         	Level to which configuration applies
-                                        	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                                        	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                         
                                         .. attribute:: weight
                                         
                                         	Weight to be configured under interface for Load Balancing. Allowed weight\: <1\-16777215>
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 1..16777214
                                         
@@ -13274,7 +13282,7 @@ class Isis(Entity):
                         .. attribute:: csnp_interval
                         
                         	CSNP\-interval configuration. No fixed default value as this depends on the media type of the interface
-                        	**type**\: list of    :py:class:`CsnpInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval>`
+                        	**type**\: list of  		 :py:class:`CsnpInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval>`
                         
                         
 
@@ -13309,12 +13317,12 @@ class Isis(Entity):
                             .. attribute:: level  <key>
                             
                             	Level to which configuration applies
-                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                             
                             .. attribute:: interval
                             
                             	Seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -13355,7 +13363,7 @@ class Isis(Entity):
                         .. attribute:: lsp_interval
                         
                         	Interval between transmission of LSPs on interface
-                        	**type**\: list of    :py:class:`LspInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval>`
+                        	**type**\: list of  		 :py:class:`LspInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval>`
                         
                         
 
@@ -13389,12 +13397,12 @@ class Isis(Entity):
                             .. attribute:: level  <key>
                             
                             	Level to which configuration applies
-                            	**type**\:   :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
+                            	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                             
                             .. attribute:: interval
                             
                             	Milliseconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             

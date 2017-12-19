@@ -25,7 +25,7 @@ class Exception(Entity):
     .. attribute:: enter
     
     	exception bag
-    	**type**\:   :py:class:`Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter>`
+    	**type**\:  :py:class:`Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter>`
     
     
 
@@ -59,87 +59,87 @@ class Exception(Entity):
         .. attribute:: display_config1
         
         	Display Configuration
-        	**type**\:   :py:class:`DisplayConfig1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.DisplayConfig1>`
+        	**type**\:  :py:class:`DisplayConfig1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.DisplayConfig1>`
         
         .. attribute:: display_config2
         
         	Display Configuration
-        	**type**\:   :py:class:`DisplayConfig2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.DisplayConfig2>`
+        	**type**\:  :py:class:`DisplayConfig2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.DisplayConfig2>`
         
         .. attribute:: display_config3
         
         	Display Configuration
-        	**type**\:   :py:class:`DisplayConfig3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.DisplayConfig3>`
+        	**type**\:  :py:class:`DisplayConfig3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.DisplayConfig3>`
         
         .. attribute:: display_fall_back_config1
         
         	Display fallback Configuration
-        	**type**\:   :py:class:`DisplayFallBackConfig1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.DisplayFallBackConfig1>`
+        	**type**\:  :py:class:`DisplayFallBackConfig1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.DisplayFallBackConfig1>`
         
         .. attribute:: display_fall_back_config2
         
         	Display fallback Configuration
-        	**type**\:   :py:class:`DisplayFallBackConfig2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.DisplayFallBackConfig2>`
+        	**type**\:  :py:class:`DisplayFallBackConfig2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.DisplayFallBackConfig2>`
         
         .. attribute:: display_fall_back_config3
         
         	Display fallback Configuration
-        	**type**\:   :py:class:`DisplayFallBackConfig3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.DisplayFallBackConfig3>`
+        	**type**\:  :py:class:`DisplayFallBackConfig3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.DisplayFallBackConfig3>`
         
         .. attribute:: kernel_config
         
         	Kernel Configuration
-        	**type**\:   :py:class:`KernelConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.KernelConfig>`
+        	**type**\:  :py:class:`KernelConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.KernelConfig>`
         
         .. attribute:: kernel_route_config
         
         	Kernel Route Configuration
-        	**type**\:   :py:class:`KernelRouteConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.KernelRouteConfig>`
+        	**type**\:  :py:class:`KernelRouteConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.KernelRouteConfig>`
         
         .. attribute:: core_size
         
         	Core Size
-        	**type**\:   :py:class:`CoreSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.CoreSize>`
+        	**type**\:  :py:class:`CoreSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.CoreSize>`
         
         .. attribute:: memory_threshold
         
         	Memory Threshold 
-        	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.MemoryThreshold>`
+        	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.MemoryThreshold>`
         
         .. attribute:: proc_size
         
         	Proc Size
-        	**type**\:   :py:class:`ProcSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.ProcSize>`
+        	**type**\:  :py:class:`ProcSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.ProcSize>`
         
         .. attribute:: qsize
         
         	QSIZE 
-        	**type**\:   :py:class:`Qsize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.Qsize>`
+        	**type**\:  :py:class:`Qsize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper.Exception.Enter.Qsize>`
         
         .. attribute:: pak_mem
         
         	Pak MEM
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: sparse
         
         	Sparse 
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: spr_size
         
         	Spr Size
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: core_verification
         
         	Core Verification 
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: dump_time_out
         
         	Dump Timeout 
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -241,34 +241,34 @@ class Exception(Entity):
             .. attribute:: choice
             
             	Choice 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: path
             
             	Path 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: compress
             
             	Compress on/off 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: file_name
             
             	Name of the File 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: range_low
             
             	Range Low 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: range_high
             
             	Range High 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -314,34 +314,34 @@ class Exception(Entity):
             .. attribute:: choice
             
             	Choice 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: path
             
             	Path 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: compress
             
             	Compress on/off 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: file_name
             
             	Name of the File 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: range_low
             
             	Range Low 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: range_high
             
             	Range High 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -387,34 +387,34 @@ class Exception(Entity):
             .. attribute:: choice
             
             	Choice 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: path
             
             	Path 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: compress
             
             	Compress on/off 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: file_name
             
             	Name of the File 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: range_low
             
             	Range Low 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: range_high
             
             	Range High 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -460,39 +460,39 @@ class Exception(Entity):
             .. attribute:: choice_fall_back
             
             	Choice 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: path
             
             	Path 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: compress
             
             	Compress on/off 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: file_name
             
             	Name of the File 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: boot_device_str
             
             	Boot Device String 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: range_low
             
             	Range Low 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: range_high
             
             	Range High 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -540,39 +540,39 @@ class Exception(Entity):
             .. attribute:: choice_fall_back
             
             	Choice 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: path
             
             	Path 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: compress
             
             	Compress on/off 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: file_name
             
             	Name of the File 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: boot_device_str
             
             	Boot Device String 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: range_low
             
             	Range Low 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: range_high
             
             	Range High 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -620,39 +620,39 @@ class Exception(Entity):
             .. attribute:: choice_fall_back
             
             	Choice 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: path
             
             	Path 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: compress
             
             	Compress on/off 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: file_name
             
             	Name of the File 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: boot_device_str
             
             	Boot Device String 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: range_low
             
             	Range Low 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: range_high
             
             	Range High 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -700,22 +700,22 @@ class Exception(Entity):
             .. attribute:: choice_fall_back
             
             	Choice 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: path
             
             	Path 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: file_name
             
             	Name of the File 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: memory
             
             	Memory 
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -755,36 +755,36 @@ class Exception(Entity):
             .. attribute:: slot
             
             	Slot 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: port
             
             	Port 
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ip_addr
             
             	IP Address
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: mask
             
             	Mask
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: destination
             
             	Destination 
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: next_hop
             
             	NextHop 
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -828,7 +828,7 @@ class Exception(Entity):
             .. attribute:: string
             
             	String  
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -862,7 +862,7 @@ class Exception(Entity):
             .. attribute:: string
             
             	String  
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -896,7 +896,7 @@ class Exception(Entity):
             .. attribute:: string
             
             	String  
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -930,7 +930,7 @@ class Exception(Entity):
             .. attribute:: string
             
             	String  
-            	**type**\:  str
+            	**type**\: str
             
             
 

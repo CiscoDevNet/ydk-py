@@ -21,12 +21,12 @@ class Traceroute(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output>`
     
     
 
@@ -65,17 +65,17 @@ class Traceroute(Entity):
         .. attribute:: destination
         
         	
-        	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Input.Destination>`
+        	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Input.Destination>`
         
         .. attribute:: ipv4
         
         	
-        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Input.Ipv4>`
+        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Input.Ipv4>`
         
         .. attribute:: ipv6
         
         	
-        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Input.Ipv6>`
+        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Input.Ipv6>`
         
         
 
@@ -119,19 +119,19 @@ class Traceroute(Entity):
             .. attribute:: destination
             
             	Destination address or hostname
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
             .. attribute:: source
             
             	Source address or interface
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: timeout
             
             	Timeout in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..36
             
@@ -140,7 +140,7 @@ class Traceroute(Entity):
             .. attribute:: probe
             
             	Probe count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..64
             
@@ -149,17 +149,17 @@ class Traceroute(Entity):
             .. attribute:: numeric
             
             	Numeric display only
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: vrf_name
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: min_ttl
             
             	minimum time to live
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -168,7 +168,7 @@ class Traceroute(Entity):
             .. attribute:: max_ttl
             
             	maximum time to live
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -177,26 +177,26 @@ class Traceroute(Entity):
             .. attribute:: port
             
             	Port numbe
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: verbose
             
             	verbose output
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: priority
             
             	Priority of hte packet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..15
             
             .. attribute:: outgoing_interface
             
             	Outgoing interface, needed in case of traceroute to link local address
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -252,19 +252,19 @@ class Traceroute(Entity):
             .. attribute:: destination
             
             	Destination address or hostname
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
             .. attribute:: source
             
             	Source address or interface
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: timeout
             
             	Timeout in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..36
             
@@ -273,7 +273,7 @@ class Traceroute(Entity):
             .. attribute:: probe
             
             	Probe count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..64
             
@@ -282,17 +282,17 @@ class Traceroute(Entity):
             .. attribute:: numeric
             
             	Numeric display only
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: vrf_name
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: min_ttl
             
             	minimum time to live
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -301,7 +301,7 @@ class Traceroute(Entity):
             .. attribute:: max_ttl
             
             	maximum time to live
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -310,14 +310,14 @@ class Traceroute(Entity):
             .. attribute:: port
             
             	Port numbe
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: verbose
             
             	verbose output
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -369,19 +369,19 @@ class Traceroute(Entity):
             .. attribute:: destination
             
             	Destination address or hostname
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
             .. attribute:: source
             
             	Source address or interface
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: timeout
             
             	Timeout in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..36
             
@@ -390,7 +390,7 @@ class Traceroute(Entity):
             .. attribute:: probe
             
             	Probe count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..64
             
@@ -399,17 +399,17 @@ class Traceroute(Entity):
             .. attribute:: numeric
             
             	Numeric display only
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: vrf_name
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: min_ttl
             
             	minimum time to live
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -418,7 +418,7 @@ class Traceroute(Entity):
             .. attribute:: max_ttl
             
             	maximum time to live
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -427,26 +427,26 @@ class Traceroute(Entity):
             .. attribute:: port
             
             	Port numbe
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: verbose
             
             	verbose output
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: priority
             
             	Priority of hte packet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..15
             
             .. attribute:: outgoing_interface
             
             	Outgoing interface, needed in case of traceroute to link local address
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -502,7 +502,7 @@ class Traceroute(Entity):
         .. attribute:: traceroute_response
         
         	
-        	**type**\:   :py:class:`TracerouteResponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse>`
+        	**type**\:  :py:class:`TracerouteResponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse>`
         
         
 
@@ -536,12 +536,12 @@ class Traceroute(Entity):
             .. attribute:: ipv4
             
             	
-            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv4>`
+            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv4>`
             
             .. attribute:: ipv6
             
             	
-            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv6>`
+            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv6>`
             
             
 
@@ -580,17 +580,17 @@ class Traceroute(Entity):
                 .. attribute:: destination
                 
                 	Destination address or hostname
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: hops
                 
                 	
-                	**type**\: list of    :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv4.Hops>`
+                	**type**\: list of  		 :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv4.Hops>`
                 
                 .. attribute:: verbose_output
                 
                 	Verbose output
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -628,24 +628,24 @@ class Traceroute(Entity):
                     .. attribute:: hop_index  <key>
                     
                     	Index of the hop
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: hop_address
                     
                     	Address of the hop
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: hop_hostname
                     
                     	Hostname of the hop
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: probes
                     
                     	
-                    	**type**\: list of    :py:class:`Probes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv4.Hops.Probes>`
+                    	**type**\: list of  		 :py:class:`Probes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv4.Hops.Probes>`
                     
                     
 
@@ -685,31 +685,31 @@ class Traceroute(Entity):
                         .. attribute:: probe_index  <key>
                         
                         	Index of the probe
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: result
                         
                         	Response for each probe
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: delta_time
                         
                         	Delta time in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hop_address
                         
                         	Address of the hop
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: hop_hostname
                         
                         	Hostname of the hop
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -750,17 +750,17 @@ class Traceroute(Entity):
                 .. attribute:: destination
                 
                 	Destination address or hostname
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: hops
                 
                 	
-                	**type**\: list of    :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv6.Hops>`
+                	**type**\: list of  		 :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv6.Hops>`
                 
                 .. attribute:: verbose_output
                 
                 	Verbose output
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -798,24 +798,24 @@ class Traceroute(Entity):
                     .. attribute:: hop_index  <key>
                     
                     	Index of the hop
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: hop_address
                     
                     	Address of the hop
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: hop_hostname
                     
                     	Hostname of the hop
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: probes
                     
                     	
-                    	**type**\: list of    :py:class:`Probes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv6.Hops.Probes>`
+                    	**type**\: list of  		 :py:class:`Probes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act.Traceroute.Output.TracerouteResponse.Ipv6.Hops.Probes>`
                     
                     
 
@@ -855,31 +855,31 @@ class Traceroute(Entity):
                         .. attribute:: probe_index  <key>
                         
                         	Index of the probe
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: result
                         
                         	Response for each probe
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: delta_time
                         
                         	Delta time in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hop_address
                         
                         	Address of the hop
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: hop_hostname
                         
                         	Hostname of the hop
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 

@@ -21,7 +21,7 @@ class ClearOspfRoutes(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfRoutes.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfRoutes.Input>`
     
     
 
@@ -55,12 +55,12 @@ class ClearOspfRoutes(Entity):
         .. attribute:: instance
         
         	Clear data from OSPF instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfRoutes.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfRoutes.Input.Instance>`
         
         .. attribute:: route
         
         	Clear OSPF route table
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         	**mandatory**\: True
         
@@ -101,7 +101,7 @@ class ClearOspfRoutes(Entity):
             .. attribute:: instance_identifier
             
             	OSPF process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -138,7 +138,7 @@ class ClearOspfRedistribution(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfRedistribution.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfRedistribution.Input>`
     
     
 
@@ -172,12 +172,12 @@ class ClearOspfRedistribution(Entity):
         .. attribute:: instance
         
         	Clear data from OSPF instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfRedistribution.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfRedistribution.Input.Instance>`
         
         .. attribute:: redistribution
         
         	Clear OSPF route redistribution
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         	**mandatory**\: True
         
@@ -218,7 +218,7 @@ class ClearOspfRedistribution(Entity):
             .. attribute:: instance_identifier
             
             	OSPF process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -255,7 +255,7 @@ class ClearOspfStatistics(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatistics.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatistics.Input>`
     
     
 
@@ -289,32 +289,32 @@ class ClearOspfStatistics(Entity):
         .. attribute:: instance
         
         	Clear data from OSPF instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatistics.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatistics.Input.Instance>`
         
         .. attribute:: all
         
         	All OSPF counters and statistics
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: message_queue
         
         	Message\-queue statistics
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: spf
         
         	SPF statistics
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: neighbor
         
         	Neighbor statistics per neighbor id
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: interface_name
         
         	OSPF interface statistics
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -361,7 +361,7 @@ class ClearOspfStatistics(Entity):
             .. attribute:: instance_identifier
             
             	OSPF process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -398,7 +398,7 @@ class ClearOspfStatisticsNeighbor(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatisticsNeighbor.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatisticsNeighbor.Input>`
     
     
 
@@ -432,12 +432,12 @@ class ClearOspfStatisticsNeighbor(Entity):
         .. attribute:: instance
         
         	Clear data from OSPF instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatisticsNeighbor.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatisticsNeighbor.Input.Instance>`
         
         .. attribute:: neighbor
         
         	
-        	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatisticsNeighbor.Input.Neighbor>`
+        	**type**\:  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatisticsNeighbor.Input.Neighbor>`
         
         
 
@@ -476,7 +476,7 @@ class ClearOspfStatisticsNeighbor(Entity):
             .. attribute:: instance_identifier
             
             	OSPF process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -510,12 +510,16 @@ class ClearOspfStatisticsNeighbor(Entity):
             .. attribute:: neighbor_id
             
             	Neighbor ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: interface_name
             
             	Interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             
 
@@ -554,7 +558,7 @@ class ClearOspfStatisticsInterface(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatisticsInterface.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatisticsInterface.Input>`
     
     
 
@@ -588,12 +592,12 @@ class ClearOspfStatisticsInterface(Entity):
         .. attribute:: instance
         
         	Clear data from OSPF instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatisticsInterface.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatisticsInterface.Input.Instance>`
         
         .. attribute:: interface
         
         	
-        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatisticsInterface.Input.Interface>`
+        	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfStatisticsInterface.Input.Interface>`
         
         
 
@@ -632,7 +636,7 @@ class ClearOspfStatisticsInterface(Entity):
             .. attribute:: instance_identifier
             
             	OSPF process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -666,7 +670,9 @@ class ClearOspfStatisticsInterface(Entity):
             .. attribute:: interface_name
             
             	OSPF interface statistics
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             
 
@@ -703,7 +709,7 @@ class ClearOspfProcess(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfProcess.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfProcess.Input>`
     
     
 
@@ -737,12 +743,12 @@ class ClearOspfProcess(Entity):
         .. attribute:: instance
         
         	Clear data from OSPF instance
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfProcess.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfProcess.Input.Instance>`
         
         .. attribute:: process
         
         	Reset OSPF process
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         	**mandatory**\: True
         
@@ -783,7 +789,7 @@ class ClearOspfProcess(Entity):
             .. attribute:: instance_identifier
             
             	OSPF process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -820,7 +826,7 @@ class ClearOspfInstanceVrf(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input>`
     
     
 
@@ -854,7 +860,7 @@ class ClearOspfInstanceVrf(Entity):
         .. attribute:: instance
         
         	OSPF instance name
-        	**type**\:   :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance>`
+        	**type**\:  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance>`
         
         
 
@@ -888,24 +894,24 @@ class ClearOspfInstanceVrf(Entity):
             .. attribute:: instance_identifier
             
             	OSPF process instance identifier
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
             .. attribute:: vrf
             
             	Clear one or more non\-default OSPF VRFs in process
-            	**type**\:   :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.Vrf>`
+            	**type**\:  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.Vrf>`
             
             .. attribute:: all
             
             	Clear all non\-default OSPF VRFs
-            	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.All>`
+            	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.All>`
             
             .. attribute:: all_inclusive
             
             	Clear all non\-default and default OSPF VRFs
-            	**type**\:   :py:class:`AllInclusive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.AllInclusive>`
+            	**type**\:  :py:class:`AllInclusive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.AllInclusive>`
             
             
 
@@ -954,27 +960,27 @@ class ClearOspfInstanceVrf(Entity):
                 .. attribute:: vrf_name
                 
                 	OSPF VRF name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: process
                 
                 	Reset OSPF process
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: redistribution
                 
                 	Clear OSPF route redistrbution
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: route
                 
                 	Clear OSPF route table
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: stats
                 
                 	OSPF counters and statistics
-                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.Vrf.Stats>`
+                	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.Vrf.Stats>`
                 
                 
 
@@ -1019,22 +1025,22 @@ class ClearOspfInstanceVrf(Entity):
                     .. attribute:: spf
                     
                     	SPF statistics
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: message_queue
                     
                     	Message\-queue statistics
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: interface
                     
                     	OSPF interface statistics
-                    	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Interface>`
+                    	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Interface>`
                     
                     .. attribute:: neighbor
                     
                     	Neighbor statistics per interface or neighbor id
-                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor>`
+                    	**type**\:  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor>`
                     
                     
 
@@ -1080,7 +1086,9 @@ class ClearOspfInstanceVrf(Entity):
                         .. attribute:: interface_name
                         
                         	
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         
 
@@ -1114,12 +1122,14 @@ class ClearOspfInstanceVrf(Entity):
                         .. attribute:: neighbor_id
                         
                         	Neighbor ID
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: interface
                         
                         	
-                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface>`
+                        	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface>`
                         
                         
 
@@ -1158,7 +1168,9 @@ class ClearOspfInstanceVrf(Entity):
                             .. attribute:: interface_name
                             
                             	OSPF interface statistics
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -1192,22 +1204,22 @@ class ClearOspfInstanceVrf(Entity):
                 .. attribute:: process
                 
                 	Reset OSPF process
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: redistribution
                 
                 	Clear OSPF route redistrbution
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: route
                 
                 	Clear OSPF route table
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: stats
                 
                 	OSPF counters and statistics
-                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.All.Stats>`
+                	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.All.Stats>`
                 
                 
 
@@ -1250,22 +1262,22 @@ class ClearOspfInstanceVrf(Entity):
                     .. attribute:: spf
                     
                     	SPF statistics
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: message_queue
                     
                     	Message\-queue statistics
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: interface
                     
                     	OSPF interface statistics
-                    	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.All.Stats.Interface>`
+                    	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.All.Stats.Interface>`
                     
                     .. attribute:: neighbor
                     
                     	Neighbor statistics per interface or neighbor id
-                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor>`
+                    	**type**\:  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor>`
                     
                     
 
@@ -1311,7 +1323,9 @@ class ClearOspfInstanceVrf(Entity):
                         .. attribute:: interface_name
                         
                         	
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         
 
@@ -1345,12 +1359,14 @@ class ClearOspfInstanceVrf(Entity):
                         .. attribute:: neighbor_id
                         
                         	Neighbor ID
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: interface
                         
                         	
-                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor.Interface>`
+                        	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor.Interface>`
                         
                         
 
@@ -1389,7 +1405,9 @@ class ClearOspfInstanceVrf(Entity):
                             .. attribute:: interface_name
                             
                             	OSPF interface statistics
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -1423,22 +1441,22 @@ class ClearOspfInstanceVrf(Entity):
                 .. attribute:: process
                 
                 	Reset OSPF process
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: redistribution
                 
                 	Clear OSPF route redistrbution
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: route
                 
                 	Clear OSPF route table
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: stats
                 
                 	OSPF counters and statistics
-                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats>`
+                	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats>`
                 
                 
 
@@ -1481,22 +1499,22 @@ class ClearOspfInstanceVrf(Entity):
                     .. attribute:: spf
                     
                     	SPF statistics
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: message_queue
                     
                     	Message\-queue statistics
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: interface
                     
                     	OSPF interface statistics
-                    	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Interface>`
+                    	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Interface>`
                     
                     .. attribute:: neighbor
                     
                     	Neighbor statistics per interface or neighbor id
-                    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor>`
+                    	**type**\:  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor>`
                     
                     
 
@@ -1542,7 +1560,9 @@ class ClearOspfInstanceVrf(Entity):
                         .. attribute:: interface_name
                         
                         	
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         
 
@@ -1576,12 +1596,14 @@ class ClearOspfInstanceVrf(Entity):
                         .. attribute:: neighbor_id
                         
                         	Neighbor ID
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: interface
                         
                         	
-                        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface>`
+                        	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act.ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface>`
                         
                         
 
@@ -1620,7 +1642,9 @@ class ClearOspfInstanceVrf(Entity):
                             .. attribute:: interface_name
                             
                             	OSPF interface statistics
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 

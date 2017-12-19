@@ -47,37 +47,37 @@ class L2Tp(Entity):
     .. attribute:: counters
     
     	L2TP control messages counters
-    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters>`
+    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters>`
     
     .. attribute:: tunnel_configurations
     
     	List of tunnel IDs
-    	**type**\:   :py:class:`TunnelConfigurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.TunnelConfigurations>`
+    	**type**\:  :py:class:`TunnelConfigurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.TunnelConfigurations>`
     
     .. attribute:: counter_hist_fail
     
     	Failure events leading to disconnection
-    	**type**\:   :py:class:`CounterHistFail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.CounterHistFail>`
+    	**type**\:  :py:class:`CounterHistFail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.CounterHistFail>`
     
     .. attribute:: classes
     
     	List of L2TP class names
-    	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Classes>`
+    	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Classes>`
     
     .. attribute:: tunnels
     
     	List of tunnel IDs
-    	**type**\:   :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Tunnels>`
+    	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Tunnels>`
     
     .. attribute:: sessions
     
     	List of session IDs
-    	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions>`
+    	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions>`
     
     .. attribute:: session
     
     	L2TP control messages counters
-    	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Session>`
+    	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Session>`
     
     
 
@@ -141,7 +141,7 @@ class L2Tp(Entity):
         .. attribute:: control
         
         	L2TP control messages counters
-        	**type**\:   :py:class:`Control <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control>`
+        	**type**\:  :py:class:`Control <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control>`
         
         
 
@@ -175,12 +175,12 @@ class L2Tp(Entity):
             .. attribute:: tunnel_xr
             
             	L2TP control tunnel messages counters
-            	**type**\:   :py:class:`TunnelXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr>`
+            	**type**\:  :py:class:`TunnelXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr>`
             
             .. attribute:: tunnels
             
             	Table of tunnel IDs of control message counters
-            	**type**\:   :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels>`
+            	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels>`
             
             
 
@@ -219,12 +219,12 @@ class L2Tp(Entity):
                 .. attribute:: authentication
                 
                 	Tunnel authentication counters
-                	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication>`
+                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication>`
                 
                 .. attribute:: global_
                 
                 	Tunnel counters
-                	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global_>`
+                	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global_>`
                 
                 
 
@@ -263,47 +263,47 @@ class L2Tp(Entity):
                     .. attribute:: nonce_avp
                     
                     	Nonce AVP statistics
-                    	**type**\:   :py:class:`NonceAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.NonceAvp>`
+                    	**type**\:  :py:class:`NonceAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.NonceAvp>`
                     
                     .. attribute:: common_digest
                     
                     	Common digest statistics
-                    	**type**\:   :py:class:`CommonDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.CommonDigest>`
+                    	**type**\:  :py:class:`CommonDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.CommonDigest>`
                     
                     .. attribute:: primary_digest
                     
                     	Primary digest statistics
-                    	**type**\:   :py:class:`PrimaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest>`
+                    	**type**\:  :py:class:`PrimaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest>`
                     
                     .. attribute:: secondary_digest
                     
                     	Secondary digest statistics
-                    	**type**\:   :py:class:`SecondaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest>`
+                    	**type**\:  :py:class:`SecondaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest>`
                     
                     .. attribute:: integrity_check
                     
                     	Integrity check statistics
-                    	**type**\:   :py:class:`IntegrityCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck>`
+                    	**type**\:  :py:class:`IntegrityCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck>`
                     
                     .. attribute:: local_secret
                     
                     	Local secret statistics
-                    	**type**\:   :py:class:`LocalSecret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.LocalSecret>`
+                    	**type**\:  :py:class:`LocalSecret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.LocalSecret>`
                     
                     .. attribute:: challenge_avp
                     
                     	Challenge AVP statistics
-                    	**type**\:   :py:class:`ChallengeAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp>`
+                    	**type**\:  :py:class:`ChallengeAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp>`
                     
                     .. attribute:: challenge_reponse
                     
                     	Challenge response statistics
-                    	**type**\:   :py:class:`ChallengeReponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse>`
+                    	**type**\:  :py:class:`ChallengeReponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse>`
                     
                     .. attribute:: overall_statistics
                     
                     	Overall statistics
-                    	**type**\:   :py:class:`OverallStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.OverallStatistics>`
+                    	**type**\:  :py:class:`OverallStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Authentication.OverallStatistics>`
                     
                     
 
@@ -377,77 +377,77 @@ class L2Tp(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -503,77 +503,77 @@ class L2Tp(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -629,77 +629,77 @@ class L2Tp(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -755,77 +755,77 @@ class L2Tp(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -881,77 +881,77 @@ class L2Tp(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1007,77 +1007,77 @@ class L2Tp(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1133,77 +1133,77 @@ class L2Tp(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1259,77 +1259,77 @@ class L2Tp(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1385,77 +1385,77 @@ class L2Tp(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1511,48 +1511,48 @@ class L2Tp(Entity):
                     .. attribute:: transmit
                     
                     	Transmit data
-                    	**type**\:   :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global_.Transmit>`
+                    	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global_.Transmit>`
                     
                     .. attribute:: retransmit
                     
                     	Re transmit data
-                    	**type**\:   :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global_.Retransmit>`
+                    	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global_.Retransmit>`
                     
                     .. attribute:: received
                     
                     	Received data
-                    	**type**\:   :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global_.Received>`
+                    	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global_.Received>`
                     
                     .. attribute:: drop
                     
                     	Drop data
-                    	**type**\:   :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global_.Drop>`
+                    	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.TunnelXr.Global_.Drop>`
                     
                     .. attribute:: total_transmit
                     
                     	Total transmit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_retransmit
                     
                     	Total retransmit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_received
                     
                     	Total received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_drop
                     
                     	Total drop
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1614,133 +1614,133 @@ class L2Tp(Entity):
                         .. attribute:: unknown_packets
                         
                         	Unknown packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_requests
                         
                         	Start control connection requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_notifications
                         
                         	Start control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hello_packets
                         
                         	Keep alive messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_replies
                         
                         	Outgoing call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_requests
                         
                         	Incoming call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_connected_packets
                         
                         	Incoming call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: wan_error_notify_packets
                         
                         	WAN error notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_requests
                         
                         	Service relay request counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1812,133 +1812,133 @@ class L2Tp(Entity):
                         .. attribute:: unknown_packets
                         
                         	Unknown packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_requests
                         
                         	Start control connection requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_notifications
                         
                         	Start control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hello_packets
                         
                         	Keep alive messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_replies
                         
                         	Outgoing call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_requests
                         
                         	Incoming call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_connected_packets
                         
                         	Incoming call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: wan_error_notify_packets
                         
                         	WAN error notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_requests
                         
                         	Service relay request counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2010,133 +2010,133 @@ class L2Tp(Entity):
                         .. attribute:: unknown_packets
                         
                         	Unknown packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_requests
                         
                         	Start control connection requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_notifications
                         
                         	Start control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hello_packets
                         
                         	Keep alive messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_replies
                         
                         	Outgoing call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_requests
                         
                         	Incoming call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_connected_packets
                         
                         	Incoming call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: wan_error_notify_packets
                         
                         	WAN error notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_requests
                         
                         	Service relay request counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2208,133 +2208,133 @@ class L2Tp(Entity):
                         .. attribute:: unknown_packets
                         
                         	Unknown packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_requests
                         
                         	Start control connection requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_notifications
                         
                         	Start control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hello_packets
                         
                         	Keep alive messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_replies
                         
                         	Outgoing call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_requests
                         
                         	Incoming call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_connected_packets
                         
                         	Incoming call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: wan_error_notify_packets
                         
                         	WAN error notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_requests
                         
                         	Service relay request counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2406,7 +2406,7 @@ class L2Tp(Entity):
                 .. attribute:: tunnel
                 
                 	L2TP tunnel control message counters
-                	**type**\: list of    :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel>`
+                	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel>`
                 
                 
 
@@ -2440,19 +2440,19 @@ class L2Tp(Entity):
                     .. attribute:: tunnel_id  <key>
                     
                     	L2TP tunnel ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: brief
                     
                     	L2TP control message local and remote addresses
-                    	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Brief>`
+                    	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Brief>`
                     
                     .. attribute:: global_
                     
                     	Global data
-                    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global_>`
+                    	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global_>`
                     
                     
 
@@ -2496,19 +2496,23 @@ class L2Tp(Entity):
                         .. attribute:: remote_tunnel_id
                         
                         	Remote tunnel ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: local_address
                         
                         	Local IP address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: remote_address
                         
                         	Remote IP address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -2545,48 +2549,48 @@ class L2Tp(Entity):
                         .. attribute:: transmit
                         
                         	Transmit data
-                        	**type**\:   :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global_.Transmit>`
+                        	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global_.Transmit>`
                         
                         .. attribute:: retransmit
                         
                         	Re transmit data
-                        	**type**\:   :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global_.Retransmit>`
+                        	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global_.Retransmit>`
                         
                         .. attribute:: received
                         
                         	Received data
-                        	**type**\:   :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global_.Received>`
+                        	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global_.Received>`
                         
                         .. attribute:: drop
                         
                         	Drop data
-                        	**type**\:   :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global_.Drop>`
+                        	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Counters.Control.Tunnels.Tunnel.Global_.Drop>`
                         
                         .. attribute:: total_transmit
                         
                         	Total transmit
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: total_retransmit
                         
                         	Total retransmit
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: total_received
                         
                         	Total received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: total_drop
                         
                         	Total drop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2647,133 +2651,133 @@ class L2Tp(Entity):
                             .. attribute:: unknown_packets
                             
                             	Unknown packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_requests
                             
                             	Start control connection requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_notifications
                             
                             	Start control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hello_packets
                             
                             	Keep alive messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_replies
                             
                             	Outgoing call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_requests
                             
                             	Incoming call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_connected_packets
                             
                             	Incoming call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: wan_error_notify_packets
                             
                             	WAN error notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_requests
                             
                             	Service relay request counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2844,133 +2848,133 @@ class L2Tp(Entity):
                             .. attribute:: unknown_packets
                             
                             	Unknown packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_requests
                             
                             	Start control connection requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_notifications
                             
                             	Start control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hello_packets
                             
                             	Keep alive messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_replies
                             
                             	Outgoing call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_requests
                             
                             	Incoming call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_connected_packets
                             
                             	Incoming call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: wan_error_notify_packets
                             
                             	WAN error notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_requests
                             
                             	Service relay request counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3041,133 +3045,133 @@ class L2Tp(Entity):
                             .. attribute:: unknown_packets
                             
                             	Unknown packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_requests
                             
                             	Start control connection requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_notifications
                             
                             	Start control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hello_packets
                             
                             	Keep alive messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_replies
                             
                             	Outgoing call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_requests
                             
                             	Incoming call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_connected_packets
                             
                             	Incoming call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: wan_error_notify_packets
                             
                             	WAN error notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_requests
                             
                             	Service relay request counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3238,133 +3242,133 @@ class L2Tp(Entity):
                             .. attribute:: unknown_packets
                             
                             	Unknown packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_requests
                             
                             	Start control connection requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_notifications
                             
                             	Start control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hello_packets
                             
                             	Keep alive messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_replies
                             
                             	Outgoing call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_requests
                             
                             	Incoming call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_connected_packets
                             
                             	Incoming call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: wan_error_notify_packets
                             
                             	WAN error notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_requests
                             
                             	Service relay request counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3435,7 +3439,7 @@ class L2Tp(Entity):
         .. attribute:: tunnel_configuration
         
         	L2TP tunnel information
-        	**type**\: list of    :py:class:`TunnelConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.TunnelConfigurations.TunnelConfiguration>`
+        	**type**\: list of  		 :py:class:`TunnelConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.TunnelConfigurations.TunnelConfiguration>`
         
         
 
@@ -3469,19 +3473,19 @@ class L2Tp(Entity):
             .. attribute:: local_tunnel_id  <key>
             
             	Local tunnel ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: l2tp_class
             
             	L2Tp class data
-            	**type**\:   :py:class:`L2TpClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.TunnelConfigurations.TunnelConfiguration.L2TpClass>`
+            	**type**\:  :py:class:`L2TpClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.TunnelConfigurations.TunnelConfiguration.L2TpClass>`
             
             .. attribute:: remote_tunnel_id
             
             	Remote tunnel ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3524,68 +3528,68 @@ class L2Tp(Entity):
                 .. attribute:: ip_tos
                 
                 	IP TOS
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: vrf_name
                 
                 	VRF name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
                 .. attribute:: receive_window_size
                 
                 	Receive window size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: class_name_xr
                 
                 	Class name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
                 .. attribute:: digest_hash
                 
                 	Hash configured as MD5 or SHA1
-                	**type**\:   :py:class:`DigestHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.DigestHash>`
+                	**type**\:  :py:class:`DigestHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.DigestHash>`
                 
                 .. attribute:: password
                 
                 	Password
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..25
                 
                 .. attribute:: encoded_password
                 
                 	Encoded password
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
                 .. attribute:: host_name
                 
                 	Host name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
                 .. attribute:: accounting_method_list
                 
                 	Accounting List
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
                 .. attribute:: hello_timeout
                 
                 	Hello timeout value in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3594,7 +3598,7 @@ class L2Tp(Entity):
                 .. attribute:: setup_timeout
                 
                 	Timeout setup value in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3603,7 +3607,7 @@ class L2Tp(Entity):
                 .. attribute:: retransmit_minimum_timeout
                 
                 	Retransmit minimum timeout in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3612,7 +3616,7 @@ class L2Tp(Entity):
                 .. attribute:: retransmit_maximum_timeout
                 
                 	Retransmit maximum timeout in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3621,7 +3625,7 @@ class L2Tp(Entity):
                 .. attribute:: initial_retransmit_minimum_timeout
                 
                 	Initial timeout minimum in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3630,7 +3634,7 @@ class L2Tp(Entity):
                 .. attribute:: initial_retransmit_maximum_timeout
                 
                 	Initial timeout maximum in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3639,53 +3643,53 @@ class L2Tp(Entity):
                 .. attribute:: timeout_no_user
                 
                 	Timeout no user
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: retransmit_retries
                 
                 	Retransmit retries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: initial_retransmit_retries
                 
                 	Initial retransmit retries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: is_authentication_enabled
                 
                 	True if authentication is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_hidden
                 
                 	True if class is hidden
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_digest_enabled
                 
                 	True if digest authentication is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_digest_check_enabled
                 
                 	True if digest check is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_congestion_control_enabled
                 
                 	True if congestion control is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_peer_address_checked
                 
                 	True if peer address is checked
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -3764,24 +3768,28 @@ class L2Tp(Entity):
         .. attribute:: sess_down_tmout
         
         	sesions affected due to timeout
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tx_counters
         
         	Send side counters
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
         
         .. attribute:: rx_counters
         
         	Receive side counters
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
         
         .. attribute:: pkt_timeout
         
         	timeout events by packet
-        	**type**\:  list of int
+        	**type**\: list of int
         
         	**range:** 0..4294967295
         
@@ -3823,7 +3831,7 @@ class L2Tp(Entity):
         .. attribute:: class_
         
         	L2TP class name
-        	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Classes.Class_>`
+        	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Classes.Class_>`
         
         
 
@@ -3857,75 +3865,75 @@ class L2Tp(Entity):
             .. attribute:: class_name  <key>
             
             	L2TP class name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..31
             
             .. attribute:: ip_tos
             
             	IP TOS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: vrf_name
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: receive_window_size
             
             	Receive window size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: class_name_xr
             
             	Class name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: digest_hash
             
             	Hash configured as MD5 or SHA1
-            	**type**\:   :py:class:`DigestHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.DigestHash>`
+            	**type**\:  :py:class:`DigestHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.DigestHash>`
             
             .. attribute:: password
             
             	Password
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..25
             
             .. attribute:: encoded_password
             
             	Encoded password
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: host_name
             
             	Host name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: accounting_method_list
             
             	Accounting List
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: hello_timeout
             
             	Hello timeout value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3934,7 +3942,7 @@ class L2Tp(Entity):
             .. attribute:: setup_timeout
             
             	Timeout setup value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3943,7 +3951,7 @@ class L2Tp(Entity):
             .. attribute:: retransmit_minimum_timeout
             
             	Retransmit minimum timeout in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3952,7 +3960,7 @@ class L2Tp(Entity):
             .. attribute:: retransmit_maximum_timeout
             
             	Retransmit maximum timeout in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3961,7 +3969,7 @@ class L2Tp(Entity):
             .. attribute:: initial_retransmit_minimum_timeout
             
             	Initial timeout minimum in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3970,7 +3978,7 @@ class L2Tp(Entity):
             .. attribute:: initial_retransmit_maximum_timeout
             
             	Initial timeout maximum in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3979,53 +3987,53 @@ class L2Tp(Entity):
             .. attribute:: timeout_no_user
             
             	Timeout no user
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: retransmit_retries
             
             	Retransmit retries
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: initial_retransmit_retries
             
             	Initial retransmit retries
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: is_authentication_enabled
             
             	True if authentication is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_hidden
             
             	True if class is hidden
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_digest_enabled
             
             	True if digest authentication is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_digest_check_enabled
             
             	True if digest check is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_congestion_control_enabled
             
             	True if congestion control is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_peer_address_checked
             
             	True if peer address is checked
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -4107,7 +4115,7 @@ class L2Tp(Entity):
         .. attribute:: tunnel
         
         	L2TP tunnel  information
-        	**type**\: list of    :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Tunnels.Tunnel>`
+        	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Tunnels.Tunnel>`
         
         
 
@@ -4141,113 +4149,117 @@ class L2Tp(Entity):
             .. attribute:: local_tunnel_id  <key>
             
             	Local tunnel ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: local_address
             
             	Local tunnel address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: remote_address
             
             	Remote tunnel address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: local_port
             
             	Local port
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: remote_port
             
             	Remote port
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: protocol
             
             	Protocol
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: is_pmtu_enabled
             
             	True if tunnel PMTU checking is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_tunnel_id
             
             	Remote tunnel ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_tunnel_name
             
             	Local tunnel name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: remote_tunnel_name
             
             	Remote tunnel name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: class_name
             
             	L2TP class name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: active_sessions
             
             	Number of active sessions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: sequence_ns
             
             	Sequence NS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: sequence_nr
             
             	Sequence NR
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: local_window_size
             
             	Local window size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: remote_window_size
             
             	Remote window size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: retransmission_time
             
             	Retransmission time in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -4256,7 +4268,7 @@ class L2Tp(Entity):
             .. attribute:: maximum_retransmission_time
             
             	Maximum retransmission time in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -4265,101 +4277,101 @@ class L2Tp(Entity):
             .. attribute:: unsent_queue_size
             
             	Unsent queue size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: unsent_maximum_queue_size
             
             	Unsent maximum queue size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: resend_queue_size
             
             	Resend queue size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: resend_maximum_queue_size
             
             	Resend maximum queue size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: order_queue_size
             
             	Order queue size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: packet_queue_check
             
             	Current number session packet queue check
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: digest_secrets
             
             	Control message authentication with digest secrets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: resends
             
             	Total resends
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: zero_length_body_acknowledgement_sent
             
             	Total zero length body acknowledgement
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: total_out_of_order_drop_packets
             
             	Total out of order dropped packets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: total_out_of_order_reorder_packets
             
             	Total out of order reorder packets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: total_peer_authentication_failures
             
             	Number of peer authentication failures
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: is_tunnel_up
             
             	True if tunnel is up
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_congestion_control_enabled
             
             	True if congestion control is enabled else false
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: retransmit_time
             
             	Retransmit time distribution in seconds
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
@@ -4461,7 +4473,7 @@ class L2Tp(Entity):
         .. attribute:: session
         
         	L2TP information for a particular session
-        	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions.Session>`
+        	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions.Session>`
         
         
 
@@ -4495,148 +4507,152 @@ class L2Tp(Entity):
             .. attribute:: local_tunnel_id  <key>
             
             	Local tunnel ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: local_session_id  <key>
             
             	Local session ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: session_application_data
             
             	Session application data
-            	**type**\:   :py:class:`SessionApplicationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions.Session.SessionApplicationData>`
+            	**type**\:  :py:class:`SessionApplicationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions.Session.SessionApplicationData>`
             
             .. attribute:: local_ip_address
             
             	Local session IP address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: remote_ip_address
             
             	Remote session IP address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: l2tp_sh_sess_udp_lport
             
             	l2tp sh sess udp lport
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: l2tp_sh_sess_udp_rport
             
             	l2tp sh sess udp rport
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: protocol
             
             	Protocol
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: remote_tunnel_id
             
             	Remote tunnel ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: call_serial_number
             
             	Call serial number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_tunnel_name
             
             	Local tunnel name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: remote_tunnel_name
             
             	Remote tunnel name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: remote_session_id
             
             	Remote session ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: l2tp_sh_sess_tie_breaker_enabled
             
             	l2tp sh sess tie breaker enabled
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: l2tp_sh_sess_tie_breaker
             
             	l2tp sh sess tie breaker
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: is_session_manual
             
             	True if session is manual
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_session_up
             
             	True if session is up
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_udp_checksum_enabled
             
             	True if UDP checksum enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_sequencing_on
             
             	True if session sequence is on
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_session_state_established
             
             	True if session state is established
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_session_locally_initiated
             
             	True if session initiated locally
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_conditional_debug_enabled
             
             	True if conditional debugging is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: unique_id
             
             	Unique ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: interface_name
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
@@ -4721,17 +4737,17 @@ class L2Tp(Entity):
                 .. attribute:: xconnect
                 
                 	Xconnect data
-                	**type**\:   :py:class:`Xconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions.Session.SessionApplicationData.Xconnect>`
+                	**type**\:  :py:class:`Xconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions.Session.SessionApplicationData.Xconnect>`
                 
                 .. attribute:: vpdn
                 
                 	VPDN data
-                	**type**\:   :py:class:`Vpdn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions.Session.SessionApplicationData.Vpdn>`
+                	**type**\:  :py:class:`Vpdn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Sessions.Session.SessionApplicationData.Vpdn>`
                 
                 .. attribute:: l2tp_sh_sess_app_type
                 
                 	l2tp sh sess app type
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4776,34 +4792,34 @@ class L2Tp(Entity):
                     .. attribute:: circuit_name
                     
                     	Circuit name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: sessionvc_id
                     
                     	Session VC ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: is_circuit_state_up
                     
                     	True if circuit state is up
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_local_circuit_state_up
                     
                     	True if local circuit state is up
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_remote_circuit_state_up
                     
                     	True if remote circuit state is up
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ipv6_protocol_tunneling
                     
                     	IPv6ProtocolTunneling
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -4846,12 +4862,14 @@ class L2Tp(Entity):
                     .. attribute:: username
                     
                     	Session username
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: interface_name
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     
 
@@ -4886,7 +4904,7 @@ class L2Tp(Entity):
         .. attribute:: unavailable
         
         	L2TP session unavailable  information
-        	**type**\:   :py:class:`Unavailable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Session.Unavailable>`
+        	**type**\:  :py:class:`Unavailable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tp.Session.Unavailable>`
         
         
 
@@ -4920,7 +4938,7 @@ class L2Tp(Entity):
             .. attribute:: sessions_on_hold
             
             	Number of session ID in hold database
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -4959,47 +4977,47 @@ class L2Tpv2(Entity):
     .. attribute:: counters
     
     	L2TP control messages counters
-    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters>`
+    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters>`
     
     .. attribute:: statistics
     
     	L2TP v2 statistics information
-    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Statistics>`
+    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Statistics>`
     
     .. attribute:: tunnel
     
     	L2TPv2 tunnel 
-    	**type**\:   :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnel>`
+    	**type**\:  :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnel>`
     
     .. attribute:: tunnel_configurations
     
     	List of tunnel IDs
-    	**type**\:   :py:class:`TunnelConfigurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.TunnelConfigurations>`
+    	**type**\:  :py:class:`TunnelConfigurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.TunnelConfigurations>`
     
     .. attribute:: counter_hist_fail
     
     	Failure events leading to disconnection
-    	**type**\:   :py:class:`CounterHistFail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.CounterHistFail>`
+    	**type**\:  :py:class:`CounterHistFail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.CounterHistFail>`
     
     .. attribute:: classes
     
     	List of L2TP class names
-    	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Classes>`
+    	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Classes>`
     
     .. attribute:: tunnels
     
     	List of tunnel IDs
-    	**type**\:   :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnels>`
+    	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnels>`
     
     .. attribute:: sessions
     
     	List of session IDs
-    	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions>`
+    	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions>`
     
     .. attribute:: session
     
     	L2TP control messages counters
-    	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Session>`
+    	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Session>`
     
     
 
@@ -5073,12 +5091,12 @@ class L2Tpv2(Entity):
         .. attribute:: forwarding
         
         	L2TP forwarding messages counters
-        	**type**\:   :py:class:`Forwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Forwarding>`
+        	**type**\:  :py:class:`Forwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Forwarding>`
         
         .. attribute:: control
         
         	L2TP control messages counters
-        	**type**\:   :py:class:`Control <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control>`
+        	**type**\:  :py:class:`Control <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control>`
         
         
 
@@ -5117,7 +5135,7 @@ class L2Tpv2(Entity):
             .. attribute:: sessions
             
             	List of class and session IDs
-            	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Forwarding.Sessions>`
+            	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Forwarding.Sessions>`
             
             
 
@@ -5151,7 +5169,7 @@ class L2Tpv2(Entity):
                 .. attribute:: session
                 
                 	L2TP information for a particular session
-                	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Forwarding.Sessions.Session>`
+                	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Forwarding.Sessions.Session>`
                 
                 
 
@@ -5185,42 +5203,42 @@ class L2Tpv2(Entity):
                     .. attribute:: tunnel_id  <key>
                     
                     	Local tunnel ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: session_id  <key>
                     
                     	Local session ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: remote_session_id
                     
                     	Remote session ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: in_packets
                     
                     	Number of packets sent in
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: out_packets
                     
                     	Number of packets sent out
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: in_bytes
                     
                     	Number of bytes sent in
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -5229,7 +5247,7 @@ class L2Tpv2(Entity):
                     .. attribute:: out_bytes
                     
                     	Number of bytes sent out
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -5279,12 +5297,12 @@ class L2Tpv2(Entity):
             .. attribute:: tunnel_xr
             
             	L2TP control tunnel messages counters
-            	**type**\:   :py:class:`TunnelXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr>`
+            	**type**\:  :py:class:`TunnelXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr>`
             
             .. attribute:: tunnels
             
             	Table of tunnel IDs of control message counters
-            	**type**\:   :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels>`
+            	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels>`
             
             
 
@@ -5323,12 +5341,12 @@ class L2Tpv2(Entity):
                 .. attribute:: authentication
                 
                 	Tunnel authentication counters
-                	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication>`
+                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication>`
                 
                 .. attribute:: global_
                 
                 	Tunnel counters
-                	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global_>`
+                	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global_>`
                 
                 
 
@@ -5367,47 +5385,47 @@ class L2Tpv2(Entity):
                     .. attribute:: nonce_avp
                     
                     	Nonce AVP statistics
-                    	**type**\:   :py:class:`NonceAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp>`
+                    	**type**\:  :py:class:`NonceAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp>`
                     
                     .. attribute:: common_digest
                     
                     	Common digest statistics
-                    	**type**\:   :py:class:`CommonDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest>`
+                    	**type**\:  :py:class:`CommonDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest>`
                     
                     .. attribute:: primary_digest
                     
                     	Primary digest statistics
-                    	**type**\:   :py:class:`PrimaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest>`
+                    	**type**\:  :py:class:`PrimaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest>`
                     
                     .. attribute:: secondary_digest
                     
                     	Secondary digest statistics
-                    	**type**\:   :py:class:`SecondaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest>`
+                    	**type**\:  :py:class:`SecondaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest>`
                     
                     .. attribute:: integrity_check
                     
                     	Integrity check statistics
-                    	**type**\:   :py:class:`IntegrityCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck>`
+                    	**type**\:  :py:class:`IntegrityCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck>`
                     
                     .. attribute:: local_secret
                     
                     	Local secret statistics
-                    	**type**\:   :py:class:`LocalSecret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret>`
+                    	**type**\:  :py:class:`LocalSecret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret>`
                     
                     .. attribute:: challenge_avp
                     
                     	Challenge AVP statistics
-                    	**type**\:   :py:class:`ChallengeAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp>`
+                    	**type**\:  :py:class:`ChallengeAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp>`
                     
                     .. attribute:: challenge_reponse
                     
                     	Challenge response statistics
-                    	**type**\:   :py:class:`ChallengeReponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse>`
+                    	**type**\:  :py:class:`ChallengeReponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse>`
                     
                     .. attribute:: overall_statistics
                     
                     	Overall statistics
-                    	**type**\:   :py:class:`OverallStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics>`
+                    	**type**\:  :py:class:`OverallStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics>`
                     
                     
 
@@ -5481,77 +5499,77 @@ class L2Tpv2(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5607,77 +5625,77 @@ class L2Tpv2(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5733,77 +5751,77 @@ class L2Tpv2(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5859,77 +5877,77 @@ class L2Tpv2(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5985,77 +6003,77 @@ class L2Tpv2(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6111,77 +6129,77 @@ class L2Tpv2(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6237,77 +6255,77 @@ class L2Tpv2(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6363,77 +6381,77 @@ class L2Tpv2(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6489,77 +6507,77 @@ class L2Tpv2(Entity):
                         .. attribute:: validate
                         
                         	Validate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_hash
                         
                         	Bad hash
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bad_length
                         
                         	Bad length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ignored
                         
                         	Ignored
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: missing
                         
                         	Missing
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: passed
                         
                         	Passed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: failed
                         
                         	Failed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: skipped
                         
                         	Skipped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: generate_response_failures
                         
                         	Generate response fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected
                         
                         	Unexpected
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6615,48 +6633,48 @@ class L2Tpv2(Entity):
                     .. attribute:: transmit
                     
                     	Transmit data
-                    	**type**\:   :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global_.Transmit>`
+                    	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global_.Transmit>`
                     
                     .. attribute:: retransmit
                     
                     	Re transmit data
-                    	**type**\:   :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global_.Retransmit>`
+                    	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global_.Retransmit>`
                     
                     .. attribute:: received
                     
                     	Received data
-                    	**type**\:   :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global_.Received>`
+                    	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global_.Received>`
                     
                     .. attribute:: drop
                     
                     	Drop data
-                    	**type**\:   :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global_.Drop>`
+                    	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.TunnelXr.Global_.Drop>`
                     
                     .. attribute:: total_transmit
                     
                     	Total transmit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_retransmit
                     
                     	Total retransmit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_received
                     
                     	Total received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_drop
                     
                     	Total drop
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -6718,133 +6736,133 @@ class L2Tpv2(Entity):
                         .. attribute:: unknown_packets
                         
                         	Unknown packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_requests
                         
                         	Start control connection requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_notifications
                         
                         	Start control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hello_packets
                         
                         	Keep alive messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_replies
                         
                         	Outgoing call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_requests
                         
                         	Incoming call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_connected_packets
                         
                         	Incoming call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: wan_error_notify_packets
                         
                         	WAN error notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_requests
                         
                         	Service relay request counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6916,133 +6934,133 @@ class L2Tpv2(Entity):
                         .. attribute:: unknown_packets
                         
                         	Unknown packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_requests
                         
                         	Start control connection requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_notifications
                         
                         	Start control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hello_packets
                         
                         	Keep alive messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_replies
                         
                         	Outgoing call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_requests
                         
                         	Incoming call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_connected_packets
                         
                         	Incoming call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: wan_error_notify_packets
                         
                         	WAN error notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_requests
                         
                         	Service relay request counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -7114,133 +7132,133 @@ class L2Tpv2(Entity):
                         .. attribute:: unknown_packets
                         
                         	Unknown packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_requests
                         
                         	Start control connection requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_notifications
                         
                         	Start control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hello_packets
                         
                         	Keep alive messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_replies
                         
                         	Outgoing call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_requests
                         
                         	Incoming call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_connected_packets
                         
                         	Incoming call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: wan_error_notify_packets
                         
                         	WAN error notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_requests
                         
                         	Service relay request counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -7312,133 +7330,133 @@ class L2Tpv2(Entity):
                         .. attribute:: unknown_packets
                         
                         	Unknown packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_requests
                         
                         	Start control connection requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: start_control_connection_notifications
                         
                         	Start control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: hello_packets
                         
                         	Keep alive messages
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_replies
                         
                         	Outgoing call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_requests
                         
                         	Incoming call requests
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incoming_call_connected_packets
                         
                         	Incoming call connected packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: wan_error_notify_packets
                         
                         	WAN error notify packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_requests
                         
                         	Service relay request counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -7510,7 +7528,7 @@ class L2Tpv2(Entity):
                 .. attribute:: tunnel
                 
                 	L2TP tunnel control message counters
-                	**type**\: list of    :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel>`
+                	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel>`
                 
                 
 
@@ -7544,19 +7562,19 @@ class L2Tpv2(Entity):
                     .. attribute:: tunnel_id  <key>
                     
                     	L2TP tunnel ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: brief
                     
                     	L2TP control message local and remote addresses
-                    	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Brief>`
+                    	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Brief>`
                     
                     .. attribute:: global_
                     
                     	Global data
-                    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global_>`
+                    	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global_>`
                     
                     
 
@@ -7600,19 +7618,23 @@ class L2Tpv2(Entity):
                         .. attribute:: remote_tunnel_id
                         
                         	Remote tunnel ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: local_address
                         
                         	Local IP address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: remote_address
                         
                         	Remote IP address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -7649,48 +7671,48 @@ class L2Tpv2(Entity):
                         .. attribute:: transmit
                         
                         	Transmit data
-                        	**type**\:   :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global_.Transmit>`
+                        	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global_.Transmit>`
                         
                         .. attribute:: retransmit
                         
                         	Re transmit data
-                        	**type**\:   :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global_.Retransmit>`
+                        	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global_.Retransmit>`
                         
                         .. attribute:: received
                         
                         	Received data
-                        	**type**\:   :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global_.Received>`
+                        	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global_.Received>`
                         
                         .. attribute:: drop
                         
                         	Drop data
-                        	**type**\:   :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global_.Drop>`
+                        	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Counters.Control.Tunnels.Tunnel.Global_.Drop>`
                         
                         .. attribute:: total_transmit
                         
                         	Total transmit
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: total_retransmit
                         
                         	Total retransmit
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: total_received
                         
                         	Total received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: total_drop
                         
                         	Total drop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -7751,133 +7773,133 @@ class L2Tpv2(Entity):
                             .. attribute:: unknown_packets
                             
                             	Unknown packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_requests
                             
                             	Start control connection requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_notifications
                             
                             	Start control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hello_packets
                             
                             	Keep alive messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_replies
                             
                             	Outgoing call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_requests
                             
                             	Incoming call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_connected_packets
                             
                             	Incoming call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: wan_error_notify_packets
                             
                             	WAN error notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_requests
                             
                             	Service relay request counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -7948,133 +7970,133 @@ class L2Tpv2(Entity):
                             .. attribute:: unknown_packets
                             
                             	Unknown packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_requests
                             
                             	Start control connection requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_notifications
                             
                             	Start control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hello_packets
                             
                             	Keep alive messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_replies
                             
                             	Outgoing call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_requests
                             
                             	Incoming call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_connected_packets
                             
                             	Incoming call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: wan_error_notify_packets
                             
                             	WAN error notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_requests
                             
                             	Service relay request counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -8145,133 +8167,133 @@ class L2Tpv2(Entity):
                             .. attribute:: unknown_packets
                             
                             	Unknown packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_requests
                             
                             	Start control connection requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_notifications
                             
                             	Start control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hello_packets
                             
                             	Keep alive messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_replies
                             
                             	Outgoing call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_requests
                             
                             	Incoming call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_connected_packets
                             
                             	Incoming call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: wan_error_notify_packets
                             
                             	WAN error notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_requests
                             
                             	Service relay request counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -8342,133 +8364,133 @@ class L2Tpv2(Entity):
                             .. attribute:: unknown_packets
                             
                             	Unknown packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_requests
                             
                             	Start control connection requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_control_connection_notifications
                             
                             	Start control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hello_packets
                             
                             	Keep alive messages
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_replies
                             
                             	Outgoing call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_requests
                             
                             	Incoming call requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: incoming_call_connected_packets
                             
                             	Incoming call connected packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: wan_error_notify_packets
                             
                             	WAN error notify packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_requests
                             
                             	Service relay request counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -8539,35 +8561,35 @@ class L2Tpv2(Entity):
         .. attribute:: tunnels
         
         	Number of tunnels
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: sessions
         
         	Number of sessions
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: sent_packets
         
         	Number of packets sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: received_packets
         
         	Number of packets received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: average_packet_processing_time
         
         	Average processing time for received packets  (in micro seconds)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -8576,42 +8598,42 @@ class L2Tpv2(Entity):
         .. attribute:: received_out_of_order_packets
         
         	Out of order packets received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: reorder_packets
         
         	Re order packets
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: reorder_deviation_packets
         
         	Re order deviation
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: incoming_dropped_packets
         
         	In coming packets dropped
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: buffered_packets
         
         	Bufferred packets
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: netio_packets
         
         	Packets RX in netio
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -8667,7 +8689,7 @@ class L2Tpv2(Entity):
         .. attribute:: accounting
         
         	Tunnel accounting counters
-        	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnel.Accounting>`
+        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnel.Accounting>`
         
         
 
@@ -8701,7 +8723,7 @@ class L2Tpv2(Entity):
             .. attribute:: statistics
             
             	Tunnel accounting statistics
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnel.Accounting.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnel.Accounting.Statistics>`
             
             
 
@@ -8735,105 +8757,105 @@ class L2Tpv2(Entity):
                 .. attribute:: records_sent_successfully
                 
                 	Accounting records sent successfully
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: start
                 
                 	Accounting start
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: stop
                 
                 	Accounting stop
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: reject
                 
                 	Accounting reject
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: transport_failures
                 
                 	Transport failures
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: positive_acknowledgement
                 
                 	Positive acknowledgement
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: negative_acknowledgement
                 
                 	Negative acknowledgement
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: records_checkpointed
                 
                 	Total records checkpointed
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: records_failed_to_checkpoint
                 
                 	Records fail to checkpoint
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: records_sent_from_queue
                 
                 	Records sent from queue
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: memory_failures
                 
                 	Memory failures
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: current_size
                 
                 	Current checkpoint size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: records_recovered_from_checkpoint
                 
                 	Records recovered from checkpoint
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: records_fail_to_recover
                 
                 	Records fail to recover
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: queue_statistics_size
                 
                 	Queue statistics size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -8897,7 +8919,7 @@ class L2Tpv2(Entity):
         .. attribute:: tunnel_configuration
         
         	L2TP tunnel information
-        	**type**\: list of    :py:class:`TunnelConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.TunnelConfigurations.TunnelConfiguration>`
+        	**type**\: list of  		 :py:class:`TunnelConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.TunnelConfigurations.TunnelConfiguration>`
         
         
 
@@ -8931,19 +8953,19 @@ class L2Tpv2(Entity):
             .. attribute:: local_tunnel_id  <key>
             
             	Local tunnel ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: l2tp_class
             
             	L2Tp class data
-            	**type**\:   :py:class:`L2TpClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.TunnelConfigurations.TunnelConfiguration.L2TpClass>`
+            	**type**\:  :py:class:`L2TpClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.TunnelConfigurations.TunnelConfiguration.L2TpClass>`
             
             .. attribute:: remote_tunnel_id
             
             	Remote tunnel ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -8986,68 +9008,68 @@ class L2Tpv2(Entity):
                 .. attribute:: ip_tos
                 
                 	IP TOS
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: vrf_name
                 
                 	VRF name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
                 .. attribute:: receive_window_size
                 
                 	Receive window size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: class_name_xr
                 
                 	Class name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
                 .. attribute:: digest_hash
                 
                 	Hash configured as MD5 or SHA1
-                	**type**\:   :py:class:`DigestHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.DigestHash>`
+                	**type**\:  :py:class:`DigestHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.DigestHash>`
                 
                 .. attribute:: password
                 
                 	Password
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..25
                 
                 .. attribute:: encoded_password
                 
                 	Encoded password
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
                 .. attribute:: host_name
                 
                 	Host name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
                 .. attribute:: accounting_method_list
                 
                 	Accounting List
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
                 .. attribute:: hello_timeout
                 
                 	Hello timeout value in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -9056,7 +9078,7 @@ class L2Tpv2(Entity):
                 .. attribute:: setup_timeout
                 
                 	Timeout setup value in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -9065,7 +9087,7 @@ class L2Tpv2(Entity):
                 .. attribute:: retransmit_minimum_timeout
                 
                 	Retransmit minimum timeout in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -9074,7 +9096,7 @@ class L2Tpv2(Entity):
                 .. attribute:: retransmit_maximum_timeout
                 
                 	Retransmit maximum timeout in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -9083,7 +9105,7 @@ class L2Tpv2(Entity):
                 .. attribute:: initial_retransmit_minimum_timeout
                 
                 	Initial timeout minimum in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -9092,7 +9114,7 @@ class L2Tpv2(Entity):
                 .. attribute:: initial_retransmit_maximum_timeout
                 
                 	Initial timeout maximum in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -9101,53 +9123,53 @@ class L2Tpv2(Entity):
                 .. attribute:: timeout_no_user
                 
                 	Timeout no user
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: retransmit_retries
                 
                 	Retransmit retries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: initial_retransmit_retries
                 
                 	Initial retransmit retries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: is_authentication_enabled
                 
                 	True if authentication is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_hidden
                 
                 	True if class is hidden
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_digest_enabled
                 
                 	True if digest authentication is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_digest_check_enabled
                 
                 	True if digest check is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_congestion_control_enabled
                 
                 	True if congestion control is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: is_peer_address_checked
                 
                 	True if peer address is checked
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -9226,24 +9248,28 @@ class L2Tpv2(Entity):
         .. attribute:: sess_down_tmout
         
         	sesions affected due to timeout
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tx_counters
         
         	Send side counters
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
         
         .. attribute:: rx_counters
         
         	Receive side counters
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
         
         .. attribute:: pkt_timeout
         
         	timeout events by packet
-        	**type**\:  list of int
+        	**type**\: list of int
         
         	**range:** 0..4294967295
         
@@ -9285,7 +9311,7 @@ class L2Tpv2(Entity):
         .. attribute:: class_
         
         	L2TP class name
-        	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Classes.Class_>`
+        	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Classes.Class_>`
         
         
 
@@ -9319,75 +9345,75 @@ class L2Tpv2(Entity):
             .. attribute:: class_name  <key>
             
             	L2TP class name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..31
             
             .. attribute:: ip_tos
             
             	IP TOS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: vrf_name
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: receive_window_size
             
             	Receive window size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: class_name_xr
             
             	Class name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: digest_hash
             
             	Hash configured as MD5 or SHA1
-            	**type**\:   :py:class:`DigestHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.DigestHash>`
+            	**type**\:  :py:class:`DigestHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.DigestHash>`
             
             .. attribute:: password
             
             	Password
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..25
             
             .. attribute:: encoded_password
             
             	Encoded password
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: host_name
             
             	Host name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: accounting_method_list
             
             	Accounting List
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: hello_timeout
             
             	Hello timeout value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -9396,7 +9422,7 @@ class L2Tpv2(Entity):
             .. attribute:: setup_timeout
             
             	Timeout setup value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -9405,7 +9431,7 @@ class L2Tpv2(Entity):
             .. attribute:: retransmit_minimum_timeout
             
             	Retransmit minimum timeout in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -9414,7 +9440,7 @@ class L2Tpv2(Entity):
             .. attribute:: retransmit_maximum_timeout
             
             	Retransmit maximum timeout in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -9423,7 +9449,7 @@ class L2Tpv2(Entity):
             .. attribute:: initial_retransmit_minimum_timeout
             
             	Initial timeout minimum in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -9432,7 +9458,7 @@ class L2Tpv2(Entity):
             .. attribute:: initial_retransmit_maximum_timeout
             
             	Initial timeout maximum in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -9441,53 +9467,53 @@ class L2Tpv2(Entity):
             .. attribute:: timeout_no_user
             
             	Timeout no user
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: retransmit_retries
             
             	Retransmit retries
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: initial_retransmit_retries
             
             	Initial retransmit retries
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: is_authentication_enabled
             
             	True if authentication is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_hidden
             
             	True if class is hidden
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_digest_enabled
             
             	True if digest authentication is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_digest_check_enabled
             
             	True if digest check is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_congestion_control_enabled
             
             	True if congestion control is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_peer_address_checked
             
             	True if peer address is checked
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -9569,7 +9595,7 @@ class L2Tpv2(Entity):
         .. attribute:: tunnel
         
         	L2TP tunnel  information
-        	**type**\: list of    :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnels.Tunnel>`
+        	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Tunnels.Tunnel>`
         
         
 
@@ -9603,113 +9629,117 @@ class L2Tpv2(Entity):
             .. attribute:: local_tunnel_id  <key>
             
             	Local tunnel ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: local_address
             
             	Local tunnel address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: remote_address
             
             	Remote tunnel address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: local_port
             
             	Local port
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: remote_port
             
             	Remote port
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: protocol
             
             	Protocol
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: is_pmtu_enabled
             
             	True if tunnel PMTU checking is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: remote_tunnel_id
             
             	Remote tunnel ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_tunnel_name
             
             	Local tunnel name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: remote_tunnel_name
             
             	Remote tunnel name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: class_name
             
             	L2TP class name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: active_sessions
             
             	Number of active sessions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: sequence_ns
             
             	Sequence NS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: sequence_nr
             
             	Sequence NR
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: local_window_size
             
             	Local window size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: remote_window_size
             
             	Remote window size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: retransmission_time
             
             	Retransmission time in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -9718,7 +9748,7 @@ class L2Tpv2(Entity):
             .. attribute:: maximum_retransmission_time
             
             	Maximum retransmission time in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -9727,101 +9757,101 @@ class L2Tpv2(Entity):
             .. attribute:: unsent_queue_size
             
             	Unsent queue size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: unsent_maximum_queue_size
             
             	Unsent maximum queue size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: resend_queue_size
             
             	Resend queue size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: resend_maximum_queue_size
             
             	Resend maximum queue size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: order_queue_size
             
             	Order queue size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: packet_queue_check
             
             	Current number session packet queue check
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: digest_secrets
             
             	Control message authentication with digest secrets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: resends
             
             	Total resends
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: zero_length_body_acknowledgement_sent
             
             	Total zero length body acknowledgement
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: total_out_of_order_drop_packets
             
             	Total out of order dropped packets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: total_out_of_order_reorder_packets
             
             	Total out of order reorder packets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: total_peer_authentication_failures
             
             	Number of peer authentication failures
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: is_tunnel_up
             
             	True if tunnel is up
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_congestion_control_enabled
             
             	True if congestion control is enabled else false
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: retransmit_time
             
             	Retransmit time distribution in seconds
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..65535
             
@@ -9923,7 +9953,7 @@ class L2Tpv2(Entity):
         .. attribute:: session
         
         	L2TP information for a particular session
-        	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions.Session>`
+        	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions.Session>`
         
         
 
@@ -9957,148 +9987,152 @@ class L2Tpv2(Entity):
             .. attribute:: local_tunnel_id  <key>
             
             	Local tunnel ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: local_session_id  <key>
             
             	Local session ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: session_application_data
             
             	Session application data
-            	**type**\:   :py:class:`SessionApplicationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions.Session.SessionApplicationData>`
+            	**type**\:  :py:class:`SessionApplicationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions.Session.SessionApplicationData>`
             
             .. attribute:: local_ip_address
             
             	Local session IP address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: remote_ip_address
             
             	Remote session IP address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: l2tp_sh_sess_udp_lport
             
             	l2tp sh sess udp lport
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: l2tp_sh_sess_udp_rport
             
             	l2tp sh sess udp rport
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: protocol
             
             	Protocol
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: remote_tunnel_id
             
             	Remote tunnel ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: call_serial_number
             
             	Call serial number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: local_tunnel_name
             
             	Local tunnel name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: remote_tunnel_name
             
             	Remote tunnel name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: remote_session_id
             
             	Remote session ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: l2tp_sh_sess_tie_breaker_enabled
             
             	l2tp sh sess tie breaker enabled
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: l2tp_sh_sess_tie_breaker
             
             	l2tp sh sess tie breaker
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: is_session_manual
             
             	True if session is manual
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_session_up
             
             	True if session is up
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_udp_checksum_enabled
             
             	True if UDP checksum enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_sequencing_on
             
             	True if session sequence is on
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_session_state_established
             
             	True if session state is established
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_session_locally_initiated
             
             	True if session initiated locally
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: is_conditional_debug_enabled
             
             	True if conditional debugging is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: unique_id
             
             	Unique ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: interface_name
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
@@ -10183,17 +10217,17 @@ class L2Tpv2(Entity):
                 .. attribute:: xconnect
                 
                 	Xconnect data
-                	**type**\:   :py:class:`Xconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions.Session.SessionApplicationData.Xconnect>`
+                	**type**\:  :py:class:`Xconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions.Session.SessionApplicationData.Xconnect>`
                 
                 .. attribute:: vpdn
                 
                 	VPDN data
-                	**type**\:   :py:class:`Vpdn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions.Session.SessionApplicationData.Vpdn>`
+                	**type**\:  :py:class:`Vpdn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Sessions.Session.SessionApplicationData.Vpdn>`
                 
                 .. attribute:: l2tp_sh_sess_app_type
                 
                 	l2tp sh sess app type
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -10238,34 +10272,34 @@ class L2Tpv2(Entity):
                     .. attribute:: circuit_name
                     
                     	Circuit name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: sessionvc_id
                     
                     	Session VC ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: is_circuit_state_up
                     
                     	True if circuit state is up
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_local_circuit_state_up
                     
                     	True if local circuit state is up
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_remote_circuit_state_up
                     
                     	True if remote circuit state is up
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ipv6_protocol_tunneling
                     
                     	IPv6ProtocolTunneling
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -10308,12 +10342,14 @@ class L2Tpv2(Entity):
                     .. attribute:: username
                     
                     	Session username
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: interface_name
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     
 
@@ -10348,7 +10384,7 @@ class L2Tpv2(Entity):
         .. attribute:: unavailable
         
         	L2TP session unavailable  information
-        	**type**\:   :py:class:`Unavailable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Session.Unavailable>`
+        	**type**\:  :py:class:`Unavailable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2Tpv2.Session.Unavailable>`
         
         
 
@@ -10382,7 +10418,7 @@ class L2Tpv2(Entity):
             .. attribute:: sessions_on_hold
             
             	Number of session ID in hold database
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

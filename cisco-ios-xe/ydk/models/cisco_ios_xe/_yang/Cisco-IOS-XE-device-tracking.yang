@@ -181,8 +181,8 @@ module Cisco-IOS-XE-device-tracking {
               container ipv4-subnet-type2 {
                 leaf ipv4-prefix-name {
                   description
-                    "ip address/length <network>/<length>, e.g., 192.168.0.0/16";
-                  type ios-types:ipv4-address-slush-prefix-len; 
+                    "ip address/length <network>/<length>, e.g., 192.168.12.12/16";
+                  type ios-types:ipv4-address-slash-prefix-len; 
                 }
                 leaf override {
                   description

@@ -61,7 +61,7 @@ class IpDomain(Entity):
     .. attribute:: vrfs
     
     	List of VRFs
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs>`
     
     
 
@@ -95,7 +95,7 @@ class IpDomain(Entity):
         .. attribute:: vrf
         
         	VRF instance
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf>`
         
         
 
@@ -129,17 +129,19 @@ class IpDomain(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: server
             
             	Domain server data
-            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server>`
+            	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server>`
             
             .. attribute:: hosts
             
             	List of domain hosts
-            	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts>`
+            	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts>`
             
             
 
@@ -183,26 +185,26 @@ class IpDomain(Entity):
                 .. attribute:: domain_lookup
                 
                 	Domain lookup
-                	**type**\:   :py:class:`ServerDomainLkup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.ServerDomainLkup>`
+                	**type**\:  :py:class:`ServerDomainLkup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.ServerDomainLkup>`
                 
                 .. attribute:: domain_name
                 
                 	Domain name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
                 .. attribute:: domain
                 
                 	Domain list
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 0..256
                 
                 .. attribute:: server_address
                 
                 	Server address list
-                	**type**\: list of    :py:class:`ServerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server.ServerAddress>`
+                	**type**\: list of  		 :py:class:`ServerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server.ServerAddress>`
                 
                 
 
@@ -241,17 +243,21 @@ class IpDomain(Entity):
                     .. attribute:: af_name
                     
                     	AFName
-                    	**type**\:   :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
+                    	**type**\:  :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
                     
                     .. attribute:: ipv4_address
                     
                     	IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: ipv6_address
                     
                     	IPv6 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -288,7 +294,7 @@ class IpDomain(Entity):
                 .. attribute:: host
                 
                 	IP domain\-name, lookup style, nameservers for specific host
-                	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host>`
+                	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host>`
                 
                 
 
@@ -322,22 +328,22 @@ class IpDomain(Entity):
                     .. attribute:: host_name  <key>
                     
                     	Hostname
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: host_alias_list
                     
                     	Host alias
-                    	**type**\:   :py:class:`HostAliasList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList>`
+                    	**type**\:  :py:class:`HostAliasList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList>`
                     
                     .. attribute:: af_name
                     
                     	Address type
-                    	**type**\:   :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
+                    	**type**\:  :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
                     
                     .. attribute:: age
                     
                     	Age in hours
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -346,7 +352,7 @@ class IpDomain(Entity):
                     .. attribute:: host_address
                     
                     	Host address list
-                    	**type**\: list of    :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress>`
+                    	**type**\: list of  		 :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress>`
                     
                     
 
@@ -390,7 +396,7 @@ class IpDomain(Entity):
                         .. attribute:: host_alias
                         
                         	Host alias list
-                        	**type**\:  list of str
+                        	**type**\: list of str
                         
                         	**length:** 0..256
                         
@@ -425,17 +431,21 @@ class IpDomain(Entity):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
+                        	**type**\:  :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
                         
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 

@@ -25,46 +25,46 @@ class Grpc(Entity):
     .. attribute:: service_layer
     
     	Service Layer
-    	**type**\:   :py:class:`ServiceLayer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.ServiceLayer>`
+    	**type**\:  :py:class:`ServiceLayer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.ServiceLayer>`
     
     .. attribute:: tls
     
     	Transport Layer Security (TLS)
-    	**type**\:   :py:class:`Tls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.Tls>`
+    	**type**\:  :py:class:`Tls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.Tls>`
     
     .. attribute:: port
     
     	Server listening port
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 10000..57999
     
     .. attribute:: vrf
     
     	Server vrf name
-    	**type**\:  str
+    	**type**\: str
     
     .. attribute:: enable
     
     	Enable GRPC
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: max_request_per_user
     
     	Maximum concurrent requests per user
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..32
     
     .. attribute:: address_family
     
     	Address family identifier type
-    	**type**\:  str
+    	**type**\: str
     
     .. attribute:: max_request_total
     
     	Maximum concurrent requests in total
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..256
     
@@ -120,7 +120,7 @@ class Grpc(Entity):
         .. attribute:: enable
         
         	Enable ServiceLayer
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -154,12 +154,12 @@ class Grpc(Entity):
         .. attribute:: trustpoint
         
         	Trustpoint Name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: enable
         
         	Enable TLS
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 

@@ -20,7 +20,7 @@ class MdtSubscriptions(Entity):
     .. attribute:: mdt_subscription
     
     	List of subscriptions
-    	**type**\: list of    :py:class:`MdtSubscription <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtSubscription>`
+    	**type**\: list of  		 :py:class:`MdtSubscription <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtSubscription>`
     
     
 
@@ -54,19 +54,19 @@ class MdtSubscriptions(Entity):
         .. attribute:: subscription_id  <key>
         
         	Unique subscription identifier
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
         .. attribute:: base
         
         	Common subscription information
-        	**type**\:   :py:class:`Base <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtSubscription.Base>`
+        	**type**\:  :py:class:`Base <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtSubscription.Base>`
         
         .. attribute:: mdt_receivers
         
         	Configuration of receivers of configured subscriptions
-        	**type**\: list of    :py:class:`MdtReceivers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtSubscription.MdtReceivers>`
+        	**type**\: list of  		 :py:class:`MdtReceivers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtSubscription.MdtReceivers>`
         
         
 
@@ -107,21 +107,39 @@ class MdtSubscriptions(Entity):
             .. attribute:: stream
             
             	The name of the event stream being subscribed to
-            	**type**\:  str
+            	**type**\: str
             
             	**default value**\: NETCONF
             
             .. attribute:: encoding
             
             	Update notification encoding
-            	**type**\:  str
+            	**type**\: str
             
             	**default value**\: encode-xml
+            
+            .. attribute:: source_vrf
+            
+            	Network instance name for the VRF
+            	**type**\: str
+            
+            .. attribute:: source_address
+            
+            	The source address for the notifications
+            	**type**\: union of the below types:
+            
+            		**type**\: str
+            
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            		**type**\: str
+            
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: no_trigger
             
             	Placeholder for unset value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -130,7 +148,7 @@ class MdtSubscriptions(Entity):
             .. attribute:: period
             
             	Period of update notifications in 100ths of a second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -141,12 +159,12 @@ class MdtSubscriptions(Entity):
             .. attribute:: no_synch_on_start
             
             	If true, there is no initial update notification with the current value of all the data. NOT CURRENTLY SUPPORTED. If specified, must be false
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: no_filter
             
             	Placeholder for unset value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -155,7 +173,12 @@ class MdtSubscriptions(Entity):
             .. attribute:: xpath
             
             	XPath expression describing the set of objects wanted as part of the subscription
-            	**type**\:  str
+            	**type**\: str
+            
+            .. attribute:: tdl_uri
+            
+            	TDL\-URI expression describing the set of objects wanted as part of the subscription
+            	**type**\: str
             
             
 
@@ -178,6 +201,10 @@ class MdtSubscriptions(Entity):
 
                 self.encoding = YLeaf(YType.str, "encoding")
 
+                self.source_vrf = YLeaf(YType.str, "source-vrf")
+
+                self.source_address = YLeaf(YType.str, "source-address")
+
                 self.no_trigger = YLeaf(YType.uint32, "no-trigger")
 
                 self.period = YLeaf(YType.uint32, "period")
@@ -187,10 +214,12 @@ class MdtSubscriptions(Entity):
                 self.no_filter = YLeaf(YType.uint32, "no-filter")
 
                 self.xpath = YLeaf(YType.str, "xpath")
+
+                self.tdl_uri = YLeaf(YType.str, "tdl-uri")
                 self._segment_path = lambda: "base"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MdtSubscriptions.MdtSubscription.Base, ['stream', 'encoding', 'no_trigger', 'period', 'no_synch_on_start', 'no_filter', 'xpath'], name, value)
+                self._perform_setattr(MdtSubscriptions.MdtSubscription.Base, ['stream', 'encoding', 'source_vrf', 'source_address', 'no_trigger', 'period', 'no_synch_on_start', 'no_filter', 'xpath', 'tdl_uri'], name, value)
 
 
         class MdtReceivers(Entity):
@@ -200,24 +229,22 @@ class MdtSubscriptions(Entity):
             .. attribute:: address  <key>
             
             	IP address of the receiver
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  str
+            		**type**\: str
+            
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            		**type**\: str
+            
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             	**mandatory**\: True
             
-            
-            ----
-            	**type**\:  str
-            
-            	**mandatory**\: True
-            
-            
-            ----
             .. attribute:: port  <key>
             
             	Network port of the receiver
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -226,7 +253,7 @@ class MdtSubscriptions(Entity):
             .. attribute:: protocol
             
             	Receiver transport protocol
-            	**type**\:  str
+            	**type**\: str
             
             	**default value**\: netconf
             

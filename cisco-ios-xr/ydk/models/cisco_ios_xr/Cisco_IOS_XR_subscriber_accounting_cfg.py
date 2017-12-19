@@ -29,7 +29,7 @@ class SubscriberAccounting(Entity):
     .. attribute:: prepaid_configurations
     
     	Subscriber Prepaid Feature Configuration
-    	**type**\:   :py:class:`PrepaidConfigurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_cfg.SubscriberAccounting.PrepaidConfigurations>`
+    	**type**\:  :py:class:`PrepaidConfigurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_cfg.SubscriberAccounting.PrepaidConfigurations>`
     
     
 
@@ -63,7 +63,7 @@ class SubscriberAccounting(Entity):
         .. attribute:: prepaid_configuration
         
         	Prepaid configuration name or default
-        	**type**\: list of    :py:class:`PrepaidConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_cfg.SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration>`
+        	**type**\: list of  		 :py:class:`PrepaidConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_cfg.SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration>`
         
         
 
@@ -97,61 +97,61 @@ class SubscriberAccounting(Entity):
             .. attribute:: prepaid_config_name  <key>
             
             	Prepaid configuration name or default
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: password
             
             	Password to be used when placing prepaid (re)authorization requests
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: volume_threshold
             
             	Threshold at which to send prepaid volume quota request
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: accounting_method_list
             
             	Method list to be used when placing prepaid accounting requests
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: time_hold
             
             	Idle Threshold for which prepaid quota is valid
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: author_method_list
             
             	Method list to be used when placing prepaid (re)authorization requests
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: traffic_direction
             
             	Prepaid quota traffic direction
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: time_threshold
             
             	Threshold at which to send prepaid time quota request
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: time_valid
             
             	Threshold for which prepaid quota is valid
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             

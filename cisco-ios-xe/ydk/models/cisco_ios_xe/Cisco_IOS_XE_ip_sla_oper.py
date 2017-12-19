@@ -80,6 +80,8 @@ class SlaOperType(Enum):
 
     .. data:: oper_type_path_jitter = 11
 
+    .. data:: oper_type_icmp_echo = 12
+
     """
 
     oper_type_unknown = Enum.YLeaf(0, "oper-type-unknown")
@@ -105,6 +107,8 @@ class SlaOperType(Enum):
     oper_type_pong = Enum.YLeaf(10, "oper-type-pong")
 
     oper_type_path_jitter = Enum.YLeaf(11, "oper-type-path-jitter")
+
+    oper_type_icmp_echo = Enum.YLeaf(12, "oper-type-icmp-echo")
 
 
 class SlaReturnCode(Enum):
@@ -177,14 +181,14 @@ class IpSlaStats(Entity):
     .. attribute:: sla_oper_entry
     
     	The list of IP SLA operations with statistics info
-    	**type**\: list of    :py:class:`SlaOperEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry>`
+    	**type**\: list of  		 :py:class:`SlaOperEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry>`
     
     
 
     """
 
     _prefix = 'ip-sla-ios-xe-oper'
-    _revision = '2017-04-01'
+    _revision = '2017-08-22'
 
     def __init__(self):
         super(IpSlaStats, self).__init__()
@@ -211,60 +215,62 @@ class IpSlaStats(Entity):
         .. attribute:: oper_id  <key>
         
         	Entry unique identifier
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: oper_type
         
         	Entry type
-        	**type**\:   :py:class:`SlaOperType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.SlaOperType>`
+        	**type**\:  :py:class:`SlaOperType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.SlaOperType>`
         
         .. attribute:: latest_return_code
         
         	Latest return code
-        	**type**\:   :py:class:`SlaReturnCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.SlaReturnCode>`
+        	**type**\:  :py:class:`SlaReturnCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.SlaReturnCode>`
         
         .. attribute:: success_count
         
         	Success count
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: failure_count
         
         	Failure count
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: latest_oper_start_time
         
         	Latest start time
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: rtt_info
         
         	RTT information
-        	**type**\:   :py:class:`RttInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.RttInfo>`
+        	**type**\:  :py:class:`RttInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.RttInfo>`
         
         .. attribute:: measure_stats
         
         	Measured statistics
-        	**type**\:   :py:class:`MeasureStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.MeasureStats>`
+        	**type**\:  :py:class:`MeasureStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.MeasureStats>`
         
         .. attribute:: stats
         
         	Statistics
-        	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats>`
+        	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats>`
         
         
 
         """
 
         _prefix = 'ip-sla-ios-xe-oper'
-        _revision = '2017-04-01'
+        _revision = '2017-08-22'
 
         def __init__(self):
             super(IpSlaStats.SlaOperEntry, self).__init__()
@@ -316,19 +322,19 @@ class IpSlaStats(Entity):
             .. attribute:: latest_rtt
             
             	The last Round Trip Time recorded for this SLA
-            	**type**\:   :py:class:`LatestRtt <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.RttInfo.LatestRtt>`
+            	**type**\:  :py:class:`LatestRtt <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.RttInfo.LatestRtt>`
             
             .. attribute:: time_to_live
             
             	Time\-to\-live for the SLA operation
-            	**type**\:   :py:class:`TimeToLive <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.RttInfo.TimeToLive>`
+            	**type**\:  :py:class:`TimeToLive <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.RttInfo.TimeToLive>`
             
             
 
             """
 
             _prefix = 'ip-sla-ios-xe-oper'
-            _revision = '2017-04-01'
+            _revision = '2017-08-22'
 
             def __init__(self):
                 super(IpSlaStats.SlaOperEntry.RttInfo, self).__init__()
@@ -359,26 +365,26 @@ class IpSlaStats(Entity):
                 .. attribute:: rtt
                 
                 	Round trip time value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: unknown
                 
                 	Round trip time is unknown
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: could_not_find
                 
                 	Round trip time could not be determined
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-08-22'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.RttInfo.LatestRtt, self).__init__()
@@ -408,21 +414,21 @@ class IpSlaStats(Entity):
                 .. attribute:: ttl
                 
                 	Time to live value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: forever
                 
                 	Time to live unbound
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-08-22'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.RttInfo.TimeToLive, self).__init__()
@@ -450,33 +456,35 @@ class IpSlaStats(Entity):
             .. attribute:: intv_start_time
             
             	Interval start time
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
             .. attribute:: init_count
             
             	Initial count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: complete_count
             
             	Complete count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: valid
             
             	Validity
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
             """
 
             _prefix = 'ip-sla-ios-xe-oper'
-            _revision = '2017-04-01'
+            _revision = '2017-08-22'
 
             def __init__(self):
                 super(IpSlaStats.SlaOperEntry.MeasureStats, self).__init__()
@@ -508,44 +516,44 @@ class IpSlaStats(Entity):
             .. attribute:: rtt
             
             	RTT value
-            	**type**\:   :py:class:`Rtt <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Rtt>`
+            	**type**\:  :py:class:`Rtt <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Rtt>`
             
             .. attribute:: oneway_latency
             
             	Latency information
-            	**type**\:   :py:class:`OnewayLatency <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency>`
+            	**type**\:  :py:class:`OnewayLatency <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency>`
             
             .. attribute:: jitter
             
             	Jitter information
-            	**type**\:   :py:class:`Jitter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter>`
+            	**type**\:  :py:class:`Jitter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter>`
             
             .. attribute:: over_threshold
             
             	Over threshold information
-            	**type**\:   :py:class:`OverThreshold <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OverThreshold>`
+            	**type**\:  :py:class:`OverThreshold <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OverThreshold>`
             
             .. attribute:: packet_loss
             
             	Packet loss information
-            	**type**\:   :py:class:`PacketLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss>`
+            	**type**\:  :py:class:`PacketLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss>`
             
             .. attribute:: icmp_packet_loss
             
             	ICMP packet loss information
-            	**type**\:   :py:class:`IcmpPacketLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss>`
+            	**type**\:  :py:class:`IcmpPacketLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss>`
             
             .. attribute:: voice_score
             
             	Voice score information
-            	**type**\:   :py:class:`VoiceScore <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.VoiceScore>`
+            	**type**\:  :py:class:`VoiceScore <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.VoiceScore>`
             
             
 
             """
 
             _prefix = 'ip-sla-ios-xe-oper'
-            _revision = '2017-04-01'
+            _revision = '2017-08-22'
 
             def __init__(self):
                 super(IpSlaStats.SlaOperEntry.Stats, self).__init__()
@@ -601,21 +609,21 @@ class IpSlaStats(Entity):
                 .. attribute:: rtt_count
                 
                 	RTT count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sla_time_values
                 
                 	Timing information
-                	**type**\:   :py:class:`SlaTimeValues <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Rtt.SlaTimeValues>`
+                	**type**\:  :py:class:`SlaTimeValues <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Rtt.SlaTimeValues>`
                 
                 
 
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-08-22'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.Rtt, self).__init__()
@@ -646,35 +654,35 @@ class IpSlaStats(Entity):
                     .. attribute:: min
                     
                     	Minimum value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: avg
                     
                     	Average value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: max
                     
                     	Maximum value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: accuracy
                     
                     	Reading accuracy
-                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    	**type**\:  :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
                     
                     
 
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-08-22'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.Rtt.SlaTimeValues, self).__init__()
@@ -706,26 +714,26 @@ class IpSlaStats(Entity):
                 .. attribute:: sample_count
                 
                 	Sample count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sd
                 
                 	Source to Destination for the one\-way latency
-                	**type**\:   :py:class:`Sd <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd>`
+                	**type**\:  :py:class:`Sd <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd>`
                 
                 .. attribute:: ds
                 
                 	Destination to Source for the one\-way latency
-                	**type**\:   :py:class:`Ds <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds>`
+                	**type**\:  :py:class:`Ds <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds>`
                 
                 
 
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-08-22'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.OnewayLatency, self).__init__()
@@ -761,35 +769,35 @@ class IpSlaStats(Entity):
                     .. attribute:: min
                     
                     	Minimum value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: avg
                     
                     	Average value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: max
                     
                     	Maximum value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: accuracy
                     
                     	Reading accuracy
-                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    	**type**\:  :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
                     
                     
 
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-08-22'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd, self).__init__()
@@ -821,35 +829,35 @@ class IpSlaStats(Entity):
                     .. attribute:: min
                     
                     	Minimum value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: avg
                     
                     	Average value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: max
                     
                     	Maximum value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: accuracy
                     
                     	Reading accuracy
-                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    	**type**\:  :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
                     
                     
 
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-08-22'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds, self).__init__()
@@ -881,33 +889,33 @@ class IpSlaStats(Entity):
                 .. attribute:: sd_sample_count
                 
                 	Sample count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: ds_sample_count
                 
                 	Sample count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sd
                 
                 	Source to Destination for the jitter
-                	**type**\:   :py:class:`Sd <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter.Sd>`
+                	**type**\:  :py:class:`Sd <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter.Sd>`
                 
                 .. attribute:: ds
                 
                 	Destination to Source for the jitter
-                	**type**\:   :py:class:`Ds <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter.Ds>`
+                	**type**\:  :py:class:`Ds <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter.Ds>`
                 
                 
 
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-08-22'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.Jitter, self).__init__()
@@ -945,35 +953,35 @@ class IpSlaStats(Entity):
                     .. attribute:: min
                     
                     	Minimum value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: avg
                     
                     	Average value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: max
                     
                     	Maximum value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: accuracy
                     
                     	Reading accuracy
-                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    	**type**\:  :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
                     
                     
 
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-08-22'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.Jitter.Sd, self).__init__()
@@ -1005,35 +1013,35 @@ class IpSlaStats(Entity):
                     .. attribute:: min
                     
                     	Minimum value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: avg
                     
                     	Average value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: max
                     
                     	Maximum value reading
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: accuracy
                     
                     	Reading accuracy
-                    	**type**\:   :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    	**type**\:  :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
                     
                     
 
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-08-22'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.Jitter.Ds, self).__init__()
@@ -1065,14 +1073,14 @@ class IpSlaStats(Entity):
                 .. attribute:: rtt_count
                 
                 	Round Trip Time (RTT) over threshold count (the number of times that the RTT was over the configured threshold)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: percent
                 
                 	Round Trip Time over threshold percentage (the percentage that the RTT was over the configured threshold)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
@@ -1081,7 +1089,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-08-22'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.OverThreshold, self).__init__()
@@ -1109,59 +1117,59 @@ class IpSlaStats(Entity):
                 .. attribute:: unprocessed_packets
                 
                 	Unprocessed packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sd_count
                 
                 	Number of packets lost from Source to Destination
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sd_loss
                 
                 	Source to Destination packet loss details
-                	**type**\:   :py:class:`SdLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss>`
+                	**type**\:  :py:class:`SdLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss>`
                 
                 .. attribute:: ds_count
                 
                 	Number of packets lost from Destination to Source
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: ds_loss
                 
                 	Destination to Source packet loss details
-                	**type**\:   :py:class:`DsLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss>`
+                	**type**\:  :py:class:`DsLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss>`
                 
                 .. attribute:: out_of_sequence
                 
                 	Out of sequence packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: drops
                 
                 	Dropped packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: late_arrivals
                 
                 	Late arrival packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: skipped_packets
                 
                 	Skipped packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1170,7 +1178,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-08-22'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.PacketLoss, self).__init__()
@@ -1218,35 +1226,35 @@ class IpSlaStats(Entity):
                     .. attribute:: loss_period_count
                     
                     	Loss period count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: loss_period_len_min
                     
                     	Shortest loss period length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: loss_period_len_max
                     
                     	Longest loss period length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: inter_loss_period_len_min
                     
                     	Shortest inter loss period length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: inter_loss_period_len_max
                     
                     	Longest inter loss period length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1255,7 +1263,7 @@ class IpSlaStats(Entity):
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-08-22'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss, self).__init__()
@@ -1289,35 +1297,35 @@ class IpSlaStats(Entity):
                     .. attribute:: loss_period_count
                     
                     	Loss period count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: loss_period_len_min
                     
                     	Shortest loss period length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: loss_period_len_max
                     
                     	Longest loss period length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: inter_loss_period_len_min
                     
                     	Shortest inter loss period length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: inter_loss_period_len_max
                     
                     	Longest inter loss period length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1326,7 +1334,7 @@ class IpSlaStats(Entity):
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-08-22'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss, self).__init__()
@@ -1360,91 +1368,91 @@ class IpSlaStats(Entity):
                 .. attribute:: late_arrivals
                 
                 	Late arrival packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_of_sequence
                 
                 	Out of sequence packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_of_sequence_sd
                 
                 	Out of sequence packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_of_sequence_ds
                 
                 	Out of sequence packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: out_of_sequence_both
                 
                 	Out of sequence packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: skipped_packets
                 
                 	Skipped packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: unprocessed_packets
                 
                 	Unprocessed packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: packet_loss
                 
                 	Lost packet count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: loss_period_count
                 
                 	Loss period count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: loss_period_len_min
                 
                 	Shortest loss period length
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: loss_period_len_max
                 
                 	Longest loss period length
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: inter_loss_period_len_min
                 
                 	Shortest inter loss period length
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: inter_loss_period_len_max
                 
                 	Longest inter loss period length
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1453,7 +1461,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-08-22'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss, self).__init__()
@@ -1503,14 +1511,14 @@ class IpSlaStats(Entity):
                 .. attribute:: icpif
                 
                 	Calculated planning impairment factor
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: mos
                 
                 	Mean opinion score
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1519,7 +1527,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-08-22'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.VoiceScore, self).__init__()

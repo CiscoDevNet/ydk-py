@@ -78,7 +78,7 @@ class Qos(Entity):
     .. attribute:: fabric_service_policy
     
     	Name of the fabric service policy
-    	**type**\:  str
+    	**type**\: str
     
     	**length:** 0..63
     

@@ -130,7 +130,7 @@ class Ipv6Network(Entity):
     .. attribute:: nodes
     
     	Node\-specific IPv6 network operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes>`
     
     
 
@@ -164,7 +164,7 @@ class Ipv6Network(Entity):
         .. attribute:: node
         
         	IPv6 network operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node>`
         
         
 
@@ -199,12 +199,14 @@ class Ipv6Network(Entity):
             .. attribute:: node_name  <key>
             
             	The node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: interface_data
             
             	IPv6 network operational interface data
-            	**type**\:   :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData>`
+            	**type**\:  :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData>`
             
             
 
@@ -243,12 +245,12 @@ class Ipv6Network(Entity):
                 .. attribute:: vrfs
                 
                 	VRF specific IPv6 network operational interface data
-                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs>`
+                	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs>`
                 
                 .. attribute:: summary
                 
                 	Summary of IPv6 network operational interface data on a node
-                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary>`
+                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary>`
                 
                 
 
@@ -287,7 +289,7 @@ class Ipv6Network(Entity):
                     .. attribute:: vrf
                     
                     	VRF ID of an interface belong to
-                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf>`
+                    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf>`
                     
                     
 
@@ -320,27 +322,29 @@ class Ipv6Network(Entity):
                         .. attribute:: vrf_name  <key>
                         
                         	The VRF name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: briefs
                         
                         	Brief interface IPv6 network operational data for a node
-                        	**type**\:   :py:class:`Briefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs>`
+                        	**type**\:  :py:class:`Briefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs>`
                         
                         .. attribute:: global_details
                         
                         	Detail interface IPv4 network operational data for global data
-                        	**type**\:   :py:class:`GlobalDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails>`
+                        	**type**\:  :py:class:`GlobalDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails>`
                         
                         .. attribute:: global_briefs
                         
                         	Brief interface IPv6 network operational data from global data
-                        	**type**\:   :py:class:`GlobalBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs>`
+                        	**type**\:  :py:class:`GlobalBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs>`
                         
                         .. attribute:: details
                         
                         	Detail interface IPv4 network operational data for a node
-                        	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details>`
+                        	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details>`
                         
                         
 
@@ -394,7 +398,7 @@ class Ipv6Network(Entity):
                             .. attribute:: brief
                             
                             	Brief interface IPv6 network operational data for an interface
-                            	**type**\: list of    :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief>`
+                            	**type**\: list of  		 :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief>`
                             
                             
 
@@ -428,29 +432,31 @@ class Ipv6Network(Entity):
                                 .. attribute:: interface_name  <key>
                                 
                                 	The name of the interface
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 .. attribute:: link_local_address
                                 
                                 	Link Local Address
-                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress>`
+                                	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress>`
                                 
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
-                                	**type**\:   :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
+                                	**type**\:  :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
                                 
                                 .. attribute:: vrf_name
                                 
                                 	VRF Name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..32
                                 
                                 .. attribute:: address
                                 
                                 	Address List
-                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address>`
+                                	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address>`
                                 
                                 
 
@@ -494,29 +500,31 @@ class Ipv6Network(Entity):
                                     .. attribute:: address
                                     
                                     	IPv6 Address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: route_tag
                                     
                                     	Route\-tag of the Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -559,29 +567,31 @@ class Ipv6Network(Entity):
                                     .. attribute:: address
                                     
                                     	IPv6 Address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: route_tag
                                     
                                     	Route\-tag of the Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -625,7 +635,7 @@ class Ipv6Network(Entity):
                             .. attribute:: global_detail
                             
                             	Detail interface IPv6 network operational data for an interface
-                            	**type**\: list of    :py:class:`GlobalDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail>`
+                            	**type**\: list of  		 :py:class:`GlobalDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail>`
                             
                             
 
@@ -659,121 +669,123 @@ class Ipv6Network(Entity):
                                 .. attribute:: interface_name  <key>
                                 
                                 	The name of the interface
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 .. attribute:: link_local_address
                                 
                                 	Link Local Address
-                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress>`
+                                	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress>`
                                 
                                 .. attribute:: access_control_list
                                 
                                 	IPv6 Access Control List
-                                	**type**\:   :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList>`
+                                	**type**\:  :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList>`
                                 
                                 .. attribute:: multi_access_control_list
                                 
                                 	Multi IPv6 Access Control List
-                                	**type**\:   :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList>`
+                                	**type**\:  :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList>`
                                 
                                 .. attribute:: rpf
                                 
                                 	RPF config on the interface
-                                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf>`
+                                	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf>`
                                 
                                 .. attribute:: bgp_pa
                                 
                                 	BGP PA config on the interface
-                                	**type**\:   :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa>`
+                                	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa>`
                                 
                                 .. attribute:: utime
                                 
                                 	Address Publish Time
-                                	**type**\:   :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime>`
+                                	**type**\:  :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime>`
                                 
                                 .. attribute:: idb_utime
                                 
                                 	IDB Create Time
-                                	**type**\:   :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime>`
+                                	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime>`
                                 
                                 .. attribute:: caps_utime
                                 
                                 	CAPS Add Time
-                                	**type**\:   :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime>`
+                                	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime>`
                                 
                                 .. attribute:: fwd_en_utime
                                 
                                 	FWD ENABLE Time
-                                	**type**\:   :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime>`
+                                	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime>`
                                 
                                 .. attribute:: fwd_dis_utime
                                 
                                 	FWD DISABLE Time
-                                	**type**\:   :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime>`
+                                	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime>`
                                 
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
-                                	**type**\:   :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
+                                	**type**\:  :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
                                 
                                 .. attribute:: mtu
                                 
                                 	IPv6 MTU
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: operation_state
                                 
                                 	IPv6 Operation State
-                                	**type**\:   :py:class:`Ipv6MaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState>`
+                                	**type**\:  :py:class:`Ipv6MaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState>`
                                 
                                 .. attribute:: vrf_name
                                 
                                 	VRF Name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..32
                                 
                                 .. attribute:: is_icmp_unreach_enabled
                                 
                                 	ICMP unreach Enable
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: rg_id_exists
                                 
                                 	Does ICCP RG ID exist on the interface?
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: mlacp_active
                                 
                                 	Is mLACP state Active (valid if RG ID exists)
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: flow_tag_src
                                 
                                 	Is BGP Flow Tag Source is enable
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: flow_tag_dst
                                 
                                 	Is BGP Flow Tag Destination is enable
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: multicast_group
                                 
                                 	IPv6 Multicast Group
-                                	**type**\: list of    :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup>`
+                                	**type**\: list of  		 :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup>`
                                 
                                 .. attribute:: address
                                 
                                 	Address List
-                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address>`
+                                	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address>`
                                 
                                 .. attribute:: client_multicast_group
                                 
                                 	IPv6 Client Multicast Group
-                                	**type**\: list of    :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup>`
+                                	**type**\: list of  		 :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup>`
                                 
                                 
 
@@ -878,29 +890,31 @@ class Ipv6Network(Entity):
                                     .. attribute:: address
                                     
                                     	IPv6 Address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: route_tag
                                     
                                     	Route\-tag of the Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -943,22 +957,22 @@ class Ipv6Network(Entity):
                                     .. attribute:: in_bound
                                     
                                     	ACL applied to incoming packets
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: out_bound
                                     
                                     	ACL applied to outgoing packets
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: common_in_bound
                                     
                                     	Common ACL applied to incoming packets
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: common_out_bound
                                     
                                     	Common ACL applied to outgoing packets
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -997,17 +1011,17 @@ class Ipv6Network(Entity):
                                     .. attribute:: inbound
                                     
                                     	Inbound ACLs
-                                    	**type**\:  list of str
+                                    	**type**\: list of str
                                     
                                     .. attribute:: outbound
                                     
                                     	Outbound ACLs
-                                    	**type**\:  list of str
+                                    	**type**\: list of str
                                     
                                     .. attribute:: common
                                     
                                     	Common ACLs
-                                    	**type**\:  list of str
+                                    	**type**\: list of str
                                     
                                     
 
@@ -1044,22 +1058,22 @@ class Ipv6Network(Entity):
                                     .. attribute:: enable
                                     
                                     	Enable RPF config
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: allow_default_route
                                     
                                     	Allow Default Route
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: allow_self_ping
                                     
                                     	Allow Self Ping
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: mode
                                     
                                     	RPF Mode (loose/strict)
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1100,12 +1114,12 @@ class Ipv6Network(Entity):
                                     .. attribute:: input
                                     
                                     	BGP PA input config
-                                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input>`
+                                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input>`
                                     
                                     .. attribute:: output
                                     
                                     	BGP PA output config
-                                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output>`
+                                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output>`
                                     
                                     
 
@@ -1143,19 +1157,19 @@ class Ipv6Network(Entity):
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: source
                                         
                                         	Enable source accouting
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: destination
                                         
                                         	Enable destination accouting
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -1192,19 +1206,19 @@ class Ipv6Network(Entity):
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: source
                                         
                                         	Enable source accouting
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: destination
                                         
                                         	Enable destination accouting
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -1356,7 +1370,9 @@ class Ipv6Network(Entity):
                                     .. attribute:: address
                                     
                                     	IPv6 Address of Multicast Group
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -1389,29 +1405,31 @@ class Ipv6Network(Entity):
                                     .. attribute:: address
                                     
                                     	IPv6 Address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: route_tag
                                     
                                     	Route\-tag of the Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1454,7 +1472,9 @@ class Ipv6Network(Entity):
                                     .. attribute:: address
                                     
                                     	IPv6 Address of Multicast Group
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -1488,7 +1508,7 @@ class Ipv6Network(Entity):
                             .. attribute:: global_brief
                             
                             	Brief interface IPv6 network operational data for an interface
-                            	**type**\: list of    :py:class:`GlobalBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief>`
+                            	**type**\: list of  		 :py:class:`GlobalBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief>`
                             
                             
 
@@ -1522,29 +1542,31 @@ class Ipv6Network(Entity):
                                 .. attribute:: interface_name  <key>
                                 
                                 	The name of the interface
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 .. attribute:: link_local_address
                                 
                                 	Link Local Address
-                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress>`
+                                	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress>`
                                 
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
-                                	**type**\:   :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
+                                	**type**\:  :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
                                 
                                 .. attribute:: vrf_name
                                 
                                 	VRF Name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..32
                                 
                                 .. attribute:: address
                                 
                                 	Address List
-                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address>`
+                                	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address>`
                                 
                                 
 
@@ -1588,29 +1610,31 @@ class Ipv6Network(Entity):
                                     .. attribute:: address
                                     
                                     	IPv6 Address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: route_tag
                                     
                                     	Route\-tag of the Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1653,29 +1677,31 @@ class Ipv6Network(Entity):
                                     .. attribute:: address
                                     
                                     	IPv6 Address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: route_tag
                                     
                                     	Route\-tag of the Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1719,7 +1745,7 @@ class Ipv6Network(Entity):
                             .. attribute:: detail
                             
                             	Detail interface IPv6 network operational data for an interface
-                            	**type**\: list of    :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail>`
+                            	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail>`
                             
                             
 
@@ -1753,121 +1779,123 @@ class Ipv6Network(Entity):
                                 .. attribute:: interface_name  <key>
                                 
                                 	The name of the interface
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 .. attribute:: link_local_address
                                 
                                 	Link Local Address
-                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress>`
+                                	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress>`
                                 
                                 .. attribute:: access_control_list
                                 
                                 	IPv6 Access Control List
-                                	**type**\:   :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList>`
+                                	**type**\:  :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList>`
                                 
                                 .. attribute:: multi_access_control_list
                                 
                                 	Multi IPv6 Access Control List
-                                	**type**\:   :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList>`
+                                	**type**\:  :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList>`
                                 
                                 .. attribute:: rpf
                                 
                                 	RPF config on the interface
-                                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
+                                	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
                                 
                                 .. attribute:: bgp_pa
                                 
                                 	BGP PA config on the interface
-                                	**type**\:   :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
+                                	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
                                 
                                 .. attribute:: utime
                                 
                                 	Address Publish Time
-                                	**type**\:   :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime>`
+                                	**type**\:  :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime>`
                                 
                                 .. attribute:: idb_utime
                                 
                                 	IDB Create Time
-                                	**type**\:   :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
+                                	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
                                 
                                 .. attribute:: caps_utime
                                 
                                 	CAPS Add Time
-                                	**type**\:   :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
+                                	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
                                 
                                 .. attribute:: fwd_en_utime
                                 
                                 	FWD ENABLE Time
-                                	**type**\:   :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
+                                	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
                                 
                                 .. attribute:: fwd_dis_utime
                                 
                                 	FWD DISABLE Time
-                                	**type**\:   :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
+                                	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
                                 
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
-                                	**type**\:   :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
+                                	**type**\:  :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
                                 
                                 .. attribute:: mtu
                                 
                                 	IPv6 MTU
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: operation_state
                                 
                                 	IPv6 Operation State
-                                	**type**\:   :py:class:`Ipv6MaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState>`
+                                	**type**\:  :py:class:`Ipv6MaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState>`
                                 
                                 .. attribute:: vrf_name
                                 
                                 	VRF Name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..32
                                 
                                 .. attribute:: is_icmp_unreach_enabled
                                 
                                 	ICMP unreach Enable
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: rg_id_exists
                                 
                                 	Does ICCP RG ID exist on the interface?
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: mlacp_active
                                 
                                 	Is mLACP state Active (valid if RG ID exists)
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: flow_tag_src
                                 
                                 	Is BGP Flow Tag Source is enable
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: flow_tag_dst
                                 
                                 	Is BGP Flow Tag Destination is enable
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: multicast_group
                                 
                                 	IPv6 Multicast Group
-                                	**type**\: list of    :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
+                                	**type**\: list of  		 :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
                                 
                                 .. attribute:: address
                                 
                                 	Address List
-                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address>`
+                                	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address>`
                                 
                                 .. attribute:: client_multicast_group
                                 
                                 	IPv6 Client Multicast Group
-                                	**type**\: list of    :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup>`
+                                	**type**\: list of  		 :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup>`
                                 
                                 
 
@@ -1972,29 +2000,31 @@ class Ipv6Network(Entity):
                                     .. attribute:: address
                                     
                                     	IPv6 Address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: route_tag
                                     
                                     	Route\-tag of the Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2037,22 +2067,22 @@ class Ipv6Network(Entity):
                                     .. attribute:: in_bound
                                     
                                     	ACL applied to incoming packets
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: out_bound
                                     
                                     	ACL applied to outgoing packets
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: common_in_bound
                                     
                                     	Common ACL applied to incoming packets
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: common_out_bound
                                     
                                     	Common ACL applied to outgoing packets
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -2091,17 +2121,17 @@ class Ipv6Network(Entity):
                                     .. attribute:: inbound
                                     
                                     	Inbound ACLs
-                                    	**type**\:  list of str
+                                    	**type**\: list of str
                                     
                                     .. attribute:: outbound
                                     
                                     	Outbound ACLs
-                                    	**type**\:  list of str
+                                    	**type**\: list of str
                                     
                                     .. attribute:: common
                                     
                                     	Common ACLs
-                                    	**type**\:  list of str
+                                    	**type**\: list of str
                                     
                                     
 
@@ -2138,22 +2168,22 @@ class Ipv6Network(Entity):
                                     .. attribute:: enable
                                     
                                     	Enable RPF config
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: allow_default_route
                                     
                                     	Allow Default Route
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: allow_self_ping
                                     
                                     	Allow Self Ping
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: mode
                                     
                                     	RPF Mode (loose/strict)
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2194,12 +2224,12 @@ class Ipv6Network(Entity):
                                     .. attribute:: input
                                     
                                     	BGP PA input config
-                                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input>`
+                                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input>`
                                     
                                     .. attribute:: output
                                     
                                     	BGP PA output config
-                                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output>`
+                                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output>`
                                     
                                     
 
@@ -2237,19 +2267,19 @@ class Ipv6Network(Entity):
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: source
                                         
                                         	Enable source accouting
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: destination
                                         
                                         	Enable destination accouting
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -2286,19 +2316,19 @@ class Ipv6Network(Entity):
                                         .. attribute:: enable
                                         
                                         	Enable BGP PA for ingress/egress
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: source
                                         
                                         	Enable source accouting
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: destination
                                         
                                         	Enable destination accouting
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -2450,7 +2480,9 @@ class Ipv6Network(Entity):
                                     .. attribute:: address
                                     
                                     	IPv6 Address of Multicast Group
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -2483,29 +2515,31 @@ class Ipv6Network(Entity):
                                     .. attribute:: address
                                     
                                     	IPv6 Address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:   :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
+                                    	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: route_tag
                                     
                                     	Route\-tag of the Address
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2548,7 +2582,9 @@ class Ipv6Network(Entity):
                                     .. attribute:: address
                                     
                                     	IPv6 Address of Multicast Group
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -2582,27 +2618,27 @@ class Ipv6Network(Entity):
                     .. attribute:: if_up_up
                     
                     	Number of interfaces (up,up)
-                    	**type**\:   :py:class:`IfUpUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
+                    	**type**\:  :py:class:`IfUpUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
                     
                     .. attribute:: if_up_down
                     
                     	Number of interfaces (up,down)
-                    	**type**\:   :py:class:`IfUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
+                    	**type**\:  :py:class:`IfUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
                     
                     .. attribute:: if_down_down
                     
                     	Number of interfaces (down,down)
-                    	**type**\:   :py:class:`IfDownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown>`
+                    	**type**\:  :py:class:`IfDownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown>`
                     
                     .. attribute:: if_shutdown_down
                     
                     	Number of interfaces (shutdown,down)
-                    	**type**\:   :py:class:`IfShutdownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown>`
+                    	**type**\:  :py:class:`IfShutdownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown>`
                     
                     .. attribute:: if_up_down_basecaps_up
                     
                     	Number of interfaces (up,down) with basecaps up
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2657,21 +2693,21 @@ class Ipv6Network(Entity):
                         .. attribute:: ip_assigned
                         
                         	Number of interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces without explicit address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2710,21 +2746,21 @@ class Ipv6Network(Entity):
                         .. attribute:: ip_assigned
                         
                         	Number of interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces without explicit address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2763,21 +2799,21 @@ class Ipv6Network(Entity):
                         .. attribute:: ip_assigned
                         
                         	Number of interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces without explicit address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2816,21 +2852,21 @@ class Ipv6Network(Entity):
                         .. attribute:: ip_assigned
                         
                         	Number of interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces without explicit address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         

@@ -25,7 +25,7 @@ class HardwareModule(Entity):
     .. attribute:: segment_routing
     
     	Segment Routing
-    	**type**\:   :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_sr_cfg.HardwareModule.SegmentRouting>`
+    	**type**\:  :py:class:`SegmentRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_sr_cfg.HardwareModule.SegmentRouting>`
     
     
 
@@ -59,7 +59,7 @@ class HardwareModule(Entity):
         .. attribute:: reserve
         
         	Reserve
-        	**type**\:   :py:class:`Reserve <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_sr_cfg.HardwareModule.SegmentRouting.Reserve>`
+        	**type**\:  :py:class:`Reserve <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_sr_cfg.HardwareModule.SegmentRouting.Reserve>`
         
         
 
@@ -93,7 +93,7 @@ class HardwareModule(Entity):
             .. attribute:: service_label
             
             	Service Label
-            	**type**\:   :py:class:`ServiceLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_sr_cfg.HardwareModule.SegmentRouting.Reserve.ServiceLabel>`
+            	**type**\:  :py:class:`ServiceLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_sr_cfg.HardwareModule.SegmentRouting.Reserve.ServiceLabel>`
             
             
 
@@ -127,7 +127,7 @@ class HardwareModule(Entity):
                 .. attribute:: enable
                 
                 	Enable
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 

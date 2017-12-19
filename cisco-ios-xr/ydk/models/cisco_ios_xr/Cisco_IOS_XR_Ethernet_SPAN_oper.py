@@ -316,12 +316,12 @@ class SpanMonitorSession(Entity):
     .. attribute:: global_
     
     	Global operational data
-    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_>`
+    	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_>`
     
     .. attribute:: nodes
     
     	Node table for node\-specific operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes>`
     
     
 
@@ -360,12 +360,12 @@ class SpanMonitorSession(Entity):
         .. attribute:: statistics
         
         	Table of statistics for source interfaces
-        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.Statistics>`
+        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.Statistics>`
         
         .. attribute:: global_sessions
         
         	Global Monitor Sessions table
-        	**type**\:   :py:class:`GlobalSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions>`
+        	**type**\:  :py:class:`GlobalSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions>`
         
         
 
@@ -404,7 +404,7 @@ class SpanMonitorSession(Entity):
             .. attribute:: statistic
             
             	Statistics for a particular source interface
-            	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.Statistics.Statistic>`
+            	**type**\: list of  		 :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.Statistics.Statistic>`
             
             
 
@@ -438,54 +438,56 @@ class SpanMonitorSession(Entity):
                 .. attribute:: session  <key>
                 
                 	Session Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..79
                 
                 .. attribute:: interface  <key>
                 
                 	Interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: rx_packets_mirrored
                 
                 	RX Packets Mirrored
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_octets_mirrored
                 
                 	RX Octets Mirrored
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_packets_mirrored
                 
                 	TX Packets Mirrored
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_octets_mirrored
                 
                 	TX Octets Mirrored
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: packets_not_mirrored
                 
                 	Packets Not Mirrored
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: octets_not_mirrored
                 
                 	Octets Not Mirrored
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -535,7 +537,7 @@ class SpanMonitorSession(Entity):
             .. attribute:: global_session
             
             	Information about a globally\-configured monitor session
-            	**type**\: list of    :py:class:`GlobalSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession>`
+            	**type**\: list of  		 :py:class:`GlobalSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession>`
             
             
 
@@ -570,58 +572,60 @@ class SpanMonitorSession(Entity):
                 .. attribute:: session  <key>
                 
                 	Session Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..79
                 
                 .. attribute:: destination_data
                 
                 	Destination data
-                	**type**\:   :py:class:`DestinationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData>`
+                	**type**\:  :py:class:`DestinationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData>`
                 
                 .. attribute:: destination_id
                 
                 	Destination ID
-                	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId>`
+                	**type**\:  :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId>`
                 
                 .. attribute:: name
                 
                 	Session Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: session_class
                 
                 	Session class
-                	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
+                	**type**\:  :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
                 
                 .. attribute:: id
                 
                 	Numerical ID assigned to session
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: destination_error
                 
                 	Last error observed for the destination 
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: destination_interface_name
                 
                 	Destination interface name (deprecated by DestinationData, invalid for pseudowires)
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: destination_interface_handle
                 
                 	Destination interface handle (deprecated by DestinationID, invalid for pseudowires)
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: interface_error
                 
                 	Last error observed for the destination interface (deprecated by DestinationError)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -681,32 +685,32 @@ class SpanMonitorSession(Entity):
                     .. attribute:: interface_data
                     
                     	Interface data
-                    	**type**\:   :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData>`
+                    	**type**\:  :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData>`
                     
                     .. attribute:: pseudowire_data
                     
                     	Pseudowire data
-                    	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData>`
+                    	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData>`
                     
                     .. attribute:: next_hop_ipv4_data
                     
                     	Next\-hop IPv4 data
-                    	**type**\:   :py:class:`NextHopIpv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data>`
+                    	**type**\:  :py:class:`NextHopIpv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data>`
                     
                     .. attribute:: next_hop_ipv6_data
                     
                     	Next\-hop IPv6 data
-                    	**type**\:   :py:class:`NextHopIpv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data>`
+                    	**type**\:  :py:class:`NextHopIpv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data>`
                     
                     .. attribute:: destination_class
                     
                     	DestinationClass
-                    	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
+                    	**type**\:  :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
                     
                     .. attribute:: invalid_value
                     
                     	Invalid Parameter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -763,12 +767,12 @@ class SpanMonitorSession(Entity):
                         .. attribute:: interface_name
                         
                         	Interface Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: interface_state
                         
                         	Interface State
-                        	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnum>`
+                        	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnum>`
                         
                         
 
@@ -803,12 +807,12 @@ class SpanMonitorSession(Entity):
                         .. attribute:: pseudowire_name
                         
                         	Pseudowire Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: pseudowire_is_up
                         
                         	Pseudowire State
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -843,17 +847,19 @@ class SpanMonitorSession(Entity):
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: vrf_name
                         
                         	VRF name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: address_is_reachable
                         
                         	Address is reachable
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -890,17 +896,19 @@ class SpanMonitorSession(Entity):
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: vrf_name
                         
                         	VRF name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: address_is_reachable
                         
                         	Address is reachable
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -937,34 +945,36 @@ class SpanMonitorSession(Entity):
                     .. attribute:: ipv4_address_and_vrf
                     
                     	IPv4 address
-                    	**type**\:   :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf>`
+                    	**type**\:  :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf>`
                     
                     .. attribute:: ipv6_address_and_vrf
                     
                     	IPv6 address
-                    	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf>`
+                    	**type**\:  :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf>`
                     
                     .. attribute:: destination_class
                     
                     	DestinationClass
-                    	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
+                    	**type**\:  :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
                     
                     .. attribute:: interface
                     
                     	Interface Handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: pseudowire_id
                     
                     	Pseudowire XCID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: invalid_value
                     
                     	Invalid Parameter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1015,12 +1025,14 @@ class SpanMonitorSession(Entity):
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: vrf_name
                         
                         	VRF
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -1055,12 +1067,14 @@ class SpanMonitorSession(Entity):
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: vrf_name
                         
                         	VRF
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -1095,7 +1109,7 @@ class SpanMonitorSession(Entity):
         .. attribute:: node
         
         	Node\-specific data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node>`
         
         
 
@@ -1129,22 +1143,24 @@ class SpanMonitorSession(Entity):
             .. attribute:: node  <key>
             
             	Node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: attachments
             
             	Table of source interfaces configured as attached to a session
-            	**type**\:   :py:class:`Attachments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments>`
+            	**type**\:  :py:class:`Attachments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments>`
             
             .. attribute:: hardware_sessions
             
             	Table of sessions set up in the hardware.  When all sessions are operating correctly the entries in this table should match those entries in GlobalSessionTable that have a destination configured
-            	**type**\:   :py:class:`HardwareSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions>`
+            	**type**\:  :py:class:`HardwareSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions>`
             
             .. attribute:: interfaces
             
             	Table of source interfaces set up in the hardware.  The entries in this table should match the entries in AttachmentTable when all sessions are operating correctly
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces>`
             
             
 
@@ -1194,7 +1210,7 @@ class SpanMonitorSession(Entity):
                 .. attribute:: attachment
                 
                 	Information about a particular source interface configured as attached to monitor session
-                	**type**\: list of    :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment>`
+                	**type**\: list of  		 :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment>`
                 
                 
 
@@ -1229,88 +1245,94 @@ class SpanMonitorSession(Entity):
                     .. attribute:: session  <key>
                     
                     	Session Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..79
                     
                     .. attribute:: interface  <key>
                     
                     	Interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: traffic_parameters
                     
                     	Traffic mirroring parameters
-                    	**type**\:   :py:class:`TrafficParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters>`
+                    	**type**\:  :py:class:`TrafficParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters>`
                     
                     .. attribute:: destination_id
                     
                     	Destination ID
-                    	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId>`
+                    	**type**\:  :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId>`
                     
                     .. attribute:: name
                     
                     	Session Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: local_class
                     
                     	Local attachment class
-                    	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
+                    	**type**\:  :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
                     
                     .. attribute:: id
                     
                     	Numerical ID assigned to session
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: global_class
                     
                     	Global session class
-                    	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
+                    	**type**\:  :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
                     
                     .. attribute:: session_is_configured
                     
                     	The Session is configured globally
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: source_interface
                     
                     	Source interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: source_interface_state
                     
                     	Source interface state
-                    	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnum>`
+                    	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnum>`
                     
                     .. attribute:: pfi_error
                     
                     	Last error returned from PFI for this interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: dest_pw_type_not_supported
                     
                     	The destination PW type is not supported
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: source_interface_is_a_destination
                     
                     	This source interface is a destination for another monitor\-session
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: destination_interface
                     
                     	Destination interface (deprecated by DestinationID, invalid for pseudowires)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: traffic_direction
                     
                     	Traffic mirroring direction (deprecated by TrafficParameters)
-                    	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
+                    	**type**\:  :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
                     
                     
 
@@ -1379,22 +1401,22 @@ class SpanMonitorSession(Entity):
                         .. attribute:: traffic_direction
                         
                         	Direction
-                        	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
+                        	**type**\:  :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
                         
                         .. attribute:: port_level
                         
                         	Port level mirroring
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_acl_enabled
                         
                         	ACL enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: mirror_bytes
                         
                         	Number of bytes to mirror
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1403,12 +1425,12 @@ class SpanMonitorSession(Entity):
                         .. attribute:: mirror_interval
                         
                         	Interval between mirrored packets
-                        	**type**\:   :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
+                        	**type**\:  :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
                         
                         .. attribute:: acl_name
                         
                         	ACL name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -1451,34 +1473,36 @@ class SpanMonitorSession(Entity):
                         .. attribute:: ipv4_address_and_vrf
                         
                         	IPv4 address
-                        	**type**\:   :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf>`
+                        	**type**\:  :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf>`
                         
                         .. attribute:: ipv6_address_and_vrf
                         
                         	IPv6 address
-                        	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf>`
+                        	**type**\:  :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf>`
                         
                         .. attribute:: destination_class
                         
                         	DestinationClass
-                        	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
+                        	**type**\:  :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
                         
                         .. attribute:: interface
                         
                         	Interface Handle
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: pseudowire_id
                         
                         	Pseudowire XCID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: invalid_value
                         
                         	Invalid Parameter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1529,12 +1553,14 @@ class SpanMonitorSession(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
                             	VRF
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1569,12 +1595,14 @@ class SpanMonitorSession(Entity):
                             .. attribute:: ipv6_address
                             
                             	IPv6 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
                             	VRF
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1613,7 +1641,7 @@ class SpanMonitorSession(Entity):
                 .. attribute:: hardware_session
                 
                 	Information about a particular session that is set up in the hardware
-                	**type**\: list of    :py:class:`HardwareSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession>`
+                	**type**\: list of  		 :py:class:`HardwareSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession>`
                 
                 
 
@@ -1647,46 +1675,48 @@ class SpanMonitorSession(Entity):
                     .. attribute:: session_class
                     
                     	Sesssion class
-                    	**type**\:   :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
+                    	**type**\:  :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
                     
                     .. attribute:: session_id
                     
                     	Session ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: destination_id
                     
                     	Destination ID
-                    	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId>`
+                    	**type**\:  :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId>`
                     
                     .. attribute:: id
                     
                     	Assigned numerical ID for this session
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: name
                     
                     	Configured Session Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: session_class_xr
                     
                     	Session class
-                    	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
+                    	**type**\:  :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
                     
                     .. attribute:: destination_interface
                     
                     	Destination interface (deprecated by DestinationID, invalid for pseudowires)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: platform_error
                     
                     	Last error observed for this session while programming the hardware
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1738,34 +1768,36 @@ class SpanMonitorSession(Entity):
                         .. attribute:: ipv4_address_and_vrf
                         
                         	IPv4 address
-                        	**type**\:   :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf>`
+                        	**type**\:  :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf>`
                         
                         .. attribute:: ipv6_address_and_vrf
                         
                         	IPv6 address
-                        	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf>`
+                        	**type**\:  :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf>`
                         
                         .. attribute:: destination_class
                         
                         	DestinationClass
-                        	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
+                        	**type**\:  :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
                         
                         .. attribute:: interface
                         
                         	Interface Handle
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: pseudowire_id
                         
                         	Pseudowire XCID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: invalid_value
                         
                         	Invalid Parameter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1816,12 +1848,14 @@ class SpanMonitorSession(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
                             	VRF
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1856,12 +1890,14 @@ class SpanMonitorSession(Entity):
                             .. attribute:: ipv6_address
                             
                             	IPv6 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
                             	VRF
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1899,7 +1935,7 @@ class SpanMonitorSession(Entity):
                 .. attribute:: interface
                 
                 	Information about a particular interface that is set up in the hardware
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -1933,44 +1969,50 @@ class SpanMonitorSession(Entity):
                     .. attribute:: interface  <key>
                     
                     	Interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: destination_id
                     
                     	Destination ID (deprecated by Attachment)
-                    	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId>`
+                    	**type**\:  :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId>`
                     
                     .. attribute:: traffic_mirroring_parameters
                     
                     	Traffic mirroring parameters (deprecated by Attachment)
-                    	**type**\:   :py:class:`TrafficMirroringParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters>`
+                    	**type**\:  :py:class:`TrafficMirroringParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters>`
                     
                     .. attribute:: source_interface
                     
                     	Source interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: platform_error
                     
                     	Last error observed for this interface while programming the hardware
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: destination_interface
                     
                     	Destination interface (deprecated by Attachment)
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: traffic_direction
                     
                     	Traffic mirroring direction (deprecated by Attachment)
-                    	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
+                    	**type**\:  :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
                     
                     .. attribute:: attachment
                     
                     	Attachment information
-                    	**type**\: list of    :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment>`
+                    	**type**\: list of  		 :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment>`
                     
                     
 
@@ -2023,34 +2065,36 @@ class SpanMonitorSession(Entity):
                         .. attribute:: ipv4_address_and_vrf
                         
                         	IPv4 address
-                        	**type**\:   :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf>`
+                        	**type**\:  :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf>`
                         
                         .. attribute:: ipv6_address_and_vrf
                         
                         	IPv6 address
-                        	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf>`
+                        	**type**\:  :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf>`
                         
                         .. attribute:: destination_class
                         
                         	DestinationClass
-                        	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
+                        	**type**\:  :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
                         
                         .. attribute:: interface
                         
                         	Interface Handle
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: pseudowire_id
                         
                         	Pseudowire XCID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: invalid_value
                         
                         	Invalid Parameter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2101,12 +2145,14 @@ class SpanMonitorSession(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
                             	VRF
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -2141,12 +2187,14 @@ class SpanMonitorSession(Entity):
                             .. attribute:: ipv6_address
                             
                             	IPv6 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
                             	VRF
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -2182,22 +2230,22 @@ class SpanMonitorSession(Entity):
                         .. attribute:: traffic_direction
                         
                         	Direction
-                        	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
+                        	**type**\:  :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
                         
                         .. attribute:: port_level
                         
                         	Port level mirroring
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_acl_enabled
                         
                         	ACL enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: mirror_bytes
                         
                         	Number of bytes to mirror
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2206,12 +2254,12 @@ class SpanMonitorSession(Entity):
                         .. attribute:: mirror_interval
                         
                         	Interval between mirrored packets
-                        	**type**\:   :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
+                        	**type**\:  :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
                         
                         .. attribute:: acl_name
                         
                         	ACL name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -2254,17 +2302,17 @@ class SpanMonitorSession(Entity):
                         .. attribute:: destination_id
                         
                         	Destination ID
-                        	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId>`
+                        	**type**\:  :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId>`
                         
                         .. attribute:: traffic_mirroring_parameters
                         
                         	Traffic mirroring parameters
-                        	**type**\:   :py:class:`TrafficMirroringParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters>`
+                        	**type**\:  :py:class:`TrafficMirroringParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters>`
                         
                         .. attribute:: class_
                         
                         	Attachment class
-                        	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
+                        	**type**\:  :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
                         
                         
 
@@ -2307,34 +2355,36 @@ class SpanMonitorSession(Entity):
                             .. attribute:: ipv4_address_and_vrf
                             
                             	IPv4 address
-                            	**type**\:   :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf>`
+                            	**type**\:  :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf>`
                             
                             .. attribute:: ipv6_address_and_vrf
                             
                             	IPv6 address
-                            	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf>`
+                            	**type**\:  :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf>`
                             
                             .. attribute:: destination_class
                             
                             	DestinationClass
-                            	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
+                            	**type**\:  :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
                             
                             .. attribute:: interface
                             
                             	Interface Handle
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: pseudowire_id
                             
                             	Pseudowire XCID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: invalid_value
                             
                             	Invalid Parameter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2385,12 +2435,14 @@ class SpanMonitorSession(Entity):
                                 .. attribute:: ipv4_address
                                 
                                 	IPv4 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: vrf_name
                                 
                                 	VRF
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -2425,12 +2477,14 @@ class SpanMonitorSession(Entity):
                                 .. attribute:: ipv6_address
                                 
                                 	IPv6 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: vrf_name
                                 
                                 	VRF
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -2465,22 +2519,22 @@ class SpanMonitorSession(Entity):
                             .. attribute:: traffic_direction
                             
                             	Direction
-                            	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
+                            	**type**\:  :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
                             
                             .. attribute:: port_level
                             
                             	Port level mirroring
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_acl_enabled
                             
                             	ACL enabled
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: mirror_bytes
                             
                             	Number of bytes to mirror
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2489,12 +2543,12 @@ class SpanMonitorSession(Entity):
                             .. attribute:: mirror_interval
                             
                             	Interval between mirrored packets
-                            	**type**\:   :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
+                            	**type**\:  :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
                             
                             .. attribute:: acl_name
                             
                             	ACL name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 

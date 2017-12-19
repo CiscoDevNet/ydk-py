@@ -29,24 +29,24 @@ class Watchdog(Entity):
     .. attribute:: threshold_memory
     
     	Memory thresholds
-    	**type**\:   :py:class:`ThresholdMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_cfg.Watchdog.ThresholdMemory>`
+    	**type**\:  :py:class:`ThresholdMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_cfg.Watchdog.ThresholdMemory>`
     
     .. attribute:: threshold_memory_switchover
     
     	switchover the RP at configured memory state
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 2..4
     
     .. attribute:: restart_deadlock_disable
     
     	Disable watchdog restart deadlock
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: monitor_qnet_timeout
     
     	Watchdog monitor transport qnet timeout
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 10..3600
     
@@ -55,7 +55,7 @@ class Watchdog(Entity):
     .. attribute:: monitor_cpuhog_timeout
     
     	Watchdog monitor cpu\-hog persistent timeout configuration
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 10..3600
     
@@ -64,7 +64,7 @@ class Watchdog(Entity):
     .. attribute:: monitor_procnto_timeout
     
     	Watchdog monitor procnto timeout configuration
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 60..3600
     
@@ -73,22 +73,22 @@ class Watchdog(Entity):
     .. attribute:: overload_notification
     
     	Disable critical event notification
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: restart_cpuhog_disable
     
     	Disable watchdog restart cpu\-hog
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: restart_memoryhog_disable
     
     	Disable watchdog restart memory\-hog
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: overload_throttle_timeout
     
     	Watchdog overload throttle timeout configuration
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 5..120
     
@@ -147,21 +147,21 @@ class Watchdog(Entity):
         .. attribute:: minor
         
         	Threshold, Range(5, 40)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 5..40
         
         .. attribute:: severe
         
         	Threshold, Range(4, minor)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 4..40
         
         .. attribute:: critical
         
         	Threshold, Range(3, severe)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 3..40
         

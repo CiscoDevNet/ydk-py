@@ -30,6 +30,25 @@ submodule Cisco-IOS-XE-line {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-09-06 {
+    description
+      "Added line console/vty history ";
+  }
+ 
+  revision 2017-07-24 {
+    description
+      "Add session-limit";
+  }
+
+  revision 2017-06-02 {
+     description
+       "Add alt-name for console line";
+   }
+
+  revision 2017-05-29 {
+    description
+      "Added /line/vty/session-limit";
+  }
   revision 2017-03-24 {
     description
       "Remove refuse-message and vacant-message";
@@ -320,7 +339,9 @@ submodule Cisco-IOS-XE-line {
       leaf size {
         description
           "Set history buffer size";
-        type uint8;
+        type uint16 {
+          range "0..256";
+        }
       }
     }
     // line * / international
@@ -578,6 +599,12 @@ submodule Cisco-IOS-XE-line {
       type uint32 {
         range "0..4294967295";
       }
+    }
+    // line * / session-limit
+    leaf session-limit {
+       description
+        "Set maximum number of sessions";
+       type uint32; 
     }
     // line * / session-timeout
     container session-timeout {

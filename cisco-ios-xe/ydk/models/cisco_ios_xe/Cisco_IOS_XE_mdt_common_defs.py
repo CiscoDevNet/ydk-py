@@ -30,11 +30,17 @@ class MdtSubFilterType(Enum):
 
     	supported.
 
+    .. data:: sub_filter_type_tdl_uri = 2
+
+    	TDL-URI defining the data items of interest.
+
     """
 
     sub_filter_type_none = Enum.YLeaf(0, "sub-filter-type-none")
 
     sub_filter_type_xpath = Enum.YLeaf(1, "sub-filter-type-xpath")
+
+    sub_filter_type_tdl_uri = Enum.YLeaf(2, "sub-filter-type-tdl-uri")
 
 
 class MdtSubUpdateTrigger(Enum):

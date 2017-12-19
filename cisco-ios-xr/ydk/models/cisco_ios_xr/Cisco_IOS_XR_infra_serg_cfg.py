@@ -67,37 +67,39 @@ class SessionRedundancy(Entity):
     .. attribute:: groups
     
     	Table of Group
-    	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups>`
+    	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups>`
     
     .. attribute:: revertive_timer
     
     	None
-    	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.RevertiveTimer>`
+    	**type**\:  :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.RevertiveTimer>`
     
     .. attribute:: redundancy_disable
     
     	Disable
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: enable
     
     	Enable Session Redundancy configuration. Deletion of this object also causes deletion of all associated objects under SessionRedundancy
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: source_interface
     
     	Source Interface for Redundancy Peer Communication
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** [a\-zA\-Z0\-9./\-]+
     
     .. attribute:: preferred_role
     
     	Set preferred role
-    	**type**\:   :py:class:`SessionRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancyGroupRole>`
+    	**type**\:  :py:class:`SessionRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancyGroupRole>`
     
     .. attribute:: hold_timer
     
     	Set hold time (in Minutes)
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..65535
     
@@ -153,7 +155,7 @@ class SessionRedundancy(Entity):
         .. attribute:: group
         
         	Redundancy Group configuration
-        	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group>`
+        	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group>`
         
         
 
@@ -187,64 +189,64 @@ class SessionRedundancy(Entity):
             .. attribute:: group_id  <key>
             
             	Group ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..500
             
             .. attribute:: peer
             
             	None
-            	**type**\:   :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.Peer>`
+            	**type**\:  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.Peer>`
             
             .. attribute:: revertive_timer
             
             	None
-            	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.RevertiveTimer>`
+            	**type**\:  :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.RevertiveTimer>`
             
             .. attribute:: interface_list
             
             	List of Interfaces for this Group
-            	**type**\:   :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList>`
+            	**type**\:  :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList>`
             
             .. attribute:: core_tracking_object
             
             	Core Tracking Object for this Group
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: disable_tracking_object
             
             	Disable Tracking Object for this Group
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: redundancy_disable
             
             	Disable
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable
             
             	Enable Redundancy Group configuration. Deletion of this object also causes deletion of all associated objects under Group
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: description
             
             	Description for this Group
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: access_tracking_object
             
             	Access Tracking Object for this Group
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: preferred_role
             
             	Set preferred role
-            	**type**\:   :py:class:`SessionRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancyGroupRole>`
+            	**type**\:  :py:class:`SessionRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancyGroupRole>`
             
             .. attribute:: hold_timer
             
             	Set hold time (in Minutes)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -313,7 +315,7 @@ class SessionRedundancy(Entity):
                 .. attribute:: ipaddress
                 
                 	IPv4 or IPv6 Address of SERG Peer
-                	**type**\:   :py:class:`Ipaddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.Peer.Ipaddress>`
+                	**type**\:  :py:class:`Ipaddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.Peer.Ipaddress>`
                 
                 
 
@@ -346,21 +348,21 @@ class SessionRedundancy(Entity):
                     .. attribute:: address_family
                     
                     	Type of IPv4/IPv6 address
-                    	**type**\:   :py:class:`SergAddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SergAddrFamily>`
+                    	**type**\:  :py:class:`SergAddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SergAddrFamily>`
                     
                     .. attribute:: prefix_string
                     
                     	IPv4/IPv6 address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     
 
                     """
@@ -394,14 +396,14 @@ class SessionRedundancy(Entity):
                 .. attribute:: max_value
                 
                 	Value of MAX Revertive Timer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
                 .. attribute:: value
                 
                 	Value of revertive time in minutes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
@@ -440,17 +442,17 @@ class SessionRedundancy(Entity):
                 .. attribute:: interface_ranges
                 
                 	Table of InterfaceRange
-                	**type**\:   :py:class:`InterfaceRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges>`
+                	**type**\:  :py:class:`InterfaceRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges>`
                 
                 .. attribute:: interfaces
                 
                 	Table of Interface
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList.Interfaces>`
+                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList.Interfaces>`
                 
                 .. attribute:: enable
                 
                 	Enable List of Interfaces for this Group. Deletion of this object also causes deletion of all associated objects under InterfaceList 
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -493,7 +495,7 @@ class SessionRedundancy(Entity):
                     .. attribute:: interface_range
                     
                     	Interface for this Group
-                    	**type**\: list of    :py:class:`InterfaceRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange>`
+                    	**type**\: list of  		 :py:class:`InterfaceRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange>`
                     
                     
 
@@ -526,33 +528,35 @@ class SessionRedundancy(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	Interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: sub_interface_range_start  <key>
                         
                         	Sub Interface Start Range
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..2147483647
                         
                         .. attribute:: sub_interface_range_end  <key>
                         
                         	Sub Interface End Range
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..2147483647
                         
                         .. attribute:: interface_id_range_start
                         
                         	Interface ID Start Range
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: interface_id_range_end
                         
                         	Interface ID End Range
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
@@ -595,7 +599,7 @@ class SessionRedundancy(Entity):
                     .. attribute:: interface
                     
                     	Interface for this Group
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface>`
                     
                     
 
@@ -628,12 +632,14 @@ class SessionRedundancy(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	Interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: interface_id
                         
                         	Interface Id for the interface
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
@@ -672,14 +678,14 @@ class SessionRedundancy(Entity):
         .. attribute:: max_value
         
         	Value of MAX Revertive Timer
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..65535
         
         .. attribute:: value
         
         	Value of revertive time in minutes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..65535
         

@@ -47,7 +47,7 @@ class Interfaces(Entity):
     .. attribute:: interface
     
     	The list of configured interfaces on the device.  The operational state of an interface is available in the /interfaces\-state/interface list.  If the configuration of a system\-controlled interface cannot be used by the system (e.g., the interface hardware present does not match the interface type), then the configuration is not applied to the system\-controlled interface shown in the /interfaces\-state/interface list.  If the configuration of a user\-controlled interface cannot be used by the system, the configured interface is not instantiated in the /interfaces\-state/interface list
-    	**type**\: list of    :py:class:`Interface <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
+    	**type**\: list of  		 :py:class:`Interface <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
     
     
 
@@ -92,48 +92,48 @@ class Interfaces(Entity):
         .. attribute:: name  <key>
         
         	The name of the interface.  A device MAY restrict the allowed values for this leaf, possibly depending on the type of the interface. For system\-controlled interfaces, this leaf is the device\-specific name of the interface.  The 'config false' list /interfaces\-state/interface contains the currently existing interfaces on the device.  If a client tries to create configuration for a system\-controlled interface that is not present in the /interfaces\-state/interface list, the server MAY reject the request if the implementation does not support pre\-provisioning of interfaces or if the name refers to an interface that can never exist in the system.  A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case.  If the device supports pre\-provisioning of interface configuration, the 'pre\-provisioning' feature is advertised.  If the device allows arbitrarily named user\-controlled interfaces, the 'arbitrary\-names' feature is advertised.  When a configured user\-controlled interface is created by the system, it is instantiated with the same name in the /interface\-state/interface list
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: description
         
         	A textual description of the interface.  A server implementation MAY map this leaf to the ifAlias MIB object.  Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifAlias.  The definition of such a mechanism is outside the scope of this document.  Since ifAlias is defined to be stored in non\-volatile storage, the MIB implementation MUST map ifAlias to the value of 'description' in the persistently stored datastore.  Specifically, if the device supports '\:startup', when ifAlias is read the device MUST return the value of 'description' in the 'startup' datastore, and when it is written, it MUST be written to the 'running' and 'startup' datastores.  Note that it is up to the implementation to  decide whether to modify this single leaf in 'startup' or perform an implicit copy\-config from 'running' to 'startup'.  If the device does not support '\:startup', ifAlias MUST be mapped to the 'description' leaf in the 'running' datastore
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: type
         
         	The type of the interface.  When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.  If a client tries to set the type of an interface to a value that can never be used by the system, e.g., if the type is not supported or if the type does not match the name of the interface, the server MUST reject the request. A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case
-        	**type**\:   :py:class:`InterfaceType <ydk.models.ietf.ietf_interfaces.InterfaceType>`
+        	**type**\:  :py:class:`InterfaceType <ydk.models.ietf.ietf_interfaces.InterfaceType>`
         
         	**mandatory**\: True
         
         .. attribute:: enabled
         
         	This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.    Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: true
         
         .. attribute:: link_up_down_trap_enable
         
         	Controls whether linkUp/linkDown SNMP notifications should be generated for this interface.  If this node is not configured, the value 'enabled' is operationally used by the server for interfaces that do not operate on top of any other interface (i.e., there are no 'lower\-layer\-if' entries), and 'disabled' otherwise
-        	**type**\:   :py:class:`LinkUpDownTrapEnable <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.LinkUpDownTrapEnable>`
+        	**type**\:  :py:class:`LinkUpDownTrapEnable <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.LinkUpDownTrapEnable>`
         
         .. attribute:: diffserv_target_entry
         
         	policy target for inbound or outbound direction
-        	**type**\: list of    :py:class:`DiffservTargetEntry <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.DiffservTargetEntry>`
+        	**type**\: list of  		 :py:class:`DiffservTargetEntry <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.DiffservTargetEntry>`
         
         .. attribute:: ipv4
         
         	Parameters for the IPv4 address family
-        	**type**\:   :py:class:`Ipv4 <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv4>`
+        	**type**\:  :py:class:`Ipv4 <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv4>`
         
         	**presence node**\: True
         
         .. attribute:: ipv6
         
         	Parameters for the IPv6 address family
-        	**type**\:   :py:class:`Ipv6 <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6>`
+        	**type**\:  :py:class:`Ipv6 <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6>`
         
         	**presence node**\: True
         
@@ -151,8 +151,8 @@ class Interfaces(Entity):
             self.yang_parent_name = "interfaces"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"ipv4" : ("ipv4", Interfaces.Interface.Ipv4), "ipv6" : ("ipv6", Interfaces.Interface.Ipv6)}
-            self._child_list_classes = {"diffserv-target-entry" : ("diffserv_target_entry", Interfaces.Interface.DiffservTargetEntry)}
+            self._child_container_classes = {"ietf-ip:ipv4" : ("ipv4", Interfaces.Interface.Ipv4), "ietf-ip:ipv6" : ("ipv6", Interfaces.Interface.Ipv6)}
+            self._child_list_classes = {"ietf-diffserv-target:diffserv-target-entry" : ("diffserv_target_entry", Interfaces.Interface.DiffservTargetEntry)}
 
             self.name = YLeaf(YType.str, "name")
 
@@ -214,12 +214,12 @@ class Interfaces(Entity):
             .. attribute:: direction  <key>
             
             	Direction fo the traffic flow either inbound or outbound
-            	**type**\:   :py:class:`Direction <ydk.models.ietf.ietf_diffserv_target.Direction>`
+            	**type**\:  :py:class:`Direction <ydk.models.ietf.ietf_diffserv_target.Direction>`
             
             .. attribute:: policy_name  <key>
             
             	Policy entry name
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -254,21 +254,21 @@ class Interfaces(Entity):
             .. attribute:: enabled
             
             	Controls whether IPv4 is enabled or disabled on this interface.  When IPv4 is enabled, this interface is connected to an IPv4 stack, and the interface can send and receive IPv4 packets
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: true
             
             .. attribute:: forwarding
             
             	Controls IPv4 packet forwarding of datagrams received by, but not addressed to, this interface.  IPv4 routers forward datagrams.  IPv4 hosts do not (except those source\-routed via the host)
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
             .. attribute:: mtu
             
             	The size, in octets, of the largest IPv4 packet that the interface will send and receive. The server may restrict the allowed values for this leaf, depending on the interface's type. If this leaf is not configured, the operationally used MTU depends on the interface's type
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 68..65535
             
@@ -277,12 +277,12 @@ class Interfaces(Entity):
             .. attribute:: address
             
             	The list of configured IPv4 addresses on the interface
-            	**type**\: list of    :py:class:`Address <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv4.Address>`
+            	**type**\: list of  		 :py:class:`Address <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv4.Address>`
             
             .. attribute:: neighbor
             
             	A list of mappings from IPv4 addresses to link\-layer addresses. Entries in this list are used as static entries in the ARP Cache
-            	**type**\: list of    :py:class:`Neighbor <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv4.Neighbor>`
+            	**type**\: list of  		 :py:class:`Neighbor <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv4.Neighbor>`
             
             
 
@@ -325,19 +325,23 @@ class Interfaces(Entity):
                 .. attribute:: ip  <key>
                 
                 	The IPv4 address on the interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: prefix_length
                 
                 	The length of the subnet prefix
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..32
                 
                 .. attribute:: netmask
                 
                 	The subnet specified as a netmask
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                 
                 
 
@@ -377,12 +381,16 @@ class Interfaces(Entity):
                 .. attribute:: ip  <key>
                 
                 	The IPv4 address of the neighbor node
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: link_layer_address
                 
                 	The link\-layer address of the neighbor node
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
                 	**mandatory**\: True
                 
@@ -419,21 +427,21 @@ class Interfaces(Entity):
             .. attribute:: enabled
             
             	Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: true
             
             .. attribute:: forwarding
             
             	Controls IPv6 packet forwarding of datagrams received by, but not addressed to, this interface.  IPv6 routers forward datagrams.  IPv6 hosts do not (except those source\-routed via the host)
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
             .. attribute:: mtu
             
             	The size, in octets, of the largest IPv6 packet that the interface will send and receive. The server may restrict the allowed values for this leaf, depending on the interface's type. If this leaf is not configured, the operationally used MTU depends on the interface's type
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1280..4294967295
             
@@ -442,17 +450,17 @@ class Interfaces(Entity):
             .. attribute:: address
             
             	The list of configured IPv6 addresses on the interface
-            	**type**\: list of    :py:class:`Address <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6.Address>`
+            	**type**\: list of  		 :py:class:`Address <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6.Address>`
             
             .. attribute:: neighbor
             
             	A list of mappings from IPv6 addresses to link\-layer addresses. Entries in this list are used as static entries in the Neighbor Cache
-            	**type**\: list of    :py:class:`Neighbor <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6.Neighbor>`
+            	**type**\: list of  		 :py:class:`Neighbor <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6.Neighbor>`
             
             .. attribute:: dup_addr_detect_transmits
             
             	The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -461,12 +469,12 @@ class Interfaces(Entity):
             .. attribute:: autoconf
             
             	Parameters to control the autoconfiguration of IPv6 addresses, as described in RFC 4862
-            	**type**\:   :py:class:`Autoconf <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6.Autoconf>`
+            	**type**\:  :py:class:`Autoconf <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6.Autoconf>`
             
             .. attribute:: ipv6_router_advertisements
             
             	Configuration of IPv6 Router Advertisements
-            	**type**\:   :py:class:`Ipv6RouterAdvertisements <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements>`
+            	**type**\:  :py:class:`Ipv6RouterAdvertisements <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements>`
             
             
 
@@ -484,7 +492,7 @@ class Interfaces(Entity):
                 self.yang_parent_name = "interface"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"autoconf" : ("autoconf", Interfaces.Interface.Ipv6.Autoconf), "ipv6-router-advertisements" : ("ipv6_router_advertisements", Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements)}
+                self._child_container_classes = {"autoconf" : ("autoconf", Interfaces.Interface.Ipv6.Autoconf), "ietf-ipv6-unicast-routing:ipv6-router-advertisements" : ("ipv6_router_advertisements", Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements)}
                 self._child_list_classes = {"address" : ("address", Interfaces.Interface.Ipv6.Address), "neighbor" : ("neighbor", Interfaces.Interface.Ipv6.Neighbor)}
                 self.is_presence_container = True
 
@@ -521,12 +529,14 @@ class Interfaces(Entity):
                 .. attribute:: ip  <key>
                 
                 	The IPv6 address on the interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: prefix_length
                 
                 	The length of the subnet prefix
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..128
                 
@@ -568,12 +578,16 @@ class Interfaces(Entity):
                 .. attribute:: ip  <key>
                 
                 	The IPv6 address of the neighbor node
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: link_layer_address
                 
                 	The link\-layer address of the neighbor node
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
                 	**mandatory**\: True
                 
@@ -611,21 +625,21 @@ class Interfaces(Entity):
                 .. attribute:: create_global_addresses
                 
                 	If enabled, the host creates global addresses as described in RFC 4862
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: true
                 
                 .. attribute:: create_temporary_addresses
                 
                 	If enabled, the host creates temporary addresses as described in RFC 4941
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: temporary_valid_lifetime
                 
                 	The time period during which the temporary address is valid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -636,7 +650,7 @@ class Interfaces(Entity):
                 .. attribute:: temporary_preferred_lifetime
                 
                 	The time period during which the temporary address is preferred
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -681,14 +695,14 @@ class Interfaces(Entity):
                 .. attribute:: send_advertisements
                 
                 	A flag indicating whether or not the router sends periodic Router Advertisements and responds to Router Solicitations
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: max_rtr_adv_interval
                 
                 	The maximum time allowed between sending unsolicited multicast Router Advertisements from the interface
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 4..1800
                 
@@ -699,7 +713,7 @@ class Interfaces(Entity):
                 .. attribute:: min_rtr_adv_interval
                 
                 	The minimum time allowed between sending unsolicited multicast Router Advertisements from the interface.  The default value to be used operationally if this leaf is not configured is determined as follows\:  \- if max\-rtr\-adv\-interval >= 9 seconds, the default value   is 0.33 \* max\-rtr\-adv\-interval;  \- otherwise it is 0.75 \* max\-rtr\-adv\-interval
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 3..1350
                 
@@ -708,21 +722,21 @@ class Interfaces(Entity):
                 .. attribute:: managed_flag
                 
                 	The value to be placed in the 'Managed address configuration' flag field in the Router Advertisement
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: other_config_flag
                 
                 	The value to be placed in the 'Other configuration' flag field in the Router Advertisement
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: link_mtu
                 
                 	The value to be placed in MTU options sent by the router. A value of zero indicates that no MTU options are sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -731,7 +745,7 @@ class Interfaces(Entity):
                 .. attribute:: reachable_time
                 
                 	The value to be placed in the Reachable Time field in the Router Advertisement messages sent by the router. A value of zero means unspecified (by this router)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..3600000
                 
@@ -742,7 +756,7 @@ class Interfaces(Entity):
                 .. attribute:: retrans_timer
                 
                 	The value to be placed in the Retrans Timer field in the Router Advertisement messages sent by the router. A value of zero means unspecified (by this router)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -753,14 +767,14 @@ class Interfaces(Entity):
                 .. attribute:: cur_hop_limit
                 
                 	The value to be placed in the Cur Hop Limit field in the Router Advertisement messages sent by the router. A value of zero means unspecified (by this router).  If this parameter is not configured, the device SHOULD use the value specified in IANA Assigned Numbers that was in effect at the time of implementation
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: default_lifetime
                 
                 	The value to be placed in the Router Lifetime field of Router Advertisements sent from the interface, in seconds. It MUST be either zero or between max\-rtr\-adv\-interval and 9000 seconds. A value of zero indicates that the router is not to be used as a default router. These limits may be overridden by specific documents that describe how IPv6 operates over different link layers.  If this parameter is not configured, the device SHOULD use a value of 3 \* max\-rtr\-adv\-interval
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..9000
                 
@@ -769,7 +783,7 @@ class Interfaces(Entity):
                 .. attribute:: prefix_list
                 
                 	Configuration of prefixes to be placed in Prefix Information options in Router Advertisement messages sent from the interface.  Prefixes that are advertised by default but do not have their entries in the child 'prefix' list are advertised with the default values of all parameters.  The link\-local prefix SHOULD NOT be included in the list of advertised prefixes
-                	**type**\:   :py:class:`PrefixList <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList>`
+                	**type**\:  :py:class:`PrefixList <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList>`
                 
                 
 
@@ -834,7 +848,7 @@ class Interfaces(Entity):
                     .. attribute:: prefix
                     
                     	Configuration of an advertised prefix entry
-                    	**type**\: list of    :py:class:`Prefix <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList.Prefix>`
+                    	**type**\: list of  		 :py:class:`Prefix <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList.Prefix>`
                     
                     
 
@@ -867,17 +881,19 @@ class Interfaces(Entity):
                         .. attribute:: prefix_spec  <key>
                         
                         	IPv6 address prefix
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                         
                         .. attribute:: no_advertise
                         
                         	The prefix will not be advertised.  This can be used for removing the prefix from the default set of advertised prefixes
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: valid_lifetime
                         
                         	The value to be placed in the Valid Lifetime in the Prefix Information option. The designated value of all 1's (0xffffffff) represents infinity
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -888,14 +904,14 @@ class Interfaces(Entity):
                         .. attribute:: on_link_flag
                         
                         	The value to be placed in the on\-link flag ('L\-bit') field in the Prefix Information option
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
                         .. attribute:: preferred_lifetime
                         
                         	The value to be placed in the Preferred Lifetime in the Prefix Information option. The designated value of all 1's (0xffffffff) represents infinity
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -906,7 +922,7 @@ class Interfaces(Entity):
                         .. attribute:: autonomous_flag
                         
                         	The value to be placed in the Autonomous Flag field in the Prefix Information option
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
@@ -954,7 +970,7 @@ class InterfacesState(Entity):
     .. attribute:: interface
     
     	The list of interfaces on the device.  System\-controlled interfaces created by the system are always present in this list, whether they are configured or not
-    	**type**\: list of    :py:class:`Interface <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
+    	**type**\: list of  		 :py:class:`Interface <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
     
     
 
@@ -992,38 +1008,40 @@ class InterfacesState(Entity):
         .. attribute:: name  <key>
         
         	The name of the interface.  A server implementation MAY map this leaf to the ifName MIB object.  Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifName.  The definition of such a mechanism is outside the scope of this document
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: type
         
         	The type of the interface
-        	**type**\:   :py:class:`InterfaceType <ydk.models.ietf.ietf_interfaces.InterfaceType>`
+        	**type**\:  :py:class:`InterfaceType <ydk.models.ietf.ietf_interfaces.InterfaceType>`
         
         	**mandatory**\: True
         
         .. attribute:: admin_status
         
         	The desired state of the interface.  This leaf has the same read semantics as ifAdminStatus
-        	**type**\:   :py:class:`AdminStatus <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.AdminStatus>`
+        	**type**\:  :py:class:`AdminStatus <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.AdminStatus>`
         
         	**mandatory**\: True
         
         .. attribute:: oper_status
         
         	The current operational state of the interface.  This leaf has the same semantics as ifOperStatus
-        	**type**\:   :py:class:`OperStatus <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.OperStatus>`
+        	**type**\:  :py:class:`OperStatus <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.OperStatus>`
         
         	**mandatory**\: True
         
         .. attribute:: last_change
         
         	The time the interface entered its current operational state.  If the current state was entered prior to the last re\-initialization of the local network management subsystem, then this node is not present
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
         .. attribute:: if_index
         
         	The ifIndex value for the ifEntry represented by this interface
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -1032,26 +1050,28 @@ class InterfacesState(Entity):
         .. attribute:: phys_address
         
         	The interface's address at its protocol sub\-layer.  For example, for an 802.x interface, this object normally contains a Media Access Control (MAC) address.  The interface's media\-specific modules must define the bit   and byte ordering and the format of the value of this object.  For interfaces that do not have such an address (e.g., a serial line), this node is not present
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
         
         .. attribute:: higher_layer_if
         
         	A list of references to interfaces layered on top of this interface
-        	**type**\:  list of str
+        	**type**\: list of str
         
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
         
         .. attribute:: lower_layer_if
         
         	A list of references to interfaces layered underneath this interface
-        	**type**\:  list of str
+        	**type**\: list of str
         
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
         
         .. attribute:: speed
         
         	An estimate of the interface's current bandwidth in bits per second.  For interfaces that do not vary in bandwidth or for those where no accurate estimation can be made, this node should contain the nominal bandwidth. For interfaces that have no concept of bandwidth, this node is not present
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1060,31 +1080,31 @@ class InterfacesState(Entity):
         .. attribute:: statistics
         
         	A collection of interface\-related statistics objects
-        	**type**\:   :py:class:`Statistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Statistics>`
+        	**type**\:  :py:class:`Statistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Statistics>`
         
         .. attribute:: diffserv_target_entry
         
         	policy target for inbound or outbound direction
-        	**type**\: list of    :py:class:`DiffservTargetEntry <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry>`
+        	**type**\: list of  		 :py:class:`DiffservTargetEntry <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry>`
         
         .. attribute:: ipv4
         
         	Interface\-specific parameters for the IPv4 address family
-        	**type**\:   :py:class:`Ipv4 <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv4>`
+        	**type**\:  :py:class:`Ipv4 <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv4>`
         
         	**presence node**\: True
         
         .. attribute:: ipv6
         
         	Parameters for the IPv6 address family
-        	**type**\:   :py:class:`Ipv6 <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6>`
+        	**type**\:  :py:class:`Ipv6 <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6>`
         
         	**presence node**\: True
         
         .. attribute:: routing_instance
         
         	The name of the routing instance to which the interface is assigned
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -1100,8 +1120,8 @@ class InterfacesState(Entity):
             self.yang_parent_name = "interfaces-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"statistics" : ("statistics", InterfacesState.Interface.Statistics), "ipv4" : ("ipv4", InterfacesState.Interface.Ipv4), "ipv6" : ("ipv6", InterfacesState.Interface.Ipv6)}
-            self._child_list_classes = {"diffserv-target-entry" : ("diffserv_target_entry", InterfacesState.Interface.DiffservTargetEntry)}
+            self._child_container_classes = {"statistics" : ("statistics", InterfacesState.Interface.Statistics), "ietf-ip:ipv4" : ("ipv4", InterfacesState.Interface.Ipv4), "ietf-ip:ipv6" : ("ipv6", InterfacesState.Interface.Ipv6)}
+            self._child_list_classes = {"ietf-diffserv-target:diffserv-target-entry" : ("diffserv_target_entry", InterfacesState.Interface.DiffservTargetEntry)}
 
             self.name = YLeaf(YType.str, "name")
 
@@ -1237,112 +1257,114 @@ class InterfacesState(Entity):
             .. attribute:: discontinuity_time
             
             	The time on the most recent occasion at which any one or more of this interface's counters suffered a discontinuity.  If no such discontinuities have occurred since the last re\-initialization of the local management subsystem, then this node contains the time the local management subsystem re\-initialized itself
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
             	**mandatory**\: True
             
             .. attribute:: in_octets
             
             	The total number of octets received on the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: in_unicast_pkts
             
             	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were not addressed to a multicast or broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: in_broadcast_pkts
             
             	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: in_multicast_pkts
             
             	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a multicast address at this sub\-layer.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: in_discards
             
             	The number of inbound packets that were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher\-layer protocol.  One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: in_errors
             
             	For packet\-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher\-layer protocol.  For character\- oriented or fixed\-length interfaces, the number of inbound transmission units that contained errors preventing them from being deliverable to a higher\-layer protocol.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: in_unknown_protos
             
             	For packet\-oriented interfaces, the number of packets received via the interface that were discarded because of an unknown or unsupported protocol.  For character\-oriented or fixed\-length interfaces that support protocol multiplexing, the number of transmission units received via the interface that were discarded because of an unknown or unsupported protocol. For any interface that does not support protocol multiplexing, this counter is not present.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: out_octets
             
             	The total number of octets transmitted out of the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: out_unicast_pkts
             
             	The total number of packets that higher\-level protocols requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: out_broadcast_pkts
             
             	The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: out_multicast_pkts
             
             	The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a multicast address at this sub\-layer, including those that were discarded or not sent.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: out_discards
             
             	The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted.  One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: out_errors
             
             	For packet\-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. For character\-oriented or fixed\-length interfaces, the number of outbound transmission units that could not be transmitted because of errors.     Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: in_pkts
             
             	total packets input
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: out_pkts
             
             	total packets output
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1407,17 +1429,17 @@ class InterfacesState(Entity):
             .. attribute:: direction  <key>
             
             	Direction fo the traffic flow either inbound or outbound
-            	**type**\:   :py:class:`Direction <ydk.models.ietf.ietf_diffserv_target.Direction>`
+            	**type**\:  :py:class:`Direction <ydk.models.ietf.ietf_diffserv_target.Direction>`
             
             .. attribute:: policy_name  <key>
             
             	Policy entry name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: diffserv_target_classifier_statistics
             
             	Statistics for each Classifier Entry in a Policy
-            	**type**\: list of    :py:class:`DiffservTargetClassifierStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics>`
+            	**type**\: list of  		 :py:class:`DiffservTargetClassifierStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics>`
             
             
 
@@ -1454,27 +1476,27 @@ class InterfacesState(Entity):
                 .. attribute:: classifier_entry_name  <key>
                 
                 	Classifier Entry Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: parent_path  <key>
                 
                 	Path of the Classifier Entry in a hierarchial policy 
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: classifier_entry_statistics
                 
                 	 This group defines the classifier filter statistics of  each classifier entry         
-                	**type**\:   :py:class:`ClassifierEntryStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics>`
+                	**type**\:  :py:class:`ClassifierEntryStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics>`
                 
                 .. attribute:: meter_statistics
                 
                 	Meter statistics
-                	**type**\: list of    :py:class:`MeterStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics>`
+                	**type**\: list of  		 :py:class:`MeterStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics>`
                 
                 .. attribute:: queuing_statistics
                 
                 	queue related statistics 
-                	**type**\:   :py:class:`QueuingStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics>`
+                	**type**\:  :py:class:`QueuingStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics>`
                 
                 
 
@@ -1525,21 +1547,21 @@ class InterfacesState(Entity):
                     .. attribute:: classified_pkts
                     
                     	 Number of total packets which filtered  to the classifier\-entry
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: classified_bytes
                     
                     	 Number of total bytes which filtered   to the classifier\-entry
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: classified_rate
                     
                     	 Rate of average data flow through the   classifier\-entry
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1580,35 +1602,35 @@ class InterfacesState(Entity):
                     .. attribute:: meter_id  <key>
                     
                     	Meter Identifier
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: meter_succeed_pkts
                     
                     	Number of packets which succeed the meter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: meter_succeed_bytes
                     
                     	Bytes of packets which succeed the meter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: meter_failed_pkts
                     
                     	Number of packets which failed the meter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: meter_failed_bytes
                     
                     	Bytes of packets which failed the meter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1651,49 +1673,49 @@ class InterfacesState(Entity):
                     .. attribute:: output_pkts
                     
                     	Number of packets transmitted from queue 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: output_bytes
                     
                     	Number of bytes transmitted from queue 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: queue_size_pkts
                     
                     	Number of packets currently buffered 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: queue_size_bytes
                     
                     	Number of bytes currently buffered 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: drop_pkts
                     
                     	Total number of packets dropped 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: drop_bytes
                     
                     	Total number of bytes dropped 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: wred_stats
                     
                     	Container for WRED statistics
-                    	**type**\:   :py:class:`WredStats <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats>`
+                    	**type**\:  :py:class:`WredStats <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats>`
                     
                     
 
@@ -1741,14 +1763,14 @@ class InterfacesState(Entity):
                         .. attribute:: early_drop_pkts
                         
                         	Early drop packets 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: early_drop_bytes
                         
                         	Early drop bytes 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1785,12 +1807,12 @@ class InterfacesState(Entity):
             .. attribute:: forwarding
             
             	Indicates whether IPv4 packet forwarding is enabled or disabled on this interface
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: mtu
             
             	The size, in octets, of the largest IPv4 packet that the interface will send and receive
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 68..65535
             
@@ -1799,12 +1821,12 @@ class InterfacesState(Entity):
             .. attribute:: address
             
             	The list of IPv4 addresses on the interface
-            	**type**\: list of    :py:class:`Address <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv4.Address>`
+            	**type**\: list of  		 :py:class:`Address <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv4.Address>`
             
             .. attribute:: neighbor
             
             	A list of mappings from IPv4 addresses to link\-layer addresses. This list represents the ARP Cache
-            	**type**\: list of    :py:class:`Neighbor <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv4.Neighbor>`
+            	**type**\: list of  		 :py:class:`Neighbor <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv4.Neighbor>`
             
             
 
@@ -1845,24 +1867,28 @@ class InterfacesState(Entity):
                 .. attribute:: ip  <key>
                 
                 	The IPv4 address on the interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: prefix_length
                 
                 	The length of the subnet prefix
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..32
                 
                 .. attribute:: netmask
                 
                 	The subnet specified as a netmask
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                 
                 .. attribute:: origin
                 
                 	The origin of this address
-                	**type**\:   :py:class:`IpAddressOrigin <ydk.models.ietf.ietf_ip.IpAddressOrigin>`
+                	**type**\:  :py:class:`IpAddressOrigin <ydk.models.ietf.ietf_ip.IpAddressOrigin>`
                 
                 
 
@@ -1903,17 +1929,21 @@ class InterfacesState(Entity):
                 .. attribute:: ip  <key>
                 
                 	The IPv4 address of the neighbor node
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: link_layer_address
                 
                 	The link\-layer address of the neighbor node
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
                 .. attribute:: origin
                 
                 	The origin of this neighbor entry
-                	**type**\:   :py:class:`NeighborOrigin <ydk.models.ietf.ietf_ip.NeighborOrigin>`
+                	**type**\:  :py:class:`NeighborOrigin <ydk.models.ietf.ietf_ip.NeighborOrigin>`
                 
                 
 
@@ -1950,14 +1980,14 @@ class InterfacesState(Entity):
             .. attribute:: forwarding
             
             	Indicates whether IPv6 packet forwarding is enabled or disabled on this interface
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
             .. attribute:: mtu
             
             	The size, in octets, of the largest IPv6 packet that the interface will send and receive
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1280..4294967295
             
@@ -1966,12 +1996,12 @@ class InterfacesState(Entity):
             .. attribute:: address
             
             	The list of IPv6 addresses on the interface
-            	**type**\: list of    :py:class:`Address <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6.Address>`
+            	**type**\: list of  		 :py:class:`Address <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6.Address>`
             
             .. attribute:: neighbor
             
             	A list of mappings from IPv6 addresses to link\-layer addresses. This list represents the Neighbor Cache
-            	**type**\: list of    :py:class:`Neighbor <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6.Neighbor>`
+            	**type**\: list of  		 :py:class:`Neighbor <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6.Neighbor>`
             
             
 
@@ -2012,12 +2042,14 @@ class InterfacesState(Entity):
                 .. attribute:: ip  <key>
                 
                 	The IPv6 address on the interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: prefix_length
                 
                 	The length of the subnet prefix
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..128
                 
@@ -2026,12 +2058,12 @@ class InterfacesState(Entity):
                 .. attribute:: origin
                 
                 	The origin of this address
-                	**type**\:   :py:class:`IpAddressOrigin <ydk.models.ietf.ietf_ip.IpAddressOrigin>`
+                	**type**\:  :py:class:`IpAddressOrigin <ydk.models.ietf.ietf_ip.IpAddressOrigin>`
                 
                 .. attribute:: status
                 
                 	The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
-                	**type**\:   :py:class:`Status <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6.Address.Status>`
+                	**type**\:  :py:class:`Status <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6.Address.Status>`
                 
                 
 
@@ -2159,27 +2191,31 @@ class InterfacesState(Entity):
                 .. attribute:: ip  <key>
                 
                 	The IPv6 address of the neighbor node
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: link_layer_address
                 
                 	The link\-layer address of the neighbor node
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
                 .. attribute:: origin
                 
                 	The origin of this neighbor entry
-                	**type**\:   :py:class:`NeighborOrigin <ydk.models.ietf.ietf_ip.NeighborOrigin>`
+                	**type**\:  :py:class:`NeighborOrigin <ydk.models.ietf.ietf_ip.NeighborOrigin>`
                 
                 .. attribute:: is_router
                 
                 	Indicates that the neighbor node acts as a router
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: state
                 
                 	The Neighbor Unreachability Detection state of this entry
-                	**type**\:   :py:class:`State <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6.Neighbor.State>`
+                	**type**\:  :py:class:`State <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6.Neighbor.State>`
                 
                 
 

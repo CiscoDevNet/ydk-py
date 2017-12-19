@@ -18,12 +18,12 @@ class CISCOFTPCLIENTMIB(Entity):
     .. attribute:: cfcrequest
     
     	
-    	**type**\:   :py:class:`Cfcrequest <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequest>`
+    	**type**\:  :py:class:`Cfcrequest <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequest>`
     
     .. attribute:: cfcrequesttable
     
     	A table of FTP client requests
-    	**type**\:   :py:class:`Cfcrequesttable <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable>`
+    	**type**\:  :py:class:`Cfcrequesttable <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable>`
     
     
 
@@ -62,28 +62,28 @@ class CISCOFTPCLIENTMIB(Entity):
         .. attribute:: cfcrequestmaximum
         
         	The maximum number of requests this system can hold in cfcRequestTable.  A value of 0 indicates no configured limit.  This object may be read\-only on some systems.  When an attempt is made to create a new entry but the table is full, the oldest completed entry is bumped out and cfcRequestsBumped is incremented.  Changing this number does not disturb existing requests that are not completed and bumps completed requests as necessary
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: cfcrequests
         
         	The current number of requests in cfcRequestTable
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: cfcrequestshigh
         
         	The highest number of requests in cfcRequestTable since this system was last initialized
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: cfcrequestsbumped
         
         	The number of requests in cfcRequestTable that were bumped out to make room for a new request
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -125,7 +125,7 @@ class CISCOFTPCLIENTMIB(Entity):
         .. attribute:: cfcrequestentry
         
         	Information about an FTP client request.  Management applications use cfcRequestEntryStatus to control entry modification, creation, and deletion.  Setting cfcRequestEntryStatus to 'active' from any state including 'active' causes the operation to be started.  The entry may be modified only when cfcRequestOperationState is 'stopped'.  The value of cfcRequestEntryStatus may be set to 'destroy' at any time.  Doing so will abort a running request.  Entries may not be created without explicitly setting cfcRequestEntryStatus to either 'createAndGo' or 'createAndWait'
-        	**type**\: list of    :py:class:`Cfcrequestentry <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry>`
+        	**type**\: list of  		 :py:class:`Cfcrequestentry <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry>`
         
         
 
@@ -173,76 +173,76 @@ class CISCOFTPCLIENTMIB(Entity):
             .. attribute:: cfcrequestindex  <key>
             
             	An arbitrary integer to uniquely identify this entry.  To create an entry a management application should pick a random number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: cfcrequestoperation
             
             	The FTP operation to be performed
-            	**type**\:   :py:class:`Cfcrequestoperation <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestoperation>`
+            	**type**\:  :py:class:`Cfcrequestoperation <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestoperation>`
             
             .. attribute:: cfcrequestlocalfile
             
             	The local file on which the operation is to be performed
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..255
             
             .. attribute:: cfcrequestremotefile
             
             	The remote file on which the operation is to be performed
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..255
             
             .. attribute:: cfcrequestserver
             
             	The domain name or IP address of the FTP server to use
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: cfcrequestuser
             
             	The user name to use at the FTP server
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: cfcrequestpassword
             
             	The password to use at the FTP server.  When read this object always returns a zero\-length string
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..16
             
             .. attribute:: cfcrequestresult
             
             	The result of the FTP operation
-            	**type**\:   :py:class:`Cfcrequestresult <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestresult>`
+            	**type**\:  :py:class:`Cfcrequestresult <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestresult>`
             
             .. attribute:: cfcrequestcompletiontime
             
             	The value of sysUpTime when the operation completed.  For an incomplete operation this value is zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cfcrequeststop
             
             	The action control to stop a running request.  Setting this to 'stop' will begin the process of stopping the request.  Setting it to 'ready' or setting it to 'stop' more than once have no effect.  When read this object always returns ready
-            	**type**\:   :py:class:`Cfcrequeststop <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequeststop>`
+            	**type**\:  :py:class:`Cfcrequeststop <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequeststop>`
             
             .. attribute:: cfcrequestoperationstate
             
             	The operational state of the file transfer.  To short\-terminate the transfer set cfcRequestStop to 'stop'
-            	**type**\:   :py:class:`Cfcrequestoperationstate <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestoperationstate>`
+            	**type**\:  :py:class:`Cfcrequestoperationstate <ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB.CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry.Cfcrequestoperationstate>`
             
             .. attribute:: cfcrequestentrystatus
             
             	The control that allows modification, creation, and deletion of entries.  For detailed rules see the DESCRIPTION for cfcRequestEntry
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 

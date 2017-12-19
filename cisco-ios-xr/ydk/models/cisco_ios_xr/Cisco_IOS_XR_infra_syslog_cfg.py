@@ -653,7 +653,7 @@ class SyslogService(Entity):
     .. attribute:: timestamps
     
     	Timestamp debug/log messages configuration
-    	**type**\:   :py:class:`Timestamps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps>`
+    	**type**\:  :py:class:`Timestamps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps>`
     
     
 
@@ -687,17 +687,17 @@ class SyslogService(Entity):
         .. attribute:: log
         
         	Timestamp log messages
-        	**type**\:   :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log>`
+        	**type**\:  :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log>`
         
         .. attribute:: debug
         
         	Timestamp debug messages
-        	**type**\:   :py:class:`Debug <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Debug>`
+        	**type**\:  :py:class:`Debug <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Debug>`
         
         .. attribute:: enable
         
         	Enable timestamp debug/log messages
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -741,17 +741,17 @@ class SyslogService(Entity):
             .. attribute:: log_datetime
             
             	Timestamp with date and time
-            	**type**\:   :py:class:`LogDatetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log.LogDatetime>`
+            	**type**\:  :py:class:`LogDatetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log.LogDatetime>`
             
             .. attribute:: log_uptime
             
             	Timestamp with systime uptime
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: log_timestamp_disable
             
             	Disable timestamp log messages
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -792,7 +792,7 @@ class SyslogService(Entity):
                 .. attribute:: log_datetime_value
                 
                 	Set timestamp for log message
-                	**type**\:   :py:class:`LogDatetimeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue>`
+                	**type**\:  :py:class:`LogDatetimeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue>`
                 
                 
 
@@ -826,14 +826,14 @@ class SyslogService(Entity):
                     .. attribute:: time_stamp_value
                     
                     	Time
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    	**type**\:  :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
                     
                     	**default value**\: enable
                     
                     .. attribute:: msec
                     
                     	Seconds
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    	**type**\:  :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
                     
                     	**units**\: second
                     
@@ -842,14 +842,14 @@ class SyslogService(Entity):
                     .. attribute:: time_zone
                     
                     	Timezone
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    	**type**\:  :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
                     
                     	**default value**\: disable
                     
                     .. attribute:: year
                     
                     	Year
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    	**type**\:  :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
                     
                     	**default value**\: disable
                     
@@ -891,17 +891,17 @@ class SyslogService(Entity):
             .. attribute:: debug_datetime
             
             	Timestamp with date and time
-            	**type**\:   :py:class:`DebugDatetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Debug.DebugDatetime>`
+            	**type**\:  :py:class:`DebugDatetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Debug.DebugDatetime>`
             
             .. attribute:: debug_timestamp_disable
             
             	Disable timestamp debug messages
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: debug_uptime
             
             	Timestamp with systime uptime
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -942,7 +942,7 @@ class SyslogService(Entity):
                 .. attribute:: datetime_value
                 
                 	Set time format for debug msg
-                	**type**\:   :py:class:`DatetimeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue>`
+                	**type**\:  :py:class:`DatetimeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue>`
                 
                 
 
@@ -976,14 +976,14 @@ class SyslogService(Entity):
                     .. attribute:: time_stamp_value
                     
                     	Time
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    	**type**\:  :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
                     
                     	**default value**\: enable
                     
                     .. attribute:: msec
                     
                     	Seconds
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    	**type**\:  :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
                     
                     	**units**\: second
                     
@@ -992,14 +992,14 @@ class SyslogService(Entity):
                     .. attribute:: time_zone
                     
                     	Timezone
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    	**type**\:  :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
                     
                     	**default value**\: disable
                     
                     .. attribute:: year
                     
                     	Year
-                    	**type**\:   :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
+                    	**type**\:  :py:class:`TimeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo>`
                     
                     	**default value**\: disable
                     
@@ -1044,72 +1044,72 @@ class Syslog(Entity):
     .. attribute:: monitor_logging
     
     	Set monitor logging
-    	**type**\:   :py:class:`MonitorLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.MonitorLogging>`
+    	**type**\:  :py:class:`MonitorLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.MonitorLogging>`
     
     .. attribute:: history_logging
     
     	Set history logging
-    	**type**\:   :py:class:`HistoryLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HistoryLogging>`
+    	**type**\:  :py:class:`HistoryLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HistoryLogging>`
     
     .. attribute:: logging_facilities
     
     	Modify message logging facilities
-    	**type**\:   :py:class:`LoggingFacilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.LoggingFacilities>`
+    	**type**\:  :py:class:`LoggingFacilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.LoggingFacilities>`
     
     .. attribute:: trap_logging
     
     	Set trap logging
-    	**type**\:   :py:class:`TrapLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.TrapLogging>`
+    	**type**\:  :py:class:`TrapLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.TrapLogging>`
     
     .. attribute:: buffered_logging
     
     	Set buffered logging parameters
-    	**type**\:   :py:class:`BufferedLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.BufferedLogging>`
+    	**type**\:  :py:class:`BufferedLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.BufferedLogging>`
     
     .. attribute:: host_server
     
     	Configure logging host
-    	**type**\:   :py:class:`HostServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer>`
+    	**type**\:  :py:class:`HostServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer>`
     
     .. attribute:: console_logging
     
     	Set console logging
-    	**type**\:   :py:class:`ConsoleLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.ConsoleLogging>`
+    	**type**\:  :py:class:`ConsoleLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.ConsoleLogging>`
     
     .. attribute:: files
     
     	Configure logging file destination
-    	**type**\:   :py:class:`Files <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files>`
+    	**type**\:  :py:class:`Files <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files>`
     
     .. attribute:: ipv4
     
     	Syslog TOS bit for outgoing messages
-    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4>`
+    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4>`
     
     .. attribute:: archive
     
     	Archive attributes configuration
-    	**type**\:   :py:class:`Archive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Archive>`
+    	**type**\:  :py:class:`Archive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Archive>`
     
     .. attribute:: ipv6
     
     	Syslog traffic class bit for outgoing messages
-    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6>`
+    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6>`
     
     .. attribute:: source_interface_table
     
     	Configure source interface
-    	**type**\:   :py:class:`SourceInterfaceTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable>`
+    	**type**\:  :py:class:`SourceInterfaceTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable>`
     
     .. attribute:: host_name_prefix
     
     	Hostname prefix to add on msgs to servers
-    	**type**\:  str
+    	**type**\: str
     
     .. attribute:: local_log_file_size
     
     	Set size of the local log file
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..4294967295
     
@@ -1118,27 +1118,27 @@ class Syslog(Entity):
     .. attribute:: enable_console_logging
     
     	Enabled or disabled
-    	**type**\:  bool
+    	**type**\: bool
     
     .. attribute:: suppress_duplicates
     
     	Suppress consecutive duplicate messages
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: alarm_logger
     
     	Alarm Logger Properties
-    	**type**\:   :py:class:`AlarmLogger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger>`
+    	**type**\:  :py:class:`AlarmLogger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger>`
     
     .. attribute:: correlator
     
     	Configure properties of the event correlator
-    	**type**\:   :py:class:`Correlator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator>`
+    	**type**\:  :py:class:`Correlator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator>`
     
     .. attribute:: suppression
     
     	Configure properties of the syslog/alarm suppression
-    	**type**\:   :py:class:`Suppression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression>`
+    	**type**\:  :py:class:`Suppression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression>`
     
     
 
@@ -1155,7 +1155,7 @@ class Syslog(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-syslog-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"monitor-logging" : ("monitor_logging", Syslog.MonitorLogging), "history-logging" : ("history_logging", Syslog.HistoryLogging), "logging-facilities" : ("logging_facilities", Syslog.LoggingFacilities), "trap-logging" : ("trap_logging", Syslog.TrapLogging), "buffered-logging" : ("buffered_logging", Syslog.BufferedLogging), "host-server" : ("host_server", Syslog.HostServer), "console-logging" : ("console_logging", Syslog.ConsoleLogging), "files" : ("files", Syslog.Files), "ipv4" : ("ipv4", Syslog.Ipv4), "archive" : ("archive", Syslog.Archive), "ipv6" : ("ipv6", Syslog.Ipv6), "source-interface-table" : ("source_interface_table", Syslog.SourceInterfaceTable), "alarm-logger" : ("alarm_logger", Syslog.AlarmLogger), "correlator" : ("correlator", Syslog.Correlator), "suppression" : ("suppression", Syslog.Suppression)}
+        self._child_container_classes = {"monitor-logging" : ("monitor_logging", Syslog.MonitorLogging), "history-logging" : ("history_logging", Syslog.HistoryLogging), "logging-facilities" : ("logging_facilities", Syslog.LoggingFacilities), "trap-logging" : ("trap_logging", Syslog.TrapLogging), "buffered-logging" : ("buffered_logging", Syslog.BufferedLogging), "host-server" : ("host_server", Syslog.HostServer), "console-logging" : ("console_logging", Syslog.ConsoleLogging), "files" : ("files", Syslog.Files), "ipv4" : ("ipv4", Syslog.Ipv4), "archive" : ("archive", Syslog.Archive), "ipv6" : ("ipv6", Syslog.Ipv6), "source-interface-table" : ("source_interface_table", Syslog.SourceInterfaceTable), "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger" : ("alarm_logger", Syslog.AlarmLogger), "Cisco-IOS-XR-infra-correlator-cfg:correlator" : ("correlator", Syslog.Correlator), "Cisco-IOS-XR-infra-correlator-cfg:suppression" : ("suppression", Syslog.Suppression)}
         self._child_list_classes = {}
 
         self.host_name_prefix = YLeaf(YType.str, "host-name-prefix")
@@ -1253,12 +1253,12 @@ class Syslog(Entity):
         .. attribute:: monitor_discriminator
         
         	Set monitor logging discriminators
-        	**type**\:   :py:class:`MonitorDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.MonitorLogging.MonitorDiscriminator>`
+        	**type**\:  :py:class:`MonitorDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.MonitorLogging.MonitorDiscriminator>`
         
         .. attribute:: logging_level
         
         	Monitor Logging Level
-        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
+        	**type**\:  :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
         
         	**default value**\: debug
         
@@ -1299,32 +1299,32 @@ class Syslog(Entity):
             .. attribute:: match2
             
             	Set monitor logging match2 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: nomatch1
             
             	Set monitor logging no\-match1 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: match1
             
             	Set monitor logging match1 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: nomatch3
             
             	Set monitor logging no\-match3 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: match3
             
             	Set monitor logging match3 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: nomatch2
             
             	Set monitor logging no\-match2 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -1368,7 +1368,7 @@ class Syslog(Entity):
         .. attribute:: history_size
         
         	Logging history size
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..500
         
@@ -1377,7 +1377,7 @@ class Syslog(Entity):
         .. attribute:: logging_level
         
         	History logging level
-        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
+        	**type**\:  :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
         
         	**default value**\: warning
         
@@ -1415,7 +1415,7 @@ class Syslog(Entity):
         .. attribute:: facility_level
         
         	Facility from which logging is done
-        	**type**\:   :py:class:`Facility <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Facility>`
+        	**type**\:  :py:class:`Facility <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Facility>`
         
         	**default value**\: local7
         
@@ -1451,7 +1451,7 @@ class Syslog(Entity):
         .. attribute:: logging_level
         
         	Trap logging level
-        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
+        	**type**\:  :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
         
         	**default value**\: info
         
@@ -1487,19 +1487,19 @@ class Syslog(Entity):
         .. attribute:: buffered_discriminator
         
         	Set buffered logging discriminators
-        	**type**\:   :py:class:`BufferedDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.BufferedLogging.BufferedDiscriminator>`
+        	**type**\:  :py:class:`BufferedDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.BufferedLogging.BufferedDiscriminator>`
         
         .. attribute:: logging_level
         
         	Logging level for Buffered logging
-        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
+        	**type**\:  :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
         
         	**default value**\: debug
         
         .. attribute:: buffer_size
         
         	Logging buffered size
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 4096..4294967295
         
@@ -1544,32 +1544,32 @@ class Syslog(Entity):
             .. attribute:: match2
             
             	Set buffered logging match2 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: nomatch1
             
             	Set buffered logging no\-match1 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: match1
             
             	Set buffered logging match1 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: nomatch3
             
             	Set buffered logging no\-match3 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: match3
             
             	Set buffered logging match3 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: nomatch2
             
             	Set buffered logging no\-match2 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -1613,7 +1613,7 @@ class Syslog(Entity):
         .. attribute:: vrfs
         
         	VRF table
-        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs>`
+        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs>`
         
         
 
@@ -1647,7 +1647,7 @@ class Syslog(Entity):
             .. attribute:: vrf
             
             	VRF specific data
-            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf>`
+            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf>`
             
             
 
@@ -1681,22 +1681,24 @@ class Syslog(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	Name of the VRF instance
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: ipv6s
                 
                 	List of the IPv6 logging host
-                	**type**\:   :py:class:`Ipv6S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S>`
+                	**type**\:  :py:class:`Ipv6S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S>`
                 
                 .. attribute:: hosts
                 
                 	List of the logging host
-                	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts>`
+                	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts>`
                 
                 .. attribute:: ipv4s
                 
                 	List of the IPv4 logging host
-                	**type**\:   :py:class:`Ipv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S>`
+                	**type**\:  :py:class:`Ipv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S>`
                 
                 
 
@@ -1745,7 +1747,7 @@ class Syslog(Entity):
                     .. attribute:: ipv6
                     
                     	IPv6 address of the logging host
-                    	**type**\: list of    :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6>`
+                    	**type**\: list of  		 :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6>`
                     
                     
 
@@ -1778,24 +1780,26 @@ class Syslog(Entity):
                         .. attribute:: address  <key>
                         
                         	IPv6 address of the logging host
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_severity_port
                         
                         	Severity/Port for the logging host
-                        	**type**\:   :py:class:`Ipv6SeverityPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort>`
+                        	**type**\:  :py:class:`Ipv6SeverityPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: ipv6_discriminator
                         
                         	Set IPv6 logging discriminators
-                        	**type**\:   :py:class:`Ipv6Discriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator>`
+                        	**type**\:  :py:class:`Ipv6Discriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator>`
                         
                         .. attribute:: ipv6_severity_levels
                         
                         	Severity container of the logging host
-                        	**type**\:   :py:class:`Ipv6SeverityLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels>`
+                        	**type**\:  :py:class:`Ipv6SeverityLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels>`
                         
                         	**status**\: obsolete
                         
@@ -1844,7 +1848,7 @@ class Syslog(Entity):
                             .. attribute:: severity
                             
                             	Severity for the logging host
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -1853,7 +1857,7 @@ class Syslog(Entity):
                             .. attribute:: port
                             
                             	Port for the logging host
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -1895,32 +1899,32 @@ class Syslog(Entity):
                             .. attribute:: nomatch2
                             
                             	Set IPv6 logging no\-match2 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: match3
                             
                             	Set IPv6 logging match3 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: nomatch3
                             
                             	Set IPv6 logging no\-match3 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: match1
                             
                             	Set IPv6 logging match1 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: nomatch1
                             
                             	Set IPv6 logging no\-match1 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: match2
                             
                             	Set IPv6 logging match2 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1963,7 +1967,7 @@ class Syslog(Entity):
                             .. attribute:: ipv6_severity_level
                             
                             	Severity for the logging host
-                            	**type**\: list of    :py:class:`Ipv6SeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel>`
+                            	**type**\: list of  		 :py:class:`Ipv6SeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel>`
                             
                             	**status**\: obsolete
                             
@@ -1998,7 +2002,7 @@ class Syslog(Entity):
                                 .. attribute:: severity  <key>
                                 
                                 	Severity for the logging host
-                                	**type**\:   :py:class:`LogSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity>`
+                                	**type**\:  :py:class:`LogSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity>`
                                 
                                 
 
@@ -2031,7 +2035,7 @@ class Syslog(Entity):
                     .. attribute:: host
                     
                     	Name of the logging host
-                    	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host>`
+                    	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host>`
                     
                     
 
@@ -2064,24 +2068,24 @@ class Syslog(Entity):
                         .. attribute:: host_name  <key>
                         
                         	Name of the logging host
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: host_name_severities
                         
                         	Severity container of the logging host
-                        	**type**\:   :py:class:`HostNameSeverities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities>`
+                        	**type**\:  :py:class:`HostNameSeverities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities>`
                         
                         	**status**\: obsolete
                         
                         .. attribute:: host_name_discriminator
                         
                         	Set Hostname logging discriminators
-                        	**type**\:   :py:class:`HostNameDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator>`
+                        	**type**\:  :py:class:`HostNameDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator>`
                         
                         .. attribute:: host_severity_port
                         
                         	Severity/Port for the logging host
-                        	**type**\:   :py:class:`HostSeverityPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort>`
+                        	**type**\:  :py:class:`HostSeverityPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort>`
                         
                         	**presence node**\: True
                         
@@ -2130,7 +2134,7 @@ class Syslog(Entity):
                             .. attribute:: host_name_severity
                             
                             	Severity for the logging host
-                            	**type**\: list of    :py:class:`HostNameSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity>`
+                            	**type**\: list of  		 :py:class:`HostNameSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity>`
                             
                             	**status**\: obsolete
                             
@@ -2165,7 +2169,7 @@ class Syslog(Entity):
                                 .. attribute:: severity  <key>
                                 
                                 	Severity for the logging host
-                                	**type**\:   :py:class:`LogSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity>`
+                                	**type**\:  :py:class:`LogSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity>`
                                 
                                 
 
@@ -2198,32 +2202,32 @@ class Syslog(Entity):
                             .. attribute:: nomatch2
                             
                             	Set hostname logging no\-match2 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: match3
                             
                             	Set hostname logging match3 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: nomatch3
                             
                             	Set hostname logging no\-match3 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: match1
                             
                             	Set hostname logging match1 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: nomatch1
                             
                             	Set hostname logging no\-match1 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: match2
                             
                             	Set hostname logging match2 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -2266,7 +2270,7 @@ class Syslog(Entity):
                             .. attribute:: severity
                             
                             	Severity for the logging host
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -2275,7 +2279,7 @@ class Syslog(Entity):
                             .. attribute:: port
                             
                             	Port for the logging host
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -2317,7 +2321,7 @@ class Syslog(Entity):
                     .. attribute:: ipv4
                     
                     	IPv4 address of the logging host
-                    	**type**\: list of    :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4>`
+                    	**type**\: list of  		 :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4>`
                     
                     
 
@@ -2350,26 +2354,28 @@ class Syslog(Entity):
                         .. attribute:: address  <key>
                         
                         	IPv4 address of the logging host
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv4_severity_levels
                         
                         	Severity container of the logging host
-                        	**type**\:   :py:class:`Ipv4SeverityLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels>`
+                        	**type**\:  :py:class:`Ipv4SeverityLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels>`
                         
                         	**status**\: obsolete
                         
                         .. attribute:: ipv4_severity_port
                         
                         	Severity/Port for the logging host
-                        	**type**\:   :py:class:`Ipv4SeverityPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort>`
+                        	**type**\:  :py:class:`Ipv4SeverityPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: ipv4_discriminator
                         
                         	Set IPv4 logging discriminators
-                        	**type**\:   :py:class:`Ipv4Discriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator>`
+                        	**type**\:  :py:class:`Ipv4Discriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator>`
                         
                         
 
@@ -2416,7 +2422,7 @@ class Syslog(Entity):
                             .. attribute:: ipv4_severity_level
                             
                             	Severity for the logging host
-                            	**type**\: list of    :py:class:`Ipv4SeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel>`
+                            	**type**\: list of  		 :py:class:`Ipv4SeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel>`
                             
                             	**status**\: obsolete
                             
@@ -2451,7 +2457,7 @@ class Syslog(Entity):
                                 .. attribute:: severity  <key>
                                 
                                 	Severity for the logging host
-                                	**type**\:   :py:class:`LogSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity>`
+                                	**type**\:  :py:class:`LogSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity>`
                                 
                                 
 
@@ -2484,7 +2490,7 @@ class Syslog(Entity):
                             .. attribute:: severity
                             
                             	Severity for the logging host
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -2493,7 +2499,7 @@ class Syslog(Entity):
                             .. attribute:: port
                             
                             	Port for the logging host
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -2535,32 +2541,32 @@ class Syslog(Entity):
                             .. attribute:: nomatch2
                             
                             	Set IPv4 logging no\-match2 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: match3
                             
                             	Set IPv4 logging match3 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: nomatch3
                             
                             	Set IPv4 logging no\-match3 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: match1
                             
                             	Set IPv4 logging match1 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: nomatch1
                             
                             	Set IPv4 logging no\-match1 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: match2
                             
                             	Set IPv4 logging match2 discriminator
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -2603,12 +2609,12 @@ class Syslog(Entity):
         .. attribute:: console_discriminator
         
         	Set console logging discriminators
-        	**type**\:   :py:class:`ConsoleDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.ConsoleLogging.ConsoleDiscriminator>`
+        	**type**\:  :py:class:`ConsoleDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.ConsoleLogging.ConsoleDiscriminator>`
         
         .. attribute:: logging_level
         
         	Console logging level
-        	**type**\:   :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
+        	**type**\:  :py:class:`LoggingLevels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels>`
         
         	**default value**\: warning
         
@@ -2649,32 +2655,32 @@ class Syslog(Entity):
             .. attribute:: match2
             
             	Set console logging match2 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: nomatch1
             
             	Set console logging no\-match1 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: match1
             
             	Set console logging match1 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: nomatch3
             
             	Set console logging no\-match3 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: match3
             
             	Set console logging match3 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: nomatch2
             
             	Set console logging no\-match2 discriminator
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -2718,7 +2724,7 @@ class Syslog(Entity):
         .. attribute:: file
         
         	Specify File Name
-        	**type**\: list of    :py:class:`File <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File>`
+        	**type**\: list of  		 :py:class:`File <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File>`
         
         
 
@@ -2752,24 +2758,26 @@ class Syslog(Entity):
             .. attribute:: file_name  <key>
             
             	Name of the file
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: file_specification
             
             	Specifications of the logging file destination
-            	**type**\:   :py:class:`FileSpecification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileSpecification>`
+            	**type**\:  :py:class:`FileSpecification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileSpecification>`
             
             	**status**\: obsolete
             
             .. attribute:: file_log_attributes
             
             	Attributes of the logging file destination
-            	**type**\:   :py:class:`FileLogAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileLogAttributes>`
+            	**type**\:  :py:class:`FileLogAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileLogAttributes>`
             
             .. attribute:: file_log_discriminator
             
             	Set File logging discriminators
-            	**type**\:   :py:class:`FileLogDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileLogDiscriminator>`
+            	**type**\:  :py:class:`FileLogDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileLogDiscriminator>`
             
             
 
@@ -2818,12 +2826,12 @@ class Syslog(Entity):
                 .. attribute:: path
                 
                 	File path
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: max_file_size
                 
                 	Maximum file size (in KB)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -2832,7 +2840,7 @@ class Syslog(Entity):
                 .. attribute:: severity
                 
                 	Severity of messages
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -2873,7 +2881,7 @@ class Syslog(Entity):
                 .. attribute:: max_file_size
                 
                 	Maximum file size (in KB)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -2882,7 +2890,7 @@ class Syslog(Entity):
                 .. attribute:: severity
                 
                 	Severity of messages
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -2921,32 +2929,32 @@ class Syslog(Entity):
                 .. attribute:: nomatch2
                 
                 	Set file logging no match discriminator 2
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: match3
                 
                 	Set file logging match discriminator 3
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: nomatch3
                 
                 	Set file logging no match discriminator 3
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: match1
                 
                 	Set file logging match discriminator 1
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: nomatch1
                 
                 	Set file logging no match discriminator 1
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: match2
                 
                 	Set file logging match discriminator 2
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -2989,7 +2997,7 @@ class Syslog(Entity):
         .. attribute:: dscp
         
         	DSCP value
-        	**type**\:   :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Dscp>`
+        	**type**\:  :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Dscp>`
         
         	**presence node**\: True
         
@@ -2998,12 +3006,12 @@ class Syslog(Entity):
         .. attribute:: tos
         
         	Type of service
-        	**type**\:   :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Tos>`
+        	**type**\:  :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Tos>`
         
         .. attribute:: precedence
         
         	Precedence value
-        	**type**\:   :py:class:`Precedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Precedence>`
+        	**type**\:  :py:class:`Precedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv4.Precedence>`
         
         	**presence node**\: True
         
@@ -3049,44 +3057,34 @@ class Syslog(Entity):
             .. attribute:: type
             
             	Logging TOS type DSCP
-            	**type**\:   :py:class:`LoggingDscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscp>`
+            	**type**\:  :py:class:`LoggingDscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscp>`
             
             	**mandatory**\: True
             
             .. attribute:: unused
             
             	Unused
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
+            		**type**\:  :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..7
             
-            	**range:** 0..7
-            
-            
-            ----
             .. attribute:: value
             
             	Logging DSCP value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
+            		**type**\:  :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
             
-            	**mandatory**\: True
+            		**type**\: int
             
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..63
+            			**range:** 0..63
             
             	**mandatory**\: True
             
-            
-            ----
             
 
             This class is a :ref:`presence class<presence-class>`
@@ -3126,38 +3124,30 @@ class Syslog(Entity):
             .. attribute:: type
             
             	Logging TOS type DSCP or precedence
-            	**type**\:   :py:class:`LoggingTos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingTos>`
+            	**type**\:  :py:class:`LoggingTos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingTos>`
             
             .. attribute:: precedence
             
             	Logging precedence value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
+            		**type**\:  :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..7
             
-            	**range:** 0..7
-            
-            
-            ----
             .. attribute:: dscp
             
             	Logging DSCP value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
+            		**type**\:  :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..63
             
-            	**range:** 0..63
-            
-            
-            ----
             
 
             """
@@ -3194,44 +3184,34 @@ class Syslog(Entity):
             .. attribute:: type
             
             	Logging TOS type precedence
-            	**type**\:   :py:class:`LoggingPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedence>`
+            	**type**\:  :py:class:`LoggingPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedence>`
             
             	**mandatory**\: True
             
             .. attribute:: value
             
             	Logging precedence value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
+            		**type**\:  :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
             
-            	**mandatory**\: True
+            		**type**\: int
             
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..7
+            			**range:** 0..7
             
             	**mandatory**\: True
             
-            
-            ----
             .. attribute:: unused
             
             	Unused
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
+            		**type**\:  :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..63
             
-            	**range:** 0..63
-            
-            
-            ----
             
 
             This class is a :ref:`presence class<presence-class>`
@@ -3271,26 +3251,26 @@ class Syslog(Entity):
         .. attribute:: size
         
         	The total size of the archive
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2047
         
         .. attribute:: file_size
         
         	The maximum file size for a single log file
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2047
         
         .. attribute:: device
         
         	'/disk0\:' or '/disk1\:' or '/harddisk\:'
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: threshold
         
         	The size threshold at which a syslog is generated
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..99
         
@@ -3299,17 +3279,17 @@ class Syslog(Entity):
         .. attribute:: frequency
         
         	The collection interval for logs
-        	**type**\:   :py:class:`LogCollectFrequency <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogCollectFrequency>`
+        	**type**\:  :py:class:`LogCollectFrequency <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogCollectFrequency>`
         
         .. attribute:: severity
         
         	The minimum severity of log messages to archive
-        	**type**\:   :py:class:`LogMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogMessageSeverity>`
+        	**type**\:  :py:class:`LogMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LogMessageSeverity>`
         
         .. attribute:: length
         
         	The maximum number of weeks of log to maintain
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..256
         
@@ -3357,7 +3337,7 @@ class Syslog(Entity):
         .. attribute:: dscp
         
         	DSCP value
-        	**type**\:   :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.Dscp>`
+        	**type**\:  :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.Dscp>`
         
         	**presence node**\: True
         
@@ -3366,12 +3346,12 @@ class Syslog(Entity):
         .. attribute:: traffic_class
         
         	Type of traffic class
-        	**type**\:   :py:class:`TrafficClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.TrafficClass>`
+        	**type**\:  :py:class:`TrafficClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.TrafficClass>`
         
         .. attribute:: precedence
         
         	Precedence value
-        	**type**\:   :py:class:`Precedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.Precedence>`
+        	**type**\:  :py:class:`Precedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Ipv6.Precedence>`
         
         	**presence node**\: True
         
@@ -3417,44 +3397,34 @@ class Syslog(Entity):
             .. attribute:: type
             
             	Logging TOS type DSCP
-            	**type**\:   :py:class:`LoggingDscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscp>`
+            	**type**\:  :py:class:`LoggingDscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscp>`
             
             	**mandatory**\: True
             
             .. attribute:: unused
             
             	Unused
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
+            		**type**\:  :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..7
             
-            	**range:** 0..7
-            
-            
-            ----
             .. attribute:: value
             
             	Logging DSCP value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
+            		**type**\:  :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
             
-            	**mandatory**\: True
+            		**type**\: int
             
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..63
+            			**range:** 0..63
             
             	**mandatory**\: True
             
-            
-            ----
             
 
             This class is a :ref:`presence class<presence-class>`
@@ -3494,38 +3464,30 @@ class Syslog(Entity):
             .. attribute:: type
             
             	Logging TOS type DSCP or precedence
-            	**type**\:   :py:class:`LoggingTos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingTos>`
+            	**type**\:  :py:class:`LoggingTos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingTos>`
             
             .. attribute:: precedence
             
             	Logging precedence value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
+            		**type**\:  :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..7
             
-            	**range:** 0..7
-            
-            
-            ----
             .. attribute:: dscp
             
             	Logging DSCP value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
+            		**type**\:  :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..63
             
-            	**range:** 0..63
-            
-            
-            ----
             
 
             """
@@ -3562,44 +3524,34 @@ class Syslog(Entity):
             .. attribute:: type
             
             	Logging TOS type precedence
-            	**type**\:   :py:class:`LoggingPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedence>`
+            	**type**\:  :py:class:`LoggingPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedence>`
             
             	**mandatory**\: True
             
             .. attribute:: value
             
             	Logging precedence value
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
+            		**type**\:  :py:class:`LoggingPrecedenceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue>`
             
-            	**mandatory**\: True
+            		**type**\: int
             
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..7
+            			**range:** 0..7
             
             	**mandatory**\: True
             
-            
-            ----
             .. attribute:: unused
             
             	Unused
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
+            		**type**\:  :py:class:`LoggingDscpValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..63
             
-            	**range:** 0..63
-            
-            
-            ----
             
 
             This class is a :ref:`presence class<presence-class>`
@@ -3639,7 +3591,7 @@ class Syslog(Entity):
         .. attribute:: source_interface_values
         
         	Specify interface for source address in logging transactions
-        	**type**\:   :py:class:`SourceInterfaceValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues>`
+        	**type**\:  :py:class:`SourceInterfaceValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues>`
         
         
 
@@ -3674,7 +3626,7 @@ class Syslog(Entity):
             .. attribute:: source_interface_value
             
             	Source interface
-            	**type**\: list of    :py:class:`SourceInterfaceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue>`
+            	**type**\: list of  		 :py:class:`SourceInterfaceValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue>`
             
             
 
@@ -3708,12 +3660,14 @@ class Syslog(Entity):
                 .. attribute:: src_interface_name_value  <key>
                 
                 	Which Interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: source_interface_vrfs
                 
                 	Configure source interface VRF
-                	**type**\:   :py:class:`SourceInterfaceVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs>`
+                	**type**\:  :py:class:`SourceInterfaceVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs>`
                 
                 
 
@@ -3752,7 +3706,7 @@ class Syslog(Entity):
                     .. attribute:: source_interface_vrf
                     
                     	Specify VRF for source interface
-                    	**type**\: list of    :py:class:`SourceInterfaceVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf>`
+                    	**type**\: list of  		 :py:class:`SourceInterfaceVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf>`
                     
                     
 
@@ -3785,7 +3739,9 @@ class Syslog(Entity):
                         .. attribute:: vrf_name  <key>
                         
                         	Name of the VRF instance
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         
 
@@ -3818,22 +3774,22 @@ class Syslog(Entity):
         .. attribute:: alarm_filter_strings
         
         	List of filter strings
-        	**type**\:   :py:class:`AlarmFilterStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings>`
+        	**type**\:  :py:class:`AlarmFilterStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings>`
         
         .. attribute:: pre_config_suppression
         
         	Suppress events from a card/VM till its configuration is complete
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: severity_level
         
         	Log all events with equal or higher (lower level) severity than this
-        	**type**\:   :py:class:`AlarmLoggerSeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes.AlarmLoggerSeverityLevel>`
+        	**type**\:  :py:class:`AlarmLoggerSeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes.AlarmLoggerSeverityLevel>`
         
         .. attribute:: pre_config_suppression_timeout
         
         	Timeout (in minutes) for pre\-config events suppression (default 15)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..60
         
@@ -3844,19 +3800,19 @@ class Syslog(Entity):
         .. attribute:: buffer_size
         
         	Set size of the local event buffer
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1024..1024000
         
         .. attribute:: source_location
         
         	Enable alarm source location in message text
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: threshold
         
         	Configure threshold (%) for capacity alarm
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 10..100
         
@@ -3909,7 +3865,7 @@ class Syslog(Entity):
             .. attribute:: alarm_filter_string
             
             	Match string to filter alarms
-            	**type**\: list of    :py:class:`AlarmFilterString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString>`
+            	**type**\: list of  		 :py:class:`AlarmFilterString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString>`
             
             
 
@@ -3943,7 +3899,9 @@ class Syslog(Entity):
                 .. attribute:: filter_string  <key>
                 
                 	Filter String
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 
 
@@ -3977,17 +3935,17 @@ class Syslog(Entity):
         .. attribute:: rules
         
         	Table of configured rules
-        	**type**\:   :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules>`
+        	**type**\:  :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules>`
         
         .. attribute:: rule_sets
         
         	Table of configured rulesets
-        	**type**\:   :py:class:`RuleSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets>`
+        	**type**\:  :py:class:`RuleSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets>`
         
         .. attribute:: buffer_size
         
         	Configure size of the correlator buffer
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1024..52428800
         
@@ -4033,7 +3991,7 @@ class Syslog(Entity):
             .. attribute:: rule
             
             	Rule name
-            	**type**\: list of    :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule>`
+            	**type**\: list of  		 :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule>`
             
             
 
@@ -4067,34 +4025,34 @@ class Syslog(Entity):
                 .. attribute:: name  <key>
                 
                 	Rule name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: definition
                 
                 	Configure a specified correlation rule
-                	**type**\:   :py:class:`Definition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Definition>`
+                	**type**\:  :py:class:`Definition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Definition>`
                 
                 .. attribute:: non_stateful
                 
                 	The Non\-Stateful Rule Type
-                	**type**\:   :py:class:`NonStateful <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.NonStateful>`
+                	**type**\:  :py:class:`NonStateful <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.NonStateful>`
                 
                 .. attribute:: stateful
                 
                 	The Stateful Rule Type
-                	**type**\:   :py:class:`Stateful <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Stateful>`
+                	**type**\:  :py:class:`Stateful <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Stateful>`
                 
                 .. attribute:: apply_to
                 
                 	Apply the Rules
-                	**type**\:   :py:class:`ApplyTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo>`
+                	**type**\:  :py:class:`ApplyTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo>`
                 
                 .. attribute:: applied_to
                 
                 	Applied to the Rule or Ruleset
-                	**type**\:   :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo>`
+                	**type**\:  :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo>`
                 
                 
 
@@ -4153,159 +4111,159 @@ class Syslog(Entity):
                     .. attribute:: timeout
                     
                     	Timeout (time the rule is to be active) in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..7200000
                     
                     .. attribute:: category_name_entry1
                     
                     	Root message category name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: group_name_entry1
                     
                     	Root message group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: message_code_entry1
                     
                     	Root message code
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: category_name_entry2
                     
                     	Correlated message category name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: group_name_entry2
                     
                     	Correlated message group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: message_code_entry2
                     
                     	Correlated message code
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: category_name_entry3
                     
                     	Correlated message category name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: group_name_entry3
                     
                     	Correlated message group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: message_code_entry3
                     
                     	Correlated message code
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: category_name_entry4
                     
                     	Correlated message category name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: group_name_entry4
                     
                     	Correlated message group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: message_code_entry4
                     
                     	Correlated message code
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: category_name_entry5
                     
                     	Correlated message category name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: group_name_entry5
                     
                     	Correlated message group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: message_code_entry5
                     
                     	Correlated message code
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: category_name_entry6
                     
                     	Correlated message category name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: group_name_entry6
                     
                     	Correlated message group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: message_code_entry6
                     
                     	Correlated message code
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: category_name_entry7
                     
                     	Correlated message category name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: group_name_entry7
                     
                     	Correlated message group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: message_code_entry7
                     
                     	Correlated message code
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: category_name_entry8
                     
                     	Correlated message category name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: group_name_entry8
                     
                     	Correlated message group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: message_code_entry8
                     
                     	Correlated message code
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: category_name_entry9
                     
                     	Correlated message category name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: group_name_entry9
                     
                     	Correlated message group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: message_code_entry9
                     
                     	Correlated message code
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: category_name_entry10
                     
                     	Correlated message category name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: group_name_entry10
                     
                     	Correlated message group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: message_code_entry10
                     
                     	Correlated message code
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -4398,12 +4356,12 @@ class Syslog(Entity):
                     .. attribute:: context_correlation
                     
                     	Enable correlation on alarm context
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: timeout_root_cause
                     
                     	Rootcause Timeout (time to wait for rootcause) in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..7200000
                     
@@ -4412,17 +4370,17 @@ class Syslog(Entity):
                     .. attribute:: non_root_causes
                     
                     	Table of configured non\-rootcause
-                    	**type**\:   :py:class:`NonRootCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses>`
+                    	**type**\:  :py:class:`NonRootCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses>`
                     
                     .. attribute:: root_cause
                     
                     	The root cause
-                    	**type**\:   :py:class:`RootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.NonStateful.RootCause>`
+                    	**type**\:  :py:class:`RootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.NonStateful.RootCause>`
                     
                     .. attribute:: timeout
                     
                     	Timeout (time to wait for active correlation) in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..7200000
                     
@@ -4473,7 +4431,7 @@ class Syslog(Entity):
                         .. attribute:: non_root_cause
                         
                         	A non\-rootcause
-                        	**type**\: list of    :py:class:`NonRootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause>`
+                        	**type**\: list of  		 :py:class:`NonRootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause>`
                         
                         
 
@@ -4506,17 +4464,17 @@ class Syslog(Entity):
                             .. attribute:: category  <key>
                             
                             	Correlated message category
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: group  <key>
                             
                             	Correlated message group
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: message_code  <key>
                             
                             	Correlated message code
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -4553,17 +4511,17 @@ class Syslog(Entity):
                         .. attribute:: category
                         
                         	Root message category
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: group
                         
                         	Root message group
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: message_code
                         
                         	Root message code
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -4600,22 +4558,22 @@ class Syslog(Entity):
                     .. attribute:: reparent
                     
                     	Enable reparent of alarm on rootcause alarm clear
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reissue
                     
                     	Enable reissue of non\-bistate alarms on rootcause alarm clear
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: context_correlation
                     
                     	Enable correlation on alarm context
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: timeout_root_cause
                     
                     	Rootcause Timeout (time to wait for rootcause) in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..7200000
                     
@@ -4624,17 +4582,17 @@ class Syslog(Entity):
                     .. attribute:: non_root_causes
                     
                     	Table of configured non\-rootcause
-                    	**type**\:   :py:class:`NonRootCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses>`
+                    	**type**\:  :py:class:`NonRootCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses>`
                     
                     .. attribute:: root_cause
                     
                     	The root cause
-                    	**type**\:   :py:class:`RootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Stateful.RootCause>`
+                    	**type**\:  :py:class:`RootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Stateful.RootCause>`
                     
                     .. attribute:: timeout
                     
                     	Timeout (time to wait for active correlation) in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..7200000
                     
@@ -4689,7 +4647,7 @@ class Syslog(Entity):
                         .. attribute:: non_root_cause
                         
                         	A non\-rootcause
-                        	**type**\: list of    :py:class:`NonRootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause>`
+                        	**type**\: list of  		 :py:class:`NonRootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause>`
                         
                         
 
@@ -4722,17 +4680,17 @@ class Syslog(Entity):
                             .. attribute:: category  <key>
                             
                             	Correlated message category
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: group  <key>
                             
                             	Correlated message group
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: message_code  <key>
                             
                             	Correlated message code
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -4769,17 +4727,17 @@ class Syslog(Entity):
                         .. attribute:: category
                         
                         	Root message category
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: group
                         
                         	Root message group
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: message_code
                         
                         	Root message code
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -4816,17 +4774,17 @@ class Syslog(Entity):
                     .. attribute:: contexts
                     
                     	Apply rule to a specified list of contexts, e.g. interfaces
-                    	**type**\:   :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo.Contexts>`
+                    	**type**\:  :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo.Contexts>`
                     
                     .. attribute:: locations
                     
                     	Apply rule to a specified list of Locations
-                    	**type**\:   :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo.Locations>`
+                    	**type**\:  :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo.Locations>`
                     
                     .. attribute:: all_of_router
                     
                     	Apply the rule to all of the router
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -4870,7 +4828,7 @@ class Syslog(Entity):
                         .. attribute:: context
                         
                         	One or more context names
-                        	**type**\:  list of str
+                        	**type**\: list of str
                         
                         
 
@@ -4903,7 +4861,9 @@ class Syslog(Entity):
                         .. attribute:: location
                         
                         	One or more Locations
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         
 
@@ -4936,17 +4896,17 @@ class Syslog(Entity):
                     .. attribute:: contexts
                     
                     	Table of configured contexts to apply
-                    	**type**\:   :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Contexts>`
+                    	**type**\:  :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Contexts>`
                     
                     .. attribute:: locations
                     
                     	Table of configured locations to apply
-                    	**type**\:   :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Locations>`
+                    	**type**\:  :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Locations>`
                     
                     .. attribute:: all
                     
                     	Apply to all of the router
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -4989,7 +4949,7 @@ class Syslog(Entity):
                         .. attribute:: context
                         
                         	A context
-                        	**type**\: list of    :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context>`
+                        	**type**\: list of  		 :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context>`
                         
                         
 
@@ -5022,7 +4982,7 @@ class Syslog(Entity):
                             .. attribute:: context  <key>
                             
                             	Context
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..32
                             
@@ -5057,7 +5017,7 @@ class Syslog(Entity):
                         .. attribute:: location
                         
                         	A location
-                        	**type**\: list of    :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location>`
+                        	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location>`
                         
                         
 
@@ -5090,7 +5050,9 @@ class Syslog(Entity):
                             .. attribute:: location  <key>
                             
                             	Location
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             
 
@@ -5123,7 +5085,7 @@ class Syslog(Entity):
             .. attribute:: rule_set
             
             	Ruleset name
-            	**type**\: list of    :py:class:`RuleSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet>`
+            	**type**\: list of  		 :py:class:`RuleSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet>`
             
             
 
@@ -5157,19 +5119,19 @@ class Syslog(Entity):
                 .. attribute:: name  <key>
                 
                 	Ruleset name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: rulenames
                 
                 	Table of configured rulenames
-                	**type**\:   :py:class:`Rulenames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.Rulenames>`
+                	**type**\:  :py:class:`Rulenames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.Rulenames>`
                 
                 .. attribute:: applied_to
                 
                 	Applied to the Rule or Ruleset
-                	**type**\:   :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo>`
+                	**type**\:  :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo>`
                 
                 
 
@@ -5213,7 +5175,7 @@ class Syslog(Entity):
                     .. attribute:: rulename
                     
                     	A rulename
-                    	**type**\: list of    :py:class:`Rulename <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename>`
+                    	**type**\: list of  		 :py:class:`Rulename <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename>`
                     
                     
 
@@ -5246,7 +5208,7 @@ class Syslog(Entity):
                         .. attribute:: rulename  <key>
                         
                         	Rule name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..32
                         
@@ -5281,17 +5243,17 @@ class Syslog(Entity):
                     .. attribute:: contexts
                     
                     	Table of configured contexts to apply
-                    	**type**\:   :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts>`
+                    	**type**\:  :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts>`
                     
                     .. attribute:: locations
                     
                     	Table of configured locations to apply
-                    	**type**\:   :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations>`
+                    	**type**\:  :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations>`
                     
                     .. attribute:: all
                     
                     	Apply to all of the router
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -5334,7 +5296,7 @@ class Syslog(Entity):
                         .. attribute:: context
                         
                         	A context
-                        	**type**\: list of    :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context>`
+                        	**type**\: list of  		 :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context>`
                         
                         
 
@@ -5367,7 +5329,7 @@ class Syslog(Entity):
                             .. attribute:: context  <key>
                             
                             	Context
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..32
                             
@@ -5402,7 +5364,7 @@ class Syslog(Entity):
                         .. attribute:: location
                         
                         	A location
-                        	**type**\: list of    :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location>`
+                        	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location>`
                         
                         
 
@@ -5435,7 +5397,9 @@ class Syslog(Entity):
                             .. attribute:: location  <key>
                             
                             	Location
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             
 
@@ -5469,7 +5433,7 @@ class Syslog(Entity):
         .. attribute:: rules
         
         	Table of configured rules
-        	**type**\:   :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules>`
+        	**type**\:  :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules>`
         
         
 
@@ -5503,7 +5467,7 @@ class Syslog(Entity):
             .. attribute:: rule
             
             	Rule name
-            	**type**\: list of    :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule>`
+            	**type**\: list of  		 :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule>`
             
             
 
@@ -5537,24 +5501,24 @@ class Syslog(Entity):
                 .. attribute:: name  <key>
                 
                 	Rule name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: applied_to
                 
                 	Applied to the Rule
-                	**type**\:   :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo>`
+                	**type**\:  :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo>`
                 
                 .. attribute:: alarm_causes
                 
                 	Causes of alarms to be suppressed
-                	**type**\:   :py:class:`AlarmCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AlarmCauses>`
+                	**type**\:  :py:class:`AlarmCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AlarmCauses>`
                 
                 .. attribute:: all_alarms
                 
                 	Suppress all alarms
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -5600,12 +5564,12 @@ class Syslog(Entity):
                     .. attribute:: sources
                     
                     	Table of configured sources to apply
-                    	**type**\:   :py:class:`Sources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo.Sources>`
+                    	**type**\:  :py:class:`Sources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo.Sources>`
                     
                     .. attribute:: all
                     
                     	Apply to all of the router
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -5643,7 +5607,7 @@ class Syslog(Entity):
                         .. attribute:: source
                         
                         	An alarm source
-                        	**type**\: list of    :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source>`
+                        	**type**\: list of  		 :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source>`
                         
                         
 
@@ -5676,7 +5640,9 @@ class Syslog(Entity):
                             .. attribute:: source  <key>
                             
                             	Source
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             
 
@@ -5709,7 +5675,7 @@ class Syslog(Entity):
                     .. attribute:: alarm_cause
                     
                     	Category, Group and Code of alarm/syslog to be suppressed
-                    	**type**\: list of    :py:class:`AlarmCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause>`
+                    	**type**\: list of  		 :py:class:`AlarmCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause>`
                     
                     
 
@@ -5743,21 +5709,21 @@ class Syslog(Entity):
                         .. attribute:: category  <key>
                         
                         	Category
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..32
                         
                         .. attribute:: group  <key>
                         
                         	Group
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..32
                         
                         .. attribute:: code  <key>
                         
                         	Code
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..32
                         

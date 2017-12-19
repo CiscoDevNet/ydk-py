@@ -334,12 +334,14 @@ class Lacp(Entity):
     .. attribute:: system_mac
     
     	Unique identifier for this system
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
     
     .. attribute:: system_priority
     
     	Priority for this system. Lower value is higher priority
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..65535
     

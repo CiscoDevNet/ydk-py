@@ -27,12 +27,20 @@ module Cisco-IOS-XE-vservice {
 
   description
     "Cisco XE Virtual Service Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-16 {
+    description
+        "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+  revision 2017-07-05 {
+    description 
+      "support fot ip shared host-interface under GigabitEthernet";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -56,6 +64,21 @@ module Cisco-IOS-XE-vservice {
           leaf TenGigabitEthernet {
             description
               "Ten Gigabit Ethernet";
+            type string;
+          }
+          leaf GigabitEthernet {
+            description
+              "GigabitEthernet IEEE 802.3z";
+            type string;
+          }
+          leaf FiveGigabitEthernet {
+            description
+              "Five Gigabit Ethernet";
+            type string;
+          }
+          leaf TwentyFiveGigabitEthernet {
+            description
+              "Twenty Five Gigabit Ethernet";
             type string;
           }
           leaf Loopback {

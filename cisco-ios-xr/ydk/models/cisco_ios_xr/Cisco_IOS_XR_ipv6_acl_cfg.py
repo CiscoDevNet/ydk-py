@@ -52,17 +52,17 @@ class Ipv6AclAndPrefixList(Entity):
     .. attribute:: prefixes
     
     	Table of prefix lists
-    	**type**\:   :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Prefixes>`
+    	**type**\:  :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Prefixes>`
     
     .. attribute:: log_update
     
     	Control access lists log updates
-    	**type**\:   :py:class:`LogUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.LogUpdate>`
+    	**type**\:  :py:class:`LogUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.LogUpdate>`
     
     .. attribute:: accesses
     
     	Table of access lists
-    	**type**\:   :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses>`
+    	**type**\:  :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses>`
     
     
 
@@ -106,7 +106,7 @@ class Ipv6AclAndPrefixList(Entity):
         .. attribute:: prefix
         
         	Name of a prefix list
-        	**type**\: list of    :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Prefixes.Prefix>`
+        	**type**\: list of  		 :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Prefixes.Prefix>`
         
         
 
@@ -140,14 +140,14 @@ class Ipv6AclAndPrefixList(Entity):
             .. attribute:: name  <key>
             
             	Name of a prefix list
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..65
             
             .. attribute:: prefix_list_entries
             
             	Sequence of entries forming a prefix list
-            	**type**\:   :py:class:`PrefixListEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Prefixes.Prefix.PrefixListEntries>`
+            	**type**\:  :py:class:`PrefixListEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Prefixes.Prefix.PrefixListEntries>`
             
             	**presence node**\: True
             
@@ -187,7 +187,7 @@ class Ipv6AclAndPrefixList(Entity):
                 .. attribute:: prefix_list_entry
                 
                 	A prefix list entry; either a description (remark) or a prefix to match against
-                	**type**\: list of    :py:class:`PrefixListEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry>`
+                	**type**\: list of  		 :py:class:`PrefixListEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry>`
                 
                 
 
@@ -224,77 +224,79 @@ class Ipv6AclAndPrefixList(Entity):
                     .. attribute:: sequence_number  <key>
                     
                     	Sequence number of prefix list
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..2147483646
                     
                     .. attribute:: grant
                     
                     	Whether to forward or drop packets matching the prefix list
-                    	**type**\:   :py:class:`Ipv6AclGrantEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclGrantEnum>`
+                    	**type**\:  :py:class:`Ipv6AclGrantEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclGrantEnum>`
                     
                     .. attribute:: ipv6_address_as_string
                     
                     	The IPv6 address if entered  with the ZoneMutually exclusive with Prefix and PrefixMask
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: zone
                     
                     	IPv6 Zone if entered  with the IPV6AddressMutually exclusive with Prefix and PrefixMask
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: prefix
                     
                     	IPv6 address prefix to match
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: prefix_mask
                     
                     	MaskLength of IPv6 address prefix
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
                     .. attribute:: match_exact_length
                     
                     	Set to perform an exact prefix length match. Item is mutually exclusive with minimum and maximum length match items
-                    	**type**\:   :py:class:`Ipv6PrefixMatchExactLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6PrefixMatchExactLength>`
+                    	**type**\:  :py:class:`Ipv6PrefixMatchExactLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6PrefixMatchExactLength>`
                     
                     .. attribute:: exact_prefix_length
                     
                     	If exact prefix length matching specified, set the length of prefix to be matched
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
                     .. attribute:: match_max_length
                     
                     	Set to perform a maximum length prefix match .  Item is mutually exclusive with exact length match item
-                    	**type**\:   :py:class:`Ipv6PrefixMatchMaxLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6PrefixMatchMaxLength>`
+                    	**type**\:  :py:class:`Ipv6PrefixMatchMaxLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6PrefixMatchMaxLength>`
                     
                     .. attribute:: max_prefix_length
                     
                     	If maximum length prefix matching specified, set the maximum length of prefix to be matched
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
                     .. attribute:: match_min_length
                     
                     	Set to perform a minimum length prefix match .  Item is mutually exclusive with exact length match item
-                    	**type**\:   :py:class:`Ipv6PrefixMatchMinLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6PrefixMatchMinLength>`
+                    	**type**\:  :py:class:`Ipv6PrefixMatchMinLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6PrefixMatchMinLength>`
                     
                     .. attribute:: min_prefix_length
                     
                     	If minimum length prefix matching specified, set the minimum length of prefix to be matched
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
                     .. attribute:: remark
                     
                     	Comments or a description for the prefix list.  Item is mutually exclusive with all others in the object
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -351,14 +353,14 @@ class Ipv6AclAndPrefixList(Entity):
         .. attribute:: threshold
         
         	Log update threshold (number of hits)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
         .. attribute:: rate
         
         	Log update rate (log messages per second)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1000
         
@@ -396,7 +398,7 @@ class Ipv6AclAndPrefixList(Entity):
         .. attribute:: access
         
         	An ACL
-        	**type**\: list of    :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access>`
+        	**type**\: list of  		 :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access>`
         
         
 
@@ -430,14 +432,14 @@ class Ipv6AclAndPrefixList(Entity):
             .. attribute:: name  <key>
             
             	Name of the access list
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..65
             
             .. attribute:: access_list_entries
             
             	ACL entry table; contains list of access list entries
-            	**type**\:   :py:class:`AccessListEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries>`
+            	**type**\:  :py:class:`AccessListEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries>`
             
             
 
@@ -477,7 +479,7 @@ class Ipv6AclAndPrefixList(Entity):
                 .. attribute:: access_list_entry
                 
                 	An ACL entry; either a description (remark) or anAccess List Entry to match against
-                	**type**\: list of    :py:class:`AccessListEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry>`
+                	**type**\: list of  		 :py:class:`AccessListEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry>`
                 
                 
 
@@ -511,206 +513,190 @@ class Ipv6AclAndPrefixList(Entity):
                     .. attribute:: sequence_number  <key>
                     
                     	Sequence number of access list entry
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..2147483643
                     
                     .. attribute:: grant
                     
                     	Whether to forward or drop packets matching the  ACE
-                    	**type**\:   :py:class:`Ipv6AclGrantEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclGrantEnum>`
+                    	**type**\:  :py:class:`Ipv6AclGrantEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclGrantEnum>`
                     
                     .. attribute:: protocol_operator
                     
                     	Protocol operator. Leave unspecified if no protocol comparison is to be done
-                    	**type**\:   :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
+                    	**type**\:  :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
                     
                     .. attribute:: protocol
                     
                     	Protocol to match
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:   :py:class:`Ipv6AclProtocolNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclProtocolNumber>`
+                    		**type**\:  :py:class:`Ipv6AclProtocolNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclProtocolNumber>`
                     
+                    		**type**\: int
                     
-                    ----
-                    	**type**\:  int
+                    			**range:** 0..255
                     
-                    	**range:** 0..255
-                    
-                    
-                    ----
                     .. attribute:: protocol2
                     
                     	Protocol2 to match
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:   :py:class:`Ipv6AclProtocolNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclProtocolNumber>`
+                    		**type**\:  :py:class:`Ipv6AclProtocolNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclProtocolNumber>`
                     
+                    		**type**\: int
                     
-                    ----
-                    	**type**\:  int
+                    			**range:** 0..255
                     
-                    	**range:** 0..255
-                    
-                    
-                    ----
                     .. attribute:: source_network
                     
                     	Source network settings
-                    	**type**\:   :py:class:`SourceNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork>`
+                    	**type**\:  :py:class:`SourceNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork>`
                     
                     .. attribute:: destination_network
                     
                     	Destination network settings
-                    	**type**\:   :py:class:`DestinationNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork>`
+                    	**type**\:  :py:class:`DestinationNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork>`
                     
                     .. attribute:: source_port
                     
                     	Source port settings
-                    	**type**\:   :py:class:`SourcePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort>`
+                    	**type**\:  :py:class:`SourcePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort>`
                     
                     .. attribute:: destination_port
                     
                     	Destination port settings
-                    	**type**\:   :py:class:`DestinationPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort>`
+                    	**type**\:  :py:class:`DestinationPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort>`
                     
                     .. attribute:: icmp
                     
                     	ICMP settings
-                    	**type**\:   :py:class:`Icmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp>`
+                    	**type**\:  :py:class:`Icmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp>`
                     
                     .. attribute:: tcp
                     
                     	TCP settings
-                    	**type**\:   :py:class:`Tcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp>`
+                    	**type**\:  :py:class:`Tcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp>`
                     
                     .. attribute:: packet_length
                     
                     	Packet length settings
-                    	**type**\:   :py:class:`PacketLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength>`
+                    	**type**\:  :py:class:`PacketLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength>`
                     
                     .. attribute:: time_to_live
                     
                     	TTL settings
-                    	**type**\:   :py:class:`TimeToLive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive>`
+                    	**type**\:  :py:class:`TimeToLive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive>`
                     
                     .. attribute:: dscp
                     
                     	DSCP value to match (if a protocol was specified), leave unspecified if DSCP comparion is not to be performed
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:   :py:class:`Ipv6AclDscpNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclDscpNumber>`
+                    		**type**\:  :py:class:`Ipv6AclDscpNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclDscpNumber>`
                     
+                    		**type**\: int
                     
-                    ----
-                    	**type**\:  int
+                    			**range:** 0..64
                     
-                    	**range:** 0..64
-                    
-                    
-                    ----
                     .. attribute:: precedence
                     
                     	Precedence value to match (if a protocol was  specified), leave unspecified if precedence  comparion is not to be performed
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:   :py:class:`Ipv6AclPrecedenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPrecedenceNumber>`
+                    		**type**\:  :py:class:`Ipv6AclPrecedenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPrecedenceNumber>`
                     
+                    		**type**\: int
                     
-                    ----
-                    	**type**\:  int
+                    			**range:** 0..7
                     
-                    	**range:** 0..7
-                    
-                    
-                    ----
                     .. attribute:: next_hop
                     
                     	Next\-hop settings
-                    	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop>`
+                    	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop>`
                     
                     .. attribute:: counter_name
                     
                     	Counter name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: log_option
                     
                     	Whether and how to log matches against this  entry
-                    	**type**\:   :py:class:`Ipv6AclLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclLoggingEnum>`
+                    	**type**\:  :py:class:`Ipv6AclLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclLoggingEnum>`
                     
                     .. attribute:: capture
                     
                     	Enable capture
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: undetermined_transport
                     
                     	Enable undetermined\-transport
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: icmp_off
                     
                     	To turn off ICMP generation for deny ACEs
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: qos_group
                     
                     	Set qos\-group number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..512
                     
                     .. attribute:: set_ttl
                     
                     	Set TTL Value. Ranges from 0\-255
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: header_flags
                     
                     	Match if header\-flag is present
-                    	**type**\:   :py:class:`HeaderFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags>`
+                    	**type**\:  :py:class:`HeaderFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags>`
                     
                     .. attribute:: remark
                     
                     	Comments or a description for the access list
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: source_prefix_group
                     
                     	IPv6 source network object group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: destination_prefix_group
                     
                     	IPv6 destination network object group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: source_port_group
                     
                     	Source port object group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: destination_port_group
                     
                     	Destination port object group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: sequence_str
                     
                     	Sequence String for the ace
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -833,19 +819,23 @@ class Ipv6AclAndPrefixList(Entity):
                         .. attribute:: source_address
                         
                         	Source IPv6 address, leave unspecified if inputting as IPv6 address with wildcarding
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: source_wild_card_bits
                         
                         	Wildcard bits to apply to source\-address (if specified), leave unspecified for no wildcarding
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..128
                         
                         .. attribute:: source_mask
                         
                         	Source address mask. Either source\-wild\-card\-bits or source\-mask is. supported, not both. Leave unspecified. for any
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -882,19 +872,23 @@ class Ipv6AclAndPrefixList(Entity):
                         .. attribute:: destination_address
                         
                         	Destination IPv6 address, leave unspecified if inputting as IPv6 address with  wildcarding
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: destination_wild_card_bits
                         
                         	Wildcard bits to apply to destination  destination\-address (if specified),  leave unspecified for no wildcarding
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..128
                         
                         .. attribute:: destination_mask
                         
                         	Destination address mask. Either destination\-wild\-card\-bits or destination\-mask. is supported, not both. Leave unspecified for any
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -931,38 +925,30 @@ class Ipv6AclAndPrefixList(Entity):
                         .. attribute:: source_operator
                         
                         	Source comparison operator. Leave unspecified if no source port comparison is to be done
-                        	**type**\:   :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
+                        	**type**\:  :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
                         
                         .. attribute:: first_source_port
                         
                         	First source port for comparison,  leave unspecified if source port comparison is not to be performed
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:   :py:class:`Ipv6AclPortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumber>`
+                        		**type**\:  :py:class:`Ipv6AclPortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumber>`
                         
+                        		**type**\: int
                         
-                        ----
-                        	**type**\:  int
+                        			**range:** 0..65535
                         
-                        	**range:** 0..65535
-                        
-                        
-                        ----
                         .. attribute:: second_source_port
                         
                         	Second source port for comparion,  leave unspecified if source port comparison is not to be performed
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:   :py:class:`Ipv6AclPortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumber>`
+                        		**type**\:  :py:class:`Ipv6AclPortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumber>`
                         
+                        		**type**\: int
                         
-                        ----
-                        	**type**\:  int
+                        			**range:** 0..65535
                         
-                        	**range:** 0..65535
-                        
-                        
-                        ----
                         
 
                         """
@@ -998,38 +984,30 @@ class Ipv6AclAndPrefixList(Entity):
                         .. attribute:: destination_operator
                         
                         	Destination comparison operator. Leave  unspecified if no destination port comparison  is to be done
-                        	**type**\:   :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
+                        	**type**\:  :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
                         
                         .. attribute:: first_destination_port
                         
                         	First destination port for comparison, leave  unspecified if destination port comparison is not to be performed
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:   :py:class:`Ipv6AclPortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumber>`
+                        		**type**\:  :py:class:`Ipv6AclPortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumber>`
                         
+                        		**type**\: int
                         
-                        ----
-                        	**type**\:  int
+                        			**range:** 0..65535
                         
-                        	**range:** 0..65535
-                        
-                        
-                        ----
                         .. attribute:: second_destination_port
                         
                         	Second destination port for comparion, leave  unspecified if destination port comparison is not to be performed
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:   :py:class:`Ipv6AclPortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumber>`
+                        		**type**\:  :py:class:`Ipv6AclPortNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumber>`
                         
+                        		**type**\: int
                         
-                        ----
-                        	**type**\:  int
+                        			**range:** 0..65535
                         
-                        	**range:** 0..65535
-                        
-                        
-                        ----
                         
 
                         """
@@ -1065,7 +1043,7 @@ class Ipv6AclAndPrefixList(Entity):
                         .. attribute:: icmp_type_code
                         
                         	Well known ICMP message code types to match,  leave unspecified if ICMP message code type  comparion is not to be performed
-                        	**type**\:   :py:class:`Ipv6AclIcmpTypeCodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclIcmpTypeCodeEnum>`
+                        	**type**\:  :py:class:`Ipv6AclIcmpTypeCodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclIcmpTypeCodeEnum>`
                         
                         
 
@@ -1098,38 +1076,30 @@ class Ipv6AclAndPrefixList(Entity):
                         .. attribute:: tcp_bits_match_operator
                         
                         	TCP Bits match operator. Leave unspecified if  flexible comparison of TCP bits is not  required
-                        	**type**\:   :py:class:`Ipv6AclTcpMatchOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpMatchOperatorEnum>`
+                        	**type**\:  :py:class:`Ipv6AclTcpMatchOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpMatchOperatorEnum>`
                         
                         .. attribute:: tcp_bits
                         
                         	TCP bits to match. Leave unspecified if  comparison of TCP bits is not required
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:   :py:class:`Ipv6AclTcpBitsNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumber>`
+                        		**type**\:  :py:class:`Ipv6AclTcpBitsNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumber>`
                         
+                        		**type**\: int
                         
-                        ----
-                        	**type**\:  int
+                        			**range:** 0..63
                         
-                        	**range:** 0..63
-                        
-                        
-                        ----
                         .. attribute:: tcp_bits_mask
                         
                         	TCP bits mask to use for flexible TCP matching. Leave unspecified if it is not required
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:   :py:class:`Ipv6AclTcpBitsNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumber>`
+                        		**type**\:  :py:class:`Ipv6AclTcpBitsNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumber>`
                         
+                        		**type**\: int
                         
-                        ----
-                        	**type**\:  int
+                        			**range:** 0..63
                         
-                        	**range:** 0..63
-                        
-                        
-                        ----
                         
 
                         """
@@ -1165,19 +1135,19 @@ class Ipv6AclAndPrefixList(Entity):
                         .. attribute:: packet_length_operator
                         
                         	Packet length operator applicable if packet  length is to be compared. Leave unspecified if no Packet length comparison is to be done
-                        	**type**\:   :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
+                        	**type**\:  :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
                         
                         .. attribute:: packet_length_min
                         
                         	Minimum packet length for comparison, leave  unspecified if packet length comparison is not to be performed or if only the maximum packet length should be considered
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: packet_length_max
                         
                         	Maximum packet length for comparion, leave  unspecified if packet length comparison is not to be performed or if only the minimum packet  length should be considered
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -1216,19 +1186,19 @@ class Ipv6AclAndPrefixList(Entity):
                         .. attribute:: time_to_live_operator
                         
                         	TTL operator is applicable if TTL is to be  compared. Leave unspecified if TTL  classification is not required
-                        	**type**\:   :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
+                        	**type**\:  :py:class:`Ipv6AclOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum>`
                         
                         .. attribute:: time_to_live_min
                         
                         	TTL value for comparison OR Minimum TTL value  for TTL range comparision, leave unspecified if TTL classification is not required
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: time_to_live_max
                         
                         	Maximum TTL for comparion, leave unspecified if TTL comparison is not to be performed or if only the minimum TTL should be considered
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
@@ -1267,22 +1237,22 @@ class Ipv6AclAndPrefixList(Entity):
                         .. attribute:: next_hop_type
                         
                         	The nexthop type
-                        	**type**\:   :py:class:`NextHopType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.NextHopType>`
+                        	**type**\:  :py:class:`NextHopType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.NextHopType>`
                         
                         .. attribute:: next_hop_1
                         
                         	The first next\-hop settings
-                        	**type**\:   :py:class:`NextHop1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1>`
+                        	**type**\:  :py:class:`NextHop1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1>`
                         
                         .. attribute:: next_hop_2
                         
                         	The second next\-hop settings
-                        	**type**\:   :py:class:`NextHop2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2>`
+                        	**type**\:  :py:class:`NextHop2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2>`
                         
                         .. attribute:: next_hop_3
                         
                         	The third next\-hop settings
-                        	**type**\:   :py:class:`NextHop3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3>`
+                        	**type**\:  :py:class:`NextHop3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3>`
                         
                         
 
@@ -1330,17 +1300,19 @@ class Ipv6AclAndPrefixList(Entity):
                             .. attribute:: next_hop
                             
                             	The IPv6 address of the next\-hop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
                             	The VRF name of the next\-hop
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: track_name
                             
                             	The object tracking name for the next\-hop
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1377,17 +1349,19 @@ class Ipv6AclAndPrefixList(Entity):
                             .. attribute:: next_hop
                             
                             	The IPv6 address of the next\-hop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
                             	The VRF name of the next\-hop
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: track_name
                             
                             	The object tracking name for the next\-hop
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1424,17 +1398,19 @@ class Ipv6AclAndPrefixList(Entity):
                             .. attribute:: next_hop
                             
                             	The IPv6 address of the next\-hop
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
                             	The VRF name of the next\-hop
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: track_name
                             
                             	The object tracking name for the next\-hop
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1471,27 +1447,27 @@ class Ipv6AclAndPrefixList(Entity):
                         .. attribute:: routing
                         
                         	Match if routing header is present
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: destopts
                         
                         	Match if destops header is present
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: hop_by_hop
                         
                         	Match if hop\-by\-hop header is present
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: fragments
                         
                         	Match if fragments header is present
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: authen
                         
                         	Match if authen header is present
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 

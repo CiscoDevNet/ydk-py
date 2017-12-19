@@ -25,19 +25,19 @@ class Ipv6Configuration(Entity):
     .. attribute:: ipv6_assembler
     
     	IPv6 fragmented packet assembler
-    	**type**\:   :py:class:`Ipv6Assembler <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_cfg.Ipv6Configuration.Ipv6Assembler>`
+    	**type**\:  :py:class:`Ipv6Assembler <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_cfg.Ipv6Configuration.Ipv6Assembler>`
     
     .. attribute:: ipv6icmp
     
     	Configure IPv6 ICMP parameters
-    	**type**\:   :py:class:`Ipv6Icmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_cfg.Ipv6Configuration.Ipv6Icmp>`
+    	**type**\:  :py:class:`Ipv6Icmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_cfg.Ipv6Configuration.Ipv6Icmp>`
     
     	**presence node**\: True
     
     .. attribute:: ipv6_pmtu_time_out
     
     	Configure IPv6 Path MTU timeout value in minutes
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..15
     
@@ -46,21 +46,21 @@ class Ipv6Configuration(Entity):
     .. attribute:: ipv6_source_route
     
     	TRUE if enabled, FALSE if disabled
-    	**type**\:  bool
+    	**type**\: bool
     
     	**default value**\: true
     
     .. attribute:: ipv6_pmtu_enable
     
     	TRUE if enabled, FALSE if disabled
-    	**type**\:  bool
+    	**type**\: bool
     
     	**default value**\: false
     
     .. attribute:: ipv6_hop_limit
     
     	Configure IPv6 hop count limit
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..255
     
@@ -111,7 +111,7 @@ class Ipv6Configuration(Entity):
         .. attribute:: timeout
         
         	Number of seconds an assembly queue will hold before timeout
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..120
         
@@ -120,7 +120,7 @@ class Ipv6Configuration(Entity):
         .. attribute:: max_packets
         
         	Maxinum packets allowed in assembly queues (in percent)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..50
         
@@ -160,7 +160,7 @@ class Ipv6Configuration(Entity):
         .. attribute:: error_interval
         
         	Interval between tokens in milliseconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
@@ -171,7 +171,7 @@ class Ipv6Configuration(Entity):
         .. attribute:: bucket_size
         
         	Bucket size
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..200
         

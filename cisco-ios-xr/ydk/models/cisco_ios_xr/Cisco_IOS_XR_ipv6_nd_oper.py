@@ -265,7 +265,7 @@ class Ipv6NodeDiscovery(Entity):
     .. attribute:: nodes
     
     	IPv6 node discovery list of nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes>`
     
     
 
@@ -299,7 +299,7 @@ class Ipv6NodeDiscovery(Entity):
         .. attribute:: node
         
         	IPv6 node discovery operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node>`
         
         
 
@@ -334,42 +334,44 @@ class Ipv6NodeDiscovery(Entity):
             .. attribute:: node_name  <key>
             
             	The node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: neighbor_interfaces
             
             	IPv6 node discovery list of neighbor interfaces
-            	**type**\:   :py:class:`NeighborInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces>`
+            	**type**\:  :py:class:`NeighborInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces>`
             
             .. attribute:: neighbor_summary
             
             	IPv6 Neighbor summary
-            	**type**\:   :py:class:`NeighborSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary>`
+            	**type**\:  :py:class:`NeighborSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary>`
             
             .. attribute:: bundle_nodes
             
             	IPv6 ND list of bundle nodes for a specific node
-            	**type**\:   :py:class:`BundleNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes>`
+            	**type**\:  :py:class:`BundleNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes>`
             
             .. attribute:: bundle_interfaces
             
             	IPv6 ND list of bundle interfaces for a specific node
-            	**type**\:   :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces>`
+            	**type**\:  :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces>`
             
             .. attribute:: interfaces
             
             	IPv6 node discovery list of interfaces for a specific node
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.Interfaces>`
             
             .. attribute:: nd_virtual_routers
             
             	IPv6 ND virtual router information for a specific interface
-            	**type**\:   :py:class:`NdVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters>`
+            	**type**\:  :py:class:`NdVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters>`
             
             .. attribute:: slaac_interfaces
             
             	IPv6 ND list of SLAAC MGMT interfaces for a specific node
-            	**type**\:   :py:class:`SlaacInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces>`
+            	**type**\:  :py:class:`SlaacInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces>`
             
             
 
@@ -439,7 +441,7 @@ class Ipv6NodeDiscovery(Entity):
                 .. attribute:: neighbor_interface
                 
                 	IPv6 node discovery neighbor interface
-                	**type**\: list of    :py:class:`NeighborInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface>`
+                	**type**\: list of  		 :py:class:`NeighborInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface>`
                 
                 
 
@@ -472,12 +474,14 @@ class Ipv6NodeDiscovery(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: host_addresses
                     
                     	IPv6 node discovery list of neighbor host addresses
-                    	**type**\:   :py:class:`HostAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses>`
+                    	**type**\:  :py:class:`HostAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses>`
                     
                     
 
@@ -516,7 +520,7 @@ class Ipv6NodeDiscovery(Entity):
                         .. attribute:: host_address
                         
                         	IPv6 Neighbor detailed information
-                        	**type**\: list of    :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress>`
+                        	**type**\: list of  		 :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress>`
                         
                         
 
@@ -549,57 +553,63 @@ class Ipv6NodeDiscovery(Entity):
                             .. attribute:: host_address  <key>
                             
                             	Host Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: last_reached_time
                             
                             	Last time of reachability
-                            	**type**\:   :py:class:`LastReachedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime>`
+                            	**type**\:  :py:class:`LastReachedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime>`
                             
                             .. attribute:: reachability_state
                             
                             	Current state
-                            	**type**\:   :py:class:`Ipv6NdShState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShState>`
+                            	**type**\:  :py:class:`Ipv6NdShState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShState>`
                             
                             .. attribute:: link_layer_address
                             
                             	Link\-Layer Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             .. attribute:: encapsulation
                             
                             	Preferred media encap type
-                            	**type**\:   :py:class:`Ipv6NdMediaEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncap>`
+                            	**type**\:  :py:class:`Ipv6NdMediaEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncap>`
                             
                             .. attribute:: selected_encapsulation
                             
                             	Selected media encap
-                            	**type**\:   :py:class:`Ipv6NdMediaEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncap>`
+                            	**type**\:  :py:class:`Ipv6NdMediaEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncap>`
                             
                             .. attribute:: origin_encapsulation
                             
                             	Neighbor origin
-                            	**type**\:   :py:class:`Ipv6NdNeighborOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdNeighborOrigin>`
+                            	**type**\:  :py:class:`Ipv6NdNeighborOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdNeighborOrigin>`
                             
                             .. attribute:: interface_name
                             
                             	Interface name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: location
                             
                             	Location where the neighbor entry exists
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             .. attribute:: is_router
                             
                             	IsRouter
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: serg_flags
                             
                             	ND serg flags for this entry
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -657,7 +667,7 @@ class Ipv6NodeDiscovery(Entity):
                                 .. attribute:: seconds
                                 
                                 	Number of seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -694,22 +704,22 @@ class Ipv6NodeDiscovery(Entity):
                 .. attribute:: multicast
                 
                 	Multicast neighbor summary
-                	**type**\:   :py:class:`Multicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast>`
+                	**type**\:  :py:class:`Multicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast>`
                 
                 .. attribute:: static
                 
                 	Static neighbor summary
-                	**type**\:   :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static>`
+                	**type**\:  :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static>`
                 
                 .. attribute:: dynamic
                 
                 	Dynamic neighbor summary
-                	**type**\:   :py:class:`Dynamic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic>`
+                	**type**\:  :py:class:`Dynamic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic>`
                 
                 .. attribute:: total_neighbor_entries
                 
                 	Total number of entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -759,49 +769,49 @@ class Ipv6NodeDiscovery(Entity):
                     .. attribute:: incomplete_entries
                     
                     	Total incomplete entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: reachable_entries
                     
                     	Total reachable entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: stale_entries
                     
                     	Total stale entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delayed_entries
                     
                     	Total delayed entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: probe_entries
                     
                     	Total probe entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: deleted_entries
                     
                     	Total deleted entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: subtotal_neighbor_entries
                     
                     	Total number of entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -848,49 +858,49 @@ class Ipv6NodeDiscovery(Entity):
                     .. attribute:: incomplete_entries
                     
                     	Total incomplete entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: reachable_entries
                     
                     	Total reachable entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: stale_entries
                     
                     	Total stale entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delayed_entries
                     
                     	Total delayed entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: probe_entries
                     
                     	Total probe entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: deleted_entries
                     
                     	Total deleted entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: subtotal_neighbor_entries
                     
                     	Total number of entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -937,49 +947,49 @@ class Ipv6NodeDiscovery(Entity):
                     .. attribute:: incomplete_entries
                     
                     	Total incomplete entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: reachable_entries
                     
                     	Total reachable entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: stale_entries
                     
                     	Total stale entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: delayed_entries
                     
                     	Total delayed entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: probe_entries
                     
                     	Total probe entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: deleted_entries
                     
                     	Total deleted entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: subtotal_neighbor_entries
                     
                     	Total number of entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1027,7 +1037,7 @@ class Ipv6NodeDiscovery(Entity):
                 .. attribute:: bundle_node
                 
                 	IPv6 ND operational data for a specific bundle node
-                	**type**\: list of    :py:class:`BundleNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode>`
+                	**type**\: list of  		 :py:class:`BundleNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode>`
                 
                 
 
@@ -1061,62 +1071,64 @@ class Ipv6NodeDiscovery(Entity):
                     .. attribute:: node_name  <key>
                     
                     	The bundle node name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
                     .. attribute:: age
                     
                     	Uptime of node (secs)
-                    	**type**\:   :py:class:`Age <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age>`
+                    	**type**\:  :py:class:`Age <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age>`
                     
                     .. attribute:: group_id
                     
                     	Group ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: process_name
                     
                     	Process Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: sent_sequence_number
                     
                     	Sent sequence num
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: received_sequence_number
                     
                     	Received sequence num
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: state
                     
                     	State
-                    	**type**\:   :py:class:`Ipv6NdBndlState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdBndlState>`
+                    	**type**\:  :py:class:`Ipv6NdBndlState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdBndlState>`
                     
                     .. attribute:: state_changes
                     
                     	State changes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sent_packets
                     
                     	Total packet sends
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: received_packets
                     
                     	Total packet receives
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1172,7 +1184,7 @@ class Ipv6NodeDiscovery(Entity):
                         .. attribute:: seconds
                         
                         	Number of seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1210,7 +1222,7 @@ class Ipv6NodeDiscovery(Entity):
                 .. attribute:: bundle_interface
                 
                 	IPv6 ND operational data for a specific bundler interface
-                	**type**\: list of    :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface>`
+                	**type**\: list of  		 :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface>`
                 
                 
 
@@ -1244,94 +1256,100 @@ class Ipv6NodeDiscovery(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: nd_parameters
                     
                     	ND interface parameters
-                    	**type**\:   :py:class:`NdParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters>`
+                    	**type**\:  :py:class:`NdParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters>`
                     
                     .. attribute:: local_address
                     
                     	Link local address
-                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress>`
+                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress>`
                     
                     .. attribute:: parent_interface_name
                     
                     	Parent interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: iftype
                     
                     	Interface type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mtu
                     
                     	MTU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: etype
                     
                     	etype
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: vlan_tag
                     
                     	vlan tag/id/ucv
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: mac_addr_size
                     
                     	mac address size
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mac_addr
                     
                     	mac address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: is_interface_enabled
                     
                     	If true, interface is enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_ipv6_enabled
                     
                     	If true, IPv6 is enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_mpls_enabled
                     
                     	If true, MPLS is enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: member_link
                     
                     	List of member links
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: global_address
                     
                     	List of ND global addresses
-                    	**type**\: list of    :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress>`
+                    	**type**\: list of  		 :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress>`
                     
                     .. attribute:: member_node
                     
                     	List of member nodes
-                    	**type**\: list of    :py:class:`MemberNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode>`
+                    	**type**\: list of  		 :py:class:`MemberNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode>`
                     
                     
 
@@ -1399,121 +1417,121 @@ class Ipv6NodeDiscovery(Entity):
                         .. attribute:: is_dad_enabled
                         
                         	If true, DAD (D.. A.. D..) is enabled otherwise it is disabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: dad_attempts
                         
                         	DAD attempt count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_icm_pv6_redirect
                         
                         	ICMP redirect flag
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_dhcp_managed
                         
                         	Flag used for utilising DHCP
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_route_address_managed
                         
                         	Flag used to manage routable address
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_suppressed
                         
                         	Suppress flag
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: send_unicast_ra
                         
                         	unicast RA send flag
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: nd_retransmit_interval
                         
                         	ND retransmit interval in msec
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: nd_min_transmit_interval
                         
                         	ND router advertisement minimum transmit interval in sec
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: nd_max_transmit_interval
                         
                         	ND router advertisement maximum transmit interval in sec
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: nd_advertisement_lifetime
                         
                         	ND router advertisement life time in sec
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: nd_reachable_time
                         
                         	Time to reach ND in msec
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: nd_cache_limit
                         
                         	Completed adjacency limit per interface
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: complete_protocol_count
                         
                         	Completed PROTO entry Count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: complete_glean_count
                         
                         	Completed GLEAN entry count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incomplete_protocol_count
                         
                         	Incomplete PROTO entry count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: incomplete_glean_count
                         
                         	Incomplete GLEAN entry count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: dropped_protocol_req_count
                         
                         	Dropped PROTO entry request count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: dropped_glean_req_count
                         
                         	Dropped GLEAN entry lequest count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1584,7 +1602,9 @@ class Ipv6NodeDiscovery(Entity):
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -1617,7 +1637,9 @@ class Ipv6NodeDiscovery(Entity):
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -1650,12 +1672,14 @@ class Ipv6NodeDiscovery(Entity):
                         .. attribute:: node_name
                         
                         	Node Name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
                         .. attribute:: total_links
                         
                         	Number of links on the node
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1693,7 +1717,7 @@ class Ipv6NodeDiscovery(Entity):
                 .. attribute:: interface
                 
                 	IPv6  node discovery operational data for a specific node and interface
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -1727,126 +1751,128 @@ class Ipv6NodeDiscovery(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: is_dad_enabled
                     
                     	If true, DAD (D.. A.. D..) is enabled otherwise it is disabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: dad_attempts
                     
                     	DAD attempt count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: is_icm_pv6_redirect
                     
                     	ICMP redirect flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_dhcp_managed
                     
                     	Flag used for utilising DHCP
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_route_address_managed
                     
                     	Flag used to manage routable address
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_suppressed
                     
                     	Suppress flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: send_unicast_ra
                     
                     	unicast RA send flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: nd_retransmit_interval
                     
                     	ND retransmit interval in msec
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: nd_min_transmit_interval
                     
                     	ND router advertisement minimum transmit interval in sec
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: nd_max_transmit_interval
                     
                     	ND router advertisement maximum transmit interval in sec
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: nd_advertisement_lifetime
                     
                     	ND router advertisement life time in sec
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: nd_reachable_time
                     
                     	Time to reach ND in msec
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: nd_cache_limit
                     
                     	Completed adjacency limit per interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: complete_protocol_count
                     
                     	Completed PROTO entry Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: complete_glean_count
                     
                     	Completed GLEAN entry count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: incomplete_protocol_count
                     
                     	Incomplete PROTO entry count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: incomplete_glean_count
                     
                     	Incomplete GLEAN entry count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: dropped_protocol_req_count
                     
                     	Dropped PROTO entry request count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: dropped_glean_req_count
                     
                     	Dropped GLEAN entry lequest count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1920,7 +1946,7 @@ class Ipv6NodeDiscovery(Entity):
                 .. attribute:: nd_virtual_router
                 
                 	IPv6 ND virtual  router operational data for a specific interface
-                	**type**\: list of    :py:class:`NdVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter>`
+                	**type**\: list of  		 :py:class:`NdVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter>`
                 
                 
 
@@ -1954,46 +1980,50 @@ class Ipv6NodeDiscovery(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: local_address
                     
                     	Link local address
-                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress>`
+                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress>`
                     
                     .. attribute:: link_layer_address
                     
                     	Link\-Layer Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: context
                     
                     	Virtual Router ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: state
                     
                     	VR state
-                    	**type**\:   :py:class:`Ipv6NdShVrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrState>`
+                    	**type**\:  :py:class:`Ipv6NdShVrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrState>`
                     
                     .. attribute:: flags
                     
                     	VR Flags
-                    	**type**\:   :py:class:`Ipv6NdShVrFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrFlags>`
+                    	**type**\:  :py:class:`Ipv6NdShVrFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrFlags>`
                     
                     .. attribute:: vr_gl_addr_ct
                     
                     	Virtual Global Address Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: vr_global_address
                     
                     	List of ND global addresses
-                    	**type**\: list of    :py:class:`VrGlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress>`
+                    	**type**\: list of  		 :py:class:`VrGlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress>`
                     
                     
 
@@ -2043,7 +2073,9 @@ class Ipv6NodeDiscovery(Entity):
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -2076,7 +2108,9 @@ class Ipv6NodeDiscovery(Entity):
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -2110,7 +2144,7 @@ class Ipv6NodeDiscovery(Entity):
                 .. attribute:: slaac_interface
                 
                 	IPv6 ND operational data for a specific slaac interface
-                	**type**\: list of    :py:class:`SlaacInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface>`
+                	**type**\: list of  		 :py:class:`SlaacInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface>`
                 
                 
 
@@ -2144,12 +2178,14 @@ class Ipv6NodeDiscovery(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: router_advert_detail
                     
                     	IPv6 ND operational data for a specific slaac interface
-                    	**type**\:   :py:class:`RouterAdvertDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail>`
+                    	**type**\:  :py:class:`RouterAdvertDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail>`
                     
                     
 
@@ -2188,12 +2224,14 @@ class Ipv6NodeDiscovery(Entity):
                         .. attribute:: idb
                         
                         	idb
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: ra
                         
                         	slaac db
-                        	**type**\: list of    :py:class:`Ra <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra>`
+                        	**type**\: list of  		 :py:class:`Ra <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra>`
                         
                         
 
@@ -2228,93 +2266,95 @@ class Ipv6NodeDiscovery(Entity):
                             .. attribute:: elapsed_ra_time
                             
                             	elapsedRATime
-                            	**type**\:   :py:class:`ElapsedRaTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime>`
+                            	**type**\:  :py:class:`ElapsedRaTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime>`
                             
                             .. attribute:: reachable_time
                             
                             	reachabletime
-                            	**type**\:   :py:class:`ReachableTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime>`
+                            	**type**\:  :py:class:`ReachableTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime>`
                             
                             .. attribute:: retrans_time
                             
                             	retranstime
-                            	**type**\:   :py:class:`RetransTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime>`
+                            	**type**\:  :py:class:`RetransTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime>`
                             
                             .. attribute:: address
                             
                             	address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: hops
                             
                             	hops
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: flags
                             
                             	flags
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: life_time
                             
                             	lifetime
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: mtu
                             
                             	mtu
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: err_msg
                             
                             	errmsg
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: vrf_id
                             
                             	vrf id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: u6_tbl_id
                             
                             	tbl id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: rib_protoid
                             
                             	proto id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: default_router
                             
                             	router
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: reachability
                             
                             	reach
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: prefix_q
                             
                             	Prefix Queue
-                            	**type**\: list of    :py:class:`PrefixQ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ>`
+                            	**type**\: list of  		 :py:class:`PrefixQ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ>`
                             
                             
 
@@ -2384,7 +2424,7 @@ class Ipv6NodeDiscovery(Entity):
                                 .. attribute:: seconds
                                 
                                 	Number of seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2421,7 +2461,7 @@ class Ipv6NodeDiscovery(Entity):
                                 .. attribute:: seconds
                                 
                                 	Number of seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2458,7 +2498,7 @@ class Ipv6NodeDiscovery(Entity):
                                 .. attribute:: seconds
                                 
                                 	Number of seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2495,45 +2535,49 @@ class Ipv6NodeDiscovery(Entity):
                                 .. attribute:: prefix_address
                                 
                                 	Prefix address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: eui64
                                 
                                 	IPv6 Auto generated address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: valid_life_time
                                 
                                 	Valid Life Time
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: preferred_life_time
                                 
                                 	Preferred Life Time
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: prefix_len
                                 
                                 	Prefix Length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: flags
                                 
                                 	IPv6 Address Specific Flags
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: pfx_flags
                                 
                                 	Prefix Address Specific Flags
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 

@@ -155,7 +155,7 @@ class MpaInternal(Entity):
     .. attribute:: nodes
     
     	Table of nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.MpaInternal.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.MpaInternal.Nodes>`
     
     
 
@@ -189,7 +189,7 @@ class MpaInternal(Entity):
         .. attribute:: node
         
         	Number
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.MpaInternal.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.MpaInternal.Nodes.Node>`
         
         
 
@@ -223,12 +223,14 @@ class MpaInternal(Entity):
             .. attribute:: node  <key>
             
             	node number
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: bay
             
             	Number
-            	**type**\: list of    :py:class:`Bay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.MpaInternal.Nodes.Node.Bay>`
+            	**type**\: list of  		 :py:class:`Bay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.MpaInternal.Nodes.Node.Bay>`
             
             
 
@@ -264,14 +266,14 @@ class MpaInternal(Entity):
                 .. attribute:: number  <key>
                 
                 	bay number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ifsubsies
                 
                 	Table of Ifsubsys
-                	**type**\:   :py:class:`Ifsubsies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.MpaInternal.Nodes.Node.Bay.Ifsubsies>`
+                	**type**\:  :py:class:`Ifsubsies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.MpaInternal.Nodes.Node.Bay.Ifsubsies>`
                 
                 
 
@@ -309,7 +311,7 @@ class MpaInternal(Entity):
                     .. attribute:: ifsubsy
                     
                     	Number
-                    	**type**\: list of    :py:class:`Ifsubsy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy>`
+                    	**type**\: list of  		 :py:class:`Ifsubsy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy>`
                     
                     
 
@@ -342,12 +344,14 @@ class MpaInternal(Entity):
                         .. attribute:: number  <key>
                         
                         	ifsubsys number
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: mpa_internal_info
                         
                         	mpa internal info
-                        	**type**\:   :py:class:`MpaInternalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo>`
+                        	**type**\:  :py:class:`MpaInternalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo>`
                         
                         
 
@@ -385,70 +389,70 @@ class MpaInternal(Entity):
                             .. attribute:: bay
                             
                             	bay
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: ifsubsys
                             
                             	ifsubsys
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: if_state
                             
                             	if state
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: if_event
                             
                             	if event
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: ep_type
                             
                             	ep type
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: ep_state
                             
                             	ep state
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: ep_presence
                             
                             	ep presence
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: ep_idprom_major
                             
                             	ep idprom major
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: ep_idprom_minor
                             
                             	ep idprom minor
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: ep_idprom_data
                             
                             	ep idprom data
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..256
                             
@@ -504,7 +508,7 @@ class Mpa(Entity):
     .. attribute:: nodes
     
     	Table of nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.Mpa.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.Mpa.Nodes>`
     
     
 
@@ -538,7 +542,7 @@ class Mpa(Entity):
         .. attribute:: node
         
         	Number
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.Mpa.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.Mpa.Nodes.Node>`
         
         
 
@@ -572,12 +576,14 @@ class Mpa(Entity):
             .. attribute:: node  <key>
             
             	node number
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: bay
             
             	Number
-            	**type**\: list of    :py:class:`Bay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.Mpa.Nodes.Node.Bay>`
+            	**type**\: list of  		 :py:class:`Bay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.Mpa.Nodes.Node.Bay>`
             
             
 
@@ -613,14 +619,14 @@ class Mpa(Entity):
                 .. attribute:: number  <key>
                 
                 	bay number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: mpa_detail_table
                 
                 	Table of Mpa Detail Info
-                	**type**\:   :py:class:`MpaDetailTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.Mpa.Nodes.Node.Bay.MpaDetailTable>`
+                	**type**\:  :py:class:`MpaDetailTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.Mpa.Nodes.Node.Bay.MpaDetailTable>`
                 
                 
 
@@ -658,7 +664,7 @@ class Mpa(Entity):
                     .. attribute:: mpa_detail
                     
                     	mpa detail status info
-                    	**type**\:   :py:class:`MpaDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail>`
+                    	**type**\:  :py:class:`MpaDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail>`
                     
                     
 
@@ -691,61 +697,61 @@ class Mpa(Entity):
                         .. attribute:: bay_number
                         
                         	BAY number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: is_spa_inserted
                         
                         	If SPA inserted
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: spa_type
                         
                         	SPA type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: is_spa_admin_up
                         
                         	If SPA admin state is Up
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: spa_oper_state
                         
                         	SPA operational state
-                        	**type**\:   :py:class:`SpaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.SpaOperState>`
+                        	**type**\:  :py:class:`SpaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.SpaOperState>`
                         
                         .. attribute:: is_spa_power_admin_up
                         
                         	If SPA power admin state is Up
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_spa_powered
                         
                         	If SPA powered
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_spa_in_reset
                         
                         	If SPA in reset
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: last_reset_reason
                         
                         	Last reset reason
-                        	**type**\:   :py:class:`SpaResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.SpaResetReason>`
+                        	**type**\:  :py:class:`SpaResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.SpaResetReason>`
                         
                         .. attribute:: last_failure_reason
                         
                         	Last Failure Reason
-                        	**type**\:   :py:class:`SpaFailureReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.SpaFailureReason>`
+                        	**type**\:  :py:class:`SpaFailureReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.SpaFailureReason>`
                         
                         .. attribute:: insertion_time
                         
                         	Time when SPA last insertedin calendar format\: seconds since00\:00\:00 UTC, January 1, 1970
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -754,7 +760,7 @@ class Mpa(Entity):
                         .. attribute:: last_ready_time
                         
                         	Time when SPA last reached Ready statein calendar format\: seconds since00\:00\:00 UTC, January 1, 1970
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -763,7 +769,7 @@ class Mpa(Entity):
                         .. attribute:: up_time
                         
                         	Uptime in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         

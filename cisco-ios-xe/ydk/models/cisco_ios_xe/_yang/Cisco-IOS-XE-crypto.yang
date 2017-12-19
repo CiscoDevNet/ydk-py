@@ -45,6 +45,25 @@ module Cisco-IOS-XE-crypto {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
+  revision 2017-08-08 {
+    description
+      "crypto pki trustpoint is missing fqdn node";
+  }
+  revision 2017-08-04 {
+    description
+      "add lifetime container support under key chain";
+  }
+  revision 2017-05-24 {
+      description 
+        "Modified container ipv4-addr and address under container 
+        pre-shared-key to list address to support multiple 
+        pre-shared-key commands.";
+  }
   revision 2017-05-10 {
     description
       "inet:ipv6-prefix changed to ios-types:ipv6-prefix";
@@ -77,7 +96,98 @@ module Cisco-IOS-XE-crypto {
       "Initial revision";
   }
 
-
+  grouping lifetime-grouping {
+    container lifetime-group {
+      leaf hh-mm-ss {
+        type ios-types:hhmmss-type;
+      }
+      choice date-month {
+        case date1 {
+          leaf date1 {
+            type uint8 {
+              range "1..31";
+            }
+          }
+        }
+        case month1 {
+          leaf month1 {
+            type string;
+          }
+        }
+      }
+      choice month-date {
+        case date2 {
+          leaf date2 {
+            when "../month1";
+            type uint8 {
+              range "1..31";
+            }
+          }
+        }
+        case month2 {
+          leaf month2 {
+            when "../date1";
+            type string;
+          }
+        }
+      }
+      leaf year {
+        type uint16 {
+          range "1993..2035";
+        }
+      }
+      leaf duration {
+        description
+          "Set key lifetime duration";
+        type uint32 {
+          range "1..864000";
+        }
+      }
+      leaf hh-mm-ss1 {
+        type ios-types:hhmmss-type;
+      }
+      choice date-month1 {
+        case date3 {
+          leaf date3 {
+            type uint8 {
+              range "1..31";
+            }
+          }
+        }
+        case month3 {
+          leaf month3 {
+              type string;
+          }
+        }
+      }
+      choice month-date1 {
+        case date4 {
+          leaf date4 {
+            when "../month3";
+            type uint8 {
+              range "1..31";
+            }
+          }
+        }
+        case month4 {
+          leaf month4 {
+            when "../date3";
+            type string;
+          }
+        }
+      }
+      leaf year1 {
+        type uint16 {
+          range "1993..2035";
+        }
+      }
+      leaf infinite {
+        description
+          "Never expires";
+        type empty;
+      }
+    }
+  }
   grouping crypto-pki-token-grouping {
     // max-retries  maximum number of consecutive login failures permitted
     container removal {
@@ -5019,7 +5129,7 @@ module Cisco-IOS-XE-crypto {
               }
               leaf mask {
                 description
-                    "address prefix mask";
+                  "address prefix mask";
                 type inet:ipv4-address;
               }
               uses crypto-keyring-key-grouping;
@@ -5029,10 +5139,10 @@ module Cisco-IOS-XE-crypto {
             list ipv6 {
               description
                 "define shared key with IPv6 address";
-              key "ipv6";
-              leaf ipv6 {
+              key "ipv6-addr";
+              leaf ipv6-addr {
                 description
-                  "IPv6 prefix mask";
+                  "IPv6 address prefix";
                 type ios-types:ipv6-prefix;
               }
               uses crypto-keyring-key-grouping;
@@ -6421,6 +6531,11 @@ Hex-data is not supported */
             type string;
           }
         }
+        leaf fqdn {
+          description
+            "include fully-qualified domain name";
+          type string;
+        }
         container password {
           description
             "revocation password";
@@ -6441,7 +6556,6 @@ Hex-data is not supported */
         //  exit              Exit from certificate authority trustpoint
         //                    entry mode
         //  fingerprint       CA Certificate Fingerprint
-        //  fqdn              include fully-qualified domain name
         //  hash              Hash algorithm
         //  ip-address        include ip address
         //  ip-extension      RFC3779 IP extension for device certificate
@@ -6869,10 +6983,27 @@ Hex-data is not supported */
               }
             }
           }
+          choice lifetime-choice {
+            case lifetime-only {
+              container lifetime {
+                description
+                  "Set lifetime of Macsec key";
+                uses lifetime-grouping;
+              }
+            }
+            case lifetime-local {
+              container lifetime-local {
+                container local {
+                  description
+                    "Specify time in local timezone";
+                  uses lifetime-grouping;
+                }
+              }
+            }
+          }
         }
       }
-  }
-
+    }
   grouping config-interface-tunnel-ipsec-grouping {
     container ipsec {
       description
@@ -6935,6 +7066,18 @@ Hex-data is not supported */
     }
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+    uses config-interface-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+
   augment "/ios:native/ios:interface/ios:Loopback" {
     uses config-interface-crypto-grouping {
       if-feature ios-features:crypto; 
@@ -6981,6 +7124,18 @@ Hex-data is not supported */
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ipv6" {
     uses config-interface-ipv6-crypto-grouping {
       if-feature ios-features:crypto;
     }

@@ -25,7 +25,7 @@ class PppoeEa(Entity):
     .. attribute:: nodes
     
     	PPPOE\_EA list of nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class PppoeEa(Entity):
         .. attribute:: node
         
         	PPPOE\-EA operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node>`
         
         
 
@@ -93,17 +93,19 @@ class PppoeEa(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: parent_interface_ids
             
             	PPPoE parent interface info
-            	**type**\:   :py:class:`ParentInterfaceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.ParentInterfaceIds>`
+            	**type**\:  :py:class:`ParentInterfaceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.ParentInterfaceIds>`
             
             .. attribute:: interface_ids
             
             	PPPoE interface info
-            	**type**\:   :py:class:`InterfaceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds>`
+            	**type**\:  :py:class:`InterfaceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds>`
             
             
 
@@ -147,7 +149,7 @@ class PppoeEa(Entity):
                 .. attribute:: parent_interface_id
                 
                 	PPPoE parent interface info
-                	**type**\: list of    :py:class:`ParentInterfaceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId>`
+                	**type**\: list of  		 :py:class:`ParentInterfaceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId>`
                 
                 
 
@@ -180,22 +182,26 @@ class PppoeEa(Entity):
                     .. attribute:: parent_interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: srgv_mac
                     
                     	SRG VMac\-address
-                    	**type**\:   :py:class:`SrgvMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac>`
+                    	**type**\:  :py:class:`SrgvMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac>`
                     
                     .. attribute:: interface
                     
                     	Interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: is_in_sync
                     
                     	Is in sync
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -237,7 +243,9 @@ class PppoeEa(Entity):
                         .. attribute:: macaddr
                         
                         	macaddr
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
                         
 
@@ -270,7 +278,7 @@ class PppoeEa(Entity):
                 .. attribute:: interface_id
                 
                 	PPPoE interface info
-                	**type**\: list of    :py:class:`InterfaceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds.InterfaceId>`
+                	**type**\: list of  		 :py:class:`InterfaceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds.InterfaceId>`
                 
                 
 
@@ -303,66 +311,72 @@ class PppoeEa(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: peer_mac
                     
                     	Peer Mac\-address
-                    	**type**\:   :py:class:`PeerMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac>`
+                    	**type**\:  :py:class:`PeerMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac>`
                     
                     .. attribute:: local_mac
                     
                     	Local Mac\-address
-                    	**type**\:   :py:class:`LocalMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac>`
+                    	**type**\:  :py:class:`LocalMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac>`
                     
                     .. attribute:: srgv_mac
                     
                     	SRG VMac\-address
-                    	**type**\:   :py:class:`SrgvMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac>`
+                    	**type**\:  :py:class:`SrgvMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac>`
                     
                     .. attribute:: interface
                     
                     	Interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: session_id
                     
                     	Session ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: parent_interface
                     
                     	Parent Interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: is_priority_set
                     
                     	Is Priority Set
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: priority
                     
                     	Priority
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: is_in_sync
                     
                     	Is in sync
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_platform_created
                     
                     	Is Platform created
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: vlanid
                     
                     	VLAN Ids
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..65535
                     
@@ -428,7 +442,9 @@ class PppoeEa(Entity):
                         .. attribute:: macaddr
                         
                         	macaddr
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
                         
 
@@ -461,7 +477,9 @@ class PppoeEa(Entity):
                         .. attribute:: macaddr
                         
                         	macaddr
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
                         
 
@@ -494,7 +512,9 @@ class PppoeEa(Entity):
                         .. attribute:: macaddr
                         
                         	macaddr
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
                         
 

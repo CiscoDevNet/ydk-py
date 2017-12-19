@@ -25,17 +25,17 @@ class HwModuleProfileConfig(Entity):
     .. attribute:: profile
     
     	Configure profile
-    	**type**\:   :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile>`
+    	**type**\:  :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile>`
     
     .. attribute:: fib_scale
     
     	Configure Fib for Scale for noTcam LC
-    	**type**\:   :py:class:`FibScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.FibScale>`
+    	**type**\:  :py:class:`FibScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.FibScale>`
     
     .. attribute:: tcam
     
     	Configure Tcam
-    	**type**\:   :py:class:`Tcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Tcam>`
+    	**type**\:  :py:class:`Tcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Tcam>`
     
     
 
@@ -79,17 +79,17 @@ class HwModuleProfileConfig(Entity):
         .. attribute:: tcam_table
         
         	Configure profile for TCAM LC cards
-        	**type**\:   :py:class:`TcamTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable>`
+        	**type**\:  :py:class:`TcamTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable>`
         
         .. attribute:: stats
         
         	Configure stats
-        	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Stats>`
+        	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Stats>`
         
         .. attribute:: qos
         
         	Configure profile
-        	**type**\:   :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos>`
+        	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos>`
         
         
 
@@ -133,7 +133,7 @@ class HwModuleProfileConfig(Entity):
             .. attribute:: fib_table
             
             	FIB table for TCAM LC cards
-            	**type**\:   :py:class:`FibTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable>`
+            	**type**\:  :py:class:`FibTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable>`
             
             
 
@@ -167,12 +167,12 @@ class HwModuleProfileConfig(Entity):
                 .. attribute:: ipv4_address
                 
                 	IPv4 table for TCAM LC cards
-                	**type**\:   :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv4Address>`
+                	**type**\:  :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv4Address>`
                 
                 .. attribute:: ipv6_address
                 
                 	IPv6 table for TCAM LC cards
-                	**type**\:   :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv6Address>`
+                	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv6Address>`
                 
                 
 
@@ -211,7 +211,7 @@ class HwModuleProfileConfig(Entity):
                     .. attribute:: ipv4_unicast
                     
                     	Unicast table for TCAM LC cards
-                    	**type**\:   :py:class:`Ipv4Unicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv4Address.Ipv4Unicast>`
+                    	**type**\:  :py:class:`Ipv4Unicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv4Address.Ipv4Unicast>`
                     
                     
 
@@ -245,12 +245,12 @@ class HwModuleProfileConfig(Entity):
                         .. attribute:: ipv4_unicast_prefix_lengths
                         
                         	IPv4 Unicast prefix 
-                        	**type**\:   :py:class:`Ipv4UnicastPrefixLengths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv4Address.Ipv4Unicast.Ipv4UnicastPrefixLengths>`
+                        	**type**\:  :py:class:`Ipv4UnicastPrefixLengths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv4Address.Ipv4Unicast.Ipv4UnicastPrefixLengths>`
                         
                         .. attribute:: ipv4_unicast_percent
                         
                         	curve out percentage of TCAM table entries
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..100
                         
@@ -293,7 +293,7 @@ class HwModuleProfileConfig(Entity):
                             .. attribute:: ipv4_unicast_prefix_length
                             
                             	IPv4 Unicast prefix length
-                            	**type**\: list of    :py:class:`Ipv4UnicastPrefixLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv4Address.Ipv4Unicast.Ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength>`
+                            	**type**\: list of  		 :py:class:`Ipv4UnicastPrefixLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv4Address.Ipv4Unicast.Ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength>`
                             
                             
 
@@ -327,14 +327,14 @@ class HwModuleProfileConfig(Entity):
                                 .. attribute:: prefix_length  <key>
                                 
                                 	prefix length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..32
                                 
                                 .. attribute:: ipv4_unicast_prefix_percent
                                 
                                 	curve out percentage of TCAM table entries
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**units**\: percentage
                                 
@@ -372,7 +372,7 @@ class HwModuleProfileConfig(Entity):
                     .. attribute:: ipv6_unicast
                     
                     	Unicast table for TCAM LC cards
-                    	**type**\:   :py:class:`Ipv6Unicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv6Address.Ipv6Unicast>`
+                    	**type**\:  :py:class:`Ipv6Unicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv6Address.Ipv6Unicast>`
                     
                     
 
@@ -406,12 +406,12 @@ class HwModuleProfileConfig(Entity):
                         .. attribute:: ipv6_unicast_prefix_lengths
                         
                         	IPv6 Unicast prefix 
-                        	**type**\:   :py:class:`Ipv6UnicastPrefixLengths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv6Address.Ipv6Unicast.Ipv6UnicastPrefixLengths>`
+                        	**type**\:  :py:class:`Ipv6UnicastPrefixLengths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv6Address.Ipv6Unicast.Ipv6UnicastPrefixLengths>`
                         
                         .. attribute:: ipv6_unicast_percent
                         
                         	curve out percentage of TCAM table entries
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..100
                         
@@ -454,7 +454,7 @@ class HwModuleProfileConfig(Entity):
                             .. attribute:: ipv6_unicast_prefix_length
                             
                             	IPv6 Unicast prefix length
-                            	**type**\: list of    :py:class:`Ipv6UnicastPrefixLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv6Address.Ipv6Unicast.Ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength>`
+                            	**type**\: list of  		 :py:class:`Ipv6UnicastPrefixLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv6Address.Ipv6Unicast.Ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength>`
                             
                             
 
@@ -488,14 +488,14 @@ class HwModuleProfileConfig(Entity):
                                 .. attribute:: prefix_length  <key>
                                 
                                 	prefix length
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..128
                                 
                                 .. attribute:: ipv6_unicast_prefix_percent
                                 
                                 	curve out percentage of TCAM table entries
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**units**\: percentage
                                 
@@ -533,7 +533,7 @@ class HwModuleProfileConfig(Entity):
             .. attribute:: counter_profile
             
             	Configure stats for qos\-enhanced and acl\-permit
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -569,32 +569,32 @@ class HwModuleProfileConfig(Entity):
             .. attribute:: hqos_enable_all
             
             	Configure Hqos profile
-            	**type**\:   :py:class:`HqosEnableAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.HqosEnableAll>`
+            	**type**\:  :py:class:`HqosEnableAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.HqosEnableAll>`
             
             .. attribute:: ingress_model_root_def
             
             	Configure Ingress Model Default
-            	**type**\:   :py:class:`IngressModelRootDef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.IngressModelRootDef>`
+            	**type**\:  :py:class:`IngressModelRootDef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.IngressModelRootDef>`
             
             .. attribute:: ingress_models
             
             	Configure Ingress Model Root
-            	**type**\:   :py:class:`IngressModels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.IngressModels>`
+            	**type**\:  :py:class:`IngressModels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.IngressModels>`
             
             .. attribute:: trunks
             
             	Configure Max Trunk Size
-            	**type**\:   :py:class:`Trunks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.Trunks>`
+            	**type**\:  :py:class:`Trunks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.Trunks>`
             
             .. attribute:: class_maps_root_def
             
             	Configure Class Maps Default
-            	**type**\:   :py:class:`ClassMapsRootDef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.ClassMapsRootDef>`
+            	**type**\:  :py:class:`ClassMapsRootDef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.ClassMapsRootDef>`
             
             .. attribute:: class_maps
             
             	Configure Class Map Root
-            	**type**\:   :py:class:`ClassMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.ClassMaps>`
+            	**type**\:  :py:class:`ClassMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.ClassMaps>`
             
             
 
@@ -653,7 +653,7 @@ class HwModuleProfileConfig(Entity):
                 .. attribute:: hqos_enable
                 
                 	 Hqos profile value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -689,7 +689,7 @@ class HwModuleProfileConfig(Entity):
                 .. attribute:: ingress_model_leaf_def
                 
                 	Ingress Model Default
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -725,7 +725,7 @@ class HwModuleProfileConfig(Entity):
                 .. attribute:: ingress_model
                 
                 	Configure Ingress Model
-                	**type**\: list of    :py:class:`IngressModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.IngressModels.IngressModel>`
+                	**type**\: list of  		 :py:class:`IngressModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.IngressModels.IngressModel>`
                 
                 
 
@@ -759,12 +759,14 @@ class HwModuleProfileConfig(Entity):
                     .. attribute:: node_name  <key>
                     
                     	NodeName
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: ingress_model_leaf
                     
                     	Configure Ingress Model Leaf
-                    	**type**\: list of    :py:class:`IngressModelLeaf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.IngressModels.IngressModel.IngressModelLeaf>`
+                    	**type**\: list of  		 :py:class:`IngressModelLeaf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.IngressModels.IngressModel.IngressModelLeaf>`
                     
                     
 
@@ -800,14 +802,14 @@ class HwModuleProfileConfig(Entity):
                         .. attribute:: location  <key>
                         
                         	Location
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ingress_model_leaf
                         
                         	IngressModelLeaf
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -846,7 +848,7 @@ class HwModuleProfileConfig(Entity):
                 .. attribute:: trunk_size
                 
                 	Max Trunk Size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -882,7 +884,7 @@ class HwModuleProfileConfig(Entity):
                 .. attribute:: class_map_size_def
                 
                 	Class Map Size Default
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -918,7 +920,7 @@ class HwModuleProfileConfig(Entity):
                 .. attribute:: class_map
                 
                 	Configure Class Maps
-                	**type**\: list of    :py:class:`ClassMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.ClassMaps.ClassMap>`
+                	**type**\: list of  		 :py:class:`ClassMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.ClassMaps.ClassMap>`
                 
                 
 
@@ -952,12 +954,14 @@ class HwModuleProfileConfig(Entity):
                     .. attribute:: node_name  <key>
                     
                     	NodeName
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: class_map_size
                     
                     	Class Map Size
-                    	**type**\: list of    :py:class:`ClassMapSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.ClassMaps.ClassMap.ClassMapSize>`
+                    	**type**\: list of  		 :py:class:`ClassMapSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Profile.Qos.ClassMaps.ClassMap.ClassMapSize>`
                     
                     
 
@@ -993,14 +997,14 @@ class HwModuleProfileConfig(Entity):
                         .. attribute:: location  <key>
                         
                         	Location
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: class_map_size
                         
                         	ClassMapSize
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -1039,12 +1043,12 @@ class HwModuleProfileConfig(Entity):
         .. attribute:: ipv6_unicast_scale_no_tcam
         
         	IPv6 table for NOTCAM LC Scale
-        	**type**\:   :py:class:`Ipv6UnicastScaleNoTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.FibScale.Ipv6UnicastScaleNoTcam>`
+        	**type**\:  :py:class:`Ipv6UnicastScaleNoTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.FibScale.Ipv6UnicastScaleNoTcam>`
         
         .. attribute:: ipv4_unicast_scale_no_tcam
         
         	IPv4 table for NOTCAM LC Scale
-        	**type**\:   :py:class:`Ipv4UnicastScaleNoTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.FibScale.Ipv4UnicastScaleNoTcam>`
+        	**type**\:  :py:class:`Ipv4UnicastScaleNoTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.FibScale.Ipv4UnicastScaleNoTcam>`
         
         
 
@@ -1083,7 +1087,7 @@ class HwModuleProfileConfig(Entity):
             .. attribute:: scale_ipv6_no_tcam
             
             	Scale for IPv6 table for NoTCAM LC
-            	**type**\:   :py:class:`ScaleIpv6NoTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.FibScale.Ipv6UnicastScaleNoTcam.ScaleIpv6NoTcam>`
+            	**type**\:  :py:class:`ScaleIpv6NoTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.FibScale.Ipv6UnicastScaleNoTcam.ScaleIpv6NoTcam>`
             
             
 
@@ -1117,7 +1121,7 @@ class HwModuleProfileConfig(Entity):
                 .. attribute:: internet_optimized_ipv6_no_tcam
                 
                 	Internet\-optimized Scale for IPv6 table for NoTCAM LC
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -1151,7 +1155,7 @@ class HwModuleProfileConfig(Entity):
             .. attribute:: scale_ipv4_no_tcam
             
             	Scale for IPv4 table for NoTCAM LC
-            	**type**\:   :py:class:`ScaleIpv4NoTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.FibScale.Ipv4UnicastScaleNoTcam.ScaleIpv4NoTcam>`
+            	**type**\:  :py:class:`ScaleIpv4NoTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.FibScale.Ipv4UnicastScaleNoTcam.ScaleIpv4NoTcam>`
             
             
 
@@ -1185,12 +1189,12 @@ class HwModuleProfileConfig(Entity):
                 .. attribute:: host_optimized_ipv4_no_tcam
                 
                 	Host\-optimized Scale for IPv4 table for NoTCAM LC
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: internet_optimized_ipv4_no_tcam
                 
                 	Internet\-optimized Scale for IPv4 table for NoTCAM LC
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -1226,7 +1230,7 @@ class HwModuleProfileConfig(Entity):
         .. attribute:: fib_tcam_scale
         
         	Configure Fib iscale for Tcam
-        	**type**\:   :py:class:`FibTcamScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Tcam.FibTcamScale>`
+        	**type**\:  :py:class:`FibTcamScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Tcam.FibTcamScale>`
         
         
 
@@ -1260,7 +1264,7 @@ class HwModuleProfileConfig(Entity):
             .. attribute:: ipv4_unicast_scale
             
             	IPv4 table for TCAM LC Scale
-            	**type**\:   :py:class:`Ipv4UnicastScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Tcam.FibTcamScale.Ipv4UnicastScale>`
+            	**type**\:  :py:class:`Ipv4UnicastScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg.HwModuleProfileConfig.Tcam.FibTcamScale.Ipv4UnicastScale>`
             
             
 
@@ -1294,7 +1298,7 @@ class HwModuleProfileConfig(Entity):
                 .. attribute:: ipv4_scale
                 
                 	Scale for IPv4 table for TCAM LC
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 

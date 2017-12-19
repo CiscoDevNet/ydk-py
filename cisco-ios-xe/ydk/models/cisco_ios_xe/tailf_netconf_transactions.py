@@ -75,7 +75,7 @@ class StartTransaction(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.tailf_netconf_transactions.StartTransaction.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.tailf_netconf_transactions.StartTransaction.Input>`
     
     
 
@@ -108,12 +108,12 @@ class StartTransaction(Entity):
         .. attribute:: target
         
         	Name of the configuration datastore towards which the transaction is started
-        	**type**\:   :py:class:`Target <ydk.models.cisco_ios_xe.tailf_netconf_transactions.StartTransaction.Input.Target>`
+        	**type**\:  :py:class:`Target <ydk.models.cisco_ios_xe.tailf_netconf_transactions.StartTransaction.Input.Target>`
         
         .. attribute:: with_inactive
         
         	If the parameter is present in <start\-transaction>, it MUST also be present in any <edit\-config>, <copy\-config>, <get>, or <get\-config> operations within the transaction.  If it is not present in <start\-transaction>, it MUST NOT be present in any <edit\-config> operation within the transaction
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -152,17 +152,17 @@ class StartTransaction(Entity):
             .. attribute:: startup
             
             	
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: candidate
             
             	
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 

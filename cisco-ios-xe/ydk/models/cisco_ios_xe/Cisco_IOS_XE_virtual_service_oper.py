@@ -18,7 +18,7 @@ class VirtualServices(Entity):
     .. attribute:: virtual_service
     
     	A virtual service
-    	**type**\: list of    :py:class:`VirtualService <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService>`
+    	**type**\: list of  		 :py:class:`VirtualService <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService>`
     
     
 
@@ -52,42 +52,42 @@ class VirtualServices(Entity):
         .. attribute:: name  <key>
         
         	The name of the virtual service
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: details
         
         	Details of the virtual service
-        	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details>`
+        	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details>`
         
         .. attribute:: utilization
         
         	Utilization of device resources for a virtual\-service
-        	**type**\:   :py:class:`Utilization <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Utilization>`
+        	**type**\:  :py:class:`Utilization <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Utilization>`
         
         .. attribute:: network_utils
         
         	list of the network utilizations for the virtual\-service
-        	**type**\:   :py:class:`NetworkUtils <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.NetworkUtils>`
+        	**type**\:  :py:class:`NetworkUtils <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.NetworkUtils>`
         
         .. attribute:: storage_utils
         
         	List of the storage utilizations for the virtual\-service
-        	**type**\:   :py:class:`StorageUtils <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.StorageUtils>`
+        	**type**\:  :py:class:`StorageUtils <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.StorageUtils>`
         
         .. attribute:: attached_devices
         
         	Details for the devices attached to this virtual service
-        	**type**\:   :py:class:`AttachedDevices <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.AttachedDevices>`
+        	**type**\:  :py:class:`AttachedDevices <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.AttachedDevices>`
         
         .. attribute:: network_interfaces
         
         	Details for the network interfaces
-        	**type**\:   :py:class:`NetworkInterfaces <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.NetworkInterfaces>`
+        	**type**\:  :py:class:`NetworkInterfaces <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.NetworkInterfaces>`
         
         .. attribute:: guest_routes
         
         	Routes for the guest interface
-        	**type**\:   :py:class:`GuestRoutes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.GuestRoutes>`
+        	**type**\:  :py:class:`GuestRoutes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.GuestRoutes>`
         
         
 
@@ -156,37 +156,37 @@ class VirtualServices(Entity):
             .. attribute:: state
             
             	State of the virtual service
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: package_information
             
             	Details of the package for the virtual\-service
-            	**type**\:   :py:class:`PackageInformation <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.PackageInformation>`
+            	**type**\:  :py:class:`PackageInformation <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.PackageInformation>`
             
             .. attribute:: detailed_guest_status
             
             	Details on the guest status
-            	**type**\:   :py:class:`DetailedGuestStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.DetailedGuestStatus>`
+            	**type**\:  :py:class:`DetailedGuestStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.DetailedGuestStatus>`
             
             .. attribute:: activated_profile_name
             
             	The activated profile name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: resource_reservation
             
             	Details of the resources reserved for this virtual service
-            	**type**\:   :py:class:`ResourceReservation <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.ResourceReservation>`
+            	**type**\:  :py:class:`ResourceReservation <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.ResourceReservation>`
             
             .. attribute:: guest_interface
             
             	The name of a guest interface
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: resource_admission
             
             	Resources being allocated for the virtual\-service
-            	**type**\:   :py:class:`ResourceAdmission <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.ResourceAdmission>`
+            	**type**\:  :py:class:`ResourceAdmission <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.ResourceAdmission>`
             
             
 
@@ -243,27 +243,27 @@ class VirtualServices(Entity):
                 .. attribute:: name
                 
                 	Name of the package for the virtual\-service
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: path
                 
                 	Path to the package
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: application
                 
                 	Details of the application
-                	**type**\:   :py:class:`Application <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.PackageInformation.Application>`
+                	**type**\:  :py:class:`Application <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.PackageInformation.Application>`
                 
                 .. attribute:: signing
                 
                 	Details of the key signing
-                	**type**\:   :py:class:`Signing <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.PackageInformation.Signing>`
+                	**type**\:  :py:class:`Signing <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.PackageInformation.Signing>`
                 
                 .. attribute:: licensing
                 
                 	Details about the license
-                	**type**\:   :py:class:`Licensing <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.PackageInformation.Licensing>`
+                	**type**\:  :py:class:`Licensing <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.PackageInformation.Licensing>`
                 
                 
 
@@ -313,17 +313,17 @@ class VirtualServices(Entity):
                     .. attribute:: name
                     
                     	Name of the application
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: installed_version
                     
                     	Version of the application
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: description
                     
                     	Description of the application
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -360,12 +360,12 @@ class VirtualServices(Entity):
                     .. attribute:: key_type
                     
                     	The Type of the signed key
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: method
                     
                     	The method the key was signed
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -400,12 +400,12 @@ class VirtualServices(Entity):
                     .. attribute:: name
                     
                     	The name of the license
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: version
                     
                     	The version of the license
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -440,7 +440,7 @@ class VirtualServices(Entity):
                 .. attribute:: processes
                 
                 	All the processes
-                	**type**\:   :py:class:`Processes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes>`
+                	**type**\:  :py:class:`Processes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes>`
                 
                 
 
@@ -473,27 +473,27 @@ class VirtualServices(Entity):
                     .. attribute:: name
                     
                     	Name of the proccess
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: status
                     
                     	Status of the proccess
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: pid
                     
                     	Process ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: uptime
                     
                     	Up time of the proccess
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: memory
                     
                     	Memory of the proccess
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -534,21 +534,21 @@ class VirtualServices(Entity):
                 .. attribute:: disk
                 
                 	The amount of reserverd disk space in MB
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: memory
                 
                 	The amount of reserved memory in MB
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: cpu
                 
                 	The percentage of reserved cpu
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -587,29 +587,29 @@ class VirtualServices(Entity):
                 .. attribute:: state
                 
                 	Thes status the of the resource allocation
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: disk_space
                 
                 	The amount of disk space being allocated for the virtual\-service
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: memory
                 
                 	The amount of memory being allocated for the virtual\-service
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: cpu
                 
                 	The percentage of cpu being allocated for the virtual\-service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: vcpus
                 
                 	The amount of VCPUs being allocated for the virtual\-service
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -650,17 +650,17 @@ class VirtualServices(Entity):
             .. attribute:: name
             
             	The name of the virtual service
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cpu_util
             
             	Details on the CPU utilization for the virtual\-service
-            	**type**\:   :py:class:`CpuUtil <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Utilization.CpuUtil>`
+            	**type**\:  :py:class:`CpuUtil <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Utilization.CpuUtil>`
             
             .. attribute:: memory_util
             
             	Details on the memory usage for the virtual\-service
-            	**type**\:   :py:class:`MemoryUtil <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Utilization.MemoryUtil>`
+            	**type**\:  :py:class:`MemoryUtil <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Utilization.MemoryUtil>`
             
             
 
@@ -703,21 +703,21 @@ class VirtualServices(Entity):
                 .. attribute:: requested_application_util
                 
                 	Percentage of requested CPU utilization by the virtual\-service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: actual_application_util
                 
                 	Percetnage of CPU actual utilization for the virtual\-service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: cpu_state
                 
                 	The state of the CPU utilization for the virtual\-service
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -754,12 +754,12 @@ class VirtualServices(Entity):
                 .. attribute:: memory_allocation
                 
                 	Amount of memory being allocated for the virtual\-service in KB
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: memory_used
                 
                 	Amount of memory being used for the virtual\-service in KB
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -794,7 +794,7 @@ class VirtualServices(Entity):
             .. attribute:: network_util
             
             	Details on a network utilization for the virtual\-service
-            	**type**\: list of    :py:class:`NetworkUtil <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.NetworkUtils.NetworkUtil>`
+            	**type**\: list of  		 :py:class:`NetworkUtil <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.NetworkUtils.NetworkUtil>`
             
             
 
@@ -827,52 +827,52 @@ class VirtualServices(Entity):
                 .. attribute:: name  <key>
                 
                 	The name of the network that is being used for the virtual\-service
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: alias  <key>
                 
                 	The alias of the network that is being used for the virtual\-service
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: rx_packets
                 
                 	The number of rx packets being utilized for the virtual\-service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_bytes
                 
                 	The number of rx bytes being utilized for the virtual\-service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_errors
                 
                 	The number of rx errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_packets
                 
                 	The number of tx packets being utilized for the virtual\-service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_bytes
                 
                 	The number of tx bytes being utilized for the virtual\-service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_errors
                 
                 	The number of tx errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -921,7 +921,7 @@ class VirtualServices(Entity):
             .. attribute:: storage_util
             
             	Details on a storage utilization for the virtual\-service
-            	**type**\: list of    :py:class:`StorageUtil <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.StorageUtils.StorageUtil>`
+            	**type**\: list of  		 :py:class:`StorageUtil <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.StorageUtils.StorageUtil>`
             
             
 
@@ -954,71 +954,71 @@ class VirtualServices(Entity):
                 .. attribute:: name  <key>
                 
                 	The name of the storage process being used for the virtual\-service
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: alias  <key>
                 
                 	The alias of the storage process being used for the virtual\-service
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: rd_bytes
                 
                 	The number of RD bytes being used for the virtual\-service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rd_requests
                 
                 	The number of rd requests being used for the virtual\-service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: errors
                 
                 	The name of errors on the storage process
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: wr_bytes
                 
                 	The number of WR bytes for the virtual\-service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: wr_requests
                 
                 	The number of WR requests for the virtual\-service
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: capacity
                 
                 	The storage capactity in 1K blocks
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: available
                 
                 	The available storage in 1K blocks
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: used
                 
                 	The number of 1K blocks being used
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: usage
                 
                 	The percetage of storage capactiy being used
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -1071,7 +1071,7 @@ class VirtualServices(Entity):
             .. attribute:: attached_device
             
             	List of attached devices
-            	**type**\: list of    :py:class:`AttachedDevice <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.AttachedDevices.AttachedDevice>`
+            	**type**\: list of  		 :py:class:`AttachedDevice <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.AttachedDevices.AttachedDevice>`
             
             
 
@@ -1104,17 +1104,17 @@ class VirtualServices(Entity):
                 .. attribute:: name  <key>
                 
                 	The name of the attached device
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: type
                 
                 	The type of the attached device
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: alias
                 
                 	The alias for the attached device
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -1151,7 +1151,7 @@ class VirtualServices(Entity):
             .. attribute:: network_interface
             
             	Details for a network interface
-            	**type**\: list of    :py:class:`NetworkInterface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface>`
+            	**type**\: list of  		 :py:class:`NetworkInterface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface>`
             
             
 
@@ -1184,12 +1184,14 @@ class VirtualServices(Entity):
                 .. attribute:: mac_address  <key>
                 
                 	The MAC address for the network interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: attached_interface
                 
                 	Name of the the attached interface
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -1224,7 +1226,7 @@ class VirtualServices(Entity):
             .. attribute:: guest_route
             
             	List of guest routes for a guest interface
-            	**type**\: list of    :py:class:`GuestRoute <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.GuestRoutes.GuestRoute>`
+            	**type**\: list of  		 :py:class:`GuestRoute <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.GuestRoutes.GuestRoute>`
             
             
 
@@ -1257,7 +1259,7 @@ class VirtualServices(Entity):
                 .. attribute:: route  <key>
                 
                 	A guest route for a guest interface
-                	**type**\:  str
+                	**type**\: str
                 
                 
 

@@ -29,7 +29,7 @@ class FastShutdown(Entity):
     .. attribute:: ethernet
     
     	Enable Fast Shutdown for all Ethernet interfaces
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 

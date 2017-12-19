@@ -145,12 +145,12 @@ class Suppression(Entity):
     .. attribute:: rule_summaries
     
     	Table that contains the database of suppression rule summary
-    	**type**\:   :py:class:`RuleSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleSummaries>`
+    	**type**\:  :py:class:`RuleSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleSummaries>`
     
     .. attribute:: rule_details
     
     	Table that contains the database of suppression rule details
-    	**type**\:   :py:class:`RuleDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails>`
+    	**type**\:  :py:class:`RuleDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails>`
     
     
 
@@ -190,7 +190,7 @@ class Suppression(Entity):
         .. attribute:: rule_summary
         
         	One of the suppression rules
-        	**type**\: list of    :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleSummaries.RuleSummary>`
+        	**type**\: list of  		 :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleSummaries.RuleSummary>`
         
         
 
@@ -224,24 +224,24 @@ class Suppression(Entity):
             .. attribute:: rule_name  <key>
             
             	Suppression Rule Name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: rule_name_xr
             
             	Suppress Rule Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: rule_state
             
             	Applied state of the rule It could be not applied, applied or applied to all
-            	**type**\:   :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
+            	**type**\:  :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
             
             .. attribute:: suppressed_alarms_count
             
             	Number of suppressed alarms associated with this rule
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -284,7 +284,7 @@ class Suppression(Entity):
         .. attribute:: rule_detail
         
         	Details of one of the suppression rules
-        	**type**\: list of    :py:class:`RuleDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail>`
+        	**type**\: list of  		 :py:class:`RuleDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail>`
         
         
 
@@ -318,34 +318,36 @@ class Suppression(Entity):
             .. attribute:: rule_name  <key>
             
             	Suppression Rule Name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: rule_summary
             
             	Rule summary, name, etc
-            	**type**\:   :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail.RuleSummary>`
+            	**type**\:  :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail.RuleSummary>`
             
             .. attribute:: all_alarms
             
             	Match any alarm
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: alarm_severity
             
             	Severity level to suppress
-            	**type**\:   :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverity>`
+            	**type**\:  :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverity>`
             
             .. attribute:: apply_source
             
             	Sources (R/S/M) to which the rule is applied
-            	**type**\:  list of str
+            	**type**\: list of str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: codes
             
             	Message codes defining the rule
-            	**type**\: list of    :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail.Codes>`
+            	**type**\: list of  		 :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail.Codes>`
             
             
 
@@ -392,17 +394,17 @@ class Suppression(Entity):
                 .. attribute:: rule_name_xr
                 
                 	Suppress Rule Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: rule_state
                 
                 	Applied state of the rule It could be not applied, applied or applied to all
-                	**type**\:   :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
+                	**type**\:  :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
                 
                 .. attribute:: suppressed_alarms_count
                 
                 	Number of suppressed alarms associated with this rule
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -441,17 +443,17 @@ class Suppression(Entity):
                 .. attribute:: category
                 
                 	Category of messages to which this alarm belongs
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: group
                 
                 	Group of messages to which this alarm belongs
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: code
                 
                 	Alarm code which further qualifies the alarm within a message group
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -491,37 +493,37 @@ class Correlator(Entity):
     .. attribute:: rules
     
     	Table that contains the database of correlation rules
-    	**type**\:   :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules>`
+    	**type**\:  :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules>`
     
     .. attribute:: buffer_status
     
     	Describes buffer utilization and parameters configured
-    	**type**\:   :py:class:`BufferStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.BufferStatus>`
+    	**type**\:  :py:class:`BufferStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.BufferStatus>`
     
     .. attribute:: alarms
     
     	Correlated alarms Table
-    	**type**\:   :py:class:`Alarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms>`
+    	**type**\:  :py:class:`Alarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms>`
     
     .. attribute:: rule_set_summaries
     
     	Table that contains the ruleset summary info
-    	**type**\:   :py:class:`RuleSetSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetSummaries>`
+    	**type**\:  :py:class:`RuleSetSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetSummaries>`
     
     .. attribute:: rule_set_details
     
     	Table that contains the ruleset detail info
-    	**type**\:   :py:class:`RuleSetDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails>`
+    	**type**\:  :py:class:`RuleSetDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails>`
     
     .. attribute:: rule_details
     
     	Table that contains the database of correlation rule details
-    	**type**\:   :py:class:`RuleDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails>`
+    	**type**\:  :py:class:`RuleDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails>`
     
     .. attribute:: rule_summaries
     
     	Table that contains the database of correlation rule summary
-    	**type**\:   :py:class:`RuleSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSummaries>`
+    	**type**\:  :py:class:`RuleSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSummaries>`
     
     
 
@@ -586,7 +588,7 @@ class Correlator(Entity):
         .. attribute:: rule
         
         	One of the correlation rules
-        	**type**\: list of    :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules.Rule>`
+        	**type**\: list of  		 :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules.Rule>`
         
         
 
@@ -620,43 +622,45 @@ class Correlator(Entity):
             .. attribute:: rule_name  <key>
             
             	Correlation Rule Name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: rule_name_xr
             
             	Correlation Rule Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: timeout
             
             	Time window (in ms) for which root/all messages are kept in correlater before sending them to the logger
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rule_state
             
             	Applied state of the rule It could be not applied, applied or applied to all
-            	**type**\:   :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
+            	**type**\:  :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
             
             .. attribute:: apply_location
             
             	Locations (R/S/M) to which the rule is  applied
-            	**type**\:  list of str
+            	**type**\: list of str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: apply_context
             
             	Contexts (Interfaces) to which the rule is applied
-            	**type**\:  list of str
+            	**type**\: list of str
             
             	**length:** 0..33
             
             .. attribute:: codes
             
             	Message codes defining the rule
-            	**type**\: list of    :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules.Rule.Codes>`
+            	**type**\: list of  		 :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules.Rule.Codes>`
             
             
 
@@ -702,17 +706,17 @@ class Correlator(Entity):
                 .. attribute:: category
                 
                 	Category of messages to which this alarm belongs
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: group
                 
                 	Group of messages to which this alarm belongs
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: code
                 
                 	Alarm code which further qualifies the alarm within a message group
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -750,14 +754,14 @@ class Correlator(Entity):
         .. attribute:: current_size
         
         	Current buffer usage
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: configured_size
         
         	Configured buffer size
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -795,7 +799,7 @@ class Correlator(Entity):
         .. attribute:: alarm
         
         	One of the correlated alarms
-        	**type**\: list of    :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms.Alarm>`
+        	**type**\: list of  		 :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms.Alarm>`
         
         
 
@@ -829,24 +833,24 @@ class Correlator(Entity):
             .. attribute:: alarm_id  <key>
             
             	Alarm ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: alarm_info
             
             	Correlated alarm information
-            	**type**\:   :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms.Alarm.AlarmInfo>`
+            	**type**\:  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms.Alarm.AlarmInfo>`
             
             .. attribute:: rule_name
             
             	Correlation rule name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: context
             
             	Context string  for the alarm
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -889,12 +893,12 @@ class Correlator(Entity):
                 .. attribute:: source_id
                 
                 	Source Identifier(Location).Indicates the node in which the alarm was generated
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: timestamp
                 
                 	Time when the alarm was generated. It is expressed in number of milliseconds since 00\:00 \:00 UTC, January 1, 1970
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -903,44 +907,44 @@ class Correlator(Entity):
                 .. attribute:: category
                 
                 	Category of the alarm
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: group
                 
                 	Group of messages to which this alarm belongs to
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: code
                 
                 	Alarm code which further qualifies the alarm within a message group
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: severity
                 
                 	Severity of the alarm
-                	**type**\:   :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverity>`
+                	**type**\:  :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverity>`
                 
                 .. attribute:: state
                 
                 	State of the alarm (bistate alarms only)
-                	**type**\:   :py:class:`AlAlarmBistate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmBistate>`
+                	**type**\:  :py:class:`AlAlarmBistate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmBistate>`
                 
                 .. attribute:: correlation_id
                 
                 	Correlation Identifier
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: is_admin
                 
                 	Indicates the event id admin\-level
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: additional_text
                 
                 	Full text of the Alarm
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -991,7 +995,7 @@ class Correlator(Entity):
         .. attribute:: rule_set_summary
         
         	Summary of one of the correlation rulesets
-        	**type**\: list of    :py:class:`RuleSetSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetSummaries.RuleSetSummary>`
+        	**type**\: list of  		 :py:class:`RuleSetSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetSummaries.RuleSetSummary>`
         
         
 
@@ -1025,14 +1029,14 @@ class Correlator(Entity):
             .. attribute:: rule_set_name  <key>
             
             	Ruleset Name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: rule_set_name_xr
             
             	Ruleset Name
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -1068,7 +1072,7 @@ class Correlator(Entity):
         .. attribute:: rule_set_detail
         
         	Detail of one of the correlation rulesets
-        	**type**\: list of    :py:class:`RuleSetDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails.RuleSetDetail>`
+        	**type**\: list of  		 :py:class:`RuleSetDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails.RuleSetDetail>`
         
         
 
@@ -1102,19 +1106,19 @@ class Correlator(Entity):
             .. attribute:: rule_set_name  <key>
             
             	Ruleset Name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: rule_set_name_xr
             
             	Ruleset Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: rules
             
             	Rules contained in a ruleset
-            	**type**\: list of    :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails.RuleSetDetail.Rules>`
+            	**type**\: list of  		 :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails.RuleSetDetail.Rules>`
             
             
 
@@ -1152,22 +1156,22 @@ class Correlator(Entity):
                 .. attribute:: rule_name_xr
                 
                 	Correlation Rule Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: stateful
                 
                 	Whether the rule is stateful
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: rule_state
                 
                 	Applied state of the rule It could be not applied, applied or applied to all
-                	**type**\:   :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
+                	**type**\:  :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
                 
                 .. attribute:: buffered_alarms_count
                 
                 	Number of buffered alarms correlated to this rule
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1209,7 +1213,7 @@ class Correlator(Entity):
         .. attribute:: rule_detail
         
         	Details of one of the correlation rules
-        	**type**\: list of    :py:class:`RuleDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail>`
+        	**type**\: list of  		 :py:class:`RuleDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail>`
         
         
 
@@ -1243,65 +1247,67 @@ class Correlator(Entity):
             .. attribute:: rule_name  <key>
             
             	Correlation Rule Name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: rule_summary
             
             	Rule summary, name, etc
-            	**type**\:   :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail.RuleSummary>`
+            	**type**\:  :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail.RuleSummary>`
             
             .. attribute:: timeout
             
             	Time window (in ms) for which root/all messages are kept in correlater before sending them to the logger
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: root_cause_timeout
             
             	Timeout before root cause alarm
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: internal
             
             	True if the rule is internal
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: reissue_non_bistate
             
             	Whether to reissue non\-bistate alarms
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: reparent
             
             	Reparent
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: context_correlation
             
             	Whether context correlation is enabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: apply_location
             
             	Locations (R/S/M) to which the rule is applied
-            	**type**\:  list of str
+            	**type**\: list of str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: apply_context
             
             	Contexts (Interfaces) to which the rule is applied
-            	**type**\:  list of str
+            	**type**\: list of str
             
             	**length:** 0..33
             
             .. attribute:: codes
             
             	Message codes defining the rule
-            	**type**\: list of    :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail.Codes>`
+            	**type**\: list of  		 :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail.Codes>`
             
             
 
@@ -1358,22 +1364,22 @@ class Correlator(Entity):
                 .. attribute:: rule_name_xr
                 
                 	Correlation Rule Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: stateful
                 
                 	Whether the rule is stateful
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: rule_state
                 
                 	Applied state of the rule It could be not applied, applied or applied to all
-                	**type**\:   :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
+                	**type**\:  :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
                 
                 .. attribute:: buffered_alarms_count
                 
                 	Number of buffered alarms correlated to this rule
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1414,17 +1420,17 @@ class Correlator(Entity):
                 .. attribute:: category
                 
                 	Category of messages to which this alarm belongs
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: group
                 
                 	Group of messages to which this alarm belongs
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: code
                 
                 	Alarm code which further qualifies the alarm within a message group
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -1462,7 +1468,7 @@ class Correlator(Entity):
         .. attribute:: rule_summary
         
         	One of the correlation rules
-        	**type**\: list of    :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSummaries.RuleSummary>`
+        	**type**\: list of  		 :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSummaries.RuleSummary>`
         
         
 
@@ -1496,29 +1502,29 @@ class Correlator(Entity):
             .. attribute:: rule_name  <key>
             
             	Correlation Rule Name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: rule_name_xr
             
             	Correlation Rule Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: stateful
             
             	Whether the rule is stateful
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rule_state
             
             	Applied state of the rule It could be not applied, applied or applied to all
-            	**type**\:   :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
+            	**type**\:  :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
             
             .. attribute:: buffered_alarms_count
             
             	Number of buffered alarms correlated to this rule
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

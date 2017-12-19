@@ -26,7 +26,7 @@ class HardwareModule(Entity):
     .. attribute:: nodes
     
     	List of PRM Nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes>`
     
     
 
@@ -60,7 +60,7 @@ class HardwareModule(Entity):
         .. attribute:: node
         
         	Node Information
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node>`
         
         
 
@@ -94,12 +94,14 @@ class HardwareModule(Entity):
             .. attribute:: node_name  <key>
             
             	The node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: np
             
             	Server specific
-            	**type**\:   :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np>`
+            	**type**\:  :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np>`
             
             
 
@@ -138,12 +140,12 @@ class HardwareModule(Entity):
                 .. attribute:: cpu
                 
                 	Resource specific
-                	**type**\:   :py:class:`Cpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu>`
+                	**type**\:  :py:class:`Cpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu>`
                 
                 .. attribute:: platform_drop
                 
                 	Platform drops
-                	**type**\:   :py:class:`PlatformDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop>`
+                	**type**\:  :py:class:`PlatformDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop>`
                 
                 
 
@@ -181,7 +183,7 @@ class HardwareModule(Entity):
                     .. attribute:: indexes
                     
                     	Data for software resource
-                    	**type**\:   :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu.Indexes>`
+                    	**type**\:  :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu.Indexes>`
                     
                     
 
@@ -214,7 +216,7 @@ class HardwareModule(Entity):
                         .. attribute:: index
                         
                         	Queue Stats
-                        	**type**\: list of    :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index>`
+                        	**type**\: list of  		 :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index>`
                         
                         
 
@@ -247,56 +249,56 @@ class HardwareModule(Entity):
                             .. attribute:: index  <key>
                             
                             	Index value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: cos_q_name
                             
                             	CosQ Name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..1024
                             
                             .. attribute:: cos_q
                             
                             	CosQ No
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: rx_channel
                             
                             	Rx DMA Channel
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: flow_rate
                             
                             	Flow Rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: burst
                             
                             	Burst
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: accepted
                             
                             	Accepted
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dropped
                             
                             	Dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -345,12 +347,12 @@ class HardwareModule(Entity):
                     .. attribute:: indxes
                     
                     	Captured Packets
-                    	**type**\:   :py:class:`Indxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes>`
+                    	**type**\:  :py:class:`Indxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes>`
                     
                     .. attribute:: idxes
                     
                     	Stats for Drop packets
-                    	**type**\:   :py:class:`Idxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes>`
+                    	**type**\:  :py:class:`Idxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes>`
                     
                     
 
@@ -388,7 +390,7 @@ class HardwareModule(Entity):
                         .. attribute:: indx
                         
                         	Captured packets
-                        	**type**\: list of    :py:class:`Indx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx>`
+                        	**type**\: list of  		 :py:class:`Indx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx>`
                         
                         
 
@@ -421,70 +423,70 @@ class HardwareModule(Entity):
                             .. attribute:: index  <key>
                             
                             	Index value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: total_captured
                             
                             	Total packets Captured
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: captured_pak
                             
                             	Captured Packet
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..1024
                             
                             .. attribute:: pkt_index
                             
                             	Packet Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: ifhandle
                             
                             	If Handle
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: buffer_len
                             
                             	Buffer Length
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: reason_hi
                             
                             	Reason Hi
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: reason
                             
                             	Reason
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: years
                             
                             	Year
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: hours
                             
                             	Hours
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -493,7 +495,7 @@ class HardwareModule(Entity):
                             .. attribute:: days
                             
                             	Days
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -502,7 +504,7 @@ class HardwareModule(Entity):
                             .. attribute:: mins
                             
                             	Minutes
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -511,7 +513,7 @@ class HardwareModule(Entity):
                             .. attribute:: secs
                             
                             	Seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -572,7 +574,7 @@ class HardwareModule(Entity):
                         .. attribute:: idx
                         
                         	Drop Stats
-                        	**type**\: list of    :py:class:`Idx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx>`
+                        	**type**\: list of  		 :py:class:`Idx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx>`
                         
                         
 
@@ -605,21 +607,21 @@ class HardwareModule(Entity):
                             .. attribute:: index  <key>
                             
                             	Index value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: drop_reason
                             
                             	Drop Reason
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..1024
                             
                             .. attribute:: counters
                             
                             	Counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -661,7 +663,7 @@ class Prm(Entity):
     .. attribute:: nodes
     
     	List of PRM Nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes>`
     
     
 
@@ -695,7 +697,7 @@ class Prm(Entity):
         .. attribute:: node
         
         	Node Information
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node>`
         
         
 
@@ -729,12 +731,14 @@ class Prm(Entity):
             .. attribute:: node_name  <key>
             
             	The node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: server
             
             	Server specific
-            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server>`
+            	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server>`
             
             
 
@@ -773,7 +777,7 @@ class Prm(Entity):
                 .. attribute:: resource
                 
                 	Resource specific
-                	**type**\:   :py:class:`Resource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource>`
+                	**type**\:  :py:class:`Resource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource>`
                 
                 
 
@@ -806,7 +810,7 @@ class Prm(Entity):
                     .. attribute:: indexes
                     
                     	Data for software resource
-                    	**type**\:   :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource.Indexes>`
+                    	**type**\:  :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource.Indexes>`
                     
                     
 
@@ -839,7 +843,7 @@ class Prm(Entity):
                         .. attribute:: index
                         
                         	Data for software resource
-                        	**type**\: list of    :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource.Indexes.Index>`
+                        	**type**\: list of  		 :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource.Indexes.Index>`
                         
                         
 
@@ -872,68 +876,68 @@ class Prm(Entity):
                             .. attribute:: index  <key>
                             
                             	Index value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: resource_name
                             
                             	Resource Name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..1024
                             
                             .. attribute:: resource_type
                             
                             	Resource Type
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: total_num
                             
                             	Total Resource Count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: free_num
                             
                             	Free Resource Count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: first_available_index
                             
                             	Next Free Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: start_index
                             
                             	Start Index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: availability_status
                             
                             	Availability Status
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: flags
                             
                             	Resource Flags
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: inconsistent
                             
                             	Inconsistice Flags
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 

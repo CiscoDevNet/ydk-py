@@ -86,21 +86,21 @@ class Arp(Entity):
     .. attribute:: max_entries
     
     	Configure maximum number of safe ARP entries per line card
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..256000
     
     .. attribute:: inner_cos
     
     	Configure inner cos values for arp packets
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..7
     
     .. attribute:: outer_cos
     
     	Configure outer cos values for arp packets
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..7
     
@@ -143,12 +143,12 @@ class IedgeCfg(Entity):
     .. attribute:: subscriber_uncond_proxy
     
     	ARP Subscriber Enable Unconditional Proxy ARP
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: subscriber_scale_mode
     
     	ARP Subscriber Scale Mode Configuration
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -187,7 +187,7 @@ class Arpgmp(Entity):
     .. attribute:: vrf
     
     	Per VRF configuration, for the default VRF use 'default'
-    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.Arpgmp.Vrf>`
+    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.Arpgmp.Vrf>`
     
     
 
@@ -222,12 +222,14 @@ class Arpgmp(Entity):
         .. attribute:: vrf_name  <key>
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: entries
         
         	ARP static and alias entry configuration
-        	**type**\:   :py:class:`Entries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.Arpgmp.Vrf.Entries>`
+        	**type**\:  :py:class:`Entries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.Arpgmp.Vrf.Entries>`
         
         
 
@@ -266,7 +268,7 @@ class Arpgmp(Entity):
             .. attribute:: entry
             
             	ARP static and alias entry configuration item
-            	**type**\: list of    :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.Arpgmp.Vrf.Entries.Entry>`
+            	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.Arpgmp.Vrf.Entries.Entry>`
             
             
 
@@ -299,27 +301,33 @@ class Arpgmp(Entity):
                 .. attribute:: address  <key>
                 
                 	IP Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: mac_address
                 
                 	MAC Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: encapsulation
                 
                 	Encapsulation type
-                	**type**\:   :py:class:`ArpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpEncap>`
+                	**type**\:  :py:class:`ArpEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpEncap>`
                 
                 .. attribute:: entry_type
                 
                 	Entry type
-                	**type**\:   :py:class:`ArpEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpEntry>`
+                	**type**\:  :py:class:`ArpEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpEntry>`
                 
                 .. attribute:: interface
                 
                 	Interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 
 
@@ -363,7 +371,7 @@ class ArpRedundancy(Entity):
     .. attribute:: redundancy
     
     	Configure parameter for ARP Geo redundancy
-    	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy>`
+    	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy>`
     
     	**presence node**\: True
     
@@ -398,12 +406,12 @@ class ArpRedundancy(Entity):
         .. attribute:: groups
         
         	Table of Group
-        	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups>`
+        	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups>`
         
         .. attribute:: enable
         
         	Enable Configure parameter for ARP Geo redundancy. Deletion of this object also causes deletion of all associated objects under ArpRedundancy
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         	**mandatory**\: True
         
@@ -447,7 +455,7 @@ class ArpRedundancy(Entity):
             .. attribute:: group
             
             	None
-            	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group>`
+            	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group>`
             
             
 
@@ -481,26 +489,28 @@ class ArpRedundancy(Entity):
                 .. attribute:: group_id  <key>
                 
                 	Group ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..32
                 
                 .. attribute:: peers
                 
                 	Table of Peer
-                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.Peers>`
+                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.Peers>`
                 
                 .. attribute:: interface_list
                 
                 	List of Interfaces for this Group
-                	**type**\:   :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList>`
+                	**type**\:  :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: source_interface
                 
                 	Interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 
 
@@ -545,7 +555,7 @@ class ArpRedundancy(Entity):
                     .. attribute:: peer
                     
                     	None
-                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.Peers.Peer>`
+                    	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.Peers.Peer>`
                     
                     
 
@@ -578,16 +588,16 @@ class ArpRedundancy(Entity):
                         .. attribute:: prefix_string  <key>
                         
                         	Neighbor IPv4 address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         
 
                         """
@@ -619,12 +629,12 @@ class ArpRedundancy(Entity):
                     .. attribute:: interfaces
                     
                     	Table of Interface
-                    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces>`
+                    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces>`
                     
                     .. attribute:: enable
                     
                     	Enable List of Interfaces for this Group. Deletion of this object also causes deletion of all associated objects under InterfaceList
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     	**mandatory**\: True
                     
@@ -667,7 +677,7 @@ class ArpRedundancy(Entity):
                         .. attribute:: interface
                         
                         	Interface for this Group
-                        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface>`
+                        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface>`
                         
                         
 
@@ -700,12 +710,14 @@ class ArpRedundancy(Entity):
                             .. attribute:: interface_name  <key>
                             
                             	Interface name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: interface_id
                             
                             	Interface Id for the interface
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..65535
                             

@@ -259,7 +259,7 @@ class ENTITYSENSORMIB(Entity):
     .. attribute:: entphysensortable
     
     	This table contains one row per physical sensor represented by an associated row in the entPhysicalTable
-    	**type**\:   :py:class:`Entphysensortable <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.ENTITYSENSORMIB.Entphysensortable>`
+    	**type**\:  :py:class:`Entphysensortable <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.ENTITYSENSORMIB.Entphysensortable>`
     
     
 
@@ -294,7 +294,7 @@ class ENTITYSENSORMIB(Entity):
         .. attribute:: entphysensorentry
         
         	Information about a particular physical sensor.  An entry in this table describes the present reading of a sensor, the measurement units and scale, and sensor operational status.  Entries are created in this table by the agent.  An entry for each physical sensor SHOULD be created at the same time as the associated entPhysicalEntry.  An entry SHOULD be destroyed if the associated entPhysicalEntry is destroyed
-        	**type**\: list of    :py:class:`Entphysensorentry <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.ENTITYSENSORMIB.Entphysensortable.Entphysensorentry>`
+        	**type**\: list of  		 :py:class:`Entphysensorentry <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.ENTITYSENSORMIB.Entphysensortable.Entphysensorentry>`
         
         
 
@@ -337,7 +337,7 @@ class ENTITYSENSORMIB(Entity):
             .. attribute:: entphysicalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -346,48 +346,48 @@ class ENTITYSENSORMIB(Entity):
             .. attribute:: entphysensortype
             
             	The type of data returned by the associated entPhySensorValue object.  This object SHOULD be set by the agent during entry creation, and the value SHOULD NOT change during operation
-            	**type**\:   :py:class:`EntitySensorDataType <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorDataType>`
+            	**type**\:  :py:class:`EntitySensorDataType <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorDataType>`
             
             .. attribute:: entphysensorscale
             
             	The exponent to apply to values returned by the associated entPhySensorValue object.  This object SHOULD be set by the agent during entry creation, and the value SHOULD NOT change during operation
-            	**type**\:   :py:class:`EntitySensorDataScale <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorDataScale>`
+            	**type**\:  :py:class:`EntitySensorDataScale <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorDataScale>`
             
             .. attribute:: entphysensorprecision
             
             	The number of decimal places of precision in fixed\-point sensor values returned by the associated entPhySensorValue object.  This object SHOULD be set to '0' when the associated entPhySensorType value is not a fixed\-point type\: e.g., 'percentRH(9)', 'rpm(10)', 'cmm(11)', or 'truthvalue(12)'.  This object SHOULD be set by the agent during entry creation, and the value SHOULD NOT change during operation
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-8..9
             
             .. attribute:: entphysensorvalue
             
             	The most recent measurement obtained by the agent for this sensor.  To correctly interpret the value of this object, the associated entPhySensorType, entPhySensorScale, and entPhySensorPrecision objects must also be examined
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-1000000000..1073741823
             
             .. attribute:: entphysensoroperstatus
             
             	The operational status of the sensor
-            	**type**\:   :py:class:`EntitySensorStatus <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorStatus>`
+            	**type**\:  :py:class:`EntitySensorStatus <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorStatus>`
             
             .. attribute:: entphysensorunitsdisplay
             
             	A textual description of the data units that should be used in the display of entPhySensorValue
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: entphysensorvaluetimestamp
             
             	The value of sysUpTime at the time the status and/or value of this sensor was last obtained by the agent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: entphysensorvalueupdaterate
             
             	An indication of the frequency that the agent updates the associated entPhySensorValue object, representing in milliseconds.  The value zero indicates\:      \- the sensor value is updated on demand (e.g.,       when polled by the agent for a get\-request),     \- the sensor value is updated when the sensor       value changes (event\-driven),     \- the agent does not know the update rate
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

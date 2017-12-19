@@ -57,7 +57,7 @@ class EnvironmentSensors(Entity):
     .. attribute:: environment_sensor
     
     	The list of components on the device chasis
-    	**type**\: list of    :py:class:`EnvironmentSensor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_environment_oper.EnvironmentSensors.EnvironmentSensor>`
+    	**type**\: list of  		 :py:class:`EnvironmentSensor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_environment_oper.EnvironmentSensors.EnvironmentSensor>`
     
     
 
@@ -91,29 +91,29 @@ class EnvironmentSensors(Entity):
         .. attribute:: name  <key>
         
         	Name of the sensor component. This includes all physical components of the chasis \- both fixed and pluggable
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: location  <key>
         
         	Sensor location
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: state
         
         	A description of the current state of the sensor
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: current_reading
         
         	Numerical value of the current sensor reading in sensor\-units
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: sensor_units
         
         	Units corresponding to the current\-reading value
-        	**type**\:   :py:class:`SensorUnitsType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_environment_oper.SensorUnitsType>`
+        	**type**\:  :py:class:`SensorUnitsType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_environment_oper.SensorUnitsType>`
         
         
 

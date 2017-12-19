@@ -247,128 +247,130 @@ class CallHome(Entity):
     .. attribute:: mail_servers
     
     	List of call\-home mail\_server
-    	**type**\:   :py:class:`MailServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.MailServers>`
+    	**type**\:  :py:class:`MailServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.MailServers>`
     
     .. attribute:: syslog_throttling
     
     	Enable or disable call\-home syslog message throttling
-    	**type**\:   :py:class:`SyslogThrottling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.SyslogThrottling>`
+    	**type**\:  :py:class:`SyslogThrottling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.SyslogThrottling>`
     
     .. attribute:: smart_licensing
     
     	Enable/disable licensing messages. By default is enabled
-    	**type**\:   :py:class:`SmartLicensing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.SmartLicensing>`
+    	**type**\:  :py:class:`SmartLicensing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.SmartLicensing>`
     
     .. attribute:: http_proxy
     
     	http proxy server address and port
-    	**type**\:   :py:class:`HttpProxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.HttpProxy>`
+    	**type**\:  :py:class:`HttpProxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.HttpProxy>`
     
     .. attribute:: profiles
     
     	List of profiles
-    	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles>`
+    	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles>`
     
     .. attribute:: alert_groups
     
     	List of alert\-group
-    	**type**\:   :py:class:`AlertGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.AlertGroups>`
+    	**type**\:  :py:class:`AlertGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.AlertGroups>`
     
     .. attribute:: data_privacies
     
     	Set call\-home data\-privacy
-    	**type**\:   :py:class:`DataPrivacies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.DataPrivacies>`
+    	**type**\:  :py:class:`DataPrivacies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.DataPrivacies>`
     
     .. attribute:: alert_group_config
     
     	alert\-group config
-    	**type**\:   :py:class:`AlertGroupConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.AlertGroupConfig>`
+    	**type**\:  :py:class:`AlertGroupConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.AlertGroupConfig>`
     
     .. attribute:: authorization
     
     	Config aaa authorization, default username is callhome
-    	**type**\:   :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Authorization>`
+    	**type**\:  :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Authorization>`
     
     .. attribute:: customer_id
     
     	Customer identification for Cisco Smart Call Home
-    	**type**\:  str
+    	**type**\: str
     
     	**length:** 1..64
     
     .. attribute:: phone_number
     
     	Phone number of the contact person
-    	**type**\:  str
+    	**type**\: str
     
     	**length:** 1..17
     
     .. attribute:: contact_smart_licensing
     
     	System Contact is Smart Licensing
-    	**type**\:  bool
+    	**type**\: bool
     
     .. attribute:: contact_email_address
     
     	Contact person's email address
-    	**type**\:  str
+    	**type**\: str
     
     	**length:** 1..194
     
     .. attribute:: rate_limit
     
     	Call\-home event trigger rate\-limit threshold per minute
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..5
     
     .. attribute:: site_id
     
     	Site identification for Cisco Smart Call Home
-    	**type**\:  str
+    	**type**\: str
     
     	**length:** 1..200
     
     .. attribute:: vrf
     
     	Vrf routing/forwarding instance name
-    	**type**\:  str
+    	**type**\: str
     
     	**length:** 1..32
     
     .. attribute:: street_address
     
     	Street address, city, state, and zip code
-    	**type**\:  str
+    	**type**\: str
     
     	**length:** 1..200
     
     .. attribute:: source_interface
     
     	Source interface name to send call\-home messages
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** [a\-zA\-Z0\-9./\-]+
     
     .. attribute:: contract_id
     
     	Contract identification for Cisco Smart Call Home
-    	**type**\:  str
+    	**type**\: str
     
     	**length:** 1..64
     
     .. attribute:: reply_to
     
     	Call home msg's reply\-to email address
-    	**type**\:  str
+    	**type**\: str
     
     .. attribute:: from_
     
     	Call home msg's from email address
-    	**type**\:  str
+    	**type**\: str
     
     .. attribute:: active
     
     	Enable call\-home service
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -471,7 +473,7 @@ class CallHome(Entity):
         .. attribute:: mail_server
         
         	Email server
-        	**type**\: list of    :py:class:`MailServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.MailServers.MailServer>`
+        	**type**\: list of  		 :py:class:`MailServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.MailServers.MailServer>`
         
         
 
@@ -505,12 +507,12 @@ class CallHome(Entity):
             .. attribute:: mail_serv_address  <key>
             
             	Email server
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: priority
             
             	Mail server with lower # will be used first
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
@@ -549,7 +551,7 @@ class CallHome(Entity):
         .. attribute:: active
         
         	Active syslog throttling
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -584,12 +586,12 @@ class CallHome(Entity):
         .. attribute:: profile_name
         
         	To specify existing profile name used for TG so that licensing message
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: active
         
         	Active the smart\-licensing
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -625,12 +627,12 @@ class CallHome(Entity):
         .. attribute:: server_address
         
         	http proxy server address
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: port
         
         	http proxy server's port
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..65535
         
@@ -668,7 +670,7 @@ class CallHome(Entity):
         .. attribute:: profile
         
         	A specific profile
-        	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile>`
+        	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile>`
         
         
 
@@ -702,54 +704,56 @@ class CallHome(Entity):
             .. attribute:: profile_name  <key>
             
             	Profile name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: report_type
             
             	Choose what data to report
-            	**type**\:   :py:class:`ReportType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.ReportType>`
+            	**type**\:  :py:class:`ReportType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.ReportType>`
             
             .. attribute:: methods
             
             	Transport method (http or email)
-            	**type**\:   :py:class:`Methods <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.Methods>`
+            	**type**\:  :py:class:`Methods <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.Methods>`
             
             .. attribute:: addresses
             
             	List of destination address
-            	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.Addresses>`
+            	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.Addresses>`
             
             .. attribute:: subscribe_alert_group
             
             	Subscribe to alert\-group
-            	**type**\:   :py:class:`SubscribeAlertGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup>`
+            	**type**\:  :py:class:`SubscribeAlertGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup>`
             
             .. attribute:: create
             
             	Create a profile
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: message_format
             
             	none
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: anonymous
             
             	Enable call\-home anonymous reporting only
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: message_size_limit
             
             	To specify message size limit for this profile
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 50..3145728
             
             .. attribute:: active
             
             	Activate the current profile
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -813,12 +817,12 @@ class CallHome(Entity):
                 .. attribute:: reporting_callhome_data
                 
                 	Report smart call\-home data
-                	**type**\:   :py:class:`ReportingCallhomeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.ReportType.ReportingCallhomeData>`
+                	**type**\:  :py:class:`ReportingCallhomeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.ReportType.ReportingCallhomeData>`
                 
                 .. attribute:: reporting_licensing_data
                 
                 	Report smart licensing data
-                	**type**\:   :py:class:`ReportingLicensingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.ReportType.ReportingLicensingData>`
+                	**type**\:  :py:class:`ReportingLicensingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.ReportType.ReportingLicensingData>`
                 
                 
 
@@ -856,7 +860,7 @@ class CallHome(Entity):
                     .. attribute:: enable
                     
                     	Enable report smart call\-home data
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -889,7 +893,7 @@ class CallHome(Entity):
                     .. attribute:: enable
                     
                     	Enable report smart licensing data
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -922,7 +926,7 @@ class CallHome(Entity):
                 .. attribute:: method
                 
                 	Transport method
-                	**type**\: list of    :py:class:`Method <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.Methods.Method>`
+                	**type**\: list of  		 :py:class:`Method <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.Methods.Method>`
                 
                 
 
@@ -955,12 +959,12 @@ class CallHome(Entity):
                     .. attribute:: method  <key>
                     
                     	Transport Method
-                    	**type**\:   :py:class:`CallHomeTransMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeTransMethod>`
+                    	**type**\:  :py:class:`CallHomeTransMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeTransMethod>`
                     
                     .. attribute:: enable
                     
                     	Enable this transport method
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -995,7 +999,7 @@ class CallHome(Entity):
                 .. attribute:: address
                 
                 	A specific address
-                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.Addresses.Address>`
+                	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.Addresses.Address>`
                 
                 
 
@@ -1028,19 +1032,19 @@ class CallHome(Entity):
                     .. attribute:: method  <key>
                     
                     	Transpotation Method
-                    	**type**\:   :py:class:`CallHomeTransMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeTransMethod>`
+                    	**type**\:  :py:class:`CallHomeTransMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeTransMethod>`
                     
                     .. attribute:: destination_addr  <key>
                     
                     	Destination address (1\-200) characters
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..200
                     
                     .. attribute:: enable
                     
                     	Set the address
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -1077,32 +1081,32 @@ class CallHome(Entity):
                 .. attribute:: environment
                 
                 	environmental info
-                	**type**\:   :py:class:`Environment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Environment>`
+                	**type**\:  :py:class:`Environment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Environment>`
                 
                 .. attribute:: configuration
                 
                 	configuration info
-                	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration>`
+                	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration>`
                 
                 .. attribute:: snapshot
                 
                 	snapshot info
-                	**type**\:   :py:class:`Snapshot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot>`
+                	**type**\:  :py:class:`Snapshot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot>`
                 
                 .. attribute:: inventory
                 
                 	inventory info
-                	**type**\:   :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory>`
+                	**type**\:  :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory>`
                 
                 .. attribute:: crash
                 
                 	Crash info
-                	**type**\:   :py:class:`Crash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Crash>`
+                	**type**\:  :py:class:`Crash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Crash>`
                 
                 .. attribute:: syslogs
                 
                 	syslog info
-                	**type**\:   :py:class:`Syslogs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs>`
+                	**type**\:  :py:class:`Syslogs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs>`
                 
                 
 
@@ -1160,7 +1164,7 @@ class CallHome(Entity):
                     .. attribute:: severity
                     
                     	Severity
-                    	**type**\:   :py:class:`CallHomeEventSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeEventSeverity>`
+                    	**type**\:  :py:class:`CallHomeEventSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeEventSeverity>`
                     
                     
 
@@ -1193,12 +1197,12 @@ class CallHome(Entity):
                     .. attribute:: periodic
                     
                     	Periodic call\-home message
-                    	**type**\:   :py:class:`Periodic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic>`
+                    	**type**\:  :py:class:`Periodic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic>`
                     
                     .. attribute:: subscribe
                     
                     	Subscribe the alert\-group
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -1236,31 +1240,31 @@ class CallHome(Entity):
                         .. attribute:: interval
                         
                         	none
-                        	**type**\:   :py:class:`CallHomeMailSendInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeMailSendInterval>`
+                        	**type**\:  :py:class:`CallHomeMailSendInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeMailSendInterval>`
                         
                         .. attribute:: day
                         
                         	Day
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..31
                         
                         .. attribute:: weekday
                         
                         	Day of week
-                        	**type**\:   :py:class:`CallHomeDayOfWeek <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeDayOfWeek>`
+                        	**type**\:  :py:class:`CallHomeDayOfWeek <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeDayOfWeek>`
                         
                         .. attribute:: hour
                         
                         	Hour
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..23
                         
                         .. attribute:: minute
                         
                         	Minute
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..59
                         
@@ -1303,7 +1307,7 @@ class CallHome(Entity):
                     .. attribute:: periodic
                     
                     	Periodic call\-home message
-                    	**type**\:   :py:class:`Periodic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic>`
+                    	**type**\:  :py:class:`Periodic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic>`
                     
                     
 
@@ -1336,31 +1340,31 @@ class CallHome(Entity):
                         .. attribute:: interval
                         
                         	none
-                        	**type**\:   :py:class:`SnapshotInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.SnapshotInterval>`
+                        	**type**\:  :py:class:`SnapshotInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.SnapshotInterval>`
                         
                         .. attribute:: day
                         
                         	Day of month
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..31
                         
                         .. attribute:: weekday
                         
                         	Day of week
-                        	**type**\:   :py:class:`CallHomeDayOfWeek <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeDayOfWeek>`
+                        	**type**\:  :py:class:`CallHomeDayOfWeek <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeDayOfWeek>`
                         
                         .. attribute:: hour
                         
                         	Hour
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..23
                         
                         .. attribute:: minute
                         
                         	Minute
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..59
                         
@@ -1403,12 +1407,12 @@ class CallHome(Entity):
                     .. attribute:: periodic
                     
                     	Periodic call\-home message
-                    	**type**\:   :py:class:`Periodic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic>`
+                    	**type**\:  :py:class:`Periodic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic>`
                     
                     .. attribute:: subscribe
                     
                     	Subscribe the alert\-group
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -1446,31 +1450,31 @@ class CallHome(Entity):
                         .. attribute:: interval
                         
                         	none
-                        	**type**\:   :py:class:`CallHomeMailSendInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeMailSendInterval>`
+                        	**type**\:  :py:class:`CallHomeMailSendInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeMailSendInterval>`
                         
                         .. attribute:: day
                         
                         	Day of month
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..31
                         
                         .. attribute:: weekday
                         
                         	Day of week
-                        	**type**\:   :py:class:`CallHomeDayOfWeek <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeDayOfWeek>`
+                        	**type**\:  :py:class:`CallHomeDayOfWeek <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeDayOfWeek>`
                         
                         .. attribute:: hour
                         
                         	Hour
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..23
                         
                         .. attribute:: minute
                         
                         	Minute
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..59
                         
@@ -1513,7 +1517,7 @@ class CallHome(Entity):
                     .. attribute:: subscribe
                     
                     	Subscribe crash group
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -1546,7 +1550,7 @@ class CallHome(Entity):
                     .. attribute:: syslog
                     
                     	Syslog message pattern to be matched
-                    	**type**\: list of    :py:class:`Syslog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog>`
+                    	**type**\: list of  		 :py:class:`Syslog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog>`
                     
                     
 
@@ -1579,14 +1583,14 @@ class CallHome(Entity):
                         .. attribute:: syslog_pattern  <key>
                         
                         	Syslog message pattern to be matched
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..80
                         
                         .. attribute:: severity
                         
                         	Severity
-                        	**type**\:   :py:class:`CallHomeEventSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeEventSeverity>`
+                        	**type**\:  :py:class:`CallHomeEventSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeEventSeverity>`
                         
                         
 
@@ -1621,7 +1625,7 @@ class CallHome(Entity):
         .. attribute:: alert_group
         
         	A specific alert\-group
-        	**type**\: list of    :py:class:`AlertGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.AlertGroups.AlertGroup>`
+        	**type**\: list of  		 :py:class:`AlertGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.AlertGroups.AlertGroup>`
         
         
 
@@ -1655,17 +1659,19 @@ class CallHome(Entity):
             .. attribute:: alert_group_name  <key>
             
             	none
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: enable
             
             	Enable the alert\-group
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: disable
             
             	Disable the alert\-group
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -1703,7 +1709,7 @@ class CallHome(Entity):
         .. attribute:: data_privacy
         
         	level hostname
-        	**type**\: list of    :py:class:`DataPrivacy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.DataPrivacies.DataPrivacy>`
+        	**type**\: list of  		 :py:class:`DataPrivacy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.DataPrivacies.DataPrivacy>`
         
         
 
@@ -1737,12 +1743,12 @@ class CallHome(Entity):
             .. attribute:: host_name  <key>
             
             	Data privacy type (hostname or level)
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: level
             
             	Set call\-home data\-privacy level
-            	**type**\:   :py:class:`DataPrivacyLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.DataPrivacyLevel>`
+            	**type**\:  :py:class:`DataPrivacyLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.DataPrivacyLevel>`
             
             
 
@@ -1778,7 +1784,7 @@ class CallHome(Entity):
         .. attribute:: snapshot_commands
         
         	snapshot for adding CLI command
-        	**type**\:   :py:class:`SnapshotCommands <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.AlertGroupConfig.SnapshotCommands>`
+        	**type**\:  :py:class:`SnapshotCommands <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.AlertGroupConfig.SnapshotCommands>`
         
         
 
@@ -1812,7 +1818,7 @@ class CallHome(Entity):
             .. attribute:: snapshot_command
             
             	A specific CLI cmd for snapshot
-            	**type**\: list of    :py:class:`SnapshotCommand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.AlertGroupConfig.SnapshotCommands.SnapshotCommand>`
+            	**type**\: list of  		 :py:class:`SnapshotCommand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.AlertGroupConfig.SnapshotCommands.SnapshotCommand>`
             
             
 
@@ -1846,14 +1852,14 @@ class CallHome(Entity):
                 .. attribute:: command  <key>
                 
                 	new added command
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..127
                 
                 .. attribute:: active
                 
                 	enable snapshot cmd
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1890,14 +1896,14 @@ class CallHome(Entity):
         .. attribute:: username
         
         	Username for authorization. default is callhome
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..64
         
         .. attribute:: active
         
         	Enable call\-home aaa\-authorization
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 

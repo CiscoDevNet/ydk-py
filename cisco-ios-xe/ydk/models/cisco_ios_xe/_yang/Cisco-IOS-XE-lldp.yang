@@ -29,6 +29,10 @@ module Cisco-IOS-XE-lldp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
   revision 2017-03-31 {
     description
       "Move interface LLDP configs from switch to common";
@@ -91,7 +95,15 @@ module Cisco-IOS-XE-lldp {
     uses config-interface-lldp-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-lldp-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-lldp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
     uses config-interface-lldp-grouping;
   }
 

@@ -25,7 +25,7 @@ class LptsIfib(Entity):
     .. attribute:: nodes
     
     	Node ifib database
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class LptsIfib(Entity):
         .. attribute:: node
         
         	Per node slice 
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes.Node>`
         
         
 
@@ -93,12 +93,14 @@ class LptsIfib(Entity):
             .. attribute:: node_name  <key>
             
             	The node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: slice_ids
             
             	Slice specific
-            	**type**\:   :py:class:`SliceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes.Node.SliceIds>`
+            	**type**\:  :py:class:`SliceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes.Node.SliceIds>`
             
             
 
@@ -137,7 +139,7 @@ class LptsIfib(Entity):
                 .. attribute:: slice_id
                 
                 	slice types
-                	**type**\: list of    :py:class:`SliceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes.Node.SliceIds.SliceId>`
+                	**type**\: list of  		 :py:class:`SliceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes.Node.SliceIds.SliceId>`
                 
                 
 
@@ -170,12 +172,14 @@ class LptsIfib(Entity):
                     .. attribute:: slice_name  <key>
                     
                     	Type value
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: entry
                     
                     	Data for single pre\-ifib entry
-                    	**type**\: list of    :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes.Node.SliceIds.SliceId.Entry>`
+                    	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes.Node.SliceIds.SliceId.Entry>`
                     
                     
 
@@ -210,158 +214,158 @@ class LptsIfib(Entity):
                         .. attribute:: entry  <key>
                         
                         	Single Pre\-ifib entry
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: destination_type
                         
                         	Destination Key Type
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: destination_value
                         
                         	Destination Port/ICMP Type/IGMP Type
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: source_port
                         
                         	Source port
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: destination_addr
                         
                         	Destination IP Address
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: source_addr
                         
                         	Source IP Address
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: vrf_name
                         
                         	VRF Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: vid
                         
                         	VRF ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: l3protocol
                         
                         	Layer 3 Protocol
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: l4protocol
                         
                         	Layer 4 Protocol
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: intf_name
                         
                         	Interface Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: intf_handle
                         
                         	Interface Handle
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_syn
                         
                         	Is SYN
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: opcode
                         
                         	Opcode
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: accepts
                         
                         	Packets matched to accept
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: drops
                         
                         	Packets matched to drop
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: flow_type
                         
                         	Flow type
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: listener_tag
                         
                         	Listener Tag
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: local_flag
                         
                         	Local Flag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: is_fgid
                         
                         	Is FGID or not
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: deliver_list_short
                         
                         	Deliver List Short Format
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: deliver_list_long
                         
                         	Deliver List Long Format
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: min_ttl
                         
                         	Minimum TTL
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: pending_ifibq_delay
                         
                         	pending ifib queue delay
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sl_ifibq_delay
                         
                         	sl\_ifibq delay
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ifib_program_time
                         
                         	ifib program time in netio
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 

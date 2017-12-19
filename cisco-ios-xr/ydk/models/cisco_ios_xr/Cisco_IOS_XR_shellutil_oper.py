@@ -64,12 +64,12 @@ class SystemTime(Entity):
     .. attribute:: clock
     
     	System clock information
-    	**type**\:   :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.SystemTime.Clock>`
+    	**type**\:  :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.SystemTime.Clock>`
     
     .. attribute:: uptime
     
     	System uptime information
-    	**type**\:   :py:class:`Uptime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.SystemTime.Uptime>`
+    	**type**\:  :py:class:`Uptime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.SystemTime.Uptime>`
     
     
 
@@ -108,68 +108,68 @@ class SystemTime(Entity):
         .. attribute:: year
         
         	Year [0..65535]
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
         .. attribute:: month
         
         	Month [1..12]
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: day
         
         	Day [1..31]
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: hour
         
         	Hour [0..23]
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: minute
         
         	Minute [0..59]
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: second
         
         	Second [0..60], use 60 for leap\-second
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: millisecond
         
         	Millisecond [0..999]
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
         .. attribute:: wday
         
         	Week Day [0..6]
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
         .. attribute:: time_zone
         
         	Time zone
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: time_source
         
         	Time source
-        	**type**\:   :py:class:`TimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.TimeSource>`
+        	**type**\:  :py:class:`TimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.TimeSource>`
         
         
 
@@ -221,12 +221,12 @@ class SystemTime(Entity):
         .. attribute:: host_name
         
         	Host name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: uptime
         
         	Amount of time in seconds since this system     was last initialized
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         

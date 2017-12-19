@@ -91,12 +91,12 @@ class Pim(Entity):
     .. attribute:: vrfs
     
     	VRF table
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs>`
     
     .. attribute:: default_context
     
     	Default Context
-    	**type**\:   :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext>`
+    	**type**\:  :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext>`
     
     	**presence node**\: True
     
@@ -139,7 +139,7 @@ class Pim(Entity):
         .. attribute:: vrf
         
         	VRF name
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf>`
         
         
 
@@ -173,19 +173,19 @@ class Pim(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: ipv4
             
             	IPV4 commands
-            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4>`
+            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4>`
             
             .. attribute:: ipv6
             
             	IPV6 commands
-            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6>`
+            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6>`
             
             
 
@@ -229,157 +229,159 @@ class Pim(Entity):
                 .. attribute:: neighbor_check_on_receive
                 
                 	Enable PIM neighbor checking when receiving PIM messages
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: old_register_checksum
                 
                 	Generate registers compatible with older IOS versions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: sparse_mode_rp_addresses
                 
                 	Configure Sparse\-Mode Rendezvous Point
-                	**type**\:   :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses>`
+                	**type**\:  :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses>`
                 
                 .. attribute:: neighbor_filter
                 
                 	Access\-list of neighbors to be filtered
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: inheritable_defaults
                 
                 	Inheritable defaults
-                	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.InheritableDefaults>`
+                	**type**\:  :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.InheritableDefaults>`
                 
                 .. attribute:: spt_threshold_infinity
                 
                 	Configure threshold of infinity for switching to SPT on last\-hop
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: log_neighbor_changes
                 
                 	PIM neighbor state change logging is turned on if configured
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: rpf
                 
                 	Configure RPF options
-                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Rpf>`
+                	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Rpf>`
                 
                 .. attribute:: register_source
                 
                 	Source address to use for register messages
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: maximum
                 
                 	Configure PIM State Limits
-                	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum>`
+                	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum>`
                 
                 .. attribute:: accept_register
                 
                 	Access\-list which specifies unauthorized sources
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: sg_expiry_timer
                 
                 	Configure expiry timer for S,G routes
-                	**type**\:   :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer>`
+                	**type**\:  :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer>`
                 
                 .. attribute:: rpf_vector_enable
                 
                 	Enable PIM RPF Vector Proxy's
-                	**type**\:   :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable>`
+                	**type**\:  :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: suppress_rpf_prunes
                 
                 	Suppress prunes triggered as a result of RPF changes
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ssm
                 
                 	Configure IP Multicast SSM
-                	**type**\:   :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Ssm>`
+                	**type**\:  :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Ssm>`
                 
                 .. attribute:: injects
                 
                 	Inject Explicit PIM RPF Vector Proxy's
-                	**type**\:   :py:class:`Injects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Injects>`
+                	**type**\:  :py:class:`Injects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Injects>`
                 
                 .. attribute:: bidir_rp_addresses
                 
                 	Configure Bidirectional PIM Rendezvous Point
-                	**type**\:   :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses>`
+                	**type**\:  :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses>`
                 
                 .. attribute:: ssm_allow_override
                 
                 	Allow SSM ranges to be overridden by more specific ranges
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: bsr
                 
                 	PIM BSR configuration
-                	**type**\:   :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr>`
+                	**type**\:  :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr>`
                 
                 .. attribute:: mofrr
                 
                 	Multicast Only Fast Re\-Route
-                	**type**\:   :py:class:`Mofrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr>`
+                	**type**\:  :py:class:`Mofrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr>`
                 
                 .. attribute:: multipath
                 
                 	Enable equal\-cost multipath routing
-                	**type**\:   :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
+                	**type**\:  :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
                 
                 .. attribute:: rp_static_deny
                 
                 	Configure static RP deny range
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: paths
                 
                 	Inject PIM RPF Vector Proxy's
-                	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Paths>`
+                	**type**\:  :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Paths>`
                 
                 .. attribute:: allow_rp
                 
                 	Enable allow\-rp filtering for SM joins
-                	**type**\:   :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.AllowRp>`
+                	**type**\:  :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.AllowRp>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: suppress_data_registers
                 
                 	Suppress data registers after initial state setup
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: neighbor_check_on_send
                 
                 	Enable PIM neighbor checking when sending join\-prunes
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: convergence
                 
                 	Configure convergence parameters
-                	**type**\:   :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Convergence>`
+                	**type**\:  :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Convergence>`
                 
                 .. attribute:: interfaces
                 
                 	Interface\-level Configuration
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces>`
+                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces>`
                 
                 .. attribute:: auto_rp_disable
                 
                 	Disable Rendezvous Point discovery through the AutoRP protocol
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -511,7 +513,7 @@ class Pim(Entity):
                     .. attribute:: sparse_mode_rp_address
                     
                     	Address of the Rendezvous Point
-                    	**type**\: list of    :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress>`
+                    	**type**\: list of  		 :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress>`
                     
                     
 
@@ -544,27 +546,27 @@ class Pim(Entity):
                         .. attribute:: rp_address  <key>
                         
                         	RP address of Rendezvous Point
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: access_list_name
                         
                         	Access list of groups that should map to a  given RP
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: auto_rp_override
                         
                         	TRUE Indicates if static RP config overrides AutoRP and BSR
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -601,7 +603,7 @@ class Pim(Entity):
                     .. attribute:: convergence_timeout
                     
                     	Convergency timeout in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1800..2400
                     
@@ -610,7 +612,7 @@ class Pim(Entity):
                     .. attribute:: hello_interval
                     
                     	Hello interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..3600
                     
@@ -619,7 +621,7 @@ class Pim(Entity):
                     .. attribute:: propagation_delay
                     
                     	Propagation delay in milli seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 100..32767
                     
@@ -628,14 +630,14 @@ class Pim(Entity):
                     .. attribute:: dr_priority
                     
                     	Hello DR priority, preference given to larger value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: join_prune_mtu
                     
                     	Join\-Prune MTU in Bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 576..65535
                     
@@ -644,7 +646,7 @@ class Pim(Entity):
                     .. attribute:: jp_interval
                     
                     	Join\-Prune interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 10..600
                     
@@ -653,7 +655,7 @@ class Pim(Entity):
                     .. attribute:: override_interval
                     
                     	Override interval in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 400..65535
                     
@@ -702,7 +704,7 @@ class Pim(Entity):
                     .. attribute:: route_policy
                     
                     	Route policy to select RPF topology
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -737,42 +739,42 @@ class Pim(Entity):
                     .. attribute:: group_mappings_auto_rp
                     
                     	Override default maximum for number of group mappings from autorp mapping agent
-                    	**type**\:   :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp>`
+                    	**type**\:  :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: bsr_group_mappings
                     
                     	Override default maximum and threshold for number of group mappings from BSR
-                    	**type**\:   :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings>`
+                    	**type**\:  :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: register_states
                     
                     	Override default maximum for number of sparse\-mode source registers
-                    	**type**\:   :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates>`
+                    	**type**\:  :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: route_interfaces
                     
                     	Override default maximum for number of route\-interfaces
-                    	**type**\:   :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces>`
+                    	**type**\:  :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: bsr_candidate_rp_cache
                     
                     	Override default maximum and threshold for BSR C\-RP cache setting
-                    	**type**\:   :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache>`
+                    	**type**\:  :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: routes
                     
                     	Override default maximum for number of routes
-                    	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.Routes>`
+                    	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Maximum.Routes>`
                     
                     	**presence node**\: True
                     
@@ -827,7 +829,7 @@ class Pim(Entity):
                         .. attribute:: maximum_group_ranges_auto_rp
                         
                         	Maximum number of PIM group mappings from autorp
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..10000
                         
@@ -836,7 +838,7 @@ class Pim(Entity):
                         .. attribute:: threshold_group_ranges_auto_rp
                         
                         	Warning threshold number of PIM group mappings from autorp
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..10000
                         
@@ -879,7 +881,7 @@ class Pim(Entity):
                         .. attribute:: bsr_maximum_group_ranges
                         
                         	Maximum number of PIM group mappings from BSR
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..10000
                         
@@ -888,7 +890,7 @@ class Pim(Entity):
                         .. attribute:: warning_threshold
                         
                         	Set threshold to print warning
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..10000
                         
@@ -931,7 +933,7 @@ class Pim(Entity):
                         .. attribute:: maximum_register_states
                         
                         	Maximum number of PIM Sparse\-Mode register states
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..75000
                         
@@ -940,7 +942,7 @@ class Pim(Entity):
                         .. attribute:: warning_threshold
                         
                         	Set threshold to print warning
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..75000
                         
@@ -983,7 +985,7 @@ class Pim(Entity):
                         .. attribute:: maximum_route_interfaces
                         
                         	Maximum number of PIM route\-interfaces
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1100000
                         
@@ -992,7 +994,7 @@ class Pim(Entity):
                         .. attribute:: warning_threshold
                         
                         	Set threshold to print warning
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1100000
                         
@@ -1035,7 +1037,7 @@ class Pim(Entity):
                         .. attribute:: bsr_maximum_candidate_rp_cache
                         
                         	Maximum number of BSR C\-RP cache setting
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..10000
                         
@@ -1044,7 +1046,7 @@ class Pim(Entity):
                         .. attribute:: warning_threshold
                         
                         	Set threshold to print warning
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..10000
                         
@@ -1086,7 +1088,7 @@ class Pim(Entity):
                         .. attribute:: maximum_routes
                         
                         	Maximum number of PIM routes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..200000
                         
@@ -1095,7 +1097,7 @@ class Pim(Entity):
                         .. attribute:: warning_threshold
                         
                         	Set threshold to print warning
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..200000
                         
@@ -1137,7 +1139,7 @@ class Pim(Entity):
                     .. attribute:: interval
                     
                     	(S,G) expiry time in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 40..57600
                     
@@ -1146,7 +1148,7 @@ class Pim(Entity):
                     .. attribute:: access_list_name
                     
                     	Access\-list of applicable S,G routes
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -1183,19 +1185,19 @@ class Pim(Entity):
                     .. attribute:: enable
                     
                     	RPF Vector is turned on if configured
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: allow_ebgp
                     
                     	Allow RPF Vector origination over eBGP sessions
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: disable_ibgp
                     
                     	Disable RPF Vector origination over iBGP sessions
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -1235,14 +1237,14 @@ class Pim(Entity):
                     .. attribute:: disable
                     
                     	TRUE if SSM is disabled on this router
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
                     .. attribute:: range
                     
                     	Access list of groups enabled with SSM
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -1279,7 +1281,7 @@ class Pim(Entity):
                     .. attribute:: inject
                     
                     	Inject Explicit PIM RPF Vector Proxy's
-                    	**type**\: list of    :py:class:`Inject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Injects.Inject>`
+                    	**type**\: list of  		 :py:class:`Inject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Injects.Inject>`
                     
                     
 
@@ -1312,19 +1314,23 @@ class Pim(Entity):
                         .. attribute:: source_address  <key>
                         
                         	Source Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: prefix_length  <key>
                         
                         	Masklen
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..32
                         
                         .. attribute:: rpf_proxy_address
                         
                         	RPF Proxy Address
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -1361,7 +1367,7 @@ class Pim(Entity):
                     .. attribute:: bidir_rp_address
                     
                     	Address of the Rendezvous Point
-                    	**type**\: list of    :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress>`
+                    	**type**\: list of  		 :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress>`
                     
                     
 
@@ -1394,27 +1400,27 @@ class Pim(Entity):
                         .. attribute:: rp_address  <key>
                         
                         	RP address of Rendezvous Point
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: access_list_name
                         
                         	Access list of groups that should map to a given RP
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: auto_rp_override
                         
                         	TRUE Indicates if static RP config overrides AutoRP and BSR
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -1451,14 +1457,14 @@ class Pim(Entity):
                     .. attribute:: candidate_bsr
                     
                     	PIM Candidate BSR configuration
-                    	**type**\:   :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr>`
+                    	**type**\:  :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: candidate_rps
                     
                     	PIM RP configuration
-                    	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps>`
+                    	**type**\:  :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps>`
                     
                     
 
@@ -1495,24 +1501,22 @@ class Pim(Entity):
                         .. attribute:: address
                         
                         	BSR Address configured
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
+                        
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        		**type**\: str
+                        
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         	**mandatory**\: True
                         
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        
-                        ----
                         .. attribute:: prefix_length
                         
                         	Hash Mask Length for this candidate BSR
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..32
                         
@@ -1521,7 +1525,7 @@ class Pim(Entity):
                         .. attribute:: priority
                         
                         	Priority of the Candidate BSR
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
@@ -1565,7 +1569,7 @@ class Pim(Entity):
                         .. attribute:: candidate_rp
                         
                         	Address of PIM SM BSR Candidate\-RP
-                        	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp>`
+                        	**type**\: list of  		 :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp>`
                         
                         
 
@@ -1598,32 +1602,32 @@ class Pim(Entity):
                             .. attribute:: address  <key>
                             
                             	Address of Candidate\-RP
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: mode  <key>
                             
                             	SM or Bidir
-                            	**type**\:   :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
+                            	**type**\:  :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
                             
                             .. attribute:: group_list
                             
                             	Access\-list specifying the group range for the Candidate\-RP
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..64
                             
                             .. attribute:: priority
                             
                             	Priority of the CRP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..255
                             
@@ -1632,7 +1636,7 @@ class Pim(Entity):
                             .. attribute:: interval
                             
                             	Advertisement interval
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 30..600
                             
@@ -1677,34 +1681,34 @@ class Pim(Entity):
                     .. attribute:: clone_joins
                     
                     	Clone multicast joins
-                    	**type**\:   :py:class:`CloneJoins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins>`
+                    	**type**\:  :py:class:`CloneJoins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins>`
                     
                     .. attribute:: clone_sources
                     
                     	Clone multicast traffic
-                    	**type**\:   :py:class:`CloneSources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources>`
+                    	**type**\:  :py:class:`CloneSources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources>`
                     
                     .. attribute:: rib
                     
                     	Access\-list specifying SG that should do RIB MOFRR
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: non_revertive
                     
                     	Non\-revertive Multicast Only Fast Re\-Route
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: enable
                     
                     	Enable Multicast Only FRR
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: flow
                     
                     	Access\-list specifying SG that should do FLOW MOFRR
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -1755,7 +1759,7 @@ class Pim(Entity):
                         .. attribute:: clone_join
                         
                         	Clone S,G joins as S1,G joins and S2,G joins
-                        	**type**\: list of    :py:class:`CloneJoin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin>`
+                        	**type**\: list of  		 :py:class:`CloneJoin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin>`
                         
                         
 
@@ -1788,22 +1792,28 @@ class Pim(Entity):
                             .. attribute:: source  <key>
                             
                             	Original source address (S)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: primary  <key>
                             
                             	Primary cloned address (S1)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: backup  <key>
                             
                             	Backup cloned address (S2)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: prefix_length  <key>
                             
                             	Mask length
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..32
                             
@@ -1844,7 +1854,7 @@ class Pim(Entity):
                         .. attribute:: clone_source
                         
                         	Clone S,G traffic as S1,G traffic and S2,G traffic
-                        	**type**\: list of    :py:class:`CloneSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource>`
+                        	**type**\: list of  		 :py:class:`CloneSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource>`
                         
                         
 
@@ -1878,22 +1888,28 @@ class Pim(Entity):
                             .. attribute:: source  <key>
                             
                             	Original source address (S)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: primary  <key>
                             
                             	Primary cloned address (S1)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: backup  <key>
                             
                             	Backup cloned address (S2)
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: prefix_length  <key>
                             
                             	Mask length
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..32
                             
@@ -1934,7 +1950,7 @@ class Pim(Entity):
                     .. attribute:: path
                     
                     	Inject PIM RPF Vector Proxy's
-                    	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Paths.Path>`
+                    	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Paths.Path>`
                     
                     
 
@@ -1967,19 +1983,23 @@ class Pim(Entity):
                         .. attribute:: source_address  <key>
                         
                         	Source Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: prefix_length  <key>
                         
                         	Masklen
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..32
                         
                         .. attribute:: rpf_proxy_address
                         
                         	RPF Proxy Address
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -2016,14 +2036,14 @@ class Pim(Entity):
                     .. attribute:: rp_list_name
                     
                     	Access\-list specifiying applicable RPs
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: group_list_name
                     
                     	Access\-list specifiying applicable groups
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -2063,7 +2083,7 @@ class Pim(Entity):
                     .. attribute:: rpf_conflict_join_delay
                     
                     	Dampen first join if RPF path is through one of the downstream neighbor
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..15
                     
@@ -2072,7 +2092,7 @@ class Pim(Entity):
                     .. attribute:: link_down_prune_delay
                     
                     	Delay prunes if route join state transitions to not\-joined on link down
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..60
                     
@@ -2111,7 +2131,7 @@ class Pim(Entity):
                     .. attribute:: interface
                     
                     	The name of the interface
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface>`
                     
                     
 
@@ -2144,24 +2164,26 @@ class Pim(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	The name of interface
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: enable
                         
                         	Enter PIM Interface processing
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: neighbor_filter
                         
                         	Access\-list of neighbors to be filtered
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: hello_interval
                         
                         	Hello interval in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..3600
                         
@@ -2170,19 +2192,19 @@ class Pim(Entity):
                         .. attribute:: bsr_border
                         
                         	BSR Border configuration for Interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: maximum_routes
                         
                         	Maximum number of allowed routes for this interface
-                        	**type**\:   :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes>`
+                        	**type**\:  :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: propagation_delay
                         
                         	Propagation delay in milli seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 100..32767
                         
@@ -2191,19 +2213,19 @@ class Pim(Entity):
                         .. attribute:: bfd
                         
                         	BFD configuration
-                        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd>`
+                        	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd>`
                         
                         .. attribute:: dr_priority
                         
                         	Hello DR priority, preference given to larger value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: join_prune_mtu
                         
                         	Join\-Prune MTU in Bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 576..65535
                         
@@ -2212,12 +2234,12 @@ class Pim(Entity):
                         .. attribute:: interface_enable
                         
                         	Enable PIM processing on the interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: jp_interval
                         
                         	Join\-Prune interval in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 10..600
                         
@@ -2226,7 +2248,7 @@ class Pim(Entity):
                         .. attribute:: override_interval
                         
                         	Override interval in milliseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 400..65535
                         
@@ -2293,7 +2315,7 @@ class Pim(Entity):
                             .. attribute:: maximum
                             
                             	Maximum number of routes for this interface
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..1100000
                             
@@ -2302,14 +2324,14 @@ class Pim(Entity):
                             .. attribute:: warning_threshold
                             
                             	Set threshold to print warning
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..1100000
                             
                             .. attribute:: access_list_name
                             
                             	Access\-list to account for
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..64
                             
@@ -2351,14 +2373,14 @@ class Pim(Entity):
                             .. attribute:: detection_multiplier
                             
                             	Detection multiplier for BFD sessions created by PIM
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 2..50
                             
                             .. attribute:: interval
                             
                             	Hello interval for BFD sessions created by PIM
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 3..30000
                             
@@ -2367,7 +2389,7 @@ class Pim(Entity):
                             .. attribute:: enable
                             
                             	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -2404,147 +2426,149 @@ class Pim(Entity):
                 .. attribute:: neighbor_check_on_receive
                 
                 	Enable PIM neighbor checking when receiving PIM messages
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: old_register_checksum
                 
                 	Generate registers compatible with older IOS versions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: sparse_mode_rp_addresses
                 
                 	Configure Sparse\-Mode Rendezvous Point
-                	**type**\:   :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses>`
+                	**type**\:  :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses>`
                 
                 .. attribute:: neighbor_filter
                 
                 	Access\-list of neighbors to be filtered
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: inheritable_defaults
                 
                 	Inheritable defaults
-                	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.InheritableDefaults>`
+                	**type**\:  :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.InheritableDefaults>`
                 
                 .. attribute:: spt_threshold_infinity
                 
                 	Configure threshold of infinity for switching to SPT on last\-hop
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: log_neighbor_changes
                 
                 	PIM neighbor state change logging is turned on if configured
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: rpf
                 
                 	Configure RPF options
-                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Rpf>`
+                	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Rpf>`
                 
                 .. attribute:: register_source
                 
                 	Source address to use for register messages
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: maximum
                 
                 	Configure PIM State Limits
-                	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum>`
+                	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum>`
                 
                 .. attribute:: accept_register
                 
                 	Access\-list which specifies unauthorized sources
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: sg_expiry_timer
                 
                 	Configure expiry timer for S,G routes
-                	**type**\:   :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer>`
+                	**type**\:  :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer>`
                 
                 .. attribute:: rpf_vector_enable
                 
                 	Enable PIM RPF Vector Proxy's
-                	**type**\:   :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable>`
+                	**type**\:  :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: embedded_rp_disable
                 
                 	Set Embedded RP processing support
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: suppress_rpf_prunes
                 
                 	Suppress prunes triggered as a result of RPF changes
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ssm
                 
                 	Configure IP Multicast SSM
-                	**type**\:   :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Ssm>`
+                	**type**\:  :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Ssm>`
                 
                 .. attribute:: bidir_rp_addresses
                 
                 	Configure Bidirectional PIM Rendezvous Point
-                	**type**\:   :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses>`
+                	**type**\:  :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses>`
                 
                 .. attribute:: ssm_allow_override
                 
                 	Allow SSM ranges to be overridden by more specific ranges
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: multipath
                 
                 	Enable equal\-cost multipath routing
-                	**type**\:   :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
+                	**type**\:  :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
                 
                 .. attribute:: bsr
                 
                 	PIM BSR configuration
-                	**type**\:   :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr>`
+                	**type**\:  :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr>`
                 
                 .. attribute:: rp_static_deny
                 
                 	Configure static RP deny range
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: allow_rp
                 
                 	Enable allow\-rp filtering for SM joins
-                	**type**\:   :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.AllowRp>`
+                	**type**\:  :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.AllowRp>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: suppress_data_registers
                 
                 	Suppress data registers after initial state setup
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: neighbor_check_on_send
                 
                 	Enable PIM neighbor checking when sending join\-prunes
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: embedded_rp_addresses
                 
                 	Set Embedded RP processing support
-                	**type**\:   :py:class:`EmbeddedRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses>`
+                	**type**\:  :py:class:`EmbeddedRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses>`
                 
                 .. attribute:: convergence
                 
                 	Configure convergence parameters
-                	**type**\:   :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Convergence>`
+                	**type**\:  :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Convergence>`
                 
                 .. attribute:: interfaces
                 
                 	Interface\-level Configuration
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces>`
+                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces>`
                 
                 
 
@@ -2666,7 +2690,7 @@ class Pim(Entity):
                     .. attribute:: sparse_mode_rp_address
                     
                     	Address of the Rendezvous Point
-                    	**type**\: list of    :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress>`
+                    	**type**\: list of  		 :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress>`
                     
                     
 
@@ -2699,27 +2723,27 @@ class Pim(Entity):
                         .. attribute:: rp_address  <key>
                         
                         	RP address of Rendezvous Point
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: access_list_name
                         
                         	Access list of groups that should map to a  given RP
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: auto_rp_override
                         
                         	TRUE Indicates if static RP config overrides AutoRP and BSR
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -2756,7 +2780,7 @@ class Pim(Entity):
                     .. attribute:: convergence_timeout
                     
                     	Convergency timeout in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1800..2400
                     
@@ -2765,7 +2789,7 @@ class Pim(Entity):
                     .. attribute:: hello_interval
                     
                     	Hello interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..3600
                     
@@ -2774,7 +2798,7 @@ class Pim(Entity):
                     .. attribute:: propagation_delay
                     
                     	Propagation delay in milli seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 100..32767
                     
@@ -2783,14 +2807,14 @@ class Pim(Entity):
                     .. attribute:: dr_priority
                     
                     	Hello DR priority, preference given to larger value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: join_prune_mtu
                     
                     	Join\-Prune MTU in Bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 576..65535
                     
@@ -2799,7 +2823,7 @@ class Pim(Entity):
                     .. attribute:: jp_interval
                     
                     	Join\-Prune interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 10..600
                     
@@ -2808,7 +2832,7 @@ class Pim(Entity):
                     .. attribute:: override_interval
                     
                     	Override interval in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 400..65535
                     
@@ -2857,7 +2881,7 @@ class Pim(Entity):
                     .. attribute:: route_policy
                     
                     	Route policy to select RPF topology
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -2892,42 +2916,42 @@ class Pim(Entity):
                     .. attribute:: group_mappings_auto_rp
                     
                     	Override default maximum for number of group mappings from autorp mapping agent
-                    	**type**\:   :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp>`
+                    	**type**\:  :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: bsr_group_mappings
                     
                     	Override default maximum and threshold for number of group mappings from BSR
-                    	**type**\:   :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings>`
+                    	**type**\:  :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: register_states
                     
                     	Override default maximum for number of sparse\-mode source registers
-                    	**type**\:   :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates>`
+                    	**type**\:  :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: route_interfaces
                     
                     	Override default maximum for number of route\-interfaces
-                    	**type**\:   :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces>`
+                    	**type**\:  :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: bsr_candidate_rp_cache
                     
                     	Override default maximum and threshold for BSR C\-RP cache setting
-                    	**type**\:   :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache>`
+                    	**type**\:  :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: routes
                     
                     	Override default maximum for number of routes
-                    	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.Routes>`
+                    	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Maximum.Routes>`
                     
                     	**presence node**\: True
                     
@@ -2982,7 +3006,7 @@ class Pim(Entity):
                         .. attribute:: maximum_group_ranges_auto_rp
                         
                         	Maximum number of PIM group mappings from autorp
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..10000
                         
@@ -2991,7 +3015,7 @@ class Pim(Entity):
                         .. attribute:: threshold_group_ranges_auto_rp
                         
                         	Warning threshold number of PIM group mappings from autorp
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..10000
                         
@@ -3034,7 +3058,7 @@ class Pim(Entity):
                         .. attribute:: bsr_maximum_group_ranges
                         
                         	Maximum number of PIM group mappings from BSR
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..10000
                         
@@ -3043,7 +3067,7 @@ class Pim(Entity):
                         .. attribute:: warning_threshold
                         
                         	Set threshold to print warning
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..10000
                         
@@ -3086,7 +3110,7 @@ class Pim(Entity):
                         .. attribute:: maximum_register_states
                         
                         	Maximum number of PIM Sparse\-Mode register states
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..75000
                         
@@ -3095,7 +3119,7 @@ class Pim(Entity):
                         .. attribute:: warning_threshold
                         
                         	Set threshold to print warning
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..75000
                         
@@ -3138,7 +3162,7 @@ class Pim(Entity):
                         .. attribute:: maximum_route_interfaces
                         
                         	Maximum number of PIM route\-interfaces
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1100000
                         
@@ -3147,7 +3171,7 @@ class Pim(Entity):
                         .. attribute:: warning_threshold
                         
                         	Set threshold to print warning
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1100000
                         
@@ -3190,7 +3214,7 @@ class Pim(Entity):
                         .. attribute:: bsr_maximum_candidate_rp_cache
                         
                         	Maximum number of BSR C\-RP cache setting
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..10000
                         
@@ -3199,7 +3223,7 @@ class Pim(Entity):
                         .. attribute:: warning_threshold
                         
                         	Set threshold to print warning
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..10000
                         
@@ -3241,7 +3265,7 @@ class Pim(Entity):
                         .. attribute:: maximum_routes
                         
                         	Maximum number of PIM routes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..200000
                         
@@ -3250,7 +3274,7 @@ class Pim(Entity):
                         .. attribute:: warning_threshold
                         
                         	Set threshold to print warning
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..200000
                         
@@ -3292,7 +3316,7 @@ class Pim(Entity):
                     .. attribute:: interval
                     
                     	(S,G) expiry time in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 40..57600
                     
@@ -3301,7 +3325,7 @@ class Pim(Entity):
                     .. attribute:: access_list_name
                     
                     	Access\-list of applicable S,G routes
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -3338,19 +3362,19 @@ class Pim(Entity):
                     .. attribute:: enable
                     
                     	RPF Vector is turned on if configured
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: allow_ebgp
                     
                     	Allow RPF Vector origination over eBGP sessions
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: disable_ibgp
                     
                     	Disable RPF Vector origination over iBGP sessions
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -3390,14 +3414,14 @@ class Pim(Entity):
                     .. attribute:: disable
                     
                     	TRUE if SSM is disabled on this router
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
                     .. attribute:: range
                     
                     	Access list of groups enabled with SSM
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -3434,7 +3458,7 @@ class Pim(Entity):
                     .. attribute:: bidir_rp_address
                     
                     	Address of the Rendezvous Point
-                    	**type**\: list of    :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress>`
+                    	**type**\: list of  		 :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress>`
                     
                     
 
@@ -3467,27 +3491,27 @@ class Pim(Entity):
                         .. attribute:: rp_address  <key>
                         
                         	RP address of Rendezvous Point
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: access_list_name
                         
                         	Access list of groups that should map to a given RP
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: auto_rp_override
                         
                         	TRUE Indicates if static RP config overrides AutoRP and BSR
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -3524,14 +3548,14 @@ class Pim(Entity):
                     .. attribute:: candidate_bsr
                     
                     	PIM Candidate BSR configuration
-                    	**type**\:   :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr>`
+                    	**type**\:  :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: candidate_rps
                     
                     	PIM RP configuration
-                    	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps>`
+                    	**type**\:  :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps>`
                     
                     
 
@@ -3568,14 +3592,16 @@ class Pim(Entity):
                         .. attribute:: address
                         
                         	BSR Address configured
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         	**mandatory**\: True
                         
                         .. attribute:: prefix_length
                         
                         	Hash Mask Length for this candidate BSR
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..128
                         
@@ -3584,7 +3610,7 @@ class Pim(Entity):
                         .. attribute:: priority
                         
                         	Priority of the Candidate BSR
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
@@ -3628,7 +3654,7 @@ class Pim(Entity):
                         .. attribute:: candidate_rp
                         
                         	Address of PIM SM BSR Candidate\-RP
-                        	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp>`
+                        	**type**\: list of  		 :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp>`
                         
                         
 
@@ -3661,32 +3687,32 @@ class Pim(Entity):
                             .. attribute:: address  <key>
                             
                             	Address of Candidate\-RP
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: mode  <key>
                             
                             	SM or Bidir
-                            	**type**\:   :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
+                            	**type**\:  :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
                             
                             .. attribute:: group_list
                             
                             	Access\-list specifying the group range for the Candidate\-RP
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..64
                             
                             .. attribute:: priority
                             
                             	Priority of the CRP
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..255
                             
@@ -3695,7 +3721,7 @@ class Pim(Entity):
                             .. attribute:: interval
                             
                             	Advertisement interval
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 30..600
                             
@@ -3740,14 +3766,14 @@ class Pim(Entity):
                     .. attribute:: rp_list_name
                     
                     	Access\-list specifiying applicable RPs
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: group_list_name
                     
                     	Access\-list specifiying applicable groups
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -3787,7 +3813,7 @@ class Pim(Entity):
                     .. attribute:: embedded_rp_address
                     
                     	Set Embedded RP processing support
-                    	**type**\: list of    :py:class:`EmbeddedRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress>`
+                    	**type**\: list of  		 :py:class:`EmbeddedRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress>`
                     
                     
 
@@ -3820,20 +3846,20 @@ class Pim(Entity):
                         .. attribute:: rp_address  <key>
                         
                         	RP address of the Rendezvous Point
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: access_list_name
                         
                         	Access list of groups that should map to a given RP
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -3872,7 +3898,7 @@ class Pim(Entity):
                     .. attribute:: rpf_conflict_join_delay
                     
                     	Dampen first join if RPF path is through one of the downstream neighbor
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..15
                     
@@ -3881,7 +3907,7 @@ class Pim(Entity):
                     .. attribute:: link_down_prune_delay
                     
                     	Delay prunes if route join state transitions to not\-joined on link down
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..60
                     
@@ -3920,7 +3946,7 @@ class Pim(Entity):
                     .. attribute:: interface
                     
                     	The name of the interface
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface>`
                     
                     
 
@@ -3953,24 +3979,26 @@ class Pim(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	The name of interface
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: enable
                         
                         	Enter PIM Interface processing
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: neighbor_filter
                         
                         	Access\-list of neighbors to be filtered
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: hello_interval
                         
                         	Hello interval in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..3600
                         
@@ -3979,19 +4007,19 @@ class Pim(Entity):
                         .. attribute:: bsr_border
                         
                         	BSR Border configuration for Interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: maximum_routes
                         
                         	Maximum number of allowed routes for this interface
-                        	**type**\:   :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes>`
+                        	**type**\:  :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: propagation_delay
                         
                         	Propagation delay in milli seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 100..32767
                         
@@ -4000,19 +4028,19 @@ class Pim(Entity):
                         .. attribute:: bfd
                         
                         	BFD configuration
-                        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd>`
+                        	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd>`
                         
                         .. attribute:: dr_priority
                         
                         	Hello DR priority, preference given to larger value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: join_prune_mtu
                         
                         	Join\-Prune MTU in Bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 576..65535
                         
@@ -4021,12 +4049,12 @@ class Pim(Entity):
                         .. attribute:: interface_enable
                         
                         	Enable PIM processing on the interface
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: jp_interval
                         
                         	Join\-Prune interval in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 10..600
                         
@@ -4035,7 +4063,7 @@ class Pim(Entity):
                         .. attribute:: override_interval
                         
                         	Override interval in milliseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 400..65535
                         
@@ -4102,7 +4130,7 @@ class Pim(Entity):
                             .. attribute:: maximum
                             
                             	Maximum number of routes for this interface
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..1100000
                             
@@ -4111,14 +4139,14 @@ class Pim(Entity):
                             .. attribute:: warning_threshold
                             
                             	Set threshold to print warning
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..1100000
                             
                             .. attribute:: access_list_name
                             
                             	Access\-list to account for
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..64
                             
@@ -4160,14 +4188,14 @@ class Pim(Entity):
                             .. attribute:: detection_multiplier
                             
                             	Detection multiplier for BFD sessions created by PIM
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 2..50
                             
                             .. attribute:: interval
                             
                             	Hello interval for BFD sessions created by PIM
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 3..30000
                             
@@ -4176,7 +4204,7 @@ class Pim(Entity):
                             .. attribute:: enable
                             
                             	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -4213,12 +4241,12 @@ class Pim(Entity):
         .. attribute:: ipv6
         
         	IPV6 commands
-        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6>`
+        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6>`
         
         .. attribute:: ipv4
         
         	IPV4 commands
-        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4>`
+        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4>`
         
         
 
@@ -4260,152 +4288,154 @@ class Pim(Entity):
             .. attribute:: interfaces
             
             	Interface\-level Configuration
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces>`
             
             .. attribute:: neighbor_check_on_receive
             
             	Enable PIM neighbor checking when receiving PIM messages
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: old_register_checksum
             
             	Generate registers compatible with older IOS versions
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: sparse_mode_rp_addresses
             
             	Configure Sparse\-Mode Rendezvous Point
-            	**type**\:   :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.SparseModeRpAddresses>`
+            	**type**\:  :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.SparseModeRpAddresses>`
             
             .. attribute:: neighbor_filter
             
             	Access\-list of neighbors to be filtered
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: inheritable_defaults
             
             	Inheritable defaults
-            	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.InheritableDefaults>`
+            	**type**\:  :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.InheritableDefaults>`
             
             .. attribute:: spt_threshold_infinity
             
             	Configure threshold of infinity for switching to SPT on last\-hop
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: log_neighbor_changes
             
             	PIM neighbor state change logging is turned on if configured
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: rpf
             
             	Configure RPF options
-            	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Rpf>`
+            	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Rpf>`
             
             .. attribute:: register_source
             
             	Source address to use for register messages
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: accept_register
             
             	Access\-list which specifies unauthorized sources
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: sg_expiry_timer
             
             	Configure expiry timer for S,G routes
-            	**type**\:   :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.SgExpiryTimer>`
+            	**type**\:  :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.SgExpiryTimer>`
             
             .. attribute:: rpf_vector_enable
             
             	Enable PIM RPF Vector Proxy's
-            	**type**\:   :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.RpfVectorEnable>`
+            	**type**\:  :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.RpfVectorEnable>`
             
             	**presence node**\: True
             
             .. attribute:: nsf
             
             	Configure Non\-stop forwarding (NSF) options
-            	**type**\:   :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Nsf>`
+            	**type**\:  :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Nsf>`
             
             .. attribute:: embedded_rp_disable
             
             	Set Embedded RP processing support
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: suppress_rpf_prunes
             
             	Suppress prunes triggered as a result of RPF changes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: maximum
             
             	Configure PIM State Limits
-            	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum>`
+            	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum>`
             
             .. attribute:: ssm
             
             	Configure IP Multicast SSM
-            	**type**\:   :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Ssm>`
+            	**type**\:  :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Ssm>`
             
             .. attribute:: bidir_rp_addresses
             
             	Configure Bidirectional PIM Rendezvous Point
-            	**type**\:   :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.BidirRpAddresses>`
+            	**type**\:  :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.BidirRpAddresses>`
             
             .. attribute:: ssm_allow_override
             
             	Allow SSM ranges to be overridden by more specific ranges
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: multipath
             
             	Enable equal\-cost multipath routing
-            	**type**\:   :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
+            	**type**\:  :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
             
             .. attribute:: bsr
             
             	PIM BSR configuration
-            	**type**\:   :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr>`
+            	**type**\:  :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr>`
             
             .. attribute:: rp_static_deny
             
             	Configure static RP deny range
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: allow_rp
             
             	Enable allow\-rp filtering for SM joins
-            	**type**\:   :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.AllowRp>`
+            	**type**\:  :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.AllowRp>`
             
             	**presence node**\: True
             
             .. attribute:: suppress_data_registers
             
             	Suppress data registers after initial state setup
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: neighbor_check_on_send
             
             	Enable PIM neighbor checking when sending join\-prunes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: embedded_rp_addresses
             
             	Set Embedded RP processing support
-            	**type**\:   :py:class:`EmbeddedRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.EmbeddedRpAddresses>`
+            	**type**\:  :py:class:`EmbeddedRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.EmbeddedRpAddresses>`
             
             .. attribute:: convergence
             
             	Configure convergence parameters
-            	**type**\:   :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Convergence>`
+            	**type**\:  :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Convergence>`
             
             
 
@@ -4533,7 +4563,7 @@ class Pim(Entity):
                 .. attribute:: interface
                 
                 	The name of the interface
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces.Interface>`
                 
                 
 
@@ -4567,24 +4597,26 @@ class Pim(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	The name of interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: enable
                     
                     	Enter PIM Interface processing
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: neighbor_filter
                     
                     	Access\-list of neighbors to be filtered
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: hello_interval
                     
                     	Hello interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..3600
                     
@@ -4593,19 +4625,19 @@ class Pim(Entity):
                     .. attribute:: bsr_border
                     
                     	BSR Border configuration for Interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: maximum_routes
                     
                     	Maximum number of allowed routes for this interface
-                    	**type**\:   :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes>`
+                    	**type**\:  :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: propagation_delay
                     
                     	Propagation delay in milli seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 100..32767
                     
@@ -4614,19 +4646,19 @@ class Pim(Entity):
                     .. attribute:: bfd
                     
                     	BFD configuration
-                    	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd>`
+                    	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd>`
                     
                     .. attribute:: dr_priority
                     
                     	Hello DR priority, preference given to larger value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: join_prune_mtu
                     
                     	Join\-Prune MTU in Bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 576..65535
                     
@@ -4635,12 +4667,12 @@ class Pim(Entity):
                     .. attribute:: interface_enable
                     
                     	Enable PIM processing on the interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: jp_interval
                     
                     	Join\-Prune interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 10..600
                     
@@ -4649,7 +4681,7 @@ class Pim(Entity):
                     .. attribute:: override_interval
                     
                     	Override interval in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 400..65535
                     
@@ -4717,7 +4749,7 @@ class Pim(Entity):
                         .. attribute:: maximum
                         
                         	Maximum number of routes for this interface
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1100000
                         
@@ -4726,14 +4758,14 @@ class Pim(Entity):
                         .. attribute:: warning_threshold
                         
                         	Set threshold to print warning
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1100000
                         
                         .. attribute:: access_list_name
                         
                         	Access\-list to account for
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -4775,14 +4807,14 @@ class Pim(Entity):
                         .. attribute:: detection_multiplier
                         
                         	Detection multiplier for BFD sessions created by PIM
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 2..50
                         
                         .. attribute:: interval
                         
                         	Hello interval for BFD sessions created by PIM
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 3..30000
                         
@@ -4791,7 +4823,7 @@ class Pim(Entity):
                         .. attribute:: enable
                         
                         	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -4828,7 +4860,7 @@ class Pim(Entity):
                 .. attribute:: sparse_mode_rp_address
                 
                 	Address of the Rendezvous Point
-                	**type**\: list of    :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress>`
+                	**type**\: list of  		 :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress>`
                 
                 
 
@@ -4862,27 +4894,27 @@ class Pim(Entity):
                     .. attribute:: rp_address  <key>
                     
                     	RP address of Rendezvous Point
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: access_list_name
                     
                     	Access list of groups that should map to a  given RP
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: auto_rp_override
                     
                     	TRUE Indicates if static RP config overrides AutoRP and BSR
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -4920,7 +4952,7 @@ class Pim(Entity):
                 .. attribute:: convergence_timeout
                 
                 	Convergency timeout in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1800..2400
                 
@@ -4929,7 +4961,7 @@ class Pim(Entity):
                 .. attribute:: hello_interval
                 
                 	Hello interval in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..3600
                 
@@ -4938,7 +4970,7 @@ class Pim(Entity):
                 .. attribute:: propagation_delay
                 
                 	Propagation delay in milli seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 100..32767
                 
@@ -4947,14 +4979,14 @@ class Pim(Entity):
                 .. attribute:: dr_priority
                 
                 	Hello DR priority, preference given to larger value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: join_prune_mtu
                 
                 	Join\-Prune MTU in Bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 576..65535
                 
@@ -4963,7 +4995,7 @@ class Pim(Entity):
                 .. attribute:: jp_interval
                 
                 	Join\-Prune interval in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 10..600
                 
@@ -4972,7 +5004,7 @@ class Pim(Entity):
                 .. attribute:: override_interval
                 
                 	Override interval in milliseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 400..65535
                 
@@ -5022,7 +5054,7 @@ class Pim(Entity):
                 .. attribute:: route_policy
                 
                 	Route policy to select RPF topology
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -5058,7 +5090,7 @@ class Pim(Entity):
                 .. attribute:: interval
                 
                 	(S,G) expiry time in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 40..57600
                 
@@ -5067,7 +5099,7 @@ class Pim(Entity):
                 .. attribute:: access_list_name
                 
                 	Access\-list of applicable S,G routes
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -5105,19 +5137,19 @@ class Pim(Entity):
                 .. attribute:: enable
                 
                 	RPF Vector is turned on if configured
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: allow_ebgp
                 
                 	Allow RPF Vector origination over eBGP sessions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: disable_ibgp
                 
                 	Disable RPF Vector origination over iBGP sessions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -5158,7 +5190,7 @@ class Pim(Entity):
                 .. attribute:: lifetime
                 
                 	Override default maximum lifetime for PIM NSF mode
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 10..600
                 
@@ -5196,49 +5228,49 @@ class Pim(Entity):
                 .. attribute:: bsr_global_group_mappings
                 
                 	Override default global maximum and threshold for PIM group mapping ranges from BSR
-                	**type**\:   :py:class:`BsrGlobalGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings>`
+                	**type**\:  :py:class:`BsrGlobalGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: global_routes
                 
                 	Override default maximum for number of routes
-                	**type**\:   :py:class:`GlobalRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes>`
+                	**type**\:  :py:class:`GlobalRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: global_group_mappings_auto_rp
                 
                 	Maximum for number of group mappings from autorp mapping agent
-                	**type**\:   :py:class:`GlobalGroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp>`
+                	**type**\:  :py:class:`GlobalGroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: bsr_global_candidate_rp_cache
                 
                 	Override default global maximum and threshold for C\-RP set in BSR
-                	**type**\:   :py:class:`BsrGlobalCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache>`
+                	**type**\:  :py:class:`BsrGlobalCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: global_register_states
                 
                 	Override default maximum for number of sparse\-mode source registers
-                	**type**\:   :py:class:`GlobalRegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates>`
+                	**type**\:  :py:class:`GlobalRegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: global_route_interfaces
                 
                 	Override default maximum for number of route\-interfaces
-                	**type**\:   :py:class:`GlobalRouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces>`
+                	**type**\:  :py:class:`GlobalRouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: global_low_priority_packet_queue
                 
                 	Maximum packet queue size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..2147483648
                 
@@ -5247,7 +5279,7 @@ class Pim(Entity):
                 .. attribute:: global_high_priority_packet_queue
                 
                 	Maximum packet queue size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..2147483648
                 
@@ -5256,42 +5288,42 @@ class Pim(Entity):
                 .. attribute:: group_mappings_auto_rp
                 
                 	Override default maximum for number of group mappings from autorp mapping agent
-                	**type**\:   :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp>`
+                	**type**\:  :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: bsr_group_mappings
                 
                 	Override default maximum and threshold for number of group mappings from BSR
-                	**type**\:   :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings>`
+                	**type**\:  :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: register_states
                 
                 	Override default maximum for number of sparse\-mode source registers
-                	**type**\:   :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.RegisterStates>`
+                	**type**\:  :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.RegisterStates>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: route_interfaces
                 
                 	Override default maximum for number of route\-interfaces
-                	**type**\:   :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces>`
+                	**type**\:  :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: bsr_candidate_rp_cache
                 
                 	Override default maximum and threshold for BSR C\-RP cache setting
-                	**type**\:   :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache>`
+                	**type**\:  :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: routes
                 
                 	Override default maximum for number of routes
-                	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.Routes>`
+                	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Maximum.Routes>`
                 
                 	**presence node**\: True
                 
@@ -5378,7 +5410,7 @@ class Pim(Entity):
                     .. attribute:: bsr_maximum_global_group_mappings
                     
                     	Global Maximum number of PIM group mapping ranges from BSR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5387,7 +5419,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5430,7 +5462,7 @@ class Pim(Entity):
                     .. attribute:: maximum_routes
                     
                     	Maximum number of PIM routes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..200000
                     
@@ -5439,7 +5471,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..200000
                     
@@ -5483,7 +5515,7 @@ class Pim(Entity):
                     .. attribute:: maximum_global_group_ranges_auto_rp
                     
                     	Maximum number of PIM group mappings from autorp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5492,7 +5524,7 @@ class Pim(Entity):
                     .. attribute:: threshold_global_group_ranges_auto_rp
                     
                     	Warning threshold number of PIM group mappings from autorp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5536,7 +5568,7 @@ class Pim(Entity):
                     .. attribute:: bsr_maximum_global_candidate_rp_cache
                     
                     	Global Maximum number of PIM C\-RP Sets from BSR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5545,7 +5577,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5589,7 +5621,7 @@ class Pim(Entity):
                     .. attribute:: maximum_register_states
                     
                     	Maximum number of PIM Sparse\-Mode register states
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..75000
                     
@@ -5598,7 +5630,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..75000
                     
@@ -5642,7 +5674,7 @@ class Pim(Entity):
                     .. attribute:: maximum_route_interfaces
                     
                     	Maximum number of PIM route\-interfaces
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1100000
                     
@@ -5651,7 +5683,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1100000
                     
@@ -5695,7 +5727,7 @@ class Pim(Entity):
                     .. attribute:: maximum_group_ranges_auto_rp
                     
                     	Maximum number of PIM group mappings from autorp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5704,7 +5736,7 @@ class Pim(Entity):
                     .. attribute:: threshold_group_ranges_auto_rp
                     
                     	Warning threshold number of PIM group mappings from autorp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5748,7 +5780,7 @@ class Pim(Entity):
                     .. attribute:: bsr_maximum_group_ranges
                     
                     	Maximum number of PIM group mappings from BSR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5757,7 +5789,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5801,7 +5833,7 @@ class Pim(Entity):
                     .. attribute:: maximum_register_states
                     
                     	Maximum number of PIM Sparse\-Mode register states
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..75000
                     
@@ -5810,7 +5842,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..75000
                     
@@ -5854,7 +5886,7 @@ class Pim(Entity):
                     .. attribute:: maximum_route_interfaces
                     
                     	Maximum number of PIM route\-interfaces
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1100000
                     
@@ -5863,7 +5895,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1100000
                     
@@ -5907,7 +5939,7 @@ class Pim(Entity):
                     .. attribute:: bsr_maximum_candidate_rp_cache
                     
                     	Maximum number of BSR C\-RP cache setting
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5916,7 +5948,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -5959,7 +5991,7 @@ class Pim(Entity):
                     .. attribute:: maximum_routes
                     
                     	Maximum number of PIM routes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..200000
                     
@@ -5968,7 +6000,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..200000
                     
@@ -6011,14 +6043,14 @@ class Pim(Entity):
                 .. attribute:: disable
                 
                 	TRUE if SSM is disabled on this router
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: range
                 
                 	Access list of groups enabled with SSM
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -6056,7 +6088,7 @@ class Pim(Entity):
                 .. attribute:: bidir_rp_address
                 
                 	Address of the Rendezvous Point
-                	**type**\: list of    :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress>`
+                	**type**\: list of  		 :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress>`
                 
                 
 
@@ -6090,27 +6122,27 @@ class Pim(Entity):
                     .. attribute:: rp_address  <key>
                     
                     	RP address of Rendezvous Point
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: access_list_name
                     
                     	Access list of groups that should map to a given RP
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: auto_rp_override
                     
                     	TRUE Indicates if static RP config overrides AutoRP and BSR
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -6148,14 +6180,14 @@ class Pim(Entity):
                 .. attribute:: candidate_bsr
                 
                 	PIM Candidate BSR configuration
-                	**type**\:   :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr.CandidateBsr>`
+                	**type**\:  :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr.CandidateBsr>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: candidate_rps
                 
                 	PIM RP configuration
-                	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr.CandidateRps>`
+                	**type**\:  :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr.CandidateRps>`
                 
                 
 
@@ -6193,14 +6225,16 @@ class Pim(Entity):
                     .. attribute:: address
                     
                     	BSR Address configured
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     	**mandatory**\: True
                     
                     .. attribute:: prefix_length
                     
                     	Hash Mask Length for this candidate BSR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
@@ -6209,7 +6243,7 @@ class Pim(Entity):
                     .. attribute:: priority
                     
                     	Priority of the Candidate BSR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..255
                     
@@ -6254,7 +6288,7 @@ class Pim(Entity):
                     .. attribute:: candidate_rp
                     
                     	Address of PIM SM BSR Candidate\-RP
-                    	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp>`
+                    	**type**\: list of  		 :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp>`
                     
                     
 
@@ -6288,32 +6322,32 @@ class Pim(Entity):
                         .. attribute:: address  <key>
                         
                         	Address of Candidate\-RP
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: mode  <key>
                         
                         	SM or Bidir
-                        	**type**\:   :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
+                        	**type**\:  :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
                         
                         .. attribute:: group_list
                         
                         	Access\-list specifying the group range for the Candidate\-RP
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: priority
                         
                         	Priority of the CRP
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
@@ -6322,7 +6356,7 @@ class Pim(Entity):
                         .. attribute:: interval
                         
                         	Advertisement interval
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 30..600
                         
@@ -6368,14 +6402,14 @@ class Pim(Entity):
                 .. attribute:: rp_list_name
                 
                 	Access\-list specifiying applicable RPs
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: group_list_name
                 
                 	Access\-list specifiying applicable groups
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -6416,7 +6450,7 @@ class Pim(Entity):
                 .. attribute:: embedded_rp_address
                 
                 	Set Embedded RP processing support
-                	**type**\: list of    :py:class:`EmbeddedRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress>`
+                	**type**\: list of  		 :py:class:`EmbeddedRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress>`
                 
                 
 
@@ -6450,20 +6484,20 @@ class Pim(Entity):
                     .. attribute:: rp_address  <key>
                     
                     	RP address of the Rendezvous Point
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: access_list_name
                     
                     	Access list of groups that should map to a given RP
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -6503,7 +6537,7 @@ class Pim(Entity):
                 .. attribute:: rpf_conflict_join_delay
                 
                 	Dampen first join if RPF path is through one of the downstream neighbor
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..15
                 
@@ -6512,7 +6546,7 @@ class Pim(Entity):
                 .. attribute:: link_down_prune_delay
                 
                 	Delay prunes if route join state transitions to not\-joined on link down
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..60
                 
@@ -6552,177 +6586,179 @@ class Pim(Entity):
             .. attribute:: rpf_redirect
             
             	Configure RPF\-redirect feature
-            	**type**\:   :py:class:`RpfRedirect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.RpfRedirect>`
+            	**type**\:  :py:class:`RpfRedirect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.RpfRedirect>`
             
             .. attribute:: interfaces
             
             	Interface\-level Configuration
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces>`
             
             .. attribute:: auto_rp_candidate_rps
             
             	Configure Candidate\-RPs
-            	**type**\:   :py:class:`AutoRpCandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpCandidateRps>`
+            	**type**\:  :py:class:`AutoRpCandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpCandidateRps>`
             
             .. attribute:: auto_rp_mapping_agent
             
             	Configure AutoRP Mapping Agent
-            	**type**\:   :py:class:`AutoRpMappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpMappingAgent>`
+            	**type**\:  :py:class:`AutoRpMappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpMappingAgent>`
             
             .. attribute:: neighbor_check_on_receive
             
             	Enable PIM neighbor checking when receiving PIM messages
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: old_register_checksum
             
             	Generate registers compatible with older IOS versions
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: sparse_mode_rp_addresses
             
             	Configure Sparse\-Mode Rendezvous Point
-            	**type**\:   :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.SparseModeRpAddresses>`
+            	**type**\:  :py:class:`SparseModeRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.SparseModeRpAddresses>`
             
             .. attribute:: neighbor_filter
             
             	Access\-list of neighbors to be filtered
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: inheritable_defaults
             
             	Inheritable defaults
-            	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.InheritableDefaults>`
+            	**type**\:  :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.InheritableDefaults>`
             
             .. attribute:: spt_threshold_infinity
             
             	Configure threshold of infinity for switching to SPT on last\-hop
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: log_neighbor_changes
             
             	PIM neighbor state change logging is turned on if configured
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: rpf
             
             	Configure RPF options
-            	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Rpf>`
+            	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Rpf>`
             
             .. attribute:: register_source
             
             	Source address to use for register messages
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: accept_register
             
             	Access\-list which specifies unauthorized sources
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: sg_expiry_timer
             
             	Configure expiry timer for S,G routes
-            	**type**\:   :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.SgExpiryTimer>`
+            	**type**\:  :py:class:`SgExpiryTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.SgExpiryTimer>`
             
             .. attribute:: rpf_vector_enable
             
             	Enable PIM RPF Vector Proxy's
-            	**type**\:   :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.RpfVectorEnable>`
+            	**type**\:  :py:class:`RpfVectorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.RpfVectorEnable>`
             
             	**presence node**\: True
             
             .. attribute:: nsf
             
             	Configure Non\-stop forwarding (NSF) options
-            	**type**\:   :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Nsf>`
+            	**type**\:  :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Nsf>`
             
             .. attribute:: suppress_rpf_prunes
             
             	Suppress prunes triggered as a result of RPF changes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: maximum
             
             	Configure PIM State Limits
-            	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum>`
+            	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum>`
             
             .. attribute:: ssm
             
             	Configure IP Multicast SSM
-            	**type**\:   :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Ssm>`
+            	**type**\:  :py:class:`Ssm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Ssm>`
             
             .. attribute:: injects
             
             	Inject Explicit PIM RPF Vector Proxy's
-            	**type**\:   :py:class:`Injects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Injects>`
+            	**type**\:  :py:class:`Injects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Injects>`
             
             .. attribute:: bidir_rp_addresses
             
             	Configure Bidirectional PIM Rendezvous Point
-            	**type**\:   :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.BidirRpAddresses>`
+            	**type**\:  :py:class:`BidirRpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.BidirRpAddresses>`
             
             .. attribute:: ssm_allow_override
             
             	Allow SSM ranges to be overridden by more specific ranges
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: bsr
             
             	PIM BSR configuration
-            	**type**\:   :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr>`
+            	**type**\:  :py:class:`Bsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr>`
             
             .. attribute:: mofrr
             
             	Multicast Only Fast Re\-Route
-            	**type**\:   :py:class:`Mofrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr>`
+            	**type**\:  :py:class:`Mofrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr>`
             
             .. attribute:: multipath
             
             	Enable equal\-cost multipath routing
-            	**type**\:   :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
+            	**type**\:  :py:class:`PimMultipath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimMultipath>`
             
             .. attribute:: rp_static_deny
             
             	Configure static RP deny range
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: paths
             
             	Inject PIM RPF Vector Proxy's
-            	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Paths>`
+            	**type**\:  :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Paths>`
             
             .. attribute:: allow_rp
             
             	Enable allow\-rp filtering for SM joins
-            	**type**\:   :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AllowRp>`
+            	**type**\:  :py:class:`AllowRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AllowRp>`
             
             	**presence node**\: True
             
             .. attribute:: suppress_data_registers
             
             	Suppress data registers after initial state setup
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: neighbor_check_on_send
             
             	Enable PIM neighbor checking when sending join\-prunes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: convergence
             
             	Configure convergence parameters
-            	**type**\:   :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Convergence>`
+            	**type**\:  :py:class:`Convergence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Convergence>`
             
             .. attribute:: auto_rp_disable
             
             	Disable Rendezvous Point discovery through the AutoRP protocol
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -6875,7 +6911,7 @@ class Pim(Entity):
                 .. attribute:: route_policy
                 
                 	Route policy to select RPF topology
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -6911,7 +6947,7 @@ class Pim(Entity):
                 .. attribute:: interface
                 
                 	The name of the interface
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface>`
                 
                 
 
@@ -6945,29 +6981,31 @@ class Pim(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	The name of interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: redirect_bundle
                     
                     	Configure RPF\-redirect bundle for interface. Applicable for IPv4 only
-                    	**type**\:   :py:class:`RedirectBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle>`
+                    	**type**\:  :py:class:`RedirectBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle>`
                     
                     .. attribute:: enable
                     
                     	Enter PIM Interface processing
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: neighbor_filter
                     
                     	Access\-list of neighbors to be filtered
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: hello_interval
                     
                     	Hello interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..3600
                     
@@ -6976,19 +7014,19 @@ class Pim(Entity):
                     .. attribute:: bsr_border
                     
                     	BSR Border configuration for Interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: maximum_routes
                     
                     	Maximum number of allowed routes for this interface
-                    	**type**\:   :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes>`
+                    	**type**\:  :py:class:`MaximumRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: propagation_delay
                     
                     	Propagation delay in milli seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 100..32767
                     
@@ -6997,19 +7035,19 @@ class Pim(Entity):
                     .. attribute:: bfd
                     
                     	BFD configuration
-                    	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd>`
+                    	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd>`
                     
                     .. attribute:: dr_priority
                     
                     	Hello DR priority, preference given to larger value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: join_prune_mtu
                     
                     	Join\-Prune MTU in Bytes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 576..65535
                     
@@ -7018,12 +7056,12 @@ class Pim(Entity):
                     .. attribute:: interface_enable
                     
                     	Enable PIM processing on the interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: jp_interval
                     
                     	Join\-Prune interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 10..600
                     
@@ -7032,7 +7070,7 @@ class Pim(Entity):
                     .. attribute:: override_interval
                     
                     	Override interval in milliseconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 400..65535
                     
@@ -7105,14 +7143,14 @@ class Pim(Entity):
                         .. attribute:: bundle_name
                         
                         	Bundle name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..32
                         
                         .. attribute:: interface_bandwidth
                         
                         	Interface bandwidth in Kbps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..100000000
                         
@@ -7121,7 +7159,7 @@ class Pim(Entity):
                         .. attribute:: threshold_bandwidth
                         
                         	Threshold bandwidth in Kbps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..100000000
                         
@@ -7163,7 +7201,7 @@ class Pim(Entity):
                         .. attribute:: maximum
                         
                         	Maximum number of routes for this interface
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1100000
                         
@@ -7172,14 +7210,14 @@ class Pim(Entity):
                         .. attribute:: warning_threshold
                         
                         	Set threshold to print warning
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1100000
                         
                         .. attribute:: access_list_name
                         
                         	Access\-list to account for
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -7221,14 +7259,14 @@ class Pim(Entity):
                         .. attribute:: detection_multiplier
                         
                         	Detection multiplier for BFD sessions created by PIM
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 2..50
                         
                         .. attribute:: interval
                         
                         	Hello interval for BFD sessions created by PIM
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 3..30000
                         
@@ -7237,7 +7275,7 @@ class Pim(Entity):
                         .. attribute:: enable
                         
                         	TRUE to enable BFD. FALSE to disable and to prevent inheritance from a parent
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -7274,7 +7312,7 @@ class Pim(Entity):
                 .. attribute:: auto_rp_candidate_rp
                 
                 	Specifications for a Candidate\-RP
-                	**type**\: list of    :py:class:`AutoRpCandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp>`
+                	**type**\: list of  		 :py:class:`AutoRpCandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp>`
                 
                 
 
@@ -7308,17 +7346,19 @@ class Pim(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface from which Candidate\-RP packets will be sourced
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: protocol_mode  <key>
                     
                     	Protocol Mode
-                    	**type**\:   :py:class:`AutoRpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolMode>`
+                    	**type**\:  :py:class:`AutoRpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolMode>`
                     
                     .. attribute:: ttl
                     
                     	TTL in Hops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..255
                     
@@ -7327,7 +7367,7 @@ class Pim(Entity):
                     .. attribute:: access_list_name
                     
                     	Access\-list specifying the group range for the Candidate\-RP
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -7336,7 +7376,7 @@ class Pim(Entity):
                     .. attribute:: announce_period
                     
                     	Time between announcements <in seconds> 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..600
                     
@@ -7384,14 +7424,14 @@ class Pim(Entity):
                 .. attribute:: parameters
                 
                 	Specifications for Mapping Agent configured on this box
-                	**type**\:   :py:class:`Parameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters>`
+                	**type**\:  :py:class:`Parameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: cache_limit
                 
                 	Mapping Agent cache size limit
-                	**type**\:   :py:class:`CacheLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit>`
+                	**type**\:  :py:class:`CacheLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit>`
                 
                 	**presence node**\: True
                 
@@ -7431,14 +7471,16 @@ class Pim(Entity):
                     .. attribute:: interface_name
                     
                     	Interface from which mapping packets will be sourced 
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     	**mandatory**\: True
                     
                     .. attribute:: ttl
                     
                     	TTL in Hops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..255
                     
@@ -7447,7 +7489,7 @@ class Pim(Entity):
                     .. attribute:: announce_period
                     
                     	Time between discovery messages <in seconds>
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..600
                     
@@ -7494,7 +7536,7 @@ class Pim(Entity):
                     .. attribute:: maximum_cache_entry
                     
                     	Maximum number of mapping cache entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1000
                     
@@ -7503,7 +7545,7 @@ class Pim(Entity):
                     .. attribute:: threshold_cache_entry
                     
                     	Warning threshold number of cache entries
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1000
                     
@@ -7546,7 +7588,7 @@ class Pim(Entity):
                 .. attribute:: sparse_mode_rp_address
                 
                 	Address of the Rendezvous Point
-                	**type**\: list of    :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress>`
+                	**type**\: list of  		 :py:class:`SparseModeRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress>`
                 
                 
 
@@ -7580,27 +7622,27 @@ class Pim(Entity):
                     .. attribute:: rp_address  <key>
                     
                     	RP address of Rendezvous Point
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: access_list_name
                     
                     	Access list of groups that should map to a  given RP
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: auto_rp_override
                     
                     	TRUE Indicates if static RP config overrides AutoRP and BSR
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -7638,7 +7680,7 @@ class Pim(Entity):
                 .. attribute:: convergence_timeout
                 
                 	Convergency timeout in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1800..2400
                 
@@ -7647,7 +7689,7 @@ class Pim(Entity):
                 .. attribute:: hello_interval
                 
                 	Hello interval in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..3600
                 
@@ -7656,7 +7698,7 @@ class Pim(Entity):
                 .. attribute:: propagation_delay
                 
                 	Propagation delay in milli seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 100..32767
                 
@@ -7665,14 +7707,14 @@ class Pim(Entity):
                 .. attribute:: dr_priority
                 
                 	Hello DR priority, preference given to larger value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: join_prune_mtu
                 
                 	Join\-Prune MTU in Bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 576..65535
                 
@@ -7681,7 +7723,7 @@ class Pim(Entity):
                 .. attribute:: jp_interval
                 
                 	Join\-Prune interval in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 10..600
                 
@@ -7690,7 +7732,7 @@ class Pim(Entity):
                 .. attribute:: override_interval
                 
                 	Override interval in milliseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 400..65535
                 
@@ -7740,7 +7782,7 @@ class Pim(Entity):
                 .. attribute:: route_policy
                 
                 	Route policy to select RPF topology
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -7776,7 +7818,7 @@ class Pim(Entity):
                 .. attribute:: interval
                 
                 	(S,G) expiry time in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 40..57600
                 
@@ -7785,7 +7827,7 @@ class Pim(Entity):
                 .. attribute:: access_list_name
                 
                 	Access\-list of applicable S,G routes
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -7823,19 +7865,19 @@ class Pim(Entity):
                 .. attribute:: enable
                 
                 	RPF Vector is turned on if configured
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: allow_ebgp
                 
                 	Allow RPF Vector origination over eBGP sessions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: disable_ibgp
                 
                 	Disable RPF Vector origination over iBGP sessions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -7876,7 +7918,7 @@ class Pim(Entity):
                 .. attribute:: lifetime
                 
                 	Override default maximum lifetime for PIM NSF mode
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 10..600
                 
@@ -7914,49 +7956,49 @@ class Pim(Entity):
                 .. attribute:: bsr_global_group_mappings
                 
                 	Override default global maximum and threshold for PIM group mapping ranges from BSR
-                	**type**\:   :py:class:`BsrGlobalGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings>`
+                	**type**\:  :py:class:`BsrGlobalGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: global_routes
                 
                 	Override default maximum for number of routes
-                	**type**\:   :py:class:`GlobalRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes>`
+                	**type**\:  :py:class:`GlobalRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: global_group_mappings_auto_rp
                 
                 	Maximum for number of group mappings from autorp mapping agent
-                	**type**\:   :py:class:`GlobalGroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp>`
+                	**type**\:  :py:class:`GlobalGroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: bsr_global_candidate_rp_cache
                 
                 	Override default global maximum and threshold for C\-RP set in BSR
-                	**type**\:   :py:class:`BsrGlobalCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache>`
+                	**type**\:  :py:class:`BsrGlobalCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: global_register_states
                 
                 	Override default maximum for number of sparse\-mode source registers
-                	**type**\:   :py:class:`GlobalRegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates>`
+                	**type**\:  :py:class:`GlobalRegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: global_route_interfaces
                 
                 	Override default maximum for number of route\-interfaces
-                	**type**\:   :py:class:`GlobalRouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces>`
+                	**type**\:  :py:class:`GlobalRouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: global_low_priority_packet_queue
                 
                 	Maximum packet queue size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..2147483648
                 
@@ -7965,7 +8007,7 @@ class Pim(Entity):
                 .. attribute:: global_high_priority_packet_queue
                 
                 	Maximum packet queue size in bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..2147483648
                 
@@ -7974,42 +8016,42 @@ class Pim(Entity):
                 .. attribute:: group_mappings_auto_rp
                 
                 	Override default maximum for number of group mappings from autorp mapping agent
-                	**type**\:   :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp>`
+                	**type**\:  :py:class:`GroupMappingsAutoRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: bsr_group_mappings
                 
                 	Override default maximum and threshold for number of group mappings from BSR
-                	**type**\:   :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings>`
+                	**type**\:  :py:class:`BsrGroupMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: register_states
                 
                 	Override default maximum for number of sparse\-mode source registers
-                	**type**\:   :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.RegisterStates>`
+                	**type**\:  :py:class:`RegisterStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.RegisterStates>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: route_interfaces
                 
                 	Override default maximum for number of route\-interfaces
-                	**type**\:   :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces>`
+                	**type**\:  :py:class:`RouteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: bsr_candidate_rp_cache
                 
                 	Override default maximum and threshold for BSR C\-RP cache setting
-                	**type**\:   :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache>`
+                	**type**\:  :py:class:`BsrCandidateRpCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: routes
                 
                 	Override default maximum for number of routes
-                	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.Routes>`
+                	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Maximum.Routes>`
                 
                 	**presence node**\: True
                 
@@ -8096,7 +8138,7 @@ class Pim(Entity):
                     .. attribute:: bsr_maximum_global_group_mappings
                     
                     	Global Maximum number of PIM group mapping ranges from BSR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -8105,7 +8147,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -8148,7 +8190,7 @@ class Pim(Entity):
                     .. attribute:: maximum_routes
                     
                     	Maximum number of PIM routes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..200000
                     
@@ -8157,7 +8199,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..200000
                     
@@ -8201,7 +8243,7 @@ class Pim(Entity):
                     .. attribute:: maximum_global_group_ranges_auto_rp
                     
                     	Maximum number of PIM group mappings from autorp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -8210,7 +8252,7 @@ class Pim(Entity):
                     .. attribute:: threshold_global_group_ranges_auto_rp
                     
                     	Warning threshold number of PIM group mappings from autorp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -8254,7 +8296,7 @@ class Pim(Entity):
                     .. attribute:: bsr_maximum_global_candidate_rp_cache
                     
                     	Global Maximum number of PIM C\-RP Sets from BSR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -8263,7 +8305,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -8307,7 +8349,7 @@ class Pim(Entity):
                     .. attribute:: maximum_register_states
                     
                     	Maximum number of PIM Sparse\-Mode register states
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..75000
                     
@@ -8316,7 +8358,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..75000
                     
@@ -8360,7 +8402,7 @@ class Pim(Entity):
                     .. attribute:: maximum_route_interfaces
                     
                     	Maximum number of PIM route\-interfaces
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1100000
                     
@@ -8369,7 +8411,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1100000
                     
@@ -8413,7 +8455,7 @@ class Pim(Entity):
                     .. attribute:: maximum_group_ranges_auto_rp
                     
                     	Maximum number of PIM group mappings from autorp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -8422,7 +8464,7 @@ class Pim(Entity):
                     .. attribute:: threshold_group_ranges_auto_rp
                     
                     	Warning threshold number of PIM group mappings from autorp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -8466,7 +8508,7 @@ class Pim(Entity):
                     .. attribute:: bsr_maximum_group_ranges
                     
                     	Maximum number of PIM group mappings from BSR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -8475,7 +8517,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -8519,7 +8561,7 @@ class Pim(Entity):
                     .. attribute:: maximum_register_states
                     
                     	Maximum number of PIM Sparse\-Mode register states
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..75000
                     
@@ -8528,7 +8570,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..75000
                     
@@ -8572,7 +8614,7 @@ class Pim(Entity):
                     .. attribute:: maximum_route_interfaces
                     
                     	Maximum number of PIM route\-interfaces
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1100000
                     
@@ -8581,7 +8623,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..1100000
                     
@@ -8625,7 +8667,7 @@ class Pim(Entity):
                     .. attribute:: bsr_maximum_candidate_rp_cache
                     
                     	Maximum number of BSR C\-RP cache setting
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -8634,7 +8676,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..10000
                     
@@ -8677,7 +8719,7 @@ class Pim(Entity):
                     .. attribute:: maximum_routes
                     
                     	Maximum number of PIM routes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..200000
                     
@@ -8686,7 +8728,7 @@ class Pim(Entity):
                     .. attribute:: warning_threshold
                     
                     	Set threshold to print warning
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..200000
                     
@@ -8729,14 +8771,14 @@ class Pim(Entity):
                 .. attribute:: disable
                 
                 	TRUE if SSM is disabled on this router
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: range
                 
                 	Access list of groups enabled with SSM
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -8774,7 +8816,7 @@ class Pim(Entity):
                 .. attribute:: inject
                 
                 	Inject Explicit PIM RPF Vector Proxy's
-                	**type**\: list of    :py:class:`Inject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Injects.Inject>`
+                	**type**\: list of  		 :py:class:`Inject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Injects.Inject>`
                 
                 
 
@@ -8808,19 +8850,23 @@ class Pim(Entity):
                     .. attribute:: source_address  <key>
                     
                     	Source Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: prefix_length  <key>
                     
                     	Masklen
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..32
                     
                     .. attribute:: rpf_proxy_address
                     
                     	RPF Proxy Address
-                    	**type**\:  list of str
+                    	**type**\: list of str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -8858,7 +8904,7 @@ class Pim(Entity):
                 .. attribute:: bidir_rp_address
                 
                 	Address of the Rendezvous Point
-                	**type**\: list of    :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress>`
+                	**type**\: list of  		 :py:class:`BidirRpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress>`
                 
                 
 
@@ -8892,27 +8938,27 @@ class Pim(Entity):
                     .. attribute:: rp_address  <key>
                     
                     	RP address of Rendezvous Point
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: access_list_name
                     
                     	Access list of groups that should map to a given RP
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: auto_rp_override
                     
                     	TRUE Indicates if static RP config overrides AutoRP and BSR
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -8950,14 +8996,14 @@ class Pim(Entity):
                 .. attribute:: candidate_bsr
                 
                 	PIM Candidate BSR configuration
-                	**type**\:   :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr.CandidateBsr>`
+                	**type**\:  :py:class:`CandidateBsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr.CandidateBsr>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: candidate_rps
                 
                 	PIM RP configuration
-                	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr.CandidateRps>`
+                	**type**\:  :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr.CandidateRps>`
                 
                 
 
@@ -8995,24 +9041,22 @@ class Pim(Entity):
                     .. attribute:: address
                     
                     	BSR Address configured
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
+                    
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    		**type**\: str
+                    
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     	**mandatory**\: True
                     
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**mandatory**\: True
-                    
-                    
-                    ----
                     .. attribute:: prefix_length
                     
                     	Hash Mask Length for this candidate BSR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..32
                     
@@ -9021,7 +9065,7 @@ class Pim(Entity):
                     .. attribute:: priority
                     
                     	Priority of the Candidate BSR
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..255
                     
@@ -9066,7 +9110,7 @@ class Pim(Entity):
                     .. attribute:: candidate_rp
                     
                     	Address of PIM SM BSR Candidate\-RP
-                    	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp>`
+                    	**type**\: list of  		 :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp>`
                     
                     
 
@@ -9100,32 +9144,32 @@ class Pim(Entity):
                         .. attribute:: address  <key>
                         
                         	Address of Candidate\-RP
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: mode  <key>
                         
                         	SM or Bidir
-                        	**type**\:   :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
+                        	**type**\:  :py:class:`PimProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.PimProtocolMode>`
                         
                         .. attribute:: group_list
                         
                         	Access\-list specifying the group range for the Candidate\-RP
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: priority
                         
                         	Priority of the CRP
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
@@ -9134,7 +9178,7 @@ class Pim(Entity):
                         .. attribute:: interval
                         
                         	Advertisement interval
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 30..600
                         
@@ -9180,34 +9224,34 @@ class Pim(Entity):
                 .. attribute:: clone_joins
                 
                 	Clone multicast joins
-                	**type**\:   :py:class:`CloneJoins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneJoins>`
+                	**type**\:  :py:class:`CloneJoins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneJoins>`
                 
                 .. attribute:: clone_sources
                 
                 	Clone multicast traffic
-                	**type**\:   :py:class:`CloneSources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneSources>`
+                	**type**\:  :py:class:`CloneSources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneSources>`
                 
                 .. attribute:: rib
                 
                 	Access\-list specifying SG that should do RIB MOFRR
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: non_revertive
                 
                 	Non\-revertive Multicast Only Fast Re\-Route
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: enable
                 
                 	Enable Multicast Only FRR
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: flow
                 
                 	Access\-list specifying SG that should do FLOW MOFRR
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -9259,7 +9303,7 @@ class Pim(Entity):
                     .. attribute:: clone_join
                     
                     	Clone S,G joins as S1,G joins and S2,G joins
-                    	**type**\: list of    :py:class:`CloneJoin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin>`
+                    	**type**\: list of  		 :py:class:`CloneJoin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin>`
                     
                     
 
@@ -9293,22 +9337,28 @@ class Pim(Entity):
                         .. attribute:: source  <key>
                         
                         	Original source address (S)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: primary  <key>
                         
                         	Primary cloned address (S1)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: backup  <key>
                         
                         	Backup cloned address (S2)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: prefix_length  <key>
                         
                         	Mask length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..32
                         
@@ -9350,7 +9400,7 @@ class Pim(Entity):
                     .. attribute:: clone_source
                     
                     	Clone S,G traffic as S1,G traffic and S2,G traffic
-                    	**type**\: list of    :py:class:`CloneSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource>`
+                    	**type**\: list of  		 :py:class:`CloneSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource>`
                     
                     
 
@@ -9385,22 +9435,28 @@ class Pim(Entity):
                         .. attribute:: source  <key>
                         
                         	Original source address (S)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: primary  <key>
                         
                         	Primary cloned address (S1)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: backup  <key>
                         
                         	Backup cloned address (S2)
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: prefix_length  <key>
                         
                         	Mask length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..32
                         
@@ -9442,7 +9498,7 @@ class Pim(Entity):
                 .. attribute:: path
                 
                 	Inject PIM RPF Vector Proxy's
-                	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Paths.Path>`
+                	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg.Pim.DefaultContext.Ipv4.Paths.Path>`
                 
                 
 
@@ -9476,19 +9532,23 @@ class Pim(Entity):
                     .. attribute:: source_address  <key>
                     
                     	Source Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: prefix_length  <key>
                     
                     	Masklen
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..32
                     
                     .. attribute:: rpf_proxy_address
                     
                     	RPF Proxy Address
-                    	**type**\:  list of str
+                    	**type**\: list of str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -9526,14 +9586,14 @@ class Pim(Entity):
                 .. attribute:: rp_list_name
                 
                 	Access\-list specifiying applicable RPs
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: group_list_name
                 
                 	Access\-list specifiying applicable groups
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -9574,7 +9634,7 @@ class Pim(Entity):
                 .. attribute:: rpf_conflict_join_delay
                 
                 	Dampen first join if RPF path is through one of the downstream neighbor
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..15
                 
@@ -9583,7 +9643,7 @@ class Pim(Entity):
                 .. attribute:: link_down_prune_delay
                 
                 	Delay prunes if route join state transitions to not\-joined on link down
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..60
                 

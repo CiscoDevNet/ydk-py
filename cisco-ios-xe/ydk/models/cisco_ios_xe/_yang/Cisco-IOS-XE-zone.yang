@@ -23,12 +23,21 @@ module Cisco-IOS-XE-zone {
 
   description
     "Cisco XE Native Zone Interfaces Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-10-27 {
+    description
+      "Update supported interfaces";
+  }
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -140,6 +149,26 @@ module Cisco-IOS-XE-zone {
     uses config-interface-zone-member-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-zone-member-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+    uses config-interface-zone-member-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-zone-member-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-zone-member-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:LISP" {
+    uses config-interface-zone-member-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:Loopback" {
     uses config-interface-zone-member-grouping;
   }
@@ -153,6 +182,14 @@ module Cisco-IOS-XE-zone {
   }
 
   augment "/ios:native/ios:interface/ios:Vlan" {
+    uses config-interface-zone-member-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:vasileft" {
+    uses config-interface-zone-member-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:vasiright" {
     uses config-interface-zone-member-grouping;
   }
 }

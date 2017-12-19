@@ -25,7 +25,7 @@ class HostNames(Entity):
     .. attribute:: host_name
     
     	Configure system's hostname
-    	**type**\:  str
+    	**type**\: str
     
     
 

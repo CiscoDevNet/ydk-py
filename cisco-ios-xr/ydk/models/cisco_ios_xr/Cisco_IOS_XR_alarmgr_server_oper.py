@@ -487,12 +487,12 @@ class Alarms(Entity):
     .. attribute:: detail
     
     	A set of detail alarm commands
-    	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail>`
+    	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail>`
     
     .. attribute:: brief
     
     	A set of brief alarm commands
-    	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief>`
+    	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief>`
     
     
 
@@ -531,12 +531,12 @@ class Alarms(Entity):
         .. attribute:: detail_system
         
         	show detail system scope alarm related data
-        	**type**\:   :py:class:`DetailSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem>`
+        	**type**\:  :py:class:`DetailSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem>`
         
         .. attribute:: detail_card
         
         	Show detail card scope alarm related data
-        	**type**\:   :py:class:`DetailCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard>`
+        	**type**\:  :py:class:`DetailCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard>`
         
         
 
@@ -575,27 +575,27 @@ class Alarms(Entity):
             .. attribute:: active
             
             	Show the active alarms at this scope
-            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active>`
+            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active>`
             
             .. attribute:: history
             
             	Show the history alarms at this scope
-            	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History>`
+            	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History>`
             
             .. attribute:: suppressed
             
             	Show the suppressed alarms at this scope
-            	**type**\:   :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Suppressed>`
+            	**type**\:  :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Suppressed>`
             
             .. attribute:: stats
             
             	Show the service statistics
-            	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Stats>`
+            	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Stats>`
             
             .. attribute:: clients
             
             	Show the clients associated with this service
-            	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Clients>`
+            	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Clients>`
             
             
 
@@ -649,7 +649,7 @@ class Alarms(Entity):
                 .. attribute:: alarm_info
                 
                 	Alarm List
-                	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active.AlarmInfo>`
+                	**type**\: list of  		 :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active.AlarmInfo>`
                 
                 
 
@@ -683,131 +683,131 @@ class Alarms(Entity):
                     .. attribute:: otn
                     
                     	OTN feature specific alarm attributes
-                    	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active.AlarmInfo.Otn>`
+                    	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active.AlarmInfo.Otn>`
                     
                     .. attribute:: tca
                     
                     	TCA feature specific alarm attributes
-                    	**type**\:   :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active.AlarmInfo.Tca>`
+                    	**type**\:  :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active.AlarmInfo.Tca>`
                     
                     .. attribute:: description
                     
                     	Alarm description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..256
                     
                     .. attribute:: location
                     
                     	Alarm location
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: aid
                     
                     	Alarm aid
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: tag
                     
                     	Alarm tag description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: module
                     
                     	Alarm module description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: eid
                     
                     	Alarm eid
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: reporting_agent_id
                     
                     	Reporting agent id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pending_sync
                     
                     	Pending async flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: severity
                     
                     	Alarm severity
-                    	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                    	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                     
                     .. attribute:: status
                     
                     	Alarm status
-                    	**type**\:   :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
+                    	**type**\:  :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
                     
                     .. attribute:: group
                     
                     	Alarm group
-                    	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                    	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                     
                     .. attribute:: set_time
                     
                     	Alarm set time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: set_timestamp
                     
                     	Alarm set time(timestamp format)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: clear_time
                     
                     	Alarm clear time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: clear_timestamp
                     
                     	Alarm clear time(timestamp format)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: service_affecting
                     
                     	Alarm service affecting
-                    	**type**\:   :py:class:`AlarmServiceAffecting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffecting>`
+                    	**type**\:  :py:class:`AlarmServiceAffecting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffecting>`
                     
                     .. attribute:: type
                     
                     	alarm event type
-                    	**type**\:   :py:class:`AlarmEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEvent>`
+                    	**type**\:  :py:class:`AlarmEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEvent>`
                     
                     .. attribute:: interface
                     
                     	Alarm interface name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: alarm_name
                     
                     	Alarm name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
@@ -889,12 +889,12 @@ class Alarms(Entity):
                         .. attribute:: direction
                         
                         	Alarm direction 
-                        	**type**\:   :py:class:`AlarmDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirection>`
+                        	**type**\:  :py:class:`AlarmDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirection>`
                         
                         .. attribute:: notification_source
                         
                         	Source of Alarm
-                        	**type**\:   :py:class:`AlarmNotificationSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrc>`
+                        	**type**\:  :py:class:`AlarmNotificationSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrc>`
                         
                         
 
@@ -930,21 +930,21 @@ class Alarms(Entity):
                         .. attribute:: threshold_value
                         
                         	Alarm Threshold 
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..20
                         
                         .. attribute:: current_value
                         
                         	Alarm Threshold
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..20
                         
                         .. attribute:: bucket_type
                         
                         	Timing Bucket
-                        	**type**\:   :py:class:`TimingBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucket>`
+                        	**type**\:  :py:class:`TimingBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucket>`
                         
                         
 
@@ -982,7 +982,7 @@ class Alarms(Entity):
                 .. attribute:: alarm_info
                 
                 	Alarm List
-                	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History.AlarmInfo>`
+                	**type**\: list of  		 :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History.AlarmInfo>`
                 
                 
 
@@ -1016,131 +1016,131 @@ class Alarms(Entity):
                     .. attribute:: otn
                     
                     	OTN feature specific alarm attributes
-                    	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History.AlarmInfo.Otn>`
+                    	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History.AlarmInfo.Otn>`
                     
                     .. attribute:: tca
                     
                     	TCA feature specific alarm attributes
-                    	**type**\:   :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History.AlarmInfo.Tca>`
+                    	**type**\:  :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History.AlarmInfo.Tca>`
                     
                     .. attribute:: description
                     
                     	Alarm description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..256
                     
                     .. attribute:: location
                     
                     	Alarm location
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: aid
                     
                     	Alarm aid
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: tag
                     
                     	Alarm tag description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: module
                     
                     	Alarm module description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: eid
                     
                     	Alarm eid
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: reporting_agent_id
                     
                     	Reporting agent id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pending_sync
                     
                     	Pending async flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: severity
                     
                     	Alarm severity
-                    	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                    	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                     
                     .. attribute:: status
                     
                     	Alarm status
-                    	**type**\:   :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
+                    	**type**\:  :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
                     
                     .. attribute:: group
                     
                     	Alarm group
-                    	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                    	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                     
                     .. attribute:: set_time
                     
                     	Alarm set time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: set_timestamp
                     
                     	Alarm set time(timestamp format)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: clear_time
                     
                     	Alarm clear time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: clear_timestamp
                     
                     	Alarm clear time(timestamp format)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: service_affecting
                     
                     	Alarm service affecting
-                    	**type**\:   :py:class:`AlarmServiceAffecting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffecting>`
+                    	**type**\:  :py:class:`AlarmServiceAffecting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffecting>`
                     
                     .. attribute:: type
                     
                     	alarm event type
-                    	**type**\:   :py:class:`AlarmEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEvent>`
+                    	**type**\:  :py:class:`AlarmEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEvent>`
                     
                     .. attribute:: interface
                     
                     	Alarm interface name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: alarm_name
                     
                     	Alarm name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
@@ -1222,12 +1222,12 @@ class Alarms(Entity):
                         .. attribute:: direction
                         
                         	Alarm direction 
-                        	**type**\:   :py:class:`AlarmDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirection>`
+                        	**type**\:  :py:class:`AlarmDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirection>`
                         
                         .. attribute:: notification_source
                         
                         	Source of Alarm
-                        	**type**\:   :py:class:`AlarmNotificationSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrc>`
+                        	**type**\:  :py:class:`AlarmNotificationSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrc>`
                         
                         
 
@@ -1263,21 +1263,21 @@ class Alarms(Entity):
                         .. attribute:: threshold_value
                         
                         	Alarm Threshold 
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..20
                         
                         .. attribute:: current_value
                         
                         	Alarm Threshold
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..20
                         
                         .. attribute:: bucket_type
                         
                         	Timing Bucket
-                        	**type**\:   :py:class:`TimingBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucket>`
+                        	**type**\:  :py:class:`TimingBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucket>`
                         
                         
 
@@ -1315,7 +1315,7 @@ class Alarms(Entity):
                 .. attribute:: suppressed_info
                 
                 	Suppressed Alarm List
-                	**type**\: list of    :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo>`
+                	**type**\: list of  		 :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo>`
                 
                 
 
@@ -1349,121 +1349,121 @@ class Alarms(Entity):
                     .. attribute:: otn
                     
                     	OTN feature specific alarm attributes
-                    	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo.Otn>`
+                    	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo.Otn>`
                     
                     .. attribute:: description
                     
                     	Alarm description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..256
                     
                     .. attribute:: location
                     
                     	Alarm location
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: aid
                     
                     	Alarm aid
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: tag
                     
                     	Alarm tag description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: module
                     
                     	Alarm module description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: eid
                     
                     	Alarm eid
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: reporting_agent_id
                     
                     	Reporting agent id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pending_sync
                     
                     	Pending async flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: severity
                     
                     	Alarm severity
-                    	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                    	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                     
                     .. attribute:: status
                     
                     	Alarm status
-                    	**type**\:   :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
+                    	**type**\:  :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
                     
                     .. attribute:: group
                     
                     	Alarm group
-                    	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                    	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                     
                     .. attribute:: set_time
                     
                     	Alarm set time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: set_timestamp
                     
                     	Alarm set time(timestamp format)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: suppressed_time
                     
                     	Alarm suppressed time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: suppressed_timestamp
                     
                     	Alarm suppressed time(timestamp format)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: service_affecting
                     
                     	Alarm service affecting 
-                    	**type**\:   :py:class:`AlarmServiceAffecting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffecting>`
+                    	**type**\:  :py:class:`AlarmServiceAffecting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffecting>`
                     
                     .. attribute:: interface
                     
                     	Alarm interface name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: alarm_name
                     
                     	Alarm name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
@@ -1538,12 +1538,12 @@ class Alarms(Entity):
                         .. attribute:: direction
                         
                         	Alarm direction 
-                        	**type**\:   :py:class:`AlarmDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirection>`
+                        	**type**\:  :py:class:`AlarmDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirection>`
                         
                         .. attribute:: notification_source
                         
                         	Source of Alarm
-                        	**type**\:   :py:class:`AlarmNotificationSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrc>`
+                        	**type**\:  :py:class:`AlarmNotificationSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrc>`
                         
                         
 
@@ -1579,105 +1579,105 @@ class Alarms(Entity):
                 .. attribute:: reported
                 
                 	Alarms that were in all reported to this Alarm Mgr
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: dropped
                 
                 	Alarms that we couldn't keep track due to some error or other
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: active
                 
                 	Alarms that are currently in the active state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: history
                 
                 	Alarms that are cleared. This one is counted over a long period of time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: suppressed
                 
                 	Alarms that are in suppressed state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: sysadmin_active
                 
                 	Alarms that are currently in the active state(sysadmin plane)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: sysadmin_history
                 
                 	Alarms that are cleared in sysadmin plane. This one is counted over a long period of time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: sysadmin_suppressed
                 
                 	Alarms that are suppressed in sysadmin plane
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: dropped_invalid_aid
                 
                 	Alarms dropped due to invalid aid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: dropped_insuff_mem
                 
                 	Alarms dropped due to insufficient memory
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: dropped_db_error
                 
                 	Alarms dropped due to db error
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: dropped_clear_without_set
                 
                 	Alarms dropped clear without set
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: dropped_duplicate
                 
                 	Alarms dropped which were duplicate
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: cache_hit
                 
                 	Total alarms which had the cache hit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: cache_miss
                 
                 	Total alarms which had the cache miss
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1741,7 +1741,7 @@ class Alarms(Entity):
                 .. attribute:: client_info
                 
                 	Client List
-                	**type**\: list of    :py:class:`ClientInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Clients.ClientInfo>`
+                	**type**\: list of  		 :py:class:`ClientInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Clients.ClientInfo>`
                 
                 
 
@@ -1775,100 +1775,100 @@ class Alarms(Entity):
                     .. attribute:: name
                     
                     	Alarm client
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: id
                     
                     	Alarms agent id of the client
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: location
                     
                     	The location of this client
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: handle
                     
                     	The client handle through which interface
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: state
                     
                     	The current state of the client
-                    	**type**\:   :py:class:`AlarmClientState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClientState>`
+                    	**type**\:  :py:class:`AlarmClientState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClientState>`
                     
                     .. attribute:: type
                     
                     	The type of the client
-                    	**type**\:   :py:class:`AlarmClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClient>`
+                    	**type**\:  :py:class:`AlarmClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClient>`
                     
                     .. attribute:: filter_disp
                     
                     	The current subscription status of the client
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: subscriber_id
                     
                     	Alarms agent subscriber id of the client
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: filter_severity
                     
                     	The filter used for alarm severity
-                    	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                    	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                     
                     .. attribute:: filter_state
                     
                     	The filter used for alarm bi\-state state+
-                    	**type**\:   :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
+                    	**type**\:  :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
                     
                     .. attribute:: filter_group
                     
                     	The filter used for alarm group
-                    	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                    	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                     
                     .. attribute:: connect_count
                     
                     	Number of times the agent connected to the alarm mgr
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: connect_timestamp
                     
                     	Agent connect timestamp
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: get_count
                     
                     	Number of times the agent queried for alarms
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: subscribe_count
                     
                     	Number of times the agent subscribed for alarms
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: report_count
                     
                     	Number of times the agent reported alarms
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1934,7 +1934,7 @@ class Alarms(Entity):
             .. attribute:: detail_locations
             
             	Table of DetailLocation
-            	**type**\:   :py:class:`DetailLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations>`
+            	**type**\:  :py:class:`DetailLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations>`
             
             
 
@@ -1968,7 +1968,7 @@ class Alarms(Entity):
                 .. attribute:: detail_location
                 
                 	Specify a card location for alarms
-                	**type**\: list of    :py:class:`DetailLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation>`
+                	**type**\: list of  		 :py:class:`DetailLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation>`
                 
                 
 
@@ -2002,32 +2002,34 @@ class Alarms(Entity):
                     .. attribute:: node_id  <key>
                     
                     	NodeID of the Location
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
                     .. attribute:: active
                     
                     	Show the active alarms at this scope
-                    	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active>`
+                    	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active>`
                     
                     .. attribute:: history
                     
                     	Show the history alarms at this scope
-                    	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History>`
+                    	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History>`
                     
                     .. attribute:: suppressed
                     
                     	Show the suppressed alarms at this scope
-                    	**type**\:   :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed>`
+                    	**type**\:  :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed>`
                     
                     .. attribute:: stats
                     
                     	Show the service statistics
-                    	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Stats>`
+                    	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Stats>`
                     
                     .. attribute:: clients
                     
                     	Show the clients associated with this service
-                    	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients>`
+                    	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients>`
                     
                     
 
@@ -2086,7 +2088,7 @@ class Alarms(Entity):
                         .. attribute:: alarm_info
                         
                         	Alarm List
-                        	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo>`
+                        	**type**\: list of  		 :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo>`
                         
                         
 
@@ -2119,131 +2121,131 @@ class Alarms(Entity):
                             .. attribute:: otn
                             
                             	OTN feature specific alarm attributes
-                            	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Otn>`
+                            	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Otn>`
                             
                             .. attribute:: tca
                             
                             	TCA feature specific alarm attributes
-                            	**type**\:   :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Tca>`
+                            	**type**\:  :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Tca>`
                             
                             .. attribute:: description
                             
                             	Alarm description
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..256
                             
                             .. attribute:: location
                             
                             	Alarm location
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: aid
                             
                             	Alarm aid
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: tag
                             
                             	Alarm tag description
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: module
                             
                             	Alarm module description
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: eid
                             
                             	Alarm eid
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: reporting_agent_id
                             
                             	Reporting agent id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: pending_sync
                             
                             	Pending async flag
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: severity
                             
                             	Alarm severity
-                            	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                            	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                             
                             .. attribute:: status
                             
                             	Alarm status
-                            	**type**\:   :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
+                            	**type**\:  :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
                             
                             .. attribute:: group
                             
                             	Alarm group
-                            	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                            	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                             
                             .. attribute:: set_time
                             
                             	Alarm set time
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: set_timestamp
                             
                             	Alarm set time(timestamp format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: clear_time
                             
                             	Alarm clear time
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: clear_timestamp
                             
                             	Alarm clear time(timestamp format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: service_affecting
                             
                             	Alarm service affecting
-                            	**type**\:   :py:class:`AlarmServiceAffecting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffecting>`
+                            	**type**\:  :py:class:`AlarmServiceAffecting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffecting>`
                             
                             .. attribute:: type
                             
                             	alarm event type
-                            	**type**\:   :py:class:`AlarmEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEvent>`
+                            	**type**\:  :py:class:`AlarmEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEvent>`
                             
                             .. attribute:: interface
                             
                             	Alarm interface name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: alarm_name
                             
                             	Alarm name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
@@ -2324,12 +2326,12 @@ class Alarms(Entity):
                                 .. attribute:: direction
                                 
                                 	Alarm direction 
-                                	**type**\:   :py:class:`AlarmDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirection>`
+                                	**type**\:  :py:class:`AlarmDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirection>`
                                 
                                 .. attribute:: notification_source
                                 
                                 	Source of Alarm
-                                	**type**\:   :py:class:`AlarmNotificationSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrc>`
+                                	**type**\:  :py:class:`AlarmNotificationSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrc>`
                                 
                                 
 
@@ -2364,21 +2366,21 @@ class Alarms(Entity):
                                 .. attribute:: threshold_value
                                 
                                 	Alarm Threshold 
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..20
                                 
                                 .. attribute:: current_value
                                 
                                 	Alarm Threshold
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..20
                                 
                                 .. attribute:: bucket_type
                                 
                                 	Timing Bucket
-                                	**type**\:   :py:class:`TimingBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucket>`
+                                	**type**\:  :py:class:`TimingBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucket>`
                                 
                                 
 
@@ -2415,7 +2417,7 @@ class Alarms(Entity):
                         .. attribute:: alarm_info
                         
                         	Alarm List
-                        	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo>`
+                        	**type**\: list of  		 :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo>`
                         
                         
 
@@ -2448,131 +2450,131 @@ class Alarms(Entity):
                             .. attribute:: otn
                             
                             	OTN feature specific alarm attributes
-                            	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Otn>`
+                            	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Otn>`
                             
                             .. attribute:: tca
                             
                             	TCA feature specific alarm attributes
-                            	**type**\:   :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Tca>`
+                            	**type**\:  :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Tca>`
                             
                             .. attribute:: description
                             
                             	Alarm description
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..256
                             
                             .. attribute:: location
                             
                             	Alarm location
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: aid
                             
                             	Alarm aid
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: tag
                             
                             	Alarm tag description
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: module
                             
                             	Alarm module description
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: eid
                             
                             	Alarm eid
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: reporting_agent_id
                             
                             	Reporting agent id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: pending_sync
                             
                             	Pending async flag
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: severity
                             
                             	Alarm severity
-                            	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                            	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                             
                             .. attribute:: status
                             
                             	Alarm status
-                            	**type**\:   :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
+                            	**type**\:  :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
                             
                             .. attribute:: group
                             
                             	Alarm group
-                            	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                            	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                             
                             .. attribute:: set_time
                             
                             	Alarm set time
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: set_timestamp
                             
                             	Alarm set time(timestamp format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: clear_time
                             
                             	Alarm clear time
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: clear_timestamp
                             
                             	Alarm clear time(timestamp format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: service_affecting
                             
                             	Alarm service affecting
-                            	**type**\:   :py:class:`AlarmServiceAffecting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffecting>`
+                            	**type**\:  :py:class:`AlarmServiceAffecting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffecting>`
                             
                             .. attribute:: type
                             
                             	alarm event type
-                            	**type**\:   :py:class:`AlarmEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEvent>`
+                            	**type**\:  :py:class:`AlarmEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEvent>`
                             
                             .. attribute:: interface
                             
                             	Alarm interface name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: alarm_name
                             
                             	Alarm name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
@@ -2653,12 +2655,12 @@ class Alarms(Entity):
                                 .. attribute:: direction
                                 
                                 	Alarm direction 
-                                	**type**\:   :py:class:`AlarmDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirection>`
+                                	**type**\:  :py:class:`AlarmDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirection>`
                                 
                                 .. attribute:: notification_source
                                 
                                 	Source of Alarm
-                                	**type**\:   :py:class:`AlarmNotificationSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrc>`
+                                	**type**\:  :py:class:`AlarmNotificationSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrc>`
                                 
                                 
 
@@ -2693,21 +2695,21 @@ class Alarms(Entity):
                                 .. attribute:: threshold_value
                                 
                                 	Alarm Threshold 
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..20
                                 
                                 .. attribute:: current_value
                                 
                                 	Alarm Threshold
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..20
                                 
                                 .. attribute:: bucket_type
                                 
                                 	Timing Bucket
-                                	**type**\:   :py:class:`TimingBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucket>`
+                                	**type**\:  :py:class:`TimingBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucket>`
                                 
                                 
 
@@ -2744,7 +2746,7 @@ class Alarms(Entity):
                         .. attribute:: suppressed_info
                         
                         	Suppressed Alarm List
-                        	**type**\: list of    :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo>`
+                        	**type**\: list of  		 :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo>`
                         
                         
 
@@ -2777,121 +2779,121 @@ class Alarms(Entity):
                             .. attribute:: otn
                             
                             	OTN feature specific alarm attributes
-                            	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo.Otn>`
+                            	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo.Otn>`
                             
                             .. attribute:: description
                             
                             	Alarm description
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..256
                             
                             .. attribute:: location
                             
                             	Alarm location
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: aid
                             
                             	Alarm aid
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: tag
                             
                             	Alarm tag description
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: module
                             
                             	Alarm module description
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: eid
                             
                             	Alarm eid
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: reporting_agent_id
                             
                             	Reporting agent id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: pending_sync
                             
                             	Pending async flag
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: severity
                             
                             	Alarm severity
-                            	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                            	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                             
                             .. attribute:: status
                             
                             	Alarm status
-                            	**type**\:   :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
+                            	**type**\:  :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
                             
                             .. attribute:: group
                             
                             	Alarm group
-                            	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                            	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                             
                             .. attribute:: set_time
                             
                             	Alarm set time
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: set_timestamp
                             
                             	Alarm set time(timestamp format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: suppressed_time
                             
                             	Alarm suppressed time
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: suppressed_timestamp
                             
                             	Alarm suppressed time(timestamp format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: service_affecting
                             
                             	Alarm service affecting 
-                            	**type**\:   :py:class:`AlarmServiceAffecting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffecting>`
+                            	**type**\:  :py:class:`AlarmServiceAffecting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffecting>`
                             
                             .. attribute:: interface
                             
                             	Alarm interface name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: alarm_name
                             
                             	Alarm name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
@@ -2965,12 +2967,12 @@ class Alarms(Entity):
                                 .. attribute:: direction
                                 
                                 	Alarm direction 
-                                	**type**\:   :py:class:`AlarmDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirection>`
+                                	**type**\:  :py:class:`AlarmDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirection>`
                                 
                                 .. attribute:: notification_source
                                 
                                 	Source of Alarm
-                                	**type**\:   :py:class:`AlarmNotificationSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrc>`
+                                	**type**\:  :py:class:`AlarmNotificationSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrc>`
                                 
                                 
 
@@ -3005,105 +3007,105 @@ class Alarms(Entity):
                         .. attribute:: reported
                         
                         	Alarms that were in all reported to this Alarm Mgr
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: dropped
                         
                         	Alarms that we couldn't keep track due to some error or other
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: active
                         
                         	Alarms that are currently in the active state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: history
                         
                         	Alarms that are cleared. This one is counted over a long period of time
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: suppressed
                         
                         	Alarms that are in suppressed state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: sysadmin_active
                         
                         	Alarms that are currently in the active state(sysadmin plane)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: sysadmin_history
                         
                         	Alarms that are cleared in sysadmin plane. This one is counted over a long period of time
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: sysadmin_suppressed
                         
                         	Alarms that are suppressed in sysadmin plane
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: dropped_invalid_aid
                         
                         	Alarms dropped due to invalid aid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: dropped_insuff_mem
                         
                         	Alarms dropped due to insufficient memory
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: dropped_db_error
                         
                         	Alarms dropped due to db error
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: dropped_clear_without_set
                         
                         	Alarms dropped clear without set
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: dropped_duplicate
                         
                         	Alarms dropped which were duplicate
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: cache_hit
                         
                         	Total alarms which had the cache hit
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: cache_miss
                         
                         	Total alarms which had the cache miss
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3167,7 +3169,7 @@ class Alarms(Entity):
                         .. attribute:: client_info
                         
                         	Client List
-                        	**type**\: list of    :py:class:`ClientInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients.ClientInfo>`
+                        	**type**\: list of  		 :py:class:`ClientInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients.ClientInfo>`
                         
                         
 
@@ -3200,100 +3202,100 @@ class Alarms(Entity):
                             .. attribute:: name
                             
                             	Alarm client
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: id
                             
                             	Alarms agent id of the client
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: location
                             
                             	The location of this client
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: handle
                             
                             	The client handle through which interface
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: state
                             
                             	The current state of the client
-                            	**type**\:   :py:class:`AlarmClientState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClientState>`
+                            	**type**\:  :py:class:`AlarmClientState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClientState>`
                             
                             .. attribute:: type
                             
                             	The type of the client
-                            	**type**\:   :py:class:`AlarmClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClient>`
+                            	**type**\:  :py:class:`AlarmClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClient>`
                             
                             .. attribute:: filter_disp
                             
                             	The current subscription status of the client
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: subscriber_id
                             
                             	Alarms agent subscriber id of the client
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: filter_severity
                             
                             	The filter used for alarm severity
-                            	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                            	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                             
                             .. attribute:: filter_state
                             
                             	The filter used for alarm bi\-state state+
-                            	**type**\:   :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
+                            	**type**\:  :py:class:`AlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatus>`
                             
                             .. attribute:: filter_group
                             
                             	The filter used for alarm group
-                            	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                            	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                             
                             .. attribute:: connect_count
                             
                             	Number of times the agent connected to the alarm mgr
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: connect_timestamp
                             
                             	Agent connect timestamp
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: get_count
                             
                             	Number of times the agent queried for alarms
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: subscribe_count
                             
                             	Number of times the agent subscribed for alarms
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: report_count
                             
                             	Number of times the agent reported alarms
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3358,12 +3360,12 @@ class Alarms(Entity):
         .. attribute:: brief_card
         
         	Show brief card scope alarm related data
-        	**type**\:   :py:class:`BriefCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard>`
+        	**type**\:  :py:class:`BriefCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard>`
         
         .. attribute:: brief_system
         
         	Show brief system scope alarm related data
-        	**type**\:   :py:class:`BriefSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem>`
+        	**type**\:  :py:class:`BriefSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem>`
         
         
 
@@ -3402,7 +3404,7 @@ class Alarms(Entity):
             .. attribute:: brief_locations
             
             	Table of BriefLocation
-            	**type**\:   :py:class:`BriefLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations>`
+            	**type**\:  :py:class:`BriefLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations>`
             
             
 
@@ -3436,7 +3438,7 @@ class Alarms(Entity):
                 .. attribute:: brief_location
                 
                 	Specify a card location for alarms
-                	**type**\: list of    :py:class:`BriefLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation>`
+                	**type**\: list of  		 :py:class:`BriefLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation>`
                 
                 
 
@@ -3470,22 +3472,24 @@ class Alarms(Entity):
                     .. attribute:: node_id  <key>
                     
                     	NodeID of the Location
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
                     .. attribute:: active
                     
                     	Show the active alarms at this scope
-                    	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active>`
+                    	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active>`
                     
                     .. attribute:: history
                     
                     	Show the history alarms at this scope
-                    	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History>`
+                    	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History>`
                     
                     .. attribute:: suppressed
                     
                     	Show the suppressed alarms at this scope
-                    	**type**\:   :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed>`
+                    	**type**\:  :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed>`
                     
                     
 
@@ -3534,7 +3538,7 @@ class Alarms(Entity):
                         .. attribute:: alarm_info
                         
                         	Alarm List
-                        	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active.AlarmInfo>`
+                        	**type**\: list of  		 :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active.AlarmInfo>`
                         
                         
 
@@ -3567,52 +3571,52 @@ class Alarms(Entity):
                             .. attribute:: location
                             
                             	Alarm location
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: severity
                             
                             	Alarm severity
-                            	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                            	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                             
                             .. attribute:: group
                             
                             	Alarm group
-                            	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                            	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                             
                             .. attribute:: set_time
                             
                             	Alarm set time
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: set_timestamp
                             
                             	Alarm set time(timestamp format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: clear_time
                             
                             	Alarm clear time
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: clear_timestamp
                             
                             	Alarm clear time(timestamp format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: description
                             
                             	Alarm description
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..256
                             
@@ -3661,7 +3665,7 @@ class Alarms(Entity):
                         .. attribute:: alarm_info
                         
                         	Alarm List
-                        	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History.AlarmInfo>`
+                        	**type**\: list of  		 :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History.AlarmInfo>`
                         
                         
 
@@ -3694,52 +3698,52 @@ class Alarms(Entity):
                             .. attribute:: location
                             
                             	Alarm location
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: severity
                             
                             	Alarm severity
-                            	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                            	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                             
                             .. attribute:: group
                             
                             	Alarm group
-                            	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                            	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                             
                             .. attribute:: set_time
                             
                             	Alarm set time
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: set_timestamp
                             
                             	Alarm set time(timestamp format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: clear_time
                             
                             	Alarm clear time
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: clear_timestamp
                             
                             	Alarm clear time(timestamp format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: description
                             
                             	Alarm description
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..256
                             
@@ -3788,7 +3792,7 @@ class Alarms(Entity):
                         .. attribute:: suppressed_info
                         
                         	Suppressed Alarm List
-                        	**type**\: list of    :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed.SuppressedInfo>`
+                        	**type**\: list of  		 :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed.SuppressedInfo>`
                         
                         
 
@@ -3821,52 +3825,52 @@ class Alarms(Entity):
                             .. attribute:: location
                             
                             	Alarm location
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: severity
                             
                             	Alarm severity
-                            	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                            	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                             
                             .. attribute:: group
                             
                             	Alarm group
-                            	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                            	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                             
                             .. attribute:: set_time
                             
                             	Alarm set time
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: set_timestamp
                             
                             	Alarm set time(timestamp format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: suppressed_time
                             
                             	Alarm suppressed time
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: suppressed_timestamp
                             
                             	Alarm suppressed time(timestamp format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: description
                             
                             	Alarm description
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..256
                             
@@ -3915,17 +3919,17 @@ class Alarms(Entity):
             .. attribute:: active
             
             	Show the active alarms at this scope
-            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Active>`
+            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Active>`
             
             .. attribute:: history
             
             	Show the history alarms at this scope
-            	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.History>`
+            	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.History>`
             
             .. attribute:: suppressed
             
             	Show the suppressed alarms at this scope
-            	**type**\:   :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Suppressed>`
+            	**type**\:  :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Suppressed>`
             
             
 
@@ -3969,7 +3973,7 @@ class Alarms(Entity):
                 .. attribute:: alarm_info
                 
                 	Alarm List
-                	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Active.AlarmInfo>`
+                	**type**\: list of  		 :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Active.AlarmInfo>`
                 
                 
 
@@ -4003,52 +4007,52 @@ class Alarms(Entity):
                     .. attribute:: location
                     
                     	Alarm location
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: severity
                     
                     	Alarm severity
-                    	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                    	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                     
                     .. attribute:: group
                     
                     	Alarm group
-                    	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                    	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                     
                     .. attribute:: set_time
                     
                     	Alarm set time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: set_timestamp
                     
                     	Alarm set time(timestamp format)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: clear_time
                     
                     	Alarm clear time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: clear_timestamp
                     
                     	Alarm clear time(timestamp format)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: description
                     
                     	Alarm description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..256
                     
@@ -4098,7 +4102,7 @@ class Alarms(Entity):
                 .. attribute:: alarm_info
                 
                 	Alarm List
-                	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.History.AlarmInfo>`
+                	**type**\: list of  		 :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.History.AlarmInfo>`
                 
                 
 
@@ -4132,52 +4136,52 @@ class Alarms(Entity):
                     .. attribute:: location
                     
                     	Alarm location
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: severity
                     
                     	Alarm severity
-                    	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                    	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                     
                     .. attribute:: group
                     
                     	Alarm group
-                    	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                    	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                     
                     .. attribute:: set_time
                     
                     	Alarm set time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: set_timestamp
                     
                     	Alarm set time(timestamp format)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: clear_time
                     
                     	Alarm clear time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: clear_timestamp
                     
                     	Alarm clear time(timestamp format)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: description
                     
                     	Alarm description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..256
                     
@@ -4227,7 +4231,7 @@ class Alarms(Entity):
                 .. attribute:: suppressed_info
                 
                 	Suppressed Alarm List
-                	**type**\: list of    :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Suppressed.SuppressedInfo>`
+                	**type**\: list of  		 :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Suppressed.SuppressedInfo>`
                 
                 
 
@@ -4261,52 +4265,52 @@ class Alarms(Entity):
                     .. attribute:: location
                     
                     	Alarm location
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..128
                     
                     .. attribute:: severity
                     
                     	Alarm severity
-                    	**type**\:   :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
+                    	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverity>`
                     
                     .. attribute:: group
                     
                     	Alarm group
-                    	**type**\:   :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
+                    	**type**\:  :py:class:`AlarmGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroups>`
                     
                     .. attribute:: set_time
                     
                     	Alarm set time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: set_timestamp
                     
                     	Alarm set time(timestamp format)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: suppressed_time
                     
                     	Alarm suppressed time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: suppressed_timestamp
                     
                     	Alarm suppressed time(timestamp format)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: description
                     
                     	Alarm description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..256
                     

@@ -26,7 +26,7 @@ class Dot1X(Entity):
     .. attribute:: dot1x_profile
     
     	Global Dot1x Profile Name
-    	**type**\: list of    :py:class:`Dot1XProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1X.Dot1XProfile>`
+    	**type**\: list of  		 :py:class:`Dot1XProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1X.Dot1XProfile>`
     
     
 
@@ -60,22 +60,26 @@ class Dot1X(Entity):
         .. attribute:: profile_name  <key>
         
         	Name of the Dot1x Profile
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: supplicant
         
         	Dot1x Supplicant Related Configuration
-        	**type**\:   :py:class:`Supplicant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1X.Dot1XProfile.Supplicant>`
+        	**type**\:  :py:class:`Supplicant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1X.Dot1XProfile.Supplicant>`
         
         .. attribute:: authenticator
         
         	Dot1x Authenticator Related Configuration
-        	**type**\:   :py:class:`Authenticator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1X.Dot1XProfile.Authenticator>`
+        	**type**\:  :py:class:`Authenticator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1X.Dot1XProfile.Authenticator>`
         
         .. attribute:: pae
         
         	Dot1x PAE (Port Access Entity) Role
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (supplicant)\|(authenticator)\|(both)
         
         
 
@@ -121,7 +125,7 @@ class Dot1X(Entity):
             .. attribute:: eap_profile
             
             	EAP Profile for Supplicant
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -154,7 +158,7 @@ class Dot1X(Entity):
             .. attribute:: timers
             
             	Timers for Authenticator
-            	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1X.Dot1XProfile.Authenticator.Timers>`
+            	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1X.Dot1XProfile.Authenticator.Timers>`
             
             
 
@@ -187,7 +191,7 @@ class Dot1X(Entity):
                 .. attribute:: reauth_time
                 
                 	After this time ReAuthentication will be trigerred
-                	**type**\:   :py:class:`ReauthTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1X.Dot1XProfile.Authenticator.Timers.ReauthTime>`
+                	**type**\:  :py:class:`ReauthTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1X.Dot1XProfile.Authenticator.Timers.ReauthTime>`
                 
                 
 
@@ -221,12 +225,12 @@ class Dot1X(Entity):
                     .. attribute:: server
                     
                     	Reauth will be triggerred based on the EAP server configuration
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: local
                     
                     	Reauth will be triggerred based on the configuration in box
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 60..5184000
                     
@@ -268,7 +272,7 @@ class Eap(Entity):
     .. attribute:: eap_profile
     
     	Global EAP Profile Configuration
-    	**type**\: list of    :py:class:`EapProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Eap.EapProfile>`
+    	**type**\: list of  		 :py:class:`EapProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Eap.EapProfile>`
     
     
 
@@ -302,17 +306,19 @@ class Eap(Entity):
         .. attribute:: profile_name  <key>
         
         	Name of the EAP Profile
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: eaptls
         
         	EAP TLS Configuration
-        	**type**\:   :py:class:`Eaptls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Eap.EapProfile.Eaptls>`
+        	**type**\:  :py:class:`Eaptls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Eap.EapProfile.Eaptls>`
         
         .. attribute:: identity
         
         	Configure EAP Identity/UserName
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -353,7 +359,7 @@ class Eap(Entity):
             .. attribute:: pki_trustpoint
             
             	Configure PKI Trustpoint
-            	**type**\:  str
+            	**type**\: str
             
             
 

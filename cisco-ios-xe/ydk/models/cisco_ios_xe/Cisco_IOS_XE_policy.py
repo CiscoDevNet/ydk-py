@@ -11,6 +11,25 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+class BytesMsUsType(Enum):
+    """
+    BytesMsUsType
+
+    .. data:: bytes = 0
+
+    .. data:: ms = 1
+
+    .. data:: us = 2
+
+    """
+
+    bytes = Enum.YLeaf(0, "bytes")
+
+    ms = Enum.YLeaf(1, "ms")
+
+    us = Enum.YLeaf(2, "us")
+
+
 class ClassNameType(Enum):
     """
     ClassNameType

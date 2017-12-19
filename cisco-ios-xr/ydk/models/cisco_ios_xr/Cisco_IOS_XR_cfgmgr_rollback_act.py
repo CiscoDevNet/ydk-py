@@ -21,7 +21,7 @@ class RollBackConfigurationLast(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationLast.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationLast.Input>`
     
     
 
@@ -55,7 +55,7 @@ class RollBackConfigurationLast(Entity):
         .. attribute:: count
         
         	Number of commits to rollback
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..100
         
@@ -64,26 +64,26 @@ class RollBackConfigurationLast(Entity):
         .. attribute:: force
         
         	Override commit blocks
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: best_effort
         
         	Rollback via best\-effort operation
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: label
         
         	Assign a label to this rollback
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: comment
         
         	Assign a comment to this rollback
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -128,7 +128,7 @@ class RollBackConfigurationTo(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationTo.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationTo.Input>`
     
     
 
@@ -162,33 +162,33 @@ class RollBackConfigurationTo(Entity):
         .. attribute:: commit_id
         
         	Commit ID
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: force
         
         	Override commit blocks
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: best_effort
         
         	Rollback via best\-effort operation
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: label
         
         	Assign a label to this rollback
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: comment
         
         	Assign a comment to this rollback
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -233,7 +233,7 @@ class RollBackConfigurationToExclude(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationToExclude.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationToExclude.Input>`
     
     
 
@@ -267,33 +267,33 @@ class RollBackConfigurationToExclude(Entity):
         .. attribute:: commit_id
         
         	Commit ID
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: force
         
         	Override commit blocks
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: best_effort
         
         	Rollback via best\-effort operation
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: label
         
         	Assign a label to this rollback
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: comment
         
         	Assign a comment to this rollback
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -338,7 +338,7 @@ class RollBackConfiguration(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfiguration.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfiguration.Input>`
     
     
 
@@ -372,33 +372,33 @@ class RollBackConfiguration(Entity):
         .. attribute:: commit_id
         
         	Commit ID
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: force
         
         	Override commit blocks
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: best_effort
         
         	Rollback via best\-effort operation
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: label
         
         	Assign a label to this rollback
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: comment
         
         	Assign a comment to this rollback
-        	**type**\:  str
+        	**type**\: str
         
         
 

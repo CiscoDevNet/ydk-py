@@ -18,17 +18,17 @@ class CISCODIALCONTROLMIB(Entity):
     .. attribute:: cpeerglobalconfiguration
     
     	
-    	**type**\:   :py:class:`Cpeerglobalconfiguration <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Cpeerglobalconfiguration>`
+    	**type**\:  :py:class:`Cpeerglobalconfiguration <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Cpeerglobalconfiguration>`
     
     .. attribute:: ccallhistorytable
     
     	A table containing information about specific calls to a specific destination
-    	**type**\:   :py:class:`Ccallhistorytable <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable>`
+    	**type**\:  :py:class:`Ccallhistorytable <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable>`
     
     .. attribute:: ccallhistoryiectable
     
     	This table contains information about Internal Error Code(s) (IEC) which caused the call to fail
-    	**type**\:   :py:class:`Ccallhistoryiectable <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistoryiectable>`
+    	**type**\:  :py:class:`Ccallhistoryiectable <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistoryiectable>`
     
     
 
@@ -72,7 +72,7 @@ class CISCODIALCONTROLMIB(Entity):
         .. attribute:: cpeersearchtype
         
         	Specifies the peer search preference based on the type of peers in an universal/integrated port platform.  none      \- both voice and data peers are searched            in same preference. datavoice \- search data peers first. If no data peers            are found, the voice peers are searched. voicedata \- search voice peers first. If no voice peers            are found, the data peers are searched
-        	**type**\:   :py:class:`Cpeersearchtype <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Cpeerglobalconfiguration.Cpeersearchtype>`
+        	**type**\:  :py:class:`Cpeersearchtype <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Cpeerglobalconfiguration.Cpeersearchtype>`
         
         
 
@@ -144,7 +144,7 @@ class CISCODIALCONTROLMIB(Entity):
         .. attribute:: ccallhistoryentry
         
         	The information regarding a single Connection
-        	**type**\: list of    :py:class:`Ccallhistoryentry <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry>`
+        	**type**\: list of  		 :py:class:`Ccallhistoryentry <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry>`
         
         
 
@@ -178,130 +178,130 @@ class CISCODIALCONTROLMIB(Entity):
             .. attribute:: ccallhistoryindex  <key>
             
             	A monotonically increasing integer for the sole purpose of indexing call disconnection events.  When it reaches the  maximum value, an extremely unlikely event, the agent wraps  the value back to 1 and may flush existing entries
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: ccallhistorysetuptime
             
             	The value of sysUpTime when the call setup was started. This will be useful for an NMS to sort the call history entry with call setup time. Also, this object can be useful in finding large delays between the time the call was started and the time the call was connected. For ISDN media, this will be the time when the setup message was received from or sent to the network. The value of this object is the same as callActiveSetupTime in the callActiveTable
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccallhistorypeeraddress
             
             	The number this call was connected to. If the number is not available, then it will have a length of zero
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: ccallhistorypeersubaddress
             
             	The subaddress this call was connected to. If the subaddress is undefined or not available, this will be a zero length string
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: ccallhistorypeerid
             
             	This is the Id value of the peer table entry to which this call was made. If a peer table entry for this call does not exist, the value of this object will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: ccallhistorypeerifindex
             
             	This is the ifIndex value of the peer table entry to which this call was made. If a peer table entry for this call does not exist, the value of this object will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: ccallhistorylogicalifindex
             
             	This is the ifIndex value of the logical interface through which this call was made. For ISDN media, this would be the ifIndex of the B channel which was used for this call. If the ifIndex value is unknown, the value of this object  will be zero. For an IP call, the value will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: ccallhistorydisconnectcause
             
             	The encoded network cause value associated with this call.  The value of this object will depend on the interface type as well as on the protocol and protocol version being used on this interface. Some references for possible cause values are given below
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..4
             
             .. attribute:: ccallhistorydisconnecttext
             
             	ASCII text describing the reason for call termination.  This object exists because it would be impossible for a management station to store all possible cause values for all types of interfaces. It should be used only if a management station is unable to decode the value of dialCtlPeerStatsLastDisconnectCause
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: ccallhistoryconnecttime
             
             	The value of sysUpTime when the call was connected
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccallhistorydisconnecttime
             
             	The value of sysUpTime when the call was disconnected
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccallhistorycallorigin
             
             	The call origin
-            	**type**\:   :py:class:`Ccallhistorycallorigin <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry.Ccallhistorycallorigin>`
+            	**type**\:  :py:class:`Ccallhistorycallorigin <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry.Ccallhistorycallorigin>`
             
             .. attribute:: ccallhistorychargedunits
             
             	The number of charged units for this connection. For incoming calls or if charging information is not supplied by the switch, the value of this object will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccallhistoryinfotype
             
             	The information type for this call
-            	**type**\:   :py:class:`Ccallhistoryinfotype <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry.Ccallhistoryinfotype>`
+            	**type**\:  :py:class:`Ccallhistoryinfotype <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry.Ccallhistoryinfotype>`
             
             .. attribute:: ccallhistorytransmitpackets
             
             	The number of packets which were transmitted while this call was active
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccallhistorytransmitbytes
             
             	The number of bytes which were transmitted while this call was active
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccallhistoryreceivepackets
             
             	The number of packets which were received while this call was active
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccallhistoryreceivebytes
             
             	The number of bytes which were received while this call was active
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ccallhistoryreleasesource
             
             	Originator of the call release
-            	**type**\:   :py:class:`Ccallhistoryreleasesource <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry.Ccallhistoryreleasesource>`
+            	**type**\:  :py:class:`Ccallhistoryreleasesource <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry.Ccallhistoryreleasesource>`
             
             	**status**\: deprecated
             
             .. attribute:: ccallhistoryreleasesrc
             
             	Originator of the call release. Indicates the source of  the call release as follows \:  1) callingPartyInPstn \: Calling party in PSTN. 2) callingPartyInVoip \: Calling party in VoIP. 3) calledPartyInPstn \: Called party in PSTN. 4) calledPartyInVoip \: Called party in VoIP. 5) internalReleaseInPotsLeg \: Due to an internal error     in Telephony call leg. 6) internalReleaseInVoipLeg \: Due to an internal error    in VoIP call leg. 7) internalCallControlApp \: Due to an internal error    in Session Application or Tcl or VXML script originated    release.  8) internalReleaseInVoipAAA \: Due to an internal error    in VoIP AAA module. 9) consoleCommand \: Due to CLI or MML. 10) externalRadiusServer \: Call failed during authorization     , authentication or due to receipt of POD from the      RADIUS server. 11) externalNmsApp \: Due to SNMP request to clear      the call. 12) externalCallControlAgent \: External Call Control Agent     initiated clear. 13) gatekeeper \: Gatekeeper initiated clear due to receipt     of Admission Reject, Disengage Request message. 14) externalGKTMPServer \: External GKTMP server initiated     clear due to receipt of Admission Reject message from     the gatekeeper, triggered by RESPONSE.ARJ message from     the GKTMP server
-            	**type**\:   :py:class:`Ccallhistoryreleasesrc <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry.Ccallhistoryreleasesrc>`
+            	**type**\:  :py:class:`Ccallhistoryreleasesrc <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry.Ccallhistoryreleasesrc>`
             
             
 
@@ -614,7 +614,7 @@ class CISCODIALCONTROLMIB(Entity):
         .. attribute:: ccallhistoryiecentry
         
         	The IEC information regarding a single call
-        	**type**\: list of    :py:class:`Ccallhistoryiecentry <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistoryiectable.Ccallhistoryiecentry>`
+        	**type**\: list of  		 :py:class:`Ccallhistoryiecentry <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistoryiectable.Ccallhistoryiecentry>`
         
         
 
@@ -648,7 +648,7 @@ class CISCODIALCONTROLMIB(Entity):
             .. attribute:: ccallhistoryindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -657,14 +657,14 @@ class CISCODIALCONTROLMIB(Entity):
             .. attribute:: ccallhistoryiecindex  <key>
             
             	This object is used to index one or more IECs in the context of a single call.  In most cases there will only be one IEC when a call fails.  However, it is possible for the software processing the call to  generate multiple IECs before the call ultimately fails. In that scenario, there will be multiple entries in this table related to a single call (cCallHistoryIndex) and this object will serve to uniquely identify each IEC
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..1024
             
             .. attribute:: ccallhistoryiec
             
             	This object reflects the Internal Error Code. The format is a string of dotted decimal numbers composed of the following components\:  Version.Entity.Category.Subsystem.Errorcode.Diagnostic  Each component is defined as follows\: Version     \: The version of IEC software. Entity      \: The network entity that originated               the error. Category    \: The category of the error (eg, software               error, hardware resource unavailable, ...) Subsystem   \: The subsystem in which the error occurred. Errorcode   \: A subsytem\-specific error code. Diagnostic  \: An implementation\-specific diagnostic code
-            	**type**\:  str
+            	**type**\: str
             
             
 

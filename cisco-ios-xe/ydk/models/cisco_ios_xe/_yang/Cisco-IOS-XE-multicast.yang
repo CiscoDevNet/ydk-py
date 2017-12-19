@@ -37,9 +37,21 @@ module Cisco-IOS-XE-multicast {
   // =========================================================================
   // REVISION
   // =========================================================================
-  revision 2017-06-01 {
+  revision 2017-08-28 {
+    description
+      "Extend modeling for multicast";
+  }
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+  revision 2017-05-16 {
     description
       "Models under ip pim are missing for FortyGig interface";
+  }
+  revision 2017-04-24 {
+    description
+      "certain format of ip pim rpc is not able to push to the device";
   }
   revision 2017-02-07 {
     description
@@ -375,11 +387,13 @@ module Cisco-IOS-XE-multicast {
       }
     }
 
-    // interface * / ip pim sparse-mode/sparse-dense-mode
-    leaf sparse-mode {
+    // interface * / ip pim passive/dense-mode/sparse-mode/sparse-dense-mode
+    leaf pim-mode {
       type enumeration{
-        enum sparse-dense-mode;
+        enum passive;
+        enum dense-mode;
         enum sparse-mode;
+        enum sparse-dense-mode;
       }
     }
     // interface * / ip pim nbma-mode
@@ -883,7 +897,15 @@ module Cisco-IOS-XE-multicast {
     uses config-interface-ip-pim-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ip/ios:pim" {
+    uses config-interface-ip-pim-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip/ios:pim" {
+    uses config-interface-ip-pim-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip/ios:pim" {
     uses config-interface-ip-pim-grouping;
   }
 
@@ -922,7 +944,15 @@ module Cisco-IOS-XE-multicast {
     uses config-interface-ipv6-pim-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-pim-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ipv6" {
     uses config-interface-ipv6-pim-grouping;
   }
 

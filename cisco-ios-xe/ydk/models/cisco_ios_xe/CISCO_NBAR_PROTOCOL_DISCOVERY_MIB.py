@@ -120,42 +120,42 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
     .. attribute:: cnpdnotificationsconfig
     
     	
-    	**type**\:   :py:class:`Cnpdnotificationsconfig <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdnotificationsconfig>`
+    	**type**\:  :py:class:`Cnpdnotificationsconfig <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdnotificationsconfig>`
     
     .. attribute:: cnpdstatustable
     
     	The cnpdStatusTable is used to enable and disable Protocol Discovery on an interface
-    	**type**\:   :py:class:`Cnpdstatustable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable>`
+    	**type**\:  :py:class:`Cnpdstatustable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable>`
     
     .. attribute:: cnpdallstatstable
     
     	The cnpdAllStatsTable contains all the statistics available for all the protocols/applications currently recognized by NBAR Protocol Discovery for a particular  interface.  In the event of an overflow, the 32 bit counters are not  valid. There is no overflow support
-    	**type**\:   :py:class:`Cnpdallstatstable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable>`
+    	**type**\:  :py:class:`Cnpdallstatstable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable>`
     
     .. attribute:: cnpdtopnconfigtable
     
     	The cnpdTopNConfigTable is used to configure cnpdTopNStatsTable's
-    	**type**\:   :py:class:`Cnpdtopnconfigtable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable>`
+    	**type**\:  :py:class:`Cnpdtopnconfigtable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable>`
     
     .. attribute:: cnpdtopnstatstable
     
     	A cnpdTopNStatsTable describes an ordered list of protocols
-    	**type**\:   :py:class:`Cnpdtopnstatstable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable>`
+    	**type**\:  :py:class:`Cnpdtopnstatstable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable>`
     
     .. attribute:: cnpdthresholdconfigtable
     
     	The cnpdThresholdConfigTable allows the management station to create thresholds for the purpose of sending notifications if breached, and creating a history of breached thresholds
-    	**type**\:   :py:class:`Cnpdthresholdconfigtable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable>`
+    	**type**\:  :py:class:`Cnpdthresholdconfigtable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable>`
     
     .. attribute:: cnpdthresholdhistorytable
     
     	The Threshold History table. Notifications are unreliable so this table provides a history of the last 5000 threshold breached events. A notification can be traced back to its cnpdThresholdHistoryEntry
-    	**type**\:   :py:class:`Cnpdthresholdhistorytable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable>`
+    	**type**\:  :py:class:`Cnpdthresholdhistorytable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable>`
     
     .. attribute:: cnpdsupportedprotocolstable
     
     	The Supported Protocols table lists all the  protocols and applications which NBAR is currently capable of recognizing
-    	**type**\:   :py:class:`Cnpdsupportedprotocolstable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable>`
+    	**type**\:  :py:class:`Cnpdsupportedprotocolstable <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable>`
     
     
 
@@ -224,7 +224,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdnotificationsenable
         
         	This object is used to enable or disable  Notifications on a global basis.   If set to 'true' \- Notifications are enabled. If set to 'false' \- Notifications are disabled
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -259,7 +259,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdstatusentry
         
         	An entry in the cnpdStatusTable contains objects for enabling or disabling Protocol Discovery on a per interface basis
-        	**type**\: list of    :py:class:`Cnpdstatusentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable.Cnpdstatusentry>`
+        	**type**\: list of  		 :py:class:`Cnpdstatusentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable.Cnpdstatusentry>`
         
         
 
@@ -295,7 +295,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -304,12 +304,12 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdstatuspdenable
             
             	This object is used to enable or disable  Protocol Discovery on an interface.   If set to 'true' \- Protocol Discovery is  enabled on this Interface.  If set to 'false' \- Protocol Discovery is  disabled on this Interface
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cnpdstatuslastupdatetime
             
             	The value of sysUpTime at the time Protocol  Discovery was last enabled  on an interface. If the interface does not have Protocol Discovery enabled this value is zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -355,7 +355,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdallstatsentry
         
         	An entry in the cnpdAllStatsTable table. This entry  contains the statistics collected on all the protocols  which NBAR classifies for a particular interface
-        	**type**\: list of    :py:class:`Cnpdallstatsentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable.Cnpdallstatsentry>`
+        	**type**\: list of  		 :py:class:`Cnpdallstatsentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable.Cnpdallstatsentry>`
         
         
 
@@ -391,7 +391,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -400,21 +400,21 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdallstatsprotocolsindex  <key>
             
             	An object which represents a unique  identifier for a protocol or application  which NBAR currently recognizes.  This object is an index into the  SupportedProtocolsTable where details of the protocol can be found
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..1024
             
             .. attribute:: cnpdallstatsprotocolname
             
             	Name of the application or protocol, a  unique textual string, assigned in the cnpdSupportedProtocolsTable
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..255
             
             .. attribute:: cnpdallstatsinpkts
             
             	The packet count of inbound packets as  determined by Protocol Discovery
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -423,7 +423,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdallstatsoutpkts
             
             	The packet count of outbound packets as  determined by Protocol Discovery
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -432,7 +432,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdallstatsinbytes
             
             	The byte count of inbound octets as  determined by Protocol Discovery
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -441,7 +441,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdallstatsoutbytes
             
             	The byte count of outbound octets as determined by Protocol Discovery
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -450,7 +450,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdallstatshcinpkts
             
             	The packet count of inbound packets as  determined by Protocol Discovery. This is the 64\-bit (High Capacity) version of cnpdAllStatsInPkts
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -459,7 +459,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdallstatshcoutpkts
             
             	The packet count of outbound packets as  determined by Protocol Discovery. This is the 64\-bit (High Capacity) version of cnpdAllStatsOutPkts
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -468,7 +468,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdallstatshcinbytes
             
             	The byte count of inbound octets as  determined by Protocol Discovery. This is the 64\-bit (High Capacity) version of cnpdAllStatsInBytes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -477,7 +477,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdallstatshcoutbytes
             
             	The byte count of outbound octets as  determined by Protocol Discovery. This is the 64\-bit (High Capacity) version of cnpdAllStatsOutBytes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -486,7 +486,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdallstatsinbitrate
             
             	The inbound bit rate as determined  by Protocol Discovery
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -495,7 +495,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdallstatsoutbitrate
             
             	The outbound bit rate as determined  by Protocol Discovery
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -558,7 +558,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdtopnconfigentry
         
         	This entry provides the objects to configure and thus initiate the generation of a cnpdTopNStatsTable.
-        	**type**\: list of    :py:class:`Cnpdtopnconfigentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable.Cnpdtopnconfigentry>`
+        	**type**\: list of  		 :py:class:`Cnpdtopnconfigentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable.Cnpdtopnconfigentry>`
         
         
 
@@ -593,26 +593,26 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdtopnconfigindex  <key>
             
             	A monotonically increasing integer which uniquely identifies a cnpdTopNConfigEntry  in the cnpdTopNConfigTable
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..50
             
             .. attribute:: cnpdtopnconfigifindex
             
             	This object allows the management station to select the interface, which Protocol Discovery is running on, to be used to create this  cnpdTopNConfigEntry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: cnpdtopnconfigstatsselect
             
             	This object allows the management station to select the statistic used to base the order of the top\-n table on.  For example\: a cnpdTopNConfigStatsSelect of bitRateSum means order this table based on each applications/protocols combined in and out bitrate
-            	**type**\:   :py:class:`CiscoPdDataType <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscoPdDataType>`
+            	**type**\:  :py:class:`CiscoPdDataType <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscoPdDataType>`
             
             .. attribute:: cnpdtopnconfigsampletime
             
             	If the cnpdTopNConfigStatsSelect is bitRateIn, bitRateOut or bitRateSum, then this value is the interval in seconds that  the bitrate is sampled.  This has no effect if the cnpdTopNConfigStatsSelect is byte or packet based.  When this object is modified by the management  station, a new sample period is started regardless of whether the original cnpdTopNConfigSampleTime was finished
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2048
             
@@ -621,28 +621,28 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdtopnconfigrequestedsize
             
             	The requested size of the associated  cnpdTopNStatsTable entry.  For example a cnpdTopNConfigRequestedSize of 20 indicates the management station wants to create an associated  cnpdTopNStatsTable  entry of 20 protocol/application's
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..500
             
             .. attribute:: cnpdtopnconfiggrantedsize
             
             	The actual size of the associated 	 cnpdTopNStatsTable entry.  The reason this may differ from  cnpdTopNConfigRequestedSize is because a  management station may request a number of  protocols that is greater than the number of  protocols actually found by Protocol Discovery
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..500
             
             .. attribute:: cnpdtopnconfigtime
             
             	The value of sysUpTime when the associated cnpdTopNStatsTable entry was created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cnpdtopnconfigstatus
             
             	This object is used to create or delete  the row entry in cnpdTopNConfigTable.  When creating a row entry the management station is required to specify a value for cnpdTopNConfigIfIndex only.  'notReady' means that a row exists but  either it has no valid IfIndex or it has  not been set to createAndGo or active.  'active' means that a createAndGo or active  has been issued, AND a valid ifIndex exists.  Therefore if a row is 'active' it means a  TopNStats entry has been generated.  If you set an 'active' row to createAndWait  it will get the status 'notReady'.   If you set any row to 'notReady' \- it will go  to the 'notReadystate'.  If you set any row to 'notInService' \- it will  go to the 'notInService' state and the corresponding  TopNStatsEntry will be deleted.  The same TopNConfig entry can be re\-used without  changes by setting it to 'active'. The corresponding  TopStatsTable entry will be regenerated. This can  be used by the NMS to poll a particular TopNConfig  Entry.  Changes to an existing TopNConfig entry can be made by setting the status to 'createAndWait' and changing the necessary objects. Setting it to 'createAndGo' or 'active' will cause the corresponding TopNStats entry to be regenerated
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -691,7 +691,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdtopnstatsentry
         
         	This entry is used to store a set of objects which  describe a cnpdTopNStatsTable. A cnpdTopNStatsTable  is a number of protocols and statistics sorted  according to the criteria in the associated cnpdTopNConfigEntry.  Therefore a cnpdTopNStatsTable can differ in content  and size according to what was configured in the associated cnpdTopNConfigTableEntry
-        	**type**\: list of    :py:class:`Cnpdtopnstatsentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable.Cnpdtopnstatsentry>`
+        	**type**\: list of  		 :py:class:`Cnpdtopnstatsentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable.Cnpdtopnstatsentry>`
         
         
 
@@ -733,7 +733,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdtopnconfigindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..50
             
@@ -742,28 +742,28 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdtopnstatsindex  <key>
             
             	A monotonically increasing integer which  uniquely identifies a cnpdTopNStatsEntry  in the cnpdTopNStatsTable
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..500
             
             .. attribute:: cnpdtopnstatsprotocolname
             
             	Name of the application or protocol,  a unique textual string, assigned in the cnpdSupportedProtocolsTable
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..255
             
             .. attribute:: cnpdtopnstatsrate
             
             	The amount of change in the selected statistic during this sampling interval. The selected statistic is the cnpdTopNConfigStatsSelect from the associated cnpdTopNConfigStatsEntry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cnpdtopnstatshcrate
             
             	The amount of change in the selected statistic during this sampling interval. The selected statistic is the cnpdTopNConfigStatsSelect from the associated cnpdTopNConfigStatsEntry.	  This is the 64\-bit (High Capacity) version of  cnpdTopNStatsRate
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -810,7 +810,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdthresholdconfigentry
         
         	This entry contains configuration information to  set thresholds for the purpose of notifications.  The management station is allowed to set thresholds on individual statistics for individual protocols on an interface. If the threshold is breached by the protocol statistic, a new event is written to the cnpdThresholdHistoryTable, which in turn will  generate a Notification Event.  This function has a hysteresis mechanism to limit the generation of events. This mechanism generates one event as a threshold is crossed in the appropriate direction. No more events are generated for that threshold until the opposite threshold is crossed. This stops repeated Notification events being generated each time the value is sampled, when the value is above the threshold. Instead one notification is sent when the threshold is breached and one notification when the statistic drops below the threshold value again
-        	**type**\: list of    :py:class:`Cnpdthresholdconfigentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry>`
+        	**type**\: list of  		 :py:class:`Cnpdthresholdconfigentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry>`
         
         
 
@@ -864,21 +864,21 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdthresholdconfigindex  <key>
             
             	A monotonically increasing integer which  uniquely identifies an entry in the  cnpdThresholdConfigTable
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
             .. attribute:: cnpdthresholdconfigifindex
             
             	This object allows the management station to  select the interface, which Protocol Discovery is  running on, to be used to create this  cnpdThresholdConfigTable entry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: cnpdthresholdconfiginterval
             
             	The interval in seconds over which the data is sampled and compared with cnpdThresholdConfigRising and cnpdThresholdConfigFalling thresholds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2048
             
@@ -887,48 +887,48 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdthresholdconfigsampletype
             
             	The method of sampling the selected statistic and calculating the value to be compared against  cnpdThresholdConfigRising or  cnpdThresholdConfigFalling thresholds.  		 If the value of this object is absoluteValue(1),  the value at the end of the sampling interval  cnpdThresholdConfigInterval, will be compared  with the cnpdThresholdConfigRising and  cnpdThresholdConfigFalling thresholds.   In this mode, when cnpdThresholdConfigStatsSelect is byte or packet based, a maximum of two  cnpdThresholdHistory entries will be created per application, as these byte and packet counts  monotonically increase from zero. 		 If the value of this object is deltaValue(2),  the difference between the samples at the  beginning and end of the cnpdThresholdConfigInterval  will be compared with the cnpdThresholdConfigRising  and cnpdThresholdConfigFalling thresholds. 		 Because the difference in the previous and current samples are compared over the sample period cnpdThresholdConfigInterval, this mode provides  more granularity to the thresholds because the NMS  is now provided with the gradient or change in the  cnpdThresholdConfigStatsSelect.  Note that even though the sample value is monotonically increasing for byte and packet counts,  cnpdThresholdConfigSampleType set to deltaValue, can  generate falling cnpdThresholdHistory entries, because the gradient can be lower than the  cnpdThresholdConfigFalling value
-            	**type**\:   :py:class:`Cnpdthresholdconfigsampletype <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry.Cnpdthresholdconfigsampletype>`
+            	**type**\:  :py:class:`Cnpdthresholdconfigsampletype <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry.Cnpdthresholdconfigsampletype>`
             
             .. attribute:: cnpdthresholdconfigprotocol
             
             	The application or protocol which the management station wishes to configure a threshold on.  This object is an index into the  SupportedProtocolsTable where details of the protocol can be found.  If cnpdThresholdConfigProtocolAny is set to TRUE this value will be ignored. If it is set to FALSE, then cnpdThresholdConfigProtocol will be the only protocol that is checked to see if it has breached the threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..1024
             
             .. attribute:: cnpdthresholdconfigprotocolany
             
             	If set to 'true' \- this threshold is configured to check for any protocol which meets the threshold criteria. This means that multiple protocols can generate ThresholdHistoryTable entries. Each protocol is subject to the hysterisis mechanism.  If set to 'false' \- this threshold is configured to check for the protocol which meets the threshold criteria referred to by cnpdThresholdConfigProtocol
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cnpdthresholdconfigstatsselect
             
             	This object allows the management station to select the statistic used to base the threshold on.  For example a cnpdThresholdConfigStatsSelect of bitRateSum means cnpdThresholdConfigRising and cnpdThresholdConfigFalling are values based on the combined value of in and out bitrates
-            	**type**\:   :py:class:`CiscoPdDataType <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscoPdDataType>`
+            	**type**\:  :py:class:`CiscoPdDataType <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscoPdDataType>`
             
             .. attribute:: cnpdthresholdconfigstartup
             
             	This controls the type of notification that is  sent when this threshold entry is first enabled.   Because there is no previous sampling history, choosing one of these options determines the type of notification generated \- Rising or Falling.  If the first sample after this entry is enabled  is greater than or equal to cnpdThresholdConfigRising and this object is equal to rising(1) or risingOrFalling(3),  then a single rising notification will be generated.   If the first sample after this entry is enabled is less than or equal to cnpdThresholdConfigFalling and this object is equal to falling(2) or  risingOrFalling(3), then a single falling notification  will be generated
-            	**type**\:   :py:class:`Cnpdthresholdconfigstartup <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry.Cnpdthresholdconfigstartup>`
+            	**type**\:  :py:class:`Cnpdthresholdconfigstartup <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry.Cnpdthresholdconfigstartup>`
             
             .. attribute:: cnpdthresholdconfigrising
             
             	This is the threshold object which the managment station sets to determine if it gets breached. It  indicates the statistic being sampled was rising.  When the current sample is greater than or  equal to this object, and the value at the last  sampling interval was less than this object (in  other words the value is rising), an entry in the  cnpdThresholdHistoryTable will be created.  After a rising event is generated, another such  event will not be generated until the sampled value falls below this threshold and reaches the cnpdThresholdConfigFalling value.  This ensures that samples which are taken after a cnpdThresholdConfigRising threshold event has been created, do not create further thresholds and therefore notifications, until the  cnpdThresholdConfigFalling threshold has been met.  Thus a very short cnpdThresholdConfigInterval can be chosen without risk of multiple notifications for the same threshold breach condition
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: cnpdthresholdconfigfalling
             
             	This is the threshold object which the management  station sets to determine if it gets breached. It  indicates the statistic being sampled was falling.   When current sample is less than or equal  to this object, and the value at the last sampling interval was greater than this object (in other  words the value is falling), an entry in the  cnpdThresholdHistoryTable will be created.  		 After a falling event is generated, another  such event will not be generated until the sampled  value rises above this object and reaches the cnpdThresholdConfigRising value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: cnpdthresholdconfigstatus
             
             	This object is used to create or delete  the row entry in cnpdThresholdConfigTable.   When creating a row entry the management station  is required to specify a value for  cnpdThresholdConfigIfIndex, cnpdThresholdConfigRising  and cnpdThresholdConfigFalling.  'active' means that a createAndGo or active has  been issued, AND a valid ifIndex exists. And therefore  if a row is 'active' it means a ThresholdHistory entry  may have been generated if the value was breached.  If you set an 'active' row to 'createAndWait' \- it will  in fact get the status 'notReady'.   Likewise if you set any row to 'notInService' or 'notReady'  it will go to the 'notReady' state
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -1110,7 +1110,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdthresholdhistoryentry
         
         	This entry is created each time a threshold  is breached.   Thus there is not necessarily a one to one  relationship to cnpdThresholdConfigTable  as not every Threshold configured will  be breached
-        	**type**\: list of    :py:class:`Cnpdthresholdhistoryentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry>`
+        	**type**\: list of  		 :py:class:`Cnpdthresholdhistoryentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry>`
         
         
 
@@ -1150,47 +1150,47 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdthresholdhistoryindex  <key>
             
             	A monotonically increasing integer which uniquely identifies this  cnpdThresholdHistoryEntry in the  cnpdThresholdHistory table
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..1000
             
             .. attribute:: cnpdthresholdhistoryconfigindex
             
             	The cnpdThresholdConfigTable entry  which generated this entry. Using this  object the management station can backtrack  to the appropriate cnpdThresholdConfigEntry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..1000
             
             .. attribute:: cnpdthresholdhistoryvalue
             
             	The actual value of the statistic when  the sampling was made
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: cnpdthresholdhistorytype
             
             	Describes whether this is an event caused by a rising or falling threshold breach
-            	**type**\:   :py:class:`Cnpdthresholdhistorytype <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry.Cnpdthresholdhistorytype>`
+            	**type**\:  :py:class:`Cnpdthresholdhistorytype <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry.Cnpdthresholdhistorytype>`
             
             .. attribute:: cnpdthresholdhistorytime
             
             	The value of sysUpTime of the running  configuration when the event occurred
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cnpdthresholdhistoryprotocol
             
             	The application or protocol which the management station configured a threshold on.  This object is an index into the  SupportedProtocolsTable where details of the protocol can be found
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..1024
             
             .. attribute:: cnpdthresholdhistorystatsselect
             
             	This is the statistic used to base the threshold on
-            	**type**\:   :py:class:`CiscoPdDataType <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscoPdDataType>`
+            	**type**\:  :py:class:`CiscoPdDataType <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscoPdDataType>`
             
             
 
@@ -1259,7 +1259,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         .. attribute:: cnpdsupportedprotocolsentry
         
         	A entry in the Supported Protocols table reflecting key information about a protocol
-        	**type**\: list of    :py:class:`Cnpdsupportedprotocolsentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry>`
+        	**type**\: list of  		 :py:class:`Cnpdsupportedprotocolsentry <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry>`
         
         
 
@@ -1294,14 +1294,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             .. attribute:: cnpdsupportedprotocolsindex  <key>
             
             	A unique identifier of a row in this table.  Thus it also represents a unique identifier for a protocol or application which NBAR currently recognizes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..1024
             
             .. attribute:: cnpdsupportedprotocolsname
             
             	This object reflects the valid string of a protocol or application which NBAR currently recognizes
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..255
             

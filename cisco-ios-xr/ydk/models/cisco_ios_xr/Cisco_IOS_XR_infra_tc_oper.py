@@ -47,22 +47,22 @@ class TrafficCollector(Entity):
     .. attribute:: external_interfaces
     
     	External Interface
-    	**type**\:   :py:class:`ExternalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.ExternalInterfaces>`
+    	**type**\:  :py:class:`ExternalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.ExternalInterfaces>`
     
     .. attribute:: summary
     
     	Traffic Collector summary
-    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary>`
+    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary>`
     
     .. attribute:: vrf_table
     
     	VRF specific operational data
-    	**type**\:   :py:class:`VrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable>`
+    	**type**\:  :py:class:`VrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable>`
     
     .. attribute:: afs
     
     	Address Family specific operational data
-    	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs>`
+    	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs>`
     
     
 
@@ -111,7 +111,7 @@ class TrafficCollector(Entity):
         .. attribute:: external_interface
         
         	External Interface 
-        	**type**\: list of    :py:class:`ExternalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.ExternalInterfaces.ExternalInterface>`
+        	**type**\: list of  		 :py:class:`ExternalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.ExternalInterfaces.ExternalInterface>`
         
         
 
@@ -145,31 +145,33 @@ class TrafficCollector(Entity):
             .. attribute:: interface_name  <key>
             
             	The Interface Name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: interface_name_xr
             
             	Interface name in Display format
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: interface_handle
             
             	Interface handle
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: vrfid
             
             	Interface VRF ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: is_interface_enabled
             
             	Flag to indicate interface enabled or not
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -211,12 +213,12 @@ class TrafficCollector(Entity):
         .. attribute:: database_statistics_external_interface
         
         	Database statistics for External Interface
-        	**type**\:   :py:class:`DatabaseStatisticsExternalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.DatabaseStatisticsExternalInterface>`
+        	**type**\:  :py:class:`DatabaseStatisticsExternalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.DatabaseStatisticsExternalInterface>`
         
         .. attribute:: collection_interval
         
         	Statistic collection interval in minutes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -225,12 +227,12 @@ class TrafficCollector(Entity):
         .. attribute:: collection_timer_is_running
         
         	TRUE if collection timer is running
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: timeout_interval
         
         	Statistic history timeout interval in hours
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
@@ -239,29 +241,29 @@ class TrafficCollector(Entity):
         .. attribute:: timeout_timer_is_running
         
         	TRUE if history timeout timer is running
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: history_size
         
         	Statistics history size
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
         .. attribute:: vrf_statistic
         
         	VRF table statistics
-        	**type**\: list of    :py:class:`VrfStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.VrfStatistic>`
+        	**type**\: list of  		 :py:class:`VrfStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.VrfStatistic>`
         
         .. attribute:: collection_message_statistic
         
         	Statistics per message type for STAT collector
-        	**type**\: list of    :py:class:`CollectionMessageStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.CollectionMessageStatistic>`
+        	**type**\: list of  		 :py:class:`CollectionMessageStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.CollectionMessageStatistic>`
         
         .. attribute:: checkpoint_message_statistic
         
         	Statistics per message type for Chkpt
-        	**type**\: list of    :py:class:`CheckpointMessageStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.CheckpointMessageStatistic>`
+        	**type**\: list of  		 :py:class:`CheckpointMessageStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.CheckpointMessageStatistic>`
         
         
 
@@ -312,28 +314,28 @@ class TrafficCollector(Entity):
             .. attribute:: number_of_entries
             
             	Number of DB entries
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: number_of_stale_entries
             
             	Number of stale  entries
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: number_of_add_o_perations
             
             	Number of add operations
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: number_of_delete_o_perations
             
             	Number of delete operations
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -375,17 +377,17 @@ class TrafficCollector(Entity):
             .. attribute:: database_statistics_ipv4
             
             	Database statistics for IPv4 table
-            	**type**\:   :py:class:`DatabaseStatisticsIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4>`
+            	**type**\:  :py:class:`DatabaseStatisticsIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4>`
             
             .. attribute:: database_statistics_tunnel
             
             	Database statistics for Tunnel table
-            	**type**\:   :py:class:`DatabaseStatisticsTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel>`
+            	**type**\:  :py:class:`DatabaseStatisticsTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel>`
             
             .. attribute:: vrf_name
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -429,28 +431,28 @@ class TrafficCollector(Entity):
                 .. attribute:: number_of_entries
                 
                 	Number of DB entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: number_of_stale_entries
                 
                 	Number of stale  entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: number_of_add_o_perations
                 
                 	Number of add operations
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: number_of_delete_o_perations
                 
                 	Number of delete operations
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -492,28 +494,28 @@ class TrafficCollector(Entity):
                 .. attribute:: number_of_entries
                 
                 	Number of DB entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: number_of_stale_entries
                 
                 	Number of stale  entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: number_of_add_o_perations
                 
                 	Number of add operations
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: number_of_delete_o_perations
                 
                 	Number of delete operations
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -555,14 +557,14 @@ class TrafficCollector(Entity):
             .. attribute:: packet_sent
             
             	Number of packets sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: byte_sent
             
             	Number of bytes sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -571,14 +573,14 @@ class TrafficCollector(Entity):
             .. attribute:: packet_received
             
             	Number of packets received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: byte_received
             
             	Number of bytes received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -587,14 +589,14 @@ class TrafficCollector(Entity):
             .. attribute:: maximum_roundtrip_latency
             
             	Maximum roundtrip latency in msec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: maimum_latency_timestamp
             
             	Timestamp of maximum latency
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -640,14 +642,14 @@ class TrafficCollector(Entity):
             .. attribute:: packet_sent
             
             	Number of packets sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: byte_sent
             
             	Number of bytes sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -656,14 +658,14 @@ class TrafficCollector(Entity):
             .. attribute:: packet_received
             
             	Number of packets received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: byte_received
             
             	Number of bytes received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -672,14 +674,14 @@ class TrafficCollector(Entity):
             .. attribute:: maximum_roundtrip_latency
             
             	Maximum roundtrip latency in msec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: maimum_latency_timestamp
             
             	Timestamp of maximum latency
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -725,7 +727,7 @@ class TrafficCollector(Entity):
         .. attribute:: default_vrf
         
         	DefaultVRF specific operational data
-        	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf>`
+        	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf>`
         
         
 
@@ -759,7 +761,7 @@ class TrafficCollector(Entity):
             .. attribute:: afs
             
             	Address Family specific operational data
-            	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs>`
+            	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs>`
             
             
 
@@ -793,7 +795,7 @@ class TrafficCollector(Entity):
                 .. attribute:: af
                 
                 	Operational data for given Address Family
-                	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af>`
+                	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af>`
                 
                 
 
@@ -827,12 +829,12 @@ class TrafficCollector(Entity):
                     .. attribute:: af_name  <key>
                     
                     	Address Family name
-                    	**type**\:   :py:class:`TcOperAfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TcOperAfName>`
+                    	**type**\:  :py:class:`TcOperAfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TcOperAfName>`
                     
                     .. attribute:: counters
                     
                     	Show Counters
-                    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters>`
+                    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters>`
                     
                     
 
@@ -871,12 +873,12 @@ class TrafficCollector(Entity):
                         .. attribute:: prefixes
                         
                         	Prefix Database
-                        	**type**\:   :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes>`
+                        	**type**\:  :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes>`
                         
                         .. attribute:: tunnels
                         
                         	Tunnels
-                        	**type**\:   :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels>`
+                        	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels>`
                         
                         
 
@@ -914,7 +916,7 @@ class TrafficCollector(Entity):
                             .. attribute:: prefix
                             
                             	Show Prefix Counter
-                            	**type**\: list of    :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix>`
+                            	**type**\: list of  		 :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix>`
                             
                             
 
@@ -947,46 +949,50 @@ class TrafficCollector(Entity):
                                 .. attribute:: ipaddr
                                 
                                 	IP Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 .. attribute:: mask
                                 
                                 	Prefix Mask
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 .. attribute:: label
                                 
                                 	Local Label
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 16..1048575
                                 
                                 .. attribute:: base_counter_statistics
                                 
                                 	Base counter statistics
-                                	**type**\:   :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics>`
+                                	**type**\:  :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics>`
                                 
                                 .. attribute:: traffic_matrix_counter_statistics
                                 
                                 	Traffic Matrix (TM) counter statistics
-                                	**type**\:   :py:class:`TrafficMatrixCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics>`
+                                	**type**\:  :py:class:`TrafficMatrixCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics>`
                                 
                                 .. attribute:: prefix
                                 
                                 	Prefix Address (V4 or V6 Format)
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: label_xr
                                 
                                 	Label
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: is_active
                                 
                                 	Prefix is Active and collecting new Statistics
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -1039,7 +1045,7 @@ class TrafficCollector(Entity):
                                     .. attribute:: transmit_packets_per_second_switched
                                     
                                     	Average Rate of Packets/second switched
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1048,7 +1054,7 @@ class TrafficCollector(Entity):
                                     .. attribute:: transmit_bytes_per_second_switched
                                     
                                     	Average Rate of Bytes/second switched
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1057,7 +1063,7 @@ class TrafficCollector(Entity):
                                     .. attribute:: count_history
                                     
                                     	Counter History
-                                    	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory>`
+                                    	**type**\: list of  		 :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory>`
                                     
                                     
 
@@ -1094,28 +1100,28 @@ class TrafficCollector(Entity):
                                         .. attribute:: event_start_timestamp
                                         
                                         	Event Start timestamp
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: event_end_timestamp
                                         
                                         	Event End timestamp
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_number_of_packets_switched
                                         
                                         	Number of packets switched in this interval
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_number_of_bytes_switched
                                         
                                         	Number of Bytes switched in this interval
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -1124,7 +1130,7 @@ class TrafficCollector(Entity):
                                         .. attribute:: is_valid
                                         
                                         	Flag to indicate if this history entry is valid
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -1165,7 +1171,7 @@ class TrafficCollector(Entity):
                                     .. attribute:: transmit_packets_per_second_switched
                                     
                                     	Average Rate of Packets/second switched
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1174,7 +1180,7 @@ class TrafficCollector(Entity):
                                     .. attribute:: transmit_bytes_per_second_switched
                                     
                                     	Average Rate of Bytes/second switched
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1183,7 +1189,7 @@ class TrafficCollector(Entity):
                                     .. attribute:: count_history
                                     
                                     	Counter History
-                                    	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory>`
+                                    	**type**\: list of  		 :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory>`
                                     
                                     
 
@@ -1220,28 +1226,28 @@ class TrafficCollector(Entity):
                                         .. attribute:: event_start_timestamp
                                         
                                         	Event Start timestamp
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: event_end_timestamp
                                         
                                         	Event End timestamp
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_number_of_packets_switched
                                         
                                         	Number of packets switched in this interval
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_number_of_bytes_switched
                                         
                                         	Number of Bytes switched in this interval
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -1250,7 +1256,7 @@ class TrafficCollector(Entity):
                                         .. attribute:: is_valid
                                         
                                         	Flag to indicate if this history entry is valid
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -1291,7 +1297,7 @@ class TrafficCollector(Entity):
                             .. attribute:: tunnel
                             
                             	Tunnel information
-                            	**type**\: list of    :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel>`
+                            	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel>`
                             
                             
 
@@ -1324,36 +1330,38 @@ class TrafficCollector(Entity):
                                 .. attribute:: interface_name  <key>
                                 
                                 	The Interface Name
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 .. attribute:: base_counter_statistics
                                 
                                 	Base counter statistics
-                                	**type**\:   :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics>`
+                                	**type**\:  :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics>`
                                 
                                 .. attribute:: interface_name_xr
                                 
                                 	Interface name in Display format
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: interface_handle
                                 
                                 	Interface handle
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: vrfid
                                 
                                 	Interface VRF ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: is_active
                                 
                                 	Interface is Active and collecting new Statistics
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -1399,7 +1407,7 @@ class TrafficCollector(Entity):
                                     .. attribute:: transmit_packets_per_second_switched
                                     
                                     	Average Rate of Packets/second switched
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1408,7 +1416,7 @@ class TrafficCollector(Entity):
                                     .. attribute:: transmit_bytes_per_second_switched
                                     
                                     	Average Rate of Bytes/second switched
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1417,7 +1425,7 @@ class TrafficCollector(Entity):
                                     .. attribute:: count_history
                                     
                                     	Counter History
-                                    	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory>`
+                                    	**type**\: list of  		 :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory>`
                                     
                                     
 
@@ -1454,28 +1462,28 @@ class TrafficCollector(Entity):
                                         .. attribute:: event_start_timestamp
                                         
                                         	Event Start timestamp
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: event_end_timestamp
                                         
                                         	Event End timestamp
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_number_of_packets_switched
                                         
                                         	Number of packets switched in this interval
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_number_of_bytes_switched
                                         
                                         	Number of Bytes switched in this interval
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -1484,7 +1492,7 @@ class TrafficCollector(Entity):
                                         .. attribute:: is_valid
                                         
                                         	Flag to indicate if this history entry is valid
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -1525,7 +1533,7 @@ class TrafficCollector(Entity):
         .. attribute:: af
         
         	Operational data for given Address Family
-        	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af>`
+        	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af>`
         
         
 
@@ -1559,12 +1567,12 @@ class TrafficCollector(Entity):
             .. attribute:: af_name  <key>
             
             	Address Family name
-            	**type**\:   :py:class:`TcOperAfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TcOperAfName>`
+            	**type**\:  :py:class:`TcOperAfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TcOperAfName>`
             
             .. attribute:: counters
             
             	Show Counters
-            	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters>`
+            	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters>`
             
             
 
@@ -1603,12 +1611,12 @@ class TrafficCollector(Entity):
                 .. attribute:: prefixes
                 
                 	Prefix Database
-                	**type**\:   :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes>`
+                	**type**\:  :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes>`
                 
                 .. attribute:: tunnels
                 
                 	Tunnels
-                	**type**\:   :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels>`
+                	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels>`
                 
                 
 
@@ -1646,7 +1654,7 @@ class TrafficCollector(Entity):
                     .. attribute:: prefix
                     
                     	Show Prefix Counter
-                    	**type**\: list of    :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix>`
+                    	**type**\: list of  		 :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix>`
                     
                     
 
@@ -1679,46 +1687,50 @@ class TrafficCollector(Entity):
                         .. attribute:: ipaddr
                         
                         	IP Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: mask
                         
                         	Prefix Mask
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: label
                         
                         	Local Label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 16..1048575
                         
                         .. attribute:: base_counter_statistics
                         
                         	Base counter statistics
-                        	**type**\:   :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics>`
+                        	**type**\:  :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics>`
                         
                         .. attribute:: traffic_matrix_counter_statistics
                         
                         	Traffic Matrix (TM) counter statistics
-                        	**type**\:   :py:class:`TrafficMatrixCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics>`
+                        	**type**\:  :py:class:`TrafficMatrixCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics>`
                         
                         .. attribute:: prefix
                         
                         	Prefix Address (V4 or V6 Format)
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: label_xr
                         
                         	Label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_active
                         
                         	Prefix is Active and collecting new Statistics
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -1771,7 +1783,7 @@ class TrafficCollector(Entity):
                             .. attribute:: transmit_packets_per_second_switched
                             
                             	Average Rate of Packets/second switched
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1780,7 +1792,7 @@ class TrafficCollector(Entity):
                             .. attribute:: transmit_bytes_per_second_switched
                             
                             	Average Rate of Bytes/second switched
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1789,7 +1801,7 @@ class TrafficCollector(Entity):
                             .. attribute:: count_history
                             
                             	Counter History
-                            	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory>`
+                            	**type**\: list of  		 :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory>`
                             
                             
 
@@ -1826,28 +1838,28 @@ class TrafficCollector(Entity):
                                 .. attribute:: event_start_timestamp
                                 
                                 	Event Start timestamp
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: event_end_timestamp
                                 
                                 	Event End timestamp
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmit_number_of_packets_switched
                                 
                                 	Number of packets switched in this interval
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmit_number_of_bytes_switched
                                 
                                 	Number of Bytes switched in this interval
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1856,7 +1868,7 @@ class TrafficCollector(Entity):
                                 .. attribute:: is_valid
                                 
                                 	Flag to indicate if this history entry is valid
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -1897,7 +1909,7 @@ class TrafficCollector(Entity):
                             .. attribute:: transmit_packets_per_second_switched
                             
                             	Average Rate of Packets/second switched
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1906,7 +1918,7 @@ class TrafficCollector(Entity):
                             .. attribute:: transmit_bytes_per_second_switched
                             
                             	Average Rate of Bytes/second switched
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1915,7 +1927,7 @@ class TrafficCollector(Entity):
                             .. attribute:: count_history
                             
                             	Counter History
-                            	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory>`
+                            	**type**\: list of  		 :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory>`
                             
                             
 
@@ -1952,28 +1964,28 @@ class TrafficCollector(Entity):
                                 .. attribute:: event_start_timestamp
                                 
                                 	Event Start timestamp
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: event_end_timestamp
                                 
                                 	Event End timestamp
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmit_number_of_packets_switched
                                 
                                 	Number of packets switched in this interval
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmit_number_of_bytes_switched
                                 
                                 	Number of Bytes switched in this interval
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1982,7 +1994,7 @@ class TrafficCollector(Entity):
                                 .. attribute:: is_valid
                                 
                                 	Flag to indicate if this history entry is valid
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -2023,7 +2035,7 @@ class TrafficCollector(Entity):
                     .. attribute:: tunnel
                     
                     	Tunnel information
-                    	**type**\: list of    :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel>`
+                    	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel>`
                     
                     
 
@@ -2056,36 +2068,38 @@ class TrafficCollector(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	The Interface Name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: base_counter_statistics
                         
                         	Base counter statistics
-                        	**type**\:   :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics>`
+                        	**type**\:  :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics>`
                         
                         .. attribute:: interface_name_xr
                         
                         	Interface name in Display format
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: interface_handle
                         
                         	Interface handle
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: vrfid
                         
                         	Interface VRF ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_active
                         
                         	Interface is Active and collecting new Statistics
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -2131,7 +2145,7 @@ class TrafficCollector(Entity):
                             .. attribute:: transmit_packets_per_second_switched
                             
                             	Average Rate of Packets/second switched
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2140,7 +2154,7 @@ class TrafficCollector(Entity):
                             .. attribute:: transmit_bytes_per_second_switched
                             
                             	Average Rate of Bytes/second switched
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2149,7 +2163,7 @@ class TrafficCollector(Entity):
                             .. attribute:: count_history
                             
                             	Counter History
-                            	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory>`
+                            	**type**\: list of  		 :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory>`
                             
                             
 
@@ -2186,28 +2200,28 @@ class TrafficCollector(Entity):
                                 .. attribute:: event_start_timestamp
                                 
                                 	Event Start timestamp
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: event_end_timestamp
                                 
                                 	Event End timestamp
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmit_number_of_packets_switched
                                 
                                 	Number of packets switched in this interval
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmit_number_of_bytes_switched
                                 
                                 	Number of Bytes switched in this interval
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2216,7 +2230,7 @@ class TrafficCollector(Entity):
                                 .. attribute:: is_valid
                                 
                                 	Flag to indicate if this history entry is valid
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 

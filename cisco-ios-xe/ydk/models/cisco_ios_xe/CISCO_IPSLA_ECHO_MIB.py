@@ -33,17 +33,17 @@ class CISCOIPSLAECHOMIB(Entity):
     .. attribute:: cipslaicmpechotmpltable
     
     	A table that contains ICMP echo template definitions
-    	**type**\:   :py:class:`Cipslaicmpechotmpltable <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable>`
+    	**type**\:  :py:class:`Cipslaicmpechotmpltable <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable>`
     
     .. attribute:: cipslaudpechotmpltable
     
     	A table that contains UDP echo template specific definitions
-    	**type**\:   :py:class:`Cipslaudpechotmpltable <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaudpechotmpltable>`
+    	**type**\:  :py:class:`Cipslaudpechotmpltable <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaudpechotmpltable>`
     
     .. attribute:: cipslatcpconntmpltable
     
     	A table that contains TCP connect template specific definitions
-    	**type**\:   :py:class:`Cipslatcpconntmpltable <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslatcpconntmpltable>`
+    	**type**\:  :py:class:`Cipslatcpconntmpltable <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslatcpconntmpltable>`
     
     
 
@@ -87,7 +87,7 @@ class CISCOIPSLAECHOMIB(Entity):
         .. attribute:: cipslaicmpechotmplentry
         
         	A row entry representing an IPSLA ICMP echo template
-        	**type**\: list of    :py:class:`Cipslaicmpechotmplentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable.Cipslaicmpechotmplentry>`
+        	**type**\: list of  		 :py:class:`Cipslaicmpechotmplentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable.Cipslaicmpechotmplentry>`
         
         
 
@@ -121,33 +121,33 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaicmpechotmplname  <key>
             
             	This field is used to specify the ICMP echo template name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: cipslaicmpechotmpldescription
             
             	This field is used to provide description for the ICMP echo template
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: cipslaicmpechotmplsrcaddrtype
             
             	An enumerated value which specifies the IP address type of the source. It must be used along with the cipslaIcmpEchoTmplSrcAddr object
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cipslaicmpechotmplsrcaddr
             
             	A string which specifies the IP address of the source
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cipslaicmpechotmpltimeout
             
             	Specifies the duration to wait for a IP SLA operation completion.   For connection oriented protocols, this may cause the connection to be closed by the operation.  Once closed, it will be assumed that the connection reestablishment will be performed.  To prevent unwanted closure of connections, be sure to set this value to a realistic connection timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..604800000
             
@@ -156,12 +156,12 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaicmpechotmplverifydata
             
             	When set to true, the resulting data in each IP SLA operation is compared with the expected data.  This includes checking header information (if possible) and exact packet size
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cipslaicmpechotmplreqdatasize
             
             	This object represents the number of octets to be placed into the ARR Data portion of the request message, when using SNA protocols.  For non\-ARR protocols' IP SLA request/responses, this value represents the native payload size.  REMEMBER\:  The ARR Header overhead is not included            in this value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..16384
             
@@ -170,21 +170,21 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaicmpechotmpltos
             
             	This object represents the type of service octet in an IP header
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: cipslaicmpechotmplvrfname
             
             	This field is used to specify the VRF name with which the IP SLA operation will be used. For regular IP SLA operation this field should not be configured. The agent will use this field to identify the VRF routing table for this operation
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..32
             
             .. attribute:: cipslaicmpechotmplthreshold
             
             	This object defines an administrative threshold limit. If the IP SLA operation time exceeds this limit and if the condition specified in cipslaIcmpEchoTmplHistFilter is satisfied, one threshold crossing occurrence will be counted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -193,26 +193,26 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaicmpechotmplhistlives
             
             	The maximum number of history lives to record.  A life is defined by the countdown (or transition) to zero  by the cipslaAutoGroupScheduleLife object.  A new life is created when the same conceptual control row is restarted via the transition of the  cipslaAutoGroupScheduleLife object and its subsequent  countdown.  The value of zero will shut off all data collection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2
             
             .. attribute:: cipslaicmpechotmplhistbuckets
             
             	The maximum number of history buckets to record. This value is set to the number of operations  to keep per lifetime.  After cipslaIcmpEchoTmplHistBuckets are filled, the  oldest entries are deleted and the most recent cipslaIcmpEchoTmplHistBuckets buckets are retained
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..60
             
             .. attribute:: cipslaicmpechotmplhistfilter
             
             	Defines a filter for adding RTT results to the history buffer\:  none(1)          \- no history is recorded all(2)           \- the results of all completion times                     and failed completions are recorded overThreshold(3) \- the results of completion times                    over cipslaIcmpEchoTmplThreshold are                     recorded. failures(4)      \- the results of failed operations (only)                     are recorded
-            	**type**\:   :py:class:`Cipslaicmpechotmplhistfilter <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable.Cipslaicmpechotmplentry.Cipslaicmpechotmplhistfilter>`
+            	**type**\:  :py:class:`Cipslaicmpechotmplhistfilter <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable.Cipslaicmpechotmplentry.Cipslaicmpechotmplhistfilter>`
             
             .. attribute:: cipslaicmpechotmplstatshours
             
             	The maximum number of hours for which statistics are maintained. Specifically this is the number of hourly  groups to keep before rolling over.  The value of one is not advisable because the hourly group will close and immediately be deleted before the network management station will have the opportunity to retrieve the statistics.  The value of zero will shut off data collection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..25
             
@@ -221,14 +221,14 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaicmpechotmpldistbuckets
             
             	The maximum number of statistical distribution buckets to accumulate.  Since this index does not rollover, only the first cipslaIcmpEchoTmplStatsNumDistBuckets will be kept.  The last cipslaIcmpEchoTmplStatsNumDistBucket will contain all entries from its distribution interval start point to infinity
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..20
             
             .. attribute:: cipslaicmpechotmpldistinterval
             
             	The statistical distribution buckets interval.  Distribution Bucket Example\:  cipslaIcmpEchoTmplDistBuckets = 5 buckets cipslaIcmpEchoTmplDistInterval = 10 milliseconds  \| Bucket 1 \| Bucket 2 \| Bucket 3 \| Bucket 4 \| Bucket 5  \| \|  0\-9 ms  \| 10\-19 ms \| 20\-29 ms \| 30\-39 ms \| 40\-Inf ms \|  Odd Example\:  cipslaIcmpEchoTmplDistBuckets = 1 buckets cipslaIcmpEchoTmplDistInterval = 10 milliseconds  \| Bucket 1  \| \|  0\-Inf ms \|  Thus, this odd example shows that the value of cipslaIcmpEchoTmplDistInterval does not apply when cipslaIcmpEchoTmplDistBuckets is one
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
@@ -237,12 +237,12 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaicmpechotmplstoragetype
             
             	The storage type of this conceptual row
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
             .. attribute:: cipslaicmpechotmplrowstatus
             
             	The status of the conceptual ICMP echo template control row. When the status is active, all the read\-create objects in that  row can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -353,7 +353,7 @@ class CISCOIPSLAECHOMIB(Entity):
         .. attribute:: cipslaudpechotmplentry
         
         	A row entry representing an IPSLA UDP echo template
-        	**type**\: list of    :py:class:`Cipslaudpechotmplentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaudpechotmpltable.Cipslaudpechotmplentry>`
+        	**type**\: list of  		 :py:class:`Cipslaudpechotmplentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaudpechotmpltable.Cipslaudpechotmplentry>`
         
         
 
@@ -387,45 +387,45 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaudpechotmplname  <key>
             
             	A string which specifies the UDP echo template name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: cipslaudpechotmpldescription
             
             	A string which provides description to the UDP echo template
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: cipslaudpechotmplcontrolenable
             
             	If this object is enabled, then the IP SLA application will send control messages to a responder, residing on the target router to respond to the data request packets being sent by the source router
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cipslaudpechotmplsrcaddrtype
             
             	An enumerated value which specifies the IP address type of the source. It must be used along with the cipslaUdpEchoTmplSrcAddr object
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cipslaudpechotmplsrcaddr
             
             	A string which specifies the IP address of the source
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cipslaudpechotmplsrcport
             
             	This object represents the source's port number. If this object is not specified, the application will get a port allocated by the system
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: cipslaudpechotmpltimeout
             
             	Specifies the duration to wait for an IP SLA operation completion.  For connection oriented protocols, this may cause the connection to be closed by the operation.  Once closed, it will be assumed that the connection reestablishment will be performed.  To prevent unwanted closure of connections, be sure to set this value to a realistic connection timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..604800000
             
@@ -434,12 +434,12 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaudpechotmplverifydata
             
             	When set to true, the resulting data in each IP SLA operation is compared with the expected data.  This includes checking header information (if possible) and exact packet size
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cipslaudpechotmplreqdatasize
             
             	This object represents the number of octets to be placed into the ARR Data portion of the request message, when using SNA protocols.  For non\-ARR protocols' RTT request/responses, this value represents the native payload size.  REMEMBER\:  The ARR Header overhead is not included            in this value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 4..1500
             
@@ -448,21 +448,21 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaudpechotmpltos
             
             	This object represents the type of service octet in an IP header
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: cipslaudpechotmplvrfname
             
             	This field is used to specify the VRF name with which the IP SLA operation will be used. For regular IP SLA operation this field should not be configured. The agent will use this field to identify the VRF routing Table for this operation
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..32
             
             .. attribute:: cipslaudpechotmplthreshold
             
             	This object defines an administrative threshold limit. If the IP SLA operation time exceeds this limit and if the condition specified in cipslaUdpEchoTmplHistFilter is  satisfied, one threshold crossing occurrence will be counted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -471,26 +471,26 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaudpechotmplhistlives
             
             	The maximum number of history lives to record.  A life is defined by the countdown (or transition) to zero  by the cipslaAutoGroupScheduleLife object.  A new life is created when the same conceptual control row is restarted via the transition of the  cipslaAutoGroupScheduleLife object and its subsequent  countdown.  The value of zero will shut off all data collection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2
             
             .. attribute:: cipslaudpechotmplhistbuckets
             
             	The maximum number of history buckets to record. This value should be set to the number of operations  to keep per lifetime.  After cipslaUdpEchoTmplHistBuckets are filled, the  oldest entries are deleted and the most recent cipslaUdpEchoTmplHistBuckets buckets are retained
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..60
             
             .. attribute:: cipslaudpechotmplhistfilter
             
             	Defines a filter for adding RTT results to the history buffer\:  none(1)          \- no history is recorded all(2)           \- the results of all completion times                     and failed completions are recorded overThreshold(3) \- the results of completion times                    over cipslaUdpEchoTmplThreshold are                     recorded. failures(4)      \- the results of failed operations (only)                     are recorded
-            	**type**\:   :py:class:`Cipslaudpechotmplhistfilter <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaudpechotmpltable.Cipslaudpechotmplentry.Cipslaudpechotmplhistfilter>`
+            	**type**\:  :py:class:`Cipslaudpechotmplhistfilter <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslaudpechotmpltable.Cipslaudpechotmplentry.Cipslaudpechotmplhistfilter>`
             
             .. attribute:: cipslaudpechotmplstatshours
             
             	The maximum number of hours for which statistics are maintained. Specifically this is the number of hourly  groups to keep before rolling over.  The value of one is not advisable because the hourly group will close and immediately be deleted before the network management station will have the opportunity to retrieve the statistics.  The value of zero will shut off data collection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..25
             
@@ -499,14 +499,14 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaudpechotmpldistbuckets
             
             	The maximum number of statistical distribution buckets to accumulate.  Since this index does not rollover, only the first cipslaUdpEchoTmplStatsNumDistBuckets will be kept.  The last cipslaUdpEchoTmplStatsNumDistBuckets will contain all entries from its distribution interval start point to infinity
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..20
             
             .. attribute:: cipslaudpechotmpldistinterval
             
             	The statistical distribution buckets interval.  Distribution Bucket Example\:  cipslaUdpEchoTmplDistBuckets = 5 buckets cipslaUdpEchoTmplDistInterval = 10 milliseconds  \| Bucket 1 \| Bucket 2 \| Bucket 3 \| Bucket 4 \| Bucket 5  \| \|  0\-9 ms  \| 10\-19 ms \| 20\-29 ms \| 30\-39 ms \| 40\-Inf ms \|  Odd Example\:  cipslaUdpEchoTmplDistBuckets = 1 buckets cipslaUdpEchoTmplDistInterval = 10 milliseconds  \| Bucket 1  \| \|  0\-Inf ms \|  Thus, this odd example shows that the value of cipslaUdpEchoTmplDistInterval does not apply when cipslaUdpEchoTmplDistBuckets is one
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
@@ -515,12 +515,12 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslaudpechotmplstoragetype
             
             	The storage type of this conceptual row
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
             .. attribute:: cipslaudpechotmplrowstatus
             
             	The status of the conceptual UDP echo template control row. When the status is active, all the read\-create objects in  that row can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -635,7 +635,7 @@ class CISCOIPSLAECHOMIB(Entity):
         .. attribute:: cipslatcpconntmplentry
         
         	A row entry representing an IPSLA TCP connect template
-        	**type**\: list of    :py:class:`Cipslatcpconntmplentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslatcpconntmpltable.Cipslatcpconntmplentry>`
+        	**type**\: list of  		 :py:class:`Cipslatcpconntmplentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslatcpconntmpltable.Cipslatcpconntmplentry>`
         
         
 
@@ -669,45 +669,45 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslatcpconntmplname  <key>
             
             	A string which specifies the TCP connect template name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: cipslatcpconntmpldescription
             
             	A string which provides description for the TCP connect template
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..128
             
             .. attribute:: cipslatcpconntmplcontrolenable
             
             	If this object is enabled, then the IP SLA application will send control messages to a responder, residing on the target router to respond to the data request packets being sent by the source router
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cipslatcpconntmplsrcaddrtype
             
             	An enumerated value which specifies the IP address type of the source. It must be used along with the cipslaTcpConnTmplSrcAddr object
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cipslatcpconntmplsrcaddr
             
             	A string which specifies the IP address of the source
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cipslatcpconntmplsrcport
             
             	This object represents the source's port number. If this object is not specified, the application will get a port allocated by the system
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: cipslatcpconntmpltimeout
             
             	Specifies the duration to wait for an IP SLA operation completion.  For connection oriented protocols, this may cause the connection to be closed by the operation.  Once closed, it will be assumed that the connection reestablishment will be performed.  To prevent unwanted closure of connections, be sure to set this value to a realistic connection timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..604800000
             
@@ -716,19 +716,19 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslatcpconntmplverifydata
             
             	When set to true, the resulting data in each IP SLA operation is compared with the expected data.  This includes checking header information (if possible) and exact packet size
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cipslatcpconntmpltos
             
             	This object represents the type of service octet in an IP header
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: cipslatcpconntmplthreshold
             
             	This object defines an administrative threshold limit. If the IP SLA operation time exceeds this limit and if the condition specified in cipslaTcpConnTmplHistFilter is  satisfied, one threshold crossing occurrence will be counted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -737,26 +737,26 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslatcpconntmplhistlives
             
             	The maximum number of history lives to record.  A life is defined by the countdown (or transition) to zero  by the cipslaAutoGroupScheduleLife object.  A new life is created when the same conceptual control row is restarted via the transition of the  cipslaAutoGroupScheduleLife object and its subsequent  countdown.  The value of zero will shut off all data collection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2
             
             .. attribute:: cipslatcpconntmplhistbuckets
             
             	The maximum number of history buckets to record. This value should be set to the number of operations  to keep per lifetime.  After cipslaTcpConnTmplHistBuckets are filled, the  oldest entries are deleted and the most recent cipslaTcpConnTmplHistBuckets buckets are retained
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..60
             
             .. attribute:: cipslatcpconntmplhistfilter
             
             	Defines a filter for adding RTT results to the history buffer\:  none(1)          \- no history is recorded all(2)           \- the results of all completion times                     and failed completions are recorded overThreshold(3) \- the results of completion times                    over cipslaTcpConnTmplThreshold are                     recorded. failures(4)      \- the results of failed operations (only)                     are recorded
-            	**type**\:   :py:class:`Cipslatcpconntmplhistfilter <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslatcpconntmpltable.Cipslatcpconntmplentry.Cipslatcpconntmplhistfilter>`
+            	**type**\:  :py:class:`Cipslatcpconntmplhistfilter <ydk.models.cisco_ios_xe.CISCO_IPSLA_ECHO_MIB.CISCOIPSLAECHOMIB.Cipslatcpconntmpltable.Cipslatcpconntmplentry.Cipslatcpconntmplhistfilter>`
             
             .. attribute:: cipslatcpconntmplstatshours
             
             	The maximum number of hours for which statistics are maintained. Specifically this is the number of hourly  groups to keep before rolling over.  The value of one is not advisable because the hourly group will close and immediately be deleted before the network management station will have the opportunity to retrieve the statistics.  The value of zero will shut off data collection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..25
             
@@ -765,14 +765,14 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslatcpconntmpldistbuckets
             
             	The maximum number of statistical distribution buckets to accumulate.  Since this index does not rollover, only the first cipslaTcpConnTmplDistBuckets will be kept.  The last cipslaTcpConnTmplDistBuckets will contain all entries from its distribution interval start point to infinity
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..20
             
             .. attribute:: cipslatcpconntmpldistinterval
             
             	The statistical distribution buckets interval.  Distribution Bucket Example\:  cipslaTcpConnTmplDistBuckets = 5 buckets cipslaTcpConnTmplDistInterval = 10 milliseconds  \| Bucket 1 \| Bucket 2 \| Bucket 3 \| Bucket 4 \| Bucket 5  \| \|  0\-9 ms  \| 10\-19 ms \| 20\-29 ms \| 30\-39 ms \| 40\-Inf ms \|  Odd Example\:  cipslaTcpConnTmplDistBuckets = 1 buckets cipslaTcpConnTmplDistInterval = 10 milliseconds  \| Bucket 1  \| \|  0\-Inf ms \|  Thus, this odd example shows that the value of cipslaTcpConnTmplDistInterval does not apply when cipslaTcpConnTmplDistBuckets is one
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
@@ -781,12 +781,12 @@ class CISCOIPSLAECHOMIB(Entity):
             .. attribute:: cipslatcpconntmplstoragetype
             
             	The storage type of this conceptual row
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
             .. attribute:: cipslatcpconntmplrowstatus
             
             	The status of the conceptual tcp connect control row. When the status is active, all the read\-create objects  in that row can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 

@@ -247,27 +247,27 @@ class OpticalInterface(Entity):
     .. attribute:: config_status
     
     	Table containing status information
-    	**type**\:   :py:class:`ConfigStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.ConfigStatus>`
+    	**type**\:  :py:class:`ConfigStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.ConfigStatus>`
     
     .. attribute:: optical_channel_interfaces
     
     	The operational attributes for a particular optical channel
-    	**type**\:   :py:class:`OpticalChannelInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalChannelInterfaces>`
+    	**type**\:  :py:class:`OpticalChannelInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalChannelInterfaces>`
     
     .. attribute:: graph
     
     	Table containing Graph Structure and related info
-    	**type**\:   :py:class:`Graph <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.Graph>`
+    	**type**\:  :py:class:`Graph <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.Graph>`
     
     .. attribute:: operational_modes
     
     	The Operational Mode Table
-    	**type**\:   :py:class:`OperationalModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OperationalModes>`
+    	**type**\:  :py:class:`OperationalModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OperationalModes>`
     
     .. attribute:: optical_logical_interfaces
     
     	The operational attributes for a logical channel
-    	**type**\:   :py:class:`OpticalLogicalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces>`
+    	**type**\:  :py:class:`OpticalLogicalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces>`
     
     
 
@@ -321,12 +321,12 @@ class OpticalInterface(Entity):
         .. attribute:: partial_config
         
         	The bag containing partial config status
-        	**type**\:   :py:class:`PartialConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.ConfigStatus.PartialConfig>`
+        	**type**\:  :py:class:`PartialConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.ConfigStatus.PartialConfig>`
         
         .. attribute:: slice_tables
         
         	The container containing slice status information
-        	**type**\:   :py:class:`SliceTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.ConfigStatus.SliceTables>`
+        	**type**\:  :py:class:`SliceTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.ConfigStatus.SliceTables>`
         
         
 
@@ -365,7 +365,7 @@ class OpticalInterface(Entity):
             .. attribute:: partial_config
             
             	PartialConfig
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -402,7 +402,7 @@ class OpticalInterface(Entity):
             .. attribute:: slice_table
             
             	The table contains list of slices present
-            	**type**\: list of    :py:class:`SliceTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.ConfigStatus.SliceTables.SliceTable>`
+            	**type**\: list of  		 :py:class:`SliceTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.ConfigStatus.SliceTables.SliceTable>`
             
             
 
@@ -436,14 +436,14 @@ class OpticalInterface(Entity):
                 .. attribute:: index  <key>
                 
                 	The index of slice
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: slice_status_attr
                 
                 	The bag containing slice config status
-                	**type**\:   :py:class:`SliceStatusAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.ConfigStatus.SliceTables.SliceTable.SliceStatusAttr>`
+                	**type**\:  :py:class:`SliceStatusAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.ConfigStatus.SliceTables.SliceTable.SliceStatusAttr>`
                 
                 
 
@@ -482,56 +482,56 @@ class OpticalInterface(Entity):
                     .. attribute:: slice
                     
                     	Slice
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: prov_status
                     
                     	ProvStatus
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: present_config
                     
                     	PresentConfig
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: present_timestamp
                     
                     	PresentTimestamp
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: past_config
                     
                     	PastConfig
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: past_timestamp
                     
                     	PastTimestamp
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
                     .. attribute:: err_str
                     
                     	ErrStr
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..1024
                     
                     .. attribute:: err_timestamp
                     
                     	ErrTimestamp
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..32
                     
@@ -581,7 +581,7 @@ class OpticalInterface(Entity):
         .. attribute:: optical_channel_interface
         
         	The operational attributes for an optical channel
-        	**type**\: list of    :py:class:`OpticalChannelInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface>`
+        	**type**\: list of  		 :py:class:`OpticalChannelInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface>`
         
         
 
@@ -616,12 +616,14 @@ class OpticalInterface(Entity):
             .. attribute:: location  <key>
             
             	The name of the optical\-channel
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: optical_channel_interface_attr
             
             	The operational attributes for an optical channel
-            	**type**\:   :py:class:`OpticalChannelInterfaceAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr>`
+            	**type**\:  :py:class:`OpticalChannelInterfaceAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr>`
             
             
 
@@ -661,42 +663,42 @@ class OpticalInterface(Entity):
                 .. attribute:: name
                 
                 	Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..128
                 
                 .. attribute:: index
                 
                 	Index
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: frequency
                 
                 	Frequency
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: power
                 
                 	Power
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: oper_mode
                 
                 	OperMode
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: line_port
                 
                 	LinePort
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..128
                 
@@ -742,12 +744,12 @@ class OpticalInterface(Entity):
         .. attribute:: adj_list_path
         
         	The path containg file which has adjacency list stored
-        	**type**\:   :py:class:`AdjListPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.Graph.AdjListPath>`
+        	**type**\:  :py:class:`AdjListPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.Graph.AdjListPath>`
         
         .. attribute:: graph_structure_path
         
         	The path containg file which has graph structure stored
-        	**type**\:   :py:class:`GraphStructurePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.Graph.GraphStructurePath>`
+        	**type**\:  :py:class:`GraphStructurePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.Graph.GraphStructurePath>`
         
         
 
@@ -787,7 +789,7 @@ class OpticalInterface(Entity):
             .. attribute:: path
             
             	Path
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
@@ -824,7 +826,7 @@ class OpticalInterface(Entity):
             .. attribute:: path
             
             	Path
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
@@ -860,7 +862,7 @@ class OpticalInterface(Entity):
         .. attribute:: operational_mode
         
         	Mode supported on Device
-        	**type**\: list of    :py:class:`OperationalMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OperationalModes.OperationalMode>`
+        	**type**\: list of  		 :py:class:`OperationalMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OperationalModes.OperationalMode>`
         
         
 
@@ -894,14 +896,14 @@ class OpticalInterface(Entity):
             .. attribute:: mode_id  <key>
             
             	Mode\-id for supported mode on Device
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: operational_mode_attributes
             
             	The operational attributes for mxp driver fec\-mode
-            	**type**\:   :py:class:`OperationalModeAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OperationalModes.OperationalMode.OperationalModeAttributes>`
+            	**type**\:  :py:class:`OperationalModeAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OperationalModes.OperationalMode.OperationalModeAttributes>`
             
             
 
@@ -941,14 +943,14 @@ class OpticalInterface(Entity):
                 .. attribute:: description
                 
                 	Description
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..128
                 
                 .. attribute:: vendor_id
                 
                 	VendorId
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..64
                 
@@ -985,7 +987,7 @@ class OpticalInterface(Entity):
         .. attribute:: optical_logical_interface
         
         	The operational attributes for a logical channel
-        	**type**\: list of    :py:class:`OpticalLogicalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface>`
+        	**type**\: list of  		 :py:class:`OpticalLogicalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface>`
         
         
 
@@ -1020,19 +1022,19 @@ class OpticalInterface(Entity):
             .. attribute:: index  <key>
             
             	The index of the logical\-channel
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: optical_logical_interface_attr
             
             	The operational attributes for a particular logical channel
-            	**type**\:   :py:class:`OpticalLogicalInterfaceAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceAttr>`
+            	**type**\:  :py:class:`OpticalLogicalInterfaceAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceAttr>`
             
             .. attribute:: optical_logical_interface_logical_channel_assignments
             
             	The operational attributes for a particular interface
-            	**type**\:   :py:class:`OpticalLogicalInterfaceLogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments>`
+            	**type**\:  :py:class:`OpticalLogicalInterfaceLogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments>`
             
             
 
@@ -1077,78 +1079,78 @@ class OpticalInterface(Entity):
                 .. attribute:: logical_channel_index
                 
                 	LogicalChannelIndex
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: logical_channel_ifname
                 
                 	LogicalChannelIfname
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..128
                 
                 .. attribute:: type
                 
                 	Type
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..32
                 
                 .. attribute:: trib_rate_class
                 
                 	TribRateClass
-                	**type**\:   :py:class:`TribRateClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.TribRateClass>`
+                	**type**\:  :py:class:`TribRateClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.TribRateClass>`
                 
                 .. attribute:: trib_protocol
                 
                 	TribProtocol
-                	**type**\:   :py:class:`TribProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.TribProtocol>`
+                	**type**\:  :py:class:`TribProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.TribProtocol>`
                 
                 .. attribute:: protocol_type
                 
                 	ProtocolType
-                	**type**\:   :py:class:`LogicalProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.LogicalProtocol>`
+                	**type**\:  :py:class:`LogicalProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.LogicalProtocol>`
                 
                 .. attribute:: admin_state
                 
                 	AdminState
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: loopback_mode
                 
                 	LoopbackMode
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: ingress_client_port
                 
                 	IngressClientPort
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..128
                 
                 .. attribute:: ingress_physical_channel
                 
                 	IngressPhysicalChannel
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tti_transmit
                 
                 	TtiTransmit
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
                 .. attribute:: tti_expected
                 
                 	TtiExpected
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..256
                 
@@ -1206,7 +1208,7 @@ class OpticalInterface(Entity):
                 .. attribute:: optical_logical_interface_logical_channel_assignment
                 
                 	The operational attributes for a logical channel assignment
-                	**type**\: list of    :py:class:`OpticalLogicalInterfaceLogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment>`
+                	**type**\: list of  		 :py:class:`OpticalLogicalInterfaceLogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment>`
                 
                 
 
@@ -1240,14 +1242,14 @@ class OpticalInterface(Entity):
                     .. attribute:: index  <key>
                     
                     	The index of the logical\-channel
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: optical_logical_interface_logical_channel_assignment_attr
                     
                     	The operational attributes for a logical channel assignment
-                    	**type**\:   :py:class:`OpticalLogicalInterfaceLogicalChannelAssignmentAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment.OpticalLogicalInterfaceLogicalChannelAssignmentAttr>`
+                    	**type**\:  :py:class:`OpticalLogicalInterfaceLogicalChannelAssignmentAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment.OpticalLogicalInterfaceLogicalChannelAssignmentAttr>`
                     
                     
 
@@ -1286,47 +1288,47 @@ class OpticalInterface(Entity):
                         .. attribute:: index
                         
                         	Index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: name
                         
                         	Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..128
                         
                         .. attribute:: is_logical_link
                         
                         	IsLogicalLink
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: logical_channel
                         
                         	LogicalChannel
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_channel
                         
                         	OpticalChannel
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..128
                         
                         .. attribute:: allocation
                         
                         	Allocation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: assignment_type
                         
                         	AssignmentType
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         

@@ -26,7 +26,7 @@ class MplsEa(Entity):
     .. attribute:: nodes
     
     	NODE container class for MPLS IO EA operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsEa.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsEa.Nodes>`
     
     
 
@@ -61,7 +61,7 @@ class MplsEa(Entity):
         .. attribute:: node
         
         	Per node MPLS IO EA operational data
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsEa.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsEa.Nodes.Node>`
         
         
 
@@ -95,12 +95,14 @@ class MplsEa(Entity):
             .. attribute:: node_name  <key>
             
             	Node ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: interfaces
             
             	MPLS IO EA Interfaces information 
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsEa.Nodes.Node.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsEa.Nodes.Node.Interfaces>`
             
             
 
@@ -139,7 +141,7 @@ class MplsEa(Entity):
                 .. attribute:: interface
                 
                 	MPLS IO EA NODE Interface data 
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsEa.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsEa.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -172,33 +174,35 @@ class MplsEa(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mtu
                     
                     	MTU for fragmentation
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bkp_label_stack_depth
                     
                     	Bkp Label Stack Depth
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: srte_label_stack_depth
                     
                     	Srte Label Stack Depth
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: pri_label_stack_depth
                     
                     	Pri Label Stack Depth
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -244,7 +248,7 @@ class MplsMa(Entity):
     .. attribute:: nodes
     
     	NODE container class for MPLS IO MA operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsMa.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsMa.Nodes>`
     
     
 
@@ -279,7 +283,7 @@ class MplsMa(Entity):
         .. attribute:: node
         
         	Per node MPLS IO MA operational data
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsMa.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsMa.Nodes.Node>`
         
         
 
@@ -313,12 +317,14 @@ class MplsMa(Entity):
             .. attribute:: node_name  <key>
             
             	Node ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: interfaces
             
             	MPLS IO MA Interfaces information 
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsMa.Nodes.Node.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsMa.Nodes.Node.Interfaces>`
             
             
 
@@ -357,7 +363,7 @@ class MplsMa(Entity):
                 .. attribute:: interface
                 
                 	MPLS IO MA NODE Interface data 
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsMa.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsMa.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -390,33 +396,35 @@ class MplsMa(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mtu
                     
                     	MTU for fragmentation
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bkp_label_stack_depth
                     
                     	Bkp Label Stack Depth
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: srte_label_stack_depth
                     
                     	Srte Label Stack Depth
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: pri_label_stack_depth
                     
                     	Pri Label Stack Depth
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     

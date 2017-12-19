@@ -52,7 +52,7 @@ class Ncs1KMacsecOper(Entity):
     .. attribute:: ncs1k_macsec_ctrlr_names
     
     	All Macsec operational data
-    	**type**\:   :py:class:`Ncs1KMacsecCtrlrNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames>`
+    	**type**\:  :py:class:`Ncs1KMacsecCtrlrNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames>`
     
     
 
@@ -86,7 +86,7 @@ class Ncs1KMacsecOper(Entity):
         .. attribute:: ncs1k_macsec_ctrlr_name
         
         	Interface name
-        	**type**\: list of    :py:class:`Ncs1KMacsecCtrlrName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName>`
+        	**type**\: list of  		 :py:class:`Ncs1KMacsecCtrlrName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName>`
         
         
 
@@ -120,12 +120,14 @@ class Ncs1KMacsecOper(Entity):
             .. attribute:: name  <key>
             
             	Port name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: ncs1k_status_info
             
             	controller data
-            	**type**\:   :py:class:`Ncs1KStatusInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo>`
+            	**type**\:  :py:class:`Ncs1KStatusInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo>`
             
             
 
@@ -164,29 +166,29 @@ class Ncs1KMacsecOper(Entity):
                 .. attribute:: encrypt_sc_status
                 
                 	Encrypt Secure Channel Status
-                	**type**\:   :py:class:`EncryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus>`
+                	**type**\:  :py:class:`EncryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus>`
                 
                 .. attribute:: decrypt_sc_status
                 
                 	Decrypt Secure Channel Status
-                	**type**\:   :py:class:`DecryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus>`
+                	**type**\:  :py:class:`DecryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus>`
                 
                 .. attribute:: replay_window_size
                 
                 	Replay Window Size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: must_secure
                 
                 	Must Secure
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: secure_mode
                 
                 	Secure Mode
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -235,59 +237,59 @@ class Ncs1KMacsecOper(Entity):
                     .. attribute:: protection_enabled
                     
                     	Protection Enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: secure_channel_id
                     
                     	Secure Channel Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: confidentiality_offset
                     
                     	Confidentiality offset
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: cipher_suite
                     
                     	Cipher Suite
-                    	**type**\:   :py:class:`Ncs1kCipherSuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kCipherSuit>`
+                    	**type**\:  :py:class:`Ncs1kCipherSuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kCipherSuit>`
                     
                     .. attribute:: initial_packet_number
                     
                     	Initial Packet Number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: secure_tag_length
                     
                     	Secure Tag Length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: max_packet_number
                     
                     	Maximum Packet Number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: recent_packet_number
                     
                     	Recent Packet Number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: active_association
                     
                     	Active Associations
-                    	**type**\: list of    :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus.ActiveAssociation>`
+                    	**type**\: list of  		 :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus.ActiveAssociation>`
                     
                     
 
@@ -336,40 +338,44 @@ class Ncs1KMacsecOper(Entity):
                         .. attribute:: association_number
                         
                         	Assocition Number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: device_association_number
                         
                         	Devive Association Number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: short_secure_channel_id
                         
                         	Short Secure Channel Id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: programmed_time
                         
                         	Key Programmed Time
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..30
                         
                         .. attribute:: key_crc
                         
                         	32bit CRC of Programmed Key
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: xpn_salt
                         
                         	XPN Salt
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         
 
@@ -412,59 +418,59 @@ class Ncs1KMacsecOper(Entity):
                     .. attribute:: protection_enabled
                     
                     	Protection Enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: secure_channel_id
                     
                     	Secure Channel Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: confidentiality_offset
                     
                     	Confidentiality offset
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: cipher_suite
                     
                     	Cipher Suite
-                    	**type**\:   :py:class:`Ncs1kCipherSuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kCipherSuit>`
+                    	**type**\:  :py:class:`Ncs1kCipherSuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kCipherSuit>`
                     
                     .. attribute:: initial_packet_number
                     
                     	Initial Packet Number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: secure_tag_length
                     
                     	Secure Tag Length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: max_packet_number
                     
                     	Maximum Packet Number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: recent_packet_number
                     
                     	Recent Packet Number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: active_association
                     
                     	Active Associations
-                    	**type**\: list of    :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus.ActiveAssociation>`
+                    	**type**\: list of  		 :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus.ActiveAssociation>`
                     
                     
 
@@ -513,40 +519,44 @@ class Ncs1KMacsecOper(Entity):
                         .. attribute:: association_number
                         
                         	Assocition Number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: device_association_number
                         
                         	Devive Association Number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: short_secure_channel_id
                         
                         	Short Secure Channel Id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: programmed_time
                         
                         	Key Programmed Time
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..30
                         
                         .. attribute:: key_crc
                         
                         	32bit CRC of Programmed Key
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         .. attribute:: xpn_salt
                         
                         	XPN Salt
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         
 

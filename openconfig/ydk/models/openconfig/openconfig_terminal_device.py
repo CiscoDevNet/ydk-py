@@ -65,22 +65,22 @@ class TerminalDevice(Entity):
     .. attribute:: config
     
     	Configuration data for global terminal\-device
-    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.Config>`
+    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.Config>`
     
     .. attribute:: state
     
     	Operational state data for global terminal device
-    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.State>`
+    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.State>`
     
     .. attribute:: logical_channels
     
     	Enclosing container the list of logical channels
-    	**type**\:   :py:class:`LogicalChannels <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels>`
+    	**type**\:  :py:class:`LogicalChannels <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels>`
     
     .. attribute:: operational_modes
     
     	Enclosing container for list of operational modes
-    	**type**\:   :py:class:`OperationalModes <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes>`
+    	**type**\:  :py:class:`OperationalModes <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes>`
     
     
 
@@ -177,7 +177,7 @@ class TerminalDevice(Entity):
         .. attribute:: channel
         
         	List of logical channels
-        	**type**\: list of    :py:class:`Channel <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel>`
+        	**type**\: list of  		 :py:class:`Channel <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel>`
         
         
 
@@ -211,7 +211,7 @@ class TerminalDevice(Entity):
             .. attribute:: index  <key>
             
             	Reference to the index of the logical channel
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -220,32 +220,32 @@ class TerminalDevice(Entity):
             .. attribute:: config
             
             	Configuration data for logical channels
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Config>`
             
             .. attribute:: state
             
             	Operational state data for logical channels
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.State>`
             
             .. attribute:: otn
             
             	Top level container for OTU configuration when logical channel framing is using an OTU protocol, e.g., OTU1, OTU3, etc
-            	**type**\:   :py:class:`Otn <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn>`
+            	**type**\:  :py:class:`Otn <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn>`
             
             .. attribute:: ethernet
             
             	Top level container for data related to Ethernet framing for the logical channel
-            	**type**\:   :py:class:`Ethernet <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ethernet>`
+            	**type**\:  :py:class:`Ethernet <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ethernet>`
             
             .. attribute:: ingress
             
             	Top\-level container for specifying references to the source of signal for the logical channel, either a transceiver or individual physical channels
-            	**type**\:   :py:class:`Ingress <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ingress>`
+            	**type**\:  :py:class:`Ingress <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ingress>`
             
             .. attribute:: logical_channel_assignments
             
             	Enclosing container for tributary assignments
-            	**type**\:   :py:class:`LogicalChannelAssignments <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments>`
+            	**type**\:  :py:class:`LogicalChannelAssignments <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments>`
             
             
 
@@ -309,39 +309,39 @@ class TerminalDevice(Entity):
                 .. attribute:: index
                 
                 	Index of the current logical channel
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: description
                 
                 	Description of the logical channel
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: admin_state
                 
                 	Sets the admin state of the logical channel
-                	**type**\:   :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
+                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
                 
                 .. attribute:: rate_class
                 
                 	Rounded bit rate of the tributary signal. Exact bit rate will be refined by protocol selection
-                	**type**\:   :py:class:`TRIBUTARYRATECLASSTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYRATECLASSTYPE>`
+                	**type**\:  :py:class:`TRIBUTARYRATECLASSTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYRATECLASSTYPE>`
                 
                 .. attribute:: trib_protocol
                 
                 	Protocol framing of the tributary signal. If this LogicalChannel is directly connected to a Client\-Port or Optical\-Channel, this is the protocol of the associated port. If the LogicalChannel is connected to other LogicalChannels, the TributaryProtocol of the LogicalChannels will define a specific mapping/demapping or multiplexing/demultiplexing function.  Not all protocols are valid, depending on the value of trib\-rate\-class.  The expectation is that the NMS will validate that a correct combination of rate class and protocol are specfied.  Basic combinations are\:  rate class\: 1G protocols\: 1GE  rate class\: 2.5G protocols\: OC48, STM16  rate class\: 10G protocols\:  10GE LAN, 10GE WAN, OC192, STM64, OTU2, OTU2e,            OTU1e, ODU2, ODU2e, ODU1e  rate class\: 40G protocols\:  40GE, OC768, STM256, OTU3, ODU3  rate class\: 100G protocols\:  100GE, 100G MLG, OTU4, OTUCn, ODU4
-                	**type**\:   :py:class:`TRIBUTARYPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYPROTOCOLTYPE>`
+                	**type**\:  :py:class:`TRIBUTARYPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYPROTOCOLTYPE>`
                 
                 .. attribute:: logical_channel_type
                 
                 	The type / stage of the logical element determines the configuration and operational state parameters (PMs) available for the logical element
-                	**type**\:   :py:class:`LOGICALELEMENTPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.LOGICALELEMENTPROTOCOLTYPE>`
+                	**type**\:  :py:class:`LOGICALELEMENTPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.LOGICALELEMENTPROTOCOLTYPE>`
                 
                 .. attribute:: loopback_mode
                 
                 	Sets the loopback type on the logical channel. Setting the mode to something besides NONE activates the loopback in the specified mode
-                	**type**\:   :py:class:`LoopbackModeType <ydk.models.openconfig.openconfig_transport_types.LoopbackModeType>`
+                	**type**\:  :py:class:`LoopbackModeType <ydk.models.openconfig.openconfig_transport_types.LoopbackModeType>`
                 
                 
 
@@ -386,44 +386,44 @@ class TerminalDevice(Entity):
                 .. attribute:: index
                 
                 	Index of the current logical channel
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: description
                 
                 	Description of the logical channel
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: admin_state
                 
                 	Sets the admin state of the logical channel
-                	**type**\:   :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
+                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
                 
                 .. attribute:: rate_class
                 
                 	Rounded bit rate of the tributary signal. Exact bit rate will be refined by protocol selection
-                	**type**\:   :py:class:`TRIBUTARYRATECLASSTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYRATECLASSTYPE>`
+                	**type**\:  :py:class:`TRIBUTARYRATECLASSTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYRATECLASSTYPE>`
                 
                 .. attribute:: trib_protocol
                 
                 	Protocol framing of the tributary signal. If this LogicalChannel is directly connected to a Client\-Port or Optical\-Channel, this is the protocol of the associated port. If the LogicalChannel is connected to other LogicalChannels, the TributaryProtocol of the LogicalChannels will define a specific mapping/demapping or multiplexing/demultiplexing function.  Not all protocols are valid, depending on the value of trib\-rate\-class.  The expectation is that the NMS will validate that a correct combination of rate class and protocol are specfied.  Basic combinations are\:  rate class\: 1G protocols\: 1GE  rate class\: 2.5G protocols\: OC48, STM16  rate class\: 10G protocols\:  10GE LAN, 10GE WAN, OC192, STM64, OTU2, OTU2e,            OTU1e, ODU2, ODU2e, ODU1e  rate class\: 40G protocols\:  40GE, OC768, STM256, OTU3, ODU3  rate class\: 100G protocols\:  100GE, 100G MLG, OTU4, OTUCn, ODU4
-                	**type**\:   :py:class:`TRIBUTARYPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYPROTOCOLTYPE>`
+                	**type**\:  :py:class:`TRIBUTARYPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYPROTOCOLTYPE>`
                 
                 .. attribute:: logical_channel_type
                 
                 	The type / stage of the logical element determines the configuration and operational state parameters (PMs) available for the logical element
-                	**type**\:   :py:class:`LOGICALELEMENTPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.LOGICALELEMENTPROTOCOLTYPE>`
+                	**type**\:  :py:class:`LOGICALELEMENTPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.LOGICALELEMENTPROTOCOLTYPE>`
                 
                 .. attribute:: loopback_mode
                 
                 	Sets the loopback type on the logical channel. Setting the mode to something besides NONE activates the loopback in the specified mode
-                	**type**\:   :py:class:`LoopbackModeType <ydk.models.openconfig.openconfig_transport_types.LoopbackModeType>`
+                	**type**\:  :py:class:`LoopbackModeType <ydk.models.openconfig.openconfig_transport_types.LoopbackModeType>`
                 
                 .. attribute:: link_state
                 
                 	Link\-state of the Ethernet protocol on the logical channel, SONET / SDH framed signal, etc
-                	**type**\:   :py:class:`LinkState <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.State.LinkState>`
+                	**type**\:  :py:class:`LinkState <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.State.LinkState>`
                 
                 
 
@@ -495,12 +495,12 @@ class TerminalDevice(Entity):
                 .. attribute:: config
                 
                 	Configuration data for OTN protocol framing
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.Config>`
                 
                 .. attribute:: state
                 
                 	Operational state data for OTN protocol PMs, statistics, etc
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State>`
                 
                 
 
@@ -538,17 +538,17 @@ class TerminalDevice(Entity):
                     .. attribute:: tti_msg_transmit
                     
                     	Trail trace identifier (TTI) message transmitted
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: tti_msg_expected
                     
                     	Trail trace identifier (TTI) message expected
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: tti_msg_auto
                     
                     	Trail trace identifier (TTI) transmit message automatically created. If True, then setting a custom transmit message would be invalid
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -586,103 +586,103 @@ class TerminalDevice(Entity):
                     .. attribute:: tti_msg_transmit
                     
                     	Trail trace identifier (TTI) message transmitted
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: tti_msg_expected
                     
                     	Trail trace identifier (TTI) message expected
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: tti_msg_auto
                     
                     	Trail trace identifier (TTI) transmit message automatically created. If True, then setting a custom transmit message would be invalid
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: tti_msg_recv
                     
                     	Trail trace identifier (TTI) message received
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: rdi_msg
                     
                     	Remote defect indication (RDI) message received
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: errored_seconds
                     
                     	The number of seconds that at least one errored blocks occurs, at least one code violation occurs, loss of sync is detected or loss of signal is detected
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: severely_errored_seconds
                     
                     	The number of seconds that loss of frame is detected OR the number of errored blocks, code violations, loss of sync or loss of signal is detected exceeds a predefined threshold
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: unavailable_seconds
                     
                     	The number of seconds during which the link is unavailable
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: code_violations
                     
                     	For ethernet or fiberchannel links, the number of 8b/10b coding violations. For SONET/SDH, the number of BIP (bit interleaved parity) errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: fec_uncorrectable_words
                     
                     	The number words that were uncorrectable by the FEC
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: fec_corrected_bytes
                     
                     	The number of bytes that were corrected by the FEC
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: fec_corrected_bits
                     
                     	The number of bits that were corrected by the FEC
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: background_block_errors
                     
                     	The number of background block errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: pre_fec_ber
                     
                     	Bit error rate before forward error correction \-\- computed value
-                    	**type**\:   :py:class:`PreFecBer <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer>`
+                    	**type**\:  :py:class:`PreFecBer <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer>`
                     
                     .. attribute:: post_fec_ber
                     
                     	Bit error rate after forward error correction \-\- computed value
-                    	**type**\:   :py:class:`PostFecBer <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer>`
+                    	**type**\:  :py:class:`PostFecBer <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer>`
                     
                     .. attribute:: q_value
                     
                     	Quality value (factor) of a channel
-                    	**type**\:   :py:class:`QValue <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.QValue>`
+                    	**type**\:  :py:class:`QValue <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.QValue>`
                     
                     .. attribute:: esnr
                     
                     	Electrical signal to noise ratio. Baud rate normalized signal to noise ratio based on error vector magnitude
-                    	**type**\:   :py:class:`Esnr <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr>`
+                    	**type**\:  :py:class:`Esnr <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr>`
                     
                     
 
@@ -760,28 +760,28 @@ class TerminalDevice(Entity):
                         .. attribute:: instant
                         
                         	The instantaneous value of the statistic
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
                         .. attribute:: avg
                         
                         	The arithmetic mean value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
                         .. attribute:: min
                         
                         	The minimum value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
                         .. attribute:: max
                         
                         	The maximum value of the statitic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
@@ -823,28 +823,28 @@ class TerminalDevice(Entity):
                         .. attribute:: instant
                         
                         	The instantaneous value of the statistic
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
                         .. attribute:: avg
                         
                         	The arithmetic mean value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
                         .. attribute:: min
                         
                         	The minimum value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
                         .. attribute:: max
                         
                         	The maximum value of the statitic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
@@ -885,28 +885,28 @@ class TerminalDevice(Entity):
                         .. attribute:: instant
                         
                         	The instantaneous value of the statistic
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
                         .. attribute:: avg
                         
                         	The arithmetic mean value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
                         .. attribute:: min
                         
                         	The minimum value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
                         .. attribute:: max
                         
                         	The maximum value of the statitic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
@@ -949,28 +949,28 @@ class TerminalDevice(Entity):
                         .. attribute:: instant
                         
                         	The instantaneous value of the statistic
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
                         .. attribute:: avg
                         
                         	The arithmetic mean value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
                         .. attribute:: min
                         
                         	The minimum value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
                         .. attribute:: max
                         
                         	The maximum value of the statitic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-922337203685477580.8..922337203685477580.7
                         
@@ -1012,12 +1012,12 @@ class TerminalDevice(Entity):
                 .. attribute:: config
                 
                 	Configuration data for Ethernet protocol framing on logical channels
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ethernet.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ethernet.Config>`
                 
                 .. attribute:: state
                 
                 	Operational state data for Ethernet protocol framing on logical channels
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ethernet.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ethernet.State>`
                 
                 
 
@@ -1080,70 +1080,70 @@ class TerminalDevice(Entity):
                     .. attribute:: in_mac_control_frames
                     
                     	MAC layer control frames received on the interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: in_mac_pause_frames
                     
                     	MAC layer PAUSE frames received on the interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: in_oversize_frames
                     
                     	Number of oversize frames received on the interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: in_jabber_frames
                     
                     	Number of jabber frames received on the interface.  Jabber frames are typically defined as oversize frames which also have a bad CRC.  Implementations may use slightly different definitions of what constitutes a jabber frame.  Often indicative of a NIC hardware problem
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: in_fragment_frames
                     
                     	Number of fragment frames received on the interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: in_8021q_frames
                     
                     	Number of 802.1q tagged frames received on the interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: in_crc_errors
                     
                     	Number of receive error events due to FCS/CRC check failure
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: out_mac_control_frames
                     
                     	MAC layer control frames sent on the interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: out_mac_pause_frames
                     
                     	MAC layer PAUSE frames sent on the interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: out_8021q_frames
                     
                     	Number of 802.1q tagged frames sent on the interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1198,12 +1198,12 @@ class TerminalDevice(Entity):
                 .. attribute:: config
                 
                 	Configuration data for the signal source for the logical channel
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ingress.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ingress.Config>`
                 
                 .. attribute:: state
                 
                 	Operational state data for the signal source for the logical channel
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ingress.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Ingress.State>`
                 
                 
 
@@ -1242,14 +1242,14 @@ class TerminalDevice(Entity):
                     .. attribute:: transceiver
                     
                     	Reference to the transceiver carrying the input signal for the logical channel.  If specific physical channels are mapped to the logical channel (as opposed to all physical channels carried by the transceiver), they can be specified in the list of physical channel references
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                     
                     .. attribute:: physical_channel
                     
                     	This list should be populated with references to the client physical channels that feed this logical channel from the transceiver specified in the 'transceiver' leaf, which must be specified.  If this leaf\-list is empty, all physical channels in the transceiver are assumed to be mapped to the logical channel
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..65535
                     
@@ -1289,14 +1289,14 @@ class TerminalDevice(Entity):
                     .. attribute:: transceiver
                     
                     	Reference to the transceiver carrying the input signal for the logical channel.  If specific physical channels are mapped to the logical channel (as opposed to all physical channels carried by the transceiver), they can be specified in the list of physical channel references
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                     
                     .. attribute:: physical_channel
                     
                     	This list should be populated with references to the client physical channels that feed this logical channel from the transceiver specified in the 'transceiver' leaf, which must be specified.  If this leaf\-list is empty, all physical channels in the transceiver are assumed to be mapped to the logical channel
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..65535
                     
@@ -1335,7 +1335,7 @@ class TerminalDevice(Entity):
                 .. attribute:: assignment
                 
                 	Logical channel elements may be assigned directly to optical channels for line\-side transmission, or can be further groomed into additional stages of logical channel elements.  The grooming can multiplex (i.e., split the current element into multiple elements in the subsequent stage) or de\-multiplex (i.e., combine the current element with other elements into the same element in the subsequent stage) logical elements in each stage.  Note that to support the ability to groom the logical elements, the list of logical channel elements should be populated with an entry for the logical elements at each stage, starting with the initial assignment from the respective client physical port.  Each logical element assignment consists of a pointer to an element in the next stage, or to an optical channel, along with a bandwidth allocation for the corresponding assignment (e.g., to split or combine signal)
-                	**type**\: list of    :py:class:`Assignment <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment>`
+                	**type**\: list of  		 :py:class:`Assignment <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment>`
                 
                 
 
@@ -1386,7 +1386,7 @@ class TerminalDevice(Entity):
                     .. attribute:: index  <key>
                     
                     	Reference to the index for the current tributary assignment
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1395,12 +1395,12 @@ class TerminalDevice(Entity):
                     .. attribute:: config
                     
                     	Configuration data for tributary assignments
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config>`
                     
                     .. attribute:: state
                     
                     	Operational state data for tributary assignments
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State>`
                     
                     
 
@@ -1443,24 +1443,24 @@ class TerminalDevice(Entity):
                         .. attribute:: index
                         
                         	Index of the current logical client channel to tributary mapping
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: description
                         
                         	Name assigned to the logical client channel
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: assignment_type
                         
                         	Each logical channel element may be assigned to subsequent stages of logical elements to implement further grooming, or can be assigned to a line\-side optical channel for transmission.  Each assignment also has an associated bandwidth allocation
-                        	**type**\:   :py:class:`AssignmentType <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config.AssignmentType>`
+                        	**type**\:  :py:class:`AssignmentType <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config.AssignmentType>`
                         
                         .. attribute:: logical_channel
                         
                         	Reference to another stage of logical channel elements
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1469,14 +1469,14 @@ class TerminalDevice(Entity):
                         .. attribute:: optical_channel
                         
                         	Reference to the line\-side optical channel that should carry the current logical channel element.  Use this reference to exit the logical element stage
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                         
                         .. attribute:: allocation
                         
                         	Allocation of the logical client channel to the tributary or sub\-channel, expressed in Gbps
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-9223372036854775.808..9223372036854775.807
                         
@@ -1552,24 +1552,24 @@ class TerminalDevice(Entity):
                         .. attribute:: index
                         
                         	Index of the current logical client channel to tributary mapping
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: description
                         
                         	Name assigned to the logical client channel
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: assignment_type
                         
                         	Each logical channel element may be assigned to subsequent stages of logical elements to implement further grooming, or can be assigned to a line\-side optical channel for transmission.  Each assignment also has an associated bandwidth allocation
-                        	**type**\:   :py:class:`AssignmentType <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State.AssignmentType>`
+                        	**type**\:  :py:class:`AssignmentType <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State.AssignmentType>`
                         
                         .. attribute:: logical_channel
                         
                         	Reference to another stage of logical channel elements
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1578,14 +1578,14 @@ class TerminalDevice(Entity):
                         .. attribute:: optical_channel
                         
                         	Reference to the line\-side optical channel that should carry the current logical channel element.  Use this reference to exit the logical element stage
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                         
                         .. attribute:: allocation
                         
                         	Allocation of the logical client channel to the tributary or sub\-channel, expressed in Gbps
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-9223372036854775.808..9223372036854775.807
                         
@@ -1661,7 +1661,7 @@ class TerminalDevice(Entity):
         .. attribute:: mode
         
         	List of operational modes supported by the platform. The operational mode provides a platform\-defined summary of information such as symbol rate, modulation, pulse shaping, etc
-        	**type**\: list of    :py:class:`Mode <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes.Mode>`
+        	**type**\: list of  		 :py:class:`Mode <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes.Mode>`
         
         
 
@@ -1698,7 +1698,7 @@ class TerminalDevice(Entity):
             .. attribute:: mode_id  <key>
             
             	Reference to mode\-id
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -1707,12 +1707,12 @@ class TerminalDevice(Entity):
             .. attribute:: config
             
             	Configuration data for operational mode
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes.Mode.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes.Mode.Config>`
             
             .. attribute:: state
             
             	Operational state data for the platform\-defined operational mode
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes.Mode.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes.Mode.State>`
             
             
 
@@ -1780,19 +1780,19 @@ class TerminalDevice(Entity):
                 .. attribute:: mode_id
                 
                 	Two\-octet encoding of the vendor\-defined operational mode
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: description
                 
                 	Vendor\-supplied textual description of the characteristics of this operational mode to enable operators to select the appropriate mode for the application
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: vendor_id
                 
                 	Identifier to represent the vendor / supplier of the platform and the associated operational mode information
-                	**type**\:  str
+                	**type**\: str
                 
                 
 

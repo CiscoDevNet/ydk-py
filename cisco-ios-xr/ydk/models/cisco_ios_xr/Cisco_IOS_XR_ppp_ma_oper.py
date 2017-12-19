@@ -328,7 +328,7 @@ class Ppp(Entity):
     .. attribute:: nodes
     
     	Per node PPP operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes>`
     
     
 
@@ -362,7 +362,7 @@ class Ppp(Entity):
         .. attribute:: node
         
         	The PPP operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node>`
         
         
 
@@ -396,42 +396,44 @@ class Ppp(Entity):
             .. attribute:: node_name  <key>
             
             	The identifier for the node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: statistics
             
             	PPP statistics data for a particular node
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics>`
             
             .. attribute:: node_interfaces
             
             	Per interface PPP operational data
-            	**type**\:   :py:class:`NodeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces>`
+            	**type**\:  :py:class:`NodeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces>`
             
             .. attribute:: sso_alerts
             
             	PPP SSO Alert data for a particular node
-            	**type**\:   :py:class:`SsoAlerts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts>`
+            	**type**\:  :py:class:`SsoAlerts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts>`
             
             .. attribute:: node_interface_statistics
             
             	Per interface PPP operational statistics
-            	**type**\:   :py:class:`NodeInterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics>`
+            	**type**\:  :py:class:`NodeInterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics>`
             
             .. attribute:: sso_summary
             
             	Summarized PPP SSO data for a particular node
-            	**type**\:   :py:class:`SsoSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary>`
+            	**type**\:  :py:class:`SsoSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary>`
             
             .. attribute:: sso_groups
             
             	PPP SSO Group data for a particular node
-            	**type**\:   :py:class:`SsoGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups>`
+            	**type**\:  :py:class:`SsoGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups>`
             
             .. attribute:: summary
             
             	Summarized PPP data for a particular node
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary>`
+            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary>`
             
             
 
@@ -500,17 +502,17 @@ class Ppp(Entity):
                 .. attribute:: lcp_statistics
                 
                 	PPP LCP Statistics
-                	**type**\:   :py:class:`LcpStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.LcpStatistics>`
+                	**type**\:  :py:class:`LcpStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.LcpStatistics>`
                 
                 .. attribute:: authentication_statistics
                 
                 	PPP Authentication statistics
-                	**type**\:   :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.AuthenticationStatistics>`
+                	**type**\:  :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.AuthenticationStatistics>`
                 
                 .. attribute:: ncp_statistics_array
                 
                 	Array of PPP NCP Statistics
-                	**type**\: list of    :py:class:`NcpStatisticsArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.NcpStatisticsArray>`
+                	**type**\: list of  		 :py:class:`NcpStatisticsArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.NcpStatisticsArray>`
                 
                 
 
@@ -553,168 +555,168 @@ class Ppp(Entity):
                     .. attribute:: conf_req_sent
                     
                     	Conf Req Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_req_rcvd
                     
                     	Conf Req Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_ack_sent
                     
                     	Conf Ack Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_ack_rcvd
                     
                     	Conf Ack Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_nak_sent
                     
                     	Conf Nak Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_nak_rcvd
                     
                     	Conf Nak Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_rej_sent
                     
                     	Conf Rej Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_rej_rcvd
                     
                     	Conf Rej Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: term_req_sent
                     
                     	Term Req Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: term_req_rcvd
                     
                     	Term Req Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: term_ack_sent
                     
                     	Term Ack Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: term_ack_rcvd
                     
                     	Term Ack Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: code_rej_sent
                     
                     	Code Rej Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: code_rej_rcvd
                     
                     	Code Rej Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: proto_rej_sent
                     
                     	Proto Rej Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: proto_rej_rcvd
                     
                     	Proto Rej Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: echo_req_sent
                     
                     	Echo Req Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: echo_req_rcvd
                     
                     	Echo Req Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: echo_rep_sent
                     
                     	Echo Rep Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: echo_rep_rcvd
                     
                     	Echo Rep Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: disc_req_sent
                     
                     	Disc Req Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: disc_req_rcvd
                     
                     	Disc Req Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: link_up
                     
                     	Line Protocol Up count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: link_error
                     
                     	Keepalive link failure count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -795,105 +797,105 @@ class Ppp(Entity):
                     .. attribute:: pap_req_sent
                     
                     	PAP Request packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: pap_req_rcvd
                     
                     	PAP Request packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: pap_ack_sent
                     
                     	PAP Ack packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: pap_ack_rcvd
                     
                     	PAP Ack packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: pap_nak_sent
                     
                     	PAP Nak packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: pap_nak_rcvd
                     
                     	PAP Nak packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: chap_chall_sent
                     
                     	CHAP challenge packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: chap_chall_rcvd
                     
                     	CHAP challenge packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: chap_resp_sent
                     
                     	CHAP response packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: chap_resp_rcvd
                     
                     	CHAP response packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: chap_rep_succ_sent
                     
                     	CHAP reply success packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: chap_rep_succ_rcvd
                     
                     	CHAP reply success packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: chap_rep_fail_sent
                     
                     	CHAP reply failure packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: chap_rep_fail_rcvd
                     
                     	CHAP reply failure packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: auth_timeout_count
                     
                     	Authentication timeout count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -956,103 +958,103 @@ class Ppp(Entity):
                     .. attribute:: ncp_identifier
                     
                     	NCP identifier
-                    	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
+                    	**type**\:  :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
                     
                     .. attribute:: conf_req_sent
                     
                     	Conf Req Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_req_rcvd
                     
                     	Conf Req Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_ack_sent
                     
                     	Conf Ack Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_ack_rcvd
                     
                     	Conf Ack Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_nak_sent
                     
                     	Conf Nak Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_nak_rcvd
                     
                     	Conf Nak Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_rej_sent
                     
                     	Conf Rej Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: conf_rej_rcvd
                     
                     	Conf Rej Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: term_req_sent
                     
                     	Term Req Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: term_req_rcvd
                     
                     	Term Req Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: term_ack_sent
                     
                     	Term Ack Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: term_ack_rcvd
                     
                     	Term Ack Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: proto_rej_sent
                     
                     	Proto Rej Packets Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: proto_rej_rcvd
                     
                     	Proto Rej Packets Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1115,7 +1117,7 @@ class Ppp(Entity):
                 .. attribute:: node_interface
                 
                 	LCP and summarized NCP data for an interface running PPP
-                	**type**\: list of    :py:class:`NodeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface>`
+                	**type**\: list of  		 :py:class:`NodeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface>`
                 
                 
 
@@ -1149,187 +1151,189 @@ class Ppp(Entity):
                     .. attribute:: interface  <key>
                     
                     	Interface running PPP
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: mp_info
                     
                     	MP information
-                    	**type**\:   :py:class:`MpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo>`
+                    	**type**\:  :py:class:`MpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo>`
                     
                     .. attribute:: configured_timeout
                     
                     	Configured timeout
-                    	**type**\:   :py:class:`ConfiguredTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout>`
+                    	**type**\:  :py:class:`ConfiguredTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout>`
                     
                     .. attribute:: auth_info
                     
                     	Authentication information
-                    	**type**\:   :py:class:`AuthInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo>`
+                    	**type**\:  :py:class:`AuthInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo>`
                     
                     .. attribute:: parent_state
                     
                     	Parent state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: line_state
                     
                     	Line state
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: is_loopback_detected
                     
                     	Loopback detected
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: caps_idb_srg_role
                     
                     	Caps IDB SRG role
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: session_srg_role
                     
                     	Session SRG role
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: keepalive_period
                     
                     	Keepalive value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: keepalive_retry_count
                     
                     	Keepalive retry count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: is_ssrp_configured
                     
                     	Is SSRP configured
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_l2ac
                     
                     	Is L2 AC
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: provisioned
                     
                     	Provisioned
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ip_interworking_enabled
                     
                     	IP Interworking Enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: xconnect_id
                     
                     	XConnect ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: is_tunneled_session
                     
                     	Is tunneled session
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ssrp_peer_id
                     
                     	SSRP Peer ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: lcp_state
                     
                     	PPP/LCP state value
-                    	**type**\:   :py:class:`PppFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppFsmState>`
+                    	**type**\:  :py:class:`PppFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppFsmState>`
                     
                     .. attribute:: lcpsso_state
                     
                     	LCP SSO state
-                    	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                    	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                     
                     .. attribute:: is_lcp_delayed
                     
                     	Is LCP Delayed
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: local_mru
                     
                     	Local MRU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: peer_mru
                     
                     	Peer MRU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: local_mrru
                     
                     	Local MRRU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: peer_mrru
                     
                     	Peer MRRU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: local_ed
                     
                     	Local Endpt Discriminator
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..41
                     
                     .. attribute:: peer_ed
                     
                     	Peer Endpt Discriminator
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..41
                     
                     .. attribute:: is_mcmp_enabled
                     
                     	Is MCMP enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: local_mcmp_classes
                     
                     	Local MCMP classes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: peer_mcmp_classes
                     
                     	Peer MCMP classes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: session_expires
                     
                     	Session expiry time in seconds since 00\:00\:00 on January 1, 1970, UTC
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1338,7 +1342,7 @@ class Ppp(Entity):
                     .. attribute:: ncp_info_array
                     
                     	Array of per\-NCP data
-                    	**type**\: list of    :py:class:`NcpInfoArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray>`
+                    	**type**\: list of  		 :py:class:`NcpInfoArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray>`
                     
                     
 
@@ -1442,55 +1446,57 @@ class Ppp(Entity):
                         .. attribute:: is_mp_bundle
                         
                         	Is an MP bundle
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: mp_bundle_interface
                         
                         	MP Bundle Interface
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: is_mp_bundle_member
                         
                         	MP Bundle Member
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: mp_group
                         
                         	MP Group
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: active_links
                         
                         	Number of active links
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: inactive_links
                         
                         	Number of inactive links
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: minimum_active_links
                         
                         	Minimum active links required for the MPbundle to come up
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: mp_state
                         
                         	Member State
-                        	**type**\:   :py:class:`PppLcpMpMbrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppLcpMpMbrState>`
+                        	**type**\:  :py:class:`PppLcpMpMbrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppLcpMpMbrState>`
                         
                         .. attribute:: mp_member_info_array
                         
                         	Array of MP members
-                        	**type**\: list of    :py:class:`MpMemberInfoArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray>`
+                        	**type**\: list of  		 :py:class:`MpMemberInfoArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray>`
                         
                         
 
@@ -1539,12 +1545,14 @@ class Ppp(Entity):
                             .. attribute:: interface
                             
                             	Member Interface
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: state
                             
                             	Member State
-                            	**type**\:   :py:class:`PppLcpMpMbrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppLcpMpMbrState>`
+                            	**type**\:  :py:class:`PppLcpMpMbrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppLcpMpMbrState>`
                             
                             
 
@@ -1579,7 +1587,7 @@ class Ppp(Entity):
                         .. attribute:: minutes
                         
                         	Minutes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1588,7 +1596,7 @@ class Ppp(Entity):
                         .. attribute:: seconds
                         
                         	Seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
@@ -1627,46 +1635,46 @@ class Ppp(Entity):
                         .. attribute:: is_authenticated
                         
                         	Is authenticated
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_sso_authenticated
                         
                         	Is SSO authenticated
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: of_us_auth
                         
                         	Of Us authentication type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: of_peer_auth
                         
                         	Of Peer authentication type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: of_us_name
                         
                         	Local authenticated name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: of_peer_name
                         
                         	Peer's authenticated name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: of_us_sso_state
                         
                         	Of Us auth SSO FSM State
-                        	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                        	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                         
                         .. attribute:: of_peer_sso_state
                         
                         	Of Peer auth SSO FSM State
-                        	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                        	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                         
                         
 
@@ -1713,27 +1721,27 @@ class Ppp(Entity):
                         .. attribute:: ncp_info
                         
                         	Specific NCP info
-                        	**type**\:   :py:class:`NcpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo>`
+                        	**type**\:  :py:class:`NcpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo>`
                         
                         .. attribute:: ncp_state
                         
                         	NCP state value
-                        	**type**\:   :py:class:`PppFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppFsmState>`
+                        	**type**\:  :py:class:`PppFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppFsmState>`
                         
                         .. attribute:: ncpsso_state
                         
                         	NCP SSO State
-                        	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                        	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                         
                         .. attribute:: is_passive
                         
                         	Is Passive
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: ncp_identifier
                         
                         	NCP state identifier
-                        	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
+                        	**type**\:  :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
                         
                         
 
@@ -1777,22 +1785,22 @@ class Ppp(Entity):
                             .. attribute:: ipcp_info
                             
                             	Info for IPCP
-                            	**type**\:   :py:class:`IpcpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo>`
+                            	**type**\:  :py:class:`IpcpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo>`
                             
                             .. attribute:: ipcpiw_info
                             
                             	Info for IPCPIW
-                            	**type**\:   :py:class:`IpcpiwInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo>`
+                            	**type**\:  :py:class:`IpcpiwInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo>`
                             
                             .. attribute:: ipv6cp_info
                             
                             	Info for IPv6CP
-                            	**type**\:   :py:class:`Ipv6CpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6CpInfo>`
+                            	**type**\:  :py:class:`Ipv6CpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6CpInfo>`
                             
                             .. attribute:: type
                             
                             	Type
-                            	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
+                            	**type**\:  :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
                             
                             
 
@@ -1840,52 +1848,66 @@ class Ppp(Entity):
                                 .. attribute:: local_iphc_options
                                 
                                 	Local IPHC options
-                                	**type**\:   :py:class:`LocalIphcOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions>`
+                                	**type**\:  :py:class:`LocalIphcOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions>`
                                 
                                 .. attribute:: peer_iphc_options
                                 
                                 	Peer IPHC options
-                                	**type**\:   :py:class:`PeerIphcOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions>`
+                                	**type**\:  :py:class:`PeerIphcOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions>`
                                 
                                 .. attribute:: local_address
                                 
                                 	Local IPv4 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: peer_address
                                 
                                 	Peer IPv4 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: peer_netmask
                                 
                                 	Peer IPv4 netmask
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: dns_primary
                                 
                                 	Peer DNS Primary
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: dns_secondary
                                 
                                 	Peer DNS Secondary
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: wins_primary
                                 
                                 	Peer WINS Primary
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: wins_secondary
                                 
                                 	Peer WINS Secondary
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: is_iphc_configured
                                 
                                 	Is IPHC Configured
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -1942,52 +1964,52 @@ class Ppp(Entity):
                                     .. attribute:: compression_type
                                     
                                     	Compression type
-                                    	**type**\:   :py:class:`PppIphcCompression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppIphcCompression>`
+                                    	**type**\:  :py:class:`PppIphcCompression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppIphcCompression>`
                                     
                                     .. attribute:: tcp_space
                                     
                                     	TCP space
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: non_tcp_space
                                     
                                     	Non\-TCP space
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: max_period
                                     
                                     	Max period
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: max_time
                                     
                                     	Max time
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: max_header
                                     
                                     	Max header
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: rtp_compression
                                     
                                     	RTP compression
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: ec_rtp_compression
                                     
                                     	EcRTP compression
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -2034,52 +2056,52 @@ class Ppp(Entity):
                                     .. attribute:: compression_type
                                     
                                     	Compression type
-                                    	**type**\:   :py:class:`PppIphcCompression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppIphcCompression>`
+                                    	**type**\:  :py:class:`PppIphcCompression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppIphcCompression>`
                                     
                                     .. attribute:: tcp_space
                                     
                                     	TCP space
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: non_tcp_space
                                     
                                     	Non\-TCP space
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: max_period
                                     
                                     	Max period
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: max_time
                                     
                                     	Max time
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: max_header
                                     
                                     	Max header
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: rtp_compression
                                     
                                     	RTP compression
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: ec_rtp_compression
                                     
                                     	EcRTP compression
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -2126,12 +2148,16 @@ class Ppp(Entity):
                                 .. attribute:: local_address
                                 
                                 	Local IPv4 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: peer_address
                                 
                                 	Peer IPv4 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -2166,12 +2192,16 @@ class Ppp(Entity):
                                 .. attribute:: local_address
                                 
                                 	Local IPv6 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: peer_address
                                 
                                 	Peer IPv6 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -2206,7 +2236,7 @@ class Ppp(Entity):
                 .. attribute:: sso_alert
                 
                 	PPP SSO Alert data for a particular interface
-                	**type**\: list of    :py:class:`SsoAlert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert>`
+                	**type**\: list of  		 :py:class:`SsoAlert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert>`
                 
                 
 
@@ -2239,27 +2269,29 @@ class Ppp(Entity):
                     .. attribute:: interface  <key>
                     
                     	Interface with SSO Alert
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: lcp_error
                     
                     	LCP SSO Error
-                    	**type**\:   :py:class:`LcpError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError>`
+                    	**type**\:  :py:class:`LcpError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError>`
                     
                     .. attribute:: of_us_auth_error
                     
                     	Of\-us Authentication SSO Error
-                    	**type**\:   :py:class:`OfUsAuthError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError>`
+                    	**type**\:  :py:class:`OfUsAuthError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError>`
                     
                     .. attribute:: of_peer_auth_error
                     
                     	Of\-peer Authentication SSO Error
-                    	**type**\:   :py:class:`OfPeerAuthError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError>`
+                    	**type**\:  :py:class:`OfPeerAuthError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError>`
                     
                     .. attribute:: ipcp_error
                     
                     	IPCP SSO Error
-                    	**type**\:   :py:class:`IpcpError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError>`
+                    	**type**\:  :py:class:`IpcpError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError>`
                     
                     
 
@@ -2312,19 +2344,19 @@ class Ppp(Entity):
                         .. attribute:: is_error
                         
                         	Is SSO Error
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: error
                         
                         	SSO Error
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: context
                         
                         	Context
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2363,19 +2395,19 @@ class Ppp(Entity):
                         .. attribute:: is_error
                         
                         	Is SSO Error
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: error
                         
                         	SSO Error
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: context
                         
                         	Context
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2414,19 +2446,19 @@ class Ppp(Entity):
                         .. attribute:: is_error
                         
                         	Is SSO Error
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: error
                         
                         	SSO Error
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: context
                         
                         	Context
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2465,19 +2497,19 @@ class Ppp(Entity):
                         .. attribute:: is_error
                         
                         	Is SSO Error
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: error
                         
                         	SSO Error
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: context
                         
                         	Context
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2516,7 +2548,7 @@ class Ppp(Entity):
                 .. attribute:: node_interface_statistic
                 
                 	LCP and NCP statistics for an interface running PPP
-                	**type**\: list of    :py:class:`NodeInterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic>`
+                	**type**\: list of  		 :py:class:`NodeInterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic>`
                 
                 
 
@@ -2550,22 +2582,24 @@ class Ppp(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface running PPP
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: lcp_statistics
                     
                     	PPP LCP Statistics
-                    	**type**\:   :py:class:`LcpStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics>`
+                    	**type**\:  :py:class:`LcpStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics>`
                     
                     .. attribute:: authentication_statistics
                     
                     	PPP Authentication statistics
-                    	**type**\:   :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics>`
+                    	**type**\:  :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics>`
                     
                     .. attribute:: ncp_statistics_array
                     
                     	Array of PPP NCP Statistics
-                    	**type**\: list of    :py:class:`NcpStatisticsArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray>`
+                    	**type**\: list of  		 :py:class:`NcpStatisticsArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray>`
                     
                     
 
@@ -2610,112 +2644,112 @@ class Ppp(Entity):
                         .. attribute:: conf_req_sent
                         
                         	Conf Req Packets Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_req_rcvd
                         
                         	Conf Req Packets Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_ack_sent
                         
                         	Conf Ack Packets Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_ack_rcvd
                         
                         	Conf Ack Packets Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_nak_sent
                         
                         	Conf Nak Packets Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_nak_rcvd
                         
                         	Conf Nak Packets Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_rej_sent
                         
                         	Conf Rej Packets Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_rej_rcvd
                         
                         	Conf Rej Packets Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: echo_req_sent
                         
                         	Echo Req Packets Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: echo_req_rcvd
                         
                         	Echo Req Packets Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: echo_rep_sent
                         
                         	Echo Rep Packets Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: echo_rep_rcvd
                         
                         	Echo Rep Packets Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: disc_req_sent
                         
                         	Disc Req Packets Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: disc_req_rcvd
                         
                         	Disc Req Packets Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: link_up
                         
                         	Line Protocol Up count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: link_error
                         
                         	Keepalive link failure count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -2780,105 +2814,105 @@ class Ppp(Entity):
                         .. attribute:: pap_req_sent
                         
                         	PAP Request packets sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: pap_req_rcvd
                         
                         	PAP Request packets received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: pap_ack_sent
                         
                         	PAP Ack packets sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: pap_ack_rcvd
                         
                         	PAP Ack packets received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: pap_nak_sent
                         
                         	PAP Nak packets sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: pap_nak_rcvd
                         
                         	PAP Nak packets received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: chap_chall_sent
                         
                         	CHAP challenge packets sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: chap_chall_rcvd
                         
                         	CHAP challenge packets received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: chap_resp_sent
                         
                         	CHAP response packets sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: chap_resp_rcvd
                         
                         	CHAP response packets received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: chap_rep_succ_sent
                         
                         	CHAP reply success packets sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: chap_rep_succ_rcvd
                         
                         	CHAP reply success packets received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: chap_rep_fail_sent
                         
                         	CHAP reply failure packets sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: chap_rep_fail_rcvd
                         
                         	CHAP reply failure packets received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: auth_timeout_count
                         
                         	Authentication timeout count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -2941,61 +2975,61 @@ class Ppp(Entity):
                         .. attribute:: ncp_identifier
                         
                         	NCP identifier
-                        	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
+                        	**type**\:  :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
                         
                         .. attribute:: conf_req_sent
                         
                         	Conf Req Packets Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_req_rcvd
                         
                         	Conf Req Packets Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_ack_sent
                         
                         	Conf Ack Packets Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_ack_rcvd
                         
                         	Conf Ack Packets Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_nak_sent
                         
                         	Conf Nak Packets Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_nak_rcvd
                         
                         	Conf Nak Packets Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_rej_sent
                         
                         	Conf Rej Packets Sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: conf_rej_rcvd
                         
                         	Conf Rej Packets Received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -3046,22 +3080,22 @@ class Ppp(Entity):
                 .. attribute:: lcp_states
                 
                 	LCP SSO FSM States
-                	**type**\:   :py:class:`LcpStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.LcpStates>`
+                	**type**\:  :py:class:`LcpStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.LcpStates>`
                 
                 .. attribute:: of_us_auth_states
                 
                 	Of\-us Authentication SSO FSM States
-                	**type**\:   :py:class:`OfUsAuthStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.OfUsAuthStates>`
+                	**type**\:  :py:class:`OfUsAuthStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.OfUsAuthStates>`
                 
                 .. attribute:: of_peer_auth_states
                 
                 	Of\-peer Authentication SSO FSM States
-                	**type**\:   :py:class:`OfPeerAuthStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates>`
+                	**type**\:  :py:class:`OfPeerAuthStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates>`
                 
                 .. attribute:: ipcp_states
                 
                 	IPCP SSO FSM States
-                	**type**\:   :py:class:`IpcpStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.IpcpStates>`
+                	**type**\:  :py:class:`IpcpStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.IpcpStates>`
                 
                 
 
@@ -3109,14 +3143,14 @@ class Ppp(Entity):
                     .. attribute:: total
                     
                     	Total number of SSO FSMs running
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: count
                     
                     	Number of SSO FSMs in each State
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..65535
                     
@@ -3153,14 +3187,14 @@ class Ppp(Entity):
                     .. attribute:: total
                     
                     	Total number of SSO FSMs running
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: count
                     
                     	Number of SSO FSMs in each State
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..65535
                     
@@ -3197,14 +3231,14 @@ class Ppp(Entity):
                     .. attribute:: total
                     
                     	Total number of SSO FSMs running
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: count
                     
                     	Number of SSO FSMs in each State
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..65535
                     
@@ -3241,14 +3275,14 @@ class Ppp(Entity):
                     .. attribute:: total
                     
                     	Total number of SSO FSMs running
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: count
                     
                     	Number of SSO FSMs in each State
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..65535
                     
@@ -3285,7 +3319,7 @@ class Ppp(Entity):
                 .. attribute:: sso_group
                 
                 	PPP SSO state data for a particular group
-                	**type**\: list of    :py:class:`SsoGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup>`
+                	**type**\: list of  		 :py:class:`SsoGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup>`
                 
                 
 
@@ -3318,14 +3352,14 @@ class Ppp(Entity):
                     .. attribute:: group_id  <key>
                     
                     	The identifier for the group
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
                     .. attribute:: sso_states
                     
                     	PPP SSO State data for a particular group
-                    	**type**\:   :py:class:`SsoStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates>`
+                    	**type**\:  :py:class:`SsoStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates>`
                     
                     
 
@@ -3363,7 +3397,7 @@ class Ppp(Entity):
                         .. attribute:: sso_state
                         
                         	PPP SSO State data for a particular interface
-                        	**type**\: list of    :py:class:`SsoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState>`
+                        	**type**\: list of  		 :py:class:`SsoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState>`
                         
                         
 
@@ -3397,41 +3431,43 @@ class Ppp(Entity):
                             .. attribute:: session_id  <key>
                             
                             	Session ID for the interface with SSO State
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
                             .. attribute:: lcp_state
                             
                             	LCP SSO State
-                            	**type**\:   :py:class:`LcpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState>`
+                            	**type**\:  :py:class:`LcpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState>`
                             
                             .. attribute:: of_us_auth_state
                             
                             	Of\-us Authentication SSO State
-                            	**type**\:   :py:class:`OfUsAuthState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState>`
+                            	**type**\:  :py:class:`OfUsAuthState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState>`
                             
                             .. attribute:: of_peer_auth_state
                             
                             	Of\-peer Authentication SSO State
-                            	**type**\:   :py:class:`OfPeerAuthState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState>`
+                            	**type**\:  :py:class:`OfPeerAuthState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState>`
                             
                             .. attribute:: ipcp_state
                             
                             	IPCP SSO State
-                            	**type**\:   :py:class:`IpcpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState>`
+                            	**type**\:  :py:class:`IpcpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState>`
                             
                             .. attribute:: session_id_xr
                             
                             	SSRP Session ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: interface
                             
                             	Interface
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             
 
@@ -3488,12 +3524,12 @@ class Ppp(Entity):
                                 .. attribute:: is_running
                                 
                                 	Is SSO FSM Running
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: state
                                 
                                 	SSO FSM State
-                                	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                                	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                                 
                                 
 
@@ -3528,12 +3564,12 @@ class Ppp(Entity):
                                 .. attribute:: is_running
                                 
                                 	Is SSO FSM Running
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: state
                                 
                                 	SSO FSM State
-                                	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                                	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                                 
                                 
 
@@ -3568,12 +3604,12 @@ class Ppp(Entity):
                                 .. attribute:: is_running
                                 
                                 	Is SSO FSM Running
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: state
                                 
                                 	SSO FSM State
-                                	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                                	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                                 
                                 
 
@@ -3608,12 +3644,12 @@ class Ppp(Entity):
                                 .. attribute:: is_running
                                 
                                 	Is SSO FSM Running
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: state
                                 
                                 	SSO FSM State
-                                	**type**\:   :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                                	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                                 
                                 
 
@@ -3648,17 +3684,17 @@ class Ppp(Entity):
                 .. attribute:: intfs
                 
                 	Interfaces running PPP
-                	**type**\:   :py:class:`Intfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.Intfs>`
+                	**type**\:  :py:class:`Intfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.Intfs>`
                 
                 .. attribute:: fsm_states
                 
                 	FSM States
-                	**type**\:   :py:class:`FsmStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.FsmStates>`
+                	**type**\:  :py:class:`FsmStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.FsmStates>`
                 
                 .. attribute:: lcp_auth_phases
                 
                 	LCP/Auth Phases
-                	**type**\:   :py:class:`LcpAuthPhases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.LcpAuthPhases>`
+                	**type**\:  :py:class:`LcpAuthPhases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.LcpAuthPhases>`
                 
                 
 
@@ -3701,49 +3737,49 @@ class Ppp(Entity):
                     .. attribute:: pos_count
                     
                     	POS Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: serial_count
                     
                     	Serial Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pppoe_count
                     
                     	PPPoE Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: multilink_bundle_count
                     
                     	Multilink Bundle Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: gcc0_count
                     
                     	GCC0 Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: gcc1_count
                     
                     	GCC1 Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total
                     
                     	Total Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3790,12 +3826,12 @@ class Ppp(Entity):
                     .. attribute:: lcpfsm_states
                     
                     	Array of per\-LCP FSM States
-                    	**type**\:   :py:class:`LcpfsmStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates>`
+                    	**type**\:  :py:class:`LcpfsmStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates>`
                     
                     .. attribute:: ncpfsm_states_array
                     
                     	Array of per\-NCP FSM States
-                    	**type**\: list of    :py:class:`NcpfsmStatesArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray>`
+                    	**type**\: list of  		 :py:class:`NcpfsmStatesArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray>`
                     
                     
 
@@ -3833,14 +3869,14 @@ class Ppp(Entity):
                         .. attribute:: total
                         
                         	Total number of LCP FSMs running
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: count
                         
                         	Number of FSMs in each State
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..4294967295
                         
@@ -3877,19 +3913,19 @@ class Ppp(Entity):
                         .. attribute:: ncp_identifier
                         
                         	NCP Identifier
-                        	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
+                        	**type**\:  :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
                         
                         .. attribute:: total
                         
                         	Total number of FSMs running for this NCP
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: count
                         
                         	Number of FSMs in each State
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..4294967295
                         
@@ -3928,42 +3964,42 @@ class Ppp(Entity):
                     .. attribute:: lcp_not_negotiated
                     
                     	Number of sessions with LCP not negotiated
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: authenticating
                     
                     	Number of sessions authenticating
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: line_held_down
                     
                     	Number of sessions negotiated but with the line held down
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: up_local_term
                     
                     	Number of locally terminated sessions brought up
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: up_l2_fwded
                     
                     	Number of L2 forwarded sessions brought up
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: up_tunneled
                     
                     	Number of VPDN tunneled sessions brought up
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     

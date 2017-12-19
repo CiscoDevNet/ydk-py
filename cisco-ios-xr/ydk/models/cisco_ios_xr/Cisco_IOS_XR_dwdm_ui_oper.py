@@ -591,7 +591,7 @@ class Dwdm(Entity):
     .. attribute:: ports
     
     	All DWDM Port operational data
-    	**type**\:   :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports>`
+    	**type**\:  :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports>`
     
     
 
@@ -625,7 +625,7 @@ class Dwdm(Entity):
         .. attribute:: port
         
         	DWDM Port operational data
-        	**type**\: list of    :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port>`
+        	**type**\: list of  		 :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port>`
         
         
 
@@ -659,22 +659,24 @@ class Dwdm(Entity):
             .. attribute:: name  <key>
             
             	Port name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: prbs
             
             	DWDM Port PRBS related data
-            	**type**\:   :py:class:`Prbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs>`
+            	**type**\:  :py:class:`Prbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs>`
             
             .. attribute:: optics
             
             	DWDM Port optics operational data
-            	**type**\:   :py:class:`Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Optics>`
+            	**type**\:  :py:class:`Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Optics>`
             
             .. attribute:: info
             
             	DWDM port operational data
-            	**type**\:   :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info>`
+            	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info>`
             
             
 
@@ -723,12 +725,12 @@ class Dwdm(Entity):
                 .. attribute:: twenty_four_hours_bucket
                 
                 	Port 24\-hour PRBS statistics table
-                	**type**\:   :py:class:`TwentyFourHoursBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket>`
+                	**type**\:  :py:class:`TwentyFourHoursBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket>`
                 
                 .. attribute:: fifteen_minutes_bucket
                 
                 	Port 15\-minute PRBS statistics table
-                	**type**\:   :py:class:`FifteenMinutesBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket>`
+                	**type**\:  :py:class:`FifteenMinutesBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket>`
                 
                 
 
@@ -766,7 +768,7 @@ class Dwdm(Entity):
                     .. attribute:: twenty_four_hours_statistics
                     
                     	Port 24\-hour PRBS statistics data
-                    	**type**\:   :py:class:`TwentyFourHoursStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics>`
+                    	**type**\:  :py:class:`TwentyFourHoursStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics>`
                     
                     
 
@@ -799,17 +801,17 @@ class Dwdm(Entity):
                         .. attribute:: is_prbs_enabled
                         
                         	'True' if PRBS is enabled 'False' otherwise
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: prbs_config_mode
                         
                         	Configured mode of PRBS test
-                        	**type**\:   :py:class:`G709prbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsMode>`
+                        	**type**\:  :py:class:`G709prbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsMode>`
                         
                         .. attribute:: prbs_entry
                         
                         	History consists of 15\-minute/24\-hour intervals
-                        	**type**\: list of    :py:class:`PrbsEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry>`
+                        	**type**\: list of  		 :py:class:`PrbsEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry>`
                         
                         
 
@@ -846,64 +848,64 @@ class Dwdm(Entity):
                             .. attribute:: interval_index
                             
                             	Index of bucket, current and previous
-                            	**type**\:   :py:class:`G709prbsInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsInterval>`
+                            	**type**\:  :py:class:`G709prbsInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsInterval>`
                             
                             .. attribute:: configured_pattern
                             
                             	Configured pattern of PRBS test
-                            	**type**\:   :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
+                            	**type**\:  :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
                             
                             .. attribute:: start_at
                             
                             	Interval start timestamp
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: stop_at
                             
                             	Interval stop timestamp
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: received_pattern
                             
                             	Received Pattern of PRBS Test
-                            	**type**\:   :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
+                            	**type**\:  :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
                             
                             .. attribute:: bit_error_count
                             
                             	Bit Error Count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: found_count
                             
                             	Count of pattern found in interval
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: lost_count
                             
                             	Count of pattern lost in interval
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: found_at
                             
                             	Pattern first found at timestamp
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: lost_at
                             
                             	Pattern first lost at timestamp
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
@@ -956,7 +958,7 @@ class Dwdm(Entity):
                     .. attribute:: fifteen_minutes_statistics
                     
                     	Port 15\-minute PRBS statistics data
-                    	**type**\:   :py:class:`FifteenMinutesStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics>`
+                    	**type**\:  :py:class:`FifteenMinutesStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics>`
                     
                     
 
@@ -989,17 +991,17 @@ class Dwdm(Entity):
                         .. attribute:: is_prbs_enabled
                         
                         	'True' if PRBS is enabled 'False' otherwise
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: prbs_config_mode
                         
                         	Configured mode of PRBS test
-                        	**type**\:   :py:class:`G709prbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsMode>`
+                        	**type**\:  :py:class:`G709prbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsMode>`
                         
                         .. attribute:: prbs_entry
                         
                         	History consists of 15\-minute/24\-hour intervals
-                        	**type**\: list of    :py:class:`PrbsEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry>`
+                        	**type**\: list of  		 :py:class:`PrbsEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry>`
                         
                         
 
@@ -1036,64 +1038,64 @@ class Dwdm(Entity):
                             .. attribute:: interval_index
                             
                             	Index of bucket, current and previous
-                            	**type**\:   :py:class:`G709prbsInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsInterval>`
+                            	**type**\:  :py:class:`G709prbsInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsInterval>`
                             
                             .. attribute:: configured_pattern
                             
                             	Configured pattern of PRBS test
-                            	**type**\:   :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
+                            	**type**\:  :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
                             
                             .. attribute:: start_at
                             
                             	Interval start timestamp
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: stop_at
                             
                             	Interval stop timestamp
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: received_pattern
                             
                             	Received Pattern of PRBS Test
-                            	**type**\:   :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
+                            	**type**\:  :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
                             
                             .. attribute:: bit_error_count
                             
                             	Bit Error Count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: found_count
                             
                             	Count of pattern found in interval
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: lost_count
                             
                             	Count of pattern lost in interval
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: found_at
                             
                             	Pattern first found at timestamp
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
                             .. attribute:: lost_at
                             
                             	Pattern first lost at timestamp
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..64
                             
@@ -1146,7 +1148,7 @@ class Dwdm(Entity):
                 .. attribute:: wave_info
                 
                 	DWDM port wavelength information data
-                	**type**\:   :py:class:`WaveInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Optics.WaveInfo>`
+                	**type**\:  :py:class:`WaveInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Optics.WaveInfo>`
                 
                 
 
@@ -1179,21 +1181,21 @@ class Dwdm(Entity):
                     .. attribute:: wave_band
                     
                     	Wavelength band
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: wave_channel_min
                     
                     	Lowest ITU wavelength channel number supported
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: wave_channel_max
                     
                     	Highest ITU wavelength channel number supported
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1232,47 +1234,47 @@ class Dwdm(Entity):
                 .. attribute:: g709_info
                 
                 	G709 operational information
-                	**type**\:   :py:class:`G709Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info>`
+                	**type**\:  :py:class:`G709Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info>`
                 
                 .. attribute:: optics_info
                 
                 	Optics operational information
-                	**type**\:   :py:class:`OpticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.OpticsInfo>`
+                	**type**\:  :py:class:`OpticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.OpticsInfo>`
                 
                 .. attribute:: tdc_info
                 
                 	TDC operational information
-                	**type**\:   :py:class:`TdcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.TdcInfo>`
+                	**type**\:  :py:class:`TdcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.TdcInfo>`
                 
                 .. attribute:: network_srlg_info
                 
                 	Network SRLG information
-                	**type**\:   :py:class:`NetworkSrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.NetworkSrlgInfo>`
+                	**type**\:  :py:class:`NetworkSrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.NetworkSrlgInfo>`
                 
                 .. attribute:: proactive
                 
                 	Proactive protection information
-                	**type**\:   :py:class:`Proactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.Proactive>`
+                	**type**\:  :py:class:`Proactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.Proactive>`
                 
                 .. attribute:: signal_log
                 
                 	Signal log information
-                	**type**\:   :py:class:`SignalLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.SignalLog>`
+                	**type**\:  :py:class:`SignalLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.SignalLog>`
                 
                 .. attribute:: controller_state
                 
                 	DWDM controller state\: Up, Down or Administratively Down
-                	**type**\:   :py:class:`DwdmControllerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmControllerState>`
+                	**type**\:  :py:class:`DwdmControllerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmControllerState>`
                 
                 .. attribute:: transport_admin_state
                 
                 	DWDM controller TAS state\: IS, OOS, OOS\-MT or IS\-CFG
-                	**type**\:   :py:class:`DwdmtasState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmtasState>`
+                	**type**\:  :py:class:`DwdmtasState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmtasState>`
                 
                 .. attribute:: slice_state
                 
                 	DWDM port slice state Up/Down
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -1339,167 +1341,167 @@ class Dwdm(Entity):
                     .. attribute:: fec_mismatch
                     
                     	FEC mismatch alarm
-                    	**type**\:   :py:class:`FecMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.FecMismatch>`
+                    	**type**\:  :py:class:`FecMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.FecMismatch>`
                     
                     .. attribute:: ec_tca
                     
                     	FEC Corrected bits TCA information
-                    	**type**\:   :py:class:`EcTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.EcTca>`
+                    	**type**\:  :py:class:`EcTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.EcTca>`
                     
                     .. attribute:: uc_tca
                     
                     	FEC uncorrected words TCA information
-                    	**type**\:   :py:class:`UcTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.UcTca>`
+                    	**type**\:  :py:class:`UcTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.UcTca>`
                     
                     .. attribute:: otu_info
                     
                     	OTU layer information
-                    	**type**\:   :py:class:`OtuInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo>`
+                    	**type**\:  :py:class:`OtuInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo>`
                     
                     .. attribute:: odu_info
                     
                     	ODU layer Information
-                    	**type**\:   :py:class:`OduInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo>`
+                    	**type**\:  :py:class:`OduInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo>`
                     
                     .. attribute:: is_g709_enabled
                     
                     	 Is G709 framing enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: is_fec_mode_default
                     
                     	 Is Operating FEC Mode Default
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: fec_mode
                     
                     	FEC information
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: remote_fec_mode
                     
                     	Remote FEC information
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: efec_mode
                     
                     	EFEC information
-                    	**type**\:   :py:class:`G709efecMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709efecMode>`
+                    	**type**\:  :py:class:`G709efecMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709efecMode>`
                     
                     .. attribute:: loopback_mode
                     
                     	Loopback information
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: ec
                     
                     	Corrected bit error counter 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: ec_accum
                     
                     	FEC Corrected bit error accumulated counter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: uc
                     
                     	FEC Uncorrected words counter
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: fec_ber
                     
                     	pre fec ber calculated
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: fec_ber_man
                     
                     	pre fec ber calculated
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: q
                     
                     	q value calculated
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: q_margin
                     
                     	q margin calculated
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: fe_cstr
                     
                     	FEC BER String 
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: qstr
                     
                     	Q String 
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: qmargin_str
                     
                     	QMargin String
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: network_port_id
                     
                     	Network port ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..65
                     
                     .. attribute:: network_conn_id
                     
                     	Network connection ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..65
                     
                     .. attribute:: is_prbs_enabled
                     
                     	'true' if Prbs is enabled 'false' otherwise
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: g709_prbs_mode
                     
                     	Configured mode of PRBS Test
-                    	**type**\:   :py:class:`G709prbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsMode>`
+                    	**type**\:  :py:class:`G709prbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsMode>`
                     
                     .. attribute:: g709_prbs_pattern
                     
                     	Pattern of PRBS Test
-                    	**type**\:   :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
+                    	**type**\:  :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
                     
                     .. attribute:: prbs_time_stamp
                     
                     	Time stamp for prbs configuration
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1601,22 +1603,22 @@ class Dwdm(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1657,29 +1659,29 @@ class Dwdm(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: threshold
                         
                         	Error threshold power
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: counter
                         
                         	Error counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1722,29 +1724,29 @@ class Dwdm(Entity):
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_detected
                         
                         	Is defect detected?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: threshold
                         
                         	Error threshold power
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: counter
                         
                         	Error counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1787,139 +1789,139 @@ class Dwdm(Entity):
                         .. attribute:: los
                         
                         	Loss of Signal information
-                        	**type**\:   :py:class:`Los <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los>`
+                        	**type**\:  :py:class:`Los <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los>`
                         
                         .. attribute:: lof
                         
                         	Loss of Frame information
-                        	**type**\:   :py:class:`Lof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof>`
+                        	**type**\:  :py:class:`Lof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof>`
                         
                         .. attribute:: lom
                         
                         	Loss of MultiFrame information
-                        	**type**\:   :py:class:`Lom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom>`
+                        	**type**\:  :py:class:`Lom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom>`
                         
                         .. attribute:: oof
                         
                         	Out of Frame information
-                        	**type**\:   :py:class:`Oof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof>`
+                        	**type**\:  :py:class:`Oof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof>`
                         
                         .. attribute:: oom
                         
                         	Out of MultiFrame information
-                        	**type**\:   :py:class:`Oom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom>`
+                        	**type**\:  :py:class:`Oom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom>`
                         
                         .. attribute:: ais
                         
                         	Alarm Indication Signal information
-                        	**type**\:   :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais>`
+                        	**type**\:  :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais>`
                         
                         .. attribute:: iae
                         
                         	Incoming Alignment Error information
-                        	**type**\:   :py:class:`Iae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae>`
+                        	**type**\:  :py:class:`Iae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae>`
                         
                         .. attribute:: bdi
                         
                         	Backward Defect Indication information
-                        	**type**\:   :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi>`
+                        	**type**\:  :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi>`
                         
                         .. attribute:: tim
                         
                         	Trace Identifier Mismatch information
-                        	**type**\:   :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim>`
+                        	**type**\:  :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim>`
                         
                         .. attribute:: eoc
                         
                         	GCC End of Channel information
-                        	**type**\:   :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc>`
+                        	**type**\:  :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc>`
                         
                         .. attribute:: sf_ber
                         
                         	Signal Fail  BER information
-                        	**type**\:   :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer>`
+                        	**type**\:  :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer>`
                         
                         .. attribute:: sd_ber
                         
                         	Signal Degrade BER information
-                        	**type**\:   :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer>`
+                        	**type**\:  :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer>`
                         
                         .. attribute:: prefec_sf_ber
                         
                         	Prefec Signal Fail BER information
-                        	**type**\:   :py:class:`PrefecSfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer>`
+                        	**type**\:  :py:class:`PrefecSfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer>`
                         
                         .. attribute:: prefec_sd_ber
                         
                         	Prefec Signal Degrade BER information
-                        	**type**\:   :py:class:`PrefecSdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer>`
+                        	**type**\:  :py:class:`PrefecSdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer>`
                         
                         .. attribute:: bbe_tca
                         
                         	 Backgound Block Error TCA information
-                        	**type**\:   :py:class:`BbeTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca>`
+                        	**type**\:  :py:class:`BbeTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca>`
                         
                         .. attribute:: es_tca
                         
                         	Errored Seconds TCA information
-                        	**type**\:   :py:class:`EsTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca>`
+                        	**type**\:  :py:class:`EsTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca>`
                         
                         .. attribute:: bbe
                         
                         	Backgound Block Error information
-                        	**type**\:   :py:class:`Bbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe>`
+                        	**type**\:  :py:class:`Bbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe>`
                         
                         .. attribute:: es
                         
                         	Errored Seconds information 
-                        	**type**\:   :py:class:`Es <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es>`
+                        	**type**\:  :py:class:`Es <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es>`
                         
                         .. attribute:: ses
                         
                         	Severly Errored Seconds information
-                        	**type**\:   :py:class:`Ses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses>`
+                        	**type**\:  :py:class:`Ses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses>`
                         
                         .. attribute:: uas
                         
                         	Unavailability Seconds information
-                        	**type**\:   :py:class:`Uas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas>`
+                        	**type**\:  :py:class:`Uas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas>`
                         
                         .. attribute:: fc
                         
                         	Failure Count information
-                        	**type**\:   :py:class:`Fc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc>`
+                        	**type**\:  :py:class:`Fc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc>`
                         
                         .. attribute:: bber
                         
                         	Backgound Block Error Rate information
-                        	**type**\:   :py:class:`Bber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber>`
+                        	**type**\:  :py:class:`Bber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber>`
                         
                         .. attribute:: esr
                         
                         	Errored Seconds Rate information
-                        	**type**\:   :py:class:`Esr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr>`
+                        	**type**\:  :py:class:`Esr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr>`
                         
                         .. attribute:: sesr
                         
                         	Severly Errored Seconds Rate information
-                        	**type**\:   :py:class:`Sesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr>`
+                        	**type**\:  :py:class:`Sesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr>`
                         
                         .. attribute:: tti
                         
                         	Trail Trace Identifier information
-                        	**type**\:   :py:class:`Tti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti>`
+                        	**type**\:  :py:class:`Tti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti>`
                         
                         .. attribute:: bei
                         
                         	Backward Error Indication counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: bip
                         
                         	Bit Interleave Parity(BIP) counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2081,22 +2083,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2137,22 +2139,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2193,22 +2195,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2249,22 +2251,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2305,22 +2307,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2361,22 +2363,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2417,22 +2419,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2473,22 +2475,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2529,22 +2531,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2585,22 +2587,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2641,29 +2643,29 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: threshold
                             
                             	Error threshold power
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: counter
                             
                             	Error counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2706,29 +2708,29 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: threshold
                             
                             	Error threshold power
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: counter
                             
                             	Error counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2771,29 +2773,29 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: threshold
                             
                             	Error threshold power
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: counter
                             
                             	Error counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2836,29 +2838,29 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: threshold
                             
                             	Error threshold power
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: counter
                             
                             	Error counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2901,29 +2903,29 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: threshold
                             
                             	Error threshold power
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: counter
                             
                             	Error counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2966,29 +2968,29 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: threshold
                             
                             	Error threshold power
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: counter
                             
                             	Error counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3031,7 +3033,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3066,7 +3068,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3101,7 +3103,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3136,7 +3138,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3171,7 +3173,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3206,7 +3208,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3241,7 +3243,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3276,7 +3278,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3311,210 +3313,210 @@ class Dwdm(Entity):
                             .. attribute:: tx_string_type
                             
                             	Type of String
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: expected_string_type
                             
                             	Type of String
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: rx_string_type
                             
                             	Type of String
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: tx_tti
                             
                             	Tx TTI String 
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..129
                             
                             .. attribute:: tx_sapi0
                             
                             	Tx SAPI[0] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..5
                             
                             .. attribute:: tx_sapi
                             
                             	Tx SAPI[1\-15] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..16
                             
                             .. attribute:: tx_sapi_range
                             
                             	 Tx SAPI Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: tx_dapi0
                             
                             	Tx DAPI[0] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..5
                             
                             .. attribute:: tx_dapi
                             
                             	Tx DAPI[1\-15] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..16
                             
                             .. attribute:: tx_dapi_range
                             
                             	 Tx DAPI Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: tx_oper_spec
                             
                             	Tx Operator Specific Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..33
                             
                             .. attribute:: tx_oper_spec_range
                             
                             	 Tx Operator Specific Field Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: rx_tti
                             
                             	Rx TTI String 
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..129
                             
                             .. attribute:: rx_sapi0
                             
                             	Rx SAPI[0] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..5
                             
                             .. attribute:: rx_sapi
                             
                             	Rx SAPI[1\-15] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..16
                             
                             .. attribute:: rx_sapi_range
                             
                             	 Rx SAPI Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: rx_dapi0
                             
                             	Rx DAPI[0] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..5
                             
                             .. attribute:: rx_dapi
                             
                             	Rx DAPI[1\-15] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..16
                             
                             .. attribute:: rx_dapi_range
                             
                             	 Rx DAPI Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: rx_oper_spec_range
                             
                             	 Rx Operator Specific Field Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: rx_oper_spec
                             
                             	Rx Operator Specific Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..33
                             
                             .. attribute:: expected_tti
                             
                             	Expected TTI String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..129
                             
                             .. attribute:: expected_sapi0
                             
                             	Expected SAPI[0] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..5
                             
                             .. attribute:: expected_sapi
                             
                             	Expected SAPI[1\-15] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..16
                             
                             .. attribute:: exp_sapi_range
                             
                             	 Expected SAPI Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: expected_dapi0
                             
                             	Expected DAPI[0] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..5
                             
                             .. attribute:: expected_dapi
                             
                             	Expected DAPI[1\-15] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..16
                             
                             .. attribute:: exp_dapi_range
                             
                             	 Expected DAPI Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: expected_oper_spec
                             
                             	Expected Operator Specific Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..33
                             
                             .. attribute:: exp_oper_spec_range
                             
                             	 Expected Operator Specific Field Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
@@ -3607,114 +3609,114 @@ class Dwdm(Entity):
                         .. attribute:: oci
                         
                         	Open Connection Indiction information
-                        	**type**\:   :py:class:`Oci <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci>`
+                        	**type**\:  :py:class:`Oci <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci>`
                         
                         .. attribute:: ais
                         
                         	Alarm Indication Signal information
-                        	**type**\:   :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais>`
+                        	**type**\:  :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais>`
                         
                         .. attribute:: lck
                         
                         	Upstream Connection Locked information
-                        	**type**\:   :py:class:`Lck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck>`
+                        	**type**\:  :py:class:`Lck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck>`
                         
                         .. attribute:: bdi
                         
                         	Backward Defect Indication information
-                        	**type**\:   :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi>`
+                        	**type**\:  :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi>`
                         
                         .. attribute:: eoc
                         
                         	GCC End of Channel information
-                        	**type**\:   :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc>`
+                        	**type**\:  :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc>`
                         
                         .. attribute:: ptim
                         
                         	Payload Type Identifier Mismatch information
-                        	**type**\:   :py:class:`Ptim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim>`
+                        	**type**\:  :py:class:`Ptim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim>`
                         
                         .. attribute:: tim
                         
                         	Trace Identifier Mismatch information
-                        	**type**\:   :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim>`
+                        	**type**\:  :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim>`
                         
                         .. attribute:: sf_ber
                         
                         	Signal Fail  BER information
-                        	**type**\:   :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer>`
+                        	**type**\:  :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer>`
                         
                         .. attribute:: sd_ber
                         
                         	Signal Degrade BER information
-                        	**type**\:   :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer>`
+                        	**type**\:  :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer>`
                         
                         .. attribute:: bbe_tca
                         
                         	Background Block Error TCA information
-                        	**type**\:   :py:class:`BbeTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca>`
+                        	**type**\:  :py:class:`BbeTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca>`
                         
                         .. attribute:: es_tca
                         
                         	Errored Seconds TCA information
-                        	**type**\:   :py:class:`EsTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca>`
+                        	**type**\:  :py:class:`EsTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca>`
                         
                         .. attribute:: bbe
                         
                         	Background Block Error information
-                        	**type**\:   :py:class:`Bbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe>`
+                        	**type**\:  :py:class:`Bbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe>`
                         
                         .. attribute:: es
                         
                         	Errored Seconds information
-                        	**type**\:   :py:class:`Es <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Es>`
+                        	**type**\:  :py:class:`Es <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Es>`
                         
                         .. attribute:: ses
                         
                         	Severly Errored Seconds information
-                        	**type**\:   :py:class:`Ses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses>`
+                        	**type**\:  :py:class:`Ses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses>`
                         
                         .. attribute:: uas
                         
                         	Unavailability Seconds information
-                        	**type**\:   :py:class:`Uas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas>`
+                        	**type**\:  :py:class:`Uas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas>`
                         
                         .. attribute:: fc
                         
                         	Failure count information
-                        	**type**\:   :py:class:`Fc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc>`
+                        	**type**\:  :py:class:`Fc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc>`
                         
                         .. attribute:: bber
                         
                         	Background Block Error Rate count information
-                        	**type**\:   :py:class:`Bber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber>`
+                        	**type**\:  :py:class:`Bber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber>`
                         
                         .. attribute:: esr
                         
                         	Errored Seconds Rate information
-                        	**type**\:   :py:class:`Esr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr>`
+                        	**type**\:  :py:class:`Esr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr>`
                         
                         .. attribute:: sesr
                         
                         	Severly Errored Seconds Rate information
-                        	**type**\:   :py:class:`Sesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr>`
+                        	**type**\:  :py:class:`Sesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr>`
                         
                         .. attribute:: tti
                         
                         	Trail Trace Identifier information
-                        	**type**\:   :py:class:`Tti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti>`
+                        	**type**\:  :py:class:`Tti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti>`
                         
                         .. attribute:: bip
                         
                         	Bit Interleave Parity(BIP) counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: bei
                         
                         	Backward Error Indication counter
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3851,22 +3853,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3907,22 +3909,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3963,22 +3965,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4019,22 +4021,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4075,22 +4077,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4131,22 +4133,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4187,22 +4189,22 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: counter
                             
                             	Alarm counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4243,29 +4245,29 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: threshold
                             
                             	Error threshold power
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: counter
                             
                             	Error counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4308,29 +4310,29 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: threshold
                             
                             	Error threshold power
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: counter
                             
                             	Error counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4373,29 +4375,29 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: threshold
                             
                             	Error threshold power
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: counter
                             
                             	Error counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4438,29 +4440,29 @@ class Dwdm(Entity):
                             .. attribute:: reporting_enabled
                             
                             	Is reporting enabled?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_detected
                             
                             	Is defect detected?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: threshold
                             
                             	Error threshold power
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: counter
                             
                             	Error counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4503,7 +4505,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4538,7 +4540,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4573,7 +4575,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4608,7 +4610,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4643,7 +4645,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4678,7 +4680,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4713,7 +4715,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4748,7 +4750,7 @@ class Dwdm(Entity):
                             .. attribute:: counter
                             
                             	Performance Monitoring counter
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4783,210 +4785,210 @@ class Dwdm(Entity):
                             .. attribute:: tx_string_type
                             
                             	Type of String
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: expected_string_type
                             
                             	Type of String
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: rx_string_type
                             
                             	Type of String
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: tx_tti
                             
                             	Tx TTI String 
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..129
                             
                             .. attribute:: tx_sapi0
                             
                             	Tx SAPI[0] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..5
                             
                             .. attribute:: tx_sapi
                             
                             	Tx SAPI[1\-15] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..16
                             
                             .. attribute:: tx_sapi_range
                             
                             	 Tx SAPI Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: tx_dapi0
                             
                             	Tx DAPI[0] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..5
                             
                             .. attribute:: tx_dapi
                             
                             	Tx DAPI[1\-15] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..16
                             
                             .. attribute:: tx_dapi_range
                             
                             	 Tx DAPI Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: tx_oper_spec
                             
                             	Tx Operator Specific Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..33
                             
                             .. attribute:: tx_oper_spec_range
                             
                             	 Tx Operator Specific Field Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: rx_tti
                             
                             	Rx TTI String 
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..129
                             
                             .. attribute:: rx_sapi0
                             
                             	Rx SAPI[0] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..5
                             
                             .. attribute:: rx_sapi
                             
                             	Rx SAPI[1\-15] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..16
                             
                             .. attribute:: rx_sapi_range
                             
                             	 Rx SAPI Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: rx_dapi0
                             
                             	Rx DAPI[0] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..5
                             
                             .. attribute:: rx_dapi
                             
                             	Rx DAPI[1\-15] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..16
                             
                             .. attribute:: rx_dapi_range
                             
                             	 Rx DAPI Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: rx_oper_spec_range
                             
                             	 Rx Operator Specific Field Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: rx_oper_spec
                             
                             	Rx Operator Specific Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..33
                             
                             .. attribute:: expected_tti
                             
                             	Expected TTI String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..129
                             
                             .. attribute:: expected_sapi0
                             
                             	Expected SAPI[0] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..5
                             
                             .. attribute:: expected_sapi
                             
                             	Expected SAPI[1\-15] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..16
                             
                             .. attribute:: exp_sapi_range
                             
                             	 Expected SAPI Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: expected_dapi0
                             
                             	Expected DAPI[0] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..5
                             
                             .. attribute:: expected_dapi
                             
                             	Expected DAPI[1\-15] Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..16
                             
                             .. attribute:: exp_dapi_range
                             
                             	 Expected DAPI Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
                             .. attribute:: expected_oper_spec
                             
                             	Expected Operator Specific Field
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..33
                             
                             .. attribute:: exp_oper_spec_range
                             
                             	 Expected Operator Specific Field Range String
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..6
                             
@@ -5079,265 +5081,265 @@ class Dwdm(Entity):
                     .. attribute:: optics_type
                     
                     	Optics type name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: clock_source
                     
                     	Actual transmit clock source
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: wave_frequency_progressive_string
                     
                     	Wave Frequency Information for Progressive Frequencies
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: wavelength_progressive_string
                     
                     	Wavelength Information for Progressive Frequencies
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: is_wave_frequency_progressive_valid
                     
                     	True if Progressive Frequency is supported by hw
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: wavelength_progressive
                     
                     	Wavelength Information for Progressive Frequencies
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: wave_band
                     
                     	Wavelength band information
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: wave_channel
                     
                     	Current ITU wavelength channel number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: wave_frequency
                     
                     	 wavelenght frequency read from hw in the uint 0 .01nm
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: is_wave_frequency_valid
                     
                     	True if hw supported wavelength frequency readback
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: wave_channel_owner
                     
                     	Owner of current wavelength
-                    	**type**\:   :py:class:`DwdmWaveChannelOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmWaveChannelOwner>`
+                    	**type**\:  :py:class:`DwdmWaveChannelOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmWaveChannelOwner>`
                     
                     .. attribute:: gmpls_set_wave_channel
                     
                     	Wavelength channel set by GMPLS
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: configured_wave_channel
                     
                     	Wavelength channel set from configuration
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: default_wave_channel
                     
                     	Wavelength channel default from hardware
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: transmit_power
                     
                     	Transmit power in the unit of 0.01dbm
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: transmit_power_threshold
                     
                     	Transmit power threshold value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_current_bias
                     
                     	Laser current bias value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_current_bias_threshold
                     
                     	 Laser Current Bias threshold value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: receive_power
                     
                     	Transponder receive power
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: is_rx_los_threshold_supported
                     
                     	TRUE if  Rx LOS thresold configurable
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: rx_los_threshold
                     
                     	Rx LOS threshold value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: transmit_power_min
                     
                     	Transmit  power mininum value in the interval time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: transmit_power_max
                     
                     	Transmit power maximum value in the interval time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: transmit_power_avg
                     
                     	Transmit optical average value in the interval time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: receive_power_min
                     
                     	Recieve power mininum value in the interval time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: receive_power_max
                     
                     	Receive power maximum value in the interval time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: receive_power_avg
                     
                     	Recieve power average value in the interval time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_bias_current_min
                     
                     	Laser bias current minimum value in the interval time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_bias_current_max
                     
                     	Laser bias current maxinum value in the interval time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: laser_bias_current_avg
                     
                     	Laser bias current average value in the interval time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: chromatic_dispersion
                     
                     	Current chromatic dispersion
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: differential_group_delay
                     
                     	Current differential group Delay
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: polarization_mode_dispersion
                     
                     	Current polarization mode dispersion
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: signal_to_noise_ratio
                     
                     	Current optical signal to noise ratio
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: polarization_dependent_loss
                     
                     	Current Polarization Dependent loss
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: polarization_change_rate
                     
                     	Current Polarization change rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: phase_noise
                     
                     	Current Phase Noise
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_power_fail
                     
                     	Transmit power failure(above/belowe a threshold) count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_power_fail
                     
                     	Receive power failure(above/belowe a threshold) count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5448,41 +5450,41 @@ class Dwdm(Entity):
                     .. attribute:: tdc_valid
                     
                     	TRUE for Valid else Invalid
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: major_alarm
                     
                     	TRUE for Alarm condition else FALSE
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: operation_mode
                     
                     	TRUE for MANUAL else AUTO
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: tdc_status
                     
                     	TRUE if TDC Aquiring else Locked
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: dispersion_offset
                     
                     	TDC Dispersion Offset
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: reroute_ber
                     
                     	Reroute BER
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: is_reroute_control_enabled
                     
                     	TRUE for ENABLED else DISABLED
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -5527,7 +5529,7 @@ class Dwdm(Entity):
                     .. attribute:: network_srlg
                     
                     	Network Srlg
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..4294967295
                     
@@ -5562,169 +5564,169 @@ class Dwdm(Entity):
                     .. attribute:: proactive_feature
                     
                     	Feature Support
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: proactive_mode
                     
                     	Proactive Mode
-                    	**type**\:   :py:class:`G709ppfsmMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ppfsmMode>`
+                    	**type**\:  :py:class:`G709ppfsmMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ppfsmMode>`
                     
                     .. attribute:: proactive_fsm_state
                     
                     	Proactive FSM State
-                    	**type**\:   :py:class:`G709ppfsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ppfsmState>`
+                    	**type**\:  :py:class:`G709ppfsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ppfsmState>`
                     
                     .. attribute:: proactive_fsm_if_state
                     
                     	Proactive FSM IF State
-                    	**type**\:   :py:class:`G709ppintfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ppintfState>`
+                    	**type**\:  :py:class:`G709ppintfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ppintfState>`
                     
                     .. attribute:: tas_state
                     
                     	TAS State
-                    	**type**\:   :py:class:`DwdmtasState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmtasState>`
+                    	**type**\:  :py:class:`DwdmtasState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmtasState>`
                     
                     .. attribute:: trig_thresh_coeff
                     
                     	Trigger threshold coefficient
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: trig_thresh_power
                     
                     	Trigger threshold power
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: rvrt_thresh_coeff
                     
                     	Revert threshold coefficient
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: rvrt_thresh_power
                     
                     	Revert threshold power
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: default_trig_thresh_coeff
                     
                     	Default Trigger threshold coefficient
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: default_trig_thresh_power
                     
                     	Default Trigger threshold power
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: default_rvrt_thresh_coeff
                     
                     	Default Revert threshold coefficient
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: default_rvrt_thresh_power
                     
                     	Default Revert threshold power
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: trig_samples
                     
                     	Required Trigger Samples
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: rvrt_samples
                     
                     	Required Revert Samples
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: trigger_window
                     
                     	Trigger Integration window
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: revert_window
                     
                     	Revert Integration Window
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: protection_trigger
                     
                     	Protection Trigger State
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: interface_trigger
                     
                     	Proactive Interface Triffer
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: tx_aps
                     
                     	Transmitted APS Byte
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: tx_aps_descr
                     
                     	Tx APS Description
-                    	**type**\:   :py:class:`G709apsByte <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709apsByte>`
+                    	**type**\:  :py:class:`G709apsByte <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709apsByte>`
                     
                     .. attribute:: rx_aps
                     
                     	Received APS byte
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: rx_aps_descr
                     
                     	Rx APS Description
-                    	**type**\:   :py:class:`G709apsByte <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709apsByte>`
+                    	**type**\:  :py:class:`G709apsByte <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709apsByte>`
                     
                     .. attribute:: alarm_state
                     
                     	AlarmState
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: trig_ec_cnt
                     
                     	Trigger EC Cnt
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rvrt_ec_cnt
                     
                     	Revert EC Cnt
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prefec_thresh_crossed
                     
                     	Prefec Trigger Thresh Crossed
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -5809,12 +5811,12 @@ class Dwdm(Entity):
                     .. attribute:: is_log_enabled
                     
                     	'true' if signal log is enabled 'false' otherwise
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: log_filename
                     
                     	Log file name 
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
@@ -5854,7 +5856,7 @@ class Vtxp(Entity):
     .. attribute:: dwdm_vtxp
     
     	DWDM operational data
-    	**type**\:   :py:class:`DwdmVtxp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp>`
+    	**type**\:  :py:class:`DwdmVtxp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp>`
     
     
 
@@ -5888,7 +5890,7 @@ class Vtxp(Entity):
         .. attribute:: port_vtxps
         
         	All DWDM Port operational data
-        	**type**\:   :py:class:`PortVtxps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps>`
+        	**type**\:  :py:class:`PortVtxps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps>`
         
         
 
@@ -5922,7 +5924,7 @@ class Vtxp(Entity):
             .. attribute:: port_vtxp
             
             	DWDM Port operational data
-            	**type**\: list of    :py:class:`PortVtxp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps.PortVtxp>`
+            	**type**\: list of  		 :py:class:`PortVtxp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps.PortVtxp>`
             
             
 
@@ -5956,12 +5958,14 @@ class Vtxp(Entity):
                 .. attribute:: name  <key>
                 
                 	Port name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: info
                 
                 	DWDM port operational data
-                	**type**\:   :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info>`
+                	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info>`
                 
                 
 
@@ -6000,7 +6004,7 @@ class Vtxp(Entity):
                     .. attribute:: vtxp_enable
                     
                     	Is VTXP attribute enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 

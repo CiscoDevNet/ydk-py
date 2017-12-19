@@ -72,91 +72,91 @@ class OSPFMIB(Entity):
     .. attribute:: ospfgeneralgroup
     
     	
-    	**type**\:   :py:class:`Ospfgeneralgroup <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup>`
+    	**type**\:  :py:class:`Ospfgeneralgroup <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup>`
     
     .. attribute:: ospfareatable
     
     	Information describing the configured parameters and cumulative statistics of the router's attached areas. The interfaces and virtual links are configured as part of these areas.  Area 0.0.0.0, by definition, is the backbone area
-    	**type**\:   :py:class:`Ospfareatable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable>`
+    	**type**\:  :py:class:`Ospfareatable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable>`
     
     .. attribute:: ospfstubareatable
     
     	The set of metrics that will be advertised by a default Area Border Router into a stub area
-    	**type**\:   :py:class:`Ospfstubareatable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfstubareatable>`
+    	**type**\:  :py:class:`Ospfstubareatable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfstubareatable>`
     
     .. attribute:: ospflsdbtable
     
     	The OSPF Process's link state database (LSDB). The LSDB contains the link state advertisements from throughout the areas that the device is attached to
-    	**type**\:   :py:class:`Ospflsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable>`
+    	**type**\:  :py:class:`Ospflsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable>`
     
     .. attribute:: ospfarearangetable
     
     	The Address Range Table acts as an adjunct to the Area Table.  It describes those Address Range Summaries that are configured to be propagated from an Area to reduce the amount of information about it that is known beyond its borders.  It contains a set of IP address ranges specified by an IP address/IP network mask pair. For example, class B address range of X.X.X.X with a network mask of 255.255.0.0 includes all IP addresses from X.X.0.0 to X.X.255.255.  Note that this table is obsoleted and is replaced by the Area Aggregate Table
-    	**type**\:   :py:class:`Ospfarearangetable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarearangetable>`
+    	**type**\:  :py:class:`Ospfarearangetable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarearangetable>`
     
     	**status**\: obsolete
     
     .. attribute:: ospfhosttable
     
     	The Host/Metric Table indicates what hosts are directly  attached to the router, what metrics and types of service should be advertised for them, and what areas they are found within
-    	**type**\:   :py:class:`Ospfhosttable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfhosttable>`
+    	**type**\:  :py:class:`Ospfhosttable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfhosttable>`
     
     .. attribute:: ospfiftable
     
     	The OSPF Interface Table describes the interfaces from the viewpoint of OSPF. It augments the ipAddrTable with OSPF specific information
-    	**type**\:   :py:class:`Ospfiftable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable>`
+    	**type**\:  :py:class:`Ospfiftable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable>`
     
     .. attribute:: ospfifmetrictable
     
     	The Metric Table describes the metrics to be advertised for a specified interface at the various types of service. As such, this table is an adjunct of the OSPF Interface Table.  Types of service, as defined by RFC 791, have the ability to request low delay, high bandwidth, or reliable linkage.  For the purposes of this specification, the measure of bandwidth\:  Metric = referenceBandwidth / ifSpeed  is the default value. The default reference bandwidth is 10^8. For multiple link interfaces, note that ifSpeed is the sum of the individual link speeds.  This yields a number having the following typical values\:  Network Type/bit rate   Metric  >= 100 MBPS                 1 Ethernet/802.3             10 E1                         48 T1 (ESF)                   65 64 KBPS                    1562 56 KBPS                    1785 19.2 KBPS                  5208 9.6 KBPS                   10416  Routes that are not specified use the default (TOS 0) metric.  Note that the default reference bandwidth can be configured using the general group object ospfReferenceBandwidth
-    	**type**\:   :py:class:`Ospfifmetrictable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfifmetrictable>`
+    	**type**\:  :py:class:`Ospfifmetrictable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfifmetrictable>`
     
     .. attribute:: ospfvirtiftable
     
     	Information about this router's virtual interfaces that the OSPF Process is configured to carry on
-    	**type**\:   :py:class:`Ospfvirtiftable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtiftable>`
+    	**type**\:  :py:class:`Ospfvirtiftable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtiftable>`
     
     .. attribute:: ospfnbrtable
     
     	A table describing all non\-virtual neighbors in the locality of the OSPF router
-    	**type**\:   :py:class:`Ospfnbrtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable>`
+    	**type**\:  :py:class:`Ospfnbrtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable>`
     
     .. attribute:: ospfvirtnbrtable
     
     	This table describes all virtual neighbors. Since virtual links are configured in the Virtual Interface Table, this table is read\-only
-    	**type**\:   :py:class:`Ospfvirtnbrtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable>`
+    	**type**\:  :py:class:`Ospfvirtnbrtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable>`
     
     .. attribute:: ospfextlsdbtable
     
     	The OSPF Process's external LSA link state database.  This table is identical to the OSPF LSDB Table in format, but contains only external link state advertisements.  The purpose is to allow external  LSAs to be displayed once for the router rather than once in each non\-stub area.  Note that external LSAs are also in the AS\-scope link state database
-    	**type**\:   :py:class:`Ospfextlsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfextlsdbtable>`
+    	**type**\:  :py:class:`Ospfextlsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfextlsdbtable>`
     
     	**status**\: deprecated
     
     .. attribute:: ospfareaaggregatetable
     
     	The Area Aggregate Table acts as an adjunct to the Area Table.  It describes those address aggregates that are configured to be propagated from an area. Its purpose is to reduce the amount of information that is known beyond an Area's borders.  It contains a set of IP address ranges specified by an IP address/IP network mask pair. For example, a class B address range of X.X.X.X with a network mask of 255.255.0.0 includes all IP addresses from X.X.0.0 to X.X.255.255.  Note that if ranges are configured such that one range subsumes another range (e.g., 10.0.0.0 mask 255.0.0.0 and 10.1.0.0 mask 255.255.0.0), the most specific match is the preferred one
-    	**type**\:   :py:class:`Ospfareaaggregatetable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareaaggregatetable>`
+    	**type**\:  :py:class:`Ospfareaaggregatetable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareaaggregatetable>`
     
     .. attribute:: ospflocallsdbtable
     
     	The OSPF Process's link\-local link state database for non\-virtual links. This table is identical to the OSPF LSDB Table in format, but contains only link\-local Link State Advertisements for non\-virtual links.  The purpose is to allow link\-local LSAs to be displayed for each non\-virtual interface.  This table is implemented to support type\-9 LSAs that are defined in 'The OSPF Opaque LSA Option'
-    	**type**\:   :py:class:`Ospflocallsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflocallsdbtable>`
+    	**type**\:  :py:class:`Ospflocallsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflocallsdbtable>`
     
     .. attribute:: ospfvirtlocallsdbtable
     
     	The OSPF Process's link\-local link state database for virtual links.  This table is identical to the OSPF LSDB Table in format, but contains only link\-local Link State Advertisements for virtual links.  The purpose is to allow link\-local LSAs to be displayed for each virtual interface.  This table is implemented to support type\-9 LSAs that are defined in 'The OSPF Opaque LSA Option'
-    	**type**\:   :py:class:`Ospfvirtlocallsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtlocallsdbtable>`
+    	**type**\:  :py:class:`Ospfvirtlocallsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtlocallsdbtable>`
     
     .. attribute:: ospfaslsdbtable
     
     	The OSPF Process's AS\-scope LSA link state database. The database contains the AS\-scope Link State Advertisements from throughout the areas that the device is attached to.  This table is identical to the OSPF LSDB Table in format, but contains only AS\-scope Link State Advertisements.  The purpose is to allow AS\-scope LSAs to be displayed once for the router rather than once in each non\-stub area
-    	**type**\:   :py:class:`Ospfaslsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfaslsdbtable>`
+    	**type**\:  :py:class:`Ospfaslsdbtable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfaslsdbtable>`
     
     .. attribute:: ospfarealsacounttable
     
     	This table maintains per\-area, per\-LSA\-type counters
-    	**type**\:   :py:class:`Ospfarealsacounttable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarealsacounttable>`
+    	**type**\:  :py:class:`Ospfarealsacounttable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarealsacounttable>`
     
     
 
@@ -270,101 +270,103 @@ class OSPFMIB(Entity):
         .. attribute:: ospfrouterid
         
         	A 32\-bit integer uniquely identifying the router in the Autonomous System. By convention, to ensure uniqueness, this should default to the value of one of the router's IP interface addresses.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         .. attribute:: ospfadminstat
         
         	The administrative status of OSPF in the router.  The value 'enabled' denotes that the OSPF Process is active on at least one interface; 'disabled' disables it on all interfaces.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xe.OSPF_MIB.Status>`
+        	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xe.OSPF_MIB.Status>`
         
         .. attribute:: ospfversionnumber
         
         	The current version number of the OSPF protocol is 2
-        	**type**\:   :py:class:`Ospfversionnumber <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfversionnumber>`
+        	**type**\:  :py:class:`Ospfversionnumber <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfversionnumber>`
         
         .. attribute:: ospfareabdrrtrstatus
         
         	A flag to note whether this router is an Area Border Router
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: ospfasbdrrtrstatus
         
         	A flag to note whether this router is configured as an Autonomous System Border Router.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: ospfexternlsacount
         
         	The number of external (LS type\-5) link state advertisements in the link state database
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ospfexternlsacksumsum
         
         	The 32\-bit sum of the LS checksums of the external link state advertisements contained in the link state database.  This sum can be used to determine if there has been a change in a router's link state database and to compare the link state database of two routers.  The value should be treated as unsigned when comparing two sums of checksums
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: ospftossupport
         
         	The router's support for type\-of\-service routing.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: ospforiginatenewlsas
         
         	The number of new link state advertisements that have been originated.  This number is incremented each time the router originates a new LSA.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ospfDiscontinuityTime
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ospfrxnewlsas
         
         	The number of link state advertisements received that are determined to be new instantiations. This number does not include newer instantiations of self\-originated link state advertisements.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ospfDiscontinuityTime
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ospfextlsdblimit
         
         	The maximum number of non\-default AS\-external LSAs entries that can be stored in the link state database.  If the value is \-1, then there is no limit.  When the number of non\-default AS\-external LSAs in a router's link state database reaches ospfExtLsdbLimit, the router enters overflow state.  The router never holds more than ospfExtLsdbLimit non\-default AS\-external LSAs in its database.  OspfExtLsdbLimit MUST be set identically in all routers attached to the OSPF backbone and/or any regular OSPF area (i.e., OSPF stub areas and NSSAs are excluded).  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-1..2147483647
         
         .. attribute:: ospfmulticastextensions
         
         	A bit mask indicating whether the router is forwarding IP multicast (Class D) datagrams based on the algorithms defined in the multicast extensions to OSPF.  Bit 0, if set, indicates that the router can  forward IP multicast datagrams in the router's directly attached areas (called intra\-area multicast routing).  Bit 1, if set, indicates that the router can forward IP multicast datagrams between OSPF areas (called inter\-area multicast routing).  Bit 2, if set, indicates that the router can forward IP multicast datagrams between Autonomous Systems (called inter\-AS multicast routing).  Only certain combinations of bit settings are allowed, namely\: 0 (no multicast forwarding is enabled), 1 (intra\-area multicasting only), 3 (intra\-area and inter\-area multicasting), 5 (intra\-area and inter\-AS multicasting), and 7 (multicasting everywhere).  By default, no multicast forwarding is enabled.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: ospfexitoverflowinterval
         
         	The number of seconds that, after entering OverflowState, a router will attempt to leave OverflowState.  This allows the router to again originate non\-default AS\-external LSAs.  When set to 0, the router will not leave overflow state until restarted.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
         .. attribute:: ospfdemandextensions
         
         	The router's support for demand routing. This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: ospfrfc1583compatibility
         
         	Indicates metrics used to choose among multiple AS\-external LSAs.  When RFC1583Compatibility is set to enabled, only cost will be used when choosing among multiple AS\-external LSAs advertising the same destination.  When RFC1583Compatibility is set to disabled, preference will be driven first by type of path using cost only to break ties.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: ospfopaquelsasupport
         
         	The router's support for Opaque LSA types
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: ospfreferencebandwidth
         
         	Reference bandwidth in kilobits/second for  calculating default interface metrics.  The default value is 100,000 KBPS (100 MBPS).  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -373,12 +375,12 @@ class OSPFMIB(Entity):
         .. attribute:: ospfrestartsupport
         
         	The router's support for OSPF graceful restart. Options include\: no restart support, only planned restarts, or both planned and unplanned restarts.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:   :py:class:`Ospfrestartsupport <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfrestartsupport>`
+        	**type**\:  :py:class:`Ospfrestartsupport <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfrestartsupport>`
         
         .. attribute:: ospfrestartinterval
         
         	Configured OSPF graceful restart timeout interval.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1800
         
@@ -387,17 +389,17 @@ class OSPFMIB(Entity):
         .. attribute:: ospfrestartstrictlsachecking
         
         	Indicates if strict LSA checking is enabled for graceful restart.  This object is persistent and when written the entity SHOULD save the change to non\-volatile  storage
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: ospfrestartstatus
         
         	Current status of OSPF graceful restart
-        	**type**\:   :py:class:`Ospfrestartstatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfrestartstatus>`
+        	**type**\:  :py:class:`Ospfrestartstatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfrestartstatus>`
         
         .. attribute:: ospfrestartage
         
         	Remaining time in current OSPF graceful restart interval
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -406,36 +408,36 @@ class OSPFMIB(Entity):
         .. attribute:: ospfrestartexitreason
         
         	Describes the outcome of the last attempt at a graceful restart.  If the value is 'none', no restart has yet been attempted.  If the value is 'inProgress', a restart attempt is currently underway
-        	**type**\:   :py:class:`Ospfrestartexitreason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfrestartexitreason>`
+        	**type**\:  :py:class:`Ospfrestartexitreason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfrestartexitreason>`
         
         .. attribute:: ospfaslsacount
         
         	The number of AS\-scope link state advertisements in the AS\-scope link state database
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ospfaslsacksumsum
         
         	The 32\-bit unsigned sum of the LS checksums of the AS link state advertisements contained in the AS\-scope link state database.  This sum can be used to determine if there has been a change in a router's AS\-scope link state database, and to compare the AS\-scope link state database of two routers
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ospfstubroutersupport
         
         	The router's support for stub router functionality
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: ospfstubrouteradvertisement
         
         	This object controls the advertisement of stub router LSAs by the router.  The value doNotAdvertise will result in the advertisement of a standard router LSA and is the default value.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:   :py:class:`Ospfstubrouteradvertisement <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfstubrouteradvertisement>`
+        	**type**\:  :py:class:`Ospfstubrouteradvertisement <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfgeneralgroup.Ospfstubrouteradvertisement>`
         
         .. attribute:: ospfdiscontinuitytime
         
         	The value of sysUpTime on the most recent occasion at which any one of this MIB's counters suffered a discontinuity.  If no such discontinuities have occurred since the last re\-initialization of the local management subsystem, then this object contains a zero value
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -658,7 +660,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfareaentry
         
         	Information describing the configured parameters and cumulative statistics of one of the router's attached areas. The interfaces and virtual links are configured as part of these areas.  Area 0.0.0.0, by definition, is the backbone area.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of    :py:class:`Ospfareaentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry>`
+        	**type**\: list of  		 :py:class:`Ospfareaentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry>`
         
         
 
@@ -700,79 +702,81 @@ class OSPFMIB(Entity):
             .. attribute:: ospfareaid  <key>
             
             	A 32\-bit integer uniquely identifying an area. Area ID 0.0.0.0 is used for the OSPF backbone
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfauthtype
             
             	The authentication type specified for an area
-            	**type**\:   :py:class:`OspfAuthenticationType <ydk.models.cisco_ios_xe.OSPF_MIB.OspfAuthenticationType>`
+            	**type**\:  :py:class:`OspfAuthenticationType <ydk.models.cisco_ios_xe.OSPF_MIB.OspfAuthenticationType>`
             
             	**status**\: obsolete
             
             .. attribute:: ospfimportasextern
             
             	Indicates if an area is a stub area, NSSA, or standard area.  Type\-5 AS\-external LSAs and type\-11 Opaque LSAs are not imported into stub areas or NSSAs.  NSSAs import AS\-external data as type\-7 LSAs
-            	**type**\:   :py:class:`Ospfimportasextern <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Ospfimportasextern>`
+            	**type**\:  :py:class:`Ospfimportasextern <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Ospfimportasextern>`
             
             .. attribute:: ospfspfruns
             
             	The number of times that the intra\-area route table has been calculated using this area's link state database.  This is typically done using Dijkstra's algorithm.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ospfDiscontinuityTime
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfareabdrrtrcount
             
             	The total number of Area Border Routers reachable within this area.  This is initially zero and is calculated in each Shortest Path First (SPF) pass
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfasbdrrtrcount
             
             	The total number of Autonomous System Border Routers reachable within this area.  This is initially zero and is calculated in each SPF pass
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfarealsacount
             
             	The total number of link state advertisements in this area's link state database, excluding AS\-external LSAs
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfarealsacksumsum
             
             	The 32\-bit sum of the link state advertisements' LS checksums contained in this area's link state database.  This sum excludes external (LS type\-5) link state advertisements. The sum can be used to determine if there has been a change in a router's link state database, and to compare the link state database of two routers.  The value should be treated as unsigned when comparing two sums of checksums
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ospfareasummary
             
             	The variable ospfAreaSummary controls the import of summary LSAs into stub and NSSA areas. It has no effect on other areas.  If it is noAreaSummary, the router will not originate summary LSAs into the stub or NSSA area. It will rely entirely on its default route.  If it is sendAreaSummary, the router will both summarize and propagate summary LSAs
-            	**type**\:   :py:class:`Ospfareasummary <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Ospfareasummary>`
+            	**type**\:  :py:class:`Ospfareasummary <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Ospfareasummary>`
             
             .. attribute:: ospfareastatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: ospfareanssatranslatorrole
             
             	Indicates an NSSA border router's ability to perform NSSA translation of type\-7 LSAs into type\-5 LSAs
-            	**type**\:   :py:class:`Ospfareanssatranslatorrole <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Ospfareanssatranslatorrole>`
+            	**type**\:  :py:class:`Ospfareanssatranslatorrole <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Ospfareanssatranslatorrole>`
             
             .. attribute:: ospfareanssatranslatorstate
             
             	Indicates if and how an NSSA border router is performing NSSA translation of type\-7 LSAs into type\-5  LSAs.  When this object is set to enabled, the NSSA Border router's OspfAreaNssaExtTranslatorRole has been set to always.  When this object is set to elected, a candidate NSSA Border router is Translating type\-7 LSAs into type\-5. When this object is set to disabled, a candidate NSSA border router is NOT translating type\-7 LSAs into type\-5
-            	**type**\:   :py:class:`Ospfareanssatranslatorstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Ospfareanssatranslatorstate>`
+            	**type**\:  :py:class:`Ospfareanssatranslatorstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Ospfareanssatranslatorstate>`
             
             .. attribute:: ospfareanssatranslatorstabilityinterval
             
             	The number of seconds after an elected translator determines its services are no longer required, that it should continue to perform its translation duties
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -781,38 +785,38 @@ class OSPFMIB(Entity):
             .. attribute:: ospfareanssatranslatorevents
             
             	Indicates the number of translator state changes that have occurred since the last boot\-up.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ospfDiscontinuityTime
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cospfopaquearealsacount
             
             	The total number of Opaque Area and AS link\-state  advertisements in the link state database of this area
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cospfopaquearealsacksumsum
             
             	The 32\-bit unsigned sum of the Opaque Area and AS  link\-state advertisements' LS checksums contained  link state database of this area.  The sum can be  used to determine if there has been a change in the  link state database for Opaque Area and AS link\-state advertisements
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cospfareanssatranslatorrole
             
             	Indicates an NSSA Border router's ability to perform NSSA translation of type\-7 LSAs into type\-5 LSAs
-            	**type**\:   :py:class:`Cospfareanssatranslatorrole <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Cospfareanssatranslatorrole>`
+            	**type**\:  :py:class:`Cospfareanssatranslatorrole <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Cospfareanssatranslatorrole>`
             
             .. attribute:: cospfareanssatranslatorstate
             
             	Indicates if and how an NSSA Border router is performing NSSA translation of type\-7 LSAs into type\-5 LSAs. When this object set to enabled, the NSSA Border router's cospfAreaNssaExtTranslatorRole has been set to always. When this object is set to elected, a candidate NSSA Border router is Translating type\-7 LSAs into type\-5. When this object is set to disabled, a candidate NSSA Border router is NOT translating type\-7 LSAs into type\-5
-            	**type**\:   :py:class:`Cospfareanssatranslatorstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Cospfareanssatranslatorstate>`
+            	**type**\:  :py:class:`Cospfareanssatranslatorstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareatable.Ospfareaentry.Cospfareanssatranslatorstate>`
             
             .. attribute:: cospfareanssatranslatorevents
             
             	Indicates the number of Translator State changes that have occurred since the last boot\-up
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1055,7 +1059,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfstubareaentry
         
         	The metric for a given Type of Service that will be advertised by a default Area Border Router into a stub area.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of    :py:class:`Ospfstubareaentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfstubareatable.Ospfstubareaentry>`
+        	**type**\: list of  		 :py:class:`Ospfstubareaentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfstubareatable.Ospfstubareaentry>`
         
         
 
@@ -1095,31 +1099,33 @@ class OSPFMIB(Entity):
             .. attribute:: ospfstubareaid  <key>
             
             	The 32\-bit identifier for the stub area.  On creation, this can be derived from the instance
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfstubtos  <key>
             
             	The Type of Service associated with the metric.  On creation, this can be derived from  the instance
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..30
             
             .. attribute:: ospfstubmetric
             
             	The metric value applied at the indicated Type of Service.  By default, this equals the least metric at the Type of Service among the interfaces to other areas
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..16777215
             
             .. attribute:: ospfstubstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: ospfstubmetrictype
             
             	This variable displays the type of metric advertised as a default route
-            	**type**\:   :py:class:`Ospfstubmetrictype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfstubareatable.Ospfstubareaentry.Ospfstubmetrictype>`
+            	**type**\:  :py:class:`Ospfstubmetrictype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfstubareatable.Ospfstubareaentry.Ospfstubmetrictype>`
             
             
 
@@ -1186,7 +1192,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospflsdbentry
         
         	A single link state advertisement
-        	**type**\: list of    :py:class:`Ospflsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable.Ospflsdbentry>`
+        	**type**\: list of  		 :py:class:`Ospflsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable.Ospflsdbentry>`
         
         
 
@@ -1220,34 +1226,40 @@ class OSPFMIB(Entity):
             .. attribute:: ospflsdbareaid  <key>
             
             	The 32\-bit identifier of the area from which the LSA was received
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospflsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format.  Note\: External link state advertisements are permitted for backward compatibility, but should be displayed in the ospfAsLsdbTable rather than here
-            	**type**\:   :py:class:`Ospflsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable.Ospflsdbentry.Ospflsdbtype>`
+            	**type**\:  :py:class:`Ospflsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable.Ospflsdbentry.Ospflsdbtype>`
             
             .. attribute:: ospflsdblsid  <key>
             
             	The Link State ID is an LS Type Specific field containing either a Router ID or an IP address; it identifies the piece of the routing domain that is being described by the advertisement
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospflsdbrouterid  <key>
             
             	The 32\-bit number that uniquely identifies the originating router in the Autonomous System
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospflsdbsequence
             
             	The sequence number field is a signed 32\-bit integer.  It starts with the value '80000001'h, or \-'7FFFFFFF'h, and increments until '7FFFFFFF'h. Thus, a typical sequence number will be very negative. It is used to detect old and duplicate Link State Advertisements.  The space of sequence numbers is linearly ordered.  The larger the sequence number, the more recent the advertisement
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ospflsdbage
             
             	This field is the age of the link state advertisement in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -1256,14 +1268,14 @@ class OSPFMIB(Entity):
             .. attribute:: ospflsdbchecksum
             
             	This field is the checksum of the complete contents of the advertisement, excepting the age field.  The age field is excepted so that an advertisement's age can be incremented without updating the checksum.  The checksum used is the same that is used for ISO connectionless  datagrams; it is commonly referred to as the Fletcher checksum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ospflsdbadvertisement
             
             	The entire link state advertisement, including its header.  Note that for variable length LSAs, SNMP agents may not be able to return the largest string size
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..65535
             
@@ -1375,7 +1387,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfarearangeentry
         
         	A single area address range.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of    :py:class:`Ospfarearangeentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarearangetable.Ospfarearangeentry>`
+        	**type**\: list of  		 :py:class:`Ospfarearangeentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarearangetable.Ospfarearangeentry>`
         
         	**status**\: obsolete
         
@@ -1415,35 +1427,41 @@ class OSPFMIB(Entity):
             .. attribute:: ospfarearangeareaid  <key>
             
             	The area that the address range is to be found within
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: obsolete
             
             .. attribute:: ospfarearangenet  <key>
             
             	The IP address of the net or subnet indicated by the range
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: obsolete
             
             .. attribute:: ospfarearangemask
             
             	The subnet mask that pertains to the net or subnet
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: obsolete
             
             .. attribute:: ospfarearangestatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             	**status**\: obsolete
             
             .. attribute:: ospfarearangeeffect
             
             	Subnets subsumed by ranges either trigger the advertisement of the indicated summary (advertiseMatching) or result in the subnet's not being advertised at all outside the area
-            	**type**\:   :py:class:`Ospfarearangeeffect <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarearangetable.Ospfarearangeentry.Ospfarearangeeffect>`
+            	**type**\:  :py:class:`Ospfarearangeeffect <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarearangetable.Ospfarearangeentry.Ospfarearangeeffect>`
             
             	**status**\: obsolete
             
@@ -1514,7 +1532,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfhostentry
         
         	A metric to be advertised, for a given type of service, when a given host is reachable.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of    :py:class:`Ospfhostentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfhosttable.Ospfhostentry>`
+        	**type**\: list of  		 :py:class:`Ospfhostentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfhosttable.Ospfhostentry>`
         
         
 
@@ -1553,38 +1571,44 @@ class OSPFMIB(Entity):
             .. attribute:: ospfhostipaddress  <key>
             
             	The IP address of the host
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfhosttos  <key>
             
             	The Type of Service of the route being configured
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..30
             
             .. attribute:: ospfhostmetric
             
             	The metric to be advertised
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: ospfhoststatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: ospfhostareaid
             
             	The OSPF area to which the host belongs. Deprecated by ospfHostCfgAreaID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: deprecated
             
             .. attribute:: ospfhostcfgareaid
             
             	To configure the OSPF area to which the host belongs
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             
 
@@ -1630,7 +1654,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfifentry
         
         	The OSPF interface entry describes one interface from the viewpoint of OSPF.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of    :py:class:`Ospfifentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable.Ospfifentry>`
+        	**type**\: list of  		 :py:class:`Ospfifentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable.Ospfifentry>`
         
         
 
@@ -1669,41 +1693,45 @@ class OSPFMIB(Entity):
             .. attribute:: ospfifipaddress  <key>
             
             	The IP address of this OSPF interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfaddresslessif  <key>
             
             	For the purpose of easing the instancing of addressed and addressless interfaces; this variable takes the value 0 on interfaces with IP addresses and the corresponding value of ifIndex for interfaces having no IP address
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: ospfifareaid
             
             	A 32\-bit integer uniquely identifying the area to which the interface connects.  Area ID 0.0.0.0 is used for the OSPF backbone
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfiftype
             
             	The OSPF interface type. By way of a default, this field may be intuited from the corresponding value of ifType. Broadcast LANs, such as Ethernet and IEEE 802.5, take the value 'broadcast', X.25 and similar technologies take the value 'nbma', and links that are definitively point to point take the value 'pointToPoint'
-            	**type**\:   :py:class:`Ospfiftype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable.Ospfifentry.Ospfiftype>`
+            	**type**\:  :py:class:`Ospfiftype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable.Ospfifentry.Ospfiftype>`
             
             .. attribute:: ospfifadminstat
             
             	The OSPF interface's administrative status. The value formed on the interface, and the interface will be advertised as an internal route to some area. The value 'disabled' denotes that the interface is external to OSPF
-            	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xe.OSPF_MIB.Status>`
+            	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xe.OSPF_MIB.Status>`
             
             .. attribute:: ospfifrtrpriority
             
             	The priority of this interface.  Used in multi\-access networks, this field is used in the designated router election algorithm.  The value 0 signifies that the router is not eligible to become the designated router on this particular network.  In the event of a tie in this value, routers will use their Router ID as a tie breaker
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: ospfiftransitdelay
             
             	The estimated number of seconds it takes to transmit a link state update packet over this interface.  Note that the minimal value SHOULD be 1 second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..3600
             
@@ -1712,7 +1740,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfifretransinterval
             
             	The number of seconds between link state advertisement retransmissions, for adjacencies belonging to this interface.  This value is also used when retransmitting  database description and Link State request packets. Note that minimal value SHOULD be 1 second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..3600
             
@@ -1721,7 +1749,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfifhellointerval
             
             	The length of time, in seconds, between the Hello packets that the router sends on the interface.  This value must be the same for all routers attached to a common network
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -1730,7 +1758,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfifrtrdeadinterval
             
             	The number of seconds that a router's Hello packets have not been seen before its neighbors declare the router down. This should be some multiple of the Hello interval.  This value must be the same for all routers attached to a common network
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1739,7 +1767,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfifpollinterval
             
             	The larger time interval, in seconds, between the Hello packets sent to an inactive non\-broadcast multi\-access neighbor
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1748,87 +1776,95 @@ class OSPFMIB(Entity):
             .. attribute:: ospfifstate
             
             	The OSPF Interface State
-            	**type**\:   :py:class:`Ospfifstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable.Ospfifentry.Ospfifstate>`
+            	**type**\:  :py:class:`Ospfifstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable.Ospfifentry.Ospfifstate>`
             
             .. attribute:: ospfifdesignatedrouter
             
             	The IP address of the designated router
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfifbackupdesignatedrouter
             
             	The IP address of the backup designated router
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfifevents
             
             	The number of times this OSPF interface has changed its state or an error has occurred.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ospfDiscontinuityTime
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfifauthkey
             
             	The cleartext password used as an OSPF authentication key when simplePassword security is enabled.  This object does not access any OSPF cryptogaphic (e.g., MD5) authentication key under any circumstance.  If the key length is shorter than 8 octets, the agent will left adjust and zero fill to 8 octets.  Unauthenticated interfaces need no authentication key, and simple password authentication cannot use a key of more than 8 octets.  Note that the use of simplePassword authentication is NOT recommended when there is concern regarding attack upon the OSPF system.  SimplePassword authentication is only sufficient to protect against accidental misconfigurations because it re\-uses cleartext passwords [RFC1704].  When read, ospfIfAuthKey always returns an octet string of length zero
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: ospfifstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: ospfifmulticastforwarding
             
             	The way multicasts should be forwarded on this interface\: not forwarded, forwarded as data link multicasts, or forwarded as data link unicasts.  Data link multicasting is not meaningful on point\-to\-point and NBMA interfaces, and setting ospfMulticastForwarding to 0 effectively disables all multicast forwarding
-            	**type**\:   :py:class:`Ospfifmulticastforwarding <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable.Ospfifentry.Ospfifmulticastforwarding>`
+            	**type**\:  :py:class:`Ospfifmulticastforwarding <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfiftable.Ospfifentry.Ospfifmulticastforwarding>`
             
             .. attribute:: ospfifdemand
             
             	Indicates whether Demand OSPF procedures (hello suppression to FULL neighbors and setting the DoNotAge flag on propagated LSAs) should be performed on this interface
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ospfifauthtype
             
             	The authentication type specified for an interface.  Note that this object can be used to engage in significant attacks against an OSPF router
-            	**type**\:   :py:class:`OspfAuthenticationType <ydk.models.cisco_ios_xe.OSPF_MIB.OspfAuthenticationType>`
+            	**type**\:  :py:class:`OspfAuthenticationType <ydk.models.cisco_ios_xe.OSPF_MIB.OspfAuthenticationType>`
             
             .. attribute:: ospfiflsacount
             
             	The total number of link\-local link state advertisements in this interface's link\-local link state database
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfiflsacksumsum
             
             	The 32\-bit unsigned sum of the Link State Advertisements' LS checksums contained in this interface's link\-local link state database. The sum can be used to determine if there has been a change in the interface's link state database and to compare the interface link state database of routers attached to the same subnet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfifdesignatedrouterid
             
             	The Router ID of the designated router
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfifbackupdesignatedrouterid
             
             	The Router ID of the backup designated router
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: cospfiflsacount
             
             	The total number of link\-local link state advertisements in this interface's link\-local link state database
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cospfiflsacksumsum
             
             	The 32\-bit unsigned sum of the link\-state advertisements' LS checksums contained in this interface's link\-local link  state database. The sum can be used to determine if there has been a change in the interface's link state database, and to compare the interface link\-state database of routers  attached to the same subnet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2057,7 +2093,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfifmetricentry
         
         	A particular TOS metric for a non\-virtual interface identified by the interface index.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of    :py:class:`Ospfifmetricentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfifmetrictable.Ospfifmetricentry>`
+        	**type**\: list of  		 :py:class:`Ospfifmetricentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfifmetrictable.Ospfifmetricentry>`
         
         
 
@@ -2096,33 +2132,35 @@ class OSPFMIB(Entity):
             .. attribute:: ospfifmetricipaddress  <key>
             
             	The IP address of this OSPF interface.  On row creation, this can be derived from the instance
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfifmetricaddresslessif  <key>
             
             	For the purpose of easing the instancing of addressed and addressless interfaces; this variable takes the value 0 on interfaces with IP addresses and the value of ifIndex for interfaces having no IP address.  On row creation, this can be derived from the instance
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: ospfifmetrictos  <key>
             
             	The Type of Service metric being referenced. On row creation, this can be derived from the instance
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..30
             
             .. attribute:: ospfifmetricvalue
             
             	The metric of using this Type of Service on this interface.  The default value of the TOS 0 metric is 10^8 / ifSpeed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: ospfifmetricstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -2165,7 +2203,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfvirtifentry
         
         	Information about a single virtual interface.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of    :py:class:`Ospfvirtifentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtiftable.Ospfvirtifentry>`
+        	**type**\: list of  		 :py:class:`Ospfvirtifentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtiftable.Ospfvirtifentry>`
         
         
 
@@ -2203,17 +2241,21 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtifareaid  <key>
             
             	The transit area that the virtual link traverses.  By definition, this is not 0.0.0.0
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfvirtifneighbor  <key>
             
             	The Router ID of the virtual neighbor
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfvirtiftransitdelay
             
             	The estimated number of seconds it takes to transmit a Link State update packet over this interface.  Note that the minimal value SHOULD be 1 second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..3600
             
@@ -2222,7 +2264,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtifretransinterval
             
             	The number of seconds between link state avertisement retransmissions, for adjacencies belonging to this interface.  This value is also used when retransmitting database description and Link State request packets.  This value should be well over the expected round\-trip time.  Note that the minimal value SHOULD be 1 second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..3600
             
@@ -2231,7 +2273,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtifhellointerval
             
             	The length of time, in seconds, between the Hello packets that the router sends on the interface.  This value must be the same for the virtual neighbor
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -2240,7 +2282,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtifrtrdeadinterval
             
             	The number of seconds that a router's Hello packets have not been seen before its neighbors declare the router down.  This should be some multiple of the Hello interval.  This value must be the same for the virtual neighbor
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -2249,57 +2291,57 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtifstate
             
             	OSPF virtual interface states
-            	**type**\:   :py:class:`Ospfvirtifstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtiftable.Ospfvirtifentry.Ospfvirtifstate>`
+            	**type**\:  :py:class:`Ospfvirtifstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtiftable.Ospfvirtifentry.Ospfvirtifstate>`
             
             .. attribute:: ospfvirtifevents
             
             	The number of state changes or error events on this virtual link.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ospfDiscontinuityTime
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfvirtifauthkey
             
             	The cleartext password used as an OSPF authentication key when simplePassword security is enabled.  This object does not access any OSPF cryptogaphic (e.g., MD5) authentication key under any circumstance.  If the key length is shorter than 8 octets, the agent will left adjust and zero fill to 8 octets.  Unauthenticated interfaces need no authentication key, and simple password authentication cannot use a key of more than 8 octets.  Note that the use of simplePassword authentication is NOT recommended when there is concern regarding attack upon the OSPF system.  SimplePassword authentication is only sufficient to protect against accidental misconfigurations because it re\-uses cleartext passwords.  [RFC1704]  When read, ospfIfAuthKey always returns an octet string of length zero
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..256
             
             .. attribute:: ospfvirtifstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: ospfvirtifauthtype
             
             	The authentication type specified for a virtual interface.  Note that this object can be used to engage in significant attacks against an OSPF router
-            	**type**\:   :py:class:`OspfAuthenticationType <ydk.models.cisco_ios_xe.OSPF_MIB.OspfAuthenticationType>`
+            	**type**\:  :py:class:`OspfAuthenticationType <ydk.models.cisco_ios_xe.OSPF_MIB.OspfAuthenticationType>`
             
             .. attribute:: ospfvirtiflsacount
             
             	The total number of link\-local link state advertisements in this virtual interface's link\-local link state database
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfvirtiflsacksumsum
             
             	The 32\-bit unsigned sum of the link state advertisements' LS checksums contained in this virtual interface's link\-local link state database. The sum can be used to determine if there has been a change in the virtual interface's link state database, and to compare the virtual interface link state database of the virtual neighbors
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cospfvirtiflsacount
             
             	The total number of link\-local link state advertisements in this virtual interface's link\-local link state database
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cospfvirtiflsacksumsum
             
             	The 32\-bit unsigned sum of the link\-state advertisements' LS checksums contained in this virtual interface's link\-local link state database. The sum can be used to determine if there has been a change in the virtual interface's link state database, and to compare the virtual interface link\-state database of the virtual neighbors
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2381,7 +2423,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfnbrentry
         
         	The information regarding a single neighbor.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile  storage
-        	**type**\: list of    :py:class:`Ospfnbrentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry>`
+        	**type**\: list of  		 :py:class:`Ospfnbrentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry>`
         
         
 
@@ -2420,77 +2462,81 @@ class OSPFMIB(Entity):
             .. attribute:: ospfnbripaddr  <key>
             
             	The IP address this neighbor is using in its IP source address.  Note that, on addressless links, this will not be 0.0.0.0 but the  address of another of the neighbor's interfaces
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfnbraddresslessindex  <key>
             
             	On an interface having an IP address, zero. On addressless interfaces, the corresponding value of ifIndex in the Internet Standard MIB. On row creation, this can be derived from the instance
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: ospfnbrrtrid
             
             	A 32\-bit integer (represented as a type IpAddress) uniquely identifying the neighboring router in the Autonomous System
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfnbroptions
             
             	A bit mask corresponding to the neighbor's options field.  Bit 0, if set, indicates that the system will operate on Type of Service metrics other than TOS 0.  If zero, the neighbor will ignore all metrics except the TOS 0 metric.  Bit 1, if set, indicates that the associated area accepts and operates on external information; if zero, it is a stub area.  Bit 2, if set, indicates that the system is capable of routing IP multicast datagrams, that is that it implements the multicast extensions to OSPF.  Bit 3, if set, indicates that the associated area is an NSSA.  These areas are capable of carrying type\-7 external advertisements, which are translated into type\-5 external advertisements at NSSA borders
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ospfnbrpriority
             
             	The priority of this neighbor in the designated router election algorithm.  The value 0 signifies that the neighbor is not eligible to become the designated router on this particular network
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: ospfnbrstate
             
             	The state of the relationship with this neighbor
-            	**type**\:   :py:class:`Ospfnbrstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry.Ospfnbrstate>`
+            	**type**\:  :py:class:`Ospfnbrstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry.Ospfnbrstate>`
             
             .. attribute:: ospfnbrevents
             
             	The number of times this neighbor relationship has changed state or an error has occurred.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ospfDiscontinuityTime
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfnbrlsretransqlen
             
             	The current length of the retransmission queue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfnbmanbrstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: ospfnbmanbrpermanence
             
             	This variable displays the status of the entry; 'dynamic' and 'permanent' refer to how the neighbor became known
-            	**type**\:   :py:class:`Ospfnbmanbrpermanence <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry.Ospfnbmanbrpermanence>`
+            	**type**\:  :py:class:`Ospfnbmanbrpermanence <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry.Ospfnbmanbrpermanence>`
             
             .. attribute:: ospfnbrhellosuppressed
             
             	Indicates whether Hellos are being suppressed to the neighbor
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ospfnbrrestarthelperstatus
             
             	Indicates whether the router is acting as a graceful restart helper for the neighbor
-            	**type**\:   :py:class:`Ospfnbrrestarthelperstatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry.Ospfnbrrestarthelperstatus>`
+            	**type**\:  :py:class:`Ospfnbrrestarthelperstatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry.Ospfnbrrestarthelperstatus>`
             
             .. attribute:: ospfnbrrestarthelperage
             
             	Remaining time in current OSPF graceful restart interval, if the router is acting as a restart helper for the neighbor
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2499,7 +2545,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfnbrrestarthelperexitreason
             
             	Describes the outcome of the last attempt at acting as a graceful restart helper for the neighbor
-            	**type**\:   :py:class:`Ospfnbrrestarthelperexitreason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry.Ospfnbrrestarthelperexitreason>`
+            	**type**\:  :py:class:`Ospfnbrrestarthelperexitreason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfnbrtable.Ospfnbrentry.Ospfnbrrestarthelperexitreason>`
             
             
 
@@ -2673,7 +2719,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfvirtnbrentry
         
         	Virtual neighbor information
-        	**type**\: list of    :py:class:`Ospfvirtnbrentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry>`
+        	**type**\: list of  		 :py:class:`Ospfvirtnbrentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry>`
         
         
 
@@ -2707,58 +2753,64 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtnbrarea  <key>
             
             	The Transit Area Identifier
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfvirtnbrrtrid  <key>
             
             	A 32\-bit integer uniquely identifying the neighboring router in the Autonomous System
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfvirtnbripaddr
             
             	The IP address this virtual neighbor is using
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfvirtnbroptions
             
             	A bit mask corresponding to the neighbor's options field.  Bit 1, if set, indicates that the system will operate on Type of Service metrics other than TOS 0.  If zero, the neighbor will ignore all metrics except the TOS 0 metric.  Bit 2, if set, indicates that the system is network multicast capable, i.e., that it implements OSPF multicast routing
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ospfvirtnbrstate
             
             	The state of the virtual neighbor relationship
-            	**type**\:   :py:class:`Ospfvirtnbrstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry.Ospfvirtnbrstate>`
+            	**type**\:  :py:class:`Ospfvirtnbrstate <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry.Ospfvirtnbrstate>`
             
             .. attribute:: ospfvirtnbrevents
             
             	The number of times this virtual link has changed its state or an error has occurred.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ospfDiscontinuityTime
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfvirtnbrlsretransqlen
             
             	The current length of the retransmission queue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ospfvirtnbrhellosuppressed
             
             	Indicates whether Hellos are being suppressed to the neighbor
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ospfvirtnbrrestarthelperstatus
             
             	Indicates whether the router is acting as a graceful restart helper for the neighbor
-            	**type**\:   :py:class:`Ospfvirtnbrrestarthelperstatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry.Ospfvirtnbrrestarthelperstatus>`
+            	**type**\:  :py:class:`Ospfvirtnbrrestarthelperstatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry.Ospfvirtnbrrestarthelperstatus>`
             
             .. attribute:: ospfvirtnbrrestarthelperage
             
             	Remaining time in current OSPF graceful restart interval, if the router is acting as a restart helper for the neighbor
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2767,7 +2819,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtnbrrestarthelperexitreason
             
             	Describes the outcome of the last attempt at acting as a graceful restart helper for the neighbor
-            	**type**\:   :py:class:`Ospfvirtnbrrestarthelperexitreason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry.Ospfvirtnbrrestarthelperexitreason>`
+            	**type**\:  :py:class:`Ospfvirtnbrrestarthelperexitreason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtnbrtable.Ospfvirtnbrentry.Ospfvirtnbrrestarthelperexitreason>`
             
             
 
@@ -2922,7 +2974,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfextlsdbentry
         
         	A single link state advertisement
-        	**type**\: list of    :py:class:`Ospfextlsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfextlsdbtable.Ospfextlsdbentry>`
+        	**type**\: list of  		 :py:class:`Ospfextlsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfextlsdbtable.Ospfextlsdbentry>`
         
         	**status**\: deprecated
         
@@ -2958,28 +3010,32 @@ class OSPFMIB(Entity):
             .. attribute:: ospfextlsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:   :py:class:`Ospfextlsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfextlsdbtable.Ospfextlsdbentry.Ospfextlsdbtype>`
+            	**type**\:  :py:class:`Ospfextlsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfextlsdbtable.Ospfextlsdbentry.Ospfextlsdbtype>`
             
             	**status**\: deprecated
             
             .. attribute:: ospfextlsdblsid  <key>
             
             	The Link State ID is an LS Type Specific field containing either a Router ID or an IP address; it identifies the piece of the routing domain that is being described by the advertisement
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: deprecated
             
             .. attribute:: ospfextlsdbrouterid  <key>
             
             	The 32\-bit number that uniquely identifies the originating router in the Autonomous System
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: deprecated
             
             .. attribute:: ospfextlsdbsequence
             
             	The sequence number field is a signed 32\-bit integer.  It starts with the value '80000001'h, or \-'7FFFFFFF'h, and increments until '7FFFFFFF'h. Thus, a typical sequence number will be very negative. It is used to detect old and duplicate link state advertisements.  The space of sequence numbers is linearly ordered.  The larger the sequence number, the more recent the advertisement
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -2988,7 +3044,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfextlsdbage
             
             	This field is the age of the link state advertisement in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -2999,7 +3055,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfextlsdbchecksum
             
             	This field is the checksum of the complete contents of the advertisement, excepting the age field.  The age field is excepted so that an advertisement's age can be incremented without updating the checksum.  The checksum used is the same that is used for ISO connectionless datagrams; it is commonly referred to as the Fletcher checksum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -3008,7 +3064,7 @@ class OSPFMIB(Entity):
             .. attribute:: ospfextlsdbadvertisement
             
             	The entire link state advertisement, including its header
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 36
             
@@ -3090,7 +3146,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfareaaggregateentry
         
         	A single area aggregate entry.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
-        	**type**\: list of    :py:class:`Ospfareaaggregateentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareaaggregatetable.Ospfareaaggregateentry>`
+        	**type**\: list of  		 :py:class:`Ospfareaaggregateentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareaaggregatetable.Ospfareaaggregateentry>`
         
         
 
@@ -3128,37 +3184,43 @@ class OSPFMIB(Entity):
             .. attribute:: ospfareaaggregateareaid  <key>
             
             	The area within which the address aggregate is to be found
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfareaaggregatelsdbtype  <key>
             
             	The type of the address aggregate.  This field specifies the Lsdb type that this address aggregate applies to
-            	**type**\:   :py:class:`Ospfareaaggregatelsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareaaggregatetable.Ospfareaaggregateentry.Ospfareaaggregatelsdbtype>`
+            	**type**\:  :py:class:`Ospfareaaggregatelsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareaaggregatetable.Ospfareaaggregateentry.Ospfareaaggregatelsdbtype>`
             
             .. attribute:: ospfareaaggregatenet  <key>
             
             	The IP address of the net or subnet indicated by the range
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfareaaggregatemask  <key>
             
             	The subnet mask that pertains to the net or subnet
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfareaaggregatestatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: ospfareaaggregateeffect
             
             	Subnets subsumed by ranges either trigger the advertisement of the indicated aggregate (advertiseMatching) or result in the subnet's not being advertised at all outside the area
-            	**type**\:   :py:class:`Ospfareaaggregateeffect <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareaaggregatetable.Ospfareaaggregateentry.Ospfareaaggregateeffect>`
+            	**type**\:  :py:class:`Ospfareaaggregateeffect <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfareaaggregatetable.Ospfareaaggregateentry.Ospfareaaggregateeffect>`
             
             .. attribute:: ospfareaaggregateextroutetag
             
             	External route tag to be included in NSSA (type\-7) LSAs
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3258,7 +3320,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospflocallsdbentry
         
         	A single link state advertisement
-        	**type**\: list of    :py:class:`Ospflocallsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflocallsdbtable.Ospflocallsdbentry>`
+        	**type**\: list of  		 :py:class:`Ospflocallsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflocallsdbtable.Ospflocallsdbentry>`
         
         
 
@@ -3292,41 +3354,47 @@ class OSPFMIB(Entity):
             .. attribute:: ospflocallsdbipaddress  <key>
             
             	The IP address of the interface from which the LSA was received if the interface is numbered
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospflocallsdbaddresslessif  <key>
             
             	The interface index of the interface from which the LSA was received if the interface is unnumbered
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: ospflocallsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:   :py:class:`Ospflocallsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflocallsdbtable.Ospflocallsdbentry.Ospflocallsdbtype>`
+            	**type**\:  :py:class:`Ospflocallsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflocallsdbtable.Ospflocallsdbentry.Ospflocallsdbtype>`
             
             .. attribute:: ospflocallsdblsid  <key>
             
             	The Link State ID is an LS Type Specific field containing a 32\-bit identifier in IP address format; it identifies the piece of the routing domain that is being described by the advertisement
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospflocallsdbrouterid  <key>
             
             	The 32\-bit number that uniquely identifies the originating router in the Autonomous System
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospflocallsdbsequence
             
             	The sequence number field is a signed 32\-bit integer.  It starts with the value '80000001'h, or \-'7FFFFFFF'h, and increments until '7FFFFFFF'h. Thus, a typical sequence number will be very negative. It is used to detect old and duplicate link state advertisements.  The space of sequence numbers is linearly ordered.  The larger the sequence number, the more recent the advertisement
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ospflocallsdbage
             
             	This field is the age of the link state advertisement in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -3335,14 +3403,14 @@ class OSPFMIB(Entity):
             .. attribute:: ospflocallsdbchecksum
             
             	This field is the checksum of the complete contents of the advertisement, excepting the age field.  The age field is excepted so that an advertisement's age can be incremented without updating the checksum.  The checksum used is the same that is used for ISO connectionless datagrams; it is commonly referred to as the Fletcher checksum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ospflocallsdbadvertisement
             
             	The entire link state advertisement, including its header.  Note that for variable length LSAs, SNMP agents may not be able to return the largest string size
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..65535
             
@@ -3419,7 +3487,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfvirtlocallsdbentry
         
         	A single link state advertisement
-        	**type**\: list of    :py:class:`Ospfvirtlocallsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry>`
+        	**type**\: list of  		 :py:class:`Ospfvirtlocallsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry>`
         
         
 
@@ -3453,39 +3521,47 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtlocallsdbtransitarea  <key>
             
             	The transit area that the virtual link traverses.  By definition, this is not 0.0.0.0
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfvirtlocallsdbneighbor  <key>
             
             	The Router ID of the virtual neighbor
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfvirtlocallsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:   :py:class:`Ospfvirtlocallsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry.Ospfvirtlocallsdbtype>`
+            	**type**\:  :py:class:`Ospfvirtlocallsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry.Ospfvirtlocallsdbtype>`
             
             .. attribute:: ospfvirtlocallsdblsid  <key>
             
             	The Link State ID is an LS Type Specific field containing a 32\-bit identifier in IP address format; it identifies the piece of the routing domain that is being described by the advertisement
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfvirtlocallsdbrouterid  <key>
             
             	The 32\-bit number that uniquely identifies the originating router in the Autonomous System
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfvirtlocallsdbsequence
             
             	The sequence number field is a signed 32\-bit integer.  It starts with the value '80000001'h, or \-'7FFFFFFF'h, and increments until '7FFFFFFF'h. Thus, a typical sequence number will be very negative. It is used to detect old and duplicate link state advertisements.  The space of sequence numbers is linearly ordered.  The larger the sequence number, the more recent the advertisement
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ospfvirtlocallsdbage
             
             	This field is the age of the link state advertisement in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -3494,14 +3570,14 @@ class OSPFMIB(Entity):
             .. attribute:: ospfvirtlocallsdbchecksum
             
             	This field is the checksum of the complete contents of the advertisement, excepting the age field.  The age field is excepted so that  an advertisement's age can be incremented without updating the checksum.  The checksum used is the same that is used for ISO connectionless datagrams; it is commonly referred to as the Fletcher checksum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ospfvirtlocallsdbadvertisement
             
             	The entire link state advertisement, including its header
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..65535
             
@@ -3579,7 +3655,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfaslsdbentry
         
         	A single link state advertisement
-        	**type**\: list of    :py:class:`Ospfaslsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfaslsdbtable.Ospfaslsdbentry>`
+        	**type**\: list of  		 :py:class:`Ospfaslsdbentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfaslsdbtable.Ospfaslsdbentry>`
         
         
 
@@ -3613,29 +3689,33 @@ class OSPFMIB(Entity):
             .. attribute:: ospfaslsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:   :py:class:`Ospfaslsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfaslsdbtable.Ospfaslsdbentry.Ospfaslsdbtype>`
+            	**type**\:  :py:class:`Ospfaslsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfaslsdbtable.Ospfaslsdbentry.Ospfaslsdbtype>`
             
             .. attribute:: ospfaslsdblsid  <key>
             
             	The Link State ID is an LS Type Specific field containing either a Router ID or an IP address;  it identifies the piece of the routing domain that is being described by the advertisement
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfaslsdbrouterid  <key>
             
             	The 32\-bit number that uniquely identifies the originating router in the Autonomous System
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfaslsdbsequence
             
             	The sequence number field is a signed 32\-bit integer.  It starts with the value '80000001'h, or \-'7FFFFFFF'h, and increments until '7FFFFFFF'h. Thus, a typical sequence number will be very negative. It is used to detect old and duplicate link state advertisements.  The space of sequence numbers is linearly ordered.  The larger the sequence number, the more recent the advertisement
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ospfaslsdbage
             
             	This field is the age of the link state advertisement in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -3644,14 +3724,14 @@ class OSPFMIB(Entity):
             .. attribute:: ospfaslsdbchecksum
             
             	This field is the checksum of the complete contents of the advertisement, excepting the age field.  The age field is excepted so that an advertisement's age can be incremented without updating the checksum.  The checksum used is the same that is used for ISO connectionless datagrams; it is commonly referred to as the Fletcher checksum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ospfaslsdbadvertisement
             
             	The entire link state advertisement, including its header
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..65535
             
@@ -3720,7 +3800,7 @@ class OSPFMIB(Entity):
         .. attribute:: ospfarealsacountentry
         
         	An entry with a number of link advertisements  of a given type for a given area
-        	**type**\: list of    :py:class:`Ospfarealsacountentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarealsacounttable.Ospfarealsacountentry>`
+        	**type**\: list of  		 :py:class:`Ospfarealsacountentry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarealsacounttable.Ospfarealsacountentry>`
         
         
 
@@ -3756,17 +3836,19 @@ class OSPFMIB(Entity):
             .. attribute:: ospfarealsacountareaid  <key>
             
             	This entry Area ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ospfarealsacountlsatype  <key>
             
             	This entry LSA type
-            	**type**\:   :py:class:`Ospfarealsacountlsatype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarealsacounttable.Ospfarealsacountentry.Ospfarealsacountlsatype>`
+            	**type**\:  :py:class:`Ospfarealsacountlsatype <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospfarealsacounttable.Ospfarealsacountentry.Ospfarealsacountlsatype>`
             
             .. attribute:: ospfarealsacountnumber
             
             	Number of LSAs of a given type for a given area
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

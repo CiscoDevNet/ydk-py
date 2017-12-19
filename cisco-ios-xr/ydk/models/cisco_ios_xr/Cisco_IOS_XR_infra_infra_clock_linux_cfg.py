@@ -25,7 +25,7 @@ class Clock(Entity):
     .. attribute:: time_zone
     
     	Configure time zone
-    	**type**\:   :py:class:`TimeZone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_linux_cfg.Clock.TimeZone>`
+    	**type**\:  :py:class:`TimeZone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_linux_cfg.Clock.TimeZone>`
     
     	**presence node**\: True
     
@@ -60,14 +60,14 @@ class Clock(Entity):
         .. attribute:: time_zone_name
         
         	Name of time zone
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         
         .. attribute:: area_name
         
         	Area File in zoneinfo package
-        	**type**\:  str
+        	**type**\: str
         
         	**mandatory**\: True
         

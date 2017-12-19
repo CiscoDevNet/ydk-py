@@ -40,42 +40,42 @@ class RSVPMIB(Entity):
     .. attribute:: rsvpgenobjects
     
     	
-    	**type**\:   :py:class:`Rsvpgenobjects <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpgenobjects>`
+    	**type**\:  :py:class:`Rsvpgenobjects <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpgenobjects>`
     
     .. attribute:: rsvpsessiontable
     
     	A table  of	 all  sessions	seen  by  a  given system
-    	**type**\:   :py:class:`Rsvpsessiontable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable>`
+    	**type**\:  :py:class:`Rsvpsessiontable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable>`
     
     .. attribute:: rsvpsendertable
     
     	Information	describing the	state  information displayed by	senders	in PATH	messages
-    	**type**\:   :py:class:`Rsvpsendertable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsendertable>`
+    	**type**\:  :py:class:`Rsvpsendertable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsendertable>`
     
     .. attribute:: rsvpsenderoutinterfacetable
     
     	List of outgoing interfaces	that PATH messages use.	 The  ifIndex  is the ifIndex value of the egress interface
-    	**type**\:   :py:class:`Rsvpsenderoutinterfacetable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsenderoutinterfacetable>`
+    	**type**\:  :py:class:`Rsvpsenderoutinterfacetable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsenderoutinterfacetable>`
     
     .. attribute:: rsvpresvtable
     
     	Information	describing the	state  information displayed by	receivers in RESV messages
-    	**type**\:   :py:class:`Rsvpresvtable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpresvtable>`
+    	**type**\:  :py:class:`Rsvpresvtable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpresvtable>`
     
     .. attribute:: rsvpresvfwdtable
     
     	Information	describing the	state  information displayed upstream in RESV messages
-    	**type**\:   :py:class:`Rsvpresvfwdtable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpresvfwdtable>`
+    	**type**\:  :py:class:`Rsvpresvfwdtable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpresvfwdtable>`
     
     .. attribute:: rsvpiftable
     
     	The	RSVP\-specific attributes of  the  system's interfaces
-    	**type**\:   :py:class:`Rsvpiftable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpiftable>`
+    	**type**\:  :py:class:`Rsvpiftable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpiftable>`
     
     .. attribute:: rsvpnbrtable
     
     	Information	describing  the	 Neighbors  of	an RSVP	system
-    	**type**\:   :py:class:`Rsvpnbrtable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpnbrtable>`
+    	**type**\:  :py:class:`Rsvpnbrtable <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpnbrtable>`
     
     
 
@@ -144,35 +144,35 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpbadpackets
         
         	This object	keeps a	count of the number of bad RSVP	packets	received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: rsvpsendernewindex
         
         	This  object  is  used  to	assign	values	to rsvpSenderNumber   as   described  in  'Textual Conventions for SNMPv2'.  The  network  manager reads  the  object,	and  then writes the value back	in the SET that	creates	a new instance	of rsvpSenderEntry.   If  the  SET  fails with the code	'inconsistentValue', then the process must be  repeated;  If  the  SET	succeeds, then the object is incremented, and the new instance	is created according to	the manager's directions
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
         .. attribute:: rsvpresvnewindex
         
         	This  object  is  used  to	assign	values	to rsvpResvNumber   as	 described   in	  'Textual Conventions for SNMPv2'.  The  network  manager reads  the  object,	and  then writes the value back	in the SET that	creates	a new instance	of rsvpResvEntry.   If the SET fails with the code 'inconsistentValue',	then the process  must	be repeated;  If the SET succeeds, then	the object is incremented, and the new instance	is created according to	the manager's directions
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
         .. attribute:: rsvpresvfwdnewindex
         
         	This  object  is  used  to	assign	values	to rsvpResvFwdNumber   as  described  in  'Textual Conventions for SNMPv2'.  The  network  manager reads  the  object,	and  then writes the value back	in the SET that	creates	a new instance	of rsvpResvFwdEntry.   If  the	SET fails with the code	'inconsistentValue', then the process must be  repeated;  If  the  SET	succeeds, then the object is incremented, and the new instance	is created according to	the manager's directions
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
         .. attribute:: rsvpsessionnewindex
         
         	This  object  is  used  to	assign	values	to rsvpSessionNumber   as  described  in  'Textual Conventions for SNMPv2'.  The  network  manager reads  the  object,	and  then writes the value back	in the SET that	creates	a new instance	of rsvpSessionEntry.   If  the	SET fails with the code	'inconsistentValue', then the process must be  repeated;  If  the  SET	succeeds, then the object is incremented, and the new instance	is created according to	the manager's directions
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
@@ -217,7 +217,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpsessionentry
         
         	A single session seen by a given system
-        	**type**\: list of    :py:class:`Rsvpsessionentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable.Rsvpsessionentry>`
+        	**type**\: list of  		 :py:class:`Rsvpsessionentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable.Rsvpsessionentry>`
         
         
 
@@ -251,63 +251,63 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsessionnumber  <key>
             
             	The	number of this session.	 This is for  SNMP Indexing  purposes  only and	has no relation	to any protocol	value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpsessiontype
             
             	The	type of	session	(IP4, IP6, IP6	with  flow information,	etc)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: rsvpsessiondestaddr
             
             	The	destination address used by all	senders	in this	 session.   This object	may not	be changed when	the  value  of	the  RowStatus	object	is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: rsvpsessiondestaddrlength
             
             	The	CIDR prefix length of the session address, which   is	32  for	 IP4  host  and	 multicast addresses, and 128  for  IP6	 addresses.   This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..128
             
             .. attribute:: rsvpsessionprotocol
             
             	The	IP Protocol used by  this  session.   This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: rsvpsessionport
             
             	The	 UDP  or  TCP  port  number  used   as	 a destination	 port  for  all	 senders  in  this session.  If	the IP protocol	in use,	 specified by  rsvpSenderProtocol, is 50 (ESP) or 51 (AH), this	 represents  a	virtual	 destination  port number.   A value of	zero indicates that the	IP protocol in use  does  not  have  ports.   This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2..4
             
             .. attribute:: rsvpsessionsenders
             
             	The	number of distinct senders currently known to be part of this session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rsvpsessionreceivers
             
             	The	number of reservations being requested	of this	system for this	session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rsvpsessionrequests
             
             	The	number of reservation requests this system is sending upstream for this	session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -360,7 +360,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpsenderentry
         
         	Information	describing the	state  information displayed by	a single sender's PATH message
-        	**type**\: list of    :py:class:`Rsvpsenderentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsendertable.Rsvpsenderentry>`
+        	**type**\: list of  		 :py:class:`Rsvpsenderentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsendertable.Rsvpsenderentry>`
         
         
 
@@ -395,7 +395,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsessionnumber  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -404,98 +404,98 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsendernumber  <key>
             
             	The	number of this sender.	This is	 for  SNMP Indexing  purposes  only and	has no relation	to any protocol	value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpsendertype
             
             	The	type of	session	(IP4, IP6, IP6	with  flow information,	etc)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: rsvpsenderdestaddr
             
             	The	destination address used by all	senders	in this	 session.   This object	may not	be changed when	the  value  of	the  RowStatus	object	is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: rsvpsenderaddr
             
             	The	source address used by this sender in this session.   This  object may not be changed when the value of	the RowStatus object is	'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: rsvpsenderdestaddrlength
             
             	The	length of the destination address in bits. This	 is  the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.  This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..128
             
             .. attribute:: rsvpsenderaddrlength
             
             	The	length of the sender's	address	 in  bits. This	 is  the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.  This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..128
             
             .. attribute:: rsvpsenderprotocol
             
             	The	IP Protocol used by  this  session.   This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: rsvpsenderdestport
             
             	The	 UDP  or  TCP  port  number  used   as	 a destination	 port  for  all	 senders  in  this session.  If	the IP protocol	in use,	 specified by  rsvpSenderProtocol, is 50 (ESP) or 51 (AH), this	 represents  a	virtual	 destination  port number.   A value of	zero indicates that the	IP protocol in use  does  not  have  ports.   This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2..4
             
             .. attribute:: rsvpsenderport
             
             	The	UDP or TCP port	number used  as	 a  source port	 for  this sender in this session.  If the IP	 protocol    in	   use,	   specified	by rsvpSenderProtocol is 50 (ESP) or 51	(AH), this represents a	generalized port identifier (GPI). A  value of zero indicates that the IP protocol in use does not have	ports.	 This  object  may not	be changed when	the value of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2..4
             
             .. attribute:: rsvpsenderflowid
             
             	The	flow ID	that  this  sender  is	using,	if this	 is  an	IPv6 session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..16777215
             
             .. attribute:: rsvpsenderhopaddr
             
             	The	address	used  by  the  previous	 RSVP  hop (which may be the original sender)
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: rsvpsenderhoplih
             
             	The	 Logical  Interface  Handle  used  by  the previous  RSVP  hop	(which may be the original sender)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: rsvpsenderinterface
             
             	The	ifIndex	value of the  interface	 on  which this	PATH message was most recently received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: rsvpsendertspecrate
             
             	The	Average	Bit  Rate  of  the  sender's  data stream.    Within  a	 transmission  burst,  the arrival   rate    may    be	  as	fast	as rsvpSenderTSpecPeakRate  (if	 supported  by the service model); however, averaged across two	or more	 burst	intervals,  the	 rate  should  not exceed rsvpSenderTSpecRate.  Note	that this is a prediction, often based	on the	general	 capability  of	a type of codec	or particular encoding;	the measured average  rate may be significantly	lower
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -504,7 +504,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsendertspecpeakrate
             
             	The	Peak Bit Rate of the sender's data stream. Traffic  arrival is not expected to exceed this rate	at any time, apart  from  the  effects	of jitter in the network.  If not specified in the TSpec, this returns zero or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -513,7 +513,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsendertspecburst
             
             	The	size of	the largest  burst  expected  from the sender at a time
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -522,59 +522,59 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsendertspecmintu
             
             	The	minimum	message	size for  this	flow.  The policing  algorithm will treat smaller messages as though they are this size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpsendertspecmaxtu
             
             	The	maximum	message	size for  this	flow.  The admission  algorithm	 will  reject TSpecs whose Maximum Transmission	Unit, plus  the	 interface headers, exceed the interface MTU
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpsenderinterval
             
             	The	 interval  between  refresh  messages	as advertised by the Previous Hop
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpsenderrsvphop
             
             	If TRUE, the node believes that  the  previous IP  hop  is	an  RSVP  hop.	If FALSE, the node believes that the previous IP hop may not be	an RSVP	hop
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpsenderlastchange
             
             	The	time of	 the  last  change  in	this  PATH message;  This  is either the first time it was received or the time	of the most recent  change in parameters
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rsvpsenderpolicy
             
             	The	contents of the	policy	object,	 displayed as an uninterpreted string of octets, including the object header.  In the absence of  such	an object, this	should be of zero length
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..65536
             
             .. attribute:: rsvpsenderadspecbreak
             
             	The	global break bit general  characterization parameter  from  the	ADSPEC.	 If TRUE, at least one non\-IS hop was detected in  the	path.	If FALSE, no non\-IS hops were detected
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpsenderadspechopcount
             
             	The	  hop	count	general	  characterization parameter from the ADSPEC.  A return	of zero	or noSuchValue	indicates  one	of  the	 following conditions\:     the invalid bit was set    the parameter was	not present
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: rsvpsenderadspecpathbw
             
             	The	  path	  bandwidth    estimate	   general characterization  parameter from the	ADSPEC.	 A return of zero or noSuchValue indicates one	of the following conditions\:     the invalid bit was set    the parameter was	not present
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -583,7 +583,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderadspecminlatency
             
             	The	   minimum    path     latency	   general characterization  parameter from the	ADSPEC.	 A return of zero or noSuchValue indicates one	of the following conditions\:     the invalid bit was set    the parameter was	not present
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -592,7 +592,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderadspecmtu
             
             	The	composed Maximum Transmission Unit general characterization  parameter from the	ADSPEC.	 A return of zero or noSuchValue indicates one	of the following conditions\:     the invalid bit was set    the parameter was	not present
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -601,17 +601,17 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderadspecguaranteedsvc
             
             	If TRUE,  the  ADSPEC  contains  a	Guaranteed Service  fragment.	If  FALSE, the ADSPEC does not contain a Guaranteed Service fragment
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpsenderadspecguaranteedbreak
             
             	If TRUE, the Guaranteed Service  fragment  has its	'break'	 bit  set,  indicating that one	or more	nodes along the	path do	 not  support  the guaranteed	  service.     If    FALSE,    and rsvpSenderAdspecGuaranteedSvc  is   TRUE,   the 'break' bit is not set.  If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns FALSE or noSuchValue
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpsenderadspecguaranteedctot
             
             	If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is	the  end\-to\-end	 composed  value  for  the guaranteed service 'C' parameter.  A	return	of zero	  or  noSuchValue  indicates  one  of  the following conditions\:     the invalid bit was set    the parameter was	not present  If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns zero	or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -620,7 +620,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderadspecguaranteeddtot
             
             	If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is	the  end\-to\-end	 composed  value  for  the guaranteed service 'D' parameter.  A	return	of zero	  or  noSuchValue  indicates  one  of  the following conditions\:     the invalid bit was set    the parameter was	not present  If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns zero	or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -629,7 +629,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderadspecguaranteedcsum
             
             	If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is	the  composed  value  for  the	guaranteed service 'C' parameter since the last	 reshaping point.    A	 return	 of  zero  or  noSuchValue indicates one of the	following conditions\:     the invalid bit was set    the parameter was	not present  If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns zero	or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -638,7 +638,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderadspecguaranteeddsum
             
             	If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is	the  composed  value  for  the	guaranteed service 'D' parameter since the last	 reshaping point.    A	 return	 of  zero  or  noSuchValue indicates one of the	following conditions\:     the invalid bit was set    the parameter was	not present  If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns zero	or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -647,14 +647,14 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderadspecguaranteedhopcount
             
             	If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is  the  service\-specific  override	of the hop count general characterization  parameter  from the	ADSPEC.	  A  return of zero or noSuchValue indicates one of the	following conditions\:     the invalid bit was set    the parameter was	not present  If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns zero	or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: rsvpsenderadspecguaranteedpathbw
             
             	If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is  the  service\-specific  override of the path bandwidth  estimate	general	  characterization parameter from the ADSPEC.  A return	of zero	or noSuchValue	indicates  one	of  the	 following conditions\:     the invalid bit was set    the parameter was	not present  If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns zero	or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -663,7 +663,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderadspecguaranteedminlatency
             
             	If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is the service\-specific override of the minimum path	latency	general	characterization parameter from	  the	ADSPEC.	   A  return  of  zero	or noSuchValue	indicates  one	of  the	 following conditions\:     the invalid bit was set    the parameter was	not present  If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns zero	or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -672,7 +672,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderadspecguaranteedmtu
             
             	If rsvpSenderAdspecGuaranteedSvc is	TRUE, this is	the   service\-specific	 override  of  the composed  Maximum  Transmission  Unit   general characterization  parameter from the	ADSPEC.	 A return of zero or noSuchValue indicates one	of the following conditions\:     the invalid bit was set    the parameter was	not present  If rsvpSenderAdspecGuaranteedSvc is FALSE, this returns zero	or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -681,24 +681,24 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderadspecctrlloadsvc
             
             	If TRUE, the ADSPEC	contains a Controlled Load Service  fragment.	If  FALSE, the ADSPEC does not	 contain   a   Controlled   Load   Service fragment
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpsenderadspecctrlloadbreak
             
             	If TRUE, the Controlled Load Service  fragment has its 'break' bit set, indicating that one	or more	nodes along the	path do	 not  support  the controlled	load   service.	   If  FALSE,  and rsvpSenderAdspecCtrlLoadSvc	 is   TRUE,    the 'break' bit is not set.  If rsvpSenderAdspecCtrlLoadSvc is  FALSE,  this returns FALSE or noSuchValue
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpsenderadspecctrlloadhopcount
             
             	If rsvpSenderAdspecCtrlLoadSvc is  TRUE,  this is  the  service\-specific  override	of the hop count general characterization  parameter  from the	ADSPEC.	  A  return of zero or noSuchValue indicates one of the	following conditions\:     the invalid bit was set    the parameter was	not present  If rsvpSenderAdspecCtrlLoadSvc is  FALSE,  this returns zero	or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: rsvpsenderadspecctrlloadpathbw
             
             	If rsvpSenderAdspecCtrlLoadSvc is  TRUE,  this is  the  service\-specific  override of the path bandwidth  estimate	general	  characterization parameter from the ADSPEC.  A return	of zero	or noSuchValue	indicates  one	of  the	 following conditions\:     the invalid bit was set    the parameter was	not present  If rsvpSenderAdspecCtrlLoadSvc is  FALSE,  this returns zero	or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -707,7 +707,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderadspecctrlloadminlatency
             
             	If rsvpSenderAdspecCtrlLoadSvc is  TRUE,  this is the service\-specific override of the minimum path	latency	general	characterization parameter from	  the	ADSPEC.	   A  return  of  zero	or noSuchValue	indicates  one	of  the	 following conditions\:     the invalid bit was set    the parameter was	not present  If rsvpSenderAdspecCtrlLoadSvc is  FALSE,  this returns zero	or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -716,7 +716,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderadspecctrlloadmtu
             
             	If rsvpSenderAdspecCtrlLoadSvc is  TRUE,  this is	the   service\-specific	 override  of  the composed  Maximum  Transmission  Unit   general characterization  parameter from the	ADSPEC.	 A return of zero or noSuchValue indicates one	of the following conditions\:     the invalid bit was set    the parameter was	not present  If rsvpSenderAdspecCtrlLoadSvc is  FALSE,  this returns zero	or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -725,12 +725,12 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderstatus
             
             	'active' for all active PATH  messages.   This object  may	be  used  to  install  static PATH information or delete PATH information
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: rsvpsenderttl
             
             	The	TTL value in the RSVP header that was last received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -858,7 +858,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpsenderoutinterfaceentry
         
         	List of outgoing interfaces	that a	particular PATH	message	has
-        	**type**\: list of    :py:class:`Rsvpsenderoutinterfaceentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry>`
+        	**type**\: list of  		 :py:class:`Rsvpsenderoutinterfaceentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry>`
         
         
 
@@ -893,7 +893,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsessionnumber  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -902,7 +902,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsendernumber  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -911,7 +911,7 @@ class RSVPMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -920,7 +920,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsenderoutinterfacestatus
             
             	'active' for all active PATH messages
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -961,7 +961,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpresventry
         
         	Information	describing the	state  information displayed  by  a single receiver's RESV message concerning a	single sender
-        	**type**\: list of    :py:class:`Rsvpresventry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpresvtable.Rsvpresventry>`
+        	**type**\: list of  		 :py:class:`Rsvpresventry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpresvtable.Rsvpresventry>`
         
         
 
@@ -997,7 +997,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsessionnumber  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1006,96 +1006,96 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpresvnumber  <key>
             
             	The	number of this reservation request.   This is  for  SNMP Indexing purposes only	and has	no relation to any protocol value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpresvtype
             
             	The	type of	session	(IP4, IP6, IP6	with  flow information,	etc)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: rsvpresvdestaddr
             
             	The	destination address used by all	senders	in this	 session.   This object	may not	be changed when	the  value  of	the  RowStatus	object	is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: rsvpresvsenderaddr
             
             	The	source address of the sender  selected	by this	 reservation.	The  value  of	all zeroes indicates 'all senders'.  This object  may  not be  changed	when  the  value  of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: rsvpresvdestaddrlength
             
             	The	length of the destination address in bits. This	 is  the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.  This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..128
             
             .. attribute:: rsvpresvsenderaddrlength
             
             	The	length of the sender's	address	 in  bits. This	 is  the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.  This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..128
             
             .. attribute:: rsvpresvprotocol
             
             	The	IP Protocol used by  this  session.   This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: rsvpresvdestport
             
             	The	 UDP  or  TCP  port  number  used   as	 a destination	 port  for  all	 senders  in  this session.  If	the IP protocol	in use,	 specified by  rsvpResvProtocol,  is  50 (ESP) or 51 (AH), this	 represents  a	virtual	 destination  port number.   A value of	zero indicates that the	IP protocol in use  does  not  have  ports.   This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2..4
             
             .. attribute:: rsvpresvport
             
             	The	UDP or TCP port	number used  as	 a  source port	 for  this sender in this session.  If the IP	 protocol    in	   use,	   specified	by rsvpResvProtocol  is	 50 (ESP) or 51	(AH), this represents a	generalized port identifier (GPI). A  value of zero indicates that the IP protocol in use does not have	ports.	 This  object  may not	be changed when	the value of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2..4
             
             .. attribute:: rsvpresvhopaddr
             
             	The	address	used by	the next RSVP  hop  (which may be the ultimate receiver)
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: rsvpresvhoplih
             
             	The	Logical	Interface Handle received from the previous  RSVP  hop	(which may be the ultimate receiver)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: rsvpresvinterface
             
             	The	ifIndex	value of the  interface	 on  which this	RESV message was most recently received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: rsvpresvservice
             
             	The	QoS Service  classification  requested	by the receiver
-            	**type**\:   :py:class:`QosService <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.QosService>`
+            	**type**\:  :py:class:`QosService <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.QosService>`
             
             .. attribute:: rsvpresvtspecrate
             
             	The	Average	Bit  Rate  of  the  sender's  data stream.    Within  a	 transmission  burst,  the arrival   rate    may    be	  as	fast	as rsvpResvTSpecPeakRate   (if	supported  by  the service model); however, averaged across two	or more	 burst	intervals,  the	 rate  should  not exceed rsvpResvTSpecRate.  Note	that this is a prediction, often based	on the	general	 capability  of	a type of codec	or particular encoding;	the measured average  rate may be significantly	lower
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1104,7 +1104,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpresvtspecpeakrate
             
             	The	Peak Bit Rate of the sender's data stream. Traffic  arrival is not expected to exceed this rate	at any time, apart  from  the  effects	of jitter in the network.  If not specified in the TSpec, this returns zero or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1113,7 +1113,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpresvtspecburst
             
             	The	size of	the largest  burst  expected  from the sender at a time.  If this is less than	 the  sender's	advertised burst  size,	the receiver is	asking the network to provide flow pacing  beyond  what	 would	be provided   under   normal  circumstances.  Such pacing is at	the network's option
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1122,21 +1122,21 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpresvtspecmintu
             
             	The	minimum	message	size for  this	flow.  The policing  algorithm will treat smaller messages as though they are this size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpresvtspecmaxtu
             
             	The	maximum	message	size for  this	flow.  The admission  algorithm	 will  reject TSpecs whose Maximum Transmission	Unit, plus  the	 interface headers, exceed the interface MTU
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpresvrspecrate
             
             	If the requested  service  is  Guaranteed,	as specified   by  rsvpResvService,  this  is  the clearing  rate   that   is	being	requested. Otherwise,  it is zero, or the agent	may return noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1145,7 +1145,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpresvrspecslack
             
             	If the requested  service  is  Guaranteed,	as specified by	rsvpResvService, this is the delay slack.  Otherwise, it is zero, or the agent may return noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -1154,62 +1154,62 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpresvinterval
             
             	The	 interval  between  refresh  messages	as advertised by the Next Hop
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpresvscope
             
             	The	contents of the	scope object, displayed	as an  uninterpreted  string  of octets, including the object header.  In the absence of  such	an object, this	should be of zero length.  If the length  is  non\-zero,	 this  contains	 a series of IP4 or IP6	addresses
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..65536
             
             .. attribute:: rsvpresvshared
             
             	If TRUE, a reservation shared among	senders	is requested.  If FALSE, a reservation specific	to this	sender is requested
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpresvexplicit
             
             	If TRUE, individual	senders	are  listed  using Filter  Specifications.   If	FALSE, all senders are implicitly selected.  The Scope Object will contain  a list of senders that need	to receive this	reservation request  for  the  purpose	of routing the RESV message
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpresvrsvphop
             
             	If TRUE, the node believes that  the  previous IP  hop  is	an  RSVP  hop.	If FALSE, the node believes that the previous IP hop may not be	an RSVP	hop
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpresvlastchange
             
             	The	 time  of  the	 last	change	 in   this reservation	request;  This is either the first time	it was received	or the time  of	 the  most recent change in parameters
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rsvpresvpolicy
             
             	The	contents of the	policy	object,	 displayed as an uninterpreted string of octets, including the object header.  In the absence of  such	an object, this	should be of zero length
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..65536
             
             .. attribute:: rsvpresvstatus
             
             	'active' for all active RESV  messages.   This object  may	be  used  to  install  static RESV information or delete RESV information
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: rsvpresvttl
             
             	The	TTL value in the RSVP header that was last received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: rsvpresvflowid
             
             	The	flow ID	that this receiver  is	using,	if this	 is  an	IPv6 session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..16777215
             
@@ -1306,7 +1306,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpresvfwdentry
         
         	Information	describing the	state  information displayed   upstream	  in   an   RESV   message concerning a	single sender
-        	**type**\: list of    :py:class:`Rsvpresvfwdentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpresvfwdtable.Rsvpresvfwdentry>`
+        	**type**\: list of  		 :py:class:`Rsvpresvfwdentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpresvfwdtable.Rsvpresvfwdentry>`
         
         
 
@@ -1342,7 +1342,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpsessionnumber  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1351,96 +1351,96 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpresvfwdnumber  <key>
             
             	The	number of this reservation request.   This is  for  SNMP Indexing purposes only	and has	no relation to any protocol value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpresvfwdtype
             
             	The	type of	session	(IP4, IP6, IP6	with  flow information,	etc)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: rsvpresvfwddestaddr
             
             	The	destination address used by all	senders	in this	 session.   This object	may not	be changed when	the  value  of	the  RowStatus	object	is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: rsvpresvfwdsenderaddr
             
             	The	source address of the sender  selected	by this	 reservation.	The  value  of	all zeroes indicates 'all senders'.  This object  may  not be  changed	when  the  value  of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: rsvpresvfwddestaddrlength
             
             	The	length of the destination address in bits. This	 is  the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.  This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..128
             
             .. attribute:: rsvpresvfwdsenderaddrlength
             
             	The	length of the sender's	address	 in  bits. This	 is  the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.  This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..128
             
             .. attribute:: rsvpresvfwdprotocol
             
             	The	IP Protocol used by a session. for  secure sessions,  this  indicates  IP  Security.  This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: rsvpresvfwddestport
             
             	The	 UDP  or  TCP  port  number  used   as	 a destination	 port  for  all	 senders  in  this session.  If	the IP protocol	in use,	 specified by rsvpResvFwdProtocol, is 50 (ESP) or 51 (AH), this	 represents  a	virtual	 destination  port number.   A value of	zero indicates that the	IP protocol in use  does  not  have  ports.   This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2..4
             
             .. attribute:: rsvpresvfwdport
             
             	The	UDP or TCP port	number used  as	 a  source port	 for  this sender in this session.  If the IP	 protocol    in	   use,	   specified	by rsvpResvFwdProtocol	is  50	(ESP)  or 51 (AH), this	represents a generalized  port	identifier (GPI).   A  value of	zero indicates that the	IP protocol in use  does  not  have  ports.   This object may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 2..4
             
             .. attribute:: rsvpresvfwdhopaddr
             
             	The	address	of the (previous) RSVP	that  will receive this	message
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: rsvpresvfwdhoplih
             
             	The	 Logical  Interface  Handle  sent  to  the (previous)	RSVP   that   will   receive  this message
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: rsvpresvfwdinterface
             
             	The	ifIndex	value of the  interface	 on  which this	RESV message was most recently sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: rsvpresvfwdservice
             
             	The	QoS Service classification requested
-            	**type**\:   :py:class:`QosService <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.QosService>`
+            	**type**\:  :py:class:`QosService <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.QosService>`
             
             .. attribute:: rsvpresvfwdtspecrate
             
             	The	Average	Bit  Rate  of  the  sender's  data stream.    Within  a	 transmission  burst,  the arrival   rate    may    be	  as	fast	as rsvpResvFwdTSpecPeakRate  (if  supported by the service model); however, averaged across two	or more	 burst	intervals,  the	 rate  should  not exceed rsvpResvFwdTSpecRate.  Note	that this is a prediction, often based	on the	general	 capability  of	a type of codec	or particular encoding;	the measured average  rate may be significantly	lower
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1449,7 +1449,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpresvfwdtspecpeakrate
             
             	The	Peak Bit Rate of the sender's data  stream Traffic  arrival is not expected to exceed this rate	at any time, apart  from  the  effects	of jitter in the network.  If not specified in the TSpec, this returns zero or noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1458,7 +1458,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpresvfwdtspecburst
             
             	The	size of	the largest  burst  expected  from the sender at a time.  If this is less than	 the  sender's	advertised burst  size,	the receiver is	asking the network to provide flow pacing  beyond  what	 would	be provided   under   normal  circumstances.  Such pacing is at	the network's option
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1467,21 +1467,21 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpresvfwdtspecmintu
             
             	The	minimum	message	size for  this	flow.  The policing  algorithm will treat smaller messages as though they are this size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpresvfwdtspecmaxtu
             
             	The	maximum	message	size for  this	flow.  The admission  algorithm	 will  reject TSpecs whose Maximum Transmission	Unit, plus  the	 interface headers, exceed the interface MTU
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpresvfwdrspecrate
             
             	If the requested  service  is  Guaranteed,	as specified   by  rsvpResvService,  this  is  the clearing  rate   that   is	being	requested. Otherwise,  it is zero, or the agent	may return noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1490,7 +1490,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpresvfwdrspecslack
             
             	If the requested  service  is  Guaranteed,	as specified by	rsvpResvService, this is the delay slack.  Otherwise, it is zero, or the agent may return noSuchValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -1499,62 +1499,62 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpresvfwdinterval
             
             	The	  interval   between   refresh	  messages advertised to the Previous Hop
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: rsvpresvfwdscope
             
             	The	contents of the	scope object, displayed	as an  uninterpreted  string  of octets, including the object header.  In the absence of  such	an object, this	should be of zero length
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..65536
             
             .. attribute:: rsvpresvfwdshared
             
             	If TRUE, a reservation shared among	senders	is requested.  If FALSE, a reservation specific	to this	sender is requested
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpresvfwdexplicit
             
             	If TRUE, individual	senders	are  listed  using Filter  Specifications.   If	FALSE, all senders are implicitly selected.  The Scope Object will contain  a list of senders that need	to receive this	reservation request  for  the  purpose	of routing the RESV message
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpresvfwdrsvphop
             
             	If TRUE, the node believes that  the  next	IP hop	is  an	RSVP  hop.   If	 FALSE,	 the  node believes that the next IP hop  may  not  be	an RSVP	hop
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpresvfwdlastchange
             
             	The	time of	the last change	in  this  request; This	 is  either  the first time it was sent	or the	time  of  the  most   recent   change	in parameters
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rsvpresvfwdpolicy
             
             	The	contents of the	policy	object,	 displayed as an uninterpreted string of octets, including the object header.  In the absence of  such	an object, this	should be of zero length
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..65536
             
             .. attribute:: rsvpresvfwdstatus
             
             	'active' for all active RESV  messages.   This object may be used to delete	RESV information
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: rsvpresvfwdttl
             
             	The	TTL value in the RSVP header that was last received
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: rsvpresvfwdflowid
             
             	The	flow ID	that this receiver  is	using,	if this	 is  an	IPv6 session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..16777215
             
@@ -1651,7 +1651,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpifentry
         
         	The	RSVP\-specific attributes of  the  a  given interface
-        	**type**\: list of    :py:class:`Rsvpifentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpiftable.Rsvpifentry>`
+        	**type**\: list of  		 :py:class:`Rsvpifentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpiftable.Rsvpifentry>`
         
         
 
@@ -1686,7 +1686,7 @@ class RSVPMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -1695,49 +1695,49 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpifudpnbrs
             
             	The	number of neighbors perceived to be  using only	the RSVP UDP Encapsulation
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rsvpifipnbrs
             
             	The	number of neighbors perceived to be  using only	the RSVP IP Encapsulation
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rsvpifnbrs
             
             	The	number of neighbors  currently	perceived; this	 will  exceed rsvpIfIpNbrs + rsvpIfUdpNbrs by  the  number   of	  neighbors   using   both encapsulations
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: rsvpifrefreshblockademultiple
             
             	The	value of the RSVP value	'Kb', Which is the minimum   number   of  refresh  intervals  that blockade state will last once entered
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65536
             
             .. attribute:: rsvpifrefreshmultiple
             
             	The	value of the RSVP value	'K', which is  the number  of  refresh intervals which must elapse (minimum) before a PATH or RESV  message  which is not being	refreshed will be aged out
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65536
             
             .. attribute:: rsvpifttl
             
             	The	value of SEND\_TTL used on  this	 interface for	messages  this node originates.	 If set	to zero, the node determines  the  TTL	via  other means
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: rsvpifrefreshinterval
             
             	The	value of the RSVP value	'R', which is  the minimum period between refresh transmissions	of a given PATH	or RESV	message	on an interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1746,7 +1746,7 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpifroutedelay
             
             	The	approximate period from	the time  a  route is  changed	to  the	 time  a resulting message appears on the interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -1755,17 +1755,17 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpifenabled
             
             	If TRUE, RSVP is enabled  on  this	Interface. If	FALSE,	 RSVP	is  not	 enabled  on  this interface
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpifudprequired
             
             	If TRUE, manual configuration forces  the  use of  UDP  encapsulation  on  the  interface.	If FALSE,  UDP	encapsulation  is  only	 used	if rsvpIfUdpNbrs is not	zero
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: rsvpifstatus
             
             	'active' on	interfaces that	are configured for RSVP
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -1822,7 +1822,7 @@ class RSVPMIB(Entity):
         .. attribute:: rsvpnbrentry
         
         	Information	  describing   a    single    RSVP Neighbor
-        	**type**\: list of    :py:class:`Rsvpnbrentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpnbrtable.Rsvpnbrentry>`
+        	**type**\: list of  		 :py:class:`Rsvpnbrentry <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpnbrtable.Rsvpnbrentry>`
         
         
 
@@ -1857,7 +1857,7 @@ class RSVPMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -1866,19 +1866,19 @@ class RSVPMIB(Entity):
             .. attribute:: rsvpnbraddress  <key>
             
             	The	IP4 or IP6 Address used	by this	 neighbor. This	 object	 may not be changed when the value of the RowStatus object is 'active'
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 4..16
             
             .. attribute:: rsvpnbrprotocol
             
             	The	  encapsulation	  being	  used	 by   this neighbor
-            	**type**\:   :py:class:`RsvpEncapsulation <ydk.models.cisco_ios_xe.RSVP_MIB.RsvpEncapsulation>`
+            	**type**\:  :py:class:`RsvpEncapsulation <ydk.models.cisco_ios_xe.RSVP_MIB.RsvpEncapsulation>`
             
             .. attribute:: rsvpnbrstatus
             
             	'active' for all neighbors.	 This  object  may be	used   to  configure  neighbors.   In  the presence   of   configured	 neighbors,    the implementation  may	(but  is  not required to) limit the  set  of  valid  neighbors	 to  those configured
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 

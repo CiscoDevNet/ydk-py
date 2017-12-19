@@ -18,12 +18,12 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
     .. attribute:: atmcurrentstatuschangepvcltable
     
     	A table indicating all VCLs for which there is an active row in the atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have changed in the last PVC notification interval
-    	**type**\:   :py:class:`Atmcurrentstatuschangepvcltable <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB_EXTN.CISCOIETFATM2PVCTRAPMIBEXTN.Atmcurrentstatuschangepvcltable>`
+    	**type**\:  :py:class:`Atmcurrentstatuschangepvcltable <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB_EXTN.CISCOIETFATM2PVCTRAPMIBEXTN.Atmcurrentstatuschangepvcltable>`
     
     .. attribute:: atmstatuschangepvclrangetable
     
     	A table indicating more than one VCLs in a consecutive  range and for each VCL there is an active row in the  atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have changed in the same direction in the last PVC notification interval
-    	**type**\:   :py:class:`Atmstatuschangepvclrangetable <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB_EXTN.CISCOIETFATM2PVCTRAPMIBEXTN.Atmstatuschangepvclrangetable>`
+    	**type**\:  :py:class:`Atmstatuschangepvclrangetable <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB_EXTN.CISCOIETFATM2PVCTRAPMIBEXTN.Atmstatuschangepvclrangetable>`
     
     
 
@@ -65,7 +65,7 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
         .. attribute:: atmcurrentstatuschangepvclentry
         
         	Each entry in the table represents a VCL for which there is an active row in the atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have changed in the last PVC notification interval
-        	**type**\: list of    :py:class:`Atmcurrentstatuschangepvclentry <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB_EXTN.CISCOIETFATM2PVCTRAPMIBEXTN.Atmcurrentstatuschangepvcltable.Atmcurrentstatuschangepvclentry>`
+        	**type**\: list of  		 :py:class:`Atmcurrentstatuschangepvclentry <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB_EXTN.CISCOIETFATM2PVCTRAPMIBEXTN.Atmcurrentstatuschangepvcltable.Atmcurrentstatuschangepvclentry>`
         
         
 
@@ -102,7 +102,7 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -111,7 +111,7 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             .. attribute:: atmvclvpi  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4095
             
@@ -120,7 +120,7 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             .. attribute:: atmvclvci  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -129,21 +129,21 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             .. attribute:: atmpvclstatustransition
             
             	The number of state transitions that has happened  on this PVCL in the last notification interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: atmpvclstatuschangestart
             
             	The time stamp at which this PVCL changed state for the first time in  the last notification interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: atmpvclstatuschangeend
             
             	The time stamp of the last state change of this PVCL in the last notification interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -193,7 +193,7 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
         .. attribute:: atmstatuschangepvclrangeentry
         
         	Each entry in this table represents a range of VCLs and  for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of 'pvc' and atmVclOperStatus to have changed in the same direction in the last notification  interval
-        	**type**\: list of    :py:class:`Atmstatuschangepvclrangeentry <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB_EXTN.CISCOIETFATM2PVCTRAPMIBEXTN.Atmstatuschangepvclrangetable.Atmstatuschangepvclrangeentry>`
+        	**type**\: list of  		 :py:class:`Atmstatuschangepvclrangeentry <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB_EXTN.CISCOIETFATM2PVCTRAPMIBEXTN.Atmstatuschangepvclrangetable.Atmstatuschangepvclrangeentry>`
         
         
 
@@ -231,7 +231,7 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -240,7 +240,7 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             .. attribute:: atmvclvpi  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4095
             
@@ -249,35 +249,35 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             .. attribute:: rangeindex  <key>
             
             	Index to represent different ranges, the first range is  indexed by value 0, the second by 1 and so on..
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: atmpvcllowerrangevalue
             
             	The first PVCL in a range of PVcls for which the  atmVclOperStatus to have changed in the last  notification interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65536
             
             .. attribute:: atmpvclhigherrangevalue
             
             	The last PVCL in a range of PVcls for which the  atmOperStatus to have changed in the last  notification interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65536
             
             .. attribute:: atmpvclrangestatuschangestart
             
             	The time stamp at which the first PVCL in the range changed state in the last notification interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: atmpvclrangestatuschangeend
             
             	The time stamp at which the last PVCL in the range changed state in the last notification interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

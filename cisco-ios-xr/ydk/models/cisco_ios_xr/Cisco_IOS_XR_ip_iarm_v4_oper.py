@@ -27,27 +27,29 @@ class Ipv4Arm(Entity):
     .. attribute:: addresses
     
     	IPv4 ARM address database information
-    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses>`
+    	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses>`
     
     .. attribute:: summary
     
     	IPv4 ARM summary information
-    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Summary>`
+    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Summary>`
     
     .. attribute:: vrf_summaries
     
     	IPv4 ARM VRFs summary information
-    	**type**\:   :py:class:`VrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.VrfSummaries>`
+    	**type**\:  :py:class:`VrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.VrfSummaries>`
     
     .. attribute:: router_id
     
     	IPv4 ARM Router ID information
-    	**type**\:   :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.RouterId>`
+    	**type**\:  :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.RouterId>`
     
     .. attribute:: multicast_host_interface
     
     	Default multicast host interface
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** [a\-zA\-Z0\-9./\-]+
     
     
 
@@ -101,7 +103,7 @@ class Ipv4Arm(Entity):
         .. attribute:: vrfs
         
         	IPv4 ARM address database information per VRF
-        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs>`
+        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs>`
         
         
 
@@ -135,7 +137,7 @@ class Ipv4Arm(Entity):
             .. attribute:: vrf
             
             	IPv4 ARM address database information in a VRF
-            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf>`
+            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf>`
             
             
 
@@ -169,17 +171,17 @@ class Ipv4Arm(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	VRF name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: networks
                 
                 	IPv4 ARM address database information by network
-                	**type**\:   :py:class:`Networks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks>`
+                	**type**\:  :py:class:`Networks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks>`
                 
                 .. attribute:: interfaces
                 
                 	IPv4 ARM address database information by interface
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces>`
+                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces>`
                 
                 
 
@@ -224,7 +226,7 @@ class Ipv4Arm(Entity):
                     .. attribute:: network
                     
                     	An IPv4 Address in IPv4 ARM
-                    	**type**\: list of    :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network>`
+                    	**type**\: list of  		 :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network>`
                     
                     
 
@@ -257,39 +259,43 @@ class Ipv4Arm(Entity):
                         .. attribute:: address
                         
                         	Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: prefix_length
                         
                         	Prefix Length
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..32
                         
                         .. attribute:: handle
                         
                         	Interface
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: address_xr
                         
                         	Address info
-                        	**type**\:   :py:class:`AddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr>`
+                        	**type**\:  :py:class:`AddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr>`
                         
                         .. attribute:: interface_name
                         
                         	Interface name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: referenced_interface
                         
                         	Referenced Interface \- only valid for an unnumbered interface
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: vrf_name
                         
                         	VRF Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -337,41 +343,41 @@ class Ipv4Arm(Entity):
                             .. attribute:: address
                             
                             	Address
-                            	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address>`
+                            	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address>`
                             
                             .. attribute:: prefix_length
                             
                             	Prefix length
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: route_tag
                             
                             	Route Tag of the address
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: is_primary
                             
                             	Is address primary \- valid only for IPv4 addresses
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_tentative
                             
                             	Is address valid/tentative \- valid only for IPV6 addresses
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_prefix_sid
                             
                             	Is prefix\_sid valid \- valid only for IPV6 addresses
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: producer
                             
                             	Producer Name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -419,19 +425,23 @@ class Ipv4Arm(Entity):
                                 .. attribute:: afi
                                 
                                 	AFI
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: ipv4_address
                                 
                                 	IPV4 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: ipv6_address
                                 
                                 	IPV6 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -469,7 +479,7 @@ class Ipv4Arm(Entity):
                     .. attribute:: interface
                     
                     	An IPv4 address in IPv4 ARM
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface>`
                     
                     
 
@@ -502,22 +512,24 @@ class Ipv4Arm(Entity):
                         .. attribute:: interface  <key>
                         
                         	Interface
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: referenced_interface
                         
                         	Referenced Interface \- only valid for an unnumbered interface
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: vrf_name
                         
                         	VRF Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: address
                         
                         	Address info
-                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address>`
+                        	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address>`
                         
                         
 
@@ -556,41 +568,41 @@ class Ipv4Arm(Entity):
                             .. attribute:: address
                             
                             	Address
-                            	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address>`
+                            	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address>`
                             
                             .. attribute:: prefix_length
                             
                             	Prefix length
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: route_tag
                             
                             	Route Tag of the address
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: is_primary
                             
                             	Is address primary \- valid only for IPv4 addresses
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_tentative
                             
                             	Is address valid/tentative \- valid only for IPV6 addresses
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_prefix_sid
                             
                             	Is prefix\_sid valid \- valid only for IPV6 addresses
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: producer
                             
                             	Producer Name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -638,19 +650,23 @@ class Ipv4Arm(Entity):
                                 .. attribute:: afi
                                 
                                 	AFI
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: ipv4_address
                                 
                                 	IPV4 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: ipv6_address
                                 
                                 	IPV6 Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -687,35 +703,35 @@ class Ipv4Arm(Entity):
         .. attribute:: producer_count
         
         	Number of producers
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: address_conflict_count
         
         	Number of address conflicts
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: unnumbered_conflict_count
         
         	Number of unnumbered interface conflicts
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: db_master_version
         
         	IP\-ARM DB master version
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vrf_count
         
         	Number of known VRFs
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
@@ -759,7 +775,7 @@ class Ipv4Arm(Entity):
         .. attribute:: vrf_summary
         
         	IPv4 ARM VRF summary information
-        	**type**\: list of    :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.VrfSummaries.VrfSummary>`
+        	**type**\: list of  		 :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.VrfSummaries.VrfSummary>`
         
         
 
@@ -793,19 +809,19 @@ class Ipv4Arm(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: vrf_id
             
             	VRF ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: vrf_name_xr
             
             	VRF Name
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -843,24 +859,26 @@ class Ipv4Arm(Entity):
         .. attribute:: vrf_id
         
         	VRF ID
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vrf_name
         
         	VRF Name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: interface_name
         
         	Interface name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: router_id
         
         	Router ID
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         
 

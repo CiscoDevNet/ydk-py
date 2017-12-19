@@ -98,7 +98,7 @@ class HardwareModuleQosMode(Entity):
     .. attribute:: nodes
     
     	QoS applicable nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleQosMode.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleQosMode.Nodes>`
     
     
 
@@ -132,7 +132,7 @@ class HardwareModuleQosMode(Entity):
         .. attribute:: node
         
         	A node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleQosMode.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleQosMode.Nodes.Node>`
         
         
 
@@ -166,17 +166,19 @@ class HardwareModuleQosMode(Entity):
             .. attribute:: node_name  <key>
             
             	Node ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: child_shaping_disable
             
             	Disable child level/flat policy shaping
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: lowburst_enable
             
             	Enable low burst mode for TM entity
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -217,7 +219,7 @@ class HardwareModuleTcpMssAdjust(Entity):
     .. attribute:: nodes
     
     	TCP MSS Adjust applicable nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes>`
     
     
 
@@ -251,7 +253,7 @@ class HardwareModuleTcpMssAdjust(Entity):
         .. attribute:: node
         
         	A node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes.Node>`
         
         
 
@@ -285,12 +287,14 @@ class HardwareModuleTcpMssAdjust(Entity):
             .. attribute:: node_name  <key>
             
             	Node ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: nps
             
             	TCP MSS Adjust NPs
-            	**type**\:   :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes.Node.Nps>`
+            	**type**\:  :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes.Node.Nps>`
             
             
 
@@ -329,7 +333,7 @@ class HardwareModuleTcpMssAdjust(Entity):
                 .. attribute:: np
                 
                 	NP number
-                	**type**\: list of    :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes.Node.Nps.Np>`
+                	**type**\: list of  		 :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes.Node.Nps.Np>`
                 
                 
 
@@ -362,14 +366,14 @@ class HardwareModuleTcpMssAdjust(Entity):
                     .. attribute:: np_id  <key>
                     
                     	Number between 0\-7
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: adjust_value
                     
                     	TCP MSS Adjust value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1280..1535
                     
@@ -411,7 +415,7 @@ class HardwareModuleLoadBalance(Entity):
     .. attribute:: bundle
     
     	Bundle load balance options
-    	**type**\:   :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleLoadBalance.Bundle>`
+    	**type**\:  :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleLoadBalance.Bundle>`
     
     
 
@@ -445,7 +449,7 @@ class HardwareModuleLoadBalance(Entity):
         .. attribute:: l2_service
         
         	Load balance for L2 services
-        	**type**\:   :py:class:`L2Service <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleLoadBalance.Bundle.L2Service>`
+        	**type**\:  :py:class:`L2Service <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleLoadBalance.Bundle.L2Service>`
         
         
 
@@ -479,7 +483,7 @@ class HardwareModuleLoadBalance(Entity):
             .. attribute:: l3_parameters
             
             	Load balance L2 services over bundle with L3 parameters
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -516,12 +520,12 @@ class HardwareModuleTcam(Entity):
     .. attribute:: nodes
     
     	TCAM applicable nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcam.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcam.Nodes>`
     
     .. attribute:: global_profile
     
     	Global TCAM partition profile for all TCAM applicable nodes
-    	**type**\:   :py:class:`PrmTcamProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.PrmTcamProfile>`
+    	**type**\:  :py:class:`PrmTcamProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.PrmTcamProfile>`
     
     	**default value**\: profile0
     
@@ -562,7 +566,7 @@ class HardwareModuleTcam(Entity):
         .. attribute:: node
         
         	A TCAM applicable node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcam.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcam.Nodes.Node>`
         
         
 
@@ -596,12 +600,14 @@ class HardwareModuleTcam(Entity):
             .. attribute:: node_name  <key>
             
             	Node ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: profile
             
             	A TCAM partition profile
-            	**type**\:   :py:class:`PrmTcamProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.PrmTcamProfile>`
+            	**type**\:  :py:class:`PrmTcamProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.PrmTcamProfile>`
             
             	**default value**\: profile0
             
@@ -642,12 +648,12 @@ class HardwareModuleEfd(Entity):
     .. attribute:: node_all
     
     	All nodes
-    	**type**\:   :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll>`
+    	**type**\:  :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll>`
     
     .. attribute:: nodes
     
     	EFD applicable nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes>`
     
     
 
@@ -686,52 +692,52 @@ class HardwareModuleEfd(Entity):
         .. attribute:: vlan_priority_mask
         
         	VLAN Priority Mask
-        	**type**\:   :py:class:`VlanPriorityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.VlanPriorityMask>`
+        	**type**\:  :py:class:`VlanPriorityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.VlanPriorityMask>`
         
         	**presence node**\: True
         
         .. attribute:: ip_precedence
         
         	EFD IP parameters
-        	**type**\:   :py:class:`IpPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.IpPrecedence>`
+        	**type**\:  :py:class:`IpPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.IpPrecedence>`
         
         	**presence node**\: True
         
         .. attribute:: vlan_cos
         
         	EFD VLAN parameters
-        	**type**\:   :py:class:`VlanCos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.VlanCos>`
+        	**type**\:  :py:class:`VlanCos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.VlanCos>`
         
         	**presence node**\: True
         
         .. attribute:: enable
         
         	Enable EFD for this node
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: ip_priority_mask
         
         	IP Priority Mask
-        	**type**\:   :py:class:`IpPriorityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.IpPriorityMask>`
+        	**type**\:  :py:class:`IpPriorityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.IpPriorityMask>`
         
         	**presence node**\: True
         
         .. attribute:: mpls_priority_mask
         
         	MPLS Priority Mask
-        	**type**\:   :py:class:`MplsPriorityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.MplsPriorityMask>`
+        	**type**\:  :py:class:`MplsPriorityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.MplsPriorityMask>`
         
         	**presence node**\: True
         
         .. attribute:: mode
         
         	EFD mode parameter
-        	**type**\:   :py:class:`Asr9kEfdMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdMode>`
+        	**type**\:  :py:class:`Asr9kEfdMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdMode>`
         
         .. attribute:: mpls_exp
         
         	EFD MPLS parameters
-        	**type**\:   :py:class:`MplsExp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.MplsExp>`
+        	**type**\:  :py:class:`MplsExp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.MplsExp>`
         
         	**presence node**\: True
         
@@ -793,7 +799,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec0
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -802,7 +808,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec1
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -811,7 +817,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec2
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -820,7 +826,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec3
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -829,7 +835,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec4
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -838,7 +844,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec5
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -847,7 +853,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec6
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -856,7 +862,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec7
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -911,7 +917,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: precedence
             
             	IP TOS precedence threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             
@@ -920,7 +926,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: operation_
             
             	IP operation
-            	**type**\:   :py:class:`Asr9kEfdOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdOperation>`
+            	**type**\:  :py:class:`Asr9kEfdOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdOperation>`
             
             	**default value**\: greater-than-or-equal
             
@@ -961,7 +967,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: cos
             
             	VLAN COS threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             
@@ -970,7 +976,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: operation_
             
             	VLAN operation
-            	**type**\:   :py:class:`Asr9kEfdOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdOperation>`
+            	**type**\:  :py:class:`Asr9kEfdOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdOperation>`
             
             	**default value**\: greater-than-or-equal
             
@@ -1011,7 +1017,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec0
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1020,7 +1026,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec1
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1029,7 +1035,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec2
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1038,7 +1044,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec3
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1047,7 +1053,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec4
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1056,7 +1062,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec5
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1065,7 +1071,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec6
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1074,7 +1080,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec7
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1129,7 +1135,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec0
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1138,7 +1144,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec1
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1147,7 +1153,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec2
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1156,7 +1162,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec3
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1165,7 +1171,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec4
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1174,7 +1180,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec5
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1183,7 +1189,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec6
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1192,7 +1198,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: prec7
             
             	Prec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1
             
@@ -1247,7 +1253,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: exp
             
             	MPLS EXP threshold
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             
@@ -1256,7 +1262,7 @@ class HardwareModuleEfd(Entity):
             .. attribute:: operation_
             
             	MPLS operation
-            	**type**\:   :py:class:`Asr9kEfdOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdOperation>`
+            	**type**\:  :py:class:`Asr9kEfdOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdOperation>`
             
             	**default value**\: greater-than-or-equal
             
@@ -1297,7 +1303,7 @@ class HardwareModuleEfd(Entity):
         .. attribute:: node
         
         	A node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node>`
         
         
 
@@ -1331,57 +1337,59 @@ class HardwareModuleEfd(Entity):
             .. attribute:: node_name  <key>
             
             	Node Name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: vlan_priority_mask
             
             	VLAN Priority Mask
-            	**type**\:   :py:class:`VlanPriorityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.VlanPriorityMask>`
+            	**type**\:  :py:class:`VlanPriorityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.VlanPriorityMask>`
             
             	**presence node**\: True
             
             .. attribute:: ip_precedence
             
             	EFD IP parameters
-            	**type**\:   :py:class:`IpPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.IpPrecedence>`
+            	**type**\:  :py:class:`IpPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.IpPrecedence>`
             
             	**presence node**\: True
             
             .. attribute:: vlan_cos
             
             	EFD VLAN parameters
-            	**type**\:   :py:class:`VlanCos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.VlanCos>`
+            	**type**\:  :py:class:`VlanCos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.VlanCos>`
             
             	**presence node**\: True
             
             .. attribute:: enable
             
             	Enable EFD for this node
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: ip_priority_mask
             
             	IP Priority Mask
-            	**type**\:   :py:class:`IpPriorityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.IpPriorityMask>`
+            	**type**\:  :py:class:`IpPriorityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.IpPriorityMask>`
             
             	**presence node**\: True
             
             .. attribute:: mpls_priority_mask
             
             	MPLS Priority Mask
-            	**type**\:   :py:class:`MplsPriorityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.MplsPriorityMask>`
+            	**type**\:  :py:class:`MplsPriorityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.MplsPriorityMask>`
             
             	**presence node**\: True
             
             .. attribute:: mode
             
             	EFD mode parameter
-            	**type**\:   :py:class:`Asr9kEfdMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdMode>`
+            	**type**\:  :py:class:`Asr9kEfdMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdMode>`
             
             .. attribute:: mpls_exp
             
             	EFD MPLS parameters
-            	**type**\:   :py:class:`MplsExp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.MplsExp>`
+            	**type**\:  :py:class:`MplsExp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.MplsExp>`
             
             	**presence node**\: True
             
@@ -1445,7 +1453,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec0
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1454,7 +1462,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec1
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1463,7 +1471,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec2
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1472,7 +1480,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec3
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1481,7 +1489,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec4
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1490,7 +1498,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec5
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1499,7 +1507,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec6
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1508,7 +1516,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec7
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1562,7 +1570,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: precedence
                 
                 	IP TOS precedence threshold
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..7
                 
@@ -1571,7 +1579,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: operation_
                 
                 	IP operation
-                	**type**\:   :py:class:`Asr9kEfdOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdOperation>`
+                	**type**\:  :py:class:`Asr9kEfdOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdOperation>`
                 
                 	**default value**\: greater-than-or-equal
                 
@@ -1611,7 +1619,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: cos
                 
                 	VLAN COS threshold
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..7
                 
@@ -1620,7 +1628,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: operation_
                 
                 	VLAN operation
-                	**type**\:   :py:class:`Asr9kEfdOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdOperation>`
+                	**type**\:  :py:class:`Asr9kEfdOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdOperation>`
                 
                 	**default value**\: greater-than-or-equal
                 
@@ -1660,7 +1668,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec0
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1669,7 +1677,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec1
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1678,7 +1686,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec2
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1687,7 +1695,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec3
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1696,7 +1704,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec4
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1705,7 +1713,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec5
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1714,7 +1722,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec6
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1723,7 +1731,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec7
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1777,7 +1785,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec0
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1786,7 +1794,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec1
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1795,7 +1803,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec2
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1804,7 +1812,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec3
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1813,7 +1821,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec4
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1822,7 +1830,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec5
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1831,7 +1839,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec6
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1840,7 +1848,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: prec7
                 
                 	Prec
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
@@ -1894,7 +1902,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: exp
                 
                 	MPLS EXP threshold
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..7
                 
@@ -1903,7 +1911,7 @@ class HardwareModuleEfd(Entity):
                 .. attribute:: operation_
                 
                 	MPLS operation
-                	**type**\:   :py:class:`Asr9kEfdOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdOperation>`
+                	**type**\:  :py:class:`Asr9kEfdOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9kEfdOperation>`
                 
                 	**default value**\: greater-than-or-equal
                 

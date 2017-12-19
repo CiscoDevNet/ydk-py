@@ -25,6 +25,11 @@ module Cisco-IOS-XE-mdt-common-defs {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-07-01 {
+    description
+      "Add support for VRFs";
+    reference "1.1.0";
+  }
   revision 2017-03-02 {
     description
       "Initial revision";
@@ -44,6 +49,11 @@ module Cisco-IOS-XE-mdt-common-defs {
           "Xpath defining the data items of interest.
            A limited set of the Xpath 1.0 expressions is
            supported.";
+      }
+      enum "sub-filter-type-tdl-uri" {
+        value 2;
+        description
+          "TDL-URI defining the data items of interest.";
       }
     }
     description
@@ -88,6 +98,16 @@ module Cisco-IOS-XE-mdt-common-defs {
       default "encode-xml";
       description
         "Update notification encoding";
+    }
+    leaf source-vrf {
+      type string;
+      description
+        "Network instance name for the VRF.";
+    }
+    leaf source-address {
+      type inet:ip-address;
+      description
+        "The source address for the notifications.";
     }
     choice update-trigger-choice {
       default "sub-upd-trig-none";
@@ -152,6 +172,16 @@ module Cisco-IOS-XE-mdt-common-defs {
           type string;
           description
             "XPath expression describing the set of objects
+             wanted as part of the subscription.";
+        }
+      }
+      case sub-filter-type-tdl-uri {
+        description
+          "TDL-URI defining the data items of interest.";
+        leaf tdl-uri {
+          type string;
+          description
+            "TDL-URI expression describing the set of objects
              wanted as part of the subscription.";
         }
       }

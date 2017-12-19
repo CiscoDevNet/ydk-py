@@ -451,27 +451,27 @@ class Vpdn(Entity):
     .. attribute:: sessions
     
     	VPDN session list
-    	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions>`
+    	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions>`
     
     .. attribute:: tunnel_destinations
     
     	VPDN tunnel Destinations
-    	**type**\:   :py:class:`TunnelDestinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.TunnelDestinations>`
+    	**type**\:  :py:class:`TunnelDestinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.TunnelDestinations>`
     
     .. attribute:: vpdn_mirroring
     
     	VPDN Mirroring Statistics
-    	**type**\:   :py:class:`VpdnMirroring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring>`
+    	**type**\:  :py:class:`VpdnMirroring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring>`
     
     .. attribute:: vpdn_redundancy
     
     	Show VPDN Redundancy information
-    	**type**\:   :py:class:`VpdnRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnRedundancy>`
+    	**type**\:  :py:class:`VpdnRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnRedundancy>`
     
     .. attribute:: history_failures
     
     	VPDN history failure list
-    	**type**\:   :py:class:`HistoryFailures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.HistoryFailures>`
+    	**type**\:  :py:class:`HistoryFailures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.HistoryFailures>`
     
     
 
@@ -525,7 +525,7 @@ class Vpdn(Entity):
         .. attribute:: session
         
         	 VPDN session information
-        	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session>`
+        	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session>`
         
         
 
@@ -559,39 +559,43 @@ class Vpdn(Entity):
             .. attribute:: session_label  <key>
             
             	Session label
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{1,8}
             
             .. attribute:: session
             
             	Session data
-            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Session>`
+            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Session>`
             
             .. attribute:: l2tp
             
             	L2TP data
-            	**type**\:   :py:class:`L2Tp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.L2Tp>`
+            	**type**\:  :py:class:`L2Tp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.L2Tp>`
             
             .. attribute:: subscriber
             
             	Subscriber data
-            	**type**\:   :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Subscriber>`
+            	**type**\:  :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Subscriber>`
             
             .. attribute:: configuration
             
             	Configuration data
-            	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Configuration>`
+            	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Configuration>`
             
             .. attribute:: setup_time
             
             	Time to setup session in sec\:msec
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: parent_interface_name
             
             	Parent interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             
 
@@ -649,46 +653,48 @@ class Vpdn(Entity):
                 .. attribute:: last_change
                 
                 	Elapsed time since last change in hh\:mm\:ss format
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: interface_name
                 
                 	Session interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: username
                 
                 	Authentication username
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: domain_name
                 
                 	Domain name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: state
                 
                 	Session state
-                	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.SessionState>`
+                	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.SessionState>`
                 
                 .. attribute:: l2tp_session_id
                 
                 	L2TP session ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: l2tp_tunnel_id
                 
                 	L2TP tunnel ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: srg_slave
                 
                 	Session SRG Slave
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -735,79 +741,83 @@ class Vpdn(Entity):
                 .. attribute:: local_endpoint
                 
                 	Local endpoint IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: remote_endpoint
                 
                 	Remote endpoint IP address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: call_serial_number
                 
                 	Call serial number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: is_l2tp_class_attribute_mask_set
                 
                 	True if L2TP class attribute mask is set
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: local_tunnel_id
                 
                 	Local tunnel ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: remote_tunnel_id
                 
                 	Remote tunnel ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: local_session_id
                 
                 	Local session ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: remote_session_id
                 
                 	Remote session ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: remote_port
                 
                 	Remote port
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: tunnel_client_authentication_id
                 
                 	Tunnel client authentication ID
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: tunnel_server_authentication_id
                 
                 	Tunnel server authentication ID
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: tunnel_assignment_id
                 
                 	Tunnel assignment ID
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: is_tunnel_authentication_enabled
                 
                 	True if tunnel authentication is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -864,19 +874,19 @@ class Vpdn(Entity):
                 .. attribute:: nas_port_type
                 
                 	NAS port type
-                	**type**\:   :py:class:`VpdnNasPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnNasPort>`
+                	**type**\:  :py:class:`VpdnNasPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnNasPort>`
                 
                 .. attribute:: physical_channel_id
                 
                 	Physical channel ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: receive_connect_speed
                 
                 	Receive connect speed in nanoseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -885,7 +895,7 @@ class Vpdn(Entity):
                 .. attribute:: transmit_connect_speed
                 
                 	Transmit connect speed in nanoseconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -894,7 +904,7 @@ class Vpdn(Entity):
                 .. attribute:: nas_port
                 
                 	NAS port ID
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..255
                 
@@ -937,22 +947,22 @@ class Vpdn(Entity):
                 .. attribute:: vpn_id
                 
                 	VPN ID
-                	**type**\:   :py:class:`VpnId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Configuration.VpnId>`
+                	**type**\:  :py:class:`VpnId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Configuration.VpnId>`
                 
                 .. attribute:: template_name
                 
                 	Template name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: vrf_name
                 
                 	VRF name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: l2tp_busy_timeout
                 
                 	L2TP busy timeout in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -961,19 +971,19 @@ class Vpdn(Entity):
                 .. attribute:: tos_mode
                 
                 	TOS mode
-                	**type**\:   :py:class:`TosMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.TosMode>`
+                	**type**\:  :py:class:`TosMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.TosMode>`
                 
                 .. attribute:: tos
                 
                 	TOS setting value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: dsl_line_forwarding
                 
                 	True if DSL line info forwarding is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -1021,14 +1031,14 @@ class Vpdn(Entity):
                     .. attribute:: oui
                     
                     	OUI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: index
                     
                     	Index
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1065,7 +1075,7 @@ class Vpdn(Entity):
         .. attribute:: tunnel_destination
         
         	VPDN tunnel destination information
-        	**type**\: list of    :py:class:`TunnelDestination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.TunnelDestinations.TunnelDestination>`
+        	**type**\: list of  		 :py:class:`TunnelDestination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.TunnelDestinations.TunnelDestination>`
         
         
 
@@ -1099,55 +1109,59 @@ class Vpdn(Entity):
             .. attribute:: vrf_name
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: address
             
             	IP address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: vrf_name_xr
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: load
             
             	Current load on LNS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: status
             
             	Status of LNS
-            	**type**\:   :py:class:`LsgStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.LsgStatus>`
+            	**type**\:  :py:class:`LsgStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.LsgStatus>`
             
             .. attribute:: connects
             
             	Total count of tunnels connected
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: disconnects
             
             	Total count of tunnels disconnected
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: retry
             
             	Retries
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: status_change_time
             
             	Seconds since last status change
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1201,55 +1215,55 @@ class Vpdn(Entity):
         .. attribute:: qad_send_stats
         
         	qad send stats
-        	**type**\:   :py:class:`QadSendStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadSendStats>`
+        	**type**\:  :py:class:`QadSendStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadSendStats>`
         
         .. attribute:: qad_recv_stats
         
         	qad recv stats
-        	**type**\:   :py:class:`QadRecvStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadRecvStats>`
+        	**type**\:  :py:class:`QadRecvStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadRecvStats>`
         
         .. attribute:: qad_send_stats_last_clear
         
         	qad send stats last clear
-        	**type**\:   :py:class:`QadSendStatsLastClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadSendStatsLastClear>`
+        	**type**\:  :py:class:`QadSendStatsLastClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadSendStatsLastClear>`
         
         .. attribute:: qad_recv_stats_last_clear
         
         	qad recv stats last clear
-        	**type**\:   :py:class:`QadRecvStatsLastClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadRecvStatsLastClear>`
+        	**type**\:  :py:class:`QadRecvStatsLastClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadRecvStatsLastClear>`
         
         .. attribute:: sync_not_conn_cnt
         
         	sync not conn cnt
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: sso_err_cnt
         
         	sso err cnt
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: sso_batch_err_cnt
         
         	sso batch err cnt
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: alloc_err_cnt
         
         	alloc err cnt
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: alloc_cnt
         
         	alloc cnt
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -1313,133 +1327,133 @@ class Vpdn(Entity):
             .. attribute:: msgs_sent
             
             	msgs sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: acks_sent
             
             	acks sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: no_partner
             
             	no partner
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: sends_failed
             
             	sends failed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: acks_failed
             
             	acks failed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: pending_acks
             
             	pending acks
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: timeouts
             
             	timeouts
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: suspends
             
             	suspends
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: resumes
             
             	resumes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: sends_fragment
             
             	sends fragment
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_last_seq_number
             
             	qad last seq number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_frag_count
             
             	qad frag count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_ack_count
             
             	qad ack count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_unknown_acks
             
             	qad unknown acks
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_timeouts
             
             	qad timeouts
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_rx_count
             
             	qad rx count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_rx_list_count
             
             	qad rx list count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_rx_list_q_size
             
             	qad rx list q size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_rx_first_seq_number
             
             	qad rx first seq number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1511,49 +1525,49 @@ class Vpdn(Entity):
             .. attribute:: msgs_recvd
             
             	msgs recvd
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: acks_recvd
             
             	acks recvd
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: recvd_acks_failed
             
             	recvd acks failed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: init_drops
             
             	init drops
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: msg_drops
             
             	msg drops
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ooo_drops
             
             	ooo drops
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: stale_msgs
             
             	stale msgs
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1601,133 +1615,133 @@ class Vpdn(Entity):
             .. attribute:: msgs_sent
             
             	msgs sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: acks_sent
             
             	acks sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: no_partner
             
             	no partner
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: sends_failed
             
             	sends failed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: acks_failed
             
             	acks failed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: pending_acks
             
             	pending acks
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: timeouts
             
             	timeouts
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: suspends
             
             	suspends
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: resumes
             
             	resumes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: sends_fragment
             
             	sends fragment
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_last_seq_number
             
             	qad last seq number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_frag_count
             
             	qad frag count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_ack_count
             
             	qad ack count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_unknown_acks
             
             	qad unknown acks
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_timeouts
             
             	qad timeouts
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_rx_count
             
             	qad rx count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_rx_list_count
             
             	qad rx list count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_rx_list_q_size
             
             	qad rx list q size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: qad_rx_first_seq_number
             
             	qad rx first seq number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1799,49 +1813,49 @@ class Vpdn(Entity):
             .. attribute:: msgs_recvd
             
             	msgs recvd
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: acks_recvd
             
             	acks recvd
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: recvd_acks_failed
             
             	recvd acks failed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: init_drops
             
             	init drops
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: msg_drops
             
             	msg drops
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ooo_drops
             
             	ooo drops
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: stale_msgs
             
             	stale msgs
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1889,40 +1903,40 @@ class Vpdn(Entity):
         .. attribute:: session_total
         
         	session total
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: session_synced
         
         	session synced
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: state
         
         	state
-        	**type**\:   :py:class:`VpdnState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnState>`
+        	**type**\:  :py:class:`VpdnState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnState>`
         
         .. attribute:: start_time
         
         	start time
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: finish_time
         
         	finish time
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: abort_time
         
         	abort time
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
@@ -1968,7 +1982,7 @@ class Vpdn(Entity):
         .. attribute:: history_failure
         
         	VPDN history failure information
-        	**type**\: list of    :py:class:`HistoryFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.HistoryFailures.HistoryFailure>`
+        	**type**\: list of  		 :py:class:`HistoryFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.HistoryFailures.HistoryFailure>`
         
         
 
@@ -2002,80 +2016,86 @@ class Vpdn(Entity):
             .. attribute:: username
             
             	Username
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: remote_name
             
             	Remote name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: username_xr
             
             	Authentication username
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: domain_name
             
             	Domain name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: mid
             
             	VPDN user session ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: nas
             
             	Network access server
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: destination_address
             
             	NAS IP address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: remote_client_id
             
             	Remote client ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: home_gateway
             
             	Home gateway
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: source_address
             
             	Source IP address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: local_client_id
             
             	Local client ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: event_time
             
             	Event logged time in Ex\: Wed Aug  3 10\:28\:30 2011
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: error_repeat_count
             
             	Error repeat count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: failure_type
             
             	Failure type
-            	**type**\:   :py:class:`VpdnFailcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnFailcode>`
+            	**type**\:  :py:class:`VpdnFailcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnFailcode>`
             
             
 

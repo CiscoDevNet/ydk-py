@@ -121,7 +121,7 @@ class Vrfs(Entity):
     .. attribute:: vrf
     
     	VRF configuration
-    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf>`
+    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf>`
     
     
 
@@ -155,55 +155,55 @@ class Vrfs(Entity):
         .. attribute:: vrf_name  <key>
         
         	VRF name
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..32
         
         .. attribute:: vpn_id
         
         	VPN\-ID for the VRF
-        	**type**\:   :py:class:`VpnId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.VpnId>`
+        	**type**\:  :py:class:`VpnId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.VpnId>`
         
         	**presence node**\: True
         
         .. attribute:: fallback_vrf
         
         	Fallback VRF
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..32
         
         .. attribute:: remote_route_filter_disable
         
         	For disabling remote route filtering for this VRF on core\-facing card
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: create
         
         	VRF global configuration
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: mode_big
         
         	Configuration enable of big VRF
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: description
         
         	A textual description of the VRF
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..244
         
         .. attribute:: afs
         
         	VRF address family configuration
-        	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs>`
+        	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs>`
         
         .. attribute:: multicast_host
         
         	Multicast host stack configuration
-        	**type**\:   :py:class:`MulticastHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.MulticastHost>`
+        	**type**\:  :py:class:`MulticastHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.MulticastHost>`
         
         
 
@@ -219,7 +219,7 @@ class Vrfs(Entity):
             self.yang_parent_name = "vrfs"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"vpn-id" : ("vpn_id", Vrfs.Vrf.VpnId), "afs" : ("afs", Vrfs.Vrf.Afs), "multicast-host" : ("multicast_host", Vrfs.Vrf.MulticastHost)}
+            self._child_container_classes = {"vpn-id" : ("vpn_id", Vrfs.Vrf.VpnId), "afs" : ("afs", Vrfs.Vrf.Afs), "Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host" : ("multicast_host", Vrfs.Vrf.MulticastHost)}
             self._child_list_classes = {}
 
             self.vrf_name = YLeaf(YType.str, "vrf-name")
@@ -261,7 +261,7 @@ class Vrfs(Entity):
             .. attribute:: vpn_oui
             
             	OUI of VPNID OUI
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..16777215
             
@@ -270,7 +270,7 @@ class Vrfs(Entity):
             .. attribute:: vpn_index
             
             	Index of VPNID Index
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -312,7 +312,7 @@ class Vrfs(Entity):
             .. attribute:: af
             
             	VRF address family configuration
-            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af>`
+            	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af>`
             
             
 
@@ -345,36 +345,36 @@ class Vrfs(Entity):
                 .. attribute:: af_name  <key>
                 
                 	Address family
-                	**type**\:   :py:class:`VrfAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfAddressFamily>`
+                	**type**\:  :py:class:`VrfAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfAddressFamily>`
                 
                 .. attribute:: saf_name  <key>
                 
                 	Sub\-Address family
-                	**type**\:   :py:class:`VrfSubAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamily>`
+                	**type**\:  :py:class:`VrfSubAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamily>`
                 
                 .. attribute:: topology_name  <key>
                 
                 	Topology name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..244
                 
                 .. attribute:: create
                 
                 	VRF configuration for a particular address family
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: maximum_prefix
                 
                 	Set maximum prefix limits
-                	**type**\:   :py:class:`MaximumPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.MaximumPrefix>`
+                	**type**\:  :py:class:`MaximumPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.MaximumPrefix>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: bgp
                 
                 	BGP AF VRF config
-                	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp>`
+                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp>`
                 
                 
 
@@ -390,7 +390,7 @@ class Vrfs(Entity):
                     self.yang_parent_name = "afs"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"maximum-prefix" : ("maximum_prefix", Vrfs.Vrf.Afs.Af.MaximumPrefix), "bgp" : ("bgp", Vrfs.Vrf.Afs.Af.Bgp)}
+                    self._child_container_classes = {"Cisco-IOS-XR-ip-rib-cfg:maximum-prefix" : ("maximum_prefix", Vrfs.Vrf.Afs.Af.MaximumPrefix), "Cisco-IOS-XR-ipv4-bgp-cfg:bgp" : ("bgp", Vrfs.Vrf.Afs.Af.Bgp)}
                     self._child_list_classes = {}
 
                     self.af_name = YLeaf(YType.enumeration, "af-name")
@@ -422,7 +422,7 @@ class Vrfs(Entity):
                     .. attribute:: prefix_limit
                     
                     	Set table's maximum prefix limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 32..5000000
                     
@@ -431,7 +431,7 @@ class Vrfs(Entity):
                     .. attribute:: mid_threshold
                     
                     	Mid\-threshold (% of maximum)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..100
                     
@@ -471,46 +471,46 @@ class Vrfs(Entity):
                     .. attribute:: import_route_targets
                     
                     	Import Route targets
-                    	**type**\:   :py:class:`ImportRouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets>`
+                    	**type**\:  :py:class:`ImportRouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets>`
                     
                     .. attribute:: export_route_targets
                     
                     	Export Route targets
-                    	**type**\:   :py:class:`ExportRouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets>`
+                    	**type**\:  :py:class:`ExportRouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets>`
                     
                     .. attribute:: vrf_to_global_export_route_policy
                     
                     	Route policy for vrf to global export filtering
-                    	**type**\:   :py:class:`VrfToGlobalExportRoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy>`
+                    	**type**\:  :py:class:`VrfToGlobalExportRoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: export_vrf_options
                     
                     	Export VRF options
-                    	**type**\:   :py:class:`ExportVrfOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions>`
+                    	**type**\:  :py:class:`ExportVrfOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions>`
                     
                     .. attribute:: global_to_vrf_import_route_policy
                     
                     	Route policy for global to vrf import filtering
-                    	**type**\:   :py:class:`GlobalToVrfImportRoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy>`
+                    	**type**\:  :py:class:`GlobalToVrfImportRoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: export_route_policy
                     
                     	Route policy for export filtering
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: import_route_policy
                     
                     	Route policy for import filtering
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: import_vrf_options
                     
                     	TRUE Enable advertising imported paths to PEsFALSE Disable advertising imported paths to PEs
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -570,7 +570,7 @@ class Vrfs(Entity):
                         .. attribute:: route_targets
                         
                         	Route target table
-                        	**type**\:   :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets>`
+                        	**type**\:  :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets>`
                         
                         
 
@@ -603,7 +603,7 @@ class Vrfs(Entity):
                             .. attribute:: route_target
                             
                             	Route target
-                            	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget>`
+                            	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget>`
                             
                             
 
@@ -636,17 +636,17 @@ class Vrfs(Entity):
                                 .. attribute:: type  <key>
                                 
                                 	Type of RT
-                                	**type**\:   :py:class:`BgpVrfRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpVrfRouteTarget>`
+                                	**type**\:  :py:class:`BgpVrfRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpVrfRouteTarget>`
                                 
                                 .. attribute:: as_or_four_byte_as
                                 
                                 	as or four byte as
-                                	**type**\: list of    :py:class:`AsOrFourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs>`
+                                	**type**\: list of  		 :py:class:`AsOrFourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs>`
                                 
                                 .. attribute:: ipv4_address
                                 
                                 	ipv4 address
-                                	**type**\: list of    :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address>`
+                                	**type**\: list of  		 :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address>`
                                 
                                 
 
@@ -682,28 +682,28 @@ class Vrfs(Entity):
                                     .. attribute:: as_xx  <key>
                                     
                                     	AS number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: as_  <key>
                                     
                                     	AS number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..4294967295
                                     
                                     .. attribute:: as_index  <key>
                                     
                                     	AS number Index
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: stitching_rt  <key>
                                     
                                     	Stitching RT
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..1
                                     
@@ -744,19 +744,21 @@ class Vrfs(Entity):
                                     .. attribute:: address  <key>
                                     
                                     	IP address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: address_index  <key>
                                     
                                     	IP address Index
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: stitching_rt  <key>
                                     
                                     	Stitching RT
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..1
                                     
@@ -795,7 +797,7 @@ class Vrfs(Entity):
                         .. attribute:: route_targets
                         
                         	Route target table
-                        	**type**\:   :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets>`
+                        	**type**\:  :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets>`
                         
                         
 
@@ -828,7 +830,7 @@ class Vrfs(Entity):
                             .. attribute:: route_target
                             
                             	Route target
-                            	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget>`
+                            	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget>`
                             
                             
 
@@ -861,17 +863,17 @@ class Vrfs(Entity):
                                 .. attribute:: type  <key>
                                 
                                 	Type of RT
-                                	**type**\:   :py:class:`BgpVrfRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpVrfRouteTarget>`
+                                	**type**\:  :py:class:`BgpVrfRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpVrfRouteTarget>`
                                 
                                 .. attribute:: as_or_four_byte_as
                                 
                                 	as or four byte as
-                                	**type**\: list of    :py:class:`AsOrFourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs>`
+                                	**type**\: list of  		 :py:class:`AsOrFourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs>`
                                 
                                 .. attribute:: ipv4_address
                                 
                                 	ipv4 address
-                                	**type**\: list of    :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address>`
+                                	**type**\: list of  		 :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address>`
                                 
                                 
 
@@ -907,28 +909,28 @@ class Vrfs(Entity):
                                     .. attribute:: as_xx  <key>
                                     
                                     	AS number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: as_  <key>
                                     
                                     	AS number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..4294967295
                                     
                                     .. attribute:: as_index  <key>
                                     
                                     	AS number Index
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: stitching_rt  <key>
                                     
                                     	Stitching RT
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..1
                                     
@@ -969,19 +971,21 @@ class Vrfs(Entity):
                                     .. attribute:: address  <key>
                                     
                                     	IP address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: address_index  <key>
                                     
                                     	IP address Index
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: stitching_rt  <key>
                                     
                                     	Stitching RT
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..1
                                     
@@ -1020,14 +1024,14 @@ class Vrfs(Entity):
                         .. attribute:: route_policy_name
                         
                         	Vrf to global export route policy
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
                         .. attribute:: allow_imported_vpn
                         
                         	TRUE Enable imported VPN paths to be exported to Default VRF.FALSE Disable imported VPN paths to be exported to Default VRF
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -1065,12 +1069,12 @@ class Vrfs(Entity):
                         .. attribute:: allow_imported_vpn
                         
                         	TRUE Enable imported VPN paths to be exported to non\-default VRFFALSE Disable imported VPN paths to be exported to non\-default VRF
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: import_stitching_rt
                         
                         	TRUE Use stitchng RTs to import extranet pathsFALSE Use regular RTs to import extranet paths
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -1105,14 +1109,14 @@ class Vrfs(Entity):
                         .. attribute:: route_policy_name
                         
                         	Global to vrf import route policy
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
                         .. attribute:: advertise_as_vpn
                         
                         	TRUE Enable advertising imported paths to PEsFALSE Disable advertising imported paths to PEs
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -1150,12 +1154,12 @@ class Vrfs(Entity):
             .. attribute:: ipv4
             
             	IPv4 configuration
-            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.MulticastHost.Ipv4>`
+            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.MulticastHost.Ipv4>`
             
             .. attribute:: ipv6
             
             	IPv6 configuration
-            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.MulticastHost.Ipv6>`
+            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.MulticastHost.Ipv6>`
             
             
 
@@ -1193,7 +1197,9 @@ class Vrfs(Entity):
                 .. attribute:: interface
                 
                 	Default multicast host interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 
 
@@ -1226,7 +1232,9 @@ class Vrfs(Entity):
                 .. attribute:: interface
                 
                 	Default multicast host interface name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 
 
@@ -1262,7 +1270,7 @@ class GlobalAf(Entity):
     .. attribute:: afs
     
     	VRF address family configuration
-    	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs>`
+    	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs>`
     
     
 
@@ -1296,7 +1304,7 @@ class GlobalAf(Entity):
         .. attribute:: af
         
         	VRF address family configuration
-        	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af>`
+        	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af>`
         
         
 
@@ -1330,24 +1338,24 @@ class GlobalAf(Entity):
             .. attribute:: af_name  <key>
             
             	Address family
-            	**type**\:   :py:class:`VrfAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfAddressFamily>`
+            	**type**\:  :py:class:`VrfAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfAddressFamily>`
             
             .. attribute:: saf_name  <key>
             
             	Sub\-Address family
-            	**type**\:   :py:class:`VrfSubAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamily>`
+            	**type**\:  :py:class:`VrfSubAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamily>`
             
             .. attribute:: topology_name  <key>
             
             	Topology name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..244
             
             .. attribute:: create
             
             	VRF configuration for a particular address family
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1390,27 +1398,27 @@ class Srlg(Entity):
     .. attribute:: interfaces
     
     	Set of interfaces configured with SRLG
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces>`
     
     .. attribute:: srlg_names
     
     	Set of SRLG name configuration
-    	**type**\:   :py:class:`SrlgNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.SrlgNames>`
+    	**type**\:  :py:class:`SrlgNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.SrlgNames>`
     
     .. attribute:: groups
     
     	Set of groups configured with SRLG
-    	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Groups>`
+    	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Groups>`
     
     .. attribute:: inherit_nodes
     
     	Set of inherit nodes configured with SRLG
-    	**type**\:   :py:class:`InheritNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.InheritNodes>`
+    	**type**\:  :py:class:`InheritNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.InheritNodes>`
     
     .. attribute:: enable
     
     	Enable SRLG
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -1464,7 +1472,7 @@ class Srlg(Entity):
         .. attribute:: interface
         
         	Interface configurations
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface>`
         
         
 
@@ -1498,32 +1506,34 @@ class Srlg(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: include_optical
             
             	Include optical configuration for an interface
-            	**type**\:   :py:class:`IncludeOptical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.IncludeOptical>`
+            	**type**\:  :py:class:`IncludeOptical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.IncludeOptical>`
             
             .. attribute:: interface_group
             
             	Group configuration for an interface
-            	**type**\:   :py:class:`InterfaceGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceGroup>`
+            	**type**\:  :py:class:`InterfaceGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceGroup>`
             
             .. attribute:: values
             
             	SRLG Value configuration for an interface
-            	**type**\:   :py:class:`Values <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.Values>`
+            	**type**\:  :py:class:`Values <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.Values>`
             
             .. attribute:: interface_srlg_names
             
             	SRLG Name configuration for an interface
-            	**type**\:   :py:class:`InterfaceSrlgNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceSrlgNames>`
+            	**type**\:  :py:class:`InterfaceSrlgNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceSrlgNames>`
             
             .. attribute:: enable
             
             	Enable SRLG interface
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1579,12 +1589,12 @@ class Srlg(Entity):
                 .. attribute:: enable
                 
                 	Enable SRLG interface include optical
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: priority
                 
                 	Priority for optical domain values
-                	**type**\:   :py:class:`SrlgPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriority>`
+                	**type**\:  :py:class:`SrlgPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriority>`
                 
                 	**default value**\: default
                 
@@ -1621,12 +1631,12 @@ class Srlg(Entity):
                 .. attribute:: group_names
                 
                 	Set of group name under an interface
-                	**type**\:   :py:class:`GroupNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceGroup.GroupNames>`
+                	**type**\:  :py:class:`GroupNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceGroup.GroupNames>`
                 
                 .. attribute:: enable
                 
                 	Enable SRLG interface group submode
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1664,7 +1674,7 @@ class Srlg(Entity):
                     .. attribute:: group_name
                     
                     	Group name included under interface
-                    	**type**\: list of    :py:class:`GroupName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName>`
+                    	**type**\: list of  		 :py:class:`GroupName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName>`
                     
                     
 
@@ -1697,21 +1707,21 @@ class Srlg(Entity):
                         .. attribute:: group_name_index  <key>
                         
                         	Group name index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: group_name
                         
                         	Group name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
                         .. attribute:: srlg_priority
                         
                         	SRLG priority
-                        	**type**\:   :py:class:`SrlgPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriority>`
+                        	**type**\:  :py:class:`SrlgPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriority>`
                         
                         	**default value**\: default
                         
@@ -1750,7 +1760,7 @@ class Srlg(Entity):
                 .. attribute:: value
                 
                 	SRLG value data
-                	**type**\: list of    :py:class:`Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.Values.Value>`
+                	**type**\: list of  		 :py:class:`Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.Values.Value>`
                 
                 
 
@@ -1783,14 +1793,14 @@ class Srlg(Entity):
                     .. attribute:: srlg_index  <key>
                     
                     	SRLG index
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
                     .. attribute:: srlg_value
                     
                     	SRLG value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1799,7 +1809,7 @@ class Srlg(Entity):
                     .. attribute:: srlg_priority
                     
                     	SRLG priority
-                    	**type**\:   :py:class:`SrlgPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriority>`
+                    	**type**\:  :py:class:`SrlgPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriority>`
                     
                     	**default value**\: default
                     
@@ -1838,7 +1848,7 @@ class Srlg(Entity):
                 .. attribute:: interface_srlg_name
                 
                 	SRLG name data
-                	**type**\: list of    :py:class:`InterfaceSrlgName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName>`
+                	**type**\: list of  		 :py:class:`InterfaceSrlgName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName>`
                 
                 
 
@@ -1871,7 +1881,7 @@ class Srlg(Entity):
                     .. attribute:: srlg_name  <key>
                     
                     	SRLG name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -1906,7 +1916,7 @@ class Srlg(Entity):
         .. attribute:: srlg_name
         
         	SRLG name configuration
-        	**type**\: list of    :py:class:`SrlgName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.SrlgNames.SrlgName>`
+        	**type**\: list of  		 :py:class:`SrlgName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.SrlgNames.SrlgName>`
         
         
 
@@ -1940,14 +1950,14 @@ class Srlg(Entity):
             .. attribute:: srlg_name  <key>
             
             	SRLG name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: srlg_value
             
             	SRLG value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1987,7 +1997,7 @@ class Srlg(Entity):
         .. attribute:: group
         
         	Group configurations
-        	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Groups.Group>`
+        	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Groups.Group>`
         
         
 
@@ -2021,17 +2031,19 @@ class Srlg(Entity):
             .. attribute:: group_name  <key>
             
             	Group name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: group_values
             
             	Set of SRLG values configured under a group
-            	**type**\:   :py:class:`GroupValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Groups.Group.GroupValues>`
+            	**type**\:  :py:class:`GroupValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Groups.Group.GroupValues>`
             
             .. attribute:: enable
             
             	Enable SRLG group
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -2072,7 +2084,7 @@ class Srlg(Entity):
                 .. attribute:: group_value
                 
                 	Group SRLG values with attribute
-                	**type**\: list of    :py:class:`GroupValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Groups.Group.GroupValues.GroupValue>`
+                	**type**\: list of  		 :py:class:`GroupValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.Groups.Group.GroupValues.GroupValue>`
                 
                 
 
@@ -2105,14 +2117,14 @@ class Srlg(Entity):
                     .. attribute:: srlg_index  <key>
                     
                     	SRLG index
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
                     .. attribute:: srlg_value
                     
                     	SRLG value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2121,7 +2133,7 @@ class Srlg(Entity):
                     .. attribute:: srlg_priority
                     
                     	SRLG priority
-                    	**type**\:   :py:class:`SrlgPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriority>`
+                    	**type**\:  :py:class:`SrlgPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriority>`
                     
                     	**default value**\: default
                     
@@ -2160,7 +2172,7 @@ class Srlg(Entity):
         .. attribute:: inherit_node
         
         	Inherit node configurations
-        	**type**\: list of    :py:class:`InheritNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.InheritNodes.InheritNode>`
+        	**type**\: list of  		 :py:class:`InheritNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.InheritNodes.InheritNode>`
         
         
 
@@ -2194,17 +2206,19 @@ class Srlg(Entity):
             .. attribute:: inherit_node_name  <key>
             
             	The inherit node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ((([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))/){2}(([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))
             
             .. attribute:: inherit_node_values
             
             	Set of SRLG values configured under an inherit node
-            	**type**\:   :py:class:`InheritNodeValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.InheritNodes.InheritNode.InheritNodeValues>`
+            	**type**\:  :py:class:`InheritNodeValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.InheritNodes.InheritNode.InheritNodeValues>`
             
             .. attribute:: enable
             
             	Enable SRLG inherit node
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -2246,7 +2260,7 @@ class Srlg(Entity):
                 .. attribute:: inherit_node_value
                 
                 	Inherit node SRLG value with attributes
-                	**type**\: list of    :py:class:`InheritNodeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue>`
+                	**type**\: list of  		 :py:class:`InheritNodeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue>`
                 
                 
 
@@ -2279,14 +2293,14 @@ class Srlg(Entity):
                     .. attribute:: srlg_index  <key>
                     
                     	SRLG index
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
                     .. attribute:: srlg_value
                     
                     	SRLG value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2295,7 +2309,7 @@ class Srlg(Entity):
                     .. attribute:: srlg_priority
                     
                     	SRLG priority
-                    	**type**\:   :py:class:`SrlgPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriority>`
+                    	**type**\:  :py:class:`SrlgPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.SrlgPriority>`
                     
                     	**default value**\: default
                     
@@ -2337,7 +2351,7 @@ class VrfGroups(Entity):
     .. attribute:: vrf_group
     
     	VRF group configuration
-    	**type**\: list of    :py:class:`VrfGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfGroups.VrfGroup>`
+    	**type**\: list of  		 :py:class:`VrfGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfGroups.VrfGroup>`
     
     
 
@@ -2371,19 +2385,19 @@ class VrfGroups(Entity):
         .. attribute:: vrf_group_name  <key>
         
         	VRF group name
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..32
         
         .. attribute:: vrfs
         
         	Set of VRFs configured under a VRF group
-        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfGroups.VrfGroup.Vrfs>`
+        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfGroups.VrfGroup.Vrfs>`
         
         .. attribute:: enable
         
         	Enable VRF group
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -2424,7 +2438,7 @@ class VrfGroups(Entity):
             .. attribute:: vrf
             
             	VRF configuration
-            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfGroups.VrfGroup.Vrfs.Vrf>`
+            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfGroups.VrfGroup.Vrfs.Vrf>`
             
             
 
@@ -2457,7 +2471,7 @@ class VrfGroups(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	VRF name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
@@ -2495,7 +2509,7 @@ class SelectiveVrfDownload(Entity):
     .. attribute:: disable
     
     	Disable selective VRF download
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 

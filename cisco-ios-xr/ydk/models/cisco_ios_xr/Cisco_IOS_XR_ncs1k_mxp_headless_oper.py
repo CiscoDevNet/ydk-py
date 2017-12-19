@@ -59,12 +59,12 @@ class HeadlessFuncData(Entity):
     .. attribute:: otn_port_names
     
     	OTN Statistics collected during last headless operation
-    	**type**\:   :py:class:`OtnPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames>`
+    	**type**\:  :py:class:`OtnPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames>`
     
     .. attribute:: ethernet_port_names
     
     	Ethernet Statistics collected during last headless operation
-    	**type**\:   :py:class:`EthernetPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames>`
+    	**type**\:  :py:class:`EthernetPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames>`
     
     
 
@@ -104,7 +104,7 @@ class HeadlessFuncData(Entity):
         .. attribute:: otn_port_name
         
         	port Name
-        	**type**\: list of    :py:class:`OtnPortName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName>`
+        	**type**\: list of  		 :py:class:`OtnPortName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName>`
         
         
 
@@ -138,34 +138,36 @@ class HeadlessFuncData(Entity):
             .. attribute:: name  <key>
             
             	Port name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: otn_statistics
             
             	OTN statistics
-            	**type**\:   :py:class:`OtnStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics>`
+            	**type**\:  :py:class:`OtnStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics>`
             
             .. attribute:: prbs_statistics
             
             	PRBS Statistics
-            	**type**\:   :py:class:`PrbsStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName.PrbsStatistics>`
+            	**type**\:  :py:class:`PrbsStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName.PrbsStatistics>`
             
             .. attribute:: started_stateful
             
             	Started Stateful
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: headless_start_time
             
             	Headless Start Time
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: headless_end_time
             
             	Headless End Time
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
@@ -217,28 +219,28 @@ class HeadlessFuncData(Entity):
                 .. attribute:: sm_bip
                 
                 	SmBip
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: sm_bei
                 
                 	SmBei
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: fec_ec
                 
                 	FecEc
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: fec_uc
                 
                 	FecUc
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -279,14 +281,14 @@ class HeadlessFuncData(Entity):
                 .. attribute:: ebc
                 
                 	EBC
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: sync_status
                 
                 	SyncStatus
-                	**type**\:   :py:class:`MxpOtnPrbsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.MxpOtnPrbsStatus>`
+                	**type**\:  :py:class:`MxpOtnPrbsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.MxpOtnPrbsStatus>`
                 
                 
 
@@ -322,7 +324,7 @@ class HeadlessFuncData(Entity):
         .. attribute:: ethernet_port_name
         
         	Port Name
-        	**type**\: list of    :py:class:`EthernetPortName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName>`
+        	**type**\: list of  		 :py:class:`EthernetPortName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName>`
         
         
 
@@ -356,29 +358,31 @@ class HeadlessFuncData(Entity):
             .. attribute:: name  <key>
             
             	Port name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: ether_statistics
             
             	Ether Statistics
-            	**type**\:   :py:class:`EtherStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics>`
+            	**type**\:  :py:class:`EtherStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics>`
             
             .. attribute:: started_stateful
             
             	Started Stateful
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: headless_start_time
             
             	Headless Start Time
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: headless_end_time
             
             	Headless End Time
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
@@ -425,224 +429,224 @@ class HeadlessFuncData(Entity):
                 .. attribute:: rx_pkts_over_sized
                 
                 	RxPktsOverSized
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_bad_fcs
                 
                 	RxPktsBadFcs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_error_jabbers
                 
                 	RxErrorJabbers
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_multicast
                 
                 	RxPktsMulticast
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_broadcast
                 
                 	RxPktsBroadcast
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_under_sized
                 
                 	RxPktsUnderSized
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_packets
                 
                 	RxPackets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_total_bytes
                 
                 	RxTotalBytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_bytes_good
                 
                 	RxBytesGood
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_good
                 
                 	RxPktsGood
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_bytes_good
                 
                 	TxBytesGood
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_pkts_good
                 
                 	TxPktsGood
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_recv_fragments
                 
                 	RxRecvFragments
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts64_bytes
                 
                 	RxPkts64Bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts65_to127_bytes
                 
                 	RxPkts65To127Bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts128to255_bytes
                 
                 	RxPkts128to255Bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts256_to511_bytes
                 
                 	RxPkts256To511Bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts512_to1023_bytes
                 
                 	RxPkts512To1023Bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts1024_to1518_bytes
                 
                 	RxPkts1024To1518Bytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_unicast
                 
                 	RxPktsUnicast
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_packets
                 
                 	TxPackets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_total_bytes
                 
                 	TxTotalBytes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_pkts_under_sized
                 
                 	TxPktsUnderSized
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_pkts_over_sized
                 
                 	TxPktsOverSized
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_fragments
                 
                 	TxFragments
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_jabber
                 
                 	TxJabber
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_bad_fcs
                 
                 	TxBadFCS
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkt_drop
                 
                 	RxPktDrop
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pause
                 
                 	RxPause
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_pause
                 
                 	TxPause
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_lldp_pkt
                 
                 	RxLldpPkt
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx8021q_pkt
                 
                 	Rx8021QPkt
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 

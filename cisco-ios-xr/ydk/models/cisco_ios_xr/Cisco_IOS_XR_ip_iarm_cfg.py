@@ -60,12 +60,12 @@ class IpArm(Entity):
     .. attribute:: ipv4
     
     	IPv4 ARM configuration
-    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArm.Ipv4>`
+    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArm.Ipv4>`
     
     .. attribute:: ipv6
     
     	IPv6 ARM configuration
-    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArm.Ipv6>`
+    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArm.Ipv6>`
     
     
 
@@ -104,12 +104,12 @@ class IpArm(Entity):
         .. attribute:: conflict_policy_table
         
         	IP ARM conflict policy configuration
-        	**type**\:   :py:class:`ConflictPolicyTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArm.Ipv4.ConflictPolicyTable>`
+        	**type**\:  :py:class:`ConflictPolicyTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArm.Ipv4.ConflictPolicyTable>`
         
         .. attribute:: multicast_host
         
         	IP ARM Multicast Host configuration
-        	**type**\:   :py:class:`MulticastHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArm.Ipv4.MulticastHost>`
+        	**type**\:  :py:class:`MulticastHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArm.Ipv4.MulticastHost>`
         
         
 
@@ -148,7 +148,7 @@ class IpArm(Entity):
             .. attribute:: conflict_policy
             
             	IP ARM conflict policy value definitions
-            	**type**\:   :py:class:`IpArmConflictPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArmConflictPolicy>`
+            	**type**\:  :py:class:`IpArmConflictPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArmConflictPolicy>`
             
             
 
@@ -182,7 +182,9 @@ class IpArm(Entity):
             .. attribute:: multicast_host_interface
             
             	Default multicast host interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             
 
@@ -216,12 +218,12 @@ class IpArm(Entity):
         .. attribute:: conflict_policy_table
         
         	IP ARM conflict policy configuration
-        	**type**\:   :py:class:`ConflictPolicyTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArm.Ipv6.ConflictPolicyTable>`
+        	**type**\:  :py:class:`ConflictPolicyTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArm.Ipv6.ConflictPolicyTable>`
         
         .. attribute:: multicast_host
         
         	IP ARM Multicast Host configuration
-        	**type**\:   :py:class:`MulticastHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArm.Ipv6.MulticastHost>`
+        	**type**\:  :py:class:`MulticastHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArm.Ipv6.MulticastHost>`
         
         
 
@@ -260,7 +262,7 @@ class IpArm(Entity):
             .. attribute:: conflict_policy
             
             	IP ARM conflict policy value definitions
-            	**type**\:   :py:class:`IpArmConflictPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArmConflictPolicy>`
+            	**type**\:  :py:class:`IpArmConflictPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg.IpArmConflictPolicy>`
             
             
 
@@ -294,7 +296,9 @@ class IpArm(Entity):
             .. attribute:: multicast_host_interface
             
             	Default multicast host interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             
 

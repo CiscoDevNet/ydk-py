@@ -46,7 +46,7 @@ class Hardware(Entity):
     .. attribute:: access_list
     
     	Access\-list option
-    	**type**\:   :py:class:`AccessList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5k_fea_pfilter_nonatomic_cfg.Hardware.AccessList>`
+    	**type**\:  :py:class:`AccessList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5k_fea_pfilter_nonatomic_cfg.Hardware.AccessList>`
     
     
 
@@ -80,7 +80,7 @@ class Hardware(Entity):
         .. attribute:: atomic_disable
         
         	Specify Option for Atomic disable
-        	**type**\:   :py:class:`AtomicDisableDfltActn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5k_fea_pfilter_nonatomic_cfg.AtomicDisableDfltActn>`
+        	**type**\:  :py:class:`AtomicDisableDfltActn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5k_fea_pfilter_nonatomic_cfg.AtomicDisableDfltActn>`
         
         
 

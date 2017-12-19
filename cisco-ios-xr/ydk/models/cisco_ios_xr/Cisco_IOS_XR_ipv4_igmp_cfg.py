@@ -54,12 +54,12 @@ class Igmp(Entity):
     .. attribute:: vrfs
     
     	VRF related configuration
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs>`
     
     .. attribute:: default_context
     
     	Default Context
-    	**type**\:   :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext>`
+    	**type**\:  :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext>`
     
     	**presence node**\: True
     
@@ -102,7 +102,7 @@ class Igmp(Entity):
         .. attribute:: vrf
         
         	Configuration for a particular vrf
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf>`
         
         
 
@@ -136,44 +136,44 @@ class Igmp(Entity):
             .. attribute:: vrf_name  <key>
             
             	Name for this vrf
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: traffic
             
             	Configure IGMP Traffic variables
-            	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Traffic>`
+            	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Traffic>`
             
             .. attribute:: inheritable_defaults
             
             	Inheritable Defaults
-            	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults>`
+            	**type**\:  :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults>`
             
             .. attribute:: ssm_access_groups
             
             	IGMP Source specific mode
-            	**type**\:   :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.SsmAccessGroups>`
+            	**type**\:  :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.SsmAccessGroups>`
             
             .. attribute:: maximum
             
             	Configure IGMP State Limits
-            	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Maximum>`
+            	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Maximum>`
             
             .. attribute:: ssmdns_query_group
             
             	Enable SSM mapping using DNS Query
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: interfaces
             
             	Interface\-level configuration
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces>`
             
             .. attribute:: robustness
             
             	Configure IGMP Robustness variable
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 2..10
             
@@ -240,7 +240,7 @@ class Igmp(Entity):
                 .. attribute:: profile
                 
                 	Configure the route\-policy profile
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -275,14 +275,14 @@ class Igmp(Entity):
                 .. attribute:: maximum_groups_per_interface_oor
                 
                 	Configure maximum number of groups accepted per interface by this router
-                	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
+                	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: query_timeout
                 
                 	IGMP previous querier timeout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 60..300
                 
@@ -291,14 +291,14 @@ class Igmp(Entity):
                 .. attribute:: access_group
                 
                 	Access list specifying access group range
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: query_max_response_time
                 
                 	Query response value in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..12
                 
@@ -309,7 +309,7 @@ class Igmp(Entity):
                 .. attribute:: version
                 
                 	Version number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..3
                 
@@ -318,14 +318,14 @@ class Igmp(Entity):
                 .. attribute:: router_enable
                 
                 	Enabled or disabled, when value is TRUE or FALSE respectively
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: true
                 
                 .. attribute:: query_interval
                 
                 	Query interval in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..3600
                 
@@ -336,7 +336,7 @@ class Igmp(Entity):
                 .. attribute:: explicit_tracking
                 
                 	IGMPv3 explicit host tracking
-                	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults.ExplicitTracking>`
+                	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults.ExplicitTracking>`
                 
                 	**presence node**\: True
                 
@@ -390,7 +390,7 @@ class Igmp(Entity):
                     .. attribute:: maximum_groups
                     
                     	Maximum number of groups accepted per interface by this router
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..40000
                     
@@ -399,7 +399,7 @@ class Igmp(Entity):
                     .. attribute:: warning_threshold
                     
                     	 WarningThreshold for number of groups accepted per interface by this router
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..40000
                     
@@ -408,7 +408,7 @@ class Igmp(Entity):
                     .. attribute:: access_list_name
                     
                     	Access\-list to account for
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -450,14 +450,14 @@ class Igmp(Entity):
                     .. attribute:: enable
                     
                     	Enabled or disabled, when value is TRUE or FALSE respectively
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**mandatory**\: True
                     
                     .. attribute:: access_list_name
                     
                     	Access list specifying tracking group range
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -497,7 +497,7 @@ class Igmp(Entity):
                 .. attribute:: ssm_access_group
                 
                 	SSM static Access Group
-                	**type**\: list of    :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup>`
+                	**type**\: list of  		 :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup>`
                 
                 
 
@@ -530,20 +530,20 @@ class Igmp(Entity):
                     .. attribute:: source_address  <key>
                     
                     	IP source address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: access_list_name
                     
                     	Access list specifying access group
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -582,7 +582,7 @@ class Igmp(Entity):
                 .. attribute:: maximum_groups
                 
                 	Configure maximum number of groups accepted by this router
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..75000
                 
@@ -619,7 +619,7 @@ class Igmp(Entity):
                 .. attribute:: interface
                 
                 	The name of the interface
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface>`
                 
                 
 
@@ -652,31 +652,33 @@ class Igmp(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Name of the interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: join_groups
                     
                     	IGMP join multicast group
-                    	**type**\:   :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups>`
+                    	**type**\:  :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: static_group_group_addresses
                     
                     	IGMP static multicast group
-                    	**type**\:   :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses>`
+                    	**type**\:  :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses>`
                     
                     .. attribute:: maximum_groups_per_interface_oor
                     
                     	Configure maximum number of groups accepted per interface by this router
-                    	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
+                    	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: query_timeout
                     
                     	IGMP previous querier timeout
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 60..300
                     
@@ -685,14 +687,14 @@ class Igmp(Entity):
                     .. attribute:: access_group
                     
                     	Access list specifying access group range
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: query_max_response_time
                     
                     	Query response value in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..12
                     
@@ -703,7 +705,7 @@ class Igmp(Entity):
                     .. attribute:: version
                     
                     	Version number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..3
                     
@@ -712,14 +714,14 @@ class Igmp(Entity):
                     .. attribute:: router_enable
                     
                     	Enabled or disabled, when value is TRUE or FALSE respectively
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: true
                     
                     .. attribute:: query_interval
                     
                     	Query interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..3600
                     
@@ -730,7 +732,7 @@ class Igmp(Entity):
                     .. attribute:: explicit_tracking
                     
                     	IGMPv3 explicit host tracking
-                    	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking>`
+                    	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking>`
                     
                     	**presence node**\: True
                     
@@ -794,12 +796,12 @@ class Igmp(Entity):
                         .. attribute:: join_group
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup>`
+                        	**type**\: list of  		 :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup>`
                         
                         .. attribute:: join_group_source_address
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
+                        	**type**\: list of  		 :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
                         
                         
 
@@ -837,20 +839,20 @@ class Igmp(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: mode
                             
                             	Filter mode
-                            	**type**\:   :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
+                            	**type**\:  :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
                             
                             	**mandatory**\: True
                             
@@ -888,33 +890,33 @@ class Igmp(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address  <key>
                             
                             	Optional IP source address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: mode
                             
                             	Filter mode
-                            	**type**\:   :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
+                            	**type**\:  :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
                             
                             	**mandatory**\: True
                             
@@ -953,32 +955,32 @@ class Igmp(Entity):
                         .. attribute:: static_group_group_address
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
+                        	**type**\: list of  		 :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
                         
                         .. attribute:: static_group_group_address_source_address
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
+                        	**type**\: list of  		 :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
                         
                         .. attribute:: static_group_group_address_source_address_source_address_mask
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
+                        	**type**\: list of  		 :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
                         
                         .. attribute:: static_group_group_address_group_address_mask
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
+                        	**type**\: list of  		 :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
                         
                         .. attribute:: static_group_group_address_group_address_mask_source_address
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
+                        	**type**\: list of  		 :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
                         
                         .. attribute:: static_group_group_address_group_address_mask_source_address_source_address_mask
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
+                        	**type**\: list of  		 :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
                         
                         
 
@@ -1017,20 +1019,20 @@ class Igmp(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_count
                             
                             	Number of groups to join (do not set without GroupAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -1039,7 +1041,7 @@ class Igmp(Entity):
                             .. attribute:: source_count
                             
                             	Number of sources to join (do not set without SourceAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -1048,7 +1050,7 @@ class Igmp(Entity):
                             .. attribute:: suppress_report
                             
                             	Suppress reports
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
@@ -1090,33 +1092,33 @@ class Igmp(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address  <key>
                             
                             	IP source address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_count
                             
                             	Number of groups to join (do not set without GroupAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -1125,7 +1127,7 @@ class Igmp(Entity):
                             .. attribute:: source_count
                             
                             	Number of sources to join (do not set without SourceAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -1134,7 +1136,7 @@ class Igmp(Entity):
                             .. attribute:: suppress_report
                             
                             	Suppress reports
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
@@ -1178,46 +1180,46 @@ class Igmp(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address  <key>
                             
                             	IP source address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address_mask  <key>
                             
                             	Mask for Source Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_count
                             
                             	Number of groups to join (do not set without GroupAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -1226,7 +1228,7 @@ class Igmp(Entity):
                             .. attribute:: source_count
                             
                             	Number of sources to join (do not set without SourceAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -1235,7 +1237,7 @@ class Igmp(Entity):
                             .. attribute:: suppress_report
                             
                             	Suppress reports
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
@@ -1281,33 +1283,33 @@ class Igmp(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_address_mask  <key>
                             
                             	Mask for Group Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_count
                             
                             	Number of groups to join (do not set without GroupAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -1316,7 +1318,7 @@ class Igmp(Entity):
                             .. attribute:: source_count
                             
                             	Number of sources to join (do not set without SourceAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -1325,7 +1327,7 @@ class Igmp(Entity):
                             .. attribute:: suppress_report
                             
                             	Suppress reports
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
@@ -1369,46 +1371,46 @@ class Igmp(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_address_mask  <key>
                             
                             	Mask for Group Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address  <key>
                             
                             	IP source address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_count
                             
                             	Number of groups to join (do not set without GroupAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -1417,7 +1419,7 @@ class Igmp(Entity):
                             .. attribute:: source_count
                             
                             	Number of sources to join (do not set without SourceAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -1426,7 +1428,7 @@ class Igmp(Entity):
                             .. attribute:: suppress_report
                             
                             	Suppress reports
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
@@ -1472,59 +1474,59 @@ class Igmp(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_address_mask  <key>
                             
                             	Mask for Group Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address  <key>
                             
                             	IP source address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address_mask  <key>
                             
                             	Mask for Source Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_count
                             
                             	Number of groups to join (do not set without GroupAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -1533,7 +1535,7 @@ class Igmp(Entity):
                             .. attribute:: source_count
                             
                             	Number of sources to join (do not set without SourceAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -1542,7 +1544,7 @@ class Igmp(Entity):
                             .. attribute:: suppress_report
                             
                             	Suppress reports
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
@@ -1590,7 +1592,7 @@ class Igmp(Entity):
                         .. attribute:: maximum_groups
                         
                         	Maximum number of groups accepted per interface by this router
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..40000
                         
@@ -1599,7 +1601,7 @@ class Igmp(Entity):
                         .. attribute:: warning_threshold
                         
                         	 WarningThreshold for number of groups accepted per interface by this router
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..40000
                         
@@ -1608,7 +1610,7 @@ class Igmp(Entity):
                         .. attribute:: access_list_name
                         
                         	Access\-list to account for
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -1650,14 +1652,14 @@ class Igmp(Entity):
                         .. attribute:: enable
                         
                         	Enabled or disabled, when value is TRUE or FALSE respectively
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**mandatory**\: True
                         
                         .. attribute:: access_list_name
                         
                         	Access list specifying tracking group range
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -1697,52 +1699,52 @@ class Igmp(Entity):
         .. attribute:: nsf
         
         	Configure NSF specific options
-        	**type**\:   :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Nsf>`
+        	**type**\:  :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Nsf>`
         
         .. attribute:: unicast_qos_adjust
         
         	Configure IGMP QoS shapers for subscriber interfaces
-        	**type**\:   :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.UnicastQosAdjust>`
+        	**type**\:  :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.UnicastQosAdjust>`
         
         .. attribute:: accounting
         
         	Configure IGMP accounting for logging join/leave records
-        	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Accounting>`
+        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Accounting>`
         
         .. attribute:: traffic
         
         	Configure IGMP Traffic variables
-        	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Traffic>`
+        	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Traffic>`
         
         .. attribute:: inheritable_defaults
         
         	Inheritable Defaults
-        	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults>`
+        	**type**\:  :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults>`
         
         .. attribute:: ssm_access_groups
         
         	IGMP Source specific mode
-        	**type**\:   :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.SsmAccessGroups>`
+        	**type**\:  :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.SsmAccessGroups>`
         
         .. attribute:: maximum
         
         	Configure IGMP State Limits
-        	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Maximum>`
+        	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Maximum>`
         
         .. attribute:: ssmdns_query_group
         
         	Enable SSM mapping using DNS Query
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: interfaces
         
         	Interface\-level configuration
-        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces>`
         
         .. attribute:: robustness
         
         	Configure IGMP Robustness variable
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 2..10
         
@@ -1825,7 +1827,7 @@ class Igmp(Entity):
             .. attribute:: lifetime
             
             	Maximum time for IGMP NSF mode in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 10..3600
             
@@ -1866,7 +1868,7 @@ class Igmp(Entity):
             .. attribute:: download_interval
             
             	Configure the QoS download interval (in milliseconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 10..500
             
@@ -1877,7 +1879,7 @@ class Igmp(Entity):
             .. attribute:: adjustment_delay
             
             	Configure the QoS delay before programming (in seconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..10
             
@@ -1888,7 +1890,7 @@ class Igmp(Entity):
             .. attribute:: hold_off
             
             	Configure the QoS hold off time (in seconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..1800
             
@@ -1933,7 +1935,7 @@ class Igmp(Entity):
             .. attribute:: max_history
             
             	Configure IGMP accounting Maximum History setting
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..365
             
@@ -1973,7 +1975,7 @@ class Igmp(Entity):
             .. attribute:: profile
             
             	Configure the route\-policy profile
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
@@ -2009,14 +2011,14 @@ class Igmp(Entity):
             .. attribute:: maximum_groups_per_interface_oor
             
             	Configure maximum number of groups accepted per interface by this router
-            	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
+            	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
             
             	**presence node**\: True
             
             .. attribute:: query_timeout
             
             	IGMP previous querier timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 60..300
             
@@ -2025,14 +2027,14 @@ class Igmp(Entity):
             .. attribute:: access_group
             
             	Access list specifying access group range
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: query_max_response_time
             
             	Query response value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..12
             
@@ -2043,7 +2045,7 @@ class Igmp(Entity):
             .. attribute:: version
             
             	Version number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..3
             
@@ -2052,14 +2054,14 @@ class Igmp(Entity):
             .. attribute:: router_enable
             
             	Enabled or disabled, when value is TRUE or FALSE respectively
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: true
             
             .. attribute:: query_interval
             
             	Query interval in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..3600
             
@@ -2070,7 +2072,7 @@ class Igmp(Entity):
             .. attribute:: explicit_tracking
             
             	IGMPv3 explicit host tracking
-            	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults.ExplicitTracking>`
+            	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults.ExplicitTracking>`
             
             	**presence node**\: True
             
@@ -2125,7 +2127,7 @@ class Igmp(Entity):
                 .. attribute:: maximum_groups
                 
                 	Maximum number of groups accepted per interface by this router
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..40000
                 
@@ -2134,7 +2136,7 @@ class Igmp(Entity):
                 .. attribute:: warning_threshold
                 
                 	 WarningThreshold for number of groups accepted per interface by this router
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..40000
                 
@@ -2143,7 +2145,7 @@ class Igmp(Entity):
                 .. attribute:: access_list_name
                 
                 	Access\-list to account for
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -2186,14 +2188,14 @@ class Igmp(Entity):
                 .. attribute:: enable
                 
                 	Enabled or disabled, when value is TRUE or FALSE respectively
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**mandatory**\: True
                 
                 .. attribute:: access_list_name
                 
                 	Access list specifying tracking group range
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -2234,7 +2236,7 @@ class Igmp(Entity):
             .. attribute:: ssm_access_group
             
             	SSM static Access Group
-            	**type**\: list of    :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.SsmAccessGroups.SsmAccessGroup>`
+            	**type**\: list of  		 :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.SsmAccessGroups.SsmAccessGroup>`
             
             
 
@@ -2268,20 +2270,20 @@ class Igmp(Entity):
                 .. attribute:: source_address  <key>
                 
                 	IP source address
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: access_list_name
                 
                 	Access list specifying access group
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -2321,7 +2323,7 @@ class Igmp(Entity):
             .. attribute:: maximum_groups
             
             	Configure maximum number of groups accepted by this router
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..75000
             
@@ -2359,7 +2361,7 @@ class Igmp(Entity):
             .. attribute:: interface
             
             	The name of the interface
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface>`
             
             
 
@@ -2393,31 +2395,33 @@ class Igmp(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	Name of the interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: join_groups
                 
                 	IGMP join multicast group
-                	**type**\:   :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.JoinGroups>`
+                	**type**\:  :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.JoinGroups>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: static_group_group_addresses
                 
                 	IGMP static multicast group
-                	**type**\:   :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses>`
+                	**type**\:  :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses>`
                 
                 .. attribute:: maximum_groups_per_interface_oor
                 
                 	Configure maximum number of groups accepted per interface by this router
-                	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
+                	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: query_timeout
                 
                 	IGMP previous querier timeout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 60..300
                 
@@ -2426,14 +2430,14 @@ class Igmp(Entity):
                 .. attribute:: access_group
                 
                 	Access list specifying access group range
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: query_max_response_time
                 
                 	Query response value in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..12
                 
@@ -2444,7 +2448,7 @@ class Igmp(Entity):
                 .. attribute:: version
                 
                 	Version number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..3
                 
@@ -2453,14 +2457,14 @@ class Igmp(Entity):
                 .. attribute:: router_enable
                 
                 	Enabled or disabled, when value is TRUE or FALSE respectively
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: true
                 
                 .. attribute:: query_interval
                 
                 	Query interval in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..3600
                 
@@ -2471,7 +2475,7 @@ class Igmp(Entity):
                 .. attribute:: explicit_tracking
                 
                 	IGMPv3 explicit host tracking
-                	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.ExplicitTracking>`
+                	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.ExplicitTracking>`
                 
                 	**presence node**\: True
                 
@@ -2536,12 +2540,12 @@ class Igmp(Entity):
                     .. attribute:: join_group
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup>`
+                    	**type**\: list of  		 :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup>`
                     
                     .. attribute:: join_group_source_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
+                    	**type**\: list of  		 :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
                     
                     
 
@@ -2579,20 +2583,20 @@ class Igmp(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: mode
                         
                         	Filter mode
-                        	**type**\:   :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
+                        	**type**\:  :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
                         
                         	**mandatory**\: True
                         
@@ -2630,33 +2634,33 @@ class Igmp(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address  <key>
                         
                         	Optional IP source address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: mode
                         
                         	Filter mode
-                        	**type**\:   :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
+                        	**type**\:  :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
                         
                         	**mandatory**\: True
                         
@@ -2695,32 +2699,32 @@ class Igmp(Entity):
                     .. attribute:: static_group_group_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
+                    	**type**\: list of  		 :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
                     
                     .. attribute:: static_group_group_address_source_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
+                    	**type**\: list of  		 :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
                     
                     .. attribute:: static_group_group_address_source_address_source_address_mask
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
+                    	**type**\: list of  		 :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
                     
                     .. attribute:: static_group_group_address_group_address_mask
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
+                    	**type**\: list of  		 :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
                     
                     .. attribute:: static_group_group_address_group_address_mask_source_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
+                    	**type**\: list of  		 :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
                     
                     .. attribute:: static_group_group_address_group_address_mask_source_address_source_address_mask
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
+                    	**type**\: list of  		 :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
                     
                     
 
@@ -2759,20 +2763,20 @@ class Igmp(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_count
                         
                         	Number of groups to join (do not set without GroupAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -2781,7 +2785,7 @@ class Igmp(Entity):
                         .. attribute:: source_count
                         
                         	Number of sources to join (do not set without SourceAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -2790,7 +2794,7 @@ class Igmp(Entity):
                         .. attribute:: suppress_report
                         
                         	Suppress reports
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -2832,33 +2836,33 @@ class Igmp(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address  <key>
                         
                         	IP source address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_count
                         
                         	Number of groups to join (do not set without GroupAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -2867,7 +2871,7 @@ class Igmp(Entity):
                         .. attribute:: source_count
                         
                         	Number of sources to join (do not set without SourceAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -2876,7 +2880,7 @@ class Igmp(Entity):
                         .. attribute:: suppress_report
                         
                         	Suppress reports
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -2920,46 +2924,46 @@ class Igmp(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address  <key>
                         
                         	IP source address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address_mask  <key>
                         
                         	Mask for Source Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_count
                         
                         	Number of groups to join (do not set without GroupAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -2968,7 +2972,7 @@ class Igmp(Entity):
                         .. attribute:: source_count
                         
                         	Number of sources to join (do not set without SourceAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -2977,7 +2981,7 @@ class Igmp(Entity):
                         .. attribute:: suppress_report
                         
                         	Suppress reports
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -3023,33 +3027,33 @@ class Igmp(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_address_mask  <key>
                         
                         	Mask for Group Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_count
                         
                         	Number of groups to join (do not set without GroupAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -3058,7 +3062,7 @@ class Igmp(Entity):
                         .. attribute:: source_count
                         
                         	Number of sources to join (do not set without SourceAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -3067,7 +3071,7 @@ class Igmp(Entity):
                         .. attribute:: suppress_report
                         
                         	Suppress reports
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -3111,46 +3115,46 @@ class Igmp(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_address_mask  <key>
                         
                         	Mask for Group Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address  <key>
                         
                         	IP source address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_count
                         
                         	Number of groups to join (do not set without GroupAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -3159,7 +3163,7 @@ class Igmp(Entity):
                         .. attribute:: source_count
                         
                         	Number of sources to join (do not set without SourceAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -3168,7 +3172,7 @@ class Igmp(Entity):
                         .. attribute:: suppress_report
                         
                         	Suppress reports
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -3214,59 +3218,59 @@ class Igmp(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_address_mask  <key>
                         
                         	Mask for Group Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address  <key>
                         
                         	IP source address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address_mask  <key>
                         
                         	Mask for Source Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_count
                         
                         	Number of groups to join (do not set without GroupAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -3275,7 +3279,7 @@ class Igmp(Entity):
                         .. attribute:: source_count
                         
                         	Number of sources to join (do not set without SourceAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -3284,7 +3288,7 @@ class Igmp(Entity):
                         .. attribute:: suppress_report
                         
                         	Suppress reports
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -3332,7 +3336,7 @@ class Igmp(Entity):
                     .. attribute:: maximum_groups
                     
                     	Maximum number of groups accepted per interface by this router
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..40000
                     
@@ -3341,7 +3345,7 @@ class Igmp(Entity):
                     .. attribute:: warning_threshold
                     
                     	 WarningThreshold for number of groups accepted per interface by this router
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..40000
                     
@@ -3350,7 +3354,7 @@ class Igmp(Entity):
                     .. attribute:: access_list_name
                     
                     	Access\-list to account for
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -3392,14 +3396,14 @@ class Igmp(Entity):
                     .. attribute:: enable
                     
                     	Enabled or disabled, when value is TRUE or FALSE respectively
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**mandatory**\: True
                     
                     .. attribute:: access_list_name
                     
                     	Access list specifying tracking group range
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -3442,84 +3446,84 @@ class Amt(Entity):
     .. attribute:: relay_adv_add
     
     	Configure AMT Relay IPv4 Advertisement Address
-    	**type**\:   :py:class:`RelayAdvAdd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Amt.RelayAdvAdd>`
+    	**type**\:  :py:class:`RelayAdvAdd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Amt.RelayAdvAdd>`
     
     	**presence node**\: True
     
     .. attribute:: relay_anycast_prefix
     
     	Configure AMT Relay IPv4 Anycast\-Prefix
-    	**type**\:   :py:class:`RelayAnycastPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Amt.RelayAnycastPrefix>`
+    	**type**\:  :py:class:`RelayAnycastPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Amt.RelayAnycastPrefix>`
     
     	**presence node**\: True
     
     .. attribute:: maximum_v4_route_gateway
     
     	Configure Maximum number of IPv4 route\-gateways (Tunnels)
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..4294967295
     
     .. attribute:: gateway_filter
     
     	Access list for Gateway Filter
-    	**type**\:  str
+    	**type**\: str
     
     	**length:** 1..64
     
     .. attribute:: maximum_v4_routes
     
     	Configure Maximum number of IPv4 Routes
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..4294967295
     
     .. attribute:: amttos
     
     	Configure AMT Relay TOS
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..255
     
     .. attribute:: amtttl
     
     	Configure AMT Relay TTL
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..255
     
     .. attribute:: maximum_v6_route_gateway
     
     	Configure Maximum number of IPv6 route\-gateways (Tunnels)
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..4294967295
     
     .. attribute:: maximum_gateway
     
     	Configure AMT maximum number of Gateways
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..4294967295
     
     .. attribute:: maximum_v6_routes
     
     	Configure Maximum number of IPv6 Routes
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..4294967295
     
     .. attribute:: amtqqic
     
     	Configure AMT QQIC value
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..4294967295
     
     .. attribute:: amtmtu
     
     	Configure AMT Relay MTU
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 100..65535
     
@@ -3581,14 +3585,18 @@ class Amt(Entity):
         .. attribute:: address
         
         	AMT Relay IPv4 Advertisement Address
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: interface
         
         	Relay Advertisement Interface
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         
 
@@ -3627,14 +3635,16 @@ class Amt(Entity):
         .. attribute:: address
         
         	Anycast\-Prefix Address
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: prefix_length
         
         	Mask Length for Anycast Prefix
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..32
         
@@ -3678,12 +3688,12 @@ class Mld(Entity):
     .. attribute:: vrfs
     
     	VRF related configuration
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs>`
     
     .. attribute:: default_context
     
     	Default Context
-    	**type**\:   :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext>`
+    	**type**\:  :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext>`
     
     	**presence node**\: True
     
@@ -3726,7 +3736,7 @@ class Mld(Entity):
         .. attribute:: vrf
         
         	Configuration for a particular vrf
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf>`
         
         
 
@@ -3760,44 +3770,44 @@ class Mld(Entity):
             .. attribute:: vrf_name  <key>
             
             	Name for this vrf
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: traffic
             
             	Configure IGMP Traffic variables
-            	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Traffic>`
+            	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Traffic>`
             
             .. attribute:: inheritable_defaults
             
             	Inheritable Defaults
-            	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.InheritableDefaults>`
+            	**type**\:  :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.InheritableDefaults>`
             
             .. attribute:: ssm_access_groups
             
             	IGMP Source specific mode
-            	**type**\:   :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.SsmAccessGroups>`
+            	**type**\:  :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.SsmAccessGroups>`
             
             .. attribute:: maximum
             
             	Configure IGMP State Limits
-            	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Maximum>`
+            	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Maximum>`
             
             .. attribute:: ssmdns_query_group
             
             	Enable SSM mapping using DNS Query
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: interfaces
             
             	Interface\-level configuration
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces>`
             
             .. attribute:: robustness
             
             	Configure IGMP Robustness variable
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 2..10
             
@@ -3864,7 +3874,7 @@ class Mld(Entity):
                 .. attribute:: profile
                 
                 	Configure the route\-policy profile
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -3899,14 +3909,14 @@ class Mld(Entity):
                 .. attribute:: maximum_groups_per_interface_oor
                 
                 	Configure maximum number of groups accepted per interface by this router
-                	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
+                	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: query_timeout
                 
                 	IGMP previous querier timeout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 60..300
                 
@@ -3915,14 +3925,14 @@ class Mld(Entity):
                 .. attribute:: access_group
                 
                 	Access list specifying access group range
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: query_max_response_time
                 
                 	Query response value in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..12
                 
@@ -3933,7 +3943,7 @@ class Mld(Entity):
                 .. attribute:: version
                 
                 	Version number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..3
                 
@@ -3942,14 +3952,14 @@ class Mld(Entity):
                 .. attribute:: router_enable
                 
                 	Enabled or disabled, when value is TRUE or FALSE respectively
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: true
                 
                 .. attribute:: query_interval
                 
                 	Query interval in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..3600
                 
@@ -3960,7 +3970,7 @@ class Mld(Entity):
                 .. attribute:: explicit_tracking
                 
                 	IGMPv3 explicit host tracking
-                	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking>`
+                	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking>`
                 
                 	**presence node**\: True
                 
@@ -4014,7 +4024,7 @@ class Mld(Entity):
                     .. attribute:: maximum_groups
                     
                     	Maximum number of groups accepted per interface by this router
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..40000
                     
@@ -4023,7 +4033,7 @@ class Mld(Entity):
                     .. attribute:: warning_threshold
                     
                     	 WarningThreshold for number of groups accepted per interface by this router
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..40000
                     
@@ -4032,7 +4042,7 @@ class Mld(Entity):
                     .. attribute:: access_list_name
                     
                     	Access\-list to account for
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -4074,14 +4084,14 @@ class Mld(Entity):
                     .. attribute:: enable
                     
                     	Enabled or disabled, when value is TRUE or FALSE respectively
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**mandatory**\: True
                     
                     .. attribute:: access_list_name
                     
                     	Access list specifying tracking group range
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -4121,7 +4131,7 @@ class Mld(Entity):
                 .. attribute:: ssm_access_group
                 
                 	SSM static Access Group
-                	**type**\: list of    :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup>`
+                	**type**\: list of  		 :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup>`
                 
                 
 
@@ -4154,20 +4164,20 @@ class Mld(Entity):
                     .. attribute:: source_address  <key>
                     
                     	IP source address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: access_list_name
                     
                     	Access list specifying access group
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -4206,7 +4216,7 @@ class Mld(Entity):
                 .. attribute:: maximum_groups
                 
                 	Configure maximum number of groups accepted by this router
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..75000
                 
@@ -4243,7 +4253,7 @@ class Mld(Entity):
                 .. attribute:: interface
                 
                 	The name of the interface
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface>`
                 
                 
 
@@ -4276,31 +4286,33 @@ class Mld(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Name of the interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: join_groups
                     
                     	IGMP join multicast group
-                    	**type**\:   :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups>`
+                    	**type**\:  :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: static_group_group_addresses
                     
                     	IGMP static multicast group
-                    	**type**\:   :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses>`
+                    	**type**\:  :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses>`
                     
                     .. attribute:: maximum_groups_per_interface_oor
                     
                     	Configure maximum number of groups accepted per interface by this router
-                    	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
+                    	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: query_timeout
                     
                     	IGMP previous querier timeout
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 60..300
                     
@@ -4309,14 +4321,14 @@ class Mld(Entity):
                     .. attribute:: access_group
                     
                     	Access list specifying access group range
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: query_max_response_time
                     
                     	Query response value in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..12
                     
@@ -4327,7 +4339,7 @@ class Mld(Entity):
                     .. attribute:: version
                     
                     	Version number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..3
                     
@@ -4336,14 +4348,14 @@ class Mld(Entity):
                     .. attribute:: router_enable
                     
                     	Enabled or disabled, when value is TRUE or FALSE respectively
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: true
                     
                     .. attribute:: query_interval
                     
                     	Query interval in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..3600
                     
@@ -4354,7 +4366,7 @@ class Mld(Entity):
                     .. attribute:: explicit_tracking
                     
                     	IGMPv3 explicit host tracking
-                    	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking>`
+                    	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking>`
                     
                     	**presence node**\: True
                     
@@ -4418,12 +4430,12 @@ class Mld(Entity):
                         .. attribute:: join_group
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup>`
+                        	**type**\: list of  		 :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup>`
                         
                         .. attribute:: join_group_source_address
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
+                        	**type**\: list of  		 :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
                         
                         
 
@@ -4461,20 +4473,20 @@ class Mld(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: mode
                             
                             	Filter mode
-                            	**type**\:   :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
+                            	**type**\:  :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
                             
                             	**mandatory**\: True
                             
@@ -4512,33 +4524,33 @@ class Mld(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address  <key>
                             
                             	Optional IP source address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: mode
                             
                             	Filter mode
-                            	**type**\:   :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
+                            	**type**\:  :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
                             
                             	**mandatory**\: True
                             
@@ -4577,32 +4589,32 @@ class Mld(Entity):
                         .. attribute:: static_group_group_address
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
+                        	**type**\: list of  		 :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
                         
                         .. attribute:: static_group_group_address_source_address
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
+                        	**type**\: list of  		 :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
                         
                         .. attribute:: static_group_group_address_source_address_source_address_mask
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
+                        	**type**\: list of  		 :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
                         
                         .. attribute:: static_group_group_address_group_address_mask
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
+                        	**type**\: list of  		 :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
                         
                         .. attribute:: static_group_group_address_group_address_mask_source_address
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
+                        	**type**\: list of  		 :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
                         
                         .. attribute:: static_group_group_address_group_address_mask_source_address_source_address_mask
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
+                        	**type**\: list of  		 :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
                         
                         
 
@@ -4641,20 +4653,20 @@ class Mld(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_count
                             
                             	Number of groups to join (do not set without GroupAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -4663,7 +4675,7 @@ class Mld(Entity):
                             .. attribute:: source_count
                             
                             	Number of sources to join (do not set without SourceAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -4672,7 +4684,7 @@ class Mld(Entity):
                             .. attribute:: suppress_report
                             
                             	Suppress reports
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
@@ -4714,33 +4726,33 @@ class Mld(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address  <key>
                             
                             	IP source address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_count
                             
                             	Number of groups to join (do not set without GroupAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -4749,7 +4761,7 @@ class Mld(Entity):
                             .. attribute:: source_count
                             
                             	Number of sources to join (do not set without SourceAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -4758,7 +4770,7 @@ class Mld(Entity):
                             .. attribute:: suppress_report
                             
                             	Suppress reports
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
@@ -4802,46 +4814,46 @@ class Mld(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address  <key>
                             
                             	IP source address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address_mask  <key>
                             
                             	Mask for Source Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_count
                             
                             	Number of groups to join (do not set without GroupAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -4850,7 +4862,7 @@ class Mld(Entity):
                             .. attribute:: source_count
                             
                             	Number of sources to join (do not set without SourceAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -4859,7 +4871,7 @@ class Mld(Entity):
                             .. attribute:: suppress_report
                             
                             	Suppress reports
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
@@ -4905,33 +4917,33 @@ class Mld(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_address_mask  <key>
                             
                             	Mask for Group Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_count
                             
                             	Number of groups to join (do not set without GroupAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -4940,7 +4952,7 @@ class Mld(Entity):
                             .. attribute:: source_count
                             
                             	Number of sources to join (do not set without SourceAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -4949,7 +4961,7 @@ class Mld(Entity):
                             .. attribute:: suppress_report
                             
                             	Suppress reports
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
@@ -4993,46 +5005,46 @@ class Mld(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_address_mask  <key>
                             
                             	Mask for Group Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address  <key>
                             
                             	IP source address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_count
                             
                             	Number of groups to join (do not set without GroupAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -5041,7 +5053,7 @@ class Mld(Entity):
                             .. attribute:: source_count
                             
                             	Number of sources to join (do not set without SourceAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -5050,7 +5062,7 @@ class Mld(Entity):
                             .. attribute:: suppress_report
                             
                             	Suppress reports
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
@@ -5096,59 +5108,59 @@ class Mld(Entity):
                             .. attribute:: group_address  <key>
                             
                             	IP group address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_address_mask  <key>
                             
                             	Mask for Group Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address  <key>
                             
                             	IP source address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: source_address_mask  <key>
                             
                             	Mask for Source Address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: group_count
                             
                             	Number of groups to join (do not set without GroupAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -5157,7 +5169,7 @@ class Mld(Entity):
                             .. attribute:: source_count
                             
                             	Number of sources to join (do not set without SourceAddressMask)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..512
                             
@@ -5166,7 +5178,7 @@ class Mld(Entity):
                             .. attribute:: suppress_report
                             
                             	Suppress reports
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
@@ -5214,7 +5226,7 @@ class Mld(Entity):
                         .. attribute:: maximum_groups
                         
                         	Maximum number of groups accepted per interface by this router
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..40000
                         
@@ -5223,7 +5235,7 @@ class Mld(Entity):
                         .. attribute:: warning_threshold
                         
                         	 WarningThreshold for number of groups accepted per interface by this router
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..40000
                         
@@ -5232,7 +5244,7 @@ class Mld(Entity):
                         .. attribute:: access_list_name
                         
                         	Access\-list to account for
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -5274,14 +5286,14 @@ class Mld(Entity):
                         .. attribute:: enable
                         
                         	Enabled or disabled, when value is TRUE or FALSE respectively
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**mandatory**\: True
                         
                         .. attribute:: access_list_name
                         
                         	Access list specifying tracking group range
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -5321,52 +5333,52 @@ class Mld(Entity):
         .. attribute:: nsf
         
         	Configure NSF specific options
-        	**type**\:   :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Nsf>`
+        	**type**\:  :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Nsf>`
         
         .. attribute:: unicast_qos_adjust
         
         	Configure IGMP QoS shapers for subscriber interfaces
-        	**type**\:   :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.UnicastQosAdjust>`
+        	**type**\:  :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.UnicastQosAdjust>`
         
         .. attribute:: accounting
         
         	Configure IGMP accounting for logging join/leave records
-        	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Accounting>`
+        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Accounting>`
         
         .. attribute:: traffic
         
         	Configure IGMP Traffic variables
-        	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Traffic>`
+        	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Traffic>`
         
         .. attribute:: inheritable_defaults
         
         	Inheritable Defaults
-        	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults>`
+        	**type**\:  :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults>`
         
         .. attribute:: ssm_access_groups
         
         	IGMP Source specific mode
-        	**type**\:   :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.SsmAccessGroups>`
+        	**type**\:  :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.SsmAccessGroups>`
         
         .. attribute:: maximum
         
         	Configure IGMP State Limits
-        	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Maximum>`
+        	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Maximum>`
         
         .. attribute:: ssmdns_query_group
         
         	Enable SSM mapping using DNS Query
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: interfaces
         
         	Interface\-level configuration
-        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces>`
         
         .. attribute:: robustness
         
         	Configure IGMP Robustness variable
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 2..10
         
@@ -5449,7 +5461,7 @@ class Mld(Entity):
             .. attribute:: lifetime
             
             	Maximum time for IGMP NSF mode in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 10..3600
             
@@ -5490,7 +5502,7 @@ class Mld(Entity):
             .. attribute:: download_interval
             
             	Configure the QoS download interval (in milliseconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 10..500
             
@@ -5501,7 +5513,7 @@ class Mld(Entity):
             .. attribute:: adjustment_delay
             
             	Configure the QoS delay before programming (in seconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..10
             
@@ -5512,7 +5524,7 @@ class Mld(Entity):
             .. attribute:: hold_off
             
             	Configure the QoS hold off time (in seconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..1800
             
@@ -5557,7 +5569,7 @@ class Mld(Entity):
             .. attribute:: max_history
             
             	Configure IGMP accounting Maximum History setting
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..365
             
@@ -5597,7 +5609,7 @@ class Mld(Entity):
             .. attribute:: profile
             
             	Configure the route\-policy profile
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
@@ -5633,14 +5645,14 @@ class Mld(Entity):
             .. attribute:: maximum_groups_per_interface_oor
             
             	Configure maximum number of groups accepted per interface by this router
-            	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
+            	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
             
             	**presence node**\: True
             
             .. attribute:: query_timeout
             
             	IGMP previous querier timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 60..300
             
@@ -5649,14 +5661,14 @@ class Mld(Entity):
             .. attribute:: access_group
             
             	Access list specifying access group range
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..64
             
             .. attribute:: query_max_response_time
             
             	Query response value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..12
             
@@ -5667,7 +5679,7 @@ class Mld(Entity):
             .. attribute:: version
             
             	Version number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..3
             
@@ -5676,14 +5688,14 @@ class Mld(Entity):
             .. attribute:: router_enable
             
             	Enabled or disabled, when value is TRUE or FALSE respectively
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: true
             
             .. attribute:: query_interval
             
             	Query interval in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..3600
             
@@ -5694,7 +5706,7 @@ class Mld(Entity):
             .. attribute:: explicit_tracking
             
             	IGMPv3 explicit host tracking
-            	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults.ExplicitTracking>`
+            	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults.ExplicitTracking>`
             
             	**presence node**\: True
             
@@ -5749,7 +5761,7 @@ class Mld(Entity):
                 .. attribute:: maximum_groups
                 
                 	Maximum number of groups accepted per interface by this router
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..40000
                 
@@ -5758,7 +5770,7 @@ class Mld(Entity):
                 .. attribute:: warning_threshold
                 
                 	 WarningThreshold for number of groups accepted per interface by this router
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..40000
                 
@@ -5767,7 +5779,7 @@ class Mld(Entity):
                 .. attribute:: access_list_name
                 
                 	Access\-list to account for
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -5810,14 +5822,14 @@ class Mld(Entity):
                 .. attribute:: enable
                 
                 	Enabled or disabled, when value is TRUE or FALSE respectively
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**mandatory**\: True
                 
                 .. attribute:: access_list_name
                 
                 	Access list specifying tracking group range
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -5858,7 +5870,7 @@ class Mld(Entity):
             .. attribute:: ssm_access_group
             
             	SSM static Access Group
-            	**type**\: list of    :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.SsmAccessGroups.SsmAccessGroup>`
+            	**type**\: list of  		 :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.SsmAccessGroups.SsmAccessGroup>`
             
             
 
@@ -5892,20 +5904,20 @@ class Mld(Entity):
                 .. attribute:: source_address  <key>
                 
                 	IP source address
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: access_list_name
                 
                 	Access list specifying access group
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
@@ -5945,7 +5957,7 @@ class Mld(Entity):
             .. attribute:: maximum_groups
             
             	Configure maximum number of groups accepted by this router
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..75000
             
@@ -5983,7 +5995,7 @@ class Mld(Entity):
             .. attribute:: interface
             
             	The name of the interface
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface>`
             
             
 
@@ -6017,31 +6029,33 @@ class Mld(Entity):
                 .. attribute:: interface_name  <key>
                 
                 	Name of the interface
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: join_groups
                 
                 	IGMP join multicast group
-                	**type**\:   :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.JoinGroups>`
+                	**type**\:  :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.JoinGroups>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: static_group_group_addresses
                 
                 	IGMP static multicast group
-                	**type**\:   :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses>`
+                	**type**\:  :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses>`
                 
                 .. attribute:: maximum_groups_per_interface_oor
                 
                 	Configure maximum number of groups accepted per interface by this router
-                	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
+                	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: query_timeout
                 
                 	IGMP previous querier timeout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 60..300
                 
@@ -6050,14 +6064,14 @@ class Mld(Entity):
                 .. attribute:: access_group
                 
                 	Access list specifying access group range
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: query_max_response_time
                 
                 	Query response value in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..12
                 
@@ -6068,7 +6082,7 @@ class Mld(Entity):
                 .. attribute:: version
                 
                 	Version number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..3
                 
@@ -6077,14 +6091,14 @@ class Mld(Entity):
                 .. attribute:: router_enable
                 
                 	Enabled or disabled, when value is TRUE or FALSE respectively
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: true
                 
                 .. attribute:: query_interval
                 
                 	Query interval in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..3600
                 
@@ -6095,7 +6109,7 @@ class Mld(Entity):
                 .. attribute:: explicit_tracking
                 
                 	IGMPv3 explicit host tracking
-                	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.ExplicitTracking>`
+                	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.ExplicitTracking>`
                 
                 	**presence node**\: True
                 
@@ -6160,12 +6174,12 @@ class Mld(Entity):
                     .. attribute:: join_group
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup>`
+                    	**type**\: list of  		 :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup>`
                     
                     .. attribute:: join_group_source_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
+                    	**type**\: list of  		 :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
                     
                     
 
@@ -6203,20 +6217,20 @@ class Mld(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: mode
                         
                         	Filter mode
-                        	**type**\:   :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
+                        	**type**\:  :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
                         
                         	**mandatory**\: True
                         
@@ -6254,33 +6268,33 @@ class Mld(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address  <key>
                         
                         	Optional IP source address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: mode
                         
                         	Filter mode
-                        	**type**\:   :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
+                        	**type**\:  :py:class:`IgmpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilter>`
                         
                         	**mandatory**\: True
                         
@@ -6319,32 +6333,32 @@ class Mld(Entity):
                     .. attribute:: static_group_group_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
+                    	**type**\: list of  		 :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
                     
                     .. attribute:: static_group_group_address_source_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
+                    	**type**\: list of  		 :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
                     
                     .. attribute:: static_group_group_address_source_address_source_address_mask
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
+                    	**type**\: list of  		 :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
                     
                     .. attribute:: static_group_group_address_group_address_mask
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
+                    	**type**\: list of  		 :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
                     
                     .. attribute:: static_group_group_address_group_address_mask_source_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
+                    	**type**\: list of  		 :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
                     
                     .. attribute:: static_group_group_address_group_address_mask_source_address_source_address_mask
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
+                    	**type**\: list of  		 :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
                     
                     
 
@@ -6383,20 +6397,20 @@ class Mld(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_count
                         
                         	Number of groups to join (do not set without GroupAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -6405,7 +6419,7 @@ class Mld(Entity):
                         .. attribute:: source_count
                         
                         	Number of sources to join (do not set without SourceAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -6414,7 +6428,7 @@ class Mld(Entity):
                         .. attribute:: suppress_report
                         
                         	Suppress reports
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -6456,33 +6470,33 @@ class Mld(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address  <key>
                         
                         	IP source address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_count
                         
                         	Number of groups to join (do not set without GroupAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -6491,7 +6505,7 @@ class Mld(Entity):
                         .. attribute:: source_count
                         
                         	Number of sources to join (do not set without SourceAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -6500,7 +6514,7 @@ class Mld(Entity):
                         .. attribute:: suppress_report
                         
                         	Suppress reports
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -6544,46 +6558,46 @@ class Mld(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address  <key>
                         
                         	IP source address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address_mask  <key>
                         
                         	Mask for Source Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_count
                         
                         	Number of groups to join (do not set without GroupAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -6592,7 +6606,7 @@ class Mld(Entity):
                         .. attribute:: source_count
                         
                         	Number of sources to join (do not set without SourceAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -6601,7 +6615,7 @@ class Mld(Entity):
                         .. attribute:: suppress_report
                         
                         	Suppress reports
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -6647,33 +6661,33 @@ class Mld(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_address_mask  <key>
                         
                         	Mask for Group Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_count
                         
                         	Number of groups to join (do not set without GroupAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -6682,7 +6696,7 @@ class Mld(Entity):
                         .. attribute:: source_count
                         
                         	Number of sources to join (do not set without SourceAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -6691,7 +6705,7 @@ class Mld(Entity):
                         .. attribute:: suppress_report
                         
                         	Suppress reports
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -6735,46 +6749,46 @@ class Mld(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_address_mask  <key>
                         
                         	Mask for Group Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address  <key>
                         
                         	IP source address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_count
                         
                         	Number of groups to join (do not set without GroupAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -6783,7 +6797,7 @@ class Mld(Entity):
                         .. attribute:: source_count
                         
                         	Number of sources to join (do not set without SourceAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -6792,7 +6806,7 @@ class Mld(Entity):
                         .. attribute:: suppress_report
                         
                         	Suppress reports
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -6838,59 +6852,59 @@ class Mld(Entity):
                         .. attribute:: group_address  <key>
                         
                         	IP group address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_address_mask  <key>
                         
                         	Mask for Group Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address  <key>
                         
                         	IP source address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: source_address_mask  <key>
                         
                         	Mask for Source Address
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: group_count
                         
                         	Number of groups to join (do not set without GroupAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -6899,7 +6913,7 @@ class Mld(Entity):
                         .. attribute:: source_count
                         
                         	Number of sources to join (do not set without SourceAddressMask)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..512
                         
@@ -6908,7 +6922,7 @@ class Mld(Entity):
                         .. attribute:: suppress_report
                         
                         	Suppress reports
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -6956,7 +6970,7 @@ class Mld(Entity):
                     .. attribute:: maximum_groups
                     
                     	Maximum number of groups accepted per interface by this router
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..40000
                     
@@ -6965,7 +6979,7 @@ class Mld(Entity):
                     .. attribute:: warning_threshold
                     
                     	 WarningThreshold for number of groups accepted per interface by this router
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..40000
                     
@@ -6974,7 +6988,7 @@ class Mld(Entity):
                     .. attribute:: access_list_name
                     
                     	Access\-list to account for
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
@@ -7016,14 +7030,14 @@ class Mld(Entity):
                     .. attribute:: enable
                     
                     	Enabled or disabled, when value is TRUE or FALSE respectively
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**mandatory**\: True
                     
                     .. attribute:: access_list_name
                     
                     	Access list specifying tracking group range
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     

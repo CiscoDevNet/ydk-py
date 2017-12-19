@@ -25,7 +25,7 @@ class NodePath(Entity):
     .. attribute:: node
     
     	Node (Physical location of the node in R\_S\_I format)
-    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_slice_mgr_proxy_cfg.NodePath.Node>`
+    	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_slice_mgr_proxy_cfg.NodePath.Node>`
     
     
 
@@ -60,12 +60,12 @@ class NodePath(Entity):
         .. attribute:: node_name  <key>
         
         	Location in R\_S\_I format
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: slice_ids
         
         	Slice
-        	**type**\:   :py:class:`SliceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_slice_mgr_proxy_cfg.NodePath.Node.SliceIds>`
+        	**type**\:  :py:class:`SliceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_slice_mgr_proxy_cfg.NodePath.Node.SliceIds>`
         
         
 
@@ -104,7 +104,7 @@ class NodePath(Entity):
             .. attribute:: slice_id
             
             	Slice Id on which configuration will be applied
-            	**type**\: list of    :py:class:`SliceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_slice_mgr_proxy_cfg.NodePath.Node.SliceIds.SliceId>`
+            	**type**\: list of  		 :py:class:`SliceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_slice_mgr_proxy_cfg.NodePath.Node.SliceIds.SliceId>`
             
             
 
@@ -138,28 +138,28 @@ class NodePath(Entity):
                 .. attribute:: slice_id  <key>
                 
                 	The identifier for this slice
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4
                 
                 .. attribute:: state
                 
                 	set val 0 to shutdown
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: breakout
                 
                 	10G Breakout Config
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: mode
                 
                 	set val 4 for OTU4 
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 

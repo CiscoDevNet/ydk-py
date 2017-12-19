@@ -88,42 +88,46 @@ class SubscriberRedundancy(Entity):
     .. attribute:: groups
     
     	Table of Group
-    	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups>`
+    	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups>`
     
     .. attribute:: revertive_timer
     
     	None
-    	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.RevertiveTimer>`
+    	**type**\:  :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.RevertiveTimer>`
     
     .. attribute:: enable
     
     	Enable Subscriber Redundancy configuration. Deletion of this object also causes deletion of all associated objects under SubscriberRedundancy
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: virtual_mac_prefix
     
     	Virtual MAC Prefix for Subscriber Redundancy
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
     
     .. attribute:: preferred_role
     
     	Set preferred role
-    	**type**\:   :py:class:`SubscriberRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupRole>`
+    	**type**\:  :py:class:`SubscriberRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupRole>`
     
     .. attribute:: source_interface
     
     	Source Interface for Redundancy Peer Communication
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** [a\-zA\-Z0\-9./\-]+
     
     .. attribute:: slave_mode
     
     	Set slave
-    	**type**\:   :py:class:`SubscriberRedundancyGroupSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSlaveMode>`
+    	**type**\:  :py:class:`SubscriberRedundancyGroupSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSlaveMode>`
     
     .. attribute:: hold_timer
     
     	Set hold time (in Minutes)
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..65535
     
@@ -132,7 +136,7 @@ class SubscriberRedundancy(Entity):
     .. attribute:: redundancy_disable
     
     	Disable
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -188,7 +192,7 @@ class SubscriberRedundancy(Entity):
         .. attribute:: group
         
         	Redundancy Group configuration
-        	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group>`
+        	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group>`
         
         
 
@@ -222,74 +226,76 @@ class SubscriberRedundancy(Entity):
             .. attribute:: group_id  <key>
             
             	Group ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..500
             
             .. attribute:: interface_list
             
             	List of Interfaces for this Group
-            	**type**\:   :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList>`
+            	**type**\:  :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList>`
             
             .. attribute:: peer
             
             	None
-            	**type**\:   :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.Peer>`
+            	**type**\:  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.Peer>`
             
             .. attribute:: revertive_timer
             
             	None
-            	**type**\:   :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.RevertiveTimer>`
+            	**type**\:  :py:class:`RevertiveTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.RevertiveTimer>`
             
             .. attribute:: virtual_mac
             
             	Virtual MAC Address for this Group
-            	**type**\:   :py:class:`VirtualMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.VirtualMac>`
+            	**type**\:  :py:class:`VirtualMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.VirtualMac>`
             
             .. attribute:: state_control_route
             
             	None
-            	**type**\:   :py:class:`StateControlRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute>`
+            	**type**\:  :py:class:`StateControlRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute>`
             
             .. attribute:: disable_tracking_object
             
             	Disable Tracking Object for this Group
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: core_tracking_object
             
             	Core Tracking Object for this Group
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: enable
             
             	Enable Redundancy Group configuration. Deletion of this object also causes deletion of all associated objects under Group
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: preferred_role
             
             	Set preferred role
-            	**type**\:   :py:class:`SubscriberRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupRole>`
+            	**type**\:  :py:class:`SubscriberRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupRole>`
             
             .. attribute:: description
             
             	Description for this Group
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: l2tp_source_ip_address
             
             	Enter an IP address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: slave_mode
             
             	Set Slave Mode
-            	**type**\:   :py:class:`SubscriberRedundancyGroupSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSlaveMode>`
+            	**type**\:  :py:class:`SubscriberRedundancyGroupSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSlaveMode>`
             
             .. attribute:: hold_timer
             
             	Set hold time (in Minutes)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -298,17 +304,17 @@ class SubscriberRedundancy(Entity):
             .. attribute:: access_tracking_object
             
             	Access Tracking Object for this Group
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: enable_fast_switchover
             
             	Enable fast switchover for this Group
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: redundancy_disable
             
             	Disable
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -389,17 +395,17 @@ class SubscriberRedundancy(Entity):
                 .. attribute:: interfaces
                 
                 	Table of Interface
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces>`
+                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces>`
                 
                 .. attribute:: interface_ranges
                 
                 	Table of InterfaceRange
-                	**type**\:   :py:class:`InterfaceRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges>`
+                	**type**\:  :py:class:`InterfaceRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges>`
                 
                 .. attribute:: enable
                 
                 	Enable List of Interfaces for this Group. Deletion of this object also causes deletion of all associated objects under InterfaceList 
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -442,7 +448,7 @@ class SubscriberRedundancy(Entity):
                     .. attribute:: interface
                     
                     	Interface for this Group
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface>`
                     
                     
 
@@ -475,12 +481,14 @@ class SubscriberRedundancy(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	Interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: interface_id
                         
                         	Interface Id for the interface
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
@@ -519,7 +527,7 @@ class SubscriberRedundancy(Entity):
                     .. attribute:: interface_range
                     
                     	Interface for this Group
-                    	**type**\: list of    :py:class:`InterfaceRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange>`
+                    	**type**\: list of  		 :py:class:`InterfaceRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange>`
                     
                     
 
@@ -552,33 +560,35 @@ class SubscriberRedundancy(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	Interface name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: sub_interface_range_start  <key>
                         
                         	Sub Interface Start Range
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..2147483647
                         
                         .. attribute:: sub_interface_range_end  <key>
                         
                         	Sub Interface End Range
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..2147483647
                         
                         .. attribute:: interface_id_range_start
                         
                         	Interface ID Start Range
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: interface_id_range_end
                         
                         	Interface ID End Range
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
@@ -621,12 +631,12 @@ class SubscriberRedundancy(Entity):
                 .. attribute:: ipaddress
                 
                 	IPv4 or IPv6 Address of SRG Peer
-                	**type**\:   :py:class:`Ipaddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.Peer.Ipaddress>`
+                	**type**\:  :py:class:`Ipaddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.Peer.Ipaddress>`
                 
                 .. attribute:: route_add_disable
                 
                 	Set Route add disable
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -664,21 +674,21 @@ class SubscriberRedundancy(Entity):
                     .. attribute:: address_family
                     
                     	Type of IPv4/IPv6 address
-                    	**type**\:   :py:class:`SrgAddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SrgAddrFamily>`
+                    	**type**\:  :py:class:`SrgAddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SrgAddrFamily>`
                     
                     .. attribute:: prefix_string
                     
                     	IPv4/IPv6 address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     
 
                     """
@@ -712,14 +722,14 @@ class SubscriberRedundancy(Entity):
                 .. attribute:: max_value
                 
                 	Value of MAX Revertive Timer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
                 .. attribute:: value
                 
                 	Value of revertive time in minutes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..65535
                 
@@ -758,12 +768,14 @@ class SubscriberRedundancy(Entity):
                 .. attribute:: address
                 
                 	Virtual MAC Address for this Group
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: disable
                 
                 	Disable Virtual MAC Address for this Group
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -798,12 +810,12 @@ class SubscriberRedundancy(Entity):
                 .. attribute:: ipv4_routes
                 
                 	Table of IPv4Route
-                	**type**\:   :py:class:`Ipv4Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes>`
+                	**type**\:  :py:class:`Ipv4Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes>`
                 
                 .. attribute:: ipv6_route
                 
                 	None
-                	**type**\:   :py:class:`Ipv6Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route>`
+                	**type**\:  :py:class:`Ipv6Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route>`
                 
                 
 
@@ -841,7 +853,7 @@ class SubscriberRedundancy(Entity):
                     .. attribute:: ipv4_route
                     
                     	None
-                    	**type**\: list of    :py:class:`Ipv4Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route>`
+                    	**type**\: list of  		 :py:class:`Ipv4Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route>`
                     
                     
 
@@ -874,32 +886,32 @@ class SubscriberRedundancy(Entity):
                         .. attribute:: prefix_string  <key>
                         
                         	IPv4 address with prefix\-length
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: prefix_length  <key>
                         
                         	Prefix of the IP Address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ipv4_route_data
                         
                         	Data container
-                        	**type**\:   :py:class:`Ipv4RouteData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Ipv4RouteData>`
+                        	**type**\:  :py:class:`Ipv4RouteData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Ipv4RouteData>`
                         
                         .. attribute:: vrfname
                         
                         	keys\: vrfname
-                        	**type**\: list of    :py:class:`Vrfname <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Vrfname>`
+                        	**type**\: list of  		 :py:class:`Vrfname <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route.Vrfname>`
                         
                         
 
@@ -941,7 +953,7 @@ class SubscriberRedundancy(Entity):
                             .. attribute:: tagvalue
                             
                             	Tag value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -978,12 +990,14 @@ class SubscriberRedundancy(Entity):
                             .. attribute:: vrfname  <key>
                             
                             	VRF name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: tagvalue
                             
                             	Tag value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -1022,12 +1036,12 @@ class SubscriberRedundancy(Entity):
                     .. attribute:: ipv6na_routes
                     
                     	Table of IPv6NARoute
-                    	**type**\:   :py:class:`Ipv6NaRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes>`
+                    	**type**\:  :py:class:`Ipv6NaRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes>`
                     
                     .. attribute:: ipv6pd_routes
                     
                     	Table of IPv6PDRoute
-                    	**type**\:   :py:class:`Ipv6PdRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes>`
+                    	**type**\:  :py:class:`Ipv6PdRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes>`
                     
                     
 
@@ -1065,7 +1079,7 @@ class SubscriberRedundancy(Entity):
                         .. attribute:: ipv6na_route
                         
                         	None
-                        	**type**\: list of    :py:class:`Ipv6NaRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes.Ipv6NaRoute>`
+                        	**type**\: list of  		 :py:class:`Ipv6NaRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6NaRoutes.Ipv6NaRoute>`
                         
                         
 
@@ -1098,32 +1112,34 @@ class SubscriberRedundancy(Entity):
                             .. attribute:: vrfname  <key>
                             
                             	VRF name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: prefix_length  <key>
                             
                             	Prefix of the IP Address
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: prefix_string  <key>
                             
                             	IPv6 address with prefix\-length
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: tagvalue
                             
                             	Tag value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -1166,7 +1182,7 @@ class SubscriberRedundancy(Entity):
                         .. attribute:: ipv6pd_route
                         
                         	None
-                        	**type**\: list of    :py:class:`Ipv6PdRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes.Ipv6PdRoute>`
+                        	**type**\: list of  		 :py:class:`Ipv6PdRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6PdRoutes.Ipv6PdRoute>`
                         
                         
 
@@ -1199,32 +1215,34 @@ class SubscriberRedundancy(Entity):
                             .. attribute:: vrfname  <key>
                             
                             	VRF name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: prefix_length  <key>
                             
                             	Prefix of the IP Address
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: prefix_string  <key>
                             
                             	IPv6 address with prefix\-length
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: tagvalue
                             
                             	Tag value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -1267,14 +1285,14 @@ class SubscriberRedundancy(Entity):
         .. attribute:: max_value
         
         	Value of MAX Revertive Timer
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..65535
         
         .. attribute:: value
         
         	Value of revertive time in minutes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..65535
         

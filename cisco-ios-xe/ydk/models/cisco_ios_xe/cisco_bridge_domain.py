@@ -80,17 +80,17 @@ class BridgeDomainConfig(Entity):
     .. attribute:: global_
     
     	Global configurations for bridge\-domains
-    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.Global_>`
+    	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.Global_>`
     
     .. attribute:: bridge_groups
     
     	Collection of bridge\-groups.  A Bridge\-group is logical grouping construct for bridge domains. It defines grouping of bridge\-domains under a named bridge\-group. For example all bridge\-domains belonging to a single customer can be grouped under a bridge \-group
-    	**type**\:   :py:class:`BridgeGroups <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeGroups>`
+    	**type**\:  :py:class:`BridgeGroups <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeGroups>`
     
     .. attribute:: bridge_domains
     
     	Collection of bridge domains
-    	**type**\:   :py:class:`BridgeDomains <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains>`
+    	**type**\:  :py:class:`BridgeDomains <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains>`
     
     
 
@@ -134,19 +134,19 @@ class BridgeDomainConfig(Entity):
         .. attribute:: bd_state_notification_enabled
         
         	If this leaf is set to true, then it enables the emission of 'bd\-state\-notification'; otherwise these notifications are not emitted
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: bd_state_notification_rate
         
         	This leaf defines the maximum number of 'bd\-state\- notification' that can be emitted from the device per second
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: pbb
         
         	Provider Backbone Bridging (PBB) related global configurations
-        	**type**\:   :py:class:`Pbb <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.Global_.Pbb>`
+        	**type**\:  :py:class:`Pbb <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.Global_.Pbb>`
         
         
 
@@ -188,7 +188,9 @@ class BridgeDomainConfig(Entity):
             .. attribute:: backbone_src_mac
             
             	Backbone source mac address configuration for Provider Backbone Bridging (PBB)
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             
 
@@ -228,7 +230,7 @@ class BridgeDomainConfig(Entity):
         .. attribute:: bridge_group
         
         	Bridge\-group configuration
-        	**type**\: list of    :py:class:`BridgeGroup <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeGroups.BridgeGroup>`
+        	**type**\: list of  		 :py:class:`BridgeGroup <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeGroups.BridgeGroup>`
         
         
 
@@ -262,7 +264,7 @@ class BridgeDomainConfig(Entity):
             .. attribute:: name  <key>
             
             	Bridge\-group name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
@@ -298,7 +300,7 @@ class BridgeDomainConfig(Entity):
         .. attribute:: bridge_domain
         
         	Definition of a bridge\-domain
-        	**type**\: list of    :py:class:`BridgeDomain <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain>`
+        	**type**\: list of  		 :py:class:`BridgeDomain <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain>`
         
         
 
@@ -332,12 +334,12 @@ class BridgeDomainConfig(Entity):
             .. attribute:: id  <key>
             
             	Bridge domain name or number
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: bridge_group
             
             	Reference to bridge\-group name. If bridge\-groups are supported, referred bridge\-group MUST be created first
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
@@ -348,70 +350,70 @@ class BridgeDomainConfig(Entity):
             .. attribute:: enabled
             
             	This leaf represents configured admin status of the bridge domain
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: true
             
             .. attribute:: bd_status_change_notification
             
             	Enable/disable bridge\-domain status change notification.  If true, any change in bridge\-domain operational status will be notified to client via 'bd\-status\-change' notification
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: members
             
             	Collection of bridge\-domain members
-            	**type**\:   :py:class:`Members <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members>`
+            	**type**\:  :py:class:`Members <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members>`
             
             .. attribute:: mtu
             
             	The MTU size for bridge domain. All bridge domain members must have same MTU size to be operational in the domain
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 46..65535
             
             .. attribute:: flooding_mode
             
             	Flood modes for optimization
-            	**type**\:   :py:class:`FloodingMode <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.FloodingMode>`
+            	**type**\:  :py:class:`FloodingMode <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.FloodingMode>`
             
             .. attribute:: mac
             
             	MAC features for bridge domain
-            	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac>`
+            	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac>`
             
             .. attribute:: dynamic_arp_inspection
             
             	Dynamic ARP Inspection (DAI) configurations
-            	**type**\:   :py:class:`DynamicArpInspection <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection>`
+            	**type**\:  :py:class:`DynamicArpInspection <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection>`
             
             	**presence node**\: True
             
             .. attribute:: ip_source_guard
             
             	IP source guard (IPSG) configurations
-            	**type**\:   :py:class:`IpSourceGuard <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.IpSourceGuard>`
+            	**type**\:  :py:class:`IpSourceGuard <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.IpSourceGuard>`
             
             	**presence node**\: True
             
             .. attribute:: storm_control
             
             	A collection of storm control threshold and action configurations
-            	**type**\:   :py:class:`StormControl <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.StormControl>`
+            	**type**\:  :py:class:`StormControl <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.StormControl>`
             
             .. attribute:: igmp_snooping
             
             	Enable IGMP snooping
-            	**type**\:   :py:class:`IgmpSnooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.IgmpSnooping>`
+            	**type**\:  :py:class:`IgmpSnooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.IgmpSnooping>`
             
             .. attribute:: mld_snooping
             
             	Enable MLD snooping
-            	**type**\:   :py:class:`MldSnooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.MldSnooping>`
+            	**type**\:  :py:class:`MldSnooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.MldSnooping>`
             
             .. attribute:: dhcp_ipv4_snooping
             
             	Enable DHCP IPv4 snooping
-            	**type**\:   :py:class:`DhcpIpv4Snooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.DhcpIpv4Snooping>`
+            	**type**\:  :py:class:`DhcpIpv4Snooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.DhcpIpv4Snooping>`
             
             
 
@@ -514,17 +516,17 @@ class BridgeDomainConfig(Entity):
                 .. attribute:: ac_member
                 
                 	List of Attachment circuits for current bridge\-domain
-                	**type**\: list of    :py:class:`AcMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember>`
+                	**type**\: list of  		 :py:class:`AcMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember>`
                 
                 .. attribute:: vfi_member
                 
                 	List of Virtual Forrwarding Interfaces for current bridge\-domain
-                	**type**\: list of    :py:class:`VfiMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.VfiMember>`
+                	**type**\: list of  		 :py:class:`VfiMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.VfiMember>`
                 
                 .. attribute:: access_pw_member
                 
                 	Collection of access pseudowire members.  A Pseudowires can be a regular interface with ifType 'ifPwType' or it can represented as a non\-interface context. This container provides model definition for both types of the pseudowires
-                	**type**\:   :py:class:`AccessPwMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember>`
+                	**type**\:  :py:class:`AccessPwMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember>`
                 
                 
 
@@ -564,56 +566,56 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: interface  <key>
                     
                     	Reference to an attchment circuit interface instance which is configured to be part of this bridge\-domain
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                     
                     .. attribute:: split_horizon_group
                     
                     	Bridge domain aggregates attachment circuits (ACs) and pseudowires (PWs) in one or more groups called Split Horizon Groups. When applied to bridge domains, Split Horizon refers to the flooding and forwarding behavior between members of a Split Horizon group. In general, frames received on one member of a split horizon group are not flooded out to the other members
-                    	**type**\:   :py:class:`SplitHorizonGroup <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.SplitHorizonGroup>`
+                    	**type**\:  :py:class:`SplitHorizonGroup <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.SplitHorizonGroup>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: mac
                     
                     	MAC features for bridge domain
-                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac>`
+                    	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac>`
                     
                     .. attribute:: igmp_snooping
                     
                     	Enable IGMP snooping
-                    	**type**\:   :py:class:`IgmpSnooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IgmpSnooping>`
+                    	**type**\:  :py:class:`IgmpSnooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IgmpSnooping>`
                     
                     .. attribute:: mld_snooping
                     
                     	Enable MLD snooping
-                    	**type**\:   :py:class:`MldSnooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.MldSnooping>`
+                    	**type**\:  :py:class:`MldSnooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.MldSnooping>`
                     
                     .. attribute:: dhcp_ipv4_snooping
                     
                     	Enable DHCP IPv4 snooping
-                    	**type**\:   :py:class:`DhcpIpv4Snooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DhcpIpv4Snooping>`
+                    	**type**\:  :py:class:`DhcpIpv4Snooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DhcpIpv4Snooping>`
                     
                     .. attribute:: flooding
                     
                     	Flooding configurations
-                    	**type**\:   :py:class:`Flooding <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Flooding>`
+                    	**type**\:  :py:class:`Flooding <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Flooding>`
                     
                     .. attribute:: storm_control
                     
                     	A collection of storm control threshold and action configurations
-                    	**type**\:   :py:class:`StormControl <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.StormControl>`
+                    	**type**\:  :py:class:`StormControl <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.StormControl>`
                     
                     .. attribute:: dynamic_arp_inspection
                     
                     	Dynamic ARP Inspection (DAI) configurations
-                    	**type**\:   :py:class:`DynamicArpInspection <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection>`
+                    	**type**\:  :py:class:`DynamicArpInspection <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection>`
                     
                     .. attribute:: ip_source_guard
                     
                     	IP source guard (IPSG) configurations
-                    	**type**\:   :py:class:`IpSourceGuard <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IpSourceGuard>`
+                    	**type**\:  :py:class:`IpSourceGuard <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IpSourceGuard>`
                     
                     
 
@@ -696,7 +698,7 @@ class BridgeDomainConfig(Entity):
                         .. attribute:: id
                         
                         	Split Horizon group number for bridge domain member
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -736,29 +738,29 @@ class BridgeDomainConfig(Entity):
                         .. attribute:: learning_enabled
                         
                         	Enable disable mac learning
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: true
                         
                         .. attribute:: limit
                         
                         	MAC table learning limit
-                        	**type**\:   :py:class:`Limit <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Limit>`
+                        	**type**\:  :py:class:`Limit <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Limit>`
                         
                         .. attribute:: aging
                         
                         	MAC aging configurations
-                        	**type**\:   :py:class:`Aging <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Aging>`
+                        	**type**\:  :py:class:`Aging <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Aging>`
                         
                         .. attribute:: port_down
                         
                         	Port down event
-                        	**type**\:   :py:class:`PortDown <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.PortDown>`
+                        	**type**\:  :py:class:`PortDown <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.PortDown>`
                         
                         .. attribute:: secure
                         
                         	MAC secure parameters
-                        	**type**\:   :py:class:`Secure <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Secure>`
+                        	**type**\:  :py:class:`Secure <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Secure>`
                         
                         
 
@@ -811,19 +813,19 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: maximum
                             
                             	Maximum number of mac addresses that can be learnt
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: action
                             
                             	MAC limit violation actions
-                            	**type**\:   :py:class:`MacLimitAction <ydk.models.cisco_ios_xe.cisco_bridge_common.MacLimitAction>`
+                            	**type**\:  :py:class:`MacLimitAction <ydk.models.cisco_ios_xe.cisco_bridge_common.MacLimitAction>`
                             
                             .. attribute:: notification
                             
                             	MAC limit violation notifications
-                            	**type**\:   :py:class:`MacLimitNotificationType <ydk.models.cisco_ios_xe.cisco_bridge_common.MacLimitNotificationType>`
+                            	**type**\:  :py:class:`MacLimitNotificationType <ydk.models.cisco_ios_xe.cisco_bridge_common.MacLimitNotificationType>`
                             
                             
 
@@ -860,7 +862,7 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: time
                             
                             	The timeout period in seconds for aging out dynamically learned forwarding information
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -871,7 +873,7 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: type
                             
                             	MAC aging type
-                            	**type**\:   :py:class:`MacAgingType <ydk.models.cisco_ios_xe.cisco_bridge_common.MacAgingType>`
+                            	**type**\:  :py:class:`MacAgingType <ydk.models.cisco_ios_xe.cisco_bridge_common.MacAgingType>`
                             
                             
 
@@ -906,7 +908,7 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: flush
                             
                             	Enable/Disable mac table flush when port moves to down state
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: true
                             
@@ -941,21 +943,21 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: action
                             
                             	MAC secure action for violating packets
-                            	**type**\:   :py:class:`MacSecureAction <ydk.models.cisco_ios_xe.cisco_bridge_common.MacSecureAction>`
+                            	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xe.cisco_bridge_common.MacSecureAction>`
                             
                             	**default value**\: restrict
                             
                             .. attribute:: logging
                             
                             	Enable/Disable logging
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: false
                             
                             .. attribute:: enabled
                             
                             	Enable or disable mac secure feature
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -992,7 +994,7 @@ class BridgeDomainConfig(Entity):
                         .. attribute:: profile_name
                         
                         	IGMP snooping profile name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
@@ -1027,7 +1029,7 @@ class BridgeDomainConfig(Entity):
                         .. attribute:: profile_name
                         
                         	MLD snooping profile name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
@@ -1062,7 +1064,7 @@ class BridgeDomainConfig(Entity):
                         .. attribute:: profile_name
                         
                         	DHCPv4 snooping profile name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**mandatory**\: True
                         
@@ -1097,12 +1099,12 @@ class BridgeDomainConfig(Entity):
                         .. attribute:: disabled
                         
                         	Disable flooding
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: disabled_unknown_unicast
                         
                         	Disable unknown unicast flooding
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -1138,12 +1140,12 @@ class BridgeDomainConfig(Entity):
                         .. attribute:: thresholds
                         
                         	A collection of storm control threshold configuration entries
-                        	**type**\: list of    :py:class:`Thresholds <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.StormControl.Thresholds>`
+                        	**type**\: list of  		 :py:class:`Thresholds <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.StormControl.Thresholds>`
                         
                         .. attribute:: action
                         
                         	This leaf represents the storm control action taken when the traffic of a particular type exceeds the configured threshold values
-                        	**type**\:   :py:class:`StormControlAction <ydk.models.cisco_ios_xe.cisco_storm_control.StormControlAction>`
+                        	**type**\:  :py:class:`StormControlAction <ydk.models.cisco_ios_xe.cisco_storm_control.StormControlAction>`
                         
                         
 
@@ -1179,12 +1181,12 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: traffic_class  <key>
                             
                             	This leaf identifies a ethernet traffic type for which an administrator desires to configure storm control
-                            	**type**\:   :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
+                            	**type**\:  :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
                             
                             .. attribute:: value
                             
                             	Traffic threshold value. Unit of the value is indicated by leaf 'unit'
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1193,7 +1195,7 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: unit
                             
                             	This enumeration define unit of the traffic threshold value
-                            	**type**\:   :py:class:`Unit <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.StormControl.Thresholds.Unit>`
+                            	**type**\:  :py:class:`Unit <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.StormControl.Thresholds.Unit>`
                             
                             	**mandatory**\: True
                             
@@ -1261,19 +1263,19 @@ class BridgeDomainConfig(Entity):
                         .. attribute:: address_validation
                         
                         	Enable address validation
-                        	**type**\:   :py:class:`AddressValidation <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection.AddressValidation>`
+                        	**type**\:  :py:class:`AddressValidation <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection.AddressValidation>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: logging
                         
                         	Enable DAI logging
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: enable
                         
                         	Enable or disable Dynamic ARP Inspection
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -1312,17 +1314,17 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: dst_mac
                             
                             	Match Destination MAC Address
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: src_mac
                             
                             	Match Source MAC Address
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: ipv4
                             
                             	Match IPv4 Address
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -1362,14 +1364,14 @@ class BridgeDomainConfig(Entity):
                         .. attribute:: logging
                         
                         	Enable IPSG logging
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
                         .. attribute:: enable
                         
                         	Enable or disable IP source guard feature
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -1405,7 +1407,7 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: interface  <key>
                     
                     	Reference to an Virtual Forwarding Interface instance which is configured to be part of this bridge\-domain
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                     
@@ -1445,12 +1447,12 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: access_pw_if_member
                     
                     	List of interface based access pseudowires for current bridge\-domain
-                    	**type**\: list of    :py:class:`AccessPwIfMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.AccessPwIfMember>`
+                    	**type**\: list of  		 :py:class:`AccessPwIfMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.AccessPwIfMember>`
                     
                     .. attribute:: pw_neighbor_spec
                     
                     	Collection of neighbor specification based pseudo\-wires
-                    	**type**\: list of    :py:class:`PwNeighborSpec <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec>`
+                    	**type**\: list of  		 :py:class:`PwNeighborSpec <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec>`
                     
                     
 
@@ -1485,7 +1487,7 @@ class BridgeDomainConfig(Entity):
                         .. attribute:: interface  <key>
                         
                         	Reference to an access pseudo\-wire interface instance which is configured to be part of this bridge domain
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                         
@@ -1521,93 +1523,95 @@ class BridgeDomainConfig(Entity):
                         .. attribute:: neighbor_ip_address  <key>
                         
                         	IPv4 or IPv6 address of the neighbor
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
                         .. attribute:: vc_id  <key>
                         
                         	Pseudowire VC ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4294967295
                         
                         .. attribute:: static_label
                         
                         	Statically configured labels, signalling should be none
-                        	**type**\:   :py:class:`StaticLabel <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StaticLabel>`
+                        	**type**\:  :py:class:`StaticLabel <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StaticLabel>`
                         
                         .. attribute:: pw_class_template
                         
                         	Reference to a pseudowire template
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**refers to**\:  :py:class:`name <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate>`
                         
                         .. attribute:: encap_type
                         
                         	Encapsulation configuration for this neighbor
-                        	**type**\:   :py:class:`PwEncapsulationType <ydk.models.cisco_ios_xe.cisco_pw.PwEncapsulationType>`
+                        	**type**\:  :py:class:`PwEncapsulationType <ydk.models.cisco_ios_xe.cisco_pw.PwEncapsulationType>`
                         
                         .. attribute:: tag_impose_vlan
                         
                         	Specify a tag for a VLAN ID for the pseudowire
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4094
                         
                         .. attribute:: source_ipv6
                         
                         	The local source IPv6 address. Note this should only be configured when neighbor address is IPv6 type
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: split_horizon_group
                         
                         	Bridge domain aggregates attachment circuits (ACs) and pseudowires (PWs) in one or more groups called Split Horizon Groups. When applied to bridge domains, Split Horizon refers to the flooding and forwarding behavior between members of a Split Horizon group. In general, frames received on one member of a split horizon group are not flooded out to the other members
-                        	**type**\:   :py:class:`SplitHorizonGroup <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.SplitHorizonGroup>`
+                        	**type**\:  :py:class:`SplitHorizonGroup <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.SplitHorizonGroup>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: mac
                         
                         	MAC features for bridge domain
-                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac>`
+                        	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac>`
                         
                         .. attribute:: igmp_snooping
                         
                         	Enable IGMP snooping
-                        	**type**\:   :py:class:`IgmpSnooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.IgmpSnooping>`
+                        	**type**\:  :py:class:`IgmpSnooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.IgmpSnooping>`
                         
                         .. attribute:: mld_snooping
                         
                         	Enable MLD snooping
-                        	**type**\:   :py:class:`MldSnooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.MldSnooping>`
+                        	**type**\:  :py:class:`MldSnooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.MldSnooping>`
                         
                         .. attribute:: dhcp_ipv4_snooping
                         
                         	Enable DHCP IPv4 snooping
-                        	**type**\:   :py:class:`DhcpIpv4Snooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.DhcpIpv4Snooping>`
+                        	**type**\:  :py:class:`DhcpIpv4Snooping <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.DhcpIpv4Snooping>`
                         
                         .. attribute:: flooding
                         
                         	Flooding configurations
-                        	**type**\:   :py:class:`Flooding <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Flooding>`
+                        	**type**\:  :py:class:`Flooding <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Flooding>`
                         
                         .. attribute:: storm_control
                         
                         	A collection of storm control threshold and action configurations
-                        	**type**\:   :py:class:`StormControl <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StormControl>`
+                        	**type**\:  :py:class:`StormControl <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StormControl>`
                         
                         .. attribute:: backup
                         
                         	Backup pseudo\-wire
-                        	**type**\:   :py:class:`Backup <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Backup>`
+                        	**type**\:  :py:class:`Backup <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Backup>`
                         
                         
 
@@ -1694,14 +1698,14 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: local_label
                             
                             	Local MPLS label ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 16..1048575
                             
                             .. attribute:: remote_label
                             
                             	Remote MPLS label ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 16..1048575
                             
@@ -1744,7 +1748,7 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: id
                             
                             	Split Horizon group number for bridge domain member
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -1784,29 +1788,29 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: learning_enabled
                             
                             	Enable disable mac learning
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             	**default value**\: true
                             
                             .. attribute:: limit
                             
                             	MAC table learning limit
-                            	**type**\:   :py:class:`Limit <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Limit>`
+                            	**type**\:  :py:class:`Limit <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Limit>`
                             
                             .. attribute:: aging
                             
                             	MAC aging configurations
-                            	**type**\:   :py:class:`Aging <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Aging>`
+                            	**type**\:  :py:class:`Aging <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Aging>`
                             
                             .. attribute:: port_down
                             
                             	Port down event
-                            	**type**\:   :py:class:`PortDown <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.PortDown>`
+                            	**type**\:  :py:class:`PortDown <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.PortDown>`
                             
                             .. attribute:: secure
                             
                             	MAC secure parameters
-                            	**type**\:   :py:class:`Secure <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Secure>`
+                            	**type**\:  :py:class:`Secure <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Secure>`
                             
                             
 
@@ -1859,19 +1863,19 @@ class BridgeDomainConfig(Entity):
                                 .. attribute:: maximum
                                 
                                 	Maximum number of mac addresses that can be learnt
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: action
                                 
                                 	MAC limit violation actions
-                                	**type**\:   :py:class:`MacLimitAction <ydk.models.cisco_ios_xe.cisco_bridge_common.MacLimitAction>`
+                                	**type**\:  :py:class:`MacLimitAction <ydk.models.cisco_ios_xe.cisco_bridge_common.MacLimitAction>`
                                 
                                 .. attribute:: notification
                                 
                                 	MAC limit violation notifications
-                                	**type**\:   :py:class:`MacLimitNotificationType <ydk.models.cisco_ios_xe.cisco_bridge_common.MacLimitNotificationType>`
+                                	**type**\:  :py:class:`MacLimitNotificationType <ydk.models.cisco_ios_xe.cisco_bridge_common.MacLimitNotificationType>`
                                 
                                 
 
@@ -1908,7 +1912,7 @@ class BridgeDomainConfig(Entity):
                                 .. attribute:: time
                                 
                                 	The timeout period in seconds for aging out dynamically learned forwarding information
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1919,7 +1923,7 @@ class BridgeDomainConfig(Entity):
                                 .. attribute:: type
                                 
                                 	MAC aging type
-                                	**type**\:   :py:class:`MacAgingType <ydk.models.cisco_ios_xe.cisco_bridge_common.MacAgingType>`
+                                	**type**\:  :py:class:`MacAgingType <ydk.models.cisco_ios_xe.cisco_bridge_common.MacAgingType>`
                                 
                                 
 
@@ -1954,7 +1958,7 @@ class BridgeDomainConfig(Entity):
                                 .. attribute:: flush
                                 
                                 	Enable/Disable mac table flush when port moves to down state
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: true
                                 
@@ -1989,21 +1993,21 @@ class BridgeDomainConfig(Entity):
                                 .. attribute:: action
                                 
                                 	MAC secure action for violating packets
-                                	**type**\:   :py:class:`MacSecureAction <ydk.models.cisco_ios_xe.cisco_bridge_common.MacSecureAction>`
+                                	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xe.cisco_bridge_common.MacSecureAction>`
                                 
                                 	**default value**\: restrict
                                 
                                 .. attribute:: logging
                                 
                                 	Enable/Disable logging
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: enabled
                                 
                                 	Enable or disable mac secure feature
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 
 
@@ -2040,7 +2044,7 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: profile_name
                             
                             	IGMP snooping profile name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**mandatory**\: True
                             
@@ -2075,7 +2079,7 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: profile_name
                             
                             	MLD snooping profile name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**mandatory**\: True
                             
@@ -2110,7 +2114,7 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: profile_name
                             
                             	DHCPv4 snooping profile name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**mandatory**\: True
                             
@@ -2145,12 +2149,12 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: disabled
                             
                             	Disable flooding
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: disabled_unknown_unicast
                             
                             	Disable unknown unicast flooding
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -2186,12 +2190,12 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: thresholds
                             
                             	A collection of storm control threshold configuration entries
-                            	**type**\: list of    :py:class:`Thresholds <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StormControl.Thresholds>`
+                            	**type**\: list of  		 :py:class:`Thresholds <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StormControl.Thresholds>`
                             
                             .. attribute:: action
                             
                             	This leaf represents the storm control action taken when the traffic of a particular type exceeds the configured threshold values
-                            	**type**\:   :py:class:`StormControlAction <ydk.models.cisco_ios_xe.cisco_storm_control.StormControlAction>`
+                            	**type**\:  :py:class:`StormControlAction <ydk.models.cisco_ios_xe.cisco_storm_control.StormControlAction>`
                             
                             
 
@@ -2227,12 +2231,12 @@ class BridgeDomainConfig(Entity):
                                 .. attribute:: traffic_class  <key>
                                 
                                 	This leaf identifies a ethernet traffic type for which an administrator desires to configure storm control
-                                	**type**\:   :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
+                                	**type**\:  :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
                                 
                                 .. attribute:: value
                                 
                                 	Traffic threshold value. Unit of the value is indicated by leaf 'unit'
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -2241,7 +2245,7 @@ class BridgeDomainConfig(Entity):
                                 .. attribute:: unit
                                 
                                 	This enumeration define unit of the traffic threshold value
-                                	**type**\:   :py:class:`Unit <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StormControl.Thresholds.Unit>`
+                                	**type**\:  :py:class:`Unit <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StormControl.Thresholds.Unit>`
                                 
                                 	**mandatory**\: True
                                 
@@ -2309,27 +2313,27 @@ class BridgeDomainConfig(Entity):
                             .. attribute:: neighbor_ip_address
                             
                             	IPv4 or IPv6 address of the neighbor
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: vc_id
                             
                             	Pseudowire VC ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
                             .. attribute:: pw_class_template
                             
                             	Reference to a pseudowire template
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate>`
                             
@@ -2368,41 +2372,41 @@ class BridgeDomainConfig(Entity):
                 .. attribute:: learning_enabled
                 
                 	Enable disable mac learning
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: true
                 
                 .. attribute:: limit
                 
                 	MAC table learning limit
-                	**type**\:   :py:class:`Limit <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Limit>`
+                	**type**\:  :py:class:`Limit <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Limit>`
                 
                 .. attribute:: aging
                 
                 	MAC aging configurations
-                	**type**\:   :py:class:`Aging <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Aging>`
+                	**type**\:  :py:class:`Aging <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Aging>`
                 
                 .. attribute:: port_down
                 
                 	Port down event
-                	**type**\:   :py:class:`PortDown <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.PortDown>`
+                	**type**\:  :py:class:`PortDown <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.PortDown>`
                 
                 .. attribute:: flooding
                 
                 	Flooding configurations
-                	**type**\:   :py:class:`Flooding <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Flooding>`
+                	**type**\:  :py:class:`Flooding <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Flooding>`
                 
                 .. attribute:: secure
                 
                 	MAC secure parameters
-                	**type**\:   :py:class:`Secure <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Secure>`
+                	**type**\:  :py:class:`Secure <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Secure>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: static
                 
                 	Static mac address list parameters
-                	**type**\:   :py:class:`Static <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Static>`
+                	**type**\:  :py:class:`Static <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Static>`
                 
                 
 
@@ -2464,19 +2468,19 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: maximum
                     
                     	Maximum number of mac addresses that can be learnt
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: action
                     
                     	MAC limit violation actions
-                    	**type**\:   :py:class:`MacLimitAction <ydk.models.cisco_ios_xe.cisco_bridge_common.MacLimitAction>`
+                    	**type**\:  :py:class:`MacLimitAction <ydk.models.cisco_ios_xe.cisco_bridge_common.MacLimitAction>`
                     
                     .. attribute:: notification
                     
                     	MAC limit violation notifications
-                    	**type**\:   :py:class:`MacLimitNotificationType <ydk.models.cisco_ios_xe.cisco_bridge_common.MacLimitNotificationType>`
+                    	**type**\:  :py:class:`MacLimitNotificationType <ydk.models.cisco_ios_xe.cisco_bridge_common.MacLimitNotificationType>`
                     
                     
 
@@ -2513,7 +2517,7 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: time
                     
                     	The timeout period in seconds for aging out dynamically learned forwarding information
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2524,7 +2528,7 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: type
                     
                     	MAC aging type
-                    	**type**\:   :py:class:`MacAgingType <ydk.models.cisco_ios_xe.cisco_bridge_common.MacAgingType>`
+                    	**type**\:  :py:class:`MacAgingType <ydk.models.cisco_ios_xe.cisco_bridge_common.MacAgingType>`
                     
                     
 
@@ -2559,7 +2563,7 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: flush
                     
                     	Enable/Disable mac table flush when port moves to down state
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: true
                     
@@ -2594,12 +2598,12 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: disabled
                     
                     	Disable flooding
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: disabled_unknown_unicast
                     
                     	Disable unknown unicast flooding
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -2634,14 +2638,14 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: action
                     
                     	MAC secure action for violating packets
-                    	**type**\:   :py:class:`MacSecureAction <ydk.models.cisco_ios_xe.cisco_bridge_common.MacSecureAction>`
+                    	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xe.cisco_bridge_common.MacSecureAction>`
                     
                     	**default value**\: restrict
                     
                     .. attribute:: logging
                     
                     	Enable/Disable logging
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
@@ -2681,7 +2685,7 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: mac_addresses
                     
                     	MAC address entry
-                    	**type**\: list of    :py:class:`MacAddresses <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Static.MacAddresses>`
+                    	**type**\: list of  		 :py:class:`MacAddresses <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Static.MacAddresses>`
                     
                     
 
@@ -2714,12 +2718,14 @@ class BridgeDomainConfig(Entity):
                         .. attribute:: mac_addr  <key>
                         
                         	Static MAC address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: drop
                         
                         	Drop packet
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**mandatory**\: True
                         
@@ -2756,14 +2762,14 @@ class BridgeDomainConfig(Entity):
                 .. attribute:: address_validation
                 
                 	Enable address validation
-                	**type**\:   :py:class:`AddressValidation <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection.AddressValidation>`
+                	**type**\:  :py:class:`AddressValidation <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection.AddressValidation>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: logging
                 
                 	Enable DAI logging
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -2803,17 +2809,17 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: dst_mac
                     
                     	Match Destination MAC Address
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: src_mac
                     
                     	Match Source MAC Address
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: ipv4
                     
                     	Match IPv4 Address
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -2853,7 +2859,7 @@ class BridgeDomainConfig(Entity):
                 .. attribute:: logging
                 
                 	Enable IPSG logging
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
@@ -2892,12 +2898,12 @@ class BridgeDomainConfig(Entity):
                 .. attribute:: thresholds
                 
                 	A collection of storm control threshold configuration entries
-                	**type**\: list of    :py:class:`Thresholds <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.StormControl.Thresholds>`
+                	**type**\: list of  		 :py:class:`Thresholds <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.StormControl.Thresholds>`
                 
                 .. attribute:: action
                 
                 	This leaf represents the storm control action taken when the traffic of a particular type exceeds the configured threshold values
-                	**type**\:   :py:class:`StormControlAction <ydk.models.cisco_ios_xe.cisco_storm_control.StormControlAction>`
+                	**type**\:  :py:class:`StormControlAction <ydk.models.cisco_ios_xe.cisco_storm_control.StormControlAction>`
                 
                 
 
@@ -2933,12 +2939,12 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: traffic_class  <key>
                     
                     	This leaf identifies a ethernet traffic type for which an administrator desires to configure storm control
-                    	**type**\:   :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
+                    	**type**\:  :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
                     
                     .. attribute:: value
                     
                     	Traffic threshold value. Unit of the value is indicated by leaf 'unit'
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2947,7 +2953,7 @@ class BridgeDomainConfig(Entity):
                     .. attribute:: unit
                     
                     	This enumeration define unit of the traffic threshold value
-                    	**type**\:   :py:class:`Unit <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.StormControl.Thresholds.Unit>`
+                    	**type**\:  :py:class:`Unit <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainConfig.BridgeDomains.BridgeDomain.StormControl.Thresholds.Unit>`
                     
                     	**mandatory**\: True
                     
@@ -3015,12 +3021,12 @@ class BridgeDomainConfig(Entity):
                 .. attribute:: profile_name
                 
                 	IGMP snooping profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: disabled
                 
                 	Disable IGMP snooping
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -3055,7 +3061,7 @@ class BridgeDomainConfig(Entity):
                 .. attribute:: profile_name
                 
                 	MLD snooping profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -3090,7 +3096,7 @@ class BridgeDomainConfig(Entity):
                 .. attribute:: profile_name
                 
                 	DHCPv4 snooping profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
@@ -3128,22 +3134,22 @@ class BridgeDomainState(Entity):
     .. attribute:: system_capabilities
     
     	This container defines system capabilities for bridge domain
-    	**type**\:   :py:class:`SystemCapabilities <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.SystemCapabilities>`
+    	**type**\:  :py:class:`SystemCapabilities <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.SystemCapabilities>`
     
     .. attribute:: module_capabilities
     
     	This container defines module capabilities for bridge domain
-    	**type**\:   :py:class:`ModuleCapabilities <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.ModuleCapabilities>`
+    	**type**\:  :py:class:`ModuleCapabilities <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.ModuleCapabilities>`
     
     .. attribute:: bridge_domains
     
     	Bridge domain state data
-    	**type**\:   :py:class:`BridgeDomains <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains>`
+    	**type**\:  :py:class:`BridgeDomains <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains>`
     
     .. attribute:: mac_table
     
     	This list contains mac\-address entries for bridge domains
-    	**type**\: list of    :py:class:`MacTable <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.MacTable>`
+    	**type**\: list of  		 :py:class:`MacTable <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.MacTable>`
     
     
 
@@ -3193,42 +3199,42 @@ class BridgeDomainState(Entity):
         .. attribute:: max_bd
         
         	Maximum number of bridge\-domains suported
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: max_ac_per_bd
         
         	Maximum number of attachment circuits per bridge\-domains
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: max_pw_per_bd
         
         	Maximum number of access pseudowires per bridge\-domains
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: max_vfi_per_bd
         
         	Maximum number of virtual forwarding instances per bridge\-domains
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: max_sh_group_per_bd
         
         	Maximum number of Split Horizon groups per bridge\-domains
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: max_interflex_if_per_bd
         
         	Maximum number of Interflex interfaces per bridge\-domains
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -3275,7 +3281,7 @@ class BridgeDomainState(Entity):
         .. attribute:: modules
         
         	Collection of capabillity statements for hardware module in the system
-        	**type**\: list of    :py:class:`Modules <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.ModuleCapabilities.Modules>`
+        	**type**\: list of  		 :py:class:`Modules <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.ModuleCapabilities.Modules>`
         
         
 
@@ -3310,54 +3316,54 @@ class BridgeDomainState(Entity):
             .. attribute:: name  <key>
             
             	Name of the hardware module such as linecards, for which capability is described
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: max_mac_per_bd
             
             	Maximum number of MAC addresses per bridge\-domains supported by this module
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: max_pdd_edge_bd
             
             	Maximum number of PBB Edge type bridge\-domains supported by this module
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: max_bd
             
             	Maximum number of bridge\-domains suported
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: max_ac_per_bd
             
             	Maximum number of attachment circuits per bridge\-domains
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: max_pw_per_bd
             
             	Maximum number of access pseudowires per bridge\-domains
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: max_vfi_per_bd
             
             	Maximum number of virtual forwarding instances per bridge\-domains
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: max_sh_group_per_bd
             
             	Maximum number of Split Horizon groups per bridge\-domains
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -3407,7 +3413,7 @@ class BridgeDomainState(Entity):
         .. attribute:: bridge_domain
         
         	Collection of bridge\-domain state data
-        	**type**\: list of    :py:class:`BridgeDomain <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain>`
+        	**type**\: list of  		 :py:class:`BridgeDomain <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain>`
         
         
 
@@ -3441,43 +3447,43 @@ class BridgeDomainState(Entity):
             .. attribute:: id  <key>
             
             	Bridge domain name or number
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: bd_state
             
             	Bridge domain operational/admin status
-            	**type**\:   :py:class:`BridgeDomainStateType <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainStateType>`
+            	**type**\:  :py:class:`BridgeDomainStateType <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainStateType>`
             
             	**mandatory**\: True
             
             .. attribute:: create_time
             
             	System time when this bridge\-domain was created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: last_status_change
             
             	Number of consecutive ticks since bridge\-domain status was changed last time
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: mac_limit_reached
             
             	This leaf indicates if MAC address limit has been reached
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: p2mp_pw_disabled
             
             	Point to Mutipoint pseudowire state
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: members
             
             	Collection of bridge\-domain members
-            	**type**\:   :py:class:`Members <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members>`
+            	**type**\:  :py:class:`Members <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members>`
             
             
 
@@ -3526,17 +3532,17 @@ class BridgeDomainState(Entity):
                 .. attribute:: ac_member
                 
                 	List of attachment circuits for this bridge domains
-                	**type**\: list of    :py:class:`AcMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember>`
+                	**type**\: list of  		 :py:class:`AcMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember>`
                 
                 .. attribute:: vfi_member
                 
                 	Reference to an instance of Bridge domain Virtual Forwarding Instance (VFI) name
-                	**type**\: list of    :py:class:`VfiMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember>`
+                	**type**\: list of  		 :py:class:`VfiMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember>`
                 
                 .. attribute:: access_pw_member
                 
                 	Collection of access pseudowire members of the bridge domain
-                	**type**\: list of    :py:class:`AccessPwMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember>`
+                	**type**\: list of  		 :py:class:`AccessPwMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember>`
                 
                 
 
@@ -3571,31 +3577,31 @@ class BridgeDomainState(Entity):
                     .. attribute:: interface  <key>
                     
                     	Reference to an instance of Bridge domain attachment circuit (AC) interface name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
                     
                     .. attribute:: static_mac_count
                     
                     	Number of static MAC address configured on this bridge\-domain member interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: dai_stats
                     
                     	Dynamic ARP Inspection (DAI) statistics
-                    	**type**\:   :py:class:`DaiStats <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.DaiStats>`
+                    	**type**\:  :py:class:`DaiStats <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.DaiStats>`
                     
                     .. attribute:: ipsg_stats
                     
                     	IPSG stats
-                    	**type**\:   :py:class:`IpsgStats <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.IpsgStats>`
+                    	**type**\:  :py:class:`IpsgStats <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.IpsgStats>`
                     
                     .. attribute:: storm_control
                     
                     	Storm control statistics
-                    	**type**\:   :py:class:`StormControl <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.StormControl>`
+                    	**type**\:  :py:class:`StormControl <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.StormControl>`
                     
                     
 
@@ -3645,14 +3651,14 @@ class BridgeDomainState(Entity):
                         .. attribute:: packet_drops
                         
                         	Number of packets dropped by interface due to DAI actions
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: byte_drops
                         
                         	Number of bytes dropped by interface due to DAI actions
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3689,14 +3695,14 @@ class BridgeDomainState(Entity):
                         .. attribute:: packet_drops
                         
                         	Number of packets dropped by interface due to IPSG actions
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: byte_drops
                         
                         	Number of bytes dropped by interface due to IPSG actions
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3733,7 +3739,7 @@ class BridgeDomainState(Entity):
                         .. attribute:: drop_counter
                         
                         	Collection of packet drop statistics for ethernet traffic clasess
-                        	**type**\: list of    :py:class:`DropCounter <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.StormControl.DropCounter>`
+                        	**type**\: list of  		 :py:class:`DropCounter <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.StormControl.DropCounter>`
                         
                         
 
@@ -3767,19 +3773,19 @@ class BridgeDomainState(Entity):
                             .. attribute:: traffic_class  <key>
                             
                             	Ethernet traffic class i.e. broadcast, multicast or unknown unicast
-                            	**type**\:   :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
+                            	**type**\:  :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
                             
                             .. attribute:: packet_drops
                             
                             	The total number of dropped packets due to storm control violations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: octate_drops
                             
                             	The total number of bytes of traffic dropped due to storm control violations
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3819,14 +3825,14 @@ class BridgeDomainState(Entity):
                     .. attribute:: interface  <key>
                     
                     	Bridge domain memeber interface name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
                     
                     .. attribute:: flooding
                     
                     	Flooding operational status
-                    	**type**\:   :py:class:`Flooding <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember.Flooding>`
+                    	**type**\:  :py:class:`Flooding <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember.Flooding>`
                     
                     
 
@@ -3864,7 +3870,7 @@ class BridgeDomainState(Entity):
                         .. attribute:: status
                         
                         	A collection of storm control threshold configuration entries
-                        	**type**\: list of    :py:class:`Status <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember.Flooding.Status>`
+                        	**type**\: list of  		 :py:class:`Status <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember.Flooding.Status>`
                         
                         
 
@@ -3898,12 +3904,12 @@ class BridgeDomainState(Entity):
                             .. attribute:: traffic_class  <key>
                             
                             	This leaf identifies a ethernet traffic type
-                            	**type**\:   :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
+                            	**type**\:  :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
                             
                             .. attribute:: enabled
                             
                             	This leaf indicates if flooding is enabled for corresponding traffic class
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -3939,20 +3945,22 @@ class BridgeDomainState(Entity):
                     .. attribute:: vc_peer_address  <key>
                     
                     	Reference to peer ip address of a pseudowire instance
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
+                    	**refers to**\:  :py:class:`vc_peer_address <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires>`
+                    
                     .. attribute:: vc_id  <key>
                     
                     	Reference to vc\-id of a pseudowire instance
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3961,7 +3969,7 @@ class BridgeDomainState(Entity):
                     .. attribute:: flooding
                     
                     	Flooding operational status
-                    	**type**\:   :py:class:`Flooding <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember.Flooding>`
+                    	**type**\:  :py:class:`Flooding <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember.Flooding>`
                     
                     
 
@@ -4001,7 +4009,7 @@ class BridgeDomainState(Entity):
                         .. attribute:: status
                         
                         	A collection of storm control threshold configuration entries
-                        	**type**\: list of    :py:class:`Status <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember.Flooding.Status>`
+                        	**type**\: list of  		 :py:class:`Status <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember.Flooding.Status>`
                         
                         
 
@@ -4035,12 +4043,12 @@ class BridgeDomainState(Entity):
                             .. attribute:: traffic_class  <key>
                             
                             	This leaf identifies a ethernet traffic type
-                            	**type**\:   :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
+                            	**type**\:  :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
                             
                             .. attribute:: enabled
                             
                             	This leaf indicates if flooding is enabled for corresponding traffic class
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -4076,22 +4084,24 @@ class BridgeDomainState(Entity):
         .. attribute:: bd_id  <key>
         
         	Bridge\-domain name where MAC entry is learnt
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: mac_address  <key>
         
         	MAC address
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
         
         .. attribute:: mac_type
         
         	MAC address type
-        	**type**\:   :py:class:`MacType <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.MacTable.MacType>`
+        	**type**\:  :py:class:`MacType <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.MacTable.MacType>`
         
         .. attribute:: interface
         
         	Reference to an interface instance where MAC  address is learnt
-        	**type**\:  str
+        	**type**\: str
         
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
         
@@ -4100,24 +4110,24 @@ class BridgeDomainState(Entity):
         .. attribute:: secure_mac
         
         	Secure MAC address
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: ntfy_mac
         
         	TBD ?NTFY?
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: age
         
         	Time since mac address was learnt on the interface
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: location
         
         	Linecard / Module where mac address was learnt
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -4191,12 +4201,12 @@ class ClearBridgeDomain(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.cisco_bridge_domain.ClearBridgeDomain.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.cisco_bridge_domain.ClearBridgeDomain.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_bridge_domain.ClearBridgeDomain.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.cisco_bridge_domain.ClearBridgeDomain.Output>`
     
     
 
@@ -4235,17 +4245,17 @@ class ClearBridgeDomain(Entity):
         .. attribute:: all
         
         	Clear all bridge\-domains configured on the device
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: bd_id
         
         	Clear a single bridge\-domain
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: bg_id
         
         	Clears all bridge\-domains under this bridge\-group
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -4283,7 +4293,7 @@ class ClearBridgeDomain(Entity):
         .. attribute:: errstr
         
         	Error message from the device if RPC failed
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -4321,12 +4331,12 @@ class ClearMacAddress(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.cisco_bridge_domain.ClearMacAddress.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.cisco_bridge_domain.ClearMacAddress.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_bridge_domain.ClearMacAddress.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.cisco_bridge_domain.ClearMacAddress.Output>`
     
     
 
@@ -4365,19 +4375,21 @@ class ClearMacAddress(Entity):
         .. attribute:: bridge_domain
         
         	Clear mac\-address entries for given bridge\-domain(s)
-        	**type**\:   :py:class:`BridgeDomain <ydk.models.cisco_ios_xe.cisco_bridge_domain.ClearMacAddress.Input.BridgeDomain>`
+        	**type**\:  :py:class:`BridgeDomain <ydk.models.cisco_ios_xe.cisco_bridge_domain.ClearMacAddress.Input.BridgeDomain>`
         
         .. attribute:: interface
         
         	Reference to an interface. Clear mac\-addesses learnt by by this interface
-        	**type**\:  str
+        	**type**\: str
         
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
         
         .. attribute:: mac_address
         
         	Clear a specific mac\-address entry from the mac\-table
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
         
         
 
@@ -4418,14 +4430,14 @@ class ClearMacAddress(Entity):
             .. attribute:: bd_id
             
             	Bridge\-domain identifier, clear all mac\-address entries dynamically learnt on this bridge\-domain
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
             .. attribute:: bg_id
             
             	Bridge\-group identifier, clear all mac\-address entries from all bridge\-domains under this bridge\-group
-            	**type**\:  str
+            	**type**\: str
             
             	**mandatory**\: True
             
@@ -4463,7 +4475,7 @@ class ClearMacAddress(Entity):
         .. attribute:: errstr
         
         	Error message from the device if RPC failed
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -4501,12 +4513,12 @@ class CreateParameterizedBridgeDomains(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.cisco_bridge_domain.CreateParameterizedBridgeDomains.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.cisco_bridge_domain.CreateParameterizedBridgeDomains.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.cisco_bridge_domain.CreateParameterizedBridgeDomains.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.cisco_bridge_domain.CreateParameterizedBridgeDomains.Output>`
     
     
 
@@ -4545,12 +4557,12 @@ class CreateParameterizedBridgeDomains(Entity):
         .. attribute:: parameter
         
         	Parameter for automatic bridge domain creation
-        	**type**\:   :py:class:`Parameter <ydk.models.cisco_ios_xe.cisco_bridge_domain.CreateParameterizedBridgeDomains.Input.Parameter>`
+        	**type**\:  :py:class:`Parameter <ydk.models.cisco_ios_xe.cisco_bridge_domain.CreateParameterizedBridgeDomains.Input.Parameter>`
         
         .. attribute:: member
         
         	Bridge\-domain member interface
-        	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xe.cisco_bridge_domain.CreateParameterizedBridgeDomains.Input.Member>`
+        	**type**\: list of  		 :py:class:`Member <ydk.models.cisco_ios_xe.cisco_bridge_domain.CreateParameterizedBridgeDomains.Input.Member>`
         
         
 
@@ -4603,7 +4615,7 @@ class CreateParameterizedBridgeDomains(Entity):
             .. attribute:: interface  <key>
             
             	Reference to an interface instance which is configured to be part of this bridge domain
-            	**type**\:  str
+            	**type**\: str
             
             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
             
@@ -4639,7 +4651,7 @@ class CreateParameterizedBridgeDomains(Entity):
         .. attribute:: errstr
         
         	Error message from the device if RPC failed
-        	**type**\:  str
+        	**type**\: str
         
         
 

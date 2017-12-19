@@ -400,17 +400,17 @@ class TelemetryModelDriven(Entity):
     .. attribute:: destinations
     
     	Telemetry Destinations
-    	**type**\:   :py:class:`Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations>`
+    	**type**\:  :py:class:`Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations>`
     
     .. attribute:: subscriptions
     
     	Telemetry Subscriptions
-    	**type**\:   :py:class:`Subscriptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions>`
+    	**type**\:  :py:class:`Subscriptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions>`
     
     .. attribute:: sensor_groups
     
     	Telemetry Sensor Groups
-    	**type**\:   :py:class:`SensorGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups>`
+    	**type**\:  :py:class:`SensorGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups>`
     
     
 
@@ -454,7 +454,7 @@ class TelemetryModelDriven(Entity):
         .. attribute:: destination
         
         	Telemetry Destination
-        	**type**\: list of    :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination>`
+        	**type**\: list of  		 :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination>`
         
         
 
@@ -488,24 +488,26 @@ class TelemetryModelDriven(Entity):
             .. attribute:: destination_id  <key>
             
             	Id of the destination
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: id
             
             	Destination Group name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: configured
             
             	Set if this is configured destination group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: destination
             
             	list of destinations defined in this group
-            	**type**\: list of    :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination>`
+            	**type**\: list of  		 :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination>`
             
             
 
@@ -545,12 +547,12 @@ class TelemetryModelDriven(Entity):
                 .. attribute:: destination
                 
                 	Destination
-                	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.Destination>`
+                	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.Destination>`
                 
                 .. attribute:: collection_group
                 
                 	List of collection groups for this destination group
-                	**type**\: list of    :py:class:`CollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup>`
+                	**type**\: list of  		 :py:class:`CollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup>`
                 
                 
 
@@ -588,82 +590,82 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: dest_ip_address
                     
                     	Destination IP Address
-                    	**type**\:   :py:class:`DestIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.Destination.DestIpAddress>`
+                    	**type**\:  :py:class:`DestIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.Destination.DestIpAddress>`
                     
                     .. attribute:: id
                     
                     	Destination Id
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: sub_id_str
                     
                     	Sub Idstr
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: dest_port
                     
                     	Destination Port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: encoding
                     
                     	Destination group encoding
-                    	**type**\:   :py:class:`MdtEncodingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnum>`
+                    	**type**\:  :py:class:`MdtEncodingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnum>`
                     
                     .. attribute:: transport
                     
                     	Destination group transport
-                    	**type**\:   :py:class:`MdtTransportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtTransportEnum>`
+                    	**type**\:  :py:class:`MdtTransportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtTransportEnum>`
                     
                     .. attribute:: vrf
                     
                     	Destination group vrf
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: vrf_id
                     
                     	Destination group vrf id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: state
                     
                     	State of streaming on this destination
-                    	**type**\:   :py:class:`MdtDestStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtDestStateEnum>`
+                    	**type**\:  :py:class:`MdtDestStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtDestStateEnum>`
                     
                     .. attribute:: udp_mtu
                     
                     	UDP MTU if this destination is UDP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tls
                     
                     	TLS connection to this destination
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tls_host
                     
                     	TLS Hostname of this destination
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: total_num_of_packets_sent
                     
                     	Total number of packets sent for this destination
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_num_of_bytes_sent
                     
                     	Total number of bytes sent for this destination
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -672,21 +674,21 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: last_collection_time
                     
                     	Timestamp of the last collection
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: dscp
                     
                     	DSCP setting for this destination
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sub_id
                     
                     	Sub Id
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -756,17 +758,21 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: ip_type
                         
                         	IPType
-                        	**type**\:   :py:class:`MdtIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtIp>`
+                        	**type**\:  :py:class:`MdtIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtIp>`
                         
                         .. attribute:: ipv4_address
                         
                         	IPV4 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_address
                         
                         	IPV6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -804,122 +810,122 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: id
                     
                     	Collection Group id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: cadence
                     
                     	Period of the collections (ms)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_collections
                     
                     	Completed collections count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: encoding
                     
                     	Destination group encoding
-                    	**type**\:   :py:class:`MdtEncodingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnum>`
+                    	**type**\:  :py:class:`MdtEncodingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnum>`
                     
                     .. attribute:: last_collection_start_time
                     
                     	Timestamp of the start of last collection
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: last_collection_end_time
                     
                     	Timestamp of the end of last collection
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_collection_time
                     
                     	Maximum time for a collection (ms)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: min_collection_time
                     
                     	Minimum time for a collection (ms)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: min_total_time
                     
                     	Minimum time for all processing (ms)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: max_total_time
                     
                     	Maximum time for all processing (ms)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: avg_total_time
                     
                     	Average time for all processing (ms)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_other_errors
                     
                     	Total number of errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_on_data_instances
                     
                     	Total number of no data instances
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_not_ready
                     
                     	Total number skipped (not ready)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_send_errors
                     
                     	Total number of send errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total_send_drops
                     
                     	Total number of send drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: collection_path
                     
                     	Array of information for sensor paths within collection group
-                    	**type**\: list of    :py:class:`CollectionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.CollectionPath>`
+                    	**type**\: list of  		 :py:class:`CollectionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.CollectionPath>`
                     
                     .. attribute:: internal_collection_group
                     
                     	Array of information for sysdb paths within collection group
-                    	**type**\: list of    :py:class:`InternalCollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.InternalCollectionGroup>`
+                    	**type**\: list of  		 :py:class:`InternalCollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.InternalCollectionGroup>`
                     
                     
 
@@ -986,17 +992,17 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: path
                         
                         	Sensor Path
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: state
                         
                         	State, if sensor path is resolved or not
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: status_str
                         
                         	Error str, if there are any errors resolving the sensor path
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -1034,124 +1040,124 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: path
                         
                         	Sysdb Path
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: cadence
                         
                         	Period of the collections (ms)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_get_count
                         
                         	Total number of gets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_list_count
                         
                         	Total number of lists
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_datalist_count
                         
                         	Total number of datalists
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_finddata_count
                         
                         	Total number of finddata
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_get_bulk_count
                         
                         	Total number of get bulk
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_item_count
                         
                         	Total number of items retrived from sysdb
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_get_errors
                         
                         	Total number of get errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_list_errors
                         
                         	Total number of list errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_datalist_errors
                         
                         	Total number of datalist errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_finddata_errors
                         
                         	Total number of finddata errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_get_bulk_errors
                         
                         	Total number of get bulk errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_encode_errors
                         
                         	Total number of encode errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_encode_notready
                         
                         	Total number of encode deferred
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_send_errors
                         
                         	Total number of send errors
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_send_drops
                         
                         	Total number of send channel full
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_sent_bytes
                         
                         	Total number of bytes sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1160,14 +1166,14 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: total_send_packets
                         
                         	Total number of packets sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_send_bytes_dropped
                         
                         	Total number of send bytes dropped
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1176,49 +1182,49 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: total_collections
                         
                         	Completed collections count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_collections_missed
                         
                         	Total number of collections missed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: max_collection_time
                         
                         	Maximum time for a collection (ms)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: min_collection_time
                         
                         	Minimum time for a collection (ms)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: avg_collection_time
                         
                         	Average time for a collection (ms)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: collection_method
                         
                         	Collection method in use
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: status
                         
                         	Status of collection path
-                        	**type**\:   :py:class:`MdtInternalPathStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtInternalPathStatus>`
+                        	**type**\:  :py:class:`MdtInternalPathStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtInternalPathStatus>`
                         
                         
 
@@ -1303,7 +1309,7 @@ class TelemetryModelDriven(Entity):
         .. attribute:: subscription
         
         	Telemetry Subscription
-        	**type**\: list of    :py:class:`Subscription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription>`
+        	**type**\: list of  		 :py:class:`Subscription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription>`
         
         
 
@@ -1337,17 +1343,19 @@ class TelemetryModelDriven(Entity):
             .. attribute:: subscription_id  <key>
             
             	Id of the subscription
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: subscription
             
             	Subscription
-            	**type**\:   :py:class:`Subscription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription>`
+            	**type**\:  :py:class:`Subscription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription>`
             
             .. attribute:: collection_group
             
             	List of collection groups active for this subscription
-            	**type**\: list of    :py:class:`CollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup>`
+            	**type**\: list of  		 :py:class:`CollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup>`
             
             
 
@@ -1388,32 +1396,32 @@ class TelemetryModelDriven(Entity):
                 .. attribute:: source_interface
                 
                 	configured source interface
-                	**type**\:   :py:class:`SourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.SourceInterface>`
+                	**type**\:  :py:class:`SourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.SourceInterface>`
                 
                 .. attribute:: id
                 
                 	Collection Subscription name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: state
                 
                 	Subscription state
-                	**type**\:   :py:class:`MdtSubsStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtSubsStateEnum>`
+                	**type**\:  :py:class:`MdtSubsStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtSubsStateEnum>`
                 
                 .. attribute:: source_qos_marking
                 
                 	DSCP
-                	**type**\:   :py:class:`MdtSourceQosMarking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtSourceQosMarking>`
+                	**type**\:  :py:class:`MdtSourceQosMarking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtSourceQosMarking>`
                 
                 .. attribute:: sensor_profile
                 
                 	List of sensor groups within a subscription
-                	**type**\: list of    :py:class:`SensorProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile>`
+                	**type**\: list of  		 :py:class:`SensorProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile>`
                 
                 .. attribute:: destination_grp
                 
                 	Array of destinations within a subscription
-                	**type**\: list of    :py:class:`DestinationGrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp>`
+                	**type**\: list of  		 :py:class:`DestinationGrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp>`
                 
                 
 
@@ -1458,27 +1466,31 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: interface_name
                     
                     	Source Interface Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: state
                     
                     	interface state
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: ipv4_address
                     
                     	IPV4 Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: ipv6_address
                     
                     	IPV6 Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: vrf_id
                     
                     	Src Vrf Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1521,26 +1533,26 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: sensor_group
                     
                     	sensor group
-                    	**type**\:   :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup>`
+                    	**type**\:  :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup>`
                     
                     .. attribute:: sample_interval
                     
                     	Sample interval for the sensor group (ms)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: heartbeat_interval
                     
                     	Heartbeat interval for the sensor group (s)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: suppress_redundant
                     
                     	Suppress Redundant
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -1582,19 +1594,19 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: id
                         
                         	Sensor Group name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: configured
                         
                         	Set if this is configured sensor group
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sensor_path
                         
                         	Array of information for sensor paths within sensor group
-                        	**type**\: list of    :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup.SensorPath>`
+                        	**type**\: list of  		 :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup.SensorPath>`
                         
                         
 
@@ -1632,17 +1644,17 @@ class TelemetryModelDriven(Entity):
                             .. attribute:: path
                             
                             	Sensor Path
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: state
                             
                             	State, if sensor path is resolved or not
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: status_str
                             
                             	Error str, if there are any errors resolving the sensor path
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1679,19 +1691,19 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: id
                     
                     	Destination Group name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: configured
                     
                     	Set if this is configured destination group
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: destination
                     
                     	list of destinations defined in this group
-                    	**type**\: list of    :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination>`
+                    	**type**\: list of  		 :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination>`
                     
                     
 
@@ -1728,82 +1740,82 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: dest_ip_address
                         
                         	Destination IP Address
-                        	**type**\:   :py:class:`DestIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination.DestIpAddress>`
+                        	**type**\:  :py:class:`DestIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination.DestIpAddress>`
                         
                         .. attribute:: id
                         
                         	Destination Id
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: sub_id_str
                         
                         	Sub Idstr
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: dest_port
                         
                         	Destination Port number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: encoding
                         
                         	Destination group encoding
-                        	**type**\:   :py:class:`MdtEncodingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnum>`
+                        	**type**\:  :py:class:`MdtEncodingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnum>`
                         
                         .. attribute:: transport
                         
                         	Destination group transport
-                        	**type**\:   :py:class:`MdtTransportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtTransportEnum>`
+                        	**type**\:  :py:class:`MdtTransportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtTransportEnum>`
                         
                         .. attribute:: vrf
                         
                         	Destination group vrf
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: vrf_id
                         
                         	Destination group vrf id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: state
                         
                         	State of streaming on this destination
-                        	**type**\:   :py:class:`MdtDestStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtDestStateEnum>`
+                        	**type**\:  :py:class:`MdtDestStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtDestStateEnum>`
                         
                         .. attribute:: udp_mtu
                         
                         	UDP MTU if this destination is UDP
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tls
                         
                         	TLS connection to this destination
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tls_host
                         
                         	TLS Hostname of this destination
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: total_num_of_packets_sent
                         
                         	Total number of packets sent for this destination
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: total_num_of_bytes_sent
                         
                         	Total number of bytes sent for this destination
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1812,21 +1824,21 @@ class TelemetryModelDriven(Entity):
                         .. attribute:: last_collection_time
                         
                         	Timestamp of the last collection
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: dscp
                         
                         	DSCP setting for this destination
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: sub_id
                         
                         	Sub Id
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1896,17 +1908,21 @@ class TelemetryModelDriven(Entity):
                             .. attribute:: ip_type
                             
                             	IPType
-                            	**type**\:   :py:class:`MdtIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtIp>`
+                            	**type**\:  :py:class:`MdtIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtIp>`
                             
                             .. attribute:: ipv4_address
                             
                             	IPV4 Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: ipv6_address
                             
                             	IPV6 Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -1944,122 +1960,122 @@ class TelemetryModelDriven(Entity):
                 .. attribute:: id
                 
                 	Collection Group id
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: cadence
                 
                 	Period of the collections (ms)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_collections
                 
                 	Completed collections count
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: encoding
                 
                 	Destination group encoding
-                	**type**\:   :py:class:`MdtEncodingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnum>`
+                	**type**\:  :py:class:`MdtEncodingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnum>`
                 
                 .. attribute:: last_collection_start_time
                 
                 	Timestamp of the start of last collection
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: last_collection_end_time
                 
                 	Timestamp of the end of last collection
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: max_collection_time
                 
                 	Maximum time for a collection (ms)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: min_collection_time
                 
                 	Minimum time for a collection (ms)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: min_total_time
                 
                 	Minimum time for all processing (ms)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: max_total_time
                 
                 	Maximum time for all processing (ms)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: avg_total_time
                 
                 	Average time for all processing (ms)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_other_errors
                 
                 	Total number of errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_on_data_instances
                 
                 	Total number of no data instances
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_not_ready
                 
                 	Total number skipped (not ready)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_send_errors
                 
                 	Total number of send errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_send_drops
                 
                 	Total number of send drops
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: collection_path
                 
                 	Array of information for sensor paths within collection group
-                	**type**\: list of    :py:class:`CollectionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath>`
+                	**type**\: list of  		 :py:class:`CollectionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath>`
                 
                 .. attribute:: internal_collection_group
                 
                 	Array of information for sysdb paths within collection group
-                	**type**\: list of    :py:class:`InternalCollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup>`
+                	**type**\: list of  		 :py:class:`InternalCollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup>`
                 
                 
 
@@ -2126,17 +2142,17 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: path
                     
                     	Sensor Path
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: state
                     
                     	State, if sensor path is resolved or not
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: status_str
                     
                     	Error str, if there are any errors resolving the sensor path
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -2174,124 +2190,124 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: path
                     
                     	Sysdb Path
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: cadence
                     
                     	Period of the collections (ms)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_get_count
                     
                     	Total number of gets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_list_count
                     
                     	Total number of lists
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_datalist_count
                     
                     	Total number of datalists
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_finddata_count
                     
                     	Total number of finddata
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_get_bulk_count
                     
                     	Total number of get bulk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_item_count
                     
                     	Total number of items retrived from sysdb
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_get_errors
                     
                     	Total number of get errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_list_errors
                     
                     	Total number of list errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_datalist_errors
                     
                     	Total number of datalist errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_finddata_errors
                     
                     	Total number of finddata errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_get_bulk_errors
                     
                     	Total number of get bulk errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_encode_errors
                     
                     	Total number of encode errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_encode_notready
                     
                     	Total number of encode deferred
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_send_errors
                     
                     	Total number of send errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_send_drops
                     
                     	Total number of send channel full
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_sent_bytes
                     
                     	Total number of bytes sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2300,14 +2316,14 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: total_send_packets
                     
                     	Total number of packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_send_bytes_dropped
                     
                     	Total number of send bytes dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2316,49 +2332,49 @@ class TelemetryModelDriven(Entity):
                     .. attribute:: total_collections
                     
                     	Completed collections count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_collections_missed
                     
                     	Total number of collections missed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_collection_time
                     
                     	Maximum time for a collection (ms)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: min_collection_time
                     
                     	Minimum time for a collection (ms)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: avg_collection_time
                     
                     	Average time for a collection (ms)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: collection_method
                     
                     	Collection method in use
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: status
                     
                     	Status of collection path
-                    	**type**\:   :py:class:`MdtInternalPathStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtInternalPathStatus>`
+                    	**type**\:  :py:class:`MdtInternalPathStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtInternalPathStatus>`
                     
                     
 
@@ -2443,7 +2459,7 @@ class TelemetryModelDriven(Entity):
         .. attribute:: sensor_group
         
         	Telemetry Sensor Groups
-        	**type**\: list of    :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups.SensorGroup>`
+        	**type**\: list of  		 :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups.SensorGroup>`
         
         
 
@@ -2477,24 +2493,26 @@ class TelemetryModelDriven(Entity):
             .. attribute:: sensor_group_id  <key>
             
             	Id of the sensor group
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: id
             
             	Sensor Group name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: configured
             
             	Set if this is configured sensor group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: sensor_path
             
             	Array of information for sensor paths within sensor group
-            	**type**\: list of    :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath>`
+            	**type**\: list of  		 :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath>`
             
             
 
@@ -2535,17 +2553,17 @@ class TelemetryModelDriven(Entity):
                 .. attribute:: path
                 
                 	Sensor Path
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: state
                 
                 	State, if sensor path is resolved or not
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: status_str
                 
                 	Error str, if there are any errors resolving the sensor path
-                	**type**\:  str
+                	**type**\: str
                 
                 
 

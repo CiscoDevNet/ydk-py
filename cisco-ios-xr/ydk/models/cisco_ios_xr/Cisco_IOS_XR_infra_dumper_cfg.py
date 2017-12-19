@@ -203,61 +203,61 @@ class Exception(Entity):
     .. attribute:: choice1
     
     	Preference of the dump location
-    	**type**\:   :py:class:`Choice1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice1>`
+    	**type**\:  :py:class:`Choice1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice1>`
     
     .. attribute:: choice3
     
     	Preference of the dump location
-    	**type**\:   :py:class:`Choice3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice3>`
+    	**type**\:  :py:class:`Choice3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice3>`
     
     .. attribute:: process_names
     
     	Specify per process configuration
-    	**type**\:   :py:class:`ProcessNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.ProcessNames>`
+    	**type**\:  :py:class:`ProcessNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.ProcessNames>`
     
     .. attribute:: choice2
     
     	Preference of the dump location
-    	**type**\:   :py:class:`Choice2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice2>`
+    	**type**\:  :py:class:`Choice2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice2>`
     
     .. attribute:: sparse
     
     	Specify 'true' to enable sparse core dump, 'false' to disable sparse core dump
-    	**type**\:  bool
+    	**type**\: bool
     
     .. attribute:: core_verification
     
     	Disable core file verification
-    	**type**\:  bool
+    	**type**\: bool
     
     .. attribute:: core_size
     
     	Only print out stack trace and create no core file beyond this size
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..4095
     
     .. attribute:: kernel_debugger
     
     	Enable kernel debugger
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: packet_memory
     
     	Specify 'true' to dump packet memory for all process, 'false' to disable dump of packet memory
-    	**type**\:  bool
+    	**type**\: bool
     
     .. attribute:: sparse_size
     
     	Switch to sparse core dump at this size
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..4095
     
     .. attribute:: memory_threshold
     
     	Give up core dump if specified free memory can not be secured
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 3..40
     
@@ -327,31 +327,31 @@ class Exception(Entity):
         .. attribute:: compress
         
         	Specify 'true' to compress core files dumped on this path, 'false' to not compress
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: lower_limit
         
         	Lower limit.  This is required if Filename is specified
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4
         
         .. attribute:: higher_limit
         
         	Higher limit.  This is required if Filename is specified
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 5..64
         
         .. attribute:: file_path
         
         	Protocol and directory
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: filename
         
         	Dump filename
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -393,31 +393,31 @@ class Exception(Entity):
         .. attribute:: compress
         
         	Specify 'true' to compress core files dumped on this path, 'false' to not compress
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: lower_limit
         
         	Lower limit.  This is required if Filename is specified
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4
         
         .. attribute:: higher_limit
         
         	Higher limit.  This is required if Filename is specified
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 5..64
         
         .. attribute:: file_path
         
         	Protocol and directory
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: filename
         
         	Dump filename
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -459,7 +459,7 @@ class Exception(Entity):
         .. attribute:: process_name
         
         	Specify per process configuration
-        	**type**\: list of    :py:class:`ProcessName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.ProcessNames.ProcessName>`
+        	**type**\: list of  		 :py:class:`ProcessName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.ProcessNames.ProcessName>`
         
         
 
@@ -493,12 +493,14 @@ class Exception(Entity):
             .. attribute:: processname  <key>
             
             	Specify per process configuration
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: core_option
             
             	Specify per process core option
-            	**type**\:   :py:class:`CoreOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.ProcessNames.ProcessName.CoreOption>`
+            	**type**\:  :py:class:`CoreOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Exception.ProcessNames.ProcessName.CoreOption>`
             
             
 
@@ -537,56 +539,56 @@ class Exception(Entity):
                 .. attribute:: main_memoryval
                 
                 	Dump main memory of the target process
-                	**type**\:   :py:class:`Mainmemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Mainmemory>`
+                	**type**\:  :py:class:`Mainmemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Mainmemory>`
                 
                 	**default value**\: default
                 
                 .. attribute:: shared_memoryval
                 
                 	Dump shared memory of the target process
-                	**type**\:   :py:class:`Sharedmemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Sharedmemory>`
+                	**type**\:  :py:class:`Sharedmemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Sharedmemory>`
                 
                 	**default value**\: default
                 
                 .. attribute:: packet_memoryval
                 
                 	Dump packet memory of the target process
-                	**type**\:   :py:class:`Packetmemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Packetmemory>`
+                	**type**\:  :py:class:`Packetmemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Packetmemory>`
                 
                 	**default value**\: default
                 
                 .. attribute:: copyval
                 
                 	Dump to local memory\: for time critical processes
-                	**type**\:   :py:class:`Copy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Copy>`
+                	**type**\:  :py:class:`Copy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Copy>`
                 
                 	**default value**\: default
                 
                 .. attribute:: sparseval
                 
                 	Dump memory relevant to stack trace only\: for time critical processes
-                	**type**\:   :py:class:`Sparse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Sparse>`
+                	**type**\:  :py:class:`Sparse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Sparse>`
                 
                 	**default value**\: default
                 
                 .. attribute:: skipcpuinfoval
                 
                 	Skip CPU usage snapshot\: for time critical processes
-                	**type**\:   :py:class:`Skipcpuinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Skipcpuinfo>`
+                	**type**\:  :py:class:`Skipcpuinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Skipcpuinfo>`
                 
                 	**default value**\: default
                 
                 .. attribute:: contextval
                 
                 	Dump context info only\: Overrides other options except for 'no\-core'
-                	**type**\:   :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Context>`
+                	**type**\:  :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Context>`
                 
                 	**default value**\: default
                 
                 .. attribute:: nocoreval
                 
                 	Disable core dump for the target process\: Overrides other options
-                	**type**\:   :py:class:`Nocore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Nocore>`
+                	**type**\:  :py:class:`Nocore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg.Nocore>`
                 
                 	**default value**\: default
                 
@@ -635,31 +637,31 @@ class Exception(Entity):
         .. attribute:: compress
         
         	Specify 'true' to compress core files dumped on this path, 'false' to not compress
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: lower_limit
         
         	Lower limit.  This is required if Filename is specified
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4
         
         .. attribute:: higher_limit
         
         	Higher limit.  This is required if Filename is specified
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 5..64
         
         .. attribute:: file_path
         
         	Protocol and directory
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: filename
         
         	Dump filename
-        	**type**\:  str
+        	**type**\: str
         
         
 

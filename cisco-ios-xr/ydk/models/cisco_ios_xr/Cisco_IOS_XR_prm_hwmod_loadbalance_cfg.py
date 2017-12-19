@@ -25,7 +25,7 @@ class HardwareModule(Entity):
     .. attribute:: loadbalancing
     
     	Loadbalance option
-    	**type**\:   :py:class:`Loadbalancing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_loadbalance_cfg.HardwareModule.Loadbalancing>`
+    	**type**\:  :py:class:`Loadbalancing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_loadbalance_cfg.HardwareModule.Loadbalancing>`
     
     
 
@@ -59,7 +59,7 @@ class HardwareModule(Entity):
         .. attribute:: bgp3107
         
         	BGP LU
-        	**type**\:   :py:class:`Bgp3107 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_loadbalance_cfg.HardwareModule.Loadbalancing.Bgp3107>`
+        	**type**\:  :py:class:`Bgp3107 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_loadbalance_cfg.HardwareModule.Loadbalancing.Bgp3107>`
         
         
 
@@ -93,7 +93,7 @@ class HardwareModule(Entity):
             .. attribute:: ecmp
             
             	ECMP 
-            	**type**\:   :py:class:`Ecmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_loadbalance_cfg.HardwareModule.Loadbalancing.Bgp3107.Ecmp>`
+            	**type**\:  :py:class:`Ecmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_loadbalance_cfg.HardwareModule.Loadbalancing.Bgp3107.Ecmp>`
             
             
 
@@ -127,7 +127,7 @@ class HardwareModule(Entity):
                 .. attribute:: enable
                 
                 	Enable Option
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 

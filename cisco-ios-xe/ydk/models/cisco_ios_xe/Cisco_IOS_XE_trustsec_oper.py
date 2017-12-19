@@ -188,17 +188,17 @@ class TrustsecState(Entity):
     .. attribute:: cts_rolebased_sgtmaps
     
     	Security Group Tag value corresponding to an IP\-Address  in the given VRF instance in this device
-    	**type**\:   :py:class:`CtsRolebasedSgtmaps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedSgtmaps>`
+    	**type**\:  :py:class:`CtsRolebasedSgtmaps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedSgtmaps>`
     
     .. attribute:: cts_rolebased_policies
     
     	Role based permissions between a Source Security Group and a Destination Security Group are configured by the administrator in the Identity Services Engine or in the Device
-    	**type**\:   :py:class:`CtsRolebasedPolicies <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedPolicies>`
+    	**type**\:  :py:class:`CtsRolebasedPolicies <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedPolicies>`
     
     .. attribute:: cts_sxp_connections
     
     	Trustsec SXP connection is used between Cisco devices to propagate Security Group Tags from one device to  another device. One of the device will be in Speaker  mode or Listener mode or both the devices can be in both the connection modes
-    	**type**\:   :py:class:`CtsSxpConnections <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsSxpConnections>`
+    	**type**\:  :py:class:`CtsSxpConnections <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsSxpConnections>`
     
     
 
@@ -243,7 +243,7 @@ class TrustsecState(Entity):
         .. attribute:: cts_rolebased_sgtmap
         
         	Security Group Tag is assigned for an IP\-Address based on the user permissions and authorization  level as configured by the network administrator in Identity Service Engine server or in the device locally
-        	**type**\: list of    :py:class:`CtsRolebasedSgtmap <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap>`
+        	**type**\: list of  		 :py:class:`CtsRolebasedSgtmap <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap>`
         
         
 
@@ -280,32 +280,32 @@ class TrustsecState(Entity):
             .. attribute:: ip  <key>
             
             	IP\-Prefix information to find its corresponding Secure Group Tag. Only IPv4 prefix information is supported currently to get the Security Group Tag binding in this device
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
             
-            ----
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
             
-            ----
             .. attribute:: vrf_name  <key>
             
             	VRF\-Name to find the Security Group Tag for the corresponding IP\-Address in this VRF instance. Only default VRF is supported currently which is indicated by (empty string)
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: sgt
             
             	Security Group Tag value corresponding to the given IP\-Address
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: source
             
             	Source information via which the Security Group Tag binding was learned in this device
-            	**type**\:   :py:class:`CtsOdmBindingSource <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.CtsOdmBindingSource>`
+            	**type**\:  :py:class:`CtsOdmBindingSource <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.CtsOdmBindingSource>`
             
             
 
@@ -347,7 +347,7 @@ class TrustsecState(Entity):
         .. attribute:: cts_rolebased_policy
         
         	Role based permissions between a Source Security Group and a Destination Security Group can be retrieved from the device using a Security Group Tag and Destination Group Tag value
-        	**type**\: list of    :py:class:`CtsRolebasedPolicy <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy>`
+        	**type**\: list of  		 :py:class:`CtsRolebasedPolicy <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy>`
         
         
 
@@ -384,99 +384,101 @@ class TrustsecState(Entity):
             .. attribute:: src_sgt  <key>
             
             	Source Security Group Tag number. This value must be in the inclusive range of \-1 to 65519
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: dst_sgt  <key>
             
             	Destination Security Tag number. This value must be in the inclusive range of \-1 to 65519
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: sgacl_name
             
             	List of Security Group Access Control List names separated by semi\-colon(;)
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: num_of_sgacl
             
             	Number of Security Group Access Control Lists that are currently applied between the Source Security Group and the Destination Security Group. This should match the number of Security Group Access Control List names in sgacl\-name
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: monitor_mode
             
             	Indicates the monitor mode status between the Source Security Group and Destination Security Group is currently enabled or disabled. This will be TRUE if monitor mode is enabled and FALSE if it is disabled
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: policy_life_time
             
             	Duration of the Role based permissions that are applied between a Source Security Group and a Destination Security Group. The duration is represented in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: last_updated_time
             
             	Indicates the time when the Role based permissions between a Source Security Group and a Destination Security Group was modified or updated last. The value will be represented as date and time  corresponding to the local time zone of the Identify Services Engine when the Role based  permissions was modified or updated last
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
             .. attribute:: total_deny_count
             
             	Total number of packets that have been denied by the Role based permissions between a Source Security Group and a Destination Security Group. This corresponds to total packets denied in both hardware and software forwarding paths of the device
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: total_permit_count
             
             	Total number of packets that have been permitted by the Role based permissions between a Source Security Group and a Destination Security Group. This corresponds to total packets allowed in both hardware and software forwarding paths of the device
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: software_deny_count
             
             	Number of packets that have been denied in the  software forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: software_permit_count
             
             	Number of packets that have been permitted in the software forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: hardware_deny_count
             
             	Number of packets that have been denied in the hardware forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: hardware_permit_count
             
             	Number of packets that have been permitted in the hardware forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: software_monitor_count
             
             	Number of packets that have been monitored in the software forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: hardware_monitor_count
             
             	Number of packets that have been monitored in the hardware forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -544,7 +546,7 @@ class TrustsecState(Entity):
         .. attribute:: cts_sxp_connection
         
         	Trustsec SXP connection information from a device can be retrieved with the SXP connection peer IP address. Only IPv4 address as Peer IP and default VRF instance in device is supported currently
-        	**type**\: list of    :py:class:`CtsSxpConnection <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsSxpConnections.CtsSxpConnection>`
+        	**type**\: list of  		 :py:class:`CtsSxpConnection <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsSxpConnections.CtsSxpConnection>`
         
         
 
@@ -581,62 +583,62 @@ class TrustsecState(Entity):
             .. attribute:: peer_ip  <key>
             
             	IP\-Address information of the peer of an SXP connection in this device. Only IPv4 address is currently supported
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            ----
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            ----
             .. attribute:: vrf_name  <key>
             
             	vrf\-name string of the VRF instance in this device, to which the peer of an SXP connection belongs to. Only default VRF is supported currently which is indicated by empty string
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: source_ip
             
             	Source IP\-Address of the SXP connection in this device for the given peer IP\-Address
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            ----
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            ----
             .. attribute:: speaker_state
             
             	SXP speaker state information of the SXP connection in this device. This information is valid only if the local mode of the SXP connection in this device is Speaker
-            	**type**\:   :py:class:`SxpConState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.SxpConState>`
+            	**type**\:  :py:class:`SxpConState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.SxpConState>`
             
             .. attribute:: speaker_duration
             
             	Duration of the SXP speaker of the SXP connection in this device. This information is valid only if the local mode of the SXP connection is Speaker
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: listener_state
             
             	SXP listener state information of the SXP  connection in this device. This information is valid only if the local mode of the SXP connection in the device is Listener
-            	**type**\:   :py:class:`SxpConState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.SxpConState>`
+            	**type**\:  :py:class:`SxpConState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.SxpConState>`
             
             .. attribute:: listener_duration
             
             	Duration of the SXP listener of the SXP connection in this device. This information is valid Only if the local mode of the SXP connection is Listener
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: local_mode
             
             	SXP connection mode of this device for the SXP connection with the given peer
-            	**type**\:   :py:class:`SxpConMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.SxpConMode>`
+            	**type**\:  :py:class:`SxpConMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.SxpConMode>`
             
             
 

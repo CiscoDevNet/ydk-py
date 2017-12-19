@@ -46,12 +46,12 @@ class AutoRp(Entity):
     .. attribute:: standby
     
     	Standby Process
-    	**type**\:   :py:class:`Standby <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby>`
+    	**type**\:  :py:class:`Standby <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby>`
     
     .. attribute:: active
     
     	Active Process
-    	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active>`
+    	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active>`
     
     
 
@@ -90,12 +90,12 @@ class AutoRp(Entity):
         .. attribute:: candidate_rp
         
         	AutoRP Candidate RP
-        	**type**\:   :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp>`
+        	**type**\:  :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp>`
         
         .. attribute:: mapping_agent
         
         	AutoRP Mapping Agent Table
-        	**type**\:   :py:class:`MappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent>`
+        	**type**\:  :py:class:`MappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent>`
         
         
 
@@ -134,12 +134,12 @@ class AutoRp(Entity):
             .. attribute:: traffic
             
             	AutoRP Candidate Traffic Counters
-            	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp.Traffic>`
+            	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp.Traffic>`
             
             .. attribute:: rps
             
             	AutoRP Candidate RP Table
-            	**type**\:   :py:class:`Rps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp.Rps>`
+            	**type**\:  :py:class:`Rps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp.Rps>`
             
             
 
@@ -178,14 +178,14 @@ class AutoRp(Entity):
                 .. attribute:: active_sent_packets
                 
                 	Number of packets sent in active role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: standby_sent_packets
                 
                 	Number of packets dropped in send path in standby role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -223,7 +223,7 @@ class AutoRp(Entity):
                 .. attribute:: rp
                 
                 	AutoRP Candidate RP Entry
-                	**type**\: list of    :py:class:`Rp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp.Rps.Rp>`
+                	**type**\: list of  		 :py:class:`Rp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp.Rps.Rp>`
                 
                 
 
@@ -257,41 +257,45 @@ class AutoRp(Entity):
                     .. attribute:: interface_name
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: protocol_mode
                     
                     	Protocol Mode
-                    	**type**\:   :py:class:`AutoRpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolMode>`
+                    	**type**\:  :py:class:`AutoRpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolMode>`
                     
                     .. attribute:: access_list_name
                     
                     	ACL Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: candidate_rp_address
                     
                     	Candidate RP IP Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: ttl
                     
                     	TTL
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: announce_period
                     
                     	Announce Period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: protocol_mode_xr
                     
                     	Protocol Mode
-                    	**type**\:   :py:class:`AutorpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolMode>`
+                    	**type**\:  :py:class:`AutorpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolMode>`
                     
                     
 
@@ -337,17 +341,17 @@ class AutoRp(Entity):
             .. attribute:: traffic
             
             	AutoRP Mapping Agent Traffic Counters
-            	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.Traffic>`
+            	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.Traffic>`
             
             .. attribute:: rp_addresses
             
             	AutoRP Mapping Agent Table Entries
-            	**type**\:   :py:class:`RpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses>`
+            	**type**\:  :py:class:`RpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses>`
             
             .. attribute:: summary
             
             	AutoRP Mapping Agent Summary Information
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.Summary>`
+            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.Summary>`
             
             
 
@@ -391,28 +395,28 @@ class AutoRp(Entity):
                 .. attribute:: active_sent_packets
                 
                 	Number of packets sent in active role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: standby_sent_packets
                 
                 	Number of packets dropped in send path in standby role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: active_received_packets
                 
                 	Number of packets received in active role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: standby_received_packets
                 
                 	Number of packets dropped in receive path in standby role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -454,7 +458,7 @@ class AutoRp(Entity):
                 .. attribute:: rp_address
                 
                 	AutoRP Mapping Agent Entry
-                	**type**\: list of    :py:class:`RpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses.RpAddress>`
+                	**type**\: list of  		 :py:class:`RpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses.RpAddress>`
                 
                 
 
@@ -488,17 +492,21 @@ class AutoRp(Entity):
                     .. attribute:: rp_address  <key>
                     
                     	RP Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: rp_address_xr
                     
                     	Candidate\-RP address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: expiry_time
                     
                     	Time for expiration in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -507,14 +515,14 @@ class AutoRp(Entity):
                     .. attribute:: pim_version
                     
                     	PIM version of the CRP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: range
                     
                     	Array of ranges
-                    	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range>`
+                    	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range>`
                     
                     
 
@@ -556,43 +564,45 @@ class AutoRp(Entity):
                         .. attribute:: prefix
                         
                         	Prefix of the range
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: prefix_length
                         
                         	Prefix length of the range
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: protocol_mode
                         
                         	Protocol Mode
-                        	**type**\:   :py:class:`AutorpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolMode>`
+                        	**type**\:  :py:class:`AutorpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolMode>`
                         
                         .. attribute:: is_advertised
                         
                         	Is this entry advertised ?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: create_type
                         
                         	Source of the entry
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: check_point_object_id
                         
                         	Checkpoint object id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: uptime
                         
                         	Uptime in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -641,19 +651,19 @@ class AutoRp(Entity):
                 .. attribute:: is_maximum_disabled
                 
                 	Is maximum enforcement disabled ?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: cache_limit
                 
                 	Maximum group to RP mapping entries allowed
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: cache_count
                 
                 	Number of group to RP mapping entries in the cache
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -693,12 +703,12 @@ class AutoRp(Entity):
         .. attribute:: candidate_rp
         
         	AutoRP Candidate RP
-        	**type**\:   :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp>`
+        	**type**\:  :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp>`
         
         .. attribute:: mapping_agent
         
         	AutoRP Mapping Agent Table
-        	**type**\:   :py:class:`MappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent>`
+        	**type**\:  :py:class:`MappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent>`
         
         
 
@@ -737,12 +747,12 @@ class AutoRp(Entity):
             .. attribute:: traffic
             
             	AutoRP Candidate Traffic Counters
-            	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp.Traffic>`
+            	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp.Traffic>`
             
             .. attribute:: rps
             
             	AutoRP Candidate RP Table
-            	**type**\:   :py:class:`Rps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp.Rps>`
+            	**type**\:  :py:class:`Rps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp.Rps>`
             
             
 
@@ -781,14 +791,14 @@ class AutoRp(Entity):
                 .. attribute:: active_sent_packets
                 
                 	Number of packets sent in active role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: standby_sent_packets
                 
                 	Number of packets dropped in send path in standby role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -826,7 +836,7 @@ class AutoRp(Entity):
                 .. attribute:: rp
                 
                 	AutoRP Candidate RP Entry
-                	**type**\: list of    :py:class:`Rp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp.Rps.Rp>`
+                	**type**\: list of  		 :py:class:`Rp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp.Rps.Rp>`
                 
                 
 
@@ -860,41 +870,45 @@ class AutoRp(Entity):
                     .. attribute:: interface_name
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: protocol_mode
                     
                     	Protocol Mode
-                    	**type**\:   :py:class:`AutoRpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolMode>`
+                    	**type**\:  :py:class:`AutoRpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolMode>`
                     
                     .. attribute:: access_list_name
                     
                     	ACL Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: candidate_rp_address
                     
                     	Candidate RP IP Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: ttl
                     
                     	TTL
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: announce_period
                     
                     	Announce Period
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: protocol_mode_xr
                     
                     	Protocol Mode
-                    	**type**\:   :py:class:`AutorpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolMode>`
+                    	**type**\:  :py:class:`AutorpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolMode>`
                     
                     
 
@@ -940,17 +954,17 @@ class AutoRp(Entity):
             .. attribute:: traffic
             
             	AutoRP Mapping Agent Traffic Counters
-            	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.Traffic>`
+            	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.Traffic>`
             
             .. attribute:: rp_addresses
             
             	AutoRP Mapping Agent Table Entries
-            	**type**\:   :py:class:`RpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses>`
+            	**type**\:  :py:class:`RpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses>`
             
             .. attribute:: summary
             
             	AutoRP Mapping Agent Summary Information
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.Summary>`
+            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.Summary>`
             
             
 
@@ -994,28 +1008,28 @@ class AutoRp(Entity):
                 .. attribute:: active_sent_packets
                 
                 	Number of packets sent in active role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: standby_sent_packets
                 
                 	Number of packets dropped in send path in standby role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: active_received_packets
                 
                 	Number of packets received in active role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: standby_received_packets
                 
                 	Number of packets dropped in receive path in standby role
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -1057,7 +1071,7 @@ class AutoRp(Entity):
                 .. attribute:: rp_address
                 
                 	AutoRP Mapping Agent Entry
-                	**type**\: list of    :py:class:`RpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses.RpAddress>`
+                	**type**\: list of  		 :py:class:`RpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses.RpAddress>`
                 
                 
 
@@ -1091,17 +1105,21 @@ class AutoRp(Entity):
                     .. attribute:: rp_address  <key>
                     
                     	RP Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: rp_address_xr
                     
                     	Candidate\-RP address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: expiry_time
                     
                     	Time for expiration in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1110,14 +1128,14 @@ class AutoRp(Entity):
                     .. attribute:: pim_version
                     
                     	PIM version of the CRP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: range
                     
                     	Array of ranges
-                    	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range>`
+                    	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range>`
                     
                     
 
@@ -1159,43 +1177,45 @@ class AutoRp(Entity):
                         .. attribute:: prefix
                         
                         	Prefix of the range
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: prefix_length
                         
                         	Prefix length of the range
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: protocol_mode
                         
                         	Protocol Mode
-                        	**type**\:   :py:class:`AutorpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolMode>`
+                        	**type**\:  :py:class:`AutorpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolMode>`
                         
                         .. attribute:: is_advertised
                         
                         	Is this entry advertised ?
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: create_type
                         
                         	Source of the entry
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: check_point_object_id
                         
                         	Checkpoint object id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: uptime
                         
                         	Uptime in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1244,19 +1264,19 @@ class AutoRp(Entity):
                 .. attribute:: is_maximum_disabled
                 
                 	Is maximum enforcement disabled ?
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: cache_limit
                 
                 	Maximum group to RP mapping entries allowed
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: cache_count
                 
                 	Number of group to RP mapping entries in the cache
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 

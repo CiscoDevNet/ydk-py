@@ -68,7 +68,7 @@ class Netconf(Entity):
     .. attribute:: agent
     
     	NETCONF agent operational information
-    	**type**\:   :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.Netconf.Agent>`
+    	**type**\:  :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.Netconf.Agent>`
     
     
 
@@ -102,7 +102,7 @@ class Netconf(Entity):
         .. attribute:: tty
         
         	NETCONF agent over TTY
-        	**type**\:   :py:class:`Tty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.Netconf.Agent.Tty>`
+        	**type**\:  :py:class:`Tty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.Netconf.Agent.Tty>`
         
         
 
@@ -136,7 +136,7 @@ class Netconf(Entity):
             .. attribute:: sessions
             
             	Session information
-            	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.Netconf.Agent.Tty.Sessions>`
+            	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.Netconf.Agent.Tty.Sessions>`
             
             
 
@@ -170,7 +170,7 @@ class Netconf(Entity):
                 .. attribute:: session
                 
                 	Session information
-                	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.Netconf.Agent.Tty.Sessions.Session>`
+                	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.Netconf.Agent.Tty.Sessions.Session>`
                 
                 
 
@@ -204,56 +204,56 @@ class Netconf(Entity):
                     .. attribute:: session_id  <key>
                     
                     	Session ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: username
                     
                     	Username
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: state
                     
                     	state of the session idle/busy
-                    	**type**\:   :py:class:`XrXmlSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState>`
+                    	**type**\:  :py:class:`XrXmlSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState>`
                     
                     .. attribute:: client_address
                     
                     	ip address of the client
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: client_port
                     
                     	client's port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: config_session_id
                     
                     	Config session ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: admin_config_session_id
                     
                     	Admin config session ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: alarm_notification
                     
                     	is the session registered for alarm notifications
-                    	**type**\:   :py:class:`XrXmlSessionAlarmRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister>`
+                    	**type**\:  :py:class:`XrXmlSessionAlarmRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister>`
                     
                     .. attribute:: vrf_name
                     
                     	VRF name 
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: start_time
                     
                     	session start time in seconds since the Unix Epoch
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -262,7 +262,7 @@ class Netconf(Entity):
                     .. attribute:: elapsed_time
                     
                     	 Elapsed time(seconds) since a session is created
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -271,7 +271,7 @@ class Netconf(Entity):
                     .. attribute:: last_state_change
                     
                     	Time(seconds) since last session state change happened 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -334,7 +334,7 @@ class XrXml(Entity):
     .. attribute:: agent
     
     	XML agents
-    	**type**\:   :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent>`
+    	**type**\:  :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent>`
     
     
 
@@ -368,17 +368,17 @@ class XrXml(Entity):
         .. attribute:: tty
         
         	TTY sessions information
-        	**type**\:   :py:class:`Tty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Tty>`
+        	**type**\:  :py:class:`Tty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Tty>`
         
         .. attribute:: default
         
         	Default sessions information
-        	**type**\:   :py:class:`Default <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Default>`
+        	**type**\:  :py:class:`Default <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Default>`
         
         .. attribute:: ssl
         
         	SSL sessions information
-        	**type**\:   :py:class:`Ssl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Ssl>`
+        	**type**\:  :py:class:`Ssl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Ssl>`
         
         
 
@@ -422,7 +422,7 @@ class XrXml(Entity):
             .. attribute:: sessions
             
             	sessions information
-            	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Tty.Sessions>`
+            	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Tty.Sessions>`
             
             
 
@@ -456,7 +456,7 @@ class XrXml(Entity):
                 .. attribute:: session
                 
                 	xml sessions information
-                	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Tty.Sessions.Session>`
+                	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Tty.Sessions.Session>`
                 
                 
 
@@ -490,56 +490,56 @@ class XrXml(Entity):
                     .. attribute:: session_id  <key>
                     
                     	Session Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: username
                     
                     	Username
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: state
                     
                     	state of the session idle/busy
-                    	**type**\:   :py:class:`XrXmlSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState>`
+                    	**type**\:  :py:class:`XrXmlSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState>`
                     
                     .. attribute:: client_address
                     
                     	ip address of the client
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: client_port
                     
                     	client's port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: config_session_id
                     
                     	Config session ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: admin_config_session_id
                     
                     	Admin config session ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: alarm_notification
                     
                     	is the session registered for alarm notifications
-                    	**type**\:   :py:class:`XrXmlSessionAlarmRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister>`
+                    	**type**\:  :py:class:`XrXmlSessionAlarmRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister>`
                     
                     .. attribute:: vrf_name
                     
                     	VRF name 
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: start_time
                     
                     	session start time in seconds since the Unix Epoch
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -548,7 +548,7 @@ class XrXml(Entity):
                     .. attribute:: elapsed_time
                     
                     	 Elapsed time(seconds) since a session is created
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -557,7 +557,7 @@ class XrXml(Entity):
                     .. attribute:: last_state_change
                     
                     	Time(seconds) since last session state change happened 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -617,7 +617,7 @@ class XrXml(Entity):
             .. attribute:: sessions
             
             	sessions information
-            	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Default.Sessions>`
+            	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Default.Sessions>`
             
             
 
@@ -651,7 +651,7 @@ class XrXml(Entity):
                 .. attribute:: session
                 
                 	xml sessions information
-                	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Default.Sessions.Session>`
+                	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Default.Sessions.Session>`
                 
                 
 
@@ -685,56 +685,56 @@ class XrXml(Entity):
                     .. attribute:: session_id  <key>
                     
                     	Session Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: username
                     
                     	Username
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: state
                     
                     	state of the session idle/busy
-                    	**type**\:   :py:class:`XrXmlSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState>`
+                    	**type**\:  :py:class:`XrXmlSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState>`
                     
                     .. attribute:: client_address
                     
                     	ip address of the client
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: client_port
                     
                     	client's port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: config_session_id
                     
                     	Config session ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: admin_config_session_id
                     
                     	Admin config session ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: alarm_notification
                     
                     	is the session registered for alarm notifications
-                    	**type**\:   :py:class:`XrXmlSessionAlarmRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister>`
+                    	**type**\:  :py:class:`XrXmlSessionAlarmRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister>`
                     
                     .. attribute:: vrf_name
                     
                     	VRF name 
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: start_time
                     
                     	session start time in seconds since the Unix Epoch
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -743,7 +743,7 @@ class XrXml(Entity):
                     .. attribute:: elapsed_time
                     
                     	 Elapsed time(seconds) since a session is created
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -752,7 +752,7 @@ class XrXml(Entity):
                     .. attribute:: last_state_change
                     
                     	Time(seconds) since last session state change happened 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -812,7 +812,7 @@ class XrXml(Entity):
             .. attribute:: sessions
             
             	sessions information
-            	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Ssl.Sessions>`
+            	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Ssl.Sessions>`
             
             
 
@@ -846,7 +846,7 @@ class XrXml(Entity):
                 .. attribute:: session
                 
                 	xml sessions information
-                	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Ssl.Sessions.Session>`
+                	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXml.Agent.Ssl.Sessions.Session>`
                 
                 
 
@@ -880,56 +880,56 @@ class XrXml(Entity):
                     .. attribute:: session_id  <key>
                     
                     	Session Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: username
                     
                     	Username
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: state
                     
                     	state of the session idle/busy
-                    	**type**\:   :py:class:`XrXmlSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState>`
+                    	**type**\:  :py:class:`XrXmlSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState>`
                     
                     .. attribute:: client_address
                     
                     	ip address of the client
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: client_port
                     
                     	client's port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: config_session_id
                     
                     	Config session ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: admin_config_session_id
                     
                     	Admin config session ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: alarm_notification
                     
                     	is the session registered for alarm notifications
-                    	**type**\:   :py:class:`XrXmlSessionAlarmRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister>`
+                    	**type**\:  :py:class:`XrXmlSessionAlarmRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister>`
                     
                     .. attribute:: vrf_name
                     
                     	VRF name 
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: start_time
                     
                     	session start time in seconds since the Unix Epoch
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -938,7 +938,7 @@ class XrXml(Entity):
                     .. attribute:: elapsed_time
                     
                     	 Elapsed time(seconds) since a session is created
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -947,7 +947,7 @@ class XrXml(Entity):
                     .. attribute:: last_state_change
                     
                     	Time(seconds) since last session state change happened 
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     

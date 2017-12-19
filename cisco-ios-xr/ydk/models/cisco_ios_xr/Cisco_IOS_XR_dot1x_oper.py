@@ -25,17 +25,17 @@ class Dot1X(Entity):
     .. attribute:: statistics
     
     	Dot1x operational data
-    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics>`
+    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics>`
     
     .. attribute:: nodes
     
     	Node\-specific Dot1x operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes>`
     
     .. attribute:: session
     
     	Dot1x operational data
-    	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session>`
+    	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session>`
     
     
 
@@ -79,7 +79,7 @@ class Dot1X(Entity):
         .. attribute:: interface_statistics
         
         	Interfaces with Dot1x
-        	**type**\:   :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics>`
+        	**type**\:  :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics>`
         
         
 
@@ -113,7 +113,7 @@ class Dot1X(Entity):
             .. attribute:: interface_statistic
             
             	Dot1x Data for that Interface
-            	**type**\: list of    :py:class:`InterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic>`
+            	**type**\: list of  		 :py:class:`InterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic>`
             
             
 
@@ -147,32 +147,34 @@ class Dot1X(Entity):
                 .. attribute:: name  <key>
                 
                 	Interface Name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: idb
                 
                 	Dot1x interface database Statistics
-                	**type**\:   :py:class:`Idb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Idb>`
+                	**type**\:  :py:class:`Idb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Idb>`
                 
                 .. attribute:: auth
                 
                 	Dot1x Authenticator Port Statistics
-                	**type**\:   :py:class:`Auth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Auth>`
+                	**type**\:  :py:class:`Auth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Auth>`
                 
                 .. attribute:: supp
                 
                 	Dot1x Supplicant Port Statistics
-                	**type**\:   :py:class:`Supp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Supp>`
+                	**type**\:  :py:class:`Supp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Supp>`
                 
                 .. attribute:: interface_name
                 
                 	Interface Display name 
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: pae
                 
                 	PAE type on interface
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -225,21 +227,21 @@ class Dot1X(Entity):
                     .. attribute:: rx_total
                     
                     	RxTotal
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_total
                     
                     	TxTotal
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: no_rx_on_intf_down
                     
                     	NoRxOnIntfDown
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -278,77 +280,77 @@ class Dot1X(Entity):
                     .. attribute:: rx_start
                     
                     	RxStart
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_logoff
                     
                     	RxLogoff
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_resp
                     
                     	RxResp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_resp_id
                     
                     	RxRespID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_invalid
                     
                     	RxInvalid
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_len_err
                     
                     	RxLenErr
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_my_mac_err
                     
                     	RxMyMacErr
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_total
                     
                     	RxTotal
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_req
                     
                     	TxReq
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_reqid
                     
                     	TxReqID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_total
                     
                     	TxTotal
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -403,63 +405,63 @@ class Dot1X(Entity):
                     .. attribute:: rx_req
                     
                     	RxReq
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_invalid
                     
                     	RxInvalid
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_len_err
                     
                     	RxLenErr
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_my_mac_err
                     
                     	RxMyMacErr
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_total
                     
                     	RxTotal
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_start
                     
                     	TxStart
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_logoff
                     
                     	TxLogoff
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_resp
                     
                     	TxResp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_total
                     
                     	TxTotal
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -510,7 +512,7 @@ class Dot1X(Entity):
         .. attribute:: node
         
         	Dot1x operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node>`
         
         
 
@@ -544,17 +546,19 @@ class Dot1X(Entity):
             .. attribute:: node_name  <key>
             
             	The node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: dot1x_defaults
             
             	Dot1x Default Values
-            	**type**\:   :py:class:`Dot1XDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Dot1XDefaults>`
+            	**type**\:  :py:class:`Dot1XDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Dot1XDefaults>`
             
             .. attribute:: statistics
             
             	Dot1x Default Values
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics>`
             
             
 
@@ -598,17 +602,17 @@ class Dot1X(Entity):
                 .. attribute:: auth_timers
                 
                 	Dot1x Authenticator default Timer values
-                	**type**\:   :py:class:`AuthTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Dot1XDefaults.AuthTimers>`
+                	**type**\:  :py:class:`AuthTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Dot1XDefaults.AuthTimers>`
                 
                 .. attribute:: supp_timers
                 
                 	Dot1x Supllicant default Timer values
-                	**type**\:   :py:class:`SuppTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Dot1XDefaults.SuppTimers>`
+                	**type**\:  :py:class:`SuppTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Dot1XDefaults.SuppTimers>`
                 
                 .. attribute:: version
                 
                 	Dot1x Protocol Version
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -653,7 +657,7 @@ class Dot1X(Entity):
                     .. attribute:: quiet_period
                     
                     	in Seconds, authenticator remains quiet (in the HELD state) following a failed authentication exchange before trying to reauthenticate the client
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -662,7 +666,7 @@ class Dot1X(Entity):
                     .. attribute:: tx_period
                     
                     	in Seconds, Timeout for supplicant reply, authenticator\-to\-supplicant retransmission time for EAP\-request\-ID packets (assuming that no response is received) from the client
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -671,14 +675,14 @@ class Dot1X(Entity):
                     .. attribute:: max_reauth_req
                     
                     	Max No. of Reauthentication Attempts (or) retransmits an EAP\-request\-ID frame to the client before restarting the authentication process
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: supp_timeout
                     
                     	in Seconds, Timeout for supplicant reply, authenticator\-to\-supplicant retransmission time for all EAP messages except for EAP Request ID packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -687,14 +691,14 @@ class Dot1X(Entity):
                     .. attribute:: max_req
                     
                     	Max No. of EAP\-Req (except for EAP\-Request\-ID) retransmits (authenticator\-to\-supplicant) before sending EAP\-Failure
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: reauth_period
                     
                     	in Seconds,  after which an automatic reauthentication should be initiated
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -741,7 +745,7 @@ class Dot1X(Entity):
                     .. attribute:: auth_period
                     
                     	in Seconds, supplicant waits for a response from an authenticator except for EAPOL\-START before timing out
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -750,7 +754,7 @@ class Dot1X(Entity):
                     .. attribute:: held_period
                     
                     	in Seconds, supplicant will stay in the HELD state (that is, the length of time it will wait before trying to send the credentials again after a failed attempt)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -759,7 +763,7 @@ class Dot1X(Entity):
                     .. attribute:: start_period
                     
                     	Configures the interval, in seconds, between two successive EAPOL\-Start frames when they are being retransmitted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -768,7 +772,7 @@ class Dot1X(Entity):
                     .. attribute:: max_start
                     
                     	Max No. of EAPOL\-Start frames supplicant can send to the authenticator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -809,12 +813,12 @@ class Dot1X(Entity):
                 .. attribute:: gl_stats
                 
                 	Global statistics
-                	**type**\:   :py:class:`GlStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.GlStats>`
+                	**type**\:  :py:class:`GlStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.GlStats>`
                 
                 .. attribute:: if_stats
                 
                 	dot1x interface statistics list
-                	**type**\: list of    :py:class:`IfStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.IfStats>`
+                	**type**\: list of  		 :py:class:`IfStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.IfStats>`
                 
                 
 
@@ -852,21 +856,21 @@ class Dot1X(Entity):
                     .. attribute:: tx_total
                     
                     	TxTotal
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_total
                     
                     	RxTotal
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rx_no_idb
                     
                     	RxNoIDB
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -905,27 +909,27 @@ class Dot1X(Entity):
                     .. attribute:: idb
                     
                     	Dot1x interface database Statistics
-                    	**type**\:   :py:class:`Idb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.IfStats.Idb>`
+                    	**type**\:  :py:class:`Idb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.IfStats.Idb>`
                     
                     .. attribute:: auth
                     
                     	Dot1x Authenticator Port Statistics
-                    	**type**\:   :py:class:`Auth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.IfStats.Auth>`
+                    	**type**\:  :py:class:`Auth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.IfStats.Auth>`
                     
                     .. attribute:: supp
                     
                     	Dot1x Supplicant Port Statistics
-                    	**type**\:   :py:class:`Supp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.IfStats.Supp>`
+                    	**type**\:  :py:class:`Supp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Nodes.Node.Statistics.IfStats.Supp>`
                     
                     .. attribute:: interface_name
                     
                     	Interface Display name 
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: pae
                     
                     	PAE type on interface
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -975,21 +979,21 @@ class Dot1X(Entity):
                         .. attribute:: rx_total
                         
                         	RxTotal
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tx_total
                         
                         	TxTotal
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: no_rx_on_intf_down
                         
                         	NoRxOnIntfDown
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1028,77 +1032,77 @@ class Dot1X(Entity):
                         .. attribute:: rx_start
                         
                         	RxStart
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rx_logoff
                         
                         	RxLogoff
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rx_resp
                         
                         	RxResp
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rx_resp_id
                         
                         	RxRespID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rx_invalid
                         
                         	RxInvalid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rx_len_err
                         
                         	RxLenErr
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rx_my_mac_err
                         
                         	RxMyMacErr
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rx_total
                         
                         	RxTotal
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tx_req
                         
                         	TxReq
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tx_reqid
                         
                         	TxReqID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tx_total
                         
                         	TxTotal
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1153,63 +1157,63 @@ class Dot1X(Entity):
                         .. attribute:: rx_req
                         
                         	RxReq
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rx_invalid
                         
                         	RxInvalid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rx_len_err
                         
                         	RxLenErr
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rx_my_mac_err
                         
                         	RxMyMacErr
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: rx_total
                         
                         	RxTotal
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tx_start
                         
                         	TxStart
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tx_logoff
                         
                         	TxLogoff
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tx_resp
                         
                         	TxResp
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: tx_total
                         
                         	TxTotal
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1260,7 +1264,7 @@ class Dot1X(Entity):
         .. attribute:: interface_sessions
         
         	Interfaces with Dot1x
-        	**type**\:   :py:class:`InterfaceSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions>`
+        	**type**\:  :py:class:`InterfaceSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions>`
         
         
 
@@ -1294,7 +1298,7 @@ class Dot1X(Entity):
             .. attribute:: interface_session
             
             	Dot1x Data for that Interface
-            	**type**\: list of    :py:class:`InterfaceSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession>`
+            	**type**\: list of  		 :py:class:`InterfaceSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession>`
             
             
 
@@ -1328,42 +1332,44 @@ class Dot1X(Entity):
                 .. attribute:: name  <key>
                 
                 	Interface Name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: intf_info
                 
                 	Dot1x interface Info
-                	**type**\:   :py:class:`IntfInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo>`
+                	**type**\:  :py:class:`IntfInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo>`
                 
                 .. attribute:: mka_status_info
                 
                 	MKA session secure status
-                	**type**\:   :py:class:`MkaStatusInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo>`
+                	**type**\:  :py:class:`MkaStatusInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo>`
                 
                 .. attribute:: interface_name
                 
                 	Interface Display name 
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: interface_sname
                 
                 	Interface Display short\_name 
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: if_handle
                 
                 	Interface handle
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: mac
                 
                 	formatted MAC Address
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: ethertype
                 
                 	EAPOL Ethertype
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -1417,27 +1423,27 @@ class Dot1X(Entity):
                     .. attribute:: auth_info
                     
                     	Dot1x Authenticator info
-                    	**type**\:   :py:class:`AuthInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo>`
+                    	**type**\:  :py:class:`AuthInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo>`
                     
                     .. attribute:: supp_info
                     
                     	Dot1x Supplicant info
-                    	**type**\:   :py:class:`SuppInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo>`
+                    	**type**\:  :py:class:`SuppInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo>`
                     
                     .. attribute:: pae
                     
                     	PAE type on interface
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: port_status
                     
                     	Dot1x Port Status
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: dot1x_profile
                     
                     	Dot1x Profile
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -1484,17 +1490,17 @@ class Dot1X(Entity):
                         .. attribute:: reauth
                         
                         	Re\-Authentication enabled status
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: config_dependency
                         
                         	Configuration Dependency 
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: client
                         
                         	Authenticator client list
-                        	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client>`
+                        	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client>`
                         
                         
 
@@ -1531,27 +1537,27 @@ class Dot1X(Entity):
                             .. attribute:: mac
                             
                             	formatted MAC Address
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: auth_sm_state
                             
                             	Auth SM State
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: auth_bend_sm_state
                             
                             	Auth back end SM State
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: time_to_next_reauth
                             
                             	remaining time for next reauthentication
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: last_auth_time
                             
                             	Last Authenticated Timestamp (formatted)
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1592,17 +1598,17 @@ class Dot1X(Entity):
                         .. attribute:: eap_profile
                         
                         	EAP profile
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: config_dependency
                         
                         	Configuration Dependency 
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: client
                         
                         	Supp Client info
-                        	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client>`
+                        	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client>`
                         
                         
 
@@ -1639,27 +1645,27 @@ class Dot1X(Entity):
                             .. attribute:: mac
                             
                             	formatted MAC Address
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: eap_method
                             
                             	EAP Method
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: last_auth_time
                             
                             	Last Authenticated Timestamp (formatted)
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: auth_sm_state
                             
                             	supp SM State
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: auth_bend_sm_state
                             
                             	supp back end SM State
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -1700,27 +1706,27 @@ class Dot1X(Entity):
                     .. attribute:: tie_break_role
                     
                     	Dot1x Tie breaker role chosen for mka when PAE type is BOTH
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: eap_based_macsec
                     
                     	EAP Mode status for MKA
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: mka_start_time
                     
                     	Time stamp when Dot1x posting a message to  MKA to start session
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: mka_stop_time
                     
                     	Time stamp when Dot1x posting a message to  MKA to stop session
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: mka_response_time
                     
                     	Time Stamp of MKA acknowledgement to Dot1x
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 

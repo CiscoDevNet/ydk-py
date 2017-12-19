@@ -127,37 +127,37 @@ class Rsvp(Entity):
     .. attribute:: neighbors
     
     	RSVP Neighbor Table
-    	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors>`
+    	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors>`
     
     .. attribute:: controllers
     
     	Controller table
-    	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Controllers>`
+    	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Controllers>`
     
     .. attribute:: global_logging
     
     	Global Logging
-    	**type**\:   :py:class:`GlobalLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalLogging>`
+    	**type**\:  :py:class:`GlobalLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalLogging>`
     
     .. attribute:: global_bandwidth
     
     	Configure Global Bandwidth Parameters
-    	**type**\:   :py:class:`GlobalBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalBandwidth>`
+    	**type**\:  :py:class:`GlobalBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalBandwidth>`
     
     .. attribute:: interfaces
     
     	Interface table
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces>`
     
     .. attribute:: signalling
     
     	Configure Global RSVP signalling parameters
-    	**type**\:   :py:class:`Signalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling>`
+    	**type**\:  :py:class:`Signalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling>`
     
     .. attribute:: authentication
     
     	Configure RSVP authentication
-    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Authentication>`
+    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Authentication>`
     
     
 
@@ -221,7 +221,7 @@ class Rsvp(Entity):
         .. attribute:: neighbor
         
         	RSVP neighbor configuration
-        	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors.Neighbor>`
+        	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors.Neighbor>`
         
         
 
@@ -255,12 +255,14 @@ class Rsvp(Entity):
             .. attribute:: neighbor  <key>
             
             	Neighbor IP address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: authentication
             
             	Configure RSVP authentication
-            	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors.Neighbor.Authentication>`
+            	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors.Neighbor.Authentication>`
             
             
 
@@ -299,7 +301,7 @@ class Rsvp(Entity):
                 .. attribute:: life_time
                 
                 	Life time (in seconds) for each security association
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 30..86400
                 
@@ -308,19 +310,19 @@ class Rsvp(Entity):
                 .. attribute:: enable
                 
                 	Enable or disable RSVP authentication
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: window_size
                 
                 	Window\-size to limit number of out\-of\-order messages
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..64
                 
                 .. attribute:: key_chain
                 
                 	Key chain to authenticate RSVP signalling messages
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
@@ -361,7 +363,7 @@ class Rsvp(Entity):
         .. attribute:: controller
         
         	Controller configuration
-        	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Controllers.Controller>`
+        	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Controllers.Controller>`
         
         
 
@@ -395,17 +397,19 @@ class Rsvp(Entity):
             .. attribute:: controller_name  <key>
             
             	Name of controller
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: cntl_signalling
             
             	Configure RSVP signalling parameters
-            	**type**\:   :py:class:`CntlSignalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Controllers.Controller.CntlSignalling>`
+            	**type**\:  :py:class:`CntlSignalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Controllers.Controller.CntlSignalling>`
             
             .. attribute:: enable
             
             	Enable RSVP on an interface
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -446,7 +450,7 @@ class Rsvp(Entity):
                 .. attribute:: out_of_band
                 
                 	Configure RSVP out\-of\-band signalling parameters
-                	**type**\:   :py:class:`OutOfBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Controllers.Controller.CntlSignalling.OutOfBand>`
+                	**type**\:  :py:class:`OutOfBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Controllers.Controller.CntlSignalling.OutOfBand>`
                 
                 
 
@@ -479,7 +483,7 @@ class Rsvp(Entity):
                     .. attribute:: missed_messages
                     
                     	Configure max number of consecutive missed messages for state expiry for out\-of\-band tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..110000
                     
@@ -488,7 +492,7 @@ class Rsvp(Entity):
                     .. attribute:: refresh_interval
                     
                     	Configure interval between successive refreshes for out\-of\-band tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 180..86400
                     
@@ -527,12 +531,12 @@ class Rsvp(Entity):
         .. attribute:: log_nsr_status
         
         	Enable NSR Status Logging
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: log_issu_status
         
         	Enable ISSU Status Logging
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -568,7 +572,7 @@ class Rsvp(Entity):
         .. attribute:: default_interface_percent
         
         	Configure Global RSVP signalling parameters
-        	**type**\:   :py:class:`DefaultInterfacePercent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalBandwidth.DefaultInterfacePercent>`
+        	**type**\:  :py:class:`DefaultInterfacePercent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalBandwidth.DefaultInterfacePercent>`
         
         
 
@@ -602,12 +606,12 @@ class Rsvp(Entity):
             .. attribute:: mam
             
             	Configure global default MAM I/F percent bandwidth parameters
-            	**type**\:   :py:class:`Mam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam>`
+            	**type**\:  :py:class:`Mam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam>`
             
             .. attribute:: rdm
             
             	Configure global default RDM I/F percent bandwidth parameters
-            	**type**\:   :py:class:`Rdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm>`
+            	**type**\:  :py:class:`Rdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm>`
             
             
 
@@ -647,21 +651,21 @@ class Rsvp(Entity):
                 .. attribute:: max_res_percent
                 
                 	Default maximum reservable I/F % B/W 
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..10000
                 
                 .. attribute:: bc0_percent
                 
                 	Default BC0 pool I/F % B/W 
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..10000
                 
                 .. attribute:: bc1_percent
                 
                 	Default BC1 pool I/F % B/W 
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..10000
                 
@@ -702,14 +706,14 @@ class Rsvp(Entity):
                 .. attribute:: bc0_percent
                 
                 	Default BC0 pool I/F % B/W 
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..10000
                 
                 .. attribute:: bc1_percent
                 
                 	Default BC1 pool I/F % B/W 
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..10000
                 
@@ -747,7 +751,7 @@ class Rsvp(Entity):
         .. attribute:: interface
         
         	Interface configuration
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface>`
         
         
 
@@ -781,27 +785,29 @@ class Rsvp(Entity):
             .. attribute:: name  <key>
             
             	Name of interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: if_signalling
             
             	Configure RSVP signalling parameters
-            	**type**\:   :py:class:`IfSignalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling>`
+            	**type**\:  :py:class:`IfSignalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling>`
             
             .. attribute:: bandwidth
             
             	Configure Bandwidth
-            	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth>`
+            	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth>`
             
             .. attribute:: enable
             
             	Enable RSVP on an interface
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: authentication
             
             	Configure RSVP authentication
-            	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Authentication>`
+            	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Authentication>`
             
             
 
@@ -852,24 +858,24 @@ class Rsvp(Entity):
                 .. attribute:: refresh_reduction
                 
                 	Configure RSVP Refresh Reduction parameters
-                	**type**\:   :py:class:`RefreshReduction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction>`
+                	**type**\:  :py:class:`RefreshReduction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction>`
                 
                 .. attribute:: interval_rate
                 
                 	Configure number of messages to be sent per interval
-                	**type**\:   :py:class:`IntervalRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.IntervalRate>`
+                	**type**\:  :py:class:`IntervalRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.IntervalRate>`
                 
                 .. attribute:: dscp
                 
                 	Differentiated Services Code Point (DSCP)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..63
                 
                 .. attribute:: missed_messages
                 
                 	Configure max number of consecutive missed messages for state expiry
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..8
                 
@@ -878,17 +884,17 @@ class Rsvp(Entity):
                 .. attribute:: hello_graceful_restart_if_based
                 
                 	Enable IF\-based Hello adjacency on a RSVP interface
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: pacing
                 
                 	Enable rate\-limiting on the interface
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: refresh_interval
                 
                 	Configure interval between successive refreshes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 10..180
                 
@@ -899,7 +905,7 @@ class Rsvp(Entity):
                 .. attribute:: out_of_band
                 
                 	Configure RSVP out\-of\-band signalling parameters
-                	**type**\:   :py:class:`OutOfBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.OutOfBand>`
+                	**type**\:  :py:class:`OutOfBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.OutOfBand>`
                 
                 
 
@@ -955,12 +961,12 @@ class Rsvp(Entity):
                     .. attribute:: disable
                     
                     	Disable refresh reduction
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reliable_ack_max_size
                     
                     	Configure max size of a single RSVP ACK message
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 20..65000
                     
@@ -971,7 +977,7 @@ class Rsvp(Entity):
                     .. attribute:: reliable_ack_hold_time
                     
                     	Configure hold time for sending RSVP ACK message(s)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 100..5000
                     
@@ -982,7 +988,7 @@ class Rsvp(Entity):
                     .. attribute:: reliable_retransmit_time
                     
                     	Configure min delay to wait for an ACK before a retransmit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 100..10000
                     
@@ -993,12 +999,12 @@ class Rsvp(Entity):
                     .. attribute:: reliable_s_refresh
                     
                     	Configure use of reliable messaging for summary refresh
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: summary_max_size
                     
                     	Configure max size of a single RSVP summary refresh message
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 20..65000
                     
@@ -1009,7 +1015,7 @@ class Rsvp(Entity):
                     .. attribute:: bundle_message_max_size
                     
                     	Configure maximum size of a single RSVP Bundle message
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 512..65000
                     
@@ -1061,7 +1067,7 @@ class Rsvp(Entity):
                     .. attribute:: messages_per_interval
                     
                     	Number of messages to be sent per interval
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..500
                     
@@ -1070,7 +1076,7 @@ class Rsvp(Entity):
                     .. attribute:: interval_size
                     
                     	Size of an interval (milliseconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 250..2000
                     
@@ -1111,7 +1117,7 @@ class Rsvp(Entity):
                     .. attribute:: missed_messages
                     
                     	Configure max number of consecutive missed messages for state expiry for out\-of\-band tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..110000
                     
@@ -1120,7 +1126,7 @@ class Rsvp(Entity):
                     .. attribute:: refresh_interval
                     
                     	Configure interval between successive refreshes for out\-of\-band tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 180..86400
                     
@@ -1159,12 +1165,12 @@ class Rsvp(Entity):
                 .. attribute:: mam
                 
                 	Configure MAM bandwidth parameters
-                	**type**\:   :py:class:`Mam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth.Mam>`
+                	**type**\:  :py:class:`Mam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth.Mam>`
                 
                 .. attribute:: rdm
                 
                 	Configure RDM bandwidth parameters
-                	**type**\:   :py:class:`Rdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth.Rdm>`
+                	**type**\:  :py:class:`Rdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth.Rdm>`
                 
                 
 
@@ -1202,35 +1208,35 @@ class Rsvp(Entity):
                     .. attribute:: max_resv_bandwidth
                     
                     	Maximum reservable bandwidth (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: max_resv_flow
                     
                     	Largest reservable flow (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bc0_bandwidth
                     
                     	Reservable bandwidth in BC0 (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bc1_bandwidth
                     
                     	Reservable bandwidth in BC1 (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bandwidth_mode
                     
                     	Absolute or Percentage bandwidth mode
-                    	**type**\:   :py:class:`RsvpBwCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfg>`
+                    	**type**\:  :py:class:`RsvpBwCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfg>`
                     
                     	**units**\: percentage
                     
@@ -1273,43 +1279,43 @@ class Rsvp(Entity):
                     .. attribute:: max_resv_flow
                     
                     	Largest reservable flow (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bc0_bandwidth
                     
                     	Reservable bandwidth in BC0 (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bc1_bandwidth
                     
                     	Reservable bandwidth in BC1 (Kbps or percent of physical bandwidth)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rdm_keyword
                     
                     	Set requests should always use RDM
-                    	**type**\:   :py:class:`RsvpRdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpRdm>`
+                    	**type**\:  :py:class:`RsvpRdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpRdm>`
                     
                     .. attribute:: bc0_keyword
                     
                     	Set requests should always use BC0
-                    	**type**\:   :py:class:`RsvpBc0 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc0>`
+                    	**type**\:  :py:class:`RsvpBc0 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc0>`
                     
                     .. attribute:: bc1_keyword
                     
                     	Set requests should always use BC1
-                    	**type**\:   :py:class:`RsvpBc1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc1>`
+                    	**type**\:  :py:class:`RsvpBc1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc1>`
                     
                     .. attribute:: bandwidth_mode
                     
                     	Absolute or Percentage bandwidth mode
-                    	**type**\:   :py:class:`RsvpBwCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfg>`
+                    	**type**\:  :py:class:`RsvpBwCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfg>`
                     
                     	**units**\: percentage
                     
@@ -1356,7 +1362,7 @@ class Rsvp(Entity):
                 .. attribute:: life_time
                 
                 	Life time (in seconds) for each security association
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 30..86400
                 
@@ -1365,19 +1371,19 @@ class Rsvp(Entity):
                 .. attribute:: enable
                 
                 	Enable or disable RSVP authentication
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: window_size
                 
                 	Window\-size to limit number of out\-of\-order messages
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..64
                 
                 .. attribute:: key_chain
                 
                 	Key chain to authenticate RSVP signalling messages
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
@@ -1418,32 +1424,32 @@ class Rsvp(Entity):
         .. attribute:: global_out_of_band
         
         	Configure out\-of\-band signalling parameters
-        	**type**\:   :py:class:`GlobalOutOfBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.GlobalOutOfBand>`
+        	**type**\:  :py:class:`GlobalOutOfBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.GlobalOutOfBand>`
         
         .. attribute:: graceful_restart
         
         	Configure RSVP Graceful\-Restart parameters
-        	**type**\:   :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.GracefulRestart>`
+        	**type**\:  :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.GracefulRestart>`
         
         .. attribute:: prefix_filtering
         
         	Configure prefix filtering parameters
-        	**type**\:   :py:class:`PrefixFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.PrefixFiltering>`
+        	**type**\:  :py:class:`PrefixFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.PrefixFiltering>`
         
         .. attribute:: pesr
         
         	Sending Path Error with State\-Removal flag
-        	**type**\:   :py:class:`Pesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.Pesr>`
+        	**type**\:  :py:class:`Pesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.Pesr>`
         
         .. attribute:: checksum
         
         	RSVP message checksum computation
-        	**type**\:   :py:class:`Checksum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.Checksum>`
+        	**type**\:  :py:class:`Checksum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.Checksum>`
         
         .. attribute:: hello_graceful_restart_misses
         
         	Configure max number of consecutive missed Hello messages
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..10
         
@@ -1452,7 +1458,7 @@ class Rsvp(Entity):
         .. attribute:: hello_graceful_restart_interval
         
         	Configure interval between successive Hello messages
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 3000..30000
         
@@ -1519,7 +1525,7 @@ class Rsvp(Entity):
             .. attribute:: vrf
             
             	VRF used for out\-of\-band control signalling
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
@@ -1555,17 +1561,17 @@ class Rsvp(Entity):
             .. attribute:: lsp_class_type
             
             	Send LSP's ctype for recovery and suggested label
-            	**type**\:   :py:class:`LspClassType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.GracefulRestart.LspClassType>`
+            	**type**\:  :py:class:`LspClassType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.GracefulRestart.LspClassType>`
             
             .. attribute:: enable
             
             	Enable RSVP graceful restart
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: restart_time
             
             	Graceful restart time (seconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 60..3600
             
@@ -1576,7 +1582,7 @@ class Rsvp(Entity):
             .. attribute:: recovery_time
             
             	Graceful restart recovery time (seconds)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..3600
             
@@ -1626,7 +1632,7 @@ class Rsvp(Entity):
                 .. attribute:: enable
                 
                 	Send LSP's ctype for recovery and suggested label
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -1660,12 +1666,12 @@ class Rsvp(Entity):
             .. attribute:: default_deny_action
             
             	Configure RSVP behaviour for scenarios where ACL match yields a default (implicit) deny
-            	**type**\:   :py:class:`DefaultDenyAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.PrefixFiltering.DefaultDenyAction>`
+            	**type**\:  :py:class:`DefaultDenyAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.PrefixFiltering.DefaultDenyAction>`
             
             .. attribute:: acl
             
             	Configure an ACL to perform prefix filtering of RSVP Router Alert messages
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..65
             
@@ -1707,7 +1713,7 @@ class Rsvp(Entity):
                 .. attribute:: drop
                 
                 	Configure RSVP to drop packets when ACL match yields a default (implicit) deny
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1741,7 +1747,7 @@ class Rsvp(Entity):
             .. attribute:: disable
             
             	Disable RSVP PESR
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1775,7 +1781,7 @@ class Rsvp(Entity):
             .. attribute:: disable
             
             	Disable RSVP message checksum computation
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1809,7 +1815,7 @@ class Rsvp(Entity):
         .. attribute:: life_time
         
         	Life time (in seconds) for each security association
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 30..86400
         
@@ -1818,19 +1824,19 @@ class Rsvp(Entity):
         .. attribute:: enable
         
         	Enable or disable RSVP authentication
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: window_size
         
         	Window\-size to limit number of out\-of\-order messages
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..64
         
         .. attribute:: key_chain
         
         	Key chain to authenticate RSVP signalling messages
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 1..32
         

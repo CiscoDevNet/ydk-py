@@ -25,7 +25,7 @@ class SystemMonitoring(Entity):
     .. attribute:: cpu_utilization
     
     	Processes CPU utilization information
-    	**type**\: list of    :py:class:`CpuUtilization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wdsysmon_fd_oper.SystemMonitoring.CpuUtilization>`
+    	**type**\: list of  		 :py:class:`CpuUtilization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wdsysmon_fd_oper.SystemMonitoring.CpuUtilization>`
     
     
 
@@ -59,33 +59,35 @@ class SystemMonitoring(Entity):
         .. attribute:: node_name  <key>
         
         	Node name
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
         .. attribute:: total_cpu_one_minute
         
         	Total CPU utilization in past 1 minute
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: total_cpu_five_minute
         
         	Total CPU utilization in past 5 minute
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: total_cpu_fifteen_minute
         
         	Total CPU utilization in past 15 minute
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: process_cpu
         
         	Per process CPU utilization
-        	**type**\: list of    :py:class:`ProcessCpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wdsysmon_fd_oper.SystemMonitoring.CpuUtilization.ProcessCpu>`
+        	**type**\: list of  		 :py:class:`ProcessCpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wdsysmon_fd_oper.SystemMonitoring.CpuUtilization.ProcessCpu>`
         
         
 
@@ -127,19 +129,19 @@ class SystemMonitoring(Entity):
             .. attribute:: process_name
             
             	Process name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: process_id
             
             	Process ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: process_cpu_one_minute
             
             	Process CPU utilization in percent for past 1 minute
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -148,7 +150,7 @@ class SystemMonitoring(Entity):
             .. attribute:: process_cpu_five_minute
             
             	Process CPU utilization in percent for past 5 minute
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -157,7 +159,7 @@ class SystemMonitoring(Entity):
             .. attribute:: process_cpu_fifteen_minute
             
             	Process CPU utilization in percent for past 15 minute
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

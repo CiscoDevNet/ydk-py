@@ -41,6 +41,10 @@ module Cisco-IOS-XE-aaa {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-09-05 {
+    description
+      "Support new aaa login commands and aaa server commands";
+  }
   revision 2017-06-05 {
     description
       "Update domain delimeter description to conform to YANG 1.1";
@@ -72,6 +76,379 @@ module Cisco-IOS-XE-aaa {
       "Initial revision";
   }
 
+  typedef ipv4-mask-slash-prefix-len-type {
+    type string {
+      pattern '/(([0-9])|([1-2][0-9])|(3[0-2]))';
+    }
+  }
+
+  grouping aaa-server-radius-key-grouping { 
+    container key {
+      description
+        "Specify a RADIUS client";
+      uses aaa-server-radius-key;
+    }
+  }
+ 
+  grouping aaa-server-proxy-common {
+    container accounting {
+      description
+        "Specify accounting details";
+      uses aaa-server-method;
+      uses aaa-server-radius-port;
+    }
+    container authentication {
+      description
+        "Specify authentication details";
+      uses aaa-server-method;
+      uses aaa-server-radius-port;
+    }
+    container calling-station-id {
+      description 
+        "Specify format of Calling-Station-Id, attribute\
+         31.Default format is to expect mac-address in\
+         calling-station-id";
+      container format {
+        description
+          "Specify the format as MAC or MSISDN";
+        choice type {
+          container mac-address {
+            description
+              "Expect MAC address to be present in CLID";
+            choice mac-format {
+              container default {
+                description
+                  "format ex: 0000.4096.3e4a";
+                presence "true";
+                uses aaa-case-grouping;
+              }
+              container ietf {
+                description
+                  "format ex: 00-00-40-96-3E-4A";
+                presence "true";
+                uses aaa-case-grouping;
+              }
+              leaf none {
+                description
+                  "format unspecified";
+                type empty;
+              }
+              container one-byte {
+                description
+                  "format ex: 00.00.40.96.3e.4a";
+                uses aaa-server-delimiter-groupingg;
+              }
+              container three-byte {
+                description
+                  "format ex: 000040.963e4a";
+                uses aaa-server-delimiter-groupingg;
+              }
+              container two-byte {
+                description
+                  "format ex: 0000.4096.3e4a";
+                uses aaa-server-delimiter-groupingg;
+              }
+              container unformatted {
+                description
+                  "format ex: 000040963e4a";
+                presence "true";
+                uses aaa-case-grouping;
+              }
+            }
+          }
+          leaf msisdn {
+            description
+              "Expect MSISDN value to be present in CLID";
+            type empty;
+          } 
+        }
+      }
+    }
+
+    container eap-user {
+      description
+        "EAP users";
+      leaf ignore-open-session {
+        description
+          "for EAP authenticated users, open-session is not supported";
+        type empty;
+      }
+    }
+
+    container filter {
+      description
+        "Configure filter";
+      container access {
+        description
+          "For access requests";
+        uses aaa-server-filter;
+      }
+      container accounting {
+        description
+          "For accounting requests";
+      uses aaa-server-filter;
+      }
+      container attribute {
+        description
+          "Filter attributes in packets sent to clients";
+        choice attr-type {
+          leaf allow {
+            description
+              "Allow only the attributes specified in the list";
+            type string;
+          }
+          leaf block {
+            description
+              "Block the attributes specified in the list";
+            type string;
+          }
+        }
+      }
+    }      
+
+    uses aaa-server-radius-key-grouping;
+
+    container message-authenticator {
+      description
+        "Message Authenticator attribute from Clients";
+      container ignore {
+        description
+          "Ignore checking of Message Authenticator attribute from\
+           Clients";
+        presence "true";
+        leaf accounting {
+          description
+            "Ignore checking of Message Authenticator attribute from\
+            accounting packets";
+          type empty;
+        }
+      }
+    }
+    container mode {
+      description
+        "Radius Proxy Pass thru mode";
+      leaf pass-through {
+        description
+          "Enable the pass-through mode for Radius Proxy";
+        type empty;
+      }
+    }
+    container pwlan-session {
+      description
+        "PWLAN Reconnect feature";
+      leaf reconnect {
+        description
+          "Enable the reconnect feature for PWLAN RP sessions";
+        type empty;
+      }
+    }
+    container re-authentication {
+      description
+        "Specify re-authentication details";
+      leaf do-not-apply {
+        description
+          "Do not apply new data during re-authentication";
+        type empty;
+      }
+    }
+    container session-identifier { 
+      description
+        "This attribute will be used to correlate Radius \
+         requests of a session and to identify sessions within \
+         radius-proxy";
+      leaf attribute {
+        description
+          "Specify an IETF Radius attribute";
+        type uint8 {
+          range "1..255";
+        }
+      }
+      container vsa {
+        description
+          "Specify Vendor-Specific Attribute";
+        leaf vendor {
+          description
+            "Specify the vendor type";
+          type uint16 {
+            range "1..65535";
+          }
+        }
+        leaf type {
+          description
+            "Give attribute type for vsa";
+          type uint8 {
+            range "1..255";
+          }
+        }
+      }
+    }
+
+    container timer {
+      description
+        "Configure RADIUS proxy timer values";
+      container disconnect {
+        description
+          "Specify disconnect timer";
+        leaf acct-stop {
+          description
+            "Specify disconnect delay timer for accounting stop";
+          type uint16 {
+            range "0..43200";
+          }
+        }
+        leaf reauth-fail {
+          description
+            "Specify disconnect delay timer for reauthentication failure";
+          type uint16 {
+            range "0..43200";
+          }
+        }
+      }
+      leaf ip-address {
+        description
+          "Specify value of wait for IP timer";
+        type uint16 {
+          range "0..43200";
+        }
+      }
+      leaf reconnect {
+        description
+          "Specify value of wait for reconnect timer";
+        type uint16 {
+          range "0..43200";
+        }
+      }
+      leaf request {
+        description
+          "Specify value of wait for Access-Request timer";
+        type uint16 {
+          range "0..43200";
+        }
+      }
+      leaf roaming {
+        description
+          "Specify value of wait for roaming timer";
+        type uint16 {
+          range "0..43200";
+        }
+      }
+    }    
+  }
+
+  grouping aaa-server-options {
+    leaf word1 {
+      description
+        "Name of the filter to be applied (max 31 chars. \
+        (max 31 chars. longer will be ignored)";
+      type string;
+    } 
+    leaf word2 {
+      description
+        "Name of the filter to be applied (max 31 chars. \
+        (max 31 chars. longer will be ignored)";
+      type string;
+    } 
+    leaf word3 {
+      description
+        "Name of the filter to be applied (max 31 chars. \
+        (max 31 chars. longer will be ignored)";
+      type string;
+    } 
+    leaf word4 {
+      description
+        "Name of the filter to be applied (max 31 chars. \
+        (max 31 chars. longer will be ignored)";
+      type string;
+    } 
+  }
+
+  grouping aaa-server-filter {
+    choice filter-type {
+      container ack {
+        description
+          "Acknowledge the packet";
+        uses aaa-server-options;
+      }
+      container drop {
+        description
+          "Drop the packet";
+        uses aaa-server-options;
+      }
+      container ignore {
+        description
+          "Ignore the packet for applying ISG features";
+        uses aaa-server-options;
+      }
+    }
+  }
+
+  grouping aaa-server-radius-port {
+    leaf port {
+      description
+        "Radius server port";
+      type uint16;
+    }
+  }
+
+  grouping aaa-server-radius-key {
+    leaf key {
+      type enumeration {
+        enum "0";
+        enum "6";
+        enum "7";
+      }
+    }
+    leaf string {
+      type string;
+    }
+  }
+
+  grouping aaa-server-method {
+    container method-list {
+      description
+        "Authentication method list details";
+      choice method {
+        leaf method-name {
+          description
+            "Method list name";
+          type string;
+        }
+        leaf default {
+          description
+            "The default authentication list";
+          type empty;
+        }
+      }
+    }
+  }
+
+  grouping aaa-case-grouping {
+    leaf type {
+      type enumeration {
+        enum "lower-case";
+        enum "upper-case"; 
+      }
+    }
+  }
+
+  grouping aaa-server-delimiter-groupingg {
+    container delimiter {
+      choice delimeter-type {
+        container colon {
+          presence "true";
+          uses aaa-case-grouping;
+        }
+        container dot {
+          presence "true";
+          uses aaa-case-grouping;
+        }
+        container hyphen {
+          presence "true";
+          uses aaa-case-grouping;
+        }
+      }
+    } 
+  }
 
   grouping aaa-authentication-dot1x-grouping {
     leaf group {
@@ -1822,7 +2199,284 @@ module Cisco-IOS-XE-aaa {
         container dynamic-author {
           description
             "Local server profile for RFC 3576 support";
-      presence true;
+          presence true;
+          uses aaa-server-radius-port;
+          list client {
+            description
+              "Specify a RADIUS client";
+            key ip;
+            leaf ip {
+              type union {
+                type inet:ipv4-address;
+                type inet:ipv6-address;
+                type string;
+              }
+            }
+            leaf dtls {
+              description
+                "Enable DTLS for the client";
+              type empty;
+            }
+            list vrf {
+              description
+                " Virtual Routing/Forwarding parameters";
+              key name;
+              leaf name {
+                type string;
+              }
+              leaf dtls {
+                description
+                  "Enable DTLS for the client";
+                type empty;
+              }
+              container server-key {
+                description
+                  "Specify a RADIUS client server-key";
+                uses aaa-server-radius-key;
+              }
+            }
+            container server-key {
+              description
+                "Specify a RADIUS client server-key";
+              uses aaa-server-radius-key;
+            }
+          }
+          container server-key {
+            description
+              "Specify a RADIUS client server-key";
+            uses aaa-server-radius-key;
+          }
+          container domain {
+            description
+              "Username domain options";
+            leaf delimiter {
+              description
+                'Domain delimiter, Choose from {@, /, $, %, \, #, -}';
+                type string;
+            }
+            container stripping {
+              description
+                "Match incoming username left oriented of the @ domain delimiter";
+              presence true;
+              leaf right-to-left {
+                description
+                  "Terminate the string at the first delimiter going from right to left";
+                type empty;
+              }
+            }
+          }
+          leaf auth-type {
+            description
+              "Specify the server authorization type";
+            type enumeration {
+              enum "all";
+              enum "any";
+              enum "session-key";
+            }
+          }
+          container ignore {
+            description
+              "Override behaviour to ignore certain parameters";
+            leaf retransmission {
+              description
+                "Drop packets using same radius id";
+              type empty;
+            }
+            leaf server-key {
+              description
+                "Ignore shared secret";
+              type empty;
+            }
+            leaf session-key {
+              description
+                "Ignore attr 151";
+              type empty;
+            }
+          }
+        }
+        container policy-device {
+          description
+            "Local server profile for RADIUS External Policy Delegation client";
+          presence true;
+          container accounting {
+            description
+              "Specify accounting details";
+            uses aaa-server-radius-port;
+          }
+          container authentication {
+            description
+              "Specify authentication details";
+            uses aaa-server-radius-port;
+          }
+          list client {
+            description
+              "Specify a RADIUS client";
+            key ip;
+            leaf ip {
+              type union {
+                type inet:ipv4-address;
+                type inet:ipv6-address;
+                type string;
+              }
+            }
+            leaf port {
+              description
+                "Port on which radius client listens for CoA messages (default is 3799)";
+              type uint16 {
+                range "0..65534";
+              }
+            }
+            list vrf {
+              description
+                " Virtual Routing/Forwarding parameters";
+              key name;
+              leaf name {
+                type string;
+              }
+              leaf port {
+                description
+                  "Port on which radius client listens for CoA messages (default is 3799)";
+                type uint16 {
+                  range "0..65534";
+                }
+              }
+              uses aaa-server-radius-key-grouping;
+            }
+            uses aaa-server-radius-key-grouping;
+          }
+          uses aaa-server-radius-key-grouping;
+          container message-authenticator {
+            description
+              "Message Authenticator attribute from Clients";
+            leaf ignore {
+              description
+                "Ignore checking of Message Authenticator attribute from\
+                 Clients";
+              type empty;
+            }
+          }
+        }
+        container proxy {
+          description
+            "Local server profile for RADIUS proxy clients";
+          presence true;
+          uses aaa-server-proxy-common;
+          container client-ip {
+            list client {
+              description
+                "Specify a RADIUS client";
+              key "ip";
+              leaf ip {
+                type union {
+                  type inet:ipv4-address;
+                  type inet:ipv6-address;
+                  type string;
+                }
+              }
+              uses aaa-server-proxy-common;
+            }
+          }
+          container client-ip-mask {
+            list client {
+              description
+                "Specify a RADIUS client";
+              key "ip mask";
+              leaf ip {
+                type union {
+                  type inet:ipv4-address;
+                  type inet:ipv6-address;
+                  type string;
+                }
+              }
+              leaf mask {
+                description
+                  "Network mask or prefix length";
+                type union {
+                  type ipv4-mask-slash-prefix-len-type;
+                  type inet:ipv4-address;
+                }
+              }
+              uses aaa-server-proxy-common;
+            }
+          }
+          container client-ip-vrf {
+            list client {
+              description
+                "Specify a RADIUS client";
+              key "ip vrf";
+              leaf ip {
+                type union {
+                  type inet:ipv4-address;
+                  type inet:ipv6-address;
+                  type string;
+                }
+              }
+              leaf vrf {
+                description
+                  "Virtual Routing/Forwarding parameters";
+                type string;
+              }
+              uses aaa-server-proxy-common;
+            }
+          }
+          container client-ip-mask-vrf {
+            list client {
+              description
+                "Specify a RADIUS client";
+              key "ip mask vrf";
+              leaf ip {
+                type union {
+                  type inet:ipv4-address;
+                  type inet:ipv6-address;
+                  type string;
+                }
+              }
+              leaf mask {
+                description
+                  "Network mask or prefix length";
+                type union {
+                  type ipv4-mask-slash-prefix-len-type;
+                  type inet:ipv4-address;
+                }
+              }
+              leaf vrf {
+                description
+                  "Virtual Routing/Forwarding parameters";
+                type string;
+              }
+              uses aaa-server-proxy-common;
+            }
+          }
+
+          container send {
+            description
+              "Send attributes in Radius requests";
+            container vsa {
+              description
+                "Vendor specific attribute configuration";
+              container rpclient-source-address {
+                description
+                  "AP Source Address";
+                presence true;
+                leaf accounting { 
+                  description
+                    "send in accounting requests";
+                  type empty;
+                }
+                leaf authentication {
+                  description
+                    "send in access requests";
+                  type empty;
+                }
+              }
+            }                 
+          } 
+        }
+
+        container sesm {
+          description
+            "Local server profile for a SESM client";
+          presence true;
           list client {
             description
               "Specify a RADIUS client";
@@ -1841,67 +2495,26 @@ module Cisco-IOS-XE-aaa {
               leaf name {
                 type string;
               }
+              uses aaa-server-radius-key-grouping;
             }
-            container server-key {
-              description
-                "Specify a RADIUS client server-key";
-              leaf key {
-                type enumeration {
-                  enum "0";
-                  enum "6";
-                  enum "7";
-                }
-              }
-              leaf string {
-                type string;
-              }
-            }
+            uses aaa-server-radius-key-grouping;
           }
-          container server-key {
+          uses aaa-server-radius-key-grouping;
+          container message-authenticator {
             description
-              "Specify a RADIUS client server-key";
-            leaf key {
-              type enumeration {
-                enum "0";
-                enum "6";
-                enum "7";
-              }
-            }
-            leaf string {
-              type string;
-            }
-          }
-          container domain {
-            description
-              "Username domain options";
-            leaf delimiter {
+              "Message Authenticator attribute from Clients";
+            leaf ignore {
               description
-                'Domain delimiter, Choose from {@, /, $, %, \, #, -}';
-              type string;
-            }
-            container stripping {
-              description
-                "Match incoming username left oriented of the @ domain delimiter";
-              presence true;
-              leaf right-to-left {
-                description
-                  "Terminate the string at the first delimiter going from right to left";
-                type empty;
-              }
+                "Ignore checking of Message Authenticator attribute from\
+                 Clients";
+              type empty;
             }
           }
-          leaf auth-type {
-            description
-              "Specify the server authorization type";
-            type enumeration {
-              enum all;
-              enum any;
-              enum session-key;
-            }
-          }
+          uses aaa-server-radius-port;
         }
       }
     }
+
     // aaa session-id
     leaf session-id {
       description
@@ -1924,97 +2537,6 @@ module Cisco-IOS-XE-aaa {
           enum "number-failures";
         }
       }
-      leaf max-sessions {
-        description
-          "Adjust initial hash size for estimated max sessions";
-        type uint16 {
-          range "1024..64000";
-        }
-      }
-      container memory {
-         description
-           "AAA memory parameters";
-         container threshold {
-           description 
-             "set appropriate thresholds for the AAA process";
-           container accounting {
-             description
-               "AAA accounting low-memory threshold";
-             leaf disable {
-               description
-                 "accounting may be disabled, if available memory falls below
-this percentage";
-               type uint8 {
-                 range "1..15";
-               }
-             }
-           }
-           container authentication {
-             description
-               "AAA authentication low-memory threshold";
-             leaf reject {
-               description
-                 "requests will be rejected, if available memory falls below
-this percentage";
-               type uint8 {
-                 range "2..15";
-               }
-             }
-           }
-        }
-      } 
-      leaf password {
-        description
-          "Configure password/secret related settings";
-        type enumeration {
-          enum "restriction";
-        }
-      }
-      container policy {
-        description
-          "AAA policy parameters";
-        leaf interface-config {
-          description
-            "LCP interface config policy parameters";
-          type enumeration {
-            enum "allow-subinterface";
-          }
-        }
-      }
-      container route {
-        description
-          "Static route downloading";
-        container download {
-          description
-            "Download from AAA server";
-          leaf update-period {
-            description
-              "Route update period in minutes";
-            type uint16 {
-               range "1..1440";
-            }
-          }
-          leaf authorization {
-            description
-              "Method list to use for authorization"; 
-            type string;
-          }
-        }
-      }
-      container server {
-        description
-          "Local AAA server";
-        leaf radius {
-          description
-            "Profile for local radius server";
-          type enumeration {
-            enum "dynamic-author";
-            enum "policy-device";
-            enum "proxy";
-            enum "sesm";
-          }
-        }
-      }
       leaf success-track-conf-time {
         description
           "Track Successful login attempts occurring during configured
@@ -2023,12 +2545,101 @@ time-period";
           range "1..24";
         }
       }
-      leaf traceback {
+    }
+
+    //aaa max-sessions
+    leaf max-sessions {
+      description
+        "Adjust initial hash size for estimated max sessions";
+      type uint16 {
+        range "1024..64000";
+      }
+    }
+ 
+    //aaa memory
+    container memory {
+       description
+         "AAA memory parameters";
+       container threshold {
+         description 
+           "set appropriate thresholds for the AAA process";
+         container accounting {
+           description
+             "AAA accounting low-memory threshold";
+           leaf disable {
+             description
+               "accounting may be disabled, if available memory falls below\
+                this percentage";
+             type uint8 {
+               range "1..15";
+             }
+           }
+         }
+         container authentication {
+           description
+             "AAA authentication low-memory threshold";
+           leaf reject {
+             description
+               "requests will be rejected, if available memory falls below\
+                this percentage";
+             type uint8 {
+               range "2..15";
+             }
+           }
+         }
+      }
+    } 
+ 
+    //aaa password
+    leaf password {
+      description
+        "Configure password/secret related settings";
+      type enumeration {
+        enum "restriction";
+      }
+    }
+
+    //aaa policy
+    container policy {
+      description
+        "AAA policy parameters";
+      leaf interface-config {
         description
-          "Traceback recording";
+          "LCP interface config policy parameters";
         type enumeration {
-          enum "recording";
+          enum "allow-subinterface";
         }
+      }
+    }
+
+    //aaa route
+    container route {
+      description
+        "Static route downloading";
+      container download {
+        description
+          "Download from AAA server";
+        leaf update-period {
+          description
+            "Route update period in minutes";
+          type uint16 {
+             range "1..1440";
+          }
+        }
+        leaf authorization {
+          description
+            "Method list to use for authorization"; 
+          type string;
+        }
+      }
+    }
+
+    //aaa traceback
+    leaf traceback {
+      description
+        "Traceback recording";
+      type enumeration {
+        enum "recording";
       }
     }
   }

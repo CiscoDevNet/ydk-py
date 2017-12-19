@@ -21,7 +21,7 @@ class HwModuleSubslot(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_hwmod_mpa_reload_act.HwModuleSubslot.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_hwmod_mpa_reload_act.HwModuleSubslot.Input>`
     
     
 
@@ -55,12 +55,12 @@ class HwModuleSubslot(Entity):
         .. attribute:: subslot
         
         	Fully qualified location specification
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: reload
         
         	Cycle subslot h/w reset
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 

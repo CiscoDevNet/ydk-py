@@ -41,32 +41,32 @@ class PBRIDGEMIB(Entity):
     .. attribute:: dot1dextbase
     
     	
-    	**type**\:   :py:class:`Dot1Dextbase <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dextbase>`
+    	**type**\:  :py:class:`Dot1Dextbase <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dextbase>`
     
     .. attribute:: dot1dtphcporttable
     
     	A table that contains information about every high\- capacity port that is associated with this transparent bridge
-    	**type**\:   :py:class:`Dot1Dtphcporttable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dtphcporttable>`
+    	**type**\:  :py:class:`Dot1Dtphcporttable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dtphcporttable>`
     
     .. attribute:: dot1dtpportoverflowtable
     
     	A table that contains the most\-significant bits of statistics counters for ports that are associated with this transparent bridge that are on high\-capacity interfaces, as defined in the conformance clauses for this table.  This table is provided as a way to read 64\-bit counters for agents that support only SNMPv1.  Note that the reporting of most\-significant and least\-significant counter bits separately runs the risk of missing an overflow of the lower bits in the interval between sampling.  The manager must be aware of this possibility, even within the same varbindlist, when interpreting the results of a request or asynchronous notification
-    	**type**\:   :py:class:`Dot1Dtpportoverflowtable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dtpportoverflowtable>`
+    	**type**\:  :py:class:`Dot1Dtpportoverflowtable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dtpportoverflowtable>`
     
     .. attribute:: dot1duserpriorityregentable
     
     	A list of Regenerated User Priorities for each received User Priority on each port of a bridge.  The Regenerated User Priority value may be used to index the Traffic Class Table for each input port.  This only has effect on media that support native User Priority.  The default values for Regenerated User Priorities are the same as the User Priorities
-    	**type**\:   :py:class:`Dot1Duserpriorityregentable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Duserpriorityregentable>`
+    	**type**\:  :py:class:`Dot1Duserpriorityregentable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Duserpriorityregentable>`
     
     .. attribute:: dot1dtrafficclasstable
     
     	A table mapping evaluated User Priority to Traffic Class, for forwarding by the bridge.  Traffic class is a number in the range (0..(dot1dPortNumTrafficClasses\-1))
-    	**type**\:   :py:class:`Dot1Dtrafficclasstable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dtrafficclasstable>`
+    	**type**\:  :py:class:`Dot1Dtrafficclasstable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dtrafficclasstable>`
     
     .. attribute:: dot1dportoutboundaccessprioritytable
     
     	A table mapping Regenerated User Priority to Outbound Access Priority.  This is a fixed mapping for all port types, with two options for 802.5 Token Ring
-    	**type**\:   :py:class:`Dot1Dportoutboundaccessprioritytable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dportoutboundaccessprioritytable>`
+    	**type**\:  :py:class:`Dot1Dportoutboundaccessprioritytable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dportoutboundaccessprioritytable>`
     
     
 
@@ -125,17 +125,17 @@ class PBRIDGEMIB(Entity):
         .. attribute:: dot1ddevicecapabilities
         
         	Indicates the optional parts of IEEE 802.1D and 802.1Q that are implemented by this device and are manageable through this MIB.  Capabilities that are allowed on a per\-port basis are indicated in dot1dPortCapabilities.  dot1dExtendedFilteringServices(0),                       \-\- can perform filtering of                       \-\- individual multicast addresses                       \-\- controlled by GMRP. dot1dTrafficClasses(1),                       \-\- can map user priority to                       \-\- multiple traffic classes. dot1qStaticEntryIndividualPort(2),                       \-\- dot1qStaticUnicastReceivePort &                       \-\- dot1qStaticMulticastReceivePort                       \-\- can represent non\-zero entries. dot1qIVLCapable(3),   \-\- Independent VLAN Learning (IVL). dot1qSVLCapable(4),   \-\- Shared VLAN Learning (SVL). dot1qHybridCapable(5),                       \-\- both IVL & SVL simultaneously. dot1qConfigurablePvidTagging(6),                       \-\- whether the implementation                       \-\- supports the ability to                       \-\- override the default PVID                       \-\- setting and its egress status                       \-\- (VLAN\-Tagged or Untagged) on                       \-\- each port. dot1dLocalVlanCapable(7)                       \-\- can support multiple local                       \-\- bridges, outside of the scope                       \-\- of 802.1Q defined VLANs
-        	**type**\:   :py:class:`Dot1Ddevicecapabilities <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dextbase.Dot1Ddevicecapabilities>`
+        	**type**\:  :py:class:`Dot1Ddevicecapabilities <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dextbase.Dot1Ddevicecapabilities>`
         
         .. attribute:: dot1dtrafficclassesenabled
         
         	The value true(1) indicates that Traffic Classes are enabled on this bridge.  When false(2), the bridge operates with a single priority level for all traffic.  The value of this object MUST be retained across reinitializations of the management system
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: dot1dgmrpstatus
         
         	The administrative status requested by management for GMRP.  The value enabled(1) indicates that GMRP should be enabled on this device, in all VLANs, on all ports for which it has not been specifically disabled.  When disabled(2), GMRP is disabled, in all VLANs and on all ports, and all GMRP packets will be forwarded transparently.  This object affects both Applicant and Registrar state machines.  A transition from disabled(2) to enabled(1) will cause a reset of all GMRP state machines on all ports.  The value of this object MUST be retained across reinitializations of the management system
-        	**type**\:   :py:class:`EnabledStatus <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.EnabledStatus>`
+        	**type**\:  :py:class:`EnabledStatus <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.EnabledStatus>`
         
         
 
@@ -175,7 +175,7 @@ class PBRIDGEMIB(Entity):
         .. attribute:: dot1dtphcportentry
         
         	Statistics information for each high\-capacity port of a transparent bridge
-        	**type**\: list of    :py:class:`Dot1Dtphcportentry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dtphcporttable.Dot1Dtphcportentry>`
+        	**type**\: list of  		 :py:class:`Dot1Dtphcportentry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dtphcporttable.Dot1Dtphcportentry>`
         
         
 
@@ -210,7 +210,7 @@ class PBRIDGEMIB(Entity):
             .. attribute:: dot1dtpport  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -219,21 +219,21 @@ class PBRIDGEMIB(Entity):
             .. attribute:: dot1dtphcportinframes
             
             	The number of frames that have been received by this port from its segment.  Note that a frame received on the interface corresponding to this port is only counted by this object if and only if it is for a protocol being processed by the local bridging function, including bridge management frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dot1dtphcportoutframes
             
             	The number of frames that have been transmitted by this port to its segment.  Note that a frame transmitted on the interface corresponding to this port is only counted by this object if and only if it is for a protocol being processed by the local bridging function, including bridge management frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dot1dtphcportindiscards
             
             	Count of valid frames that have been received by this port from its segment that were discarded (i.e., filtered) by the Forwarding Process
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -287,7 +287,7 @@ class PBRIDGEMIB(Entity):
         .. attribute:: dot1dtpportoverflowentry
         
         	The most significant bits of statistics counters for a high\- capacity interface of a transparent bridge.  Each object is associated with a corresponding object in dot1dTpPortTable that indicates the least significant bits of the counter
-        	**type**\: list of    :py:class:`Dot1Dtpportoverflowentry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry>`
+        	**type**\: list of  		 :py:class:`Dot1Dtpportoverflowentry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry>`
         
         
 
@@ -324,7 +324,7 @@ class PBRIDGEMIB(Entity):
             .. attribute:: dot1dtpport  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -333,21 +333,21 @@ class PBRIDGEMIB(Entity):
             .. attribute:: dot1dtpportinoverflowframes
             
             	The number of times the associated dot1dTpPortInFrames counter has overflowed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dot1dtpportoutoverflowframes
             
             	The number of times the associated dot1dTpPortOutFrames counter has overflowed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: dot1dtpportinoverflowdiscards
             
             	The number of times the associated dot1dTpPortInDiscards counter has overflowed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -395,7 +395,7 @@ class PBRIDGEMIB(Entity):
         .. attribute:: dot1duserpriorityregenentry
         
         	A mapping of incoming User Priority to a Regenerated User Priority
-        	**type**\: list of    :py:class:`Dot1Duserpriorityregenentry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Duserpriorityregentable.Dot1Duserpriorityregenentry>`
+        	**type**\: list of  		 :py:class:`Dot1Duserpriorityregenentry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Duserpriorityregentable.Dot1Duserpriorityregenentry>`
         
         
 
@@ -430,7 +430,7 @@ class PBRIDGEMIB(Entity):
             .. attribute:: dot1dbaseport  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -439,14 +439,14 @@ class PBRIDGEMIB(Entity):
             .. attribute:: dot1duserpriority  <key>
             
             	The User Priority for a frame received on this port
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             
             .. attribute:: dot1dregenuserpriority
             
             	The Regenerated User Priority that the incoming User  Priority is mapped to for this port.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             
@@ -488,7 +488,7 @@ class PBRIDGEMIB(Entity):
         .. attribute:: dot1dtrafficclassentry
         
         	User Priority to Traffic Class mapping
-        	**type**\: list of    :py:class:`Dot1Dtrafficclassentry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dtrafficclasstable.Dot1Dtrafficclassentry>`
+        	**type**\: list of  		 :py:class:`Dot1Dtrafficclassentry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dtrafficclasstable.Dot1Dtrafficclassentry>`
         
         
 
@@ -522,7 +522,7 @@ class PBRIDGEMIB(Entity):
             .. attribute:: dot1dbaseport  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -531,14 +531,14 @@ class PBRIDGEMIB(Entity):
             .. attribute:: dot1dtrafficclasspriority  <key>
             
             	The Priority value determined for the received frame. This value is equivalent to the priority indicated in the tagged frame received, or one of the evaluated priorities, determined according to the media\-type.  For untagged frames received from Ethernet media, this value is equal to the dot1dPortDefaultUserPriority value for the ingress port.  For untagged frames received from non\-Ethernet media, this value is equal to the dot1dRegenUserPriority value for the ingress port and media\-specific user priority
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             
             .. attribute:: dot1dtrafficclass
             
             	The Traffic Class the received frame is mapped to.  The value of this object MUST be retained across reinitializations of the management system
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             
@@ -580,7 +580,7 @@ class PBRIDGEMIB(Entity):
         .. attribute:: dot1dportoutboundaccesspriorityentry
         
         	Regenerated User Priority to Outbound Access Priority mapping
-        	**type**\: list of    :py:class:`Dot1Dportoutboundaccesspriorityentry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry>`
+        	**type**\: list of  		 :py:class:`Dot1Dportoutboundaccesspriorityentry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry>`
         
         
 
@@ -615,7 +615,7 @@ class PBRIDGEMIB(Entity):
             .. attribute:: dot1dbaseport  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -624,7 +624,7 @@ class PBRIDGEMIB(Entity):
             .. attribute:: dot1dregenuserpriority  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             
@@ -633,7 +633,7 @@ class PBRIDGEMIB(Entity):
             .. attribute:: dot1dportoutboundaccesspriority
             
             	The Outbound Access Priority the received frame is mapped to
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..7
             

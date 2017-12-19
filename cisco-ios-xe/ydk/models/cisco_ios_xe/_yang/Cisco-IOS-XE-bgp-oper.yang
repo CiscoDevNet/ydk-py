@@ -31,6 +31,11 @@ module Cisco-IOS-XE-bgp-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-05-12 {
+    description
+      "Added the BGP RD description";
+    reference "2.1.0";
+  }
   revision 2017-04-01 {
     description
       "Top level container name change. Enum name changes.";
@@ -618,6 +623,16 @@ module Cisco-IOS-XE-bgp-oper {
         description
           "List of BGP VRFs";
         uses bgp-route-ios-xe-oper:vrf-record;
+      }
+    }
+    container bgp-route-rds {
+      description
+        "BGP RDs";
+      list bgp-route-rd {
+        key "rd-value";
+        description
+          "List of BGP RDs";
+        uses bgp-route-ios-xe-oper:bgp-rd-record;
       }
     }
   }

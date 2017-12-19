@@ -39,12 +39,20 @@ module Cisco-IOS-XE-l2vpn {
 
   description
     "Cisco XE Native Layer 2 Virtual Private Network (L2VPN) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+  revision 2017-08-10 {
+    description
+      "Add mtu for l2 vfi";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -563,6 +571,11 @@ module Cisco-IOS-XE-l2vpn {
         type uint16 {
           range "1..16384";
         }
+      }
+      leaf mtu {
+        description
+          "MTU size in bytes";
+        type uint32;
       }
       list neighbor {
         description
@@ -1272,6 +1285,18 @@ module Cisco-IOS-XE-l2vpn {
     }
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-xconnect-grouping {
+      if-feature ios-features:l2vpn;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+    uses config-interface-xconnect-grouping {
+      if-feature ios-features:l2vpn;
+    }
+  }
+
   augment "/ios:native/ios:interface/ios:Port-channel" {
     uses config-interface-xconnect-grouping  {
       if-feature ios-features:l2vpn;   
@@ -1294,6 +1319,18 @@ module Cisco-IOS-XE-l2vpn {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios-eth:service/ios-eth:instance" {
+    uses config-interface-efp-xconnect-grouping {
+      if-feature ios-features:efp;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios-eth:service/ios-eth:instance" {
+    uses config-interface-efp-xconnect-grouping {
+      if-feature ios-features:efp;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios-eth:service/ios-eth:instance" {
     uses config-interface-efp-xconnect-grouping {
       if-feature ios-features:efp;
     }

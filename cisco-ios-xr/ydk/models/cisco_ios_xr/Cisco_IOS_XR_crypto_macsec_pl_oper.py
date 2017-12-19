@@ -58,7 +58,7 @@ class MacsecPlatform(Entity):
     .. attribute:: nodes
     
     	NodeTable for all the nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes>`
     
     
 
@@ -92,7 +92,7 @@ class MacsecPlatform(Entity):
         .. attribute:: node
         
         	Node where macsec interfaces exist
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node>`
         
         
 
@@ -126,12 +126,14 @@ class MacsecPlatform(Entity):
             .. attribute:: node_name  <key>
             
             	Node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: interfaces
             
             	Table of Interfaces
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces>`
             
             
 
@@ -170,7 +172,7 @@ class MacsecPlatform(Entity):
                 .. attribute:: interface
                 
                 	Interface Where Macsec is configured
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -203,27 +205,29 @@ class MacsecPlatform(Entity):
                     .. attribute:: name  <key>
                     
                     	Value
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: hw_statistics
                     
                     	The Hardware Statistics
-                    	**type**\:   :py:class:`HwStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics>`
+                    	**type**\:  :py:class:`HwStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics>`
                     
                     .. attribute:: hw_sas
                     
                     	Table of Hardware SAs
-                    	**type**\:   :py:class:`HwSas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas>`
+                    	**type**\:  :py:class:`HwSas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas>`
                     
                     .. attribute:: hw_flow_s
                     
                     	Table of Hardware Flows
-                    	**type**\:   :py:class:`HwFlowS <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS>`
+                    	**type**\:  :py:class:`HwFlowS <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS>`
                     
                     .. attribute:: sw_statistics
                     
                     	The Software Statistics
-                    	**type**\:   :py:class:`SwStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics>`
+                    	**type**\:  :py:class:`SwStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics>`
                     
                     
 
@@ -276,7 +280,7 @@ class MacsecPlatform(Entity):
                         .. attribute:: ext
                         
                         	ext
-                        	**type**\:   :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext>`
+                        	**type**\:  :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext>`
                         
                         
 
@@ -309,22 +313,22 @@ class MacsecPlatform(Entity):
                             .. attribute:: msfpga_stats
                             
                             	MSFPGA Stats
-                            	**type**\:   :py:class:`MsfpgaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats>`
+                            	**type**\:  :py:class:`MsfpgaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats>`
                             
                             .. attribute:: xlfpga_stats
                             
                             	XLFPGA Stats
-                            	**type**\:   :py:class:`XlfpgaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats>`
+                            	**type**\:  :py:class:`XlfpgaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats>`
                             
                             .. attribute:: es200_stats
                             
                             	ES200 Stats
-                            	**type**\:   :py:class:`Es200Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats>`
+                            	**type**\:  :py:class:`Es200Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats>`
                             
                             .. attribute:: type
                             
                             	type
-                            	**type**\:   :py:class:`MacsecCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecCard>`
+                            	**type**\:  :py:class:`MacsecCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecCard>`
                             
                             
 
@@ -372,22 +376,22 @@ class MacsecPlatform(Entity):
                                 .. attribute:: tx_sa_stats
                                 
                                 	Tx SA Stats
-                                	**type**\:   :py:class:`TxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxSaStats>`
+                                	**type**\:  :py:class:`TxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxSaStats>`
                                 
                                 .. attribute:: rx_sa_stats
                                 
                                 	Rx SA Stats
-                                	**type**\:   :py:class:`RxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxSaStats>`
+                                	**type**\:  :py:class:`RxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxSaStats>`
                                 
                                 .. attribute:: tx_interface_macsec_stats
                                 
                                 	Tx interface Macsec Stats
-                                	**type**\:   :py:class:`TxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats>`
+                                	**type**\:  :py:class:`TxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats>`
                                 
                                 .. attribute:: rx_interface_macsec_stats
                                 
                                 	Rx interface Macsec Stats
-                                	**type**\:   :py:class:`RxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats>`
+                                	**type**\:  :py:class:`RxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats>`
                                 
                                 
 
@@ -435,28 +439,28 @@ class MacsecPlatform(Entity):
                                     .. attribute:: out_pkts_protected
                                     
                                     	Tx Pkts Protected
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_pkts_encrypted
                                     
                                     	Tx Pkts Encrypted
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_octets_protected
                                     
                                     	Tx Octets Protected
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_octets_encrypted
                                     
                                     	Tx Octets Encrypted
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -497,70 +501,70 @@ class MacsecPlatform(Entity):
                                     .. attribute:: in_pkts_unused_sa
                                     
                                     	Rx Pkts Unused SA
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_not_using_sa
                                     
                                     	Rx Pkts Not Using SA
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_not_valid
                                     
                                     	Rx Pkts Not Valid
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_invalid
                                     
                                     	Rx Pkts Invalid
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_ok
                                     
                                     	Rx Pkts OK
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_delayed
                                     
                                     	Rx Pkts Delayed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_late
                                     
                                     	Rx Pkts Late
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_unchecked
                                     
                                     	Rx Pkts Unchecked
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_octets_validated
                                     
                                     	Rx Octets Validated
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_octets_decrypted
                                     
                                     	Rx Octets Decrypted
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -613,21 +617,21 @@ class MacsecPlatform(Entity):
                                     .. attribute:: out_pkt_uncontrolled
                                     
                                     	Tx Pkts Uncontrolled
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_pkt_untagged
                                     
                                     	Tx Pkts Untagged
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_pkt_too_long
                                     
                                     	Tx Pkts Too Long
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -666,56 +670,56 @@ class MacsecPlatform(Entity):
                                     .. attribute:: in_pkt_untagged
                                     
                                     	Rx Pkts Untagged
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_notag
                                     
                                     	Rx Pkts Notag
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_bad_tag
                                     
                                     	Rx Pkts Bad tag
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_no_sci
                                     
                                     	Rx Pkts No Sci
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_unknown_sci
                                     
                                     	Rx Pkts Unknown Sci
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_tagged
                                     
                                     	Rx Pkts Tagged
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_overrun
                                     
                                     	Rx Pkts Over Run
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_uncontrolled
                                     
                                     	Rx Pkts Uncontrolled
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -764,12 +768,12 @@ class MacsecPlatform(Entity):
                                 .. attribute:: macsec_tx_stats
                                 
                                 	Tx SC and SA Level Stats
-                                	**type**\:   :py:class:`MacsecTxStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecTxStats>`
+                                	**type**\:  :py:class:`MacsecTxStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecTxStats>`
                                 
                                 .. attribute:: macsec_rx_stats
                                 
                                 	Rx SC and SA Level Stats
-                                	**type**\:   :py:class:`MacsecRxStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats>`
+                                	**type**\:  :py:class:`MacsecRxStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats>`
                                 
                                 
 
@@ -807,70 +811,70 @@ class MacsecPlatform(Entity):
                                     .. attribute:: sc_encrypted_octets
                                     
                                     	Tx Octets Encrypted
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_toolong_pkts
                                     
                                     	Tx Pkts Too Long
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_encrypted_pkts
                                     
                                     	Tx packets Encrypted
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_untagged_pkts
                                     
                                     	Tx Untagged Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_overrun_pkts
                                     
                                     	Tx Overrun Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_bypass_pkts
                                     
                                     	Tx Bypass Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_eapol_pkts
                                     
                                     	Tx Eapol Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_dropped_pkts
                                     
                                     	Tx Dropped Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: current_an
                                     
                                     	Current Tx AN
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sa_encrypted_pkts
                                     
                                     	Current Tx SA Encrypted Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -923,133 +927,133 @@ class MacsecPlatform(Entity):
                                     .. attribute:: sc_decrypted_octets
                                     
                                     	Rx Octets Decrypted
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_no_tag_pkts
                                     
                                     	Rx No Tag Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_untagged_pkts
                                     
                                     	Rx Untagged Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_bad_tag_pkts
                                     
                                     	Rx Bad Tag Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_late_pkts
                                     
                                     	Rx Late Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_delayed_pkts
                                     
                                     	Rx Delayed Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_unchecked_pkts
                                     
                                     	Rx Unchecked Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_no_sci_pkts
                                     
                                     	Rx No SCI Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_unknown_sci_pkts
                                     
                                     	Rx Unknown SCI Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_ok_pkts
                                     
                                     	Rx Pkts Ok
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_not_using_pkts
                                     
                                     	Rx Pkts Not Using SA
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_unused_pkts
                                     
                                     	Rx Pkts Unused SA
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_not_valid_pkts
                                     
                                     	Rx Not Valid Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_invalid_pkts
                                     
                                     	Rx Pkts Invalid
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_overrun_pkts
                                     
                                     	Rx Overrun Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_bypass_pkts
                                     
                                     	Rx Bypass Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_eapol_pkts
                                     
                                     	Rx Eapol Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_dropped_pkts
                                     
                                     	Rx Dropped Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: rx_sa_stat
                                     
                                     	Rx SA Level Stats
-                                    	**type**\: list of    :py:class:`RxSaStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat>`
+                                    	**type**\: list of  		 :py:class:`RxSaStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat>`
                                     
                                     
 
@@ -1118,42 +1122,42 @@ class MacsecPlatform(Entity):
                                         .. attribute:: an
                                         
                                         	Current Rx AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: sa_ok_pkts
                                         
                                         	Rx Ok Pkts for Current AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: sa_not_using_pkts
                                         
                                         	Rx Pkts not using SA for Current AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: sa_unused_pkts
                                         
                                         	Rx Pkts Unused Pkts for Current AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: sa_not_valid_pkts
                                         
                                         	Rx Not Valid Pkts for Current AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: sa_invalid_pkts
                                         
                                         	Rx Invalid Pkts for current AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -1198,42 +1202,42 @@ class MacsecPlatform(Entity):
                                 .. attribute:: tx_sa_stats
                                 
                                 	Tx SA Stats
-                                	**type**\:   :py:class:`TxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxSaStats>`
+                                	**type**\:  :py:class:`TxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxSaStats>`
                                 
                                 .. attribute:: rx_sa_stats
                                 
                                 	Rx SA Stats
-                                	**type**\:   :py:class:`RxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxSaStats>`
+                                	**type**\:  :py:class:`RxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxSaStats>`
                                 
                                 .. attribute:: tx_sc_macsec_stats
                                 
                                 	Tx SC Macsec Stats
-                                	**type**\:   :py:class:`TxScMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxScMacsecStats>`
+                                	**type**\:  :py:class:`TxScMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxScMacsecStats>`
                                 
                                 .. attribute:: rx_sc_macsec_stats
                                 
                                 	Rx SC Macsec Stats
-                                	**type**\:   :py:class:`RxScMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxScMacsecStats>`
+                                	**type**\:  :py:class:`RxScMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxScMacsecStats>`
                                 
                                 .. attribute:: tx_interface_macsec_stats
                                 
                                 	Tx interface Macsec Stats
-                                	**type**\:   :py:class:`TxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats>`
+                                	**type**\:  :py:class:`TxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats>`
                                 
                                 .. attribute:: rx_interface_macsec_stats
                                 
                                 	Rx interface Macsec Stats
-                                	**type**\:   :py:class:`RxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats>`
+                                	**type**\:  :py:class:`RxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats>`
                                 
                                 .. attribute:: tx_port_stats
                                 
                                 	Port level TX Stats
-                                	**type**\:   :py:class:`TxPortStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxPortStats>`
+                                	**type**\:  :py:class:`TxPortStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxPortStats>`
                                 
                                 .. attribute:: rx_port_stats
                                 
                                 	Port level RX Stats
-                                	**type**\:   :py:class:`RxPortStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxPortStats>`
+                                	**type**\:  :py:class:`RxPortStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxPortStats>`
                                 
                                 
 
@@ -1301,21 +1305,21 @@ class MacsecPlatform(Entity):
                                     .. attribute:: out_pkts_too_long
                                     
                                     	packets exceeding egress MTU
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_pkts_encrypted_protected
                                     
                                     	packets encrypted/protected
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_octets_encrypted_protected1
                                     
                                     	octets1 encrypted/protected ?
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1354,70 +1358,70 @@ class MacsecPlatform(Entity):
                                     .. attribute:: in_pkts_unchecked
                                     
                                     	frame not valid & validateFrames disabled
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_delayed
                                     
                                     	PN of packet outside replay window & validateFrames !strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_late
                                     
                                     	PN of packet outside replay window & validateFrames strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_ok
                                     
                                     	packets with no error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_invalid
                                     
                                     	packet not valid & validateFrames !strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_not_valid
                                     
                                     	packet not valid & validateFrames strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_not_using_sa
                                     
                                     	packet assigned to SA not in use & validateFrames strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_unused_sa
                                     
                                     	packet assigned to SA not in use & validateFrames !strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_octets_decrypted_validated1
                                     
                                     	octets1 decrypted/validated
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_octets_validated
                                     
                                     	octets validated
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1470,7 +1474,7 @@ class MacsecPlatform(Entity):
                                     .. attribute:: out_pkts_sa_not_in_use
                                     
                                     	Packets received with SA not in use
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1505,7 +1509,7 @@ class MacsecPlatform(Entity):
                                     .. attribute:: in_pkts_sa_not_in_use
                                     
                                     	Packets received with SA not in use
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1540,126 +1544,126 @@ class MacsecPlatform(Entity):
                                     .. attribute:: transform_error_pkts
                                     
                                     	counter to count internal errors in the MACSec core
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_pkt_ctrl
                                     
                                     	egress packet that is classified as control packet
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_pkts_untagged
                                     
                                     	egress packet to go out untagged when protectFrames not set
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_octets_unctrl
                                     
                                     	Octets tx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_octets_ctrl
                                     
                                     	Octets tx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_octets_common
                                     
                                     	Octets tx on common port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_ucast_pkts_unctrl
                                     
                                     	Unicast pkts tx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_ucast_pkts_ctrl
                                     
                                     	Unicast pkts tx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_mcast_pkts_unctrl
                                     
                                     	Multicast pkts tx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_mcast_pkts_ctrl
                                     
                                     	Multicast pkts tx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_bcast_pkts_unctrl
                                     
                                     	Broadcast pkts tx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_bcast_pkts_ctrl
                                     
                                     	Broadcast pkts tx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_rx_drop_pkts_unctrl
                                     
                                     	Control pkts dropped due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_rx_drop_pkts_ctrl
                                     
                                     	Data pkts dropped due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_rx_err_pkts_unctrl
                                     
                                     	Control pkts error\-terminated due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_rx_err_pkts_ctrl
                                     
                                     	Data pkts error\-terminated due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_drop_pkts_class
                                     
                                     	Packets dropped due to overflow in classification pipeline
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_drop_pkts_data
                                     
                                     	Packets dropped due to overflow in  processing pipeline
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1728,154 +1732,154 @@ class MacsecPlatform(Entity):
                                     .. attribute:: transform_error_pkts
                                     
                                     	counter to count internal errors in the MACSec core
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_ctrl
                                     
                                     	ingress packet that is classified as control packet
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_no_tag
                                     
                                     	ingress packet untagged & validateFrames is strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_untagged
                                     
                                     	ingress packet untagged & validateFrames is  !strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_bad_tag
                                     
                                     	ingress frames received with an invalid MACSec tag or ICV                                       added with next one gives InPktsSCIMiss
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_no_sci
                                     
                                     	correctly tagged ingress frames for which no valid SC found &                                 validateFrames is strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_unknown_sci
                                     
                                     	correctly tagged ingress frames for which no valid SC found &                                 validateFrames is !strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_tagged_ctrl
                                     
                                     	ingress packets that are control or KaY packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_octets_unctrl
                                     
                                     	Octets rx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_octets_ctrl
                                     
                                     	Octets rx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_ucast_pkts_unctrl
                                     
                                     	Unicast pkts rx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_ucast_pkts_ctrl
                                     
                                     	Unicast pkts rx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_mcast_pkts_unctrl
                                     
                                     	Multicast pkts rx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_mcast_pkts_ctrl
                                     
                                     	Multicast pkts rx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_bcast_pkts_unctrl
                                     
                                     	Broadcast pkts rx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_bcast_pkts_ctrl
                                     
                                     	Broadcast pkts rx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_rx_drop_pkts_unctrl
                                     
                                     	Control pkts dropped due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_rx_drop_pkts_ctrl
                                     
                                     	Data pkts dropped due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_rx_error_pkts_unctrl
                                     
                                     	Control pkts error\-terminated due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_rx_error_pkts_ctrl
                                     
                                     	Data pkts error\-terminated due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_drop_pkts_class
                                     
                                     	Packets dropped due to overflow in classification pipeline
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_drop_pkts_data
                                     
                                     	Packets dropped due to overflow in processing pipeline
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1952,49 +1956,49 @@ class MacsecPlatform(Entity):
                                     .. attribute:: multi_flow_match
                                     
                                     	Pkts matching multiple flow entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: parser_dropped
                                     
                                     	Pkts dropped by header parser as invalid
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: flow_miss
                                     
                                     	Pkts matching none of flow entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_ctrl
                                     
                                     	Control pkts forwarded
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_data
                                     
                                     	Data pkts forwarded
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_dropped
                                     
                                     	Pkts dropped by classifier
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_err_in
                                     
                                     	Pkts received with an error indication
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -2041,49 +2045,49 @@ class MacsecPlatform(Entity):
                                     .. attribute:: multi_flow_match
                                     
                                     	Pkts matching multiple flow entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: parser_dropped
                                     
                                     	Pkts dropped by header parser as invalid
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: flow_miss
                                     
                                     	Pkts matching none of flow entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_ctrl
                                     
                                     	Control pkts forwarded
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_data
                                     
                                     	Data pkts forwarded
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_dropped
                                     
                                     	Pkts dropped by classifier
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_err_in
                                     
                                     	Pkts received with an error indication
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -2130,7 +2134,7 @@ class MacsecPlatform(Entity):
                         .. attribute:: hw_sa
                         
                         	Hardware Security Association
-                        	**type**\: list of    :py:class:`HwSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa>`
+                        	**type**\: list of  		 :py:class:`HwSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa>`
                         
                         
 
@@ -2163,14 +2167,14 @@ class MacsecPlatform(Entity):
                             .. attribute:: sa_id  <key>
                             
                             	SA ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: ext
                             
                             	ext
-                            	**type**\:   :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext>`
+                            	**type**\:  :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext>`
                             
                             
 
@@ -2208,22 +2212,22 @@ class MacsecPlatform(Entity):
                                 .. attribute:: msfpga_sa
                                 
                                 	MSFPGA SA Information
-                                	**type**\:   :py:class:`MsfpgaSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa>`
+                                	**type**\:  :py:class:`MsfpgaSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa>`
                                 
                                 .. attribute:: xlfpga_sa
                                 
                                 	XLFPGA SA Information
-                                	**type**\:   :py:class:`XlfpgaSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa>`
+                                	**type**\:  :py:class:`XlfpgaSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa>`
                                 
                                 .. attribute:: es200_sa
                                 
                                 	ES200 SA Information
-                                	**type**\:   :py:class:`Es200Sa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa>`
+                                	**type**\:  :py:class:`Es200Sa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa>`
                                 
                                 .. attribute:: type
                                 
                                 	type
-                                	**type**\:   :py:class:`MacsecCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecCard>`
+                                	**type**\:  :py:class:`MacsecCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecCard>`
                                 
                                 
 
@@ -2271,12 +2275,12 @@ class MacsecPlatform(Entity):
                                     .. attribute:: tx_sa
                                     
                                     	Tx SA Details
-                                    	**type**\:   :py:class:`TxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.TxSa>`
+                                    	**type**\:  :py:class:`TxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.TxSa>`
                                     
                                     .. attribute:: rx_sa
                                     
                                     	Rx SA Details
-                                    	**type**\:   :py:class:`RxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.RxSa>`
+                                    	**type**\:  :py:class:`RxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.RxSa>`
                                     
                                     
 
@@ -2314,90 +2318,90 @@ class MacsecPlatform(Entity):
                                         .. attribute:: sa_id
                                         
                                         	SA Index
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: valid
                                         
                                         	SA Validity
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: is_egress
                                         
                                         	rx\_tx direction
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: crypto_algo
                                         
                                         	Crypto Algorithm
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: key_len
                                         
                                         	Key Length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: an
                                         
                                         	Association Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: xpn
                                         
                                         	XPN EN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: sci
                                         
                                         	SCI
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: in_use
                                         
                                         	In Use
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: next_pn
                                         
                                         	Next Packet Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: c_offset
                                         
                                         	Conf offset
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: action
                                         
                                         	Action
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: q_bit
                                         
                                         	Q bit
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: qq_bit
                                         
                                         	QQ bit
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -2456,90 +2460,90 @@ class MacsecPlatform(Entity):
                                         .. attribute:: sa_id
                                         
                                         	SA Index
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: valid
                                         
                                         	SA Validity
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: is_egress
                                         
                                         	rx\_tx direction
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: crypto_algo
                                         
                                         	Crypto Algorithm
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: key_len
                                         
                                         	Key Length
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: an
                                         
                                         	Association Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: xpn
                                         
                                         	XPN EN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: sci
                                         
                                         	SCI
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: in_use
                                         
                                         	In Use
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: next_pn
                                         
                                         	Next Packet Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: c_offset
                                         
                                         	Conf offset
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: action
                                         
                                         	Action
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: q_bit
                                         
                                         	Q bit
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: qq_bit
                                         
                                         	QQ bit
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         
 
@@ -2598,12 +2602,12 @@ class MacsecPlatform(Entity):
                                     .. attribute:: tx_sa
                                     
                                     	Tx SA Details
-                                    	**type**\:   :py:class:`TxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.TxSa>`
+                                    	**type**\:  :py:class:`TxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.TxSa>`
                                     
                                     .. attribute:: rx_sa
                                     
                                     	Rx SA Details
-                                    	**type**\:   :py:class:`RxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.RxSa>`
+                                    	**type**\:  :py:class:`RxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.RxSa>`
                                     
                                     
 
@@ -2641,26 +2645,26 @@ class MacsecPlatform(Entity):
                                         .. attribute:: protection_enable
                                         
                                         	Protection Enabled
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: secure_mode
                                         
                                         	Secure Mode \- Must/Should
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: secure_channel_id
                                         
                                         	Secure Channel ID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: sectag_length
                                         
                                         	Sec Tag Length(bytes) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2669,63 +2673,63 @@ class MacsecPlatform(Entity):
                                         .. attribute:: cipher_suite
                                         
                                         	Cipher Suite Used
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: confidentiality_offset
                                         
                                         	Confidentiality Offset
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: fcs_err_cfg
                                         
                                         	FCS Error Config
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: max_packet_num
                                         
                                         	Max Packet Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: an
                                         
                                         	Association Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: initial_packet_number
                                         
                                         	Initial Packet Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: ssci
                                         
                                         	Short Secure Channel ID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: current_packet_num
                                         
                                         	Current Packet Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: crc_value
                                         
                                         	CRC Value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2784,142 +2788,144 @@ class MacsecPlatform(Entity):
                                         .. attribute:: protection_enable
                                         
                                         	Protection Enabled
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: secure_mode
                                         
                                         	Secure Mode \- Must/Should
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: replay_protect_mode
                                         
                                         	Replay Protect Mode
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: validation_mode
                                         
                                         	Validation Mode
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: replay_window
                                         
                                         	Replay Window 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: secure_channel_id
                                         
                                         	Secure Channel ID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: cipher_suite
                                         
                                         	Cipher Suite Used
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: confidentiality_offset
                                         
                                         	Confidentiality Offset
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: fcs_err_cfg
                                         
                                         	FCS Error Config
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: auth_err_cfg
                                         
                                         	Auth  Error Config
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: max_packet_num
                                         
                                         	Max Packet Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: num_an_in_use
                                         
                                         	Num of AN's in Use
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: an
                                         
                                         	Association Number
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
                                         .. attribute:: recent_an
                                         
                                         	Recent Association Num
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: pkt_untagged_detected
                                         
                                         	Untagged Pkts Detected
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: pkt_tagged_detected
                                         
                                         	Tagged Pkts Detected
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: pkt_tagged_validated
                                         
                                         	Tagged Pkts Validated
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: current_packet_num
                                         
                                         	Current Packet Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: ssci
                                         
                                         	Short Secure Channel ID
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: lowest_acceptable_packet_num
                                         
                                         	Lowest Acceptable Packet Number
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: next_expected_packet_num
                                         
                                         	Next expected Packet Number
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: crc_value
                                         
                                         	CRC Value
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2996,12 +3002,12 @@ class MacsecPlatform(Entity):
                                     .. attribute:: tx_sa
                                     
                                     	Tx SA Details
-                                    	**type**\:   :py:class:`TxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa>`
+                                    	**type**\:  :py:class:`TxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa>`
                                     
                                     .. attribute:: rx_sa
                                     
                                     	Rx SA Details
-                                    	**type**\: list of    :py:class:`RxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa>`
+                                    	**type**\: list of  		 :py:class:`RxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa>`
                                     
                                     
 
@@ -3039,66 +3045,66 @@ class MacsecPlatform(Entity):
                                         .. attribute:: xform_params
                                         
                                         	 Xform Params
-                                        	**type**\:   :py:class:`XformParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa.XformParams>`
+                                        	**type**\:  :py:class:`XformParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa.XformParams>`
                                         
                                         .. attribute:: is_valid
                                         
                                         	Is structure valid
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: sa_id
                                         
                                         	SA Index
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: sc_no
                                         
                                         	SC Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: out_pkts_too_long
                                         
                                         	packets exceeding egress MTU
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: out_pkts_encrypted_protected
                                         
                                         	packets encrypted/protected
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: out_octets_encrypted_protected1
                                         
                                         	octets1 encrypted/protected
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: initial_pkt_number
                                         
                                         	Initial Packet Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: current_pkt_number
                                         
                                         	Current packet Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: max_pkt_number
                                         
                                         	Maximum packet Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -3154,41 +3160,41 @@ class MacsecPlatform(Entity):
                                             .. attribute:: replay_win_size
                                             
                                             	range of pkt nos considered valid
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: crypt_algo
                                             
                                             	Cryptographic algo used
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: is_egress_tr
                                             
                                             	APM\_TRUE if this is Egress Transform record, APM\_FALSE otherwise
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: aes_key_len
                                             
                                             	AES Key length
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: assoc_num
                                             
                                             	Association Number for egress
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..255
                                             
                                             .. attribute:: is_seq_num64_bit
                                             
                                             	TRUE if Seq Num is 64\-bit, FALSE if it is 32\-bit
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: bgen_auth_key
                                             
                                             	TRUE to generate the authKey, so authKey in this struct not used                                  APM\_FALSE to use provided authKey
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             
 
@@ -3233,94 +3239,94 @@ class MacsecPlatform(Entity):
                                         .. attribute:: xform_params
                                         
                                         	 Xform Params
-                                        	**type**\:   :py:class:`XformParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa.XformParams>`
+                                        	**type**\:  :py:class:`XformParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa.XformParams>`
                                         
                                         .. attribute:: is_valid
                                         
                                         	Is structure valid
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: sa_id
                                         
                                         	SA Index
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: sc_no
                                         
                                         	SC Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: in_pkts_unchecked
                                         
                                         	frame not valid & validateFrames disabled
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: in_pkts_delayed
                                         
                                         	PN of packet outside replay window & validateFrames !strict
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: in_pkts_late
                                         
                                         	PN of packet outside replay window & validateFrames strict
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: in_pkts_ok
                                         
                                         	packets with no error
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: in_pkts_invalid
                                         
                                         	packet not valid & validateFrames !strict
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: in_pkts_not_valid
                                         
                                         	packet not valid & validateFrames strict
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: in_pkts_not_using_sa
                                         
                                         	packet assigned to SA not in use & validateFrames strict
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: in_pkts_unused_sa
                                         
                                         	packet assigned to SA not in use& validateFrames !strict
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: in_octets_decrypted_validated1
                                         
                                         	octets1 decrypted/validated
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: in_octets_validated
                                         
                                         	octets validated
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
@@ -3384,41 +3390,41 @@ class MacsecPlatform(Entity):
                                             .. attribute:: replay_win_size
                                             
                                             	range of pkt nos considered valid
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: crypt_algo
                                             
                                             	Cryptographic algo used
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: is_egress_tr
                                             
                                             	APM\_TRUE if this is Egress Transform record, APM\_FALSE otherwise
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: aes_key_len
                                             
                                             	AES Key length
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: assoc_num
                                             
                                             	Association Number for egress
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..255
                                             
                                             .. attribute:: is_seq_num64_bit
                                             
                                             	TRUE if Seq Num is 64\-bit, FALSE if it is 32\-bit
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: bgen_auth_key
                                             
                                             	TRUE to generate the authKey, so authKey in this struct not used                                  APM\_FALSE to use provided authKey
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             
 
@@ -3463,7 +3469,7 @@ class MacsecPlatform(Entity):
                         .. attribute:: hw_flow
                         
                         	Hardware Flow
-                        	**type**\: list of    :py:class:`HwFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow>`
+                        	**type**\: list of  		 :py:class:`HwFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow>`
                         
                         
 
@@ -3496,14 +3502,14 @@ class MacsecPlatform(Entity):
                             .. attribute:: flow_id  <key>
                             
                             	FLOW ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: ext
                             
                             	ext
-                            	**type**\:   :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext>`
+                            	**type**\:  :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext>`
                             
                             
 
@@ -3541,17 +3547,17 @@ class MacsecPlatform(Entity):
                                 .. attribute:: msfpga_flow
                                 
                                 	MSFPGA Flow Information
-                                	**type**\:   :py:class:`MsfpgaFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow>`
+                                	**type**\:  :py:class:`MsfpgaFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow>`
                                 
                                 .. attribute:: es200_flow
                                 
                                 	ES200 Flow Information
-                                	**type**\:   :py:class:`Es200Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow>`
+                                	**type**\:  :py:class:`Es200Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow>`
                                 
                                 .. attribute:: type
                                 
                                 	type
-                                	**type**\:   :py:class:`MacsecCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecCard>`
+                                	**type**\:  :py:class:`MacsecCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecCard>`
                                 
                                 
 
@@ -3594,12 +3600,12 @@ class MacsecPlatform(Entity):
                                     .. attribute:: tx_flow
                                     
                                     	Tx Flow Details
-                                    	**type**\:   :py:class:`TxFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.TxFlow>`
+                                    	**type**\:  :py:class:`TxFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.TxFlow>`
                                     
                                     .. attribute:: rx_flow
                                     
                                     	Rx Flow Details
-                                    	**type**\:   :py:class:`RxFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.RxFlow>`
+                                    	**type**\:  :py:class:`RxFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.RxFlow>`
                                     
                                     
 
@@ -3637,229 +3643,229 @@ class MacsecPlatform(Entity):
                                         .. attribute:: flow_id
                                         
                                         	Flow Index
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: valid
                                         
                                         	Flow Validity
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: is_egress
                                         
                                         	rx\_tx direction
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: in_use
                                         
                                         	In Use
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: action
                                         
                                         	Action
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: smac_inuse
                                         
                                         	If MAC SA in Use
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: dmac_inuse
                                         
                                         	If MAC DA in Use
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: ethertype
                                         
                                         	Ether Type
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: outer_vlan
                                         
                                         	Outer VLAN ID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: outer_vlan_up
                                         
                                         	Outer Vlan UserPri
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: outer_vlan_tpid
                                         
                                         	Outer Vlan TPID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: inner_vlan
                                         
                                         	Inner VLAN ID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: inner_vlan_up
                                         
                                         	Inner Vlan UserPri
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: inner_vlan_tpid
                                         
                                         	Inner Vlan TPID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: source_port
                                         
                                         	Source Port
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: source_port_chk
                                         
                                         	Source Port ChkEn
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: sci_inuse
                                         
                                         	If SCI in use
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: sci
                                         
                                         	SCI
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: match_pri
                                         
                                         	Match Priority
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: is_ctrl_pkt
                                         
                                         	Is Control Pkt
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: ctrl_check
                                         
                                         	Ctrl Pkt ChkEn
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: match_untagged
                                         
                                         	MatchUntagged
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: match_tagged
                                         
                                         	MatchTagged
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: match_bad_tag
                                         
                                         	Match Bad Tag
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: match_kay_tag
                                         
                                         	MatchKaYTag
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: tci_v
                                         
                                         	TCI V
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_e_xr
                                         
                                         	TCI ES
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_sc
                                         
                                         	TCI SC
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_scb
                                         
                                         	TCI SCB
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci
                                         
                                         	TCI E
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_c
                                         
                                         	TCI C
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_an
                                         
                                         	TCI AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_an_chk
                                         
                                         	TciAnChkEn
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: tci_chk
                                         
                                         	TciChkEn
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: sai
                                         
                                         	SAI
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: macsa
                                         
                                         	MAC SA
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: macda
                                         
                                         	MAC DA
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -3966,229 +3972,229 @@ class MacsecPlatform(Entity):
                                         .. attribute:: flow_id
                                         
                                         	Flow Index
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: valid
                                         
                                         	Flow Validity
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: is_egress
                                         
                                         	rx\_tx direction
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: in_use
                                         
                                         	In Use
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: action
                                         
                                         	Action
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: smac_inuse
                                         
                                         	If MAC SA in Use
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: dmac_inuse
                                         
                                         	If MAC DA in Use
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: ethertype
                                         
                                         	Ether Type
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: outer_vlan
                                         
                                         	Outer VLAN ID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: outer_vlan_up
                                         
                                         	Outer Vlan UserPri
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: outer_vlan_tpid
                                         
                                         	Outer Vlan TPID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: inner_vlan
                                         
                                         	Inner VLAN ID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: inner_vlan_up
                                         
                                         	Inner Vlan UserPri
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: inner_vlan_tpid
                                         
                                         	Inner Vlan TPID
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: source_port
                                         
                                         	Source Port
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: source_port_chk
                                         
                                         	Source Port ChkEn
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: sci_inuse
                                         
                                         	If SCI in use
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: sci
                                         
                                         	SCI
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: match_pri
                                         
                                         	Match Priority
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: is_ctrl_pkt
                                         
                                         	Is Control Pkt
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: ctrl_check
                                         
                                         	Ctrl Pkt ChkEn
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: match_untagged
                                         
                                         	MatchUntagged
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: match_tagged
                                         
                                         	MatchTagged
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: match_bad_tag
                                         
                                         	Match Bad Tag
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: match_kay_tag
                                         
                                         	MatchKaYTag
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: tci_v
                                         
                                         	TCI V
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_e_xr
                                         
                                         	TCI ES
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_sc
                                         
                                         	TCI SC
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_scb
                                         
                                         	TCI SCB
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci
                                         
                                         	TCI E
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_c
                                         
                                         	TCI C
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_an
                                         
                                         	TCI AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_an_chk
                                         
                                         	TciAnChkEn
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: tci_chk
                                         
                                         	TciChkEn
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: sai
                                         
                                         	SAI
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: macsa
                                         
                                         	MAC SA
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: macda
                                         
                                         	MAC DA
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -4295,12 +4301,12 @@ class MacsecPlatform(Entity):
                                     .. attribute:: tx_flow
                                     
                                     	Tx Flow Details
-                                    	**type**\:   :py:class:`TxFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.TxFlow>`
+                                    	**type**\:  :py:class:`TxFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.TxFlow>`
                                     
                                     .. attribute:: rx_flow
                                     
                                     	Rx Flow Details
-                                    	**type**\:   :py:class:`RxFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.RxFlow>`
+                                    	**type**\:  :py:class:`RxFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.RxFlow>`
                                     
                                     
 
@@ -4338,205 +4344,205 @@ class MacsecPlatform(Entity):
                                         .. attribute:: flow_no
                                         
                                         	Flow Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: is_flow_enabled
                                         
                                         	Is Flow Enabled
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: ethertype
                                         
                                         	Parsed EtherType to match could be 0 if Ethertype should'nt                              be matched can be 0x88E5 for MACSec tag
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: outer_vlan_id
                                         
                                         	 VLAN ID for outer tag use this when             only one tag should be matched
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: outer_vlan_user_pri
                                         
                                         	VLAN User Priority for outer tag  use            this when only one tag should be matched
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: inner_vlan_id
                                         
                                         	VLAN ID for inner tag used when two              VLAN Tags should be matched
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: inner_vlan_user_pri
                                         
                                         	 VLAN User priority for inner tag use            when matching two VLAN tags
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: psci
                                         
                                         	 SCI to be matched value required for            ingress only, pass NULL for egress
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: match_priority
                                         
                                         	priority for match 0\-15(highest) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_v
                                         
                                         	value of 'v' in TCI to match (1bit) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_e_xr
                                         
                                         	value of 'es' in TCI to match (1bit) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_sc
                                         
                                         	value of 'sc' in TCI to match (1bit) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_scb
                                         
                                         	value of 'scb' in TCI to match (1bit) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci
                                         
                                         	value of 'e' in TCI to match (1bit )
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_c
                                         
                                         	value of 'c' in TCI to match (1bit) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_chk
                                         
                                         	TCI bits will be checked only when this          bit is enabled. All the values of TCI bits       are mandatory when TCI check is used
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: pkt_type
                                         
                                         	Type of packet. See ethMscCfyEPktType\_e
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: tag_num
                                         
                                         	No. of MPLS or VLAN tags See ethMscCfyETagNum\_e 
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: inner_vlan_dei
                                         
                                         	Dei to match for innner Vlan tag
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: outer_vlan_dei
                                         
                                         	Dei to match for outer Vlan tag
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: pbb_sid
                                         
                                         	 Service Instance id 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: pbb_bvid
                                         
                                         	 Backbone Vlan id 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: pbb_pcp
                                         
                                         	 pcp 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: pbb_dei
                                         
                                         	 dei 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: mpls1_label
                                         
                                         	 label 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: mpls1_exp
                                         
                                         	 exp 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: mpls1_bos
                                         
                                         	 botton of stack 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: mpls2_label
                                         
                                         	 label 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: mpls2_exp
                                         
                                         	 exp 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: mpls2_bos
                                         
                                         	 botton of stack 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: plain_bits
                                         
                                         	Plain bits to compare. Max values\:               untagged pkt \- 40 bits after EthType             1 VLAN tag \- 24 bits after parsed EthType        2 VLAN tags\- 8 bits after parsed EthType         1 MPLS tag \- 32 bits after 1st tag               2 MPLS tags\- 8 bits following after 2nd          or atmost 5th MPLS tag                           PBB \- 16 bits after C\-SA                         PBB with VLAN tag \- 16 bits of VLAN tag 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -4545,52 +4551,52 @@ class MacsecPlatform(Entity):
                                         .. attribute:: plain_bits_size
                                         
                                         	No. of bits used in plainBits
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: force_ctrl
                                         
                                         	Force the pkt as control pkt irrepective         of the results of control packet detector
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: drop
                                         
                                         	Drop the packet
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: mask_da
                                         
                                         	DA mask
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: mask_ethertype
                                         
                                         	Parsed EtherType mask
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: mask_plain_bits
                                         
                                         	Plain Bits mask
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: flow_hits
                                         
                                         	Pkts matching the Flow
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: macda
                                         
                                         	MAC DA
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -4701,205 +4707,205 @@ class MacsecPlatform(Entity):
                                         .. attribute:: flow_no
                                         
                                         	Flow Number
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: is_flow_enabled
                                         
                                         	Is Flow Enabled
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: ethertype
                                         
                                         	Parsed EtherType to match could be 0 if Ethertype should'nt                              be matched can be 0x88E5 for MACSec tag
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: outer_vlan_id
                                         
                                         	 VLAN ID for outer tag use this when             only one tag should be matched
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: outer_vlan_user_pri
                                         
                                         	VLAN User Priority for outer tag  use            this when only one tag should be matched
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: inner_vlan_id
                                         
                                         	VLAN ID for inner tag used when two              VLAN Tags should be matched
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: inner_vlan_user_pri
                                         
                                         	 VLAN User priority for inner tag use            when matching two VLAN tags
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: psci
                                         
                                         	 SCI to be matched value required for            ingress only, pass NULL for egress
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: match_priority
                                         
                                         	priority for match 0\-15(highest) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_v
                                         
                                         	value of 'v' in TCI to match (1bit) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_e_xr
                                         
                                         	value of 'es' in TCI to match (1bit) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_sc
                                         
                                         	value of 'sc' in TCI to match (1bit) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_scb
                                         
                                         	value of 'scb' in TCI to match (1bit) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci
                                         
                                         	value of 'e' in TCI to match (1bit )
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_c
                                         
                                         	value of 'c' in TCI to match (1bit) 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: tci_chk
                                         
                                         	TCI bits will be checked only when this          bit is enabled. All the values of TCI bits       are mandatory when TCI check is used
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: pkt_type
                                         
                                         	Type of packet. See ethMscCfyEPktType\_e
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: tag_num
                                         
                                         	No. of MPLS or VLAN tags See ethMscCfyETagNum\_e 
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: inner_vlan_dei
                                         
                                         	Dei to match for innner Vlan tag
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: outer_vlan_dei
                                         
                                         	Dei to match for outer Vlan tag
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: pbb_sid
                                         
                                         	 Service Instance id 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: pbb_bvid
                                         
                                         	 Backbone Vlan id 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: pbb_pcp
                                         
                                         	 pcp 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: pbb_dei
                                         
                                         	 dei 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: mpls1_label
                                         
                                         	 label 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: mpls1_exp
                                         
                                         	 exp 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: mpls1_bos
                                         
                                         	 botton of stack 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: mpls2_label
                                         
                                         	 label 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: mpls2_exp
                                         
                                         	 exp 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: mpls2_bos
                                         
                                         	 botton of stack 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: plain_bits
                                         
                                         	Plain bits to compare. Max values\:               untagged pkt \- 40 bits after EthType             1 VLAN tag \- 24 bits after parsed EthType        2 VLAN tags\- 8 bits after parsed EthType         1 MPLS tag \- 32 bits after 1st tag               2 MPLS tags\- 8 bits following after 2nd          or atmost 5th MPLS tag                           PBB \- 16 bits after C\-SA                         PBB with VLAN tag \- 16 bits of VLAN tag 
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -4908,52 +4914,52 @@ class MacsecPlatform(Entity):
                                         .. attribute:: plain_bits_size
                                         
                                         	No. of bits used in plainBits
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: force_ctrl
                                         
                                         	Force the pkt as control pkt irrepective         of the results of control packet detector
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: drop
                                         
                                         	Drop the packet
-                                        	**type**\:  bool
+                                        	**type**\: bool
                                         
                                         .. attribute:: mask_da
                                         
                                         	DA mask
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: mask_ethertype
                                         
                                         	Parsed EtherType mask
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: mask_plain_bits
                                         
                                         	Plain Bits mask
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: flow_hits
                                         
                                         	Pkts matching the Flow
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: macda
                                         
                                         	MAC DA
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -5064,7 +5070,7 @@ class MacsecPlatform(Entity):
                         .. attribute:: ext
                         
                         	ext
-                        	**type**\:   :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext>`
+                        	**type**\:  :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext>`
                         
                         
 
@@ -5097,22 +5103,22 @@ class MacsecPlatform(Entity):
                             .. attribute:: msfpga_stats
                             
                             	MSFPGA Stats
-                            	**type**\:   :py:class:`MsfpgaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats>`
+                            	**type**\:  :py:class:`MsfpgaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats>`
                             
                             .. attribute:: xlfpga_stats
                             
                             	XLFPGA Stats
-                            	**type**\:   :py:class:`XlfpgaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats>`
+                            	**type**\:  :py:class:`XlfpgaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats>`
                             
                             .. attribute:: es200_stats
                             
                             	ES200 Stats
-                            	**type**\:   :py:class:`Es200Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats>`
+                            	**type**\:  :py:class:`Es200Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats>`
                             
                             .. attribute:: type
                             
                             	type
-                            	**type**\:   :py:class:`MacsecCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecCard>`
+                            	**type**\:  :py:class:`MacsecCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecCard>`
                             
                             
 
@@ -5160,22 +5166,22 @@ class MacsecPlatform(Entity):
                                 .. attribute:: tx_sa_stats
                                 
                                 	Tx SA Stats
-                                	**type**\:   :py:class:`TxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxSaStats>`
+                                	**type**\:  :py:class:`TxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxSaStats>`
                                 
                                 .. attribute:: rx_sa_stats
                                 
                                 	Rx SA Stats
-                                	**type**\:   :py:class:`RxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxSaStats>`
+                                	**type**\:  :py:class:`RxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxSaStats>`
                                 
                                 .. attribute:: tx_interface_macsec_stats
                                 
                                 	Tx interface Macsec Stats
-                                	**type**\:   :py:class:`TxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats>`
+                                	**type**\:  :py:class:`TxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats>`
                                 
                                 .. attribute:: rx_interface_macsec_stats
                                 
                                 	Rx interface Macsec Stats
-                                	**type**\:   :py:class:`RxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats>`
+                                	**type**\:  :py:class:`RxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats>`
                                 
                                 
 
@@ -5223,28 +5229,28 @@ class MacsecPlatform(Entity):
                                     .. attribute:: out_pkts_protected
                                     
                                     	Tx Pkts Protected
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_pkts_encrypted
                                     
                                     	Tx Pkts Encrypted
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_octets_protected
                                     
                                     	Tx Octets Protected
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_octets_encrypted
                                     
                                     	Tx Octets Encrypted
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -5285,70 +5291,70 @@ class MacsecPlatform(Entity):
                                     .. attribute:: in_pkts_unused_sa
                                     
                                     	Rx Pkts Unused SA
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_not_using_sa
                                     
                                     	Rx Pkts Not Using SA
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_not_valid
                                     
                                     	Rx Pkts Not Valid
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_invalid
                                     
                                     	Rx Pkts Invalid
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_ok
                                     
                                     	Rx Pkts OK
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_delayed
                                     
                                     	Rx Pkts Delayed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_late
                                     
                                     	Rx Pkts Late
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_unchecked
                                     
                                     	Rx Pkts Unchecked
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_octets_validated
                                     
                                     	Rx Octets Validated
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_octets_decrypted
                                     
                                     	Rx Octets Decrypted
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -5401,21 +5407,21 @@ class MacsecPlatform(Entity):
                                     .. attribute:: out_pkt_uncontrolled
                                     
                                     	Tx Pkts Uncontrolled
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_pkt_untagged
                                     
                                     	Tx Pkts Untagged
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_pkt_too_long
                                     
                                     	Tx Pkts Too Long
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -5454,56 +5460,56 @@ class MacsecPlatform(Entity):
                                     .. attribute:: in_pkt_untagged
                                     
                                     	Rx Pkts Untagged
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_notag
                                     
                                     	Rx Pkts Notag
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_bad_tag
                                     
                                     	Rx Pkts Bad tag
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_no_sci
                                     
                                     	Rx Pkts No Sci
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_unknown_sci
                                     
                                     	Rx Pkts Unknown Sci
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_tagged
                                     
                                     	Rx Pkts Tagged
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_overrun
                                     
                                     	Rx Pkts Over Run
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_uncontrolled
                                     
                                     	Rx Pkts Uncontrolled
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -5552,12 +5558,12 @@ class MacsecPlatform(Entity):
                                 .. attribute:: macsec_tx_stats
                                 
                                 	Tx SC and SA Level Stats
-                                	**type**\:   :py:class:`MacsecTxStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecTxStats>`
+                                	**type**\:  :py:class:`MacsecTxStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecTxStats>`
                                 
                                 .. attribute:: macsec_rx_stats
                                 
                                 	Rx SC and SA Level Stats
-                                	**type**\:   :py:class:`MacsecRxStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats>`
+                                	**type**\:  :py:class:`MacsecRxStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats>`
                                 
                                 
 
@@ -5595,70 +5601,70 @@ class MacsecPlatform(Entity):
                                     .. attribute:: sc_encrypted_octets
                                     
                                     	Tx Octets Encrypted
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_toolong_pkts
                                     
                                     	Tx Pkts Too Long
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_encrypted_pkts
                                     
                                     	Tx packets Encrypted
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_untagged_pkts
                                     
                                     	Tx Untagged Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_overrun_pkts
                                     
                                     	Tx Overrun Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_bypass_pkts
                                     
                                     	Tx Bypass Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_eapol_pkts
                                     
                                     	Tx Eapol Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_dropped_pkts
                                     
                                     	Tx Dropped Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: current_an
                                     
                                     	Current Tx AN
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sa_encrypted_pkts
                                     
                                     	Current Tx SA Encrypted Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -5711,133 +5717,133 @@ class MacsecPlatform(Entity):
                                     .. attribute:: sc_decrypted_octets
                                     
                                     	Rx Octets Decrypted
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_no_tag_pkts
                                     
                                     	Rx No Tag Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_untagged_pkts
                                     
                                     	Rx Untagged Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_bad_tag_pkts
                                     
                                     	Rx Bad Tag Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_late_pkts
                                     
                                     	Rx Late Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_delayed_pkts
                                     
                                     	Rx Delayed Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_unchecked_pkts
                                     
                                     	Rx Unchecked Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_no_sci_pkts
                                     
                                     	Rx No SCI Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_unknown_sci_pkts
                                     
                                     	Rx Unknown SCI Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_ok_pkts
                                     
                                     	Rx Pkts Ok
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_not_using_pkts
                                     
                                     	Rx Pkts Not Using SA
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_unused_pkts
                                     
                                     	Rx Pkts Unused SA
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_not_valid_pkts
                                     
                                     	Rx Not Valid Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_invalid_pkts
                                     
                                     	Rx Pkts Invalid
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_overrun_pkts
                                     
                                     	Rx Overrun Pkts
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_bypass_pkts
                                     
                                     	Rx Bypass Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_eapol_pkts
                                     
                                     	Rx Eapol Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: sc_dropped_pkts
                                     
                                     	Rx Dropped Packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: rx_sa_stat
                                     
                                     	Rx SA Level Stats
-                                    	**type**\: list of    :py:class:`RxSaStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat>`
+                                    	**type**\: list of  		 :py:class:`RxSaStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat>`
                                     
                                     
 
@@ -5906,42 +5912,42 @@ class MacsecPlatform(Entity):
                                         .. attribute:: an
                                         
                                         	Current Rx AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: sa_ok_pkts
                                         
                                         	Rx Ok Pkts for Current AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: sa_not_using_pkts
                                         
                                         	Rx Pkts not using SA for Current AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: sa_unused_pkts
                                         
                                         	Rx Pkts Unused Pkts for Current AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: sa_not_valid_pkts
                                         
                                         	Rx Not Valid Pkts for Current AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: sa_invalid_pkts
                                         
                                         	Rx Invalid Pkts for current AN
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -5986,42 +5992,42 @@ class MacsecPlatform(Entity):
                                 .. attribute:: tx_sa_stats
                                 
                                 	Tx SA Stats
-                                	**type**\:   :py:class:`TxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxSaStats>`
+                                	**type**\:  :py:class:`TxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxSaStats>`
                                 
                                 .. attribute:: rx_sa_stats
                                 
                                 	Rx SA Stats
-                                	**type**\:   :py:class:`RxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxSaStats>`
+                                	**type**\:  :py:class:`RxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxSaStats>`
                                 
                                 .. attribute:: tx_sc_macsec_stats
                                 
                                 	Tx SC Macsec Stats
-                                	**type**\:   :py:class:`TxScMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxScMacsecStats>`
+                                	**type**\:  :py:class:`TxScMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxScMacsecStats>`
                                 
                                 .. attribute:: rx_sc_macsec_stats
                                 
                                 	Rx SC Macsec Stats
-                                	**type**\:   :py:class:`RxScMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxScMacsecStats>`
+                                	**type**\:  :py:class:`RxScMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxScMacsecStats>`
                                 
                                 .. attribute:: tx_interface_macsec_stats
                                 
                                 	Tx interface Macsec Stats
-                                	**type**\:   :py:class:`TxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats>`
+                                	**type**\:  :py:class:`TxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats>`
                                 
                                 .. attribute:: rx_interface_macsec_stats
                                 
                                 	Rx interface Macsec Stats
-                                	**type**\:   :py:class:`RxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats>`
+                                	**type**\:  :py:class:`RxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats>`
                                 
                                 .. attribute:: tx_port_stats
                                 
                                 	Port level TX Stats
-                                	**type**\:   :py:class:`TxPortStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxPortStats>`
+                                	**type**\:  :py:class:`TxPortStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxPortStats>`
                                 
                                 .. attribute:: rx_port_stats
                                 
                                 	Port level RX Stats
-                                	**type**\:   :py:class:`RxPortStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxPortStats>`
+                                	**type**\:  :py:class:`RxPortStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxPortStats>`
                                 
                                 
 
@@ -6089,21 +6095,21 @@ class MacsecPlatform(Entity):
                                     .. attribute:: out_pkts_too_long
                                     
                                     	packets exceeding egress MTU
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_pkts_encrypted_protected
                                     
                                     	packets encrypted/protected
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_octets_encrypted_protected1
                                     
                                     	octets1 encrypted/protected ?
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -6142,70 +6148,70 @@ class MacsecPlatform(Entity):
                                     .. attribute:: in_pkts_unchecked
                                     
                                     	frame not valid & validateFrames disabled
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_delayed
                                     
                                     	PN of packet outside replay window & validateFrames !strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_late
                                     
                                     	PN of packet outside replay window & validateFrames strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_ok
                                     
                                     	packets with no error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_invalid
                                     
                                     	packet not valid & validateFrames !strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_not_valid
                                     
                                     	packet not valid & validateFrames strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_not_using_sa
                                     
                                     	packet assigned to SA not in use & validateFrames strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_unused_sa
                                     
                                     	packet assigned to SA not in use & validateFrames !strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_octets_decrypted_validated1
                                     
                                     	octets1 decrypted/validated
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_octets_validated
                                     
                                     	octets validated
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -6258,7 +6264,7 @@ class MacsecPlatform(Entity):
                                     .. attribute:: out_pkts_sa_not_in_use
                                     
                                     	Packets received with SA not in use
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -6293,7 +6299,7 @@ class MacsecPlatform(Entity):
                                     .. attribute:: in_pkts_sa_not_in_use
                                     
                                     	Packets received with SA not in use
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -6328,126 +6334,126 @@ class MacsecPlatform(Entity):
                                     .. attribute:: transform_error_pkts
                                     
                                     	counter to count internal errors in the MACSec core
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_pkt_ctrl
                                     
                                     	egress packet that is classified as control packet
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_pkts_untagged
                                     
                                     	egress packet to go out untagged when protectFrames not set
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_octets_unctrl
                                     
                                     	Octets tx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_octets_ctrl
                                     
                                     	Octets tx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_octets_common
                                     
                                     	Octets tx on common port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_ucast_pkts_unctrl
                                     
                                     	Unicast pkts tx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_ucast_pkts_ctrl
                                     
                                     	Unicast pkts tx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_mcast_pkts_unctrl
                                     
                                     	Multicast pkts tx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_mcast_pkts_ctrl
                                     
                                     	Multicast pkts tx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_bcast_pkts_unctrl
                                     
                                     	Broadcast pkts tx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_bcast_pkts_ctrl
                                     
                                     	Broadcast pkts tx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_rx_drop_pkts_unctrl
                                     
                                     	Control pkts dropped due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_rx_drop_pkts_ctrl
                                     
                                     	Data pkts dropped due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_rx_err_pkts_unctrl
                                     
                                     	Control pkts error\-terminated due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_rx_err_pkts_ctrl
                                     
                                     	Data pkts error\-terminated due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_drop_pkts_class
                                     
                                     	Packets dropped due to overflow in classification pipeline
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: out_drop_pkts_data
                                     
                                     	Packets dropped due to overflow in  processing pipeline
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -6516,154 +6522,154 @@ class MacsecPlatform(Entity):
                                     .. attribute:: transform_error_pkts
                                     
                                     	counter to count internal errors in the MACSec core
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_ctrl
                                     
                                     	ingress packet that is classified as control packet
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_no_tag
                                     
                                     	ingress packet untagged & validateFrames is strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_untagged
                                     
                                     	ingress packet untagged & validateFrames is  !strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_bad_tag
                                     
                                     	ingress frames received with an invalid MACSec tag or ICV                                       added with next one gives InPktsSCIMiss
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkt_no_sci
                                     
                                     	correctly tagged ingress frames for which no valid SC found &                                 validateFrames is strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_unknown_sci
                                     
                                     	correctly tagged ingress frames for which no valid SC found &                                 validateFrames is !strict
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_pkts_tagged_ctrl
                                     
                                     	ingress packets that are control or KaY packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_octets_unctrl
                                     
                                     	Octets rx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_octets_ctrl
                                     
                                     	Octets rx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_ucast_pkts_unctrl
                                     
                                     	Unicast pkts rx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_ucast_pkts_ctrl
                                     
                                     	Unicast pkts rx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_mcast_pkts_unctrl
                                     
                                     	Multicast pkts rx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_mcast_pkts_ctrl
                                     
                                     	Multicast pkts rx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_bcast_pkts_unctrl
                                     
                                     	Broadcast pkts rx on uncontrolled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_bcast_pkts_ctrl
                                     
                                     	Broadcast pkts rx on controlled port
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_rx_drop_pkts_unctrl
                                     
                                     	Control pkts dropped due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_rx_drop_pkts_ctrl
                                     
                                     	Data pkts dropped due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_rx_error_pkts_unctrl
                                     
                                     	Control pkts error\-terminated due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_rx_error_pkts_ctrl
                                     
                                     	Data pkts error\-terminated due to overrun
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_drop_pkts_class
                                     
                                     	Packets dropped due to overflow in classification pipeline
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: in_drop_pkts_data
                                     
                                     	Packets dropped due to overflow in processing pipeline
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -6740,49 +6746,49 @@ class MacsecPlatform(Entity):
                                     .. attribute:: multi_flow_match
                                     
                                     	Pkts matching multiple flow entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: parser_dropped
                                     
                                     	Pkts dropped by header parser as invalid
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: flow_miss
                                     
                                     	Pkts matching none of flow entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_ctrl
                                     
                                     	Control pkts forwarded
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_data
                                     
                                     	Data pkts forwarded
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_dropped
                                     
                                     	Pkts dropped by classifier
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_err_in
                                     
                                     	Pkts received with an error indication
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -6829,49 +6835,49 @@ class MacsecPlatform(Entity):
                                     .. attribute:: multi_flow_match
                                     
                                     	Pkts matching multiple flow entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: parser_dropped
                                     
                                     	Pkts dropped by header parser as invalid
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: flow_miss
                                     
                                     	Pkts matching none of flow entries
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_ctrl
                                     
                                     	Control pkts forwarded
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_data
                                     
                                     	Data pkts forwarded
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_dropped
                                     
                                     	Pkts dropped by classifier
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: pkts_err_in
                                     
                                     	Pkts received with an error indication
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     

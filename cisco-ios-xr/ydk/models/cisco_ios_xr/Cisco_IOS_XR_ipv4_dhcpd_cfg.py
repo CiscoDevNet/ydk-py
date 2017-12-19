@@ -564,56 +564,56 @@ class Ipv4Dhcpd(Entity):
     .. attribute:: vrfs
     
     	VRF Table
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Vrfs>`
     
     .. attribute:: profiles
     
     	DHCP IPV4 Profile Table
-    	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles>`
+    	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles>`
     
     .. attribute:: database
     
     	Enable DHCP binding database storage to file system
-    	**type**\:   :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Database>`
+    	**type**\:  :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Database>`
     
     .. attribute:: interfaces
     
     	DHCP IPV4 Interface Table
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces>`
     
     .. attribute:: duplicate_mac_allowed
     
     	Allow Duplicate MAC Address
-    	**type**\:   :py:class:`DuplicateMacAllowed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.DuplicateMacAllowed>`
+    	**type**\:  :py:class:`DuplicateMacAllowed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.DuplicateMacAllowed>`
     
     	**presence node**\: True
     
     .. attribute:: rate_limit
     
     	Rate limit ingress packets
-    	**type**\:   :py:class:`RateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.RateLimit>`
+    	**type**\:  :py:class:`RateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.RateLimit>`
     
     .. attribute:: enable
     
     	DHCP IPV4 configuration
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: outer_cos
     
     	Configure outer cos values for dhcp packets
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..7
     
     .. attribute:: allow_client_id_change
     
     	For BNG session, allow client id change for a client MAC
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: inner_cos
     
     	Configure inner cos values for dhcp packets
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 0..7
     
@@ -684,7 +684,7 @@ class Ipv4Dhcpd(Entity):
         .. attribute:: vrf
         
         	VRF table
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Vrfs.Vrf>`
         
         
 
@@ -718,12 +718,14 @@ class Ipv4Dhcpd(Entity):
             .. attribute:: vrf_name  <key>
             
             	VRF Name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: profile
             
             	Profile name and mode
-            	**type**\:   :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Vrfs.Vrf.Profile>`
+            	**type**\:  :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Vrfs.Vrf.Profile>`
             
             	**presence node**\: True
             
@@ -763,14 +765,14 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: vrf_profile_name
                 
                 	Profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
                 .. attribute:: mode
                 
                 	Dhcp mode
-                	**type**\:   :py:class:`Ipv4dhcpdMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdMode>`
+                	**type**\:  :py:class:`Ipv4dhcpdMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdMode>`
                 
                 	**mandatory**\: True
                 
@@ -810,7 +812,7 @@ class Ipv4Dhcpd(Entity):
         .. attribute:: profile
         
         	DHCP IPV4 Profile
-        	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile>`
+        	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile>`
         
         
 
@@ -844,12 +846,14 @@ class Ipv4Dhcpd(Entity):
             .. attribute:: profile_name  <key>
             
             	Profile Name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: modes
             
             	DHCP IPV4 Profile modes
-            	**type**\:   :py:class:`Modes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes>`
+            	**type**\:  :py:class:`Modes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes>`
             
             
 
@@ -888,7 +892,7 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: mode
                 
                 	DHCP IPV4 Profile mode
-                	**type**\: list of    :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode>`
+                	**type**\: list of  		 :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode>`
                 
                 
 
@@ -921,37 +925,37 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: mode  <key>
                     
                     	DHCP IPV4 Profile mode
-                    	**type**\:   :py:class:`Ipv4dhcpdMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdMode>`
+                    	**type**\:  :py:class:`Ipv4dhcpdMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdMode>`
                     
                     .. attribute:: snoop
                     
                     	DHCP Snoop profile
-                    	**type**\:   :py:class:`Snoop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop>`
+                    	**type**\:  :py:class:`Snoop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop>`
                     
                     .. attribute:: base
                     
                     	DHCP Base Profile
-                    	**type**\:   :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base>`
+                    	**type**\:  :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base>`
                     
                     .. attribute:: server
                     
                     	DHCP Server profile
-                    	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server>`
+                    	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server>`
                     
                     .. attribute:: relay
                     
                     	DHCP Relay profile
-                    	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay>`
+                    	**type**\:  :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay>`
                     
                     .. attribute:: proxy
                     
                     	DHCP proxy profile
-                    	**type**\:   :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy>`
+                    	**type**\:  :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy>`
                     
                     .. attribute:: enable
                     
                     	Enable the DHCP IPV4 Profile mode
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -1011,12 +1015,12 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: relay_information_option
                         
                         	DHCP Snoop profile
-                        	**type**\:   :py:class:`RelayInformationOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption>`
+                        	**type**\:  :py:class:`RelayInformationOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption>`
                         
                         .. attribute:: trusted
                         
                         	Trusted sources
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -1054,22 +1058,22 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: remote_id
                             
                             	Enter remote\-id value
-                            	**type**\:   :py:class:`RemoteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption.RemoteId>`
+                            	**type**\:  :py:class:`RemoteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption.RemoteId>`
                             
                             .. attribute:: insert
                             
                             	Insert Relay Agent Information circuit ID and remote ID suboptions in client request
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: allow_untrusted
                             
                             	Forward untrusted packets
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: policy
                             
                             	Relay information option policy
-                            	**type**\:   :py:class:`Ipv4dhcpdRelayInfoOptionPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdRelayInfoOptionPolicy>`
+                            	**type**\:  :py:class:`Ipv4dhcpdRelayInfoOptionPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdRelayInfoOptionPolicy>`
                             
                             
 
@@ -1111,14 +1115,14 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: format_type
                                 
                                 	Format type, 1. Hex 2. ASCII
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..2
                                 
                                 .. attribute:: remote_id_value
                                 
                                 	Enter remote\-id value
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -1153,27 +1157,27 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: default_profile
                         
                         	Enable the default profile
-                        	**type**\:   :py:class:`DefaultProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DefaultProfile>`
+                        	**type**\:  :py:class:`DefaultProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DefaultProfile>`
                         
                         .. attribute:: match
                         
                         	Insert match keyword
-                        	**type**\:   :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match>`
+                        	**type**\:  :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match>`
                         
                         .. attribute:: base_relay_opt
                         
                         	Insert Relay Agent Information circuit ID and remote ID suboptions in client request
-                        	**type**\:   :py:class:`BaseRelayOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseRelayOpt>`
+                        	**type**\:  :py:class:`BaseRelayOpt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseRelayOpt>`
                         
                         .. attribute:: base_match
                         
                         	Insert match keyword
-                        	**type**\:   :py:class:`BaseMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch>`
+                        	**type**\:  :py:class:`BaseMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch>`
                         
                         .. attribute:: enable
                         
                         	Enable the DHCP IPv4 Base Profile
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -1226,14 +1230,14 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: profile_name
                             
                             	Profile name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..64
                             
                             .. attribute:: profile_mode
                             
                             	none
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -1270,12 +1274,12 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: option_filters
                             
                             	Table of Option
-                            	**type**\:   :py:class:`OptionFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters>`
+                            	**type**\:  :py:class:`OptionFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters>`
                             
                             .. attribute:: def_options
                             
                             	Table of Option
-                            	**type**\:   :py:class:`DefOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions>`
+                            	**type**\:  :py:class:`DefOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions>`
                             
                             
 
@@ -1313,7 +1317,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: option_filter
                                 
                                 	Specify match option
-                                	**type**\: list of    :py:class:`OptionFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters.OptionFilter>`
+                                	**type**\: list of  		 :py:class:`OptionFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters.OptionFilter>`
                                 
                                 
 
@@ -1346,28 +1350,28 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: matchoption  <key>
                                     
                                     	Match option 60
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: pattern  <key>
                                     
                                     	Enter hex pattern string
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: format  <key>
                                     
                                     	Set constant integer
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: option_action
                                     
                                     	Vendor action
-                                    	**type**\:   :py:class:`BaseAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.BaseAction>`
+                                    	**type**\:  :py:class:`BaseAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.BaseAction>`
                                     
                                     
 
@@ -1406,7 +1410,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: def_option
                                 
                                 	Specify match option
-                                	**type**\: list of    :py:class:`DefOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions.DefOption>`
+                                	**type**\: list of  		 :py:class:`DefOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions.DefOption>`
                                 
                                 
 
@@ -1439,14 +1443,14 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: def_matchoption  <key>
                                     
                                     	Match option 60
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: def_matchaction
                                     
                                     	Vendor action
-                                    	**type**\:   :py:class:`BaseAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.BaseAction>`
+                                    	**type**\:  :py:class:`BaseAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.BaseAction>`
                                     
                                     	**mandatory**\: True
                                     
@@ -1484,14 +1488,14 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: remote_id
                             
                             	Enter remote\-id value
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..256
                             
                             .. attribute:: authenticate
                             
                             	Specify Relay Agent Information Option authenticate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -1528,7 +1532,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: options
                             
                             	Specify match option
-                            	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options>`
+                            	**type**\:  :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options>`
                             
                             
 
@@ -1561,7 +1565,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: option
                                 
                                 	none
-                                	**type**\: list of    :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option>`
+                                	**type**\: list of  		 :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option>`
                                 
                                 
 
@@ -1594,26 +1598,28 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: opt60  <key>
                                     
                                     	none
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: opt60_hex_str  <key>
                                     
                                     	Enter hex pattern string
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: format  <key>
                                     
                                     	Set constant integer
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: option_profile
                                     
                                     	Enter a profile
-                                    	**type**\:   :py:class:`OptionProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option.OptionProfile>`
+                                    	**type**\:  :py:class:`OptionProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option.OptionProfile>`
                                     
                                     
 
@@ -1655,14 +1661,14 @@ class Ipv4Dhcpd(Entity):
                                         .. attribute:: profile_name
                                         
                                         	Profile name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 1..64
                                         
                                         .. attribute:: profile_mode
                                         
                                         	none
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -1699,123 +1705,127 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: server_id_check
                         
                         	Validate server ID check
-                        	**type**\:   :py:class:`ServerIdCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.ServerIdCheck>`
+                        	**type**\:  :py:class:`ServerIdCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.ServerIdCheck>`
                         
                         .. attribute:: lease_limit
                         
                         	Specify limit lease
-                        	**type**\:   :py:class:`LeaseLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.LeaseLimit>`
+                        	**type**\:  :py:class:`LeaseLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.LeaseLimit>`
                         
                         .. attribute:: requested_ip_address
                         
                         	Validate Requested IP Address
-                        	**type**\:   :py:class:`RequestedIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.RequestedIpAddress>`
+                        	**type**\:  :py:class:`RequestedIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.RequestedIpAddress>`
                         
                         .. attribute:: aaa_server
                         
                         	Enable aaa dhcp option force\-insert
-                        	**type**\:   :py:class:`AaaServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer>`
+                        	**type**\:  :py:class:`AaaServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer>`
                         
                         .. attribute:: default_routers
                         
                         	default routers
-                        	**type**\:   :py:class:`DefaultRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters>`
+                        	**type**\:  :py:class:`DefaultRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters>`
                         
                         .. attribute:: net_bios_name_servers
                         
                         	NetBIOS name servers
-                        	**type**\:   :py:class:`NetBiosNameServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetBiosNameServers>`
+                        	**type**\:  :py:class:`NetBiosNameServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetBiosNameServers>`
                         
                         .. attribute:: match
                         
                         	Insert match keyword
-                        	**type**\:   :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match>`
+                        	**type**\:  :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match>`
                         
                         .. attribute:: broadcast_flag
                         
                         	None
-                        	**type**\:   :py:class:`BroadcastFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.BroadcastFlag>`
+                        	**type**\:  :py:class:`BroadcastFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.BroadcastFlag>`
                         
                         .. attribute:: session
                         
                         	Change sessions configuration
-                        	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session>`
+                        	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session>`
                         
                         .. attribute:: classes
                         
                         	Table of Class
-                        	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes>`
+                        	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes>`
                         
                         .. attribute:: relay
                         
                         	Specify Relay Agent Information Option configuration
-                        	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Relay>`
+                        	**type**\:  :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Relay>`
                         
                         .. attribute:: lease
                         
                         	lease
-                        	**type**\:   :py:class:`Lease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Lease>`
+                        	**type**\:  :py:class:`Lease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Lease>`
                         
                         .. attribute:: netbios_node_type
                         
                         	NetBIOS node type
-                        	**type**\:   :py:class:`NetbiosNodeType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetbiosNodeType>`
+                        	**type**\:  :py:class:`NetbiosNodeType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetbiosNodeType>`
                         
                         .. attribute:: dns_servers
                         
                         	DNS servers
-                        	**type**\:   :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DnsServers>`
+                        	**type**\:  :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DnsServers>`
                         
                         .. attribute:: server_allow_move
                         
                         	Allow dhcp subscriber move
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: subnet_mask
                         
                         	Configure Subnet Mask
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: pool
                         
                         	Specify the Pool name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: infinite_lease
                         
                         	Infinite lease
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: domain_name
                         
                         	Domain name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..256
                         
                         .. attribute:: secure_arp
                         
                         	Enable Secure Arp
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: boot_filename
                         
                         	Boot Filename
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..128
                         
                         .. attribute:: next_server
                         
                         	Configure the tftp\-server IP to be used by the client
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: option_codes
                         
                         	Table of OptionCode
-                        	**type**\:   :py:class:`OptionCodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes>`
+                        	**type**\:  :py:class:`OptionCodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes>`
                         
                         
 
@@ -1937,7 +1947,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: check
                             
                             	specify server\-id\-check disable
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -1970,12 +1980,12 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: lease_limit_value
                             
                             	Configure Lease limit value
-                            	**type**\:   :py:class:`LeaseLimitValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.LeaseLimitValue>`
+                            	**type**\:  :py:class:`LeaseLimitValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.LeaseLimitValue>`
                             
                             .. attribute:: range
                             
                             	Value of limit lease count in Decimal
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..240000
                             
@@ -2012,7 +2022,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: check
                             
                             	specify requested\-ip\-address\-check disable
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -2045,7 +2055,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: dhcp_option
                             
                             	Enable aaa dhcp option force\-insert
-                            	**type**\:   :py:class:`DhcpOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer.DhcpOption>`
+                            	**type**\:  :py:class:`DhcpOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer.DhcpOption>`
                             
                             
 
@@ -2078,7 +2088,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: force_insert
                                 
                                 	Enable aaa dhcp option force\-insert
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -2111,7 +2121,9 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: default_router
                             
                             	Router's IP address
-                            	**type**\:  list of str
+                            	**type**\: list of str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -2144,7 +2156,9 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: net_bios_name_server
                             
                             	NetBIOSNameServer's IP address
-                            	**type**\:  list of str
+                            	**type**\: list of str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -2177,12 +2191,12 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: option_defaults
                             
                             	Table of OptionDefault
-                            	**type**\:   :py:class:`OptionDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults>`
+                            	**type**\:  :py:class:`OptionDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults>`
                             
                             .. attribute:: options
                             
                             	Table of Option
-                            	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options>`
+                            	**type**\:  :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options>`
                             
                             
 
@@ -2220,7 +2234,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: option_default
                                 
                                 	Specify match option
-                                	**type**\: list of    :py:class:`OptionDefault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults.OptionDefault>`
+                                	**type**\: list of  		 :py:class:`OptionDefault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults.OptionDefault>`
                                 
                                 
 
@@ -2253,12 +2267,12 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: matchoption  <key>
                                     
                                     	Match option 60
-                                    	**type**\:   :py:class:`Matchoption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchoption>`
+                                    	**type**\:  :py:class:`Matchoption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchoption>`
                                     
                                     .. attribute:: matchaction
                                     
                                     	Vendor action
-                                    	**type**\:   :py:class:`Matchaction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchaction>`
+                                    	**type**\:  :py:class:`Matchaction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchaction>`
                                     
                                     	**mandatory**\: True
                                     
@@ -2295,7 +2309,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: option
                                 
                                 	Specify match option
-                                	**type**\: list of    :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options.Option>`
+                                	**type**\: list of  		 :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options.Option>`
                                 
                                 
 
@@ -2328,26 +2342,26 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: matchoption  <key>
                                     
                                     	Match option 60
-                                    	**type**\:   :py:class:`Matchoption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchoption>`
+                                    	**type**\:  :py:class:`Matchoption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchoption>`
                                     
                                     .. attribute:: pattern  <key>
                                     
                                     	Enter hex pattern string
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: format  <key>
                                     
                                     	Set constant integer
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: matchaction
                                     
                                     	Vendor action
-                                    	**type**\:   :py:class:`Matchaction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchaction>`
+                                    	**type**\:  :py:class:`Matchaction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchaction>`
                                     
                                     	**mandatory**\: True
                                     
@@ -2388,7 +2402,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: policy
                             
                             	Specify broadcast flag policy
-                            	**type**\:   :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Policy>`
+                            	**type**\:  :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Policy>`
                             
                             
 
@@ -2421,7 +2435,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: throttle_type
                             
                             	Throttle DHCP sessions based on MAC address
-                            	**type**\:   :py:class:`ThrottleType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType>`
+                            	**type**\:  :py:class:`ThrottleType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType>`
                             
                             
 
@@ -2455,7 +2469,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: mac_throttle
                                 
                                 	Throttle DHCP sessions from any one MAC address
-                                	**type**\:   :py:class:`MacThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType.MacThrottle>`
+                                	**type**\:  :py:class:`MacThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType.MacThrottle>`
                                 
                                 
 
@@ -2489,14 +2503,14 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: num_discover
                                     
                                     	Number of discovers at which to throttle
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..65535
                                     
                                     .. attribute:: num_request
                                     
                                     	Throttle request period (in secs)
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..100
                                     
@@ -2505,7 +2519,7 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: num_block
                                     
                                     	Throttle blocking period (in secs)
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..100
                                     
@@ -2546,7 +2560,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: class_
                             
                             	Create or enter server profile class
-                            	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_>`
+                            	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_>`
                             
                             
 
@@ -2579,83 +2593,87 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: class_name  <key>
                                 
                                 	class name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..128
                                 
                                 .. attribute:: default_routers
                                 
                                 	default routers
-                                	**type**\:   :py:class:`DefaultRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DefaultRouters>`
+                                	**type**\:  :py:class:`DefaultRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DefaultRouters>`
                                 
                                 .. attribute:: net_bios_name_servers
                                 
                                 	NetBIOS name servers
-                                	**type**\:   :py:class:`NetBiosNameServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetBiosNameServers>`
+                                	**type**\:  :py:class:`NetBiosNameServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetBiosNameServers>`
                                 
                                 .. attribute:: class_match
                                 
                                 	Insert match keyword
-                                	**type**\:   :py:class:`ClassMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch>`
+                                	**type**\:  :py:class:`ClassMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch>`
                                 
                                 .. attribute:: lease
                                 
                                 	lease
-                                	**type**\:   :py:class:`Lease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.Lease>`
+                                	**type**\:  :py:class:`Lease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.Lease>`
                                 
                                 .. attribute:: netbios_node_type
                                 
                                 	NetBIOS node type
-                                	**type**\:   :py:class:`NetbiosNodeType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetbiosNodeType>`
+                                	**type**\:  :py:class:`NetbiosNodeType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetbiosNodeType>`
                                 
                                 .. attribute:: dns_servers
                                 
                                 	DNS servers
-                                	**type**\:   :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DnsServers>`
+                                	**type**\:  :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DnsServers>`
                                 
                                 .. attribute:: subnet_mask
                                 
                                 	Configure Subnet Mask
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: pool
                                 
                                 	Specify the pool
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: enable
                                 
                                 	Enable Create or enter server profile class. Deletion of this object also causes deletion of all associated objects under Class
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: infinite_lease
                                 
                                 	Infinite lease
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: domain_name
                                 
                                 	Domain name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..256
                                 
                                 .. attribute:: boot_filename
                                 
                                 	Boot Filename
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 1..128
                                 
                                 .. attribute:: next_server
                                 
                                 	Configure the tftp\-server IP to be used by the client
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: option_codes
                                 
                                 	Table of OptionCode
-                                	**type**\:   :py:class:`OptionCodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes>`
+                                	**type**\:  :py:class:`OptionCodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes>`
                                 
                                 
 
@@ -2737,7 +2755,9 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: default_router
                                     
                                     	Router's IP address
-                                    	**type**\:  list of str
+                                    	**type**\: list of str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -2770,7 +2790,9 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: net_bios_name_server
                                     
                                     	NetBIOSNameServer's IP address
-                                    	**type**\:  list of str
+                                    	**type**\: list of str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -2803,17 +2825,19 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: class_options
                                     
                                     	Table of Class\-Option
-                                    	**type**\:   :py:class:`ClassOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions>`
+                                    	**type**\:  :py:class:`ClassOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions>`
                                     
                                     .. attribute:: l2_interface
                                     
                                     	Specify match l2\-interface
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                                     
                                     .. attribute:: vrf
                                     
                                     	Specify match VRF
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..32
                                     
@@ -2855,7 +2879,7 @@ class Ipv4Dhcpd(Entity):
                                         .. attribute:: class_option
                                         
                                         	Specify match option
-                                        	**type**\: list of    :py:class:`ClassOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions.ClassOption>`
+                                        	**type**\: list of  		 :py:class:`ClassOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions.ClassOption>`
                                         
                                         
 
@@ -2888,19 +2912,19 @@ class Ipv4Dhcpd(Entity):
                                             .. attribute:: matchoption  <key>
                                             
                                             	Match options
-                                            	**type**\:   :py:class:`Matchoption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchoption>`
+                                            	**type**\:  :py:class:`Matchoption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchoption>`
                                             
                                             .. attribute:: pattern
                                             
                                             	Enter hex pattern string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 1..64
                                             
                                             .. attribute:: bit_mask
                                             
                                             	Enter bit mask pattern string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 1..64
                                             
@@ -2939,12 +2963,12 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: infinite
                                     
                                     	Set string
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: days
                                     
                                     	Days
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..365
                                     
@@ -2953,7 +2977,7 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: hours
                                     
                                     	Hours
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..23
                                     
@@ -2962,7 +2986,7 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: minutes
                                     
                                     	Minutes
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..59
                                     
@@ -3005,27 +3029,29 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: broadcast_node
                                     
                                     	Set string
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: hybrid_node
                                     
                                     	Set string
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: mixed_node
                                     
                                     	Set string
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: peer_to_peer_node
                                     
                                     	Set string
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: hexadecimal
                                     
                                     	Hexadecimal number
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [0\-9a\-fA\-F]{1,8}
                                     
                                     
 
@@ -3066,7 +3092,9 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: dns_server
                                     
                                     	DNS Server's IP address
-                                    	**type**\:  list of str
+                                    	**type**\: list of str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -3099,7 +3127,7 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: option_code
                                     
                                     	DHCP option code
-                                    	**type**\: list of    :py:class:`OptionCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes.OptionCode>`
+                                    	**type**\: list of  		 :py:class:`OptionCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes.OptionCode>`
                                     
                                     
 
@@ -3132,31 +3160,33 @@ class Ipv4Dhcpd(Entity):
                                         .. attribute:: option_code  <key>
                                         
                                         	DHCP option code
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: ascii_string
                                         
                                         	ASCII string
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: hex_string
                                         
                                         	Hexadecimal string
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: force_insert
                                         
                                         	Set constant integer
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
                                         .. attribute:: ip_address
                                         
                                         	Server's IP address
-                                        	**type**\:  list of str
+                                        	**type**\: list of str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         
 
@@ -3198,7 +3228,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: authenticate
                             
                             	Specify Relay Agent Information Option authenticate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -3233,12 +3263,12 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: infinite
                             
                             	Set string
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: days
                             
                             	Days
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..365
                             
@@ -3247,7 +3277,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: hours
                             
                             	Hours
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..23
                             
@@ -3256,7 +3286,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: minutes
                             
                             	Minutes
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..59
                             
@@ -3299,27 +3329,29 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: broadcast_node
                             
                             	Set string
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: hybrid_node
                             
                             	Set string
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: mixed_node
                             
                             	Set string
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: peer_to_peer_node
                             
                             	Set string
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: hexadecimal
                             
                             	Hexadecimal number
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
                             
 
@@ -3360,7 +3392,9 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: dns_server
                             
                             	DNS Server's IP address
-                            	**type**\:  list of str
+                            	**type**\: list of str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -3393,7 +3427,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: option_code
                             
                             	DHCP option code
-                            	**type**\: list of    :py:class:`OptionCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes.OptionCode>`
+                            	**type**\: list of  		 :py:class:`OptionCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes.OptionCode>`
                             
                             
 
@@ -3426,31 +3460,33 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: option_code  <key>
                                 
                                 	DHCP option code
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: ascii_string
                                 
                                 	ASCII string
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: hex_string
                                 
                                 	Hexadecimal string
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: force_insert
                                 
                                 	Set constant integer
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: ip_address
                                 
                                 	Server's IP address
-                                	**type**\:  list of str
+                                	**type**\: list of str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -3491,27 +3527,27 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: gi_addr_policy
                         
                         	GIADDR policy
-                        	**type**\:   :py:class:`GiAddrPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.GiAddrPolicy>`
+                        	**type**\:  :py:class:`GiAddrPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.GiAddrPolicy>`
                         
                         .. attribute:: vrfs
                         
                         	VRF Helper Addresses
-                        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs>`
+                        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs>`
                         
                         .. attribute:: relay_information_option
                         
                         	Relay agent information option
-                        	**type**\:   :py:class:`RelayInformationOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.RelayInformationOption>`
+                        	**type**\:  :py:class:`RelayInformationOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.RelayInformationOption>`
                         
                         .. attribute:: broadcast_policy
                         
                         	Broadcast Flag policy
-                        	**type**\:   :py:class:`BroadcastPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.BroadcastPolicy>`
+                        	**type**\:  :py:class:`BroadcastPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.BroadcastPolicy>`
                         
                         .. attribute:: mac_mismatch_action
                         
                         	Action to take if L2 header source Mac and dhcp header mac address don't match
-                        	**type**\:   :py:class:`MacMismatchAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.MacMismatchAction>`
+                        	**type**\:  :py:class:`MacMismatchAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.MacMismatchAction>`
                         
                         
 
@@ -3564,7 +3600,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: policy
                             
                             	GIADDR policy
-                            	**type**\:   :py:class:`Ipv4dhcpdGiaddrPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdGiaddrPolicy>`
+                            	**type**\:  :py:class:`Ipv4dhcpdGiaddrPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdGiaddrPolicy>`
                             
                             
 
@@ -3597,7 +3633,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: vrf
                             
                             	VRF Name
-                            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf>`
+                            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf>`
                             
                             
 
@@ -3630,12 +3666,14 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: vrf_name  <key>
                                 
                                 	VRF Name
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 .. attribute:: helper_addresses
                                 
                                 	Helper Addresses
-                                	**type**\:   :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses>`
+                                	**type**\:  :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses>`
                                 
                                 
 
@@ -3673,7 +3711,7 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: helper_address
                                     
                                     	Helper Address
-                                    	**type**\: list of    :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses.HelperAddress>`
+                                    	**type**\: list of  		 :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses.HelperAddress>`
                                     
                                     
 
@@ -3706,17 +3744,21 @@ class Ipv4Dhcpd(Entity):
                                         .. attribute:: ip_address  <key>
                                         
                                         	IPV4 Address
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: enable
                                         
                                         	Enable helper \- deprecated
-                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: gateway_address
                                         
                                         	GatewayAddress
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         
 
@@ -3753,37 +3795,37 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: vpn_mode
                             
                             	VPN Mode
-                            	**type**\:   :py:class:`Ipv4dhcpdRelayInfoOptionvpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdRelayInfoOptionvpnMode>`
+                            	**type**\:  :py:class:`Ipv4dhcpdRelayInfoOptionvpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdRelayInfoOptionvpnMode>`
                             
                             .. attribute:: subscriber_id
                             
                             	Subscriber ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: insert
                             
                             	Insert Relay Agent Information circuit ID and remote ID suboptions in client requests
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: check
                             
                             	Check Relay Agent Information Option in server reply
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: vpn
                             
                             	Insert VPN options
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: allow_untrusted
                             
                             	Forward untrusted packets
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: policy
                             
                             	Relay information option policy
-                            	**type**\:   :py:class:`Ipv4dhcpdRelayInfoOptionPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdRelayInfoOptionPolicy>`
+                            	**type**\:  :py:class:`Ipv4dhcpdRelayInfoOptionPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdRelayInfoOptionPolicy>`
                             
                             
 
@@ -3828,7 +3870,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: policy
                             
                             	Broadcast flag policy
-                            	**type**\:   :py:class:`Ipv4dhcpdBroadcastFlagPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdBroadcastFlagPolicy>`
+                            	**type**\:  :py:class:`Ipv4dhcpdBroadcastFlagPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdBroadcastFlagPolicy>`
                             
                             
 
@@ -3861,76 +3903,76 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: giaddr
                         
                         	Specify gateway address policy
-                        	**type**\:   :py:class:`Giaddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Giaddr>`
+                        	**type**\:  :py:class:`Giaddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Giaddr>`
                         
                         .. attribute:: classes
                         
                         	DHCP class table
-                        	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes>`
+                        	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes>`
                         
                         .. attribute:: auth_username
                         
                         	Authentication Username formating
-                        	**type**\:   :py:class:`AuthUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.AuthUsername>`
+                        	**type**\:  :py:class:`AuthUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.AuthUsername>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: relay_information
                         
                         	Relay agent information option
-                        	**type**\:   :py:class:`RelayInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.RelayInformation>`
+                        	**type**\:  :py:class:`RelayInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.RelayInformation>`
                         
                         .. attribute:: vrfs
                         
                         	List of VRFs
-                        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs>`
+                        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs>`
                         
                         .. attribute:: sessions
                         
                         	Change sessions configuration
-                        	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions>`
+                        	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions>`
                         
                         .. attribute:: limit_lease
                         
                         	Proxy limit lease
-                        	**type**\:   :py:class:`LimitLease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LimitLease>`
+                        	**type**\:  :py:class:`LimitLease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LimitLease>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: lease_proxy
                         
                         	DHCPv4 lease proxy
-                        	**type**\:   :py:class:`LeaseProxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LeaseProxy>`
+                        	**type**\:  :py:class:`LeaseProxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LeaseProxy>`
                         
                         .. attribute:: broadcast_flag
                         
                         	Specify broadcast flag
-                        	**type**\:   :py:class:`BroadcastFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.BroadcastFlag>`
+                        	**type**\:  :py:class:`BroadcastFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.BroadcastFlag>`
                         
                         .. attribute:: match
                         
                         	Insert match keyword
-                        	**type**\:   :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match>`
+                        	**type**\:  :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match>`
                         
                         .. attribute:: proxy_allow_move
                         
                         	Allow dhcp subscriber move
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: secure_arp
                         
                         	DHCP IPV4 profile proxy secure\-arp enable
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: delayed_authen_proxy
                         
                         	For BNG session, delay the authentication
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: enable
                         
                         	DHCP IPV4 profile mode enable
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -4017,7 +4059,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: policy
                             
                             	Gateway address policy
-                            	**type**\:   :py:class:`Ipv4dhcpdGiaddrPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdGiaddrPolicy>`
+                            	**type**\:  :py:class:`Ipv4dhcpdGiaddrPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdGiaddrPolicy>`
                             
                             
 
@@ -4050,7 +4092,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: class_
                             
                             	DHCP class
-                            	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_>`
+                            	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_>`
                             
                             
 
@@ -4083,22 +4125,24 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: class_name  <key>
                                 
                                 	Class name
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 .. attribute:: match
                                 
                                 	Match option
-                                	**type**\:   :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match>`
+                                	**type**\:  :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match>`
                                 
                                 .. attribute:: vrfs
                                 
                                 	List of VRFs
-                                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs>`
+                                	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs>`
                                 
                                 .. attribute:: enable
                                 
                                 	Enable the DHCP IPV4 proxy class
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -4143,12 +4187,12 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: option
                                     
                                     	Match option
-                                    	**type**\:   :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match.Option>`
+                                    	**type**\:  :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match.Option>`
                                     
                                     .. attribute:: vrf
                                     
                                     	Match VRF name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     
 
@@ -4186,17 +4230,17 @@ class Ipv4Dhcpd(Entity):
                                         .. attribute:: option_type
                                         
                                         	Match option
-                                        	**type**\:   :py:class:`Dhcpv4MatchOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Dhcpv4MatchOption>`
+                                        	**type**\:  :py:class:`Dhcpv4MatchOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Dhcpv4MatchOption>`
                                         
                                         .. attribute:: pattern
                                         
                                         	Hex pattern string
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: bit_mask
                                         
                                         	Bit mask pattern
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         
 
@@ -4233,7 +4277,7 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: vrf
                                     
                                     	VRF name
-                                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf>`
+                                    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf>`
                                     
                                     
 
@@ -4266,12 +4310,14 @@ class Ipv4Dhcpd(Entity):
                                         .. attribute:: vrf_name  <key>
                                         
                                         	VRF name
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                         
                                         .. attribute:: helper_addresses
                                         
                                         	Helper addresses
-                                        	**type**\:   :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses>`
+                                        	**type**\:  :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses>`
                                         
                                         
 
@@ -4309,7 +4355,7 @@ class Ipv4Dhcpd(Entity):
                                             .. attribute:: helper_address
                                             
                                             	Helper address
-                                            	**type**\: list of    :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses.HelperAddress>`
+                                            	**type**\: list of  		 :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses.HelperAddress>`
                                             
                                             
 
@@ -4342,12 +4388,16 @@ class Ipv4Dhcpd(Entity):
                                                 .. attribute:: server_address  <key>
                                                 
                                                 	IPv4 address
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 .. attribute:: gateway_address
                                                 
                                                 	Gateway address
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 	**mandatory**\: True
                                                 
@@ -4384,14 +4434,14 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: arg1
                             
                             	Username Formatting first argument 
-                            	**type**\:   :py:class:`Dhcpv4AuthUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Dhcpv4AuthUsername>`
+                            	**type**\:  :py:class:`Dhcpv4AuthUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Dhcpv4AuthUsername>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: arg2
                             
                             	Username Formatting second argument 
-                            	**type**\:   :py:class:`Dhcpv4AuthUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Dhcpv4AuthUsername>`
+                            	**type**\:  :py:class:`Dhcpv4AuthUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Dhcpv4AuthUsername>`
                             
                             
 
@@ -4429,57 +4479,57 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: option
                             
                             	Insert relay rgent information circuit ID and remote ID suboptions in client requests
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: vpn
                             
                             	Insert VPN options
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: allow_untrusted
                             
                             	Forward untrusted packets
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: circuit_id
                             
                             	Insert Circuit\-id sub\-option
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: policy
                             
                             	Relay information option policy
-                            	**type**\:   :py:class:`Ipv4dhcpdRelayInfoOptionPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdRelayInfoOptionPolicy>`
+                            	**type**\:  :py:class:`Ipv4dhcpdRelayInfoOptionPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdRelayInfoOptionPolicy>`
                             
                             .. attribute:: vpn_mode
                             
                             	VPN Mode
-                            	**type**\:   :py:class:`Ipv4dhcpdRelayInfoOptionvpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdRelayInfoOptionvpnMode>`
+                            	**type**\:  :py:class:`Ipv4dhcpdRelayInfoOptionvpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdRelayInfoOptionvpnMode>`
                             
                             .. attribute:: remote_id_xr
                             
                             	Insert Remote\-id sub\-option
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: remote_id_suppress
                             
                             	Suppress Remote ID
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: check
                             
                             	Check relay agent information option in server reply
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: remote_id
                             
                             	Remote ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: authenticate
                             
                             	Relay information option authenticate
-                            	**type**\:   :py:class:`Ipv4dhcpdRelayInfoOptionAuthenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdRelayInfoOptionAuthenticate>`
+                            	**type**\:  :py:class:`Ipv4dhcpdRelayInfoOptionAuthenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdRelayInfoOptionAuthenticate>`
                             
                             
 
@@ -4532,7 +4582,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: vrf
                             
                             	VRF name
-                            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf>`
+                            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf>`
                             
                             
 
@@ -4565,12 +4615,14 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: vrf_name  <key>
                                 
                                 	VRF name
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 .. attribute:: helper_addresses
                                 
                                 	Helper addresses
-                                	**type**\:   :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses>`
+                                	**type**\:  :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses>`
                                 
                                 
 
@@ -4608,7 +4660,7 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: helper_address
                                     
                                     	Helper address
-                                    	**type**\: list of    :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress>`
+                                    	**type**\: list of  		 :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress>`
                                     
                                     
 
@@ -4641,12 +4693,16 @@ class Ipv4Dhcpd(Entity):
                                         .. attribute:: server_address  <key>
                                         
                                         	IPv4 address
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         .. attribute:: gateway_address
                                         
                                         	Gateway address
-                                        	**type**\:  str
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
                                         	**mandatory**\: True
                                         
@@ -4683,7 +4739,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: proxy_throttle_type
                             
                             	Throttle DHCP sessions based on MAC address
-                            	**type**\:   :py:class:`ProxyThrottleType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType>`
+                            	**type**\:  :py:class:`ProxyThrottleType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType>`
                             
                             
 
@@ -4717,7 +4773,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: proxy_mac_throttle
                                 
                                 	Throttle DHCP sessions from any one MAC address
-                                	**type**\:   :py:class:`ProxyMacThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType.ProxyMacThrottle>`
+                                	**type**\:  :py:class:`ProxyMacThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType.ProxyMacThrottle>`
                                 
                                 
 
@@ -4751,14 +4807,14 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: num_discover
                                     
                                     	Number of discovers at which to throttle
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..65535
                                     
                                     .. attribute:: num_request
                                     
                                     	Throttle request period (in secs)
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..100
                                     
@@ -4767,7 +4823,7 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: num_block
                                     
                                     	Throttle blocking period (in secs)
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..100
                                     
@@ -4808,14 +4864,14 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: limit_type
                             
                             	Lease limit type
-                            	**type**\:   :py:class:`Dhcpv4LimitLease1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Dhcpv4LimitLease1>`
+                            	**type**\:  :py:class:`Dhcpv4LimitLease1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Dhcpv4LimitLease1>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: limit_lease_count
                             
                             	Limit lease count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..240000
                             
@@ -4857,14 +4913,14 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: client_lease_time
                             
                             	Specify client lease proxy time
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 300..4294967295
                             
                             .. attribute:: set_server_options
                             
                             	Set DHCP server sent options in lease proxy generating ACK
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -4899,7 +4955,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: policy
                             
                             	Broadcast flag policy
-                            	**type**\:   :py:class:`Ipv4dhcpdBroadcastFlagPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdBroadcastFlagPolicy>`
+                            	**type**\:  :py:class:`Ipv4dhcpdBroadcastFlagPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdBroadcastFlagPolicy>`
                             
                             
 
@@ -4932,12 +4988,12 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: def_options
                             
                             	Table of Option
-                            	**type**\:   :py:class:`DefOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions>`
+                            	**type**\:  :py:class:`DefOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions>`
                             
                             .. attribute:: option_filters
                             
                             	Table of Option
-                            	**type**\:   :py:class:`OptionFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters>`
+                            	**type**\:  :py:class:`OptionFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters>`
                             
                             
 
@@ -4975,7 +5031,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: def_option
                                 
                                 	Specify match option
-                                	**type**\: list of    :py:class:`DefOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions.DefOption>`
+                                	**type**\: list of  		 :py:class:`DefOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions.DefOption>`
                                 
                                 
 
@@ -5008,14 +5064,14 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: def_matchoption  <key>
                                     
                                     	Match option 60
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: def_matchaction
                                     
                                     	Vendor action
-                                    	**type**\:   :py:class:`ProxyAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.ProxyAction>`
+                                    	**type**\:  :py:class:`ProxyAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.ProxyAction>`
                                     
                                     	**mandatory**\: True
                                     
@@ -5052,7 +5108,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: option_filter
                                 
                                 	Specify match option
-                                	**type**\: list of    :py:class:`OptionFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters.OptionFilter>`
+                                	**type**\: list of  		 :py:class:`OptionFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters.OptionFilter>`
                                 
                                 
 
@@ -5085,28 +5141,28 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: matchoption  <key>
                                     
                                     	Match option 60
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: pattern  <key>
                                     
                                     	Enter hex pattern string
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 1..64
                                     
                                     .. attribute:: format  <key>
                                     
                                     	Set constant integer
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: matchaction
                                     
                                     	Vendor action
-                                    	**type**\:   :py:class:`ProxyAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.ProxyAction>`
+                                    	**type**\:  :py:class:`ProxyAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.ProxyAction>`
                                     
                                     	**mandatory**\: True
                                     
@@ -5148,22 +5204,22 @@ class Ipv4Dhcpd(Entity):
         .. attribute:: proxy
         
         	Enable DHCP proxy binding database storage to file system
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: server
         
         	Enable DHCP server binding database storage to file system
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: snoop
         
         	Enable DHCP snoop binding database storage to file system
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: full_write_interval
         
         	Full file write interval (default 10 minutes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1440
         
@@ -5172,7 +5228,7 @@ class Ipv4Dhcpd(Entity):
         .. attribute:: incremental_write_interval
         
         	Incremental file write interval (default 1 minutes)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1440
         
@@ -5218,7 +5274,7 @@ class Ipv4Dhcpd(Entity):
         .. attribute:: interface
         
         	DHCP IPV4 Interface
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface>`
         
         
 
@@ -5252,44 +5308,46 @@ class Ipv4Dhcpd(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface Name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: proxy_interface
             
             	DHCP IPv4 proxy information
-            	**type**\:   :py:class:`ProxyInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.ProxyInterface>`
+            	**type**\:  :py:class:`ProxyInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.ProxyInterface>`
             
             .. attribute:: base_interface
             
             	DHCP IPv4 Base profile information
-            	**type**\:   :py:class:`BaseInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.BaseInterface>`
+            	**type**\:  :py:class:`BaseInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.BaseInterface>`
             
             .. attribute:: relay_interface
             
             	DHCP IPv4 relay information
-            	**type**\:   :py:class:`RelayInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.RelayInterface>`
+            	**type**\:  :py:class:`RelayInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.RelayInterface>`
             
             .. attribute:: static_mode
             
             	Static Table Entries containing MAC address to IP address bindings
-            	**type**\:   :py:class:`StaticMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.StaticMode>`
+            	**type**\:  :py:class:`StaticMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.StaticMode>`
             
             .. attribute:: profile
             
             	Profile name and mode
-            	**type**\:   :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.Profile>`
+            	**type**\:  :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.Profile>`
             
             	**presence node**\: True
             
             .. attribute:: server_interface
             
             	DHCP IPv4 Server information
-            	**type**\:   :py:class:`ServerInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.ServerInterface>`
+            	**type**\:  :py:class:`ServerInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.ServerInterface>`
             
             .. attribute:: snoop_interface
             
             	DHCP IPv4 snoop information
-            	**type**\:   :py:class:`SnoopInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.SnoopInterface>`
+            	**type**\:  :py:class:`SnoopInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.SnoopInterface>`
             
             
 
@@ -5357,14 +5415,14 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: dhcp_circuit_id
                 
                 	Circuit ID value
-                	**type**\:   :py:class:`DhcpCircuitId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.ProxyInterface.DhcpCircuitId>`
+                	**type**\:  :py:class:`DhcpCircuitId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.ProxyInterface.DhcpCircuitId>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: profile
                 
                 	Interface profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -5401,96 +5459,96 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: circuit_id
                     
                     	DHCP IPv4 circuit ID value
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
                     .. attribute:: format
                     
                     	Format String
-                    	**type**\:   :py:class:`Ipv4dhcpdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmt>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmt>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: argument1
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument2
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument3
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument4
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument5
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument6
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument7
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument8
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument9
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument10
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument11
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument12
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument13
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument14
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument15
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument16
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     
 
@@ -5560,14 +5618,14 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: base_dhcp_circuit_id
                 
                 	Circuit ID value
-                	**type**\:   :py:class:`BaseDhcpCircuitId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.BaseInterface.BaseDhcpCircuitId>`
+                	**type**\:  :py:class:`BaseDhcpCircuitId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.BaseInterface.BaseDhcpCircuitId>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: profile
                 
                 	Interface profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -5604,96 +5662,96 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: circuit_id
                     
                     	DHCP IPv4 circuit ID value
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
                     .. attribute:: format
                     
                     	Format String
-                    	**type**\:   :py:class:`Ipv4dhcpdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmt>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmt>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: argument1
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument2
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument3
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument4
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument5
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument6
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument7
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument8
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument9
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument10
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument11
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument12
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument13
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument14
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument15
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument16
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     
 
@@ -5763,7 +5821,7 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: relay_dhcp_circuit_id
                 
                 	Circuit ID value
-                	**type**\:   :py:class:`RelayDhcpCircuitId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.RelayInterface.RelayDhcpCircuitId>`
+                	**type**\:  :py:class:`RelayDhcpCircuitId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.RelayInterface.RelayDhcpCircuitId>`
                 
                 	**presence node**\: True
                 
@@ -5797,96 +5855,96 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: circuit_id
                     
                     	DHCP IPv4 circuit ID value
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
                     .. attribute:: format
                     
                     	Format String
-                    	**type**\:   :py:class:`Ipv4dhcpdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmt>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmt>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: argument1
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument2
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument3
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument4
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument5
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument6
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument7
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument8
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument9
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument10
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument11
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument12
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument13
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument14
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument15
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument16
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     
 
@@ -5957,7 +6015,7 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: statics
                 
                 	Static Table Entries containing MAC address to IP address bindings
-                	**type**\:   :py:class:`Statics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics>`
+                	**type**\:  :py:class:`Statics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics>`
                 
                 
 
@@ -5991,7 +6049,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: static
                     
                     	DHCP static binding of Mac address to IP address
-                    	**type**\: list of    :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics.Static>`
+                    	**type**\: list of  		 :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics.Static>`
                     
                     
 
@@ -6025,24 +6083,28 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: mac_address  <key>
                         
                         	MACAddress
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: client_id  <key>
                         
                         	Client Id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4294967295
                         
                         .. attribute:: layer  <key>
                         
                         	DHCP IPV4 Static layer
-                        	**type**\:   :py:class:`Ipv4dhcpdLayer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdLayer>`
+                        	**type**\:  :py:class:`Ipv4dhcpdLayer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdLayer>`
                         
                         .. attribute:: static_address
                         
                         	IP address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         	**mandatory**\: True
                         
@@ -6083,14 +6145,14 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: profile_name
                 
                 	Profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**mandatory**\: True
                 
                 .. attribute:: mode
                 
                 	DHCP mode
-                	**type**\:   :py:class:`Ipv4dhcpdMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdMode>`
+                	**type**\:  :py:class:`Ipv4dhcpdMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdMode>`
                 
                 	**mandatory**\: True
                 
@@ -6130,14 +6192,14 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: server_dhcp_circuit_id
                 
                 	Circuit ID value
-                	**type**\:   :py:class:`ServerDhcpCircuitId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.ServerInterface.ServerDhcpCircuitId>`
+                	**type**\:  :py:class:`ServerDhcpCircuitId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.ServerInterface.ServerDhcpCircuitId>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: profile
                 
                 	Interface profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -6174,96 +6236,96 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: circuit_id
                     
                     	DHCP IPv4 circuit ID value
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**mandatory**\: True
                     
                     .. attribute:: format
                     
                     	Format String
-                    	**type**\:   :py:class:`Ipv4dhcpdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmt>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmt>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: argument1
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument2
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument3
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument4
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument5
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument6
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument7
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument8
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument9
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument10
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument11
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument12
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument13
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument14
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument15
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     .. attribute:: argument16
                     
                     	Argument
-                    	**type**\:   :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
+                    	**type**\:  :py:class:`Ipv4dhcpdFmtSpecifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdFmtSpecifier>`
                     
                     
 
@@ -6333,7 +6395,7 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: snoop_circuit_id
                 
                 	Configure circuit ID for snoop 1. Hex 2. ASCII
-                	**type**\:   :py:class:`SnoopCircuitId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.SnoopInterface.SnoopCircuitId>`
+                	**type**\:  :py:class:`SnoopCircuitId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Interfaces.Interface.SnoopInterface.SnoopCircuitId>`
                 
                 
 
@@ -6367,14 +6429,14 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: format_type
                     
                     	Format type, 1. Hex 2. ASCII
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..2
                     
                     .. attribute:: circuit_id_value
                     
                     	Enter circuit\-id value
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -6409,19 +6471,19 @@ class Ipv4Dhcpd(Entity):
         .. attribute:: duplicate_mac
         
         	Duplicate mac is allowed
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         	**mandatory**\: True
         
         .. attribute:: exclude_vlan
         
         	Exclude vlan
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: include_giaddr
         
         	Include giaddr
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -6462,7 +6524,7 @@ class Ipv4Dhcpd(Entity):
         .. attribute:: num_period
         
         	Rate limiter period in msec (default\: 200 msec)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..1000
         
@@ -6471,7 +6533,7 @@ class Ipv4Dhcpd(Entity):
         .. attribute:: num_discover
         
         	Max DISCOVER packets per rate\-limiter period (default 100)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..1000
         

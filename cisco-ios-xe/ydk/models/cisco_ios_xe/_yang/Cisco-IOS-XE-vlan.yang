@@ -107,6 +107,7 @@ module Cisco-IOS-XE-vlan {
       container mdns-sd {
         description
           "Service-Routing mdns-sd configuration in interface mode";
+        presence true;
         container redistribute {
           description
             "Redistribution of services";

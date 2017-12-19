@@ -16,84 +16,84 @@ class RFC1213MIB(Entity):
     .. attribute:: system
     
     	
-    	**type**\:   :py:class:`System <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.System>`
+    	**type**\:  :py:class:`System <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.System>`
     
     .. attribute:: interfaces
     
     	
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Interfaces>`
     
     .. attribute:: ip
     
     	
-    	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ip>`
+    	**type**\:  :py:class:`Ip <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ip>`
     
     .. attribute:: icmp
     
     	
-    	**type**\:   :py:class:`Icmp <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Icmp>`
+    	**type**\:  :py:class:`Icmp <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Icmp>`
     
     .. attribute:: tcp
     
     	
-    	**type**\:   :py:class:`Tcp <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcp>`
+    	**type**\:  :py:class:`Tcp <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcp>`
     
     .. attribute:: udp
     
     	
-    	**type**\:   :py:class:`Udp <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Udp>`
+    	**type**\:  :py:class:`Udp <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Udp>`
     
     .. attribute:: egp
     
     	
-    	**type**\:   :py:class:`Egp <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egp>`
+    	**type**\:  :py:class:`Egp <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egp>`
     
     .. attribute:: snmp
     
     	
-    	**type**\:   :py:class:`Snmp <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Snmp>`
+    	**type**\:  :py:class:`Snmp <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Snmp>`
     
     .. attribute:: iftable
     
     	A list of interface entries.  The number of entries is given by the value of ifNumber
-    	**type**\:   :py:class:`Iftable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iftable>`
+    	**type**\:  :py:class:`Iftable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iftable>`
     
     .. attribute:: attable
     
     	The Address Translation tables contain the NetworkAddress to `physical' address equivalences. Some interfaces do not use translation tables for determining address equivalences (e.g., DDN\-X.25 has an algorithmic method); if all interfaces are of this type, then the Address Translation table is empty, i.e., has zero entries
-    	**type**\:   :py:class:`Attable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Attable>`
+    	**type**\:  :py:class:`Attable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Attable>`
     
     	**status**\: obsolete
     
     .. attribute:: ipaddrtable
     
     	The table of addressing information relevant to this entity's IP addresses
-    	**type**\:   :py:class:`Ipaddrtable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipaddrtable>`
+    	**type**\:  :py:class:`Ipaddrtable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipaddrtable>`
     
     .. attribute:: iproutetable
     
     	This entity's IP Routing table
-    	**type**\:   :py:class:`Iproutetable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iproutetable>`
+    	**type**\:  :py:class:`Iproutetable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iproutetable>`
     
     .. attribute:: ipnettomediatable
     
     	The IP Address Translation table used for mapping from IP addresses to physical addresses
-    	**type**\:   :py:class:`Ipnettomediatable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipnettomediatable>`
+    	**type**\:  :py:class:`Ipnettomediatable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipnettomediatable>`
     
     .. attribute:: tcpconntable
     
     	A table containing TCP connection\-specific information
-    	**type**\:   :py:class:`Tcpconntable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcpconntable>`
+    	**type**\:  :py:class:`Tcpconntable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcpconntable>`
     
     .. attribute:: udptable
     
     	A table containing UDP listener information
-    	**type**\:   :py:class:`Udptable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Udptable>`
+    	**type**\:  :py:class:`Udptable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Udptable>`
     
     .. attribute:: egpneightable
     
     	The EGP neighbor table
-    	**type**\:   :py:class:`Egpneightable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable>`
+    	**type**\:  :py:class:`Egpneightable <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable>`
     
     
 
@@ -201,47 +201,49 @@ class RFC1213MIB(Entity):
         .. attribute:: sysdescr
         
         	A textual description of the entity.  This value should include the full name and version identification of the system's hardware type, software operating\-system, and networking software.  It is mandatory that this only contain printable ASCII characters
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 0..255
         
         .. attribute:: sysobjectid
         
         	The vendor's authoritative identification of the network management subsystem contained in the entity.  This value is allocated within the SMI enterprises subtree (1.3.6.1.4.1) and provides an easy and unambiguous means for determining `what kind of box' is being managed.  For example, if vendor `Flintstones, Inc.' was assigned the subtree 1.3.6.1.4.1.4242, it could assign the identifier 1.3.6.1.4.1.4242.1.1 to its `Fred Router'
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
         
         .. attribute:: sysuptime
         
         	The time (in hundredths of a second) since the network management portion of the system was last re\-initialized
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: syscontact
         
         	The textual identification of the contact person for this managed node, together with information on how to contact this person
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 0..255
         
         .. attribute:: sysname
         
         	An administratively\-assigned name for this managed node.  By convention, this is the node's fully\-qualified domain name
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 0..255
         
         .. attribute:: syslocation
         
         	The physical location of this node (e.g., `telephone closet, 3rd floor')
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 0..255
         
         .. attribute:: sysservices
         
         	A value which indicates the set of services that this entity primarily offers.  The value is a sum.  This sum initially takes the value zero, Then, for each layer, L, in the range 1 through 7, that this node performs transactions for, 2 raised to (L \- 1) is added to the sum.  For example, a node which performs primarily routing functions would have a value of 4 (2^(3\-1)).  In contrast, a node which is a host offering application services would have a value of 72 (2^(4\-1) + 2^(7\-1)).  Note that in the context of the Internet suite of protocols, values should be calculated accordingly\:       layer  functionality          1  physical (e.g., repeaters)          2  datalink/subnetwork (e.g., bridges)          3  internet (e.g., IP gateways)          4  end\-to\-end  (e.g., IP hosts)          7  applications (e.g., mail relays)  For systems including OSI protocols, layers 5 and 6 may also be counted
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..127
         
@@ -288,7 +290,7 @@ class RFC1213MIB(Entity):
         .. attribute:: ifnumber
         
         	The number of network interfaces (regardless of their current state) present on this system
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
@@ -323,138 +325,138 @@ class RFC1213MIB(Entity):
         .. attribute:: ipforwarding
         
         	The indication of whether this entity is acting as an IP gateway in respect to the forwarding of datagrams received by, but not addressed to, this entity.  IP gateways forward datagrams.  IP hosts do not (except those source\-routed via the host).  Note that for some managed nodes, this object may take on only a subset of the values possible. Accordingly, it is appropriate for an agent to return a `badValue' response if a management station attempts to change this object to an inappropriate value
-        	**type**\:   :py:class:`Ipforwarding <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ip.Ipforwarding>`
+        	**type**\:  :py:class:`Ipforwarding <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ip.Ipforwarding>`
         
         .. attribute:: ipdefaultttl
         
         	The default value inserted into the Time\-To\-Live field of the IP header of datagrams originated at this entity, whenever a TTL value is not supplied by the transport layer protocol
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: ipinreceives
         
         	The total number of input datagrams received from interfaces, including those received in error
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipinhdrerrors
         
         	The number of input datagrams discarded due to errors in their IP headers, including bad checksums, version number mismatch, other format errors, time\-to\-live exceeded, errors discovered in processing their IP options, etc
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipinaddrerrors
         
         	The number of input datagrams discarded because the IP address in their IP header's destination field was not a valid address to be received at this entity.  This count includes invalid addresses (e.g., 0.0.0.0) and addresses of unsupported Classes (e.g., Class E).  For entities which are not IP Gateways and therefore do not forward datagrams, this counter includes datagrams discarded because the destination address was not a local address
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipforwdatagrams
         
         	The number of input datagrams for which this entity was not their final IP destination, as a result of which an attempt was made to find a route to forward them to that final destination. In entities which do not act as IP Gateways, this counter will include only those packets which were Source\-Routed via this entity, and the Source\- Route option processing was successful
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipinunknownprotos
         
         	The number of locally\-addressed datagrams received successfully but discarded because of an unknown or unsupported protocol
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipindiscards
         
         	The number of input IP datagrams for which no problems were encountered to prevent their continued processing, but which were discarded (e.g., for lack of buffer space).  Note that this counter does not include any datagrams discarded while awaiting re\-assembly
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipindelivers
         
         	The total number of input datagrams successfully delivered to IP user\-protocols (including ICMP)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipoutrequests
         
         	The total number of IP datagrams which local IP user\-protocols (including ICMP) supplied to IP in requests for transmission.  Note that this counter does not include any datagrams counted in ipForwDatagrams
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipoutdiscards
         
         	The number of output IP datagrams for which no problem was encountered to prevent their transmission to their destination, but which were discarded (e.g., for lack of buffer space).  Note that this counter would include datagrams counted in ipForwDatagrams if any such packets met this (discretionary) discard criterion
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipoutnoroutes
         
         	The number of IP datagrams discarded because no route could be found to transmit them to their destination.  Note that this counter includes any packets counted in ipForwDatagrams which meet this `no\-route' criterion.  Note that this includes any datagrams which a host cannot route because all of its default gateways are down
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipreasmtimeout
         
         	The maximum number of seconds which received fragments are held while they are awaiting reassembly at this entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: ipreasmreqds
         
         	The number of IP fragments received which needed to be reassembled at this entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipreasmoks
         
         	The number of IP datagrams successfully re\- assembled
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipreasmfails
         
         	The number of failures detected by the IP re\- assembly algorithm (for whatever reason\: timed out, errors, etc).  Note that this is not necessarily a count of discarded IP fragments since some algorithms (notably the algorithm in RFC 815) can lose track of the number of fragments by combining them as they are received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipfragoks
         
         	The number of IP datagrams that have been successfully fragmented at this entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipfragfails
         
         	The number of IP datagrams that have been discarded because they needed to be fragmented at this entity but could not be, e.g., because their Don't Fragment flag was set
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ipfragcreates
         
         	The number of IP datagram fragments that have been generated as a result of fragmentation at this entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: iproutingdiscards
         
         	The number of routing entries which were chosen to be discarded even though they are valid.  One possible reason for discarding such an entry could be to free\-up buffer space for other routing entries
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -564,182 +566,182 @@ class RFC1213MIB(Entity):
         .. attribute:: icmpinmsgs
         
         	The total number of ICMP messages which the entity received.  Note that this counter includes all those counted by icmpInErrors
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpinerrors
         
         	The number of ICMP messages which the entity received but determined as having ICMP\-specific errors (bad ICMP checksums, bad length, etc.)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpindestunreachs
         
         	The number of ICMP Destination Unreachable messages received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpintimeexcds
         
         	The number of ICMP Time Exceeded messages received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpinparmprobs
         
         	The number of ICMP Parameter Problem messages received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpinsrcquenchs
         
         	The number of ICMP Source Quench messages received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpinredirects
         
         	The number of ICMP Redirect messages received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpinechos
         
         	The number of ICMP Echo (request) messages received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpinechoreps
         
         	The number of ICMP Echo Reply messages received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpintimestamps
         
         	The number of ICMP Timestamp (request) messages received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpintimestampreps
         
         	The number of ICMP Timestamp Reply messages received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpinaddrmasks
         
         	The number of ICMP Address Mask Request messages received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpinaddrmaskreps
         
         	The number of ICMP Address Mask Reply messages received
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpoutmsgs
         
         	The total number of ICMP messages which this entity attempted to send.  Note that this counter includes all those counted by icmpOutErrors
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpouterrors
         
         	The number of ICMP messages which this entity did not send due to problems discovered within ICMP such as a lack of buffers.  This value should not include errors discovered outside the ICMP layer such as the inability of IP to route the resultant datagram.  In some implementations there may be no types of error which contribute to this counter's value
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpoutdestunreachs
         
         	The number of ICMP Destination Unreachable messages sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpouttimeexcds
         
         	The number of ICMP Time Exceeded messages sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpoutparmprobs
         
         	The number of ICMP Parameter Problem messages sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpoutsrcquenchs
         
         	The number of ICMP Source Quench messages sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpoutredirects
         
         	The number of ICMP Redirect messages sent.  For a host, this object will always be zero, since hosts do not send redirects
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpoutechos
         
         	The number of ICMP Echo (request) messages sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpoutechoreps
         
         	The number of ICMP Echo Reply messages sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpouttimestamps
         
         	The number of ICMP Timestamp (request) messages sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpouttimestampreps
         
         	The number of ICMP Timestamp Reply messages sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpoutaddrmasks
         
         	The number of ICMP Address Mask Request messages sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: icmpoutaddrmaskreps
         
         	The number of ICMP Address Mask Reply messages sent
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -824,96 +826,96 @@ class RFC1213MIB(Entity):
         .. attribute:: tcprtoalgorithm
         
         	The algorithm used to determine the timeout value used for retransmitting unacknowledged octets
-        	**type**\:   :py:class:`Tcprtoalgorithm <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcp.Tcprtoalgorithm>`
+        	**type**\:  :py:class:`Tcprtoalgorithm <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcp.Tcprtoalgorithm>`
         
         .. attribute:: tcprtomin
         
         	The minimum value permitted by a TCP implementation for the retransmission timeout, measured in milliseconds.  More refined semantics for objects of this type depend upon the algorithm used to determine the retransmission timeout.  In particular, when the timeout algorithm is rsre(3), an object of this type has the semantics of the LBOUND quantity described in RFC 793
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: tcprtomax
         
         	The maximum value permitted by a TCP implementation for the retransmission timeout, measured in milliseconds.  More refined semantics for objects of this type depend upon the algorithm used to determine the retransmission timeout.  In particular, when the timeout algorithm is rsre(3), an object of this type has the semantics of the UBOUND quantity described in RFC 793
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: tcpmaxconn
         
         	The limit on the total number of TCP connections the entity can support.  In entities where the maximum number of connections is dynamic, this object should contain the value \-1
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: tcpactiveopens
         
         	The number of times TCP connections have made a direct transition to the SYN\-SENT state from the CLOSED state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tcppassiveopens
         
         	The number of times TCP connections have made a direct transition to the SYN\-RCVD state from the LISTEN state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tcpattemptfails
         
         	The number of times TCP connections have made a direct transition to the CLOSED state from either the SYN\-SENT state or the SYN\-RCVD state, plus the number of times TCP connections have made a direct transition to the LISTEN state from the SYN\-RCVD state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tcpestabresets
         
         	The number of times TCP connections have made a direct transition to the CLOSED state from either the ESTABLISHED state or the CLOSE\-WAIT state
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tcpcurrestab
         
         	The number of TCP connections for which the current state is either ESTABLISHED or CLOSE\- WAIT
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tcpinsegs
         
         	The total number of segments received, including those received in error.  This count includes segments received on currently established connections
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tcpoutsegs
         
         	The total number of segments sent, including those on current connections but excluding those containing only retransmitted octets
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tcpretranssegs
         
         	The total number of segments retransmitted \- that is, the number of TCP segments transmitted containing one or more previously transmitted octets
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tcpinerrs
         
         	The total number of segments received in error (e.g., bad TCP checksums)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: tcpoutrsts
         
         	The number of TCP segments sent containing the RST flag
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -1005,28 +1007,28 @@ class RFC1213MIB(Entity):
         .. attribute:: udpindatagrams
         
         	The total number of UDP datagrams delivered to UDP users
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: udpnoports
         
         	The total number of received UDP datagrams for which there was no application at the destination port
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: udpinerrors
         
         	The number of received UDP datagrams that could not be delivered for reasons other than the lack of an application at the destination port
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: udpoutdatagrams
         
         	The total number of UDP datagrams sent from this entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -1067,35 +1069,35 @@ class RFC1213MIB(Entity):
         .. attribute:: egpinmsgs
         
         	The number of EGP messages received without error
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: egpinerrors
         
         	The number of EGP messages received that proved to be in error
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: egpoutmsgs
         
         	The total number of locally generated EGP messages
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: egpouterrors
         
         	The number of locally generated EGP messages not sent due to resource limitations within an EGP entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: egpas
         
         	The autonomous system number of this EGP entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
@@ -1138,196 +1140,196 @@ class RFC1213MIB(Entity):
         .. attribute:: snmpinpkts
         
         	The total number of Messages delivered to the SNMP entity from the transport service
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpoutpkts
         
         	The total number of SNMP Messages which were passed from the SNMP protocol entity to the transport service
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpinbadversions
         
         	The total number of SNMP Messages which were delivered to the SNMP protocol entity and were for an unsupported SNMP version
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpinbadcommunitynames
         
         	The total number of SNMP Messages delivered to the SNMP protocol entity which used a SNMP community name not known to said entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpinbadcommunityuses
         
         	The total number of SNMP Messages delivered to the SNMP protocol entity which represented an SNMP operation which was not allowed by the SNMP community named in the Message
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpinasnparseerrs
         
         	The total number of ASN.1 or BER errors encountered by the SNMP protocol entity when decoding received SNMP Messages
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpintoobigs
         
         	The total number of SNMP PDUs which were delivered to the SNMP protocol entity and for which the value of the error\-status field is `tooBig'
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpinnosuchnames
         
         	The total number of SNMP PDUs which were delivered to the SNMP protocol entity and for which the value of the error\-status field is `noSuchName'
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpinbadvalues
         
         	The total number of SNMP PDUs which were delivered to the SNMP protocol entity and for which the value of the error\-status field is `badValue'
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpinreadonlys
         
         	The total number valid SNMP PDUs which were delivered to the SNMP protocol entity and for which the value of the error\-status field is `readOnly'.  It should be noted that it is a protocol error to generate an SNMP PDU which contains the value `readOnly' in the error\-status field, as such this object is provided as a means of detecting incorrect implementations of the SNMP
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpingenerrs
         
         	The total number of SNMP PDUs which were delivered to the SNMP protocol entity and for which the value of the error\-status field is `genErr'
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpintotalreqvars
         
         	The total number of MIB objects which have been retrieved successfully by the SNMP protocol entity as the result of receiving valid SNMP Get\-Request and Get\-Next PDUs
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpintotalsetvars
         
         	The total number of MIB objects which have been altered successfully by the SNMP protocol entity as the result of receiving valid SNMP Set\-Request PDUs
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpingetrequests
         
         	The total number of SNMP Get\-Request PDUs which have been accepted and processed by the SNMP protocol entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpingetnexts
         
         	The total number of SNMP Get\-Next PDUs which have been accepted and processed by the SNMP protocol entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpinsetrequests
         
         	The total number of SNMP Set\-Request PDUs which have been accepted and processed by the SNMP protocol entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpingetresponses
         
         	The total number of SNMP Get\-Response PDUs which have been accepted and processed by the SNMP protocol entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpintraps
         
         	The total number of SNMP Trap PDUs which have been accepted and processed by the SNMP protocol entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpouttoobigs
         
         	The total number of SNMP PDUs which were generated by the SNMP protocol entity and for which the value of the error\-status field is `tooBig.'
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpoutnosuchnames
         
         	The total number of SNMP PDUs which were generated by the SNMP protocol entity and for which the value of the error\-status is `noSuchName'
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpoutbadvalues
         
         	The total number of SNMP PDUs which were generated by the SNMP protocol entity and for which the value of the error\-status field is `badValue'
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpoutgenerrs
         
         	The total number of SNMP PDUs which were generated by the SNMP protocol entity and for which the value of the error\-status field is `genErr'
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpoutgetrequests
         
         	The total number of SNMP Get\-Request PDUs which have been generated by the SNMP protocol entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpoutgetnexts
         
         	The total number of SNMP Get\-Next PDUs which have been generated by the SNMP protocol entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpoutsetrequests
         
         	The total number of SNMP Set\-Request PDUs which have been generated by the SNMP protocol entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpoutgetresponses
         
         	The total number of SNMP Get\-Response PDUs which have been generated by the SNMP protocol entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpouttraps
         
         	The total number of SNMP Trap PDUs which have been generated by the SNMP protocol entity
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: snmpenableauthentraps
         
         	Indicates whether the SNMP agent process is permitted to generate authentication\-failure traps.  The value of this object overrides any configuration information; as such, it provides a means whereby all authentication\-failure traps may be disabled.  Note that it is strongly recommended that this object be stored in non\-volatile memory so that it remains constant between re\-initializations of the network management system
-        	**type**\:   :py:class:`Snmpenableauthentraps <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Snmp.Snmpenableauthentraps>`
+        	**type**\:  :py:class:`Snmpenableauthentraps <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Snmp.Snmpenableauthentraps>`
         
         
 
@@ -1450,7 +1452,7 @@ class RFC1213MIB(Entity):
         .. attribute:: ifentry
         
         	An interface entry containing objects at the subnetwork layer and below for a particular interface
-        	**type**\: list of    :py:class:`Ifentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iftable.Ifentry>`
+        	**type**\: list of  		 :py:class:`Ifentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iftable.Ifentry>`
         
         
 
@@ -1485,146 +1487,148 @@ class RFC1213MIB(Entity):
             .. attribute:: ifindex  <key>
             
             	A unique value for each interface.  Its value ranges between 1 and the value of ifNumber.  The value for each interface must remain constant at least from one re\-initialization of the entity's network management system to the next re\- initialization
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ifdescr
             
             	A textual string containing information about the interface.  This string should include the name of the manufacturer, the product name and the version of the hardware interface
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: iftype
             
             	The type of interface.  Additional values for ifType are assigned by the Internet Assigned Numbers Authority (IANA), through updating the syntax of the IANAifType textual convention
-            	**type**\:   :py:class:`IANAifType <ydk.models.cisco_ios_xe.IANAifType_MIB.IANAifType>`
+            	**type**\:  :py:class:`IANAifType <ydk.models.cisco_ios_xe.IANAifType_MIB.IANAifType>`
             
             .. attribute:: ifmtu
             
             	The size of the largest datagram which can be sent/received on the interface, specified in octets.  For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ifspeed
             
             	An estimate of the interface's current bandwidth in bits per second.  For interfaces which do not vary in bandwidth or for those where no accurate estimation can be made, this object should contain the nominal bandwidth
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifphysaddress
             
             	The interface's address at the protocol layer immediately `below' the network layer in the protocol stack.  For interfaces which do not have such an address (e.g., a serial line), this object should contain an octet string of zero length
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: ifadminstatus
             
             	The desired state of the interface.  The testing(3) state indicates that no operational packets can be passed
-            	**type**\:   :py:class:`Ifadminstatus <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iftable.Ifentry.Ifadminstatus>`
+            	**type**\:  :py:class:`Ifadminstatus <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iftable.Ifentry.Ifadminstatus>`
             
             .. attribute:: ifoperstatus
             
             	The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed
-            	**type**\:   :py:class:`Ifoperstatus <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iftable.Ifentry.Ifoperstatus>`
+            	**type**\:  :py:class:`Ifoperstatus <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iftable.Ifentry.Ifoperstatus>`
             
             .. attribute:: iflastchange
             
             	The value of sysUpTime at the time the interface entered its current operational state.  If the current state was entered prior to the last re\- initialization of the local network management subsystem, then this object contains a zero value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifinoctets
             
             	The total number of octets received on the interface, including framing characters
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifinucastpkts
             
             	The number of subnetwork\-unicast packets delivered to a higher\-layer protocol
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifinnucastpkts
             
             	The number of non\-unicast (i.e., subnetwork\- broadcast or subnetwork\-multicast) packets delivered to a higher\-layer protocol
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifindiscards
             
             	The number of inbound packets which were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher\-layer protocol.  One possible reason for discarding such a packet could be to free up buffer space
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifinerrors
             
             	The number of inbound packets that contained errors preventing them from being deliverable to a higher\-layer protocol
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifinunknownprotos
             
             	The number of packets received via the interface which were discarded because of an unknown or unsupported protocol
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifoutoctets
             
             	The total number of octets transmitted out of the interface, including framing characters
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifoutucastpkts
             
             	The total number of packets that higher\-level protocols requested be transmitted to a subnetwork\-unicast address, including those that were discarded or not sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifoutnucastpkts
             
             	The total number of packets that higher\-level protocols requested be transmitted to a non\- unicast (i.e., a subnetwork\-broadcast or subnetwork\-multicast) address, including those that were discarded or not sent
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifoutdiscards
             
             	The number of outbound packets which were chosen to be discarded even though no errors had been detected to prevent their being transmitted.  One possible reason for discarding such a packet could be to free up buffer space
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifouterrors
             
             	The number of outbound packets that could not be transmitted because of errors
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifoutqlen
             
             	The length of the output packet queue (in packets)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ifspecific
             
             	A reference to MIB definitions specific to the particular media being used to realize the interface.  For example, if the interface is realized by an ethernet, then the value of this object refers to a document defining objects specific to ethernet.  If this information is not present, its value should be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntactically valid object identifier, and any conformant implementation of ASN.1 and BER must be able to generate and recognize this value
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
             
 
@@ -1763,7 +1767,7 @@ class RFC1213MIB(Entity):
         .. attribute:: atentry
         
         	Each entry contains one NetworkAddress to `physical' address equivalence
-        	**type**\: list of    :py:class:`Atentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Attable.Atentry>`
+        	**type**\: list of  		 :py:class:`Atentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Attable.Atentry>`
         
         	**status**\: obsolete
         
@@ -1799,7 +1803,7 @@ class RFC1213MIB(Entity):
             .. attribute:: atifindex  <key>
             
             	The interface on which this entry's equivalence is effective.  The interface identified by a particular value of this index is the same interface as identified by the same value of ifIndex
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -1808,7 +1812,7 @@ class RFC1213MIB(Entity):
             .. attribute:: atifindex_2  <key>
             
             	The interface on which this entry's equivalence is effective.  The interface identified by a particular value of this index is the same interface as identified by the same value of ifIndex
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -1817,14 +1821,16 @@ class RFC1213MIB(Entity):
             .. attribute:: atnetaddress  <key>
             
             	The NetworkAddress (e.g., the IP address) corresponding to the media\-dependent `physical' address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: obsolete
             
             .. attribute:: atphysaddress
             
             	The media\-dependent `physical' address.  Setting this object to a null string (one of zero length) has the effect of invaliding the corresponding entry in the atTable object.  That is, it effectively disassociates the interface identified with said entry from the mapping identified with said entry.  It is an implementation\-specific matter as to whether the agent removes an invalidated entry from the table. Accordingly, management stations must be prepared to receive tabular information from agents that corresponds to entries not currently in use. Proper interpretation of such entries requires examination of the relevant atPhysAddress object
-            	**type**\:  str
+            	**type**\: str
             
             	**status**\: obsolete
             
@@ -1866,7 +1872,7 @@ class RFC1213MIB(Entity):
         .. attribute:: ipaddrentry
         
         	The addressing information for one of this entity's IP addresses
-        	**type**\: list of    :py:class:`Ipaddrentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipaddrtable.Ipaddrentry>`
+        	**type**\: list of  		 :py:class:`Ipaddrentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipaddrtable.Ipaddrentry>`
         
         
 
@@ -1900,31 +1906,35 @@ class RFC1213MIB(Entity):
             .. attribute:: ipadentaddr  <key>
             
             	The IP address to which this entry's addressing information pertains
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ipadentifindex
             
             	The index value which uniquely identifies the interface to which this entry is applicable.  The interface identified by a particular value of this index is the same interface as identified by the same value of ifIndex
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ipadentnetmask
             
             	The subnet mask associated with the IP address of this entry.  The value of the mask is an IP address with all the network bits set to 1 and all the hosts bits set to 0
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ipadentbcastaddr
             
             	The value of the least\-significant bit in the IP broadcast address used for sending datagrams on the (logical) interface associated with the IP address of this entry.  For example, when the Internet standard all\-ones broadcast address is used, the value will be 1.  This value applies to both the subnet and network broadcasts addresses used by the entity on this (logical) interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ipadentreasmmaxsize
             
             	The size of the largest IP datagram which this entity can re\-assemble from incoming IP fragmented datagrams received on this interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -1967,7 +1977,7 @@ class RFC1213MIB(Entity):
         .. attribute:: iprouteentry
         
         	A route to a particular destination
-        	**type**\: list of    :py:class:`Iprouteentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iproutetable.Iprouteentry>`
+        	**type**\: list of  		 :py:class:`Iprouteentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iproutetable.Iprouteentry>`
         
         
 
@@ -2000,81 +2010,89 @@ class RFC1213MIB(Entity):
             .. attribute:: iproutedest  <key>
             
             	The destination IP address of this route.  An entry with a value of 0.0.0.0 is considered a default route.  Multiple routes to a single destination can appear in the table, but access to such multiple entries is dependent on the table\- access mechanisms defined by the network management protocol in use
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: iprouteifindex
             
             	The index value which uniquely identifies the local interface through which the next hop of this route should be reached.  The interface identified by a particular value of this index is the same interface as identified by the same value of ifIndex
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: iproutemetric1
             
             	The primary routing metric for this route.  The semantics of this metric are determined by the routing\-protocol specified in the route's ipRouteProto value.  If this metric is not used, its value should be set to \-1
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: iproutemetric2
             
             	An alternate routing metric for this route.  The semantics of this metric are determined by the routing\-protocol specified in the route's ipRouteProto value.  If this metric is not used, its value should be set to \-1
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: iproutemetric3
             
             	An alternate routing metric for this route.  The semantics of this metric are determined by the routing\-protocol specified in the route's ipRouteProto value.  If this metric is not used, its value should be set to \-1
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: iproutemetric4
             
             	An alternate routing metric for this route.  The semantics of this metric are determined by the routing\-protocol specified in the route's ipRouteProto value.  If this metric is not used, its value should be set to \-1
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: iproutenexthop
             
             	The IP address of the next hop of this route. (In the case of a route bound to an interface which is realized via a broadcast media, the value of this field is the agent's IP address on that interface.)
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: iproutetype
             
             	The type of route.  Note that the values direct(3) and indirect(4) refer to the notion of direct and indirect routing in the IP architecture.  Setting this object to the value invalid(2) has the effect of invalidating the corresponding entry in the ipRouteTable object.  That is, it effectively disassociates the destination identified with said entry from the route identified with said entry.  It is an implementation\-specific matter as to whether the agent removes an invalidated entry from the table. Accordingly, management stations must be prepared to receive tabular information from agents that corresponds to entries not currently in use. Proper interpretation of such entries requires examination of the relevant ipRouteType object
-            	**type**\:   :py:class:`Iproutetype <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iproutetable.Iprouteentry.Iproutetype>`
+            	**type**\:  :py:class:`Iproutetype <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iproutetable.Iprouteentry.Iproutetype>`
             
             .. attribute:: iprouteproto
             
             	The routing mechanism via which this route was learned.  Inclusion of values for gateway routing protocols is not intended to imply that hosts should support those protocols
-            	**type**\:   :py:class:`Iprouteproto <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iproutetable.Iprouteentry.Iprouteproto>`
+            	**type**\:  :py:class:`Iprouteproto <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Iproutetable.Iprouteentry.Iprouteproto>`
             
             .. attribute:: iprouteage
             
             	The number of seconds since this route was last updated or otherwise determined to be correct. Note that no semantics of `too old' can be implied except through knowledge of the routing protocol by which the route was learned
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: iproutemask
             
             	Indicate the mask to be logical\-ANDed with the destination address before being compared to the value in the ipRouteDest field.  For those systems that do not support arbitrary subnet masks, an agent constructs the value of the ipRouteMask by determining whether the value of the correspondent ipRouteDest field belong to a class\-A, B, or C network, and then using one of\:       mask           network      255.0.0.0      class\-A      255.255.0.0    class\-B      255.255.255.0  class\-C  If the value of the ipRouteDest is 0.0.0.0 (a default route), then the mask value is also 0.0.0.0.  It should be noted that all IP routing subsystems implicitly use this mechanism
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: iproutemetric5
             
             	An alternate routing metric for this route.  The semantics of this metric are determined by the routing\-protocol specified in the route's ipRouteProto value.  If this metric is not used, its value should be set to \-1
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: iprouteinfo
             
             	A reference to MIB definitions specific to the particular routing protocol which is responsible for this route, as determined by the value specified in the route's ipRouteProto value.  If this information is not present, its value should be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntactically valid object identifier, and any conformant implementation of ASN.1 and BER must be able to generate and recognize this value
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
             
 
@@ -2260,7 +2278,7 @@ class RFC1213MIB(Entity):
         .. attribute:: ipnettomediaentry
         
         	Each entry contains one IpAddress to `physical' address equivalence
-        	**type**\: list of    :py:class:`Ipnettomediaentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipnettomediatable.Ipnettomediaentry>`
+        	**type**\: list of  		 :py:class:`Ipnettomediaentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipnettomediatable.Ipnettomediaentry>`
         
         
 
@@ -2294,24 +2312,26 @@ class RFC1213MIB(Entity):
             .. attribute:: ipnettomediaifindex  <key>
             
             	The interface on which this entry's equivalence is effective.  The interface identified by a particular value of this index is the same interface as identified by the same value of ifIndex
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: ipnettomedianetaddress  <key>
             
             	The IpAddress corresponding to the media\- dependent `physical' address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: ipnettomediaphysaddress
             
             	The media\-dependent `physical' address
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: ipnettomediatype
             
             	The type of mapping.  Setting this object to the value invalid(2) has the effect of invalidating the corresponding entry in the ipNetToMediaTable.  That is, it effectively disassociates the interface identified with said entry from the mapping identified with said entry. It is an implementation\-specific matter as to whether the agent removes an invalidated entry from the table.  Accordingly, management stations must be prepared to receive tabular information from agents that corresponds to entries not currently in use.  Proper interpretation of such entries requires examination of the relevant ipNetToMediaType object
-            	**type**\:   :py:class:`Ipnettomediatype <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipnettomediatable.Ipnettomediaentry.Ipnettomediatype>`
+            	**type**\:  :py:class:`Ipnettomediatype <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Ipnettomediatable.Ipnettomediaentry.Ipnettomediatype>`
             
             
 
@@ -2402,7 +2422,7 @@ class RFC1213MIB(Entity):
         .. attribute:: tcpconnentry
         
         	Information about a particular current TCP connection.  An object of this type is transient, in that it ceases to exist when (or soon after) the connection makes the transition to the CLOSED state
-        	**type**\: list of    :py:class:`Tcpconnentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcpconntable.Tcpconnentry>`
+        	**type**\: list of  		 :py:class:`Tcpconnentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcpconntable.Tcpconnentry>`
         
         
 
@@ -2439,31 +2459,35 @@ class RFC1213MIB(Entity):
             .. attribute:: tcpconnlocaladdress  <key>
             
             	The local IP address for this TCP connection.  In the case of a connection in the listen state which is willing to accept connections for any IP interface associated with the node, the value 0.0.0.0 is used
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: tcpconnlocalport  <key>
             
             	The local port number for this TCP connection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: tcpconnremaddress  <key>
             
             	The remote IP address for this TCP connection
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: tcpconnremport  <key>
             
             	The remote port number for this TCP connection
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: tcpconnstate
             
             	The state of this TCP connection.  The only value which may be set by a management station is deleteTCB(12).  Accordingly, it is appropriate for an agent to return a `badValue' response if a management station attempts to set this object to any other value.  If a management station sets this object to the value deleteTCB(12), then this has the effect of deleting the TCB (as defined in RFC 793) of the corresponding connection on the managed node, resulting in immediate termination of the connection.  As an implementation\-specific option, a RST segment may be sent from the managed node to the other TCP endpoint (note however that RST segments are not sent reliably)
-            	**type**\:   :py:class:`Tcpconnstate <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcpconntable.Tcpconnentry.Tcpconnstate>`
+            	**type**\:  :py:class:`Tcpconnstate <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Tcpconntable.Tcpconnentry.Tcpconnstate>`
             
             
 
@@ -2591,7 +2615,7 @@ class RFC1213MIB(Entity):
         .. attribute:: udpentry
         
         	Information about a particular current UDP listener
-        	**type**\: list of    :py:class:`Udpentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Udptable.Udpentry>`
+        	**type**\: list of  		 :py:class:`Udpentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Udptable.Udpentry>`
         
         
 
@@ -2625,12 +2649,14 @@ class RFC1213MIB(Entity):
             .. attribute:: udplocaladdress  <key>
             
             	The local IP address for this UDP listener.  In the case of a UDP listener which is willing to accept datagrams for any IP interface associated with the node, the value 0.0.0.0 is used
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: udplocalport  <key>
             
             	The local port number for this UDP listener
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -2667,7 +2693,7 @@ class RFC1213MIB(Entity):
         .. attribute:: egpneighentry
         
         	Information about this entity's relationship with a particular EGP neighbor
-        	**type**\: list of    :py:class:`Egpneighentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable.Egpneighentry>`
+        	**type**\: list of  		 :py:class:`Egpneighentry <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable.Egpneighentry>`
         
         
 
@@ -2701,99 +2727,101 @@ class RFC1213MIB(Entity):
             .. attribute:: egpneighaddr  <key>
             
             	The IP address of this entry's EGP neighbor
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: egpneighstate
             
             	The EGP state of the local system with respect to this entry's EGP neighbor.  Each EGP state is represented by a value that is one greater than the numerical value associated with said state in RFC 904
-            	**type**\:   :py:class:`Egpneighstate <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable.Egpneighentry.Egpneighstate>`
+            	**type**\:  :py:class:`Egpneighstate <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable.Egpneighentry.Egpneighstate>`
             
             .. attribute:: egpneighas
             
             	The autonomous system of this EGP peer.  Zero should be specified if the autonomous system number of the neighbor is not yet known
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: egpneighinmsgs
             
             	The number of EGP messages received without error from this EGP peer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: egpneighinerrs
             
             	The number of EGP messages received from this EGP peer that proved to be in error (e.g., bad EGP checksum)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: egpneighoutmsgs
             
             	The number of locally generated EGP messages to this EGP peer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: egpneighouterrs
             
             	The number of locally generated EGP messages not sent to this EGP peer due to resource limitations within an EGP entity
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: egpneighinerrmsgs
             
             	The number of EGP\-defined error messages received from this EGP peer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: egpneighouterrmsgs
             
             	The number of EGP\-defined error messages sent to this EGP peer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: egpneighstateups
             
             	The number of EGP state transitions to the UP state with this EGP peer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: egpneighstatedowns
             
             	The number of EGP state transitions from the UP state to any other state with this EGP peer
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: egpneighintervalhello
             
             	The interval between EGP Hello command retransmissions (in hundredths of a second).  This represents the t1 timer as defined in RFC 904
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: egpneighintervalpoll
             
             	The interval between EGP poll command retransmissions (in hundredths of a second).  This represents the t3 timer as defined in RFC 904
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: egpneighmode
             
             	The polling mode of this EGP entity, either passive or active
-            	**type**\:   :py:class:`Egpneighmode <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable.Egpneighentry.Egpneighmode>`
+            	**type**\:  :py:class:`Egpneighmode <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable.Egpneighentry.Egpneighmode>`
             
             .. attribute:: egpneigheventtrigger
             
             	A control variable used to trigger operator\- initiated Start and Stop events.  When read, this variable always returns the most recent value that egpNeighEventTrigger was set to.  If it has not been set since the last initialization of the network management subsystem on the node, it returns a value of `stop'.  When set, this variable causes a Start or Stop event on the specified neighbor, as specified on pages 8\-10 of RFC 904.  Briefly, a Start event causes an Idle peer to begin neighbor acquisition and a non\-Idle peer to reinitiate neighbor acquisition.  A stop event causes a non\-Idle peer to return to the Idle state until a Start event occurs, either via egpNeighEventTrigger or otherwise
-            	**type**\:   :py:class:`Egpneigheventtrigger <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable.Egpneighentry.Egpneigheventtrigger>`
+            	**type**\:  :py:class:`Egpneigheventtrigger <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.Egpneightable.Egpneighentry.Egpneigheventtrigger>`
             
             
 

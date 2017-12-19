@@ -1296,7 +1296,7 @@ class Udp(Entity):
     .. attribute:: nodes
     
     	Node\-specific UDP operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes>`
     
     
 
@@ -1330,7 +1330,7 @@ class Udp(Entity):
         .. attribute:: node
         
         	UDP operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node>`
         
         
 
@@ -1364,12 +1364,14 @@ class Udp(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: statistics
             
             	Statistical UDP operational data for a node
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics>`
             
             
 
@@ -1408,12 +1410,12 @@ class Udp(Entity):
                 .. attribute:: ipv4_traffic
                 
                 	UDP Traffic statistics for IPv4
-                	**type**\:   :py:class:`Ipv4Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics.Ipv4Traffic>`
+                	**type**\:  :py:class:`Ipv4Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics.Ipv4Traffic>`
                 
                 .. attribute:: ipv6_traffic
                 
                 	UDP Traffic statistics for IPv6
-                	**type**\:   :py:class:`Ipv6Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics.Ipv6Traffic>`
+                	**type**\:  :py:class:`Ipv6Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics.Ipv6Traffic>`
                 
                 
 
@@ -1451,42 +1453,42 @@ class Udp(Entity):
                     .. attribute:: udp_input_packets
                     
                     	UDP Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: udp_checksum_error_packets
                     
                     	UDP Checksum Errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: udp_no_port_packets
                     
                     	UDP No Port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: udp_bad_length_packets
                     
                     	UDP bad length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: udp_output_packets
                     
                     	UDP Transmitted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: udp_dropped_packets
                     
                     	UDP drop for other reason
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1531,42 +1533,42 @@ class Udp(Entity):
                     .. attribute:: udp_input_packets
                     
                     	UDP Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: udp_checksum_error_packets
                     
                     	UDP Checksum Errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: udp_no_port_packets
                     
                     	UDP No Port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: udp_bad_length_packets
                     
                     	UDP bad length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: udp_output_packets
                     
                     	UDP Transmitted
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: udp_dropped_packets
                     
                     	UDP drop for other reason
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1614,7 +1616,7 @@ class UdpConnection(Entity):
     .. attribute:: nodes
     
     	List of UDP connections nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes>`
     
     
 
@@ -1648,7 +1650,7 @@ class UdpConnection(Entity):
         .. attribute:: node
         
         	Information about a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node>`
         
         
 
@@ -1682,27 +1684,29 @@ class UdpConnection(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: statistics
             
             	Statistics of UDP connections
-            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics>`
+            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics>`
             
             .. attribute:: lpts
             
             	LPTS statistical data
-            	**type**\:   :py:class:`Lpts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts>`
+            	**type**\:  :py:class:`Lpts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts>`
             
             .. attribute:: pcb_details
             
             	Detail information for list of UDP connections 
-            	**type**\:   :py:class:`PcbDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails>`
+            	**type**\:  :py:class:`PcbDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails>`
             
             .. attribute:: pcb_briefs
             
             	Brief information for list of UDP connections
-            	**type**\:   :py:class:`PcbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs>`
+            	**type**\:  :py:class:`PcbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs>`
             
             
 
@@ -1756,17 +1760,17 @@ class UdpConnection(Entity):
                 .. attribute:: clients
                 
                 	Table listing clients
-                	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients>`
+                	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients>`
                 
                 .. attribute:: summary
                 
                 	Summary statistics across all UDP connections
-                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Summary>`
+                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Summary>`
                 
                 .. attribute:: pcb_statistics
                 
                 	Table listing the UDP connections for which statistics are provided
-                	**type**\:   :py:class:`PcbStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics>`
+                	**type**\:  :py:class:`PcbStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics>`
                 
                 
 
@@ -1809,7 +1813,7 @@ class UdpConnection(Entity):
                     .. attribute:: client
                     
                     	Describing Client ID
-                    	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients.Client>`
+                    	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients.Client>`
                     
                     
 
@@ -1842,49 +1846,49 @@ class UdpConnection(Entity):
                         .. attribute:: client_id  <key>
                         
                         	Displaying client's aggregated statistics
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: client_jid
                         
                         	Job ID of the transport client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: client_name
                         
                         	Transport client name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..21
                         
                         .. attribute:: ipv4_received_packets
                         
                         	Total IPv4 packets received from client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ipv4_sent_packets
                         
                         	Total IPv4 packets sent to client
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ipv6_received_packets
                         
                         	Total IPv6 packets received from app
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ipv6_sent_packets
                         
                         	Total IPv6 packets sent to app
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1931,70 +1935,70 @@ class UdpConnection(Entity):
                     .. attribute:: received_total_packets
                     
                     	Total packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: received_no_port_packets
                     
                     	Packets received when no wild listener
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: received_bad_checksum_packets
                     
                     	Packets received has bad checksum
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: received_too_short_packets
                     
                     	Packets received is too short
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: received_drop_packets
                     
                     	Packets dropped for other reasons
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sent_total_packets
                     
                     	Total packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sent_error_packets
                     
                     	Total send erorr packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: forward_broadcast_packets
                     
                     	Total forwarding broadcast packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: cloned_packets
                     
                     	Total cloned packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: failed_clone_packets
                     
                     	Total failed cloned packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2048,7 +2052,7 @@ class UdpConnection(Entity):
                     .. attribute:: pcb_statistic
                     
                     	Satistics associated with a particular PCB
-                    	**type**\: list of    :py:class:`PcbStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic>`
+                    	**type**\: list of  		 :py:class:`PcbStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic>`
                     
                     
 
@@ -2081,31 +2085,31 @@ class UdpConnection(Entity):
                         .. attribute:: pcb_address  <key>
                         
                         	Protocol Control Block address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: send
                         
                         	UDP send statistics
-                        	**type**\:   :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send>`
+                        	**type**\:  :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send>`
                         
                         .. attribute:: receive
                         
                         	UDP receive statistics
-                        	**type**\:   :py:class:`Receive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive>`
+                        	**type**\:  :py:class:`Receive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive>`
                         
                         .. attribute:: vrf_id
                         
                         	VRF ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: is_paw_socket
                         
                         	True if paw socket
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -2152,7 +2156,7 @@ class UdpConnection(Entity):
                             .. attribute:: received_application_bytes
                             
                             	Bytes received from application
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2161,35 +2165,35 @@ class UdpConnection(Entity):
                             .. attribute:: received_xipc_pulses
                             
                             	XIPC pulses received from application
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: sent_network_packets
                             
                             	Packets sent to network (v4/v6 IO)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: sent_net_io_packets
                             
                             	Packets sent to network (NetIO)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: failed_queued_network_packets
                             
                             	Packets failed getting queued to network (v4/v6 IO)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: failed_queued_net_io_packets
                             
                             	Packets failed getting queued to network (NetIO)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2234,35 +2238,35 @@ class UdpConnection(Entity):
                             .. attribute:: received_network_packets
                             
                             	Packets received from network
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: failed_queued_application_packets
                             
                             	Packets failed queued to application
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: queued_application_packets
                             
                             	Packets queued to application
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: failed_queued_application_socket_packets
                             
                             	Packet that couldn't be queued to application.on socket
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: queued_application_socket_packets
                             
                             	Packets queued to application on socket
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2305,7 +2309,7 @@ class UdpConnection(Entity):
                 .. attribute:: queries
                 
                 	List of query options
-                	**type**\:   :py:class:`Queries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries>`
+                	**type**\:  :py:class:`Queries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries>`
                 
                 
 
@@ -2338,7 +2342,7 @@ class UdpConnection(Entity):
                     .. attribute:: query
                     
                     	Query option
-                    	**type**\: list of    :py:class:`Query <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query>`
+                    	**type**\: list of  		 :py:class:`Query <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query>`
                     
                     
 
@@ -2371,12 +2375,12 @@ class UdpConnection(Entity):
                         .. attribute:: query_name  <key>
                         
                         	Query option
-                        	**type**\:   :py:class:`LptsPcbQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.LptsPcbQuery>`
+                        	**type**\:  :py:class:`LptsPcbQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.LptsPcbQuery>`
                         
                         .. attribute:: pcbs
                         
                         	List of PCBs
-                        	**type**\:   :py:class:`Pcbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs>`
+                        	**type**\:  :py:class:`Pcbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs>`
                         
                         
 
@@ -2414,7 +2418,7 @@ class UdpConnection(Entity):
                             .. attribute:: pcb
                             
                             	A PCB information
-                            	**type**\: list of    :py:class:`Pcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb>`
+                            	**type**\: list of  		 :py:class:`Pcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb>`
                             
                             
 
@@ -2447,43 +2451,43 @@ class UdpConnection(Entity):
                                 .. attribute:: pcb_address  <key>
                                 
                                 	PCB address
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: local_address
                                 
                                 	Local IP address
-                                	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress>`
+                                	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress>`
                                 
                                 .. attribute:: foreign_address
                                 
                                 	Remote IP address
-                                	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress>`
+                                	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress>`
                                 
                                 .. attribute:: common
                                 
                                 	Common PCB information
-                                	**type**\:   :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common>`
+                                	**type**\:  :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common>`
                                 
                                 .. attribute:: l4_protocol
                                 
                                 	Layer 4 protocol
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: local_port
                                 
                                 	Local port
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: foreign_port
                                 
                                 	Remote port
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -2539,17 +2543,21 @@ class UdpConnection(Entity):
                                     .. attribute:: af_name
                                     
                                     	AFName
-                                    	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
+                                    	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -2586,17 +2594,21 @@ class UdpConnection(Entity):
                                     .. attribute:: af_name
                                     
                                     	AFName
-                                    	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
+                                    	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -2633,12 +2645,12 @@ class UdpConnection(Entity):
                                     .. attribute:: lpts_pcb
                                     
                                     	LPTS PCB information
-                                    	**type**\:   :py:class:`LptsPcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb>`
+                                    	**type**\:  :py:class:`LptsPcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb>`
                                     
                                     .. attribute:: af_name
                                     
                                     	Address Family
-                                    	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
+                                    	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                     
                                     
 
@@ -2676,36 +2688,36 @@ class UdpConnection(Entity):
                                         .. attribute:: options
                                         
                                         	Receive options
-                                        	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options>`
+                                        	**type**\:  :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options>`
                                         
                                         .. attribute:: lpts_flags
                                         
                                         	LPTS flags
-                                        	**type**\:   :py:class:`LptsFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags>`
+                                        	**type**\:  :py:class:`LptsFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags>`
                                         
                                         .. attribute:: accept_mask
                                         
                                         	AcceptMask
-                                        	**type**\:   :py:class:`AcceptMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask>`
+                                        	**type**\:  :py:class:`AcceptMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask>`
                                         
                                         .. attribute:: ttl
                                         
                                         	Minimum TTL
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: flow_types_info
                                         
                                         	flow information
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: filter
                                         
                                         	Interface Filters
-                                        	**type**\: list of    :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter>`
+                                        	**type**\: list of  		 :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter>`
                                         
                                         
 
@@ -2757,12 +2769,12 @@ class UdpConnection(Entity):
                                             .. attribute:: is_receive_filter
                                             
                                             	Receive filter enabled
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: is_ip_sla
                                             
                                             	IP SLA
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             
 
@@ -2797,17 +2809,17 @@ class UdpConnection(Entity):
                                             .. attribute:: is_pcb_bound
                                             
                                             	PCB bound
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: is_local_address_ignore
                                             
                                             	Sent drop packets
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: is_ignore_vrf_filter
                                             
                                             	Ignore VRF Filter
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             
 
@@ -2844,32 +2856,32 @@ class UdpConnection(Entity):
                                             .. attribute:: is_interface
                                             
                                             	Set interface
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: is_packet_type
                                             
                                             	Set packet type
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: is_remote_address
                                             
                                             	Set Remote address
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: is_remote_port
                                             
                                             	Set Remote Port
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: is_local_address
                                             
                                             	Set Local Address
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             .. attribute:: is_local_port
                                             
                                             	Set Local Port
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             
 
@@ -2912,69 +2924,71 @@ class UdpConnection(Entity):
                                             .. attribute:: packet_type
                                             
                                             	Protocol\-specific packet type
-                                            	**type**\:   :py:class:`PacketType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType>`
+                                            	**type**\:  :py:class:`PacketType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType>`
                                             
                                             .. attribute:: remote_address
                                             
                                             	Remote address
-                                            	**type**\:   :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress>`
+                                            	**type**\:  :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress>`
                                             
                                             .. attribute:: local_address
                                             
                                             	Local address
-                                            	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress>`
+                                            	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress>`
                                             
                                             .. attribute:: interface_name
                                             
                                             	Interface name
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                                             
                                             .. attribute:: remote_length
                                             
                                             	Remote address length
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: local_length
                                             
                                             	Local address length
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: receive_remote_port
                                             
                                             	Receive Remote port
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: receive_local_port
                                             
                                             	Receive Local port
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
                                             .. attribute:: priority
                                             
                                             	Priority
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..255
                                             
                                             .. attribute:: ttl
                                             
                                             	Minimum TTL
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..255
                                             
                                             .. attribute:: flow_types_info
                                             
                                             	flow information
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
@@ -3038,27 +3052,27 @@ class UdpConnection(Entity):
                                                 .. attribute:: type
                                                 
                                                 	Type
-                                                	**type**\:   :py:class:`Packet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Packet>`
+                                                	**type**\:  :py:class:`Packet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Packet>`
                                                 
                                                 .. attribute:: icmp_message_type
                                                 
                                                 	ICMP message type
-                                                	**type**\:   :py:class:`MessageTypeIcmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmp>`
+                                                	**type**\:  :py:class:`MessageTypeIcmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmp>`
                                                 
                                                 .. attribute:: icm_pv6_message_type
                                                 
                                                 	ICMPv6 message type
-                                                	**type**\:   :py:class:`MessageTypeIcmpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6>`
+                                                	**type**\:  :py:class:`MessageTypeIcmpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6>`
                                                 
                                                 .. attribute:: igmp_message_type
                                                 
                                                 	IGMP message type
-                                                	**type**\:   :py:class:`MessageTypeIgmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIgmp>`
+                                                	**type**\:  :py:class:`MessageTypeIgmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIgmp>`
                                                 
                                                 .. attribute:: message_id
                                                 
                                                 	Message type in number
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
@@ -3101,17 +3115,21 @@ class UdpConnection(Entity):
                                                 .. attribute:: af_name
                                                 
                                                 	AFName
-                                                	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
+                                                	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                                 
                                                 .. attribute:: ipv4_address
                                                 
                                                 	IPv4 address
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 .. attribute:: ipv6_address
                                                 
                                                 	IPv6 address
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                                 
                                                 
 
@@ -3148,17 +3166,21 @@ class UdpConnection(Entity):
                                                 .. attribute:: af_name
                                                 
                                                 	AFName
-                                                	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
+                                                	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                                 
                                                 .. attribute:: ipv4_address
                                                 
                                                 	IPv4 address
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
                                                 .. attribute:: ipv6_address
                                                 
                                                 	IPv6 address
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                                 
                                                 
 
@@ -3196,7 +3218,7 @@ class UdpConnection(Entity):
                 .. attribute:: pcb_detail
                 
                 	Detail information about a UDP connection
-                	**type**\: list of    :py:class:`PcbDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail>`
+                	**type**\: list of  		 :py:class:`PcbDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail>`
                 
                 
 
@@ -3229,64 +3251,64 @@ class UdpConnection(Entity):
                     .. attribute:: pcb_address  <key>
                     
                     	Protocol Control Block address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: local_address
                     
                     	Local address
-                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress>`
+                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress>`
                     
                     .. attribute:: foreign_address
                     
                     	Foreign address
-                    	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress>`
+                    	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress>`
                     
                     .. attribute:: af_name
                     
                     	Address family
-                    	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
+                    	**type**\:  :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                     
                     .. attribute:: local_process_id
                     
                     	ID of local process
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: local_port
                     
                     	Local port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: foreign_port
                     
                     	Foreign port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: receive_queue
                     
                     	Receive queue count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: send_queue
                     
                     	Send queue count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: vrf_id
                     
                     	VRF ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3345,17 +3367,21 @@ class UdpConnection(Entity):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
+                        	**type**\:  :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
                         .. attribute:: ipv4_address
                         
                         	IPv4 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -3392,17 +3418,21 @@ class UdpConnection(Entity):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
+                        	**type**\:  :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
                         .. attribute:: ipv4_address
                         
                         	IPv4 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -3439,7 +3469,7 @@ class UdpConnection(Entity):
                 .. attribute:: pcb_brief
                 
                 	Brief information about a UDP connection
-                	**type**\: list of    :py:class:`PcbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief>`
+                	**type**\: list of  		 :py:class:`PcbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief>`
                 
                 
 
@@ -3472,57 +3502,57 @@ class UdpConnection(Entity):
                     .. attribute:: pcb_address  <key>
                     
                     	Protocol Control Block address
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: local_address
                     
                     	Local address
-                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress>`
+                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress>`
                     
                     .. attribute:: foreign_address
                     
                     	Foreign address
-                    	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress>`
+                    	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress>`
                     
                     .. attribute:: af_name
                     
                     	Address family
-                    	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
+                    	**type**\:  :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                     
                     .. attribute:: local_port
                     
                     	Local port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: foreign_port
                     
                     	Foreign port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: receive_queue
                     
                     	Receive queue count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: send_queue
                     
                     	Send queue count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: vrf_id
                     
                     	VRF ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3579,17 +3609,21 @@ class UdpConnection(Entity):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
+                        	**type**\:  :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
                         .. attribute:: ipv4_address
                         
                         	IPv4 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -3626,17 +3660,21 @@ class UdpConnection(Entity):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
+                        	**type**\:  :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
                         .. attribute:: ipv4_address
                         
                         	IPv4 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 

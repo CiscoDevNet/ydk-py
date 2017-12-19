@@ -17,7 +17,7 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
     .. attribute:: cbpaccttable
     
     	The cbpAcctTable provides statistics about ingress and egress  traffic on an interface. This data could be used for purposes  like billing
-    	**type**\:   :py:class:`Cbpaccttable <ydk.models.cisco_ios_xe.CISCO_BGP_POLICY_ACCOUNTING_MIB.CISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable>`
+    	**type**\:  :py:class:`Cbpaccttable <ydk.models.cisco_ios_xe.CISCO_BGP_POLICY_ACCOUNTING_MIB.CISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable>`
     
     
 
@@ -53,7 +53,7 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
         .. attribute:: cbpacctentry
         
         	Each cbpAcctEntry provides statistics for traffic of interest on an ingress and/or egress interfaces. The traffic of interest  may be used for purposes like billing, and is referred to from  here on in the MIB by the term 'traffic\-type', which corresponds to cbpAcctTrafficIndex. Traffic\-types are configured by the user on a per interface basis.  The statistics include ingress packet counts, ingress octet counts, egress packet counts and egress octet counts. Entries  are created when traffic\-type is configured on an interface. Entries are deleted automatically when the user  removes the corresponding traffic\-type configuration from an interface
-        	**type**\: list of    :py:class:`Cbpacctentry <ydk.models.cisco_ios_xe.CISCO_BGP_POLICY_ACCOUNTING_MIB.CISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable.Cbpacctentry>`
+        	**type**\: list of  		 :py:class:`Cbpacctentry <ydk.models.cisco_ios_xe.CISCO_BGP_POLICY_ACCOUNTING_MIB.CISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable.Cbpacctentry>`
         
         
 
@@ -99,7 +99,7 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -108,35 +108,35 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             .. attribute:: cbpaccttrafficindex  <key>
             
             	An integer value greater than 0, that uniquely identifies a traffic\-type. The traffic\-type has no intrinsic meaning. It just means the traffic coming into an interface can be differentiated into different types. It is up to the user to give meaning to and configure the various traffic\-types on an  interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: cbpacctinpacketcount
             
             	The total number of packets received for a particular traffic\-type on an interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cbpacctinoctetcount
             
             	The total number of octets received for a particular traffic\-type on an interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cbpacctoutpacketcount
             
             	The total number of packets transmitted for a particular traffic\-type on an interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: cbpacctoutoctetcount
             
             	The total number of octets transmitted for a particular traffic\-type on an interface
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             

@@ -113,24 +113,29 @@ class BgpStateData(Entity):
     .. attribute:: neighbors
     
     	BGP neighbor information
-    	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors>`
+    	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors>`
     
     .. attribute:: address_families
     
     	BGP address family
-    	**type**\:   :py:class:`AddressFamilies <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies>`
+    	**type**\:  :py:class:`AddressFamilies <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies>`
     
     .. attribute:: bgp_route_vrfs
     
     	BGP VRFs
-    	**type**\:   :py:class:`BgpRouteVrfs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs>`
+    	**type**\:  :py:class:`BgpRouteVrfs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs>`
+    
+    .. attribute:: bgp_route_rds
+    
+    	BGP RDs
+    	**type**\:  :py:class:`BgpRouteRds <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds>`
     
     
 
     """
 
     _prefix = 'bgp-ios-xe-oper'
-    _revision = '2017-04-01'
+    _revision = '2017-05-12'
 
     def __init__(self):
         super(BgpStateData, self).__init__()
@@ -140,7 +145,7 @@ class BgpStateData(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-bgp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"neighbors" : ("neighbors", BgpStateData.Neighbors), "address-families" : ("address_families", BgpStateData.AddressFamilies), "bgp-route-vrfs" : ("bgp_route_vrfs", BgpStateData.BgpRouteVrfs)}
+        self._child_container_classes = {"neighbors" : ("neighbors", BgpStateData.Neighbors), "address-families" : ("address_families", BgpStateData.AddressFamilies), "bgp-route-vrfs" : ("bgp_route_vrfs", BgpStateData.BgpRouteVrfs), "bgp-route-rds" : ("bgp_route_rds", BgpStateData.BgpRouteRds)}
         self._child_list_classes = {}
 
         self.neighbors = BgpStateData.Neighbors()
@@ -157,6 +162,11 @@ class BgpStateData(Entity):
         self.bgp_route_vrfs.parent = self
         self._children_name_map["bgp_route_vrfs"] = "bgp-route-vrfs"
         self._children_yang_names.add("bgp-route-vrfs")
+
+        self.bgp_route_rds = BgpStateData.BgpRouteRds()
+        self.bgp_route_rds.parent = self
+        self._children_name_map["bgp_route_rds"] = "bgp-route-rds"
+        self._children_yang_names.add("bgp-route-rds")
         self._segment_path = lambda: "Cisco-IOS-XE-bgp-oper:bgp-state-data"
 
 
@@ -167,14 +177,14 @@ class BgpStateData(Entity):
         .. attribute:: neighbor
         
         	List of BGP neighbors
-        	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor>`
+        	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor>`
         
         
 
         """
 
         _prefix = 'bgp-ios-xe-oper'
-        _revision = '2017-04-01'
+        _revision = '2017-05-12'
 
         def __init__(self):
             super(BgpStateData.Neighbors, self).__init__()
@@ -201,98 +211,98 @@ class BgpStateData(Entity):
             .. attribute:: afi_safi  <key>
             
             	Afi\-safi key
-            	**type**\:   :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
+            	**type**\:  :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
             
             .. attribute:: vrf_name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: neighbor_id  <key>
             
             	Neighbor identifier
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: description
             
             	Neighbor description string
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: bgp_version
             
             	BGP version being used to communicate with the remote router
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: link
             
             	Neighbor link type
-            	**type**\:   :py:class:`BgpLink <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpLink>`
+            	**type**\:  :py:class:`BgpLink <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpLink>`
             
             .. attribute:: up_time
             
             	Amout of time the bgp session has been up since being established
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: last_write
             
             	Time since BGP last sent a message to the neighbor
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: last_read
             
             	Time since BGP last received a message from the neighbor
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: installed_prefixes
             
             	The number of installed prefixes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: session_state
             
             	BGP neighbor session state
-            	**type**\:   :py:class:`BgpFsmState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpFsmState>`
+            	**type**\:  :py:class:`BgpFsmState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpFsmState>`
             
             .. attribute:: negotiated_keepalive_timers
             
             	Negotiated keepalive timers status of BGP neighbor
-            	**type**\:   :py:class:`NegotiatedKeepaliveTimers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.NegotiatedKeepaliveTimers>`
+            	**type**\:  :py:class:`NegotiatedKeepaliveTimers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.NegotiatedKeepaliveTimers>`
             
             .. attribute:: negotiated_cap
             
             	Negotiated capabilities for neighbor session
-            	**type**\:  list of str
+            	**type**\: list of str
             
             .. attribute:: bgp_neighbor_counters
             
             	BGP neighbor session counters
-            	**type**\:   :py:class:`BgpNeighborCounters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.BgpNeighborCounters>`
+            	**type**\:  :py:class:`BgpNeighborCounters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.BgpNeighborCounters>`
             
             .. attribute:: connection
             
             	BGP neighbor connection
-            	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.Connection>`
+            	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.Connection>`
             
             .. attribute:: transport
             
             	BGP neighbor transport
-            	**type**\:   :py:class:`Transport <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.Transport>`
+            	**type**\:  :py:class:`Transport <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.Transport>`
             
             .. attribute:: prefix_activity
             
             	BGP neighbor activity
-            	**type**\:   :py:class:`PrefixActivity <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.PrefixActivity>`
+            	**type**\:  :py:class:`PrefixActivity <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.PrefixActivity>`
             
             
 
             """
 
             _prefix = 'bgp-ios-xe-oper'
-            _revision = '2017-04-01'
+            _revision = '2017-05-12'
 
             def __init__(self):
                 super(BgpStateData.Neighbors.Neighbor, self).__init__()
@@ -366,14 +376,14 @@ class BgpStateData(Entity):
                 .. attribute:: hold_time
                 
                 	Hold time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: keepalive_interval
                 
                 	Keepalive interval
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -382,7 +392,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.Neighbors.Neighbor.NegotiatedKeepaliveTimers, self).__init__()
@@ -410,24 +420,24 @@ class BgpStateData(Entity):
                 .. attribute:: sent
                 
                 	Number of mesaged sent
-                	**type**\:   :py:class:`Sent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Sent>`
+                	**type**\:  :py:class:`Sent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Sent>`
                 
                 .. attribute:: received
                 
                 	Number of mesaged received
-                	**type**\:   :py:class:`Received <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Received>`
+                	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Received>`
                 
                 .. attribute:: inq_depth
                 
                 	Input Q depth
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: outq_depth
                 
                 	Output Q depth
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -436,7 +446,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.Neighbors.Neighbor.BgpNeighborCounters, self).__init__()
@@ -474,35 +484,35 @@ class BgpStateData(Entity):
                     .. attribute:: opens
                     
                     	OPEN message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: updates
                     
                     	UPDATE message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: notifications
                     
                     	NOTIFICATION message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: keepalives
                     
                     	KEEPALIVE message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: route_refreshes
                     
                     	Route refresh message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -511,7 +521,7 @@ class BgpStateData(Entity):
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-05-12'
 
                     def __init__(self):
                         super(BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Sent, self).__init__()
@@ -545,35 +555,35 @@ class BgpStateData(Entity):
                     .. attribute:: opens
                     
                     	OPEN message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: updates
                     
                     	UPDATE message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: notifications
                     
                     	NOTIFICATION message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: keepalives
                     
                     	KEEPALIVE message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: route_refreshes
                     
                     	Route refresh message count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -582,7 +592,7 @@ class BgpStateData(Entity):
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-05-12'
 
                     def __init__(self):
                         super(BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Received, self).__init__()
@@ -616,43 +626,43 @@ class BgpStateData(Entity):
                 .. attribute:: state
                 
                 	TCP FSM state
-                	**type**\:   :py:class:`TcpFsmState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.TcpFsmState>`
+                	**type**\:  :py:class:`TcpFsmState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.TcpFsmState>`
                 
                 .. attribute:: mode
                 
                 	BGP transport connection mode
-                	**type**\:   :py:class:`BgpMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpMode>`
+                	**type**\:  :py:class:`BgpMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpMode>`
                 
                 .. attribute:: total_established
                 
                 	The number of times a TCP and BGP  connection has been successfully established
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: total_dropped
                 
                 	The number of times that a valid session has failed or been taken down
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: last_reset
                 
                 	Time since peering session was last reset
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: reset_reason
                 
                 	The reason for the last reset
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.Neighbors.Neighbor.Connection, self).__init__()
@@ -688,52 +698,52 @@ class BgpStateData(Entity):
                 .. attribute:: path_mtu_discovery
                 
                 	Indication whether path MTU discovrey is enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: local_port
                 
                 	Local TCP port used for TCP session
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: local_host
                 
                 	Local address used for the TCP session
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: foreign_port
                 
                 	Remote port used by the peer for the TCP session
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: foreign_host
                 
                 	Remote address of the BGP session
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: mss
                 
                 	Maximum Data segment size
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -742,7 +752,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.Neighbors.Neighbor.Transport, self).__init__()
@@ -778,19 +788,19 @@ class BgpStateData(Entity):
                 .. attribute:: sent
                 
                 	Number of prefixes sent
-                	**type**\:   :py:class:`Sent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.PrefixActivity.Sent>`
+                	**type**\:  :py:class:`Sent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.PrefixActivity.Sent>`
                 
                 .. attribute:: received
                 
                 	Number of prefixes received
-                	**type**\:   :py:class:`Received <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.PrefixActivity.Received>`
+                	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.PrefixActivity.Received>`
                 
                 
 
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.Neighbors.Neighbor.PrefixActivity, self).__init__()
@@ -821,42 +831,42 @@ class BgpStateData(Entity):
                     .. attribute:: current_prefixes
                     
                     	The current number of accepted prefixes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_prefixes
                     
                     	The total number of accepted prefixes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: implicit_withdraw
                     
                     	The number of times a prefix has been withdrawn and readvertised
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: explicit_withdraw
                     
                     	The number of times a prefix has been withdrawn because it is no longer feasible
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bestpaths
                     
                     	The number of received prefixes installed as best paths
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multipaths
                     
                     	The number of received prefixes installed as multipaths
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -865,7 +875,7 @@ class BgpStateData(Entity):
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-05-12'
 
                     def __init__(self):
                         super(BgpStateData.Neighbors.Neighbor.PrefixActivity.Sent, self).__init__()
@@ -901,42 +911,42 @@ class BgpStateData(Entity):
                     .. attribute:: current_prefixes
                     
                     	The current number of accepted prefixes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: total_prefixes
                     
                     	The total number of accepted prefixes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: implicit_withdraw
                     
                     	The number of times a prefix has been withdrawn and readvertised
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: explicit_withdraw
                     
                     	The number of times a prefix has been withdrawn because it is no longer feasible
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bestpaths
                     
                     	The number of received prefixes installed as best paths
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multipaths
                     
                     	The number of received prefixes installed as multipaths
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -945,7 +955,7 @@ class BgpStateData(Entity):
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-05-12'
 
                     def __init__(self):
                         super(BgpStateData.Neighbors.Neighbor.PrefixActivity.Received, self).__init__()
@@ -981,14 +991,14 @@ class BgpStateData(Entity):
         .. attribute:: address_family
         
         	List of BGP address families
-        	**type**\: list of    :py:class:`AddressFamily <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily>`
+        	**type**\: list of  		 :py:class:`AddressFamily <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily>`
         
         
 
         """
 
         _prefix = 'bgp-ios-xe-oper'
-        _revision = '2017-04-01'
+        _revision = '2017-05-12'
 
         def __init__(self):
             super(BgpStateData.AddressFamilies, self).__init__()
@@ -1015,88 +1025,88 @@ class BgpStateData(Entity):
             .. attribute:: afi_safi  <key>
             
             	Afi\-safi value
-            	**type**\:   :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
+            	**type**\:  :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
             
             .. attribute:: vrf_name  <key>
             
             	VRF name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: router_id
             
             	Router ID
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            ----
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            ----
             .. attribute:: bgp_table_version
             
             	BGP table version number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: routing_table_version
             
             	Routing table version number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: prefixes
             
             	Prefix entry statistics
-            	**type**\:   :py:class:`Prefixes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.Prefixes>`
+            	**type**\:  :py:class:`Prefixes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.Prefixes>`
             
             .. attribute:: path
             
             	Path entry statistics
-            	**type**\:   :py:class:`Path <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.Path>`
+            	**type**\:  :py:class:`Path <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.Path>`
             
             .. attribute:: as_path
             
             	AS path entry statistics
-            	**type**\:   :py:class:`AsPath <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.AsPath>`
+            	**type**\:  :py:class:`AsPath <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.AsPath>`
             
             .. attribute:: route_map
             
             	Route map entry statistics
-            	**type**\:   :py:class:`RouteMap <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.RouteMap>`
+            	**type**\:  :py:class:`RouteMap <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.RouteMap>`
             
             .. attribute:: filter_list
             
             	Filter list entry statistics
-            	**type**\:   :py:class:`FilterList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.FilterList>`
+            	**type**\:  :py:class:`FilterList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.FilterList>`
             
             .. attribute:: activities
             
             	BGP activity information
-            	**type**\:   :py:class:`Activities <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.Activities>`
+            	**type**\:  :py:class:`Activities <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.Activities>`
             
             .. attribute:: total_memory
             
             	Total memory in use
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: bgp_neighbor_summaries
             
             	Neighbor summary
-            	**type**\:   :py:class:`BgpNeighborSummaries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries>`
+            	**type**\:  :py:class:`BgpNeighborSummaries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries>`
             
             
 
             """
 
             _prefix = 'bgp-ios-xe-oper'
-            _revision = '2017-04-01'
+            _revision = '2017-05-12'
 
             def __init__(self):
                 super(BgpStateData.AddressFamilies.AddressFamily, self).__init__()
@@ -1168,14 +1178,14 @@ class BgpStateData(Entity):
                 .. attribute:: total_entries
                 
                 	The total number of prefix entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: memory_usage
                 
                 	Total memory usage in byte
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1184,7 +1194,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.Prefixes, self).__init__()
@@ -1212,14 +1222,14 @@ class BgpStateData(Entity):
                 .. attribute:: total_entries
                 
                 	The total number of prefix entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: memory_usage
                 
                 	Total memory usage in byte
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1228,7 +1238,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.Path, self).__init__()
@@ -1256,14 +1266,14 @@ class BgpStateData(Entity):
                 .. attribute:: total_entries
                 
                 	The total number of prefix entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: memory_usage
                 
                 	Total memory usage in byte
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1272,7 +1282,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.AsPath, self).__init__()
@@ -1300,14 +1310,14 @@ class BgpStateData(Entity):
                 .. attribute:: total_entries
                 
                 	The total number of prefix entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: memory_usage
                 
                 	Total memory usage in byte
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1316,7 +1326,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.RouteMap, self).__init__()
@@ -1344,14 +1354,14 @@ class BgpStateData(Entity):
                 .. attribute:: total_entries
                 
                 	The total number of prefix entries
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: memory_usage
                 
                 	Total memory usage in byte
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1360,7 +1370,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.FilterList, self).__init__()
@@ -1388,28 +1398,28 @@ class BgpStateData(Entity):
                 .. attribute:: prefixes
                 
                 	Total number of prefixes
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: paths
                 
                 	Total number of paths
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: scan_interval
                 
                 	Scan interval in seconds
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.Activities, self).__init__()
@@ -1439,14 +1449,14 @@ class BgpStateData(Entity):
                 .. attribute:: bgp_neighbor_summary
                 
                 	List of neighbor summaries
-                	**type**\: list of    :py:class:`BgpNeighborSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries.BgpNeighborSummary>`
+                	**type**\: list of  		 :py:class:`BgpNeighborSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries.BgpNeighborSummary>`
                 
                 
 
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries, self).__init__()
@@ -1472,78 +1482,78 @@ class BgpStateData(Entity):
                     .. attribute:: id  <key>
                     
                     	Neighbor address
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: bgp_version
                     
                     	BGP protocol version
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: messages_received
                     
                     	Number of messages received from this neighbor
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: messages_sent
                     
                     	Number of messages sent to this neighbor
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: table_version
                     
                     	BGP table version
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: input_queue
                     
                     	Number of messages in input queue
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: output_queue
                     
                     	Number of messages in output queue
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: up_time
                     
                     	Neighbor session uptime
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: state
                     
                     	BGP session state
-                    	**type**\:   :py:class:`BgpFsmState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpFsmState>`
+                    	**type**\:  :py:class:`BgpFsmState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpFsmState>`
                     
                     .. attribute:: prefixes_received
                     
                     	Number of prefixes received from the neighbor
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: dynamically_configured
                     
                     	Indication of whether the neighbor was dyanmically configured
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-05-12'
 
                     def __init__(self):
                         super(BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries.BgpNeighborSummary, self).__init__()
@@ -1589,14 +1599,14 @@ class BgpStateData(Entity):
         .. attribute:: bgp_route_vrf
         
         	List of BGP VRFs
-        	**type**\: list of    :py:class:`BgpRouteVrf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf>`
+        	**type**\: list of  		 :py:class:`BgpRouteVrf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf>`
         
         
 
         """
 
         _prefix = 'bgp-ios-xe-oper'
-        _revision = '2017-04-01'
+        _revision = '2017-05-12'
 
         def __init__(self):
             super(BgpStateData.BgpRouteVrfs, self).__init__()
@@ -1623,19 +1633,19 @@ class BgpStateData(Entity):
             .. attribute:: vrf  <key>
             
             	BGP vrf
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: bgp_route_afs
             
             	BGP address families
-            	**type**\:   :py:class:`BgpRouteAfs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs>`
+            	**type**\:  :py:class:`BgpRouteAfs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs>`
             
             
 
             """
 
             _prefix = 'bgp-ios-xe-oper'
-            _revision = '2017-04-01'
+            _revision = '2017-05-12'
 
             def __init__(self):
                 super(BgpStateData.BgpRouteVrfs.BgpRouteVrf, self).__init__()
@@ -1667,14 +1677,14 @@ class BgpStateData(Entity):
                 .. attribute:: bgp_route_af
                 
                 	List of BGP address families
-                	**type**\: list of    :py:class:`BgpRouteAf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf>`
+                	**type**\: list of  		 :py:class:`BgpRouteAf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf>`
                 
                 
 
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-04-01'
+                _revision = '2017-05-12'
 
                 def __init__(self):
                     super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs, self).__init__()
@@ -1700,19 +1710,29 @@ class BgpStateData(Entity):
                     .. attribute:: afi_safi  <key>
                     
                     	BGP address family
-                    	**type**\:   :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
+                    	**type**\:  :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
                     
                     .. attribute:: bgp_route_filters
                     
                     	BGP route filters
-                    	**type**\:   :py:class:`BgpRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters>`
+                    	**type**\:  :py:class:`BgpRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters>`
+                    
+                    .. attribute:: bgp_route_neighbors
+                    
+                    	BGP route neighbors
+                    	**type**\:  :py:class:`BgpRouteNeighbors <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors>`
+                    
+                    .. attribute:: bgp_peer_groups
+                    
+                    	BGP peer groups
+                    	**type**\:  :py:class:`BgpPeerGroups <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups>`
                     
                     
 
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-04-01'
+                    _revision = '2017-05-12'
 
                     def __init__(self):
                         super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf, self).__init__()
@@ -1721,7 +1741,7 @@ class BgpStateData(Entity):
                         self.yang_parent_name = "bgp-route-afs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"bgp-route-filters" : ("bgp_route_filters", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters)}
+                        self._child_container_classes = {"bgp-route-filters" : ("bgp_route_filters", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters), "bgp-route-neighbors" : ("bgp_route_neighbors", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors), "bgp-peer-groups" : ("bgp_peer_groups", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups)}
                         self._child_list_classes = {}
 
                         self.afi_safi = YLeaf(YType.enumeration, "afi-safi")
@@ -1730,6 +1750,16 @@ class BgpStateData(Entity):
                         self.bgp_route_filters.parent = self
                         self._children_name_map["bgp_route_filters"] = "bgp-route-filters"
                         self._children_yang_names.add("bgp-route-filters")
+
+                        self.bgp_route_neighbors = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors()
+                        self.bgp_route_neighbors.parent = self
+                        self._children_name_map["bgp_route_neighbors"] = "bgp-route-neighbors"
+                        self._children_yang_names.add("bgp-route-neighbors")
+
+                        self.bgp_peer_groups = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups()
+                        self.bgp_peer_groups.parent = self
+                        self._children_name_map["bgp_peer_groups"] = "bgp-peer-groups"
+                        self._children_yang_names.add("bgp-peer-groups")
                         self._segment_path = lambda: "bgp-route-af" + "[afi-safi='" + self.afi_safi.get() + "']"
 
                     def __setattr__(self, name, value):
@@ -1743,14 +1773,14 @@ class BgpStateData(Entity):
                         .. attribute:: bgp_route_filter
                         
                         	List of BGP route filters
-                        	**type**\: list of    :py:class:`BgpRouteFilter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter>`
+                        	**type**\: list of  		 :py:class:`BgpRouteFilter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter>`
                         
                         
 
                         """
 
                         _prefix = 'bgp-ios-xe-oper'
-                        _revision = '2017-04-01'
+                        _revision = '2017-05-12'
 
                         def __init__(self):
                             super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters, self).__init__()
@@ -1776,19 +1806,19 @@ class BgpStateData(Entity):
                             .. attribute:: route_filter  <key>
                             
                             	BGP route filter
-                            	**type**\:   :py:class:`BgpRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRouteFilters>`
+                            	**type**\:  :py:class:`BgpRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRouteFilters>`
                             
                             .. attribute:: bgp_route_entries
                             
                             	BGP route entries
-                            	**type**\:   :py:class:`BgpRouteEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries>`
+                            	**type**\:  :py:class:`BgpRouteEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries>`
                             
                             
 
                             """
 
                             _prefix = 'bgp-ios-xe-oper'
-                            _revision = '2017-04-01'
+                            _revision = '2017-05-12'
 
                             def __init__(self):
                                 super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter, self).__init__()
@@ -1819,14 +1849,14 @@ class BgpStateData(Entity):
                                 .. attribute:: bgp_route_entry
                                 
                                 	List of BGP route entries
-                                	**type**\: list of    :py:class:`BgpRouteEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry>`
+                                	**type**\: list of  		 :py:class:`BgpRouteEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry>`
                                 
                                 
 
                                 """
 
                                 _prefix = 'bgp-ios-xe-oper'
-                                _revision = '2017-04-01'
+                                _revision = '2017-05-12'
 
                                 def __init__(self):
                                     super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries, self).__init__()
@@ -1852,38 +1882,38 @@ class BgpStateData(Entity):
                                     .. attribute:: prefix  <key>
                                     
                                     	Routing table entry prefix
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: version
                                     
                                     	Routing table version
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: available_paths
                                     
                                     	Number of paths available for BGP prefix
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: advertised_to
                                     
                                     	Whom is thie prefix advertized to
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: bgp_path_entries
                                     
                                     	Prefix next hop details
-                                    	**type**\:   :py:class:`BgpPathEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries>`
+                                    	**type**\:  :py:class:`BgpPathEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries>`
                                     
                                     
 
                                     """
 
                                     _prefix = 'bgp-ios-xe-oper'
-                                    _revision = '2017-04-01'
+                                    _revision = '2017-05-12'
 
                                     def __init__(self):
                                         super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry, self).__init__()
@@ -1920,14 +1950,14 @@ class BgpStateData(Entity):
                                         .. attribute:: bgp_path_entry
                                         
                                         	List of prefix next hop details
-                                        	**type**\: list of    :py:class:`BgpPathEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry>`
+                                        	**type**\: list of  		 :py:class:`BgpPathEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry>`
                                         
                                         
 
                                         """
 
                                         _prefix = 'bgp-ios-xe-oper'
-                                        _revision = '2017-04-01'
+                                        _revision = '2017-05-12'
 
                                         def __init__(self):
                                             super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries, self).__init__()
@@ -1953,60 +1983,147 @@ class BgpStateData(Entity):
                                             .. attribute:: nexthop  <key>
                                             
                                             	Next hop for this path
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: metric
                                             
                                             	Metric associated with the path
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: local_pref
                                             
                                             	Local preference for this path
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: weight
                                             
                                             	Path weight
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: as_path
                                             
                                             	AS path
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             .. attribute:: origin
                                             
                                             	Path origin
-                                            	**type**\:   :py:class:`BgpOriginCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpOriginCode>`
+                                            	**type**\:  :py:class:`BgpOriginCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpOriginCode>`
                                             
                                             .. attribute:: path_status
                                             
                                             	Path status
-                                            	**type**\:   :py:class:`PathStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus>`
+                                            	**type**\:  :py:class:`PathStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus>`
                                             
                                             .. attribute:: rpki_status
                                             
                                             	RPKI path status
-                                            	**type**\:   :py:class:`BgpRpkiStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRpkiStatus>`
+                                            	**type**\:  :py:class:`BgpRpkiStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRpkiStatus>`
                                             
                                             .. attribute:: community
                                             
                                             	Community label for the path
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            .. attribute:: mpls_in
+                                            
+                                            	MPLS label in for the path
+                                            	**type**\: str
+                                            
+                                            .. attribute:: mpls_out
+                                            
+                                            	MPLS label out for the path
+                                            	**type**\: str
+                                            
+                                            .. attribute:: sr_profile_name
+                                            
+                                            	SR profile name for the path
+                                            	**type**\: str
+                                            
+                                            .. attribute:: sr_binding_sid
+                                            
+                                            	SR binding sid for the path
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: sr_label_indx
+                                            
+                                            	SR label index for the path
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: as4_path
+                                            
+                                            	path using 4\-octet AS numbers
+                                            	**type**\: str
+                                            
+                                            .. attribute:: atomic_aggregate
+                                            
+                                            	attribute indicating whether or not the prefix is an atomic aggregate
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: aggr_as_number
+                                            
+                                            	AS number of autonomous system them performed the aggregation
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: aggr_as4_number
+                                            
+                                            	AS4 number of autonomous system them performed the aggregation
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: aggr_address
+                                            
+                                            	IP address of the router that performed the aggregation
+                                            	**type**\: str
+                                            
+                                            .. attribute:: originator_id
+                                            
+                                            	the router ID of the originator of the route in the local AS
+                                            	**type**\: str
+                                            
+                                            .. attribute:: cluster_list
+                                            
+                                            	the reflection path the route has passed
+                                            	**type**\: str
+                                            
+                                            .. attribute:: extended_community
+                                            
+                                            	BGP extended community attribute
+                                            	**type**\: str
+                                            
+                                            .. attribute:: ext_aigp_metric
+                                            
+                                            	the accumulated IGP metric for the path
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..18446744073709551615
+                                            
+                                            .. attribute:: path_id
+                                            
+                                            	path identifier used to uniquely identify a route
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
                                             
                                             
 
                                             """
 
                                             _prefix = 'bgp-ios-xe-oper'
-                                            _revision = '2017-04-01'
+                                            _revision = '2017-05-12'
 
                                             def __init__(self):
                                                 super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry, self).__init__()
@@ -2034,6 +2151,36 @@ class BgpStateData(Entity):
 
                                                 self.community = YLeaf(YType.str, "community")
 
+                                                self.mpls_in = YLeaf(YType.str, "mpls-in")
+
+                                                self.mpls_out = YLeaf(YType.str, "mpls-out")
+
+                                                self.sr_profile_name = YLeaf(YType.str, "sr-profile-name")
+
+                                                self.sr_binding_sid = YLeaf(YType.uint32, "sr-binding-sid")
+
+                                                self.sr_label_indx = YLeaf(YType.uint32, "sr-label-indx")
+
+                                                self.as4_path = YLeaf(YType.str, "as4-path")
+
+                                                self.atomic_aggregate = YLeaf(YType.boolean, "atomic-aggregate")
+
+                                                self.aggr_as_number = YLeaf(YType.uint32, "aggr-as-number")
+
+                                                self.aggr_as4_number = YLeaf(YType.uint32, "aggr-as4-number")
+
+                                                self.aggr_address = YLeaf(YType.str, "aggr-address")
+
+                                                self.originator_id = YLeaf(YType.str, "originator-id")
+
+                                                self.cluster_list = YLeaf(YType.str, "cluster-list")
+
+                                                self.extended_community = YLeaf(YType.str, "extended-community")
+
+                                                self.ext_aigp_metric = YLeaf(YType.uint64, "ext-aigp-metric")
+
+                                                self.path_id = YLeaf(YType.uint32, "path-id")
+
                                                 self.path_status = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus()
                                                 self.path_status.parent = self
                                                 self._children_name_map["path_status"] = "path-status"
@@ -2041,7 +2188,7 @@ class BgpStateData(Entity):
                                                 self._segment_path = lambda: "bgp-path-entry" + "[nexthop='" + self.nexthop.get() + "']"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry, ['nexthop', 'metric', 'local_pref', 'weight', 'as_path', 'origin', 'rpki_status', 'community'], name, value)
+                                                self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry, ['nexthop', 'metric', 'local_pref', 'weight', 'as_path', 'origin', 'rpki_status', 'community', 'mpls_in', 'mpls_out', 'sr_profile_name', 'sr_binding_sid', 'sr_label_indx', 'as4_path', 'atomic_aggregate', 'aggr_as_number', 'aggr_as4_number', 'aggr_address', 'originator_id', 'cluster_list', 'extended_community', 'ext_aigp_metric', 'path_id'], name, value)
 
 
                                             class PathStatus(Entity):
@@ -2051,84 +2198,84 @@ class BgpStateData(Entity):
                                                 .. attribute:: suppressed
                                                 
                                                 	Suppressed path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: damped
                                                 
                                                 	Damped path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: history
                                                 
                                                 	History path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: valid
                                                 
                                                 	Valid path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: sourced
                                                 
                                                 	Sourced path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: bestpath
                                                 
                                                 	Best path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: internal
                                                 
                                                 	Internal path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: rib_fail
                                                 
                                                 	RIB\-fail path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: stale
                                                 
                                                 	Stale path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: multipath
                                                 
                                                 	Multipath path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: backup_path
                                                 
                                                 	Backup path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: rt_filter
                                                 
                                                 	RT filter path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: best_external
                                                 
                                                 	Best externa path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: additional_path
                                                 
                                                 	Additional path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 .. attribute:: rib_compressed
                                                 
                                                 	RIB compressed path
-                                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
                                                 
 
                                                 """
 
                                                 _prefix = 'bgp-ios-xe-oper'
-                                                _revision = '2017-04-01'
+                                                _revision = '2017-05-12'
 
                                                 def __init__(self):
                                                     super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus, self).__init__()
@@ -2173,6 +2320,2231 @@ class BgpStateData(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus, ['suppressed', 'damped', 'history', 'valid', 'sourced', 'bestpath', 'internal', 'rib_fail', 'stale', 'multipath', 'backup_path', 'rt_filter', 'best_external', 'additional_path', 'rib_compressed'], name, value)
+
+
+                    class BgpRouteNeighbors(Entity):
+                        """
+                        BGP route neighbors
+                        
+                        .. attribute:: bgp_route_neighbor
+                        
+                        	List of BGP route neighbors
+                        	**type**\: list of  		 :py:class:`BgpRouteNeighbor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'bgp-ios-xe-oper'
+                        _revision = '2017-05-12'
+
+                        def __init__(self):
+                            super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors, self).__init__()
+
+                            self.yang_name = "bgp-route-neighbors"
+                            self.yang_parent_name = "bgp-route-af"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"bgp-route-neighbor" : ("bgp_route_neighbor", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor)}
+
+                            self.bgp_route_neighbor = YList(self)
+                            self._segment_path = lambda: "bgp-route-neighbors"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors, [], name, value)
+
+
+                        class BgpRouteNeighbor(Entity):
+                            """
+                            List of BGP route neighbors
+                            
+                            .. attribute:: nbr_id  <key>
+                            
+                            	BGP neighbor ID
+                            	**type**\: str
+                            
+                            .. attribute:: bgp_neighbor_route_filters
+                            
+                            	BGP neighbor route filters
+                            	**type**\:  :py:class:`BgpNeighborRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'bgp-ios-xe-oper'
+                            _revision = '2017-05-12'
+
+                            def __init__(self):
+                                super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor, self).__init__()
+
+                                self.yang_name = "bgp-route-neighbor"
+                                self.yang_parent_name = "bgp-route-neighbors"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"bgp-neighbor-route-filters" : ("bgp_neighbor_route_filters", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters)}
+                                self._child_list_classes = {}
+
+                                self.nbr_id = YLeaf(YType.str, "nbr-id")
+
+                                self.bgp_neighbor_route_filters = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters()
+                                self.bgp_neighbor_route_filters.parent = self
+                                self._children_name_map["bgp_neighbor_route_filters"] = "bgp-neighbor-route-filters"
+                                self._children_yang_names.add("bgp-neighbor-route-filters")
+                                self._segment_path = lambda: "bgp-route-neighbor" + "[nbr-id='" + self.nbr_id.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor, ['nbr_id'], name, value)
+
+
+                            class BgpNeighborRouteFilters(Entity):
+                                """
+                                BGP neighbor route filters
+                                
+                                .. attribute:: bgp_neighbor_route_filter
+                                
+                                	List of BGP neighbor route filters
+                                	**type**\: list of  		 :py:class:`BgpNeighborRouteFilter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'bgp-ios-xe-oper'
+                                _revision = '2017-05-12'
+
+                                def __init__(self):
+                                    super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters, self).__init__()
+
+                                    self.yang_name = "bgp-neighbor-route-filters"
+                                    self.yang_parent_name = "bgp-route-neighbor"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"bgp-neighbor-route-filter" : ("bgp_neighbor_route_filter", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter)}
+
+                                    self.bgp_neighbor_route_filter = YList(self)
+                                    self._segment_path = lambda: "bgp-neighbor-route-filters"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters, [], name, value)
+
+
+                                class BgpNeighborRouteFilter(Entity):
+                                    """
+                                    List of BGP neighbor route filters
+                                    
+                                    .. attribute:: nbr_fltr  <key>
+                                    
+                                    	BGP neighbor route filter
+                                    	**type**\:  :py:class:`BgpNeighborRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpNeighborRouteFilters>`
+                                    
+                                    .. attribute:: bgp_neighbor_route_entries
+                                    
+                                    	BGP neighbor route entries
+                                    	**type**\:  :py:class:`BgpNeighborRouteEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'bgp-ios-xe-oper'
+                                    _revision = '2017-05-12'
+
+                                    def __init__(self):
+                                        super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter, self).__init__()
+
+                                        self.yang_name = "bgp-neighbor-route-filter"
+                                        self.yang_parent_name = "bgp-neighbor-route-filters"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"bgp-neighbor-route-entries" : ("bgp_neighbor_route_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries)}
+                                        self._child_list_classes = {}
+
+                                        self.nbr_fltr = YLeaf(YType.enumeration, "nbr-fltr")
+
+                                        self.bgp_neighbor_route_entries = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries()
+                                        self.bgp_neighbor_route_entries.parent = self
+                                        self._children_name_map["bgp_neighbor_route_entries"] = "bgp-neighbor-route-entries"
+                                        self._children_yang_names.add("bgp-neighbor-route-entries")
+                                        self._segment_path = lambda: "bgp-neighbor-route-filter" + "[nbr-fltr='" + self.nbr_fltr.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter, ['nbr_fltr'], name, value)
+
+
+                                    class BgpNeighborRouteEntries(Entity):
+                                        """
+                                        BGP neighbor route entries
+                                        
+                                        .. attribute:: bgp_neighbor_route_entry
+                                        
+                                        	List of BGP neighbor route entries
+                                        	**type**\: list of  		 :py:class:`BgpNeighborRouteEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'bgp-ios-xe-oper'
+                                        _revision = '2017-05-12'
+
+                                        def __init__(self):
+                                            super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries, self).__init__()
+
+                                            self.yang_name = "bgp-neighbor-route-entries"
+                                            self.yang_parent_name = "bgp-neighbor-route-filter"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {"bgp-neighbor-route-entry" : ("bgp_neighbor_route_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry)}
+
+                                            self.bgp_neighbor_route_entry = YList(self)
+                                            self._segment_path = lambda: "bgp-neighbor-route-entries"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries, [], name, value)
+
+
+                                        class BgpNeighborRouteEntry(Entity):
+                                            """
+                                            List of BGP neighbor route entries
+                                            
+                                            .. attribute:: prefix  <key>
+                                            
+                                            	Neighbor routing table entry prefix
+                                            	**type**\: str
+                                            
+                                            .. attribute:: version
+                                            
+                                            	Neighbor routing table version
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: available_paths
+                                            
+                                            	Number of paths available for BGP prefix
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: advertised_to
+                                            
+                                            	Who this prefix was advertized to
+                                            	**type**\: str
+                                            
+                                            .. attribute:: bgp_neighbor_path_entries
+                                            
+                                            	Prefix next hop details
+                                            	**type**\:  :py:class:`BgpNeighborPathEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'bgp-ios-xe-oper'
+                                            _revision = '2017-05-12'
+
+                                            def __init__(self):
+                                                super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry, self).__init__()
+
+                                                self.yang_name = "bgp-neighbor-route-entry"
+                                                self.yang_parent_name = "bgp-neighbor-route-entries"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"bgp-neighbor-path-entries" : ("bgp_neighbor_path_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries)}
+                                                self._child_list_classes = {}
+
+                                                self.prefix = YLeaf(YType.str, "prefix")
+
+                                                self.version = YLeaf(YType.uint32, "version")
+
+                                                self.available_paths = YLeaf(YType.uint32, "available-paths")
+
+                                                self.advertised_to = YLeaf(YType.str, "advertised-to")
+
+                                                self.bgp_neighbor_path_entries = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries()
+                                                self.bgp_neighbor_path_entries.parent = self
+                                                self._children_name_map["bgp_neighbor_path_entries"] = "bgp-neighbor-path-entries"
+                                                self._children_yang_names.add("bgp-neighbor-path-entries")
+                                                self._segment_path = lambda: "bgp-neighbor-route-entry" + "[prefix='" + self.prefix.get() + "']"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry, ['prefix', 'version', 'available_paths', 'advertised_to'], name, value)
+
+
+                                            class BgpNeighborPathEntries(Entity):
+                                                """
+                                                Prefix next hop details
+                                                
+                                                .. attribute:: bgp_neighbor_path_entry
+                                                
+                                                	List of prefix next hop details
+                                                	**type**\: list of  		 :py:class:`BgpNeighborPathEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'bgp-ios-xe-oper'
+                                                _revision = '2017-05-12'
+
+                                                def __init__(self):
+                                                    super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries, self).__init__()
+
+                                                    self.yang_name = "bgp-neighbor-path-entries"
+                                                    self.yang_parent_name = "bgp-neighbor-route-entry"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {"bgp-neighbor-path-entry" : ("bgp_neighbor_path_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry)}
+
+                                                    self.bgp_neighbor_path_entry = YList(self)
+                                                    self._segment_path = lambda: "bgp-neighbor-path-entries"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries, [], name, value)
+
+
+                                                class BgpNeighborPathEntry(Entity):
+                                                    """
+                                                    List of prefix next hop details
+                                                    
+                                                    .. attribute:: nexthop  <key>
+                                                    
+                                                    	Next hop for this path
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: metric
+                                                    
+                                                    	Metric associated with the path
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: local_pref
+                                                    
+                                                    	Local preference for this path
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: weight
+                                                    
+                                                    	Path weight
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: as_path
+                                                    
+                                                    	AS path
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: origin
+                                                    
+                                                    	Path origin
+                                                    	**type**\:  :py:class:`BgpOriginCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpOriginCode>`
+                                                    
+                                                    .. attribute:: path_status
+                                                    
+                                                    	Path status
+                                                    	**type**\:  :py:class:`PathStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus>`
+                                                    
+                                                    .. attribute:: rpki_status
+                                                    
+                                                    	RPKI path status
+                                                    	**type**\:  :py:class:`BgpRpkiStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRpkiStatus>`
+                                                    
+                                                    .. attribute:: community
+                                                    
+                                                    	Community label for the path
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: mpls_in
+                                                    
+                                                    	MPLS label in for the path
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: mpls_out
+                                                    
+                                                    	MPLS label out for the path
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: sr_profile_name
+                                                    
+                                                    	SR profile name for the path
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: sr_binding_sid
+                                                    
+                                                    	SR binding sid for the path
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: sr_label_indx
+                                                    
+                                                    	SR label index for the path
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: as4_path
+                                                    
+                                                    	path using 4\-octet AS numbers
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: atomic_aggregate
+                                                    
+                                                    	attribute indicating whether or not the prefix is an atomic aggregate
+                                                    	**type**\: bool
+                                                    
+                                                    .. attribute:: aggr_as_number
+                                                    
+                                                    	AS number of autonomous system them performed the aggregation
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: aggr_as4_number
+                                                    
+                                                    	AS4 number of autonomous system them performed the aggregation
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: aggr_address
+                                                    
+                                                    	IP address of the router that performed the aggregation
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: originator_id
+                                                    
+                                                    	the router ID of the originator of the route in the local AS
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: cluster_list
+                                                    
+                                                    	the reflection path the route has passed
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: extended_community
+                                                    
+                                                    	BGP extended community attribute
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: ext_aigp_metric
+                                                    
+                                                    	the accumulated IGP metric for the path
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..18446744073709551615
+                                                    
+                                                    .. attribute:: path_id
+                                                    
+                                                    	path identifier used to uniquely identify a route
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'bgp-ios-xe-oper'
+                                                    _revision = '2017-05-12'
+
+                                                    def __init__(self):
+                                                        super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry, self).__init__()
+
+                                                        self.yang_name = "bgp-neighbor-path-entry"
+                                                        self.yang_parent_name = "bgp-neighbor-path-entries"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {"path-status" : ("path_status", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus)}
+                                                        self._child_list_classes = {}
+
+                                                        self.nexthop = YLeaf(YType.str, "nexthop")
+
+                                                        self.metric = YLeaf(YType.uint32, "metric")
+
+                                                        self.local_pref = YLeaf(YType.uint32, "local-pref")
+
+                                                        self.weight = YLeaf(YType.uint32, "weight")
+
+                                                        self.as_path = YLeaf(YType.str, "as-path")
+
+                                                        self.origin = YLeaf(YType.enumeration, "origin")
+
+                                                        self.rpki_status = YLeaf(YType.enumeration, "rpki-status")
+
+                                                        self.community = YLeaf(YType.str, "community")
+
+                                                        self.mpls_in = YLeaf(YType.str, "mpls-in")
+
+                                                        self.mpls_out = YLeaf(YType.str, "mpls-out")
+
+                                                        self.sr_profile_name = YLeaf(YType.str, "sr-profile-name")
+
+                                                        self.sr_binding_sid = YLeaf(YType.uint32, "sr-binding-sid")
+
+                                                        self.sr_label_indx = YLeaf(YType.uint32, "sr-label-indx")
+
+                                                        self.as4_path = YLeaf(YType.str, "as4-path")
+
+                                                        self.atomic_aggregate = YLeaf(YType.boolean, "atomic-aggregate")
+
+                                                        self.aggr_as_number = YLeaf(YType.uint32, "aggr-as-number")
+
+                                                        self.aggr_as4_number = YLeaf(YType.uint32, "aggr-as4-number")
+
+                                                        self.aggr_address = YLeaf(YType.str, "aggr-address")
+
+                                                        self.originator_id = YLeaf(YType.str, "originator-id")
+
+                                                        self.cluster_list = YLeaf(YType.str, "cluster-list")
+
+                                                        self.extended_community = YLeaf(YType.str, "extended-community")
+
+                                                        self.ext_aigp_metric = YLeaf(YType.uint64, "ext-aigp-metric")
+
+                                                        self.path_id = YLeaf(YType.uint32, "path-id")
+
+                                                        self.path_status = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus()
+                                                        self.path_status.parent = self
+                                                        self._children_name_map["path_status"] = "path-status"
+                                                        self._children_yang_names.add("path-status")
+                                                        self._segment_path = lambda: "bgp-neighbor-path-entry" + "[nexthop='" + self.nexthop.get() + "']"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry, ['nexthop', 'metric', 'local_pref', 'weight', 'as_path', 'origin', 'rpki_status', 'community', 'mpls_in', 'mpls_out', 'sr_profile_name', 'sr_binding_sid', 'sr_label_indx', 'as4_path', 'atomic_aggregate', 'aggr_as_number', 'aggr_as4_number', 'aggr_address', 'originator_id', 'cluster_list', 'extended_community', 'ext_aigp_metric', 'path_id'], name, value)
+
+
+                                                    class PathStatus(Entity):
+                                                        """
+                                                        Path status
+                                                        
+                                                        .. attribute:: suppressed
+                                                        
+                                                        	Suppressed path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: damped
+                                                        
+                                                        	Damped path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: history
+                                                        
+                                                        	History path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: valid
+                                                        
+                                                        	Valid path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: sourced
+                                                        
+                                                        	Sourced path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: bestpath
+                                                        
+                                                        	Best path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: internal
+                                                        
+                                                        	Internal path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: rib_fail
+                                                        
+                                                        	RIB\-fail path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: stale
+                                                        
+                                                        	Stale path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: multipath
+                                                        
+                                                        	Multipath path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: backup_path
+                                                        
+                                                        	Backup path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: rt_filter
+                                                        
+                                                        	RT filter path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: best_external
+                                                        
+                                                        	Best externa path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: additional_path
+                                                        
+                                                        	Additional path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: rib_compressed
+                                                        
+                                                        	RIB compressed path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'bgp-ios-xe-oper'
+                                                        _revision = '2017-05-12'
+
+                                                        def __init__(self):
+                                                            super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus, self).__init__()
+
+                                                            self.yang_name = "path-status"
+                                                            self.yang_parent_name = "bgp-neighbor-path-entry"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {}
+
+                                                            self.suppressed = YLeaf(YType.empty, "suppressed")
+
+                                                            self.damped = YLeaf(YType.empty, "damped")
+
+                                                            self.history = YLeaf(YType.empty, "history")
+
+                                                            self.valid = YLeaf(YType.empty, "valid")
+
+                                                            self.sourced = YLeaf(YType.empty, "sourced")
+
+                                                            self.bestpath = YLeaf(YType.empty, "bestpath")
+
+                                                            self.internal = YLeaf(YType.empty, "internal")
+
+                                                            self.rib_fail = YLeaf(YType.empty, "rib-fail")
+
+                                                            self.stale = YLeaf(YType.empty, "stale")
+
+                                                            self.multipath = YLeaf(YType.empty, "multipath")
+
+                                                            self.backup_path = YLeaf(YType.empty, "backup-path")
+
+                                                            self.rt_filter = YLeaf(YType.empty, "rt-filter")
+
+                                                            self.best_external = YLeaf(YType.empty, "best-external")
+
+                                                            self.additional_path = YLeaf(YType.empty, "additional-path")
+
+                                                            self.rib_compressed = YLeaf(YType.empty, "rib-compressed")
+                                                            self._segment_path = lambda: "path-status"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus, ['suppressed', 'damped', 'history', 'valid', 'sourced', 'bestpath', 'internal', 'rib_fail', 'stale', 'multipath', 'backup_path', 'rt_filter', 'best_external', 'additional_path', 'rib_compressed'], name, value)
+
+
+                    class BgpPeerGroups(Entity):
+                        """
+                        BGP peer groups
+                        
+                        .. attribute:: bgp_peer_group
+                        
+                        	List of BGP peer groups
+                        	**type**\: list of  		 :py:class:`BgpPeerGroup <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups.BgpPeerGroup>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'bgp-ios-xe-oper'
+                        _revision = '2017-05-12'
+
+                        def __init__(self):
+                            super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups, self).__init__()
+
+                            self.yang_name = "bgp-peer-groups"
+                            self.yang_parent_name = "bgp-route-af"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"bgp-peer-group" : ("bgp_peer_group", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups.BgpPeerGroup)}
+
+                            self.bgp_peer_group = YList(self)
+                            self._segment_path = lambda: "bgp-peer-groups"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups, [], name, value)
+
+
+                        class BgpPeerGroup(Entity):
+                            """
+                            List of BGP peer groups
+                            
+                            .. attribute:: name  <key>
+                            
+                            	BGP peer group name
+                            	**type**\: str
+                            
+                            .. attribute:: description
+                            
+                            	Peer Group description string
+                            	**type**\: str
+                            
+                            .. attribute:: remote_as
+                            
+                            	Peer Group Remote as value
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: bgp_version
+                            
+                            	BGP version being used to communicate with the remote router
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: min_time
+                            
+                            	Peer Group minimum time
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: num_of_sessions
+                            
+                            	Number of Sessions for peer group
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: num_estab_sessions
+                            
+                            	Number of established sessions  for peer group
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: num_sso_sessions
+                            
+                            	Number of SSO sesssions for peer group
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: peer_members
+                            
+                            	BGP peer group members
+                            	**type**\: list of str
+                            
+                            .. attribute:: fmt_grp_ix
+                            
+                            	BGP peer group Formatted Group Index value
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: adv_ix
+                            
+                            	BGP peer group Advertised Index value
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: aspath_in
+                            
+                            	BGP peer group aspath  filter in value
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: aspath_out
+                            
+                            	BGP peer group aspath  filter out value
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: routemap_in
+                            
+                            	BGP peer group Route Map in value
+                            	**type**\: str
+                            
+                            .. attribute:: routemap_out
+                            
+                            	BGP peer group Route Map out value
+                            	**type**\: str
+                            
+                            .. attribute:: updated_messages
+                            
+                            	BGP peer group Updated Messages value
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: rep_count
+                            
+                            	BGP peer group Replicated Count value
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: slowpeer_detection_value
+                            
+                            	BGP peer group slow peer Threshold value
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: weight
+                            
+                            	BGP weight value
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: send_community
+                            
+                            	BGP Send Community status
+                            	**type**\: bool
+                            
+                            .. attribute:: extended_community
+                            
+                            	BGP Extended Community status
+                            	**type**\: bool
+                            
+                            .. attribute:: remove_private_as
+                            
+                            	BGP Remove PrivateAs status
+                            	**type**\: bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'bgp-ios-xe-oper'
+                            _revision = '2017-05-12'
+
+                            def __init__(self):
+                                super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups.BgpPeerGroup, self).__init__()
+
+                                self.yang_name = "bgp-peer-group"
+                                self.yang_parent_name = "bgp-peer-groups"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.name = YLeaf(YType.str, "name")
+
+                                self.description = YLeaf(YType.str, "description")
+
+                                self.remote_as = YLeaf(YType.uint32, "remote-as")
+
+                                self.bgp_version = YLeaf(YType.uint16, "bgp-version")
+
+                                self.min_time = YLeaf(YType.uint16, "min-time")
+
+                                self.num_of_sessions = YLeaf(YType.uint32, "num-of-sessions")
+
+                                self.num_estab_sessions = YLeaf(YType.uint32, "num-estab-sessions")
+
+                                self.num_sso_sessions = YLeaf(YType.uint32, "num-sso-sessions")
+
+                                self.peer_members = YLeafList(YType.str, "peer-members")
+
+                                self.fmt_grp_ix = YLeaf(YType.uint16, "fmt-grp-ix")
+
+                                self.adv_ix = YLeaf(YType.uint16, "adv-ix")
+
+                                self.aspath_in = YLeaf(YType.uint32, "aspath-in")
+
+                                self.aspath_out = YLeaf(YType.uint32, "aspath-out")
+
+                                self.routemap_in = YLeaf(YType.str, "routemap-in")
+
+                                self.routemap_out = YLeaf(YType.str, "routemap-out")
+
+                                self.updated_messages = YLeaf(YType.uint64, "updated-messages")
+
+                                self.rep_count = YLeaf(YType.uint32, "rep-count")
+
+                                self.slowpeer_detection_value = YLeaf(YType.uint16, "slowpeer-detection-value")
+
+                                self.weight = YLeaf(YType.uint16, "weight")
+
+                                self.send_community = YLeaf(YType.boolean, "send-community")
+
+                                self.extended_community = YLeaf(YType.boolean, "extended-community")
+
+                                self.remove_private_as = YLeaf(YType.boolean, "remove-private-as")
+                                self._segment_path = lambda: "bgp-peer-group" + "[name='" + self.name.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups.BgpPeerGroup, ['name', 'description', 'remote_as', 'bgp_version', 'min_time', 'num_of_sessions', 'num_estab_sessions', 'num_sso_sessions', 'peer_members', 'fmt_grp_ix', 'adv_ix', 'aspath_in', 'aspath_out', 'routemap_in', 'routemap_out', 'updated_messages', 'rep_count', 'slowpeer_detection_value', 'weight', 'send_community', 'extended_community', 'remove_private_as'], name, value)
+
+
+    class BgpRouteRds(Entity):
+        """
+        BGP RDs
+        
+        .. attribute:: bgp_route_rd
+        
+        	List of BGP RDs
+        	**type**\: list of  		 :py:class:`BgpRouteRd <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd>`
+        
+        
+
+        """
+
+        _prefix = 'bgp-ios-xe-oper'
+        _revision = '2017-05-12'
+
+        def __init__(self):
+            super(BgpStateData.BgpRouteRds, self).__init__()
+
+            self.yang_name = "bgp-route-rds"
+            self.yang_parent_name = "bgp-state-data"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"bgp-route-rd" : ("bgp_route_rd", BgpStateData.BgpRouteRds.BgpRouteRd)}
+
+            self.bgp_route_rd = YList(self)
+            self._segment_path = lambda: "bgp-route-rds"
+            self._absolute_path = lambda: "Cisco-IOS-XE-bgp-oper:bgp-state-data/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(BgpStateData.BgpRouteRds, [], name, value)
+
+
+        class BgpRouteRd(Entity):
+            """
+            List of BGP RDs
+            
+            .. attribute:: rd_value  <key>
+            
+            	BGP rd value
+            	**type**\: str
+            
+            .. attribute:: bgp_rd_route_afs
+            
+            	BGP rd address families
+            	**type**\:  :py:class:`BgpRdRouteAfs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs>`
+            
+            
+
+            """
+
+            _prefix = 'bgp-ios-xe-oper'
+            _revision = '2017-05-12'
+
+            def __init__(self):
+                super(BgpStateData.BgpRouteRds.BgpRouteRd, self).__init__()
+
+                self.yang_name = "bgp-route-rd"
+                self.yang_parent_name = "bgp-route-rds"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"bgp-rd-route-afs" : ("bgp_rd_route_afs", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs)}
+                self._child_list_classes = {}
+
+                self.rd_value = YLeaf(YType.str, "rd-value")
+
+                self.bgp_rd_route_afs = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs()
+                self.bgp_rd_route_afs.parent = self
+                self._children_name_map["bgp_rd_route_afs"] = "bgp-rd-route-afs"
+                self._children_yang_names.add("bgp-rd-route-afs")
+                self._segment_path = lambda: "bgp-route-rd" + "[rd-value='" + self.rd_value.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd, ['rd_value'], name, value)
+
+
+            class BgpRdRouteAfs(Entity):
+                """
+                BGP rd address families
+                
+                .. attribute:: bgp_rd_route_af
+                
+                	List of BGP RD address families
+                	**type**\: list of  		 :py:class:`BgpRdRouteAf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf>`
+                
+                
+
+                """
+
+                _prefix = 'bgp-ios-xe-oper'
+                _revision = '2017-05-12'
+
+                def __init__(self):
+                    super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs, self).__init__()
+
+                    self.yang_name = "bgp-rd-route-afs"
+                    self.yang_parent_name = "bgp-route-rd"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"bgp-rd-route-af" : ("bgp_rd_route_af", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf)}
+
+                    self.bgp_rd_route_af = YList(self)
+                    self._segment_path = lambda: "bgp-rd-route-afs"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs, [], name, value)
+
+
+                class BgpRdRouteAf(Entity):
+                    """
+                    List of BGP RD address families
+                    
+                    .. attribute:: afi_safi  <key>
+                    
+                    	BGP address family
+                    	**type**\:  :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
+                    
+                    .. attribute:: bgp_rd_route_filters
+                    
+                    	BGP RD route filters
+                    	**type**\:  :py:class:`BgpRdRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters>`
+                    
+                    .. attribute:: bgp_rd_route_neighbors
+                    
+                    	BGP RD route neighbors
+                    	**type**\:  :py:class:`BgpRdRouteNeighbors <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'bgp-ios-xe-oper'
+                    _revision = '2017-05-12'
+
+                    def __init__(self):
+                        super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf, self).__init__()
+
+                        self.yang_name = "bgp-rd-route-af"
+                        self.yang_parent_name = "bgp-rd-route-afs"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"bgp-rd-route-filters" : ("bgp_rd_route_filters", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters), "bgp-rd-route-neighbors" : ("bgp_rd_route_neighbors", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors)}
+                        self._child_list_classes = {}
+
+                        self.afi_safi = YLeaf(YType.enumeration, "afi-safi")
+
+                        self.bgp_rd_route_filters = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters()
+                        self.bgp_rd_route_filters.parent = self
+                        self._children_name_map["bgp_rd_route_filters"] = "bgp-rd-route-filters"
+                        self._children_yang_names.add("bgp-rd-route-filters")
+
+                        self.bgp_rd_route_neighbors = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors()
+                        self.bgp_rd_route_neighbors.parent = self
+                        self._children_name_map["bgp_rd_route_neighbors"] = "bgp-rd-route-neighbors"
+                        self._children_yang_names.add("bgp-rd-route-neighbors")
+                        self._segment_path = lambda: "bgp-rd-route-af" + "[afi-safi='" + self.afi_safi.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf, ['afi_safi'], name, value)
+
+
+                    class BgpRdRouteFilters(Entity):
+                        """
+                        BGP RD route filters
+                        
+                        .. attribute:: bgp_rd_route_filter
+                        
+                        	List of BGP RD route filters
+                        	**type**\: list of  		 :py:class:`BgpRdRouteFilter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'bgp-ios-xe-oper'
+                        _revision = '2017-05-12'
+
+                        def __init__(self):
+                            super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters, self).__init__()
+
+                            self.yang_name = "bgp-rd-route-filters"
+                            self.yang_parent_name = "bgp-rd-route-af"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"bgp-rd-route-filter" : ("bgp_rd_route_filter", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter)}
+
+                            self.bgp_rd_route_filter = YList(self)
+                            self._segment_path = lambda: "bgp-rd-route-filters"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters, [], name, value)
+
+
+                        class BgpRdRouteFilter(Entity):
+                            """
+                            List of BGP RD route filters
+                            
+                            .. attribute:: route_filter  <key>
+                            
+                            	BGP RD route filter
+                            	**type**\:  :py:class:`BgpRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRouteFilters>`
+                            
+                            .. attribute:: bgp_rd_route_entries
+                            
+                            	BGP RD route entries
+                            	**type**\:  :py:class:`BgpRdRouteEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'bgp-ios-xe-oper'
+                            _revision = '2017-05-12'
+
+                            def __init__(self):
+                                super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter, self).__init__()
+
+                                self.yang_name = "bgp-rd-route-filter"
+                                self.yang_parent_name = "bgp-rd-route-filters"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"bgp-rd-route-entries" : ("bgp_rd_route_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries)}
+                                self._child_list_classes = {}
+
+                                self.route_filter = YLeaf(YType.enumeration, "route-filter")
+
+                                self.bgp_rd_route_entries = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries()
+                                self.bgp_rd_route_entries.parent = self
+                                self._children_name_map["bgp_rd_route_entries"] = "bgp-rd-route-entries"
+                                self._children_yang_names.add("bgp-rd-route-entries")
+                                self._segment_path = lambda: "bgp-rd-route-filter" + "[route-filter='" + self.route_filter.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter, ['route_filter'], name, value)
+
+
+                            class BgpRdRouteEntries(Entity):
+                                """
+                                BGP RD route entries
+                                
+                                .. attribute:: bgp_rd_route_entry
+                                
+                                	List of BGP RD route entries
+                                	**type**\: list of  		 :py:class:`BgpRdRouteEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'bgp-ios-xe-oper'
+                                _revision = '2017-05-12'
+
+                                def __init__(self):
+                                    super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries, self).__init__()
+
+                                    self.yang_name = "bgp-rd-route-entries"
+                                    self.yang_parent_name = "bgp-rd-route-filter"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"bgp-rd-route-entry" : ("bgp_rd_route_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry)}
+
+                                    self.bgp_rd_route_entry = YList(self)
+                                    self._segment_path = lambda: "bgp-rd-route-entries"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries, [], name, value)
+
+
+                                class BgpRdRouteEntry(Entity):
+                                    """
+                                    List of BGP RD route entries
+                                    
+                                    .. attribute:: prefix  <key>
+                                    
+                                    	RD Routing table entry prefix
+                                    	**type**\: str
+                                    
+                                    .. attribute:: version
+                                    
+                                    	RD Routing table version
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: available_paths
+                                    
+                                    	Number of  paths available for BGP prefix
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: advertised_to
+                                    
+                                    	Whom is thie prefix advertized to
+                                    	**type**\: str
+                                    
+                                    .. attribute:: bgp_rd_path_entries
+                                    
+                                    	Prefix next hop details
+                                    	**type**\:  :py:class:`BgpRdPathEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'bgp-ios-xe-oper'
+                                    _revision = '2017-05-12'
+
+                                    def __init__(self):
+                                        super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry, self).__init__()
+
+                                        self.yang_name = "bgp-rd-route-entry"
+                                        self.yang_parent_name = "bgp-rd-route-entries"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"bgp-rd-path-entries" : ("bgp_rd_path_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries)}
+                                        self._child_list_classes = {}
+
+                                        self.prefix = YLeaf(YType.str, "prefix")
+
+                                        self.version = YLeaf(YType.uint32, "version")
+
+                                        self.available_paths = YLeaf(YType.uint32, "available-paths")
+
+                                        self.advertised_to = YLeaf(YType.str, "advertised-to")
+
+                                        self.bgp_rd_path_entries = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries()
+                                        self.bgp_rd_path_entries.parent = self
+                                        self._children_name_map["bgp_rd_path_entries"] = "bgp-rd-path-entries"
+                                        self._children_yang_names.add("bgp-rd-path-entries")
+                                        self._segment_path = lambda: "bgp-rd-route-entry" + "[prefix='" + self.prefix.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry, ['prefix', 'version', 'available_paths', 'advertised_to'], name, value)
+
+
+                                    class BgpRdPathEntries(Entity):
+                                        """
+                                        Prefix next hop details
+                                        
+                                        .. attribute:: bgp_rd_path_entry
+                                        
+                                        	List of prefix next hop details
+                                        	**type**\: list of  		 :py:class:`BgpRdPathEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'bgp-ios-xe-oper'
+                                        _revision = '2017-05-12'
+
+                                        def __init__(self):
+                                            super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries, self).__init__()
+
+                                            self.yang_name = "bgp-rd-path-entries"
+                                            self.yang_parent_name = "bgp-rd-route-entry"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {"bgp-rd-path-entry" : ("bgp_rd_path_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry)}
+
+                                            self.bgp_rd_path_entry = YList(self)
+                                            self._segment_path = lambda: "bgp-rd-path-entries"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries, [], name, value)
+
+
+                                        class BgpRdPathEntry(Entity):
+                                            """
+                                            List of prefix next hop details
+                                            
+                                            .. attribute:: nexthop  <key>
+                                            
+                                            	Next hop for this path
+                                            	**type**\: str
+                                            
+                                            .. attribute:: metric
+                                            
+                                            	Metric associated with the path
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: local_pref
+                                            
+                                            	Local preference for this path
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: weight
+                                            
+                                            	Path weight
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: as_path
+                                            
+                                            	AS path
+                                            	**type**\: str
+                                            
+                                            .. attribute:: origin
+                                            
+                                            	Path origin
+                                            	**type**\:  :py:class:`BgpOriginCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpOriginCode>`
+                                            
+                                            .. attribute:: path_status
+                                            
+                                            	Path status
+                                            	**type**\:  :py:class:`PathStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus>`
+                                            
+                                            .. attribute:: rpki_status
+                                            
+                                            	RPKI path status
+                                            	**type**\:  :py:class:`BgpRpkiStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRpkiStatus>`
+                                            
+                                            .. attribute:: community
+                                            
+                                            	Community label for the path
+                                            	**type**\: str
+                                            
+                                            .. attribute:: mpls_in
+                                            
+                                            	MPLS label in for the path
+                                            	**type**\: str
+                                            
+                                            .. attribute:: mpls_out
+                                            
+                                            	MPLS label out for the path
+                                            	**type**\: str
+                                            
+                                            .. attribute:: sr_profile_name
+                                            
+                                            	SR profile name for the path
+                                            	**type**\: str
+                                            
+                                            .. attribute:: sr_binding_sid
+                                            
+                                            	SR binding sid for the path
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: sr_label_indx
+                                            
+                                            	SR label index for the path
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: as4_path
+                                            
+                                            	path using 4\-octet AS numbers
+                                            	**type**\: str
+                                            
+                                            .. attribute:: atomic_aggregate
+                                            
+                                            	attribute indicating whether or not the prefix is an atomic aggregate
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: aggr_as_number
+                                            
+                                            	AS number of autonomous system them performed the aggregation
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: aggr_as4_number
+                                            
+                                            	AS4 number of autonomous system them performed the aggregation
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: aggr_address
+                                            
+                                            	IP address of the router that performed the aggregation
+                                            	**type**\: str
+                                            
+                                            .. attribute:: originator_id
+                                            
+                                            	the router ID of the originator of the route in the local AS
+                                            	**type**\: str
+                                            
+                                            .. attribute:: cluster_list
+                                            
+                                            	the reflection path the route has passed
+                                            	**type**\: str
+                                            
+                                            .. attribute:: extended_community
+                                            
+                                            	BGP extended community attribute
+                                            	**type**\: str
+                                            
+                                            .. attribute:: ext_aigp_metric
+                                            
+                                            	the accumulated IGP metric for the path
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..18446744073709551615
+                                            
+                                            .. attribute:: path_id
+                                            
+                                            	path identifier used to uniquely identify a route
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'bgp-ios-xe-oper'
+                                            _revision = '2017-05-12'
+
+                                            def __init__(self):
+                                                super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry, self).__init__()
+
+                                                self.yang_name = "bgp-rd-path-entry"
+                                                self.yang_parent_name = "bgp-rd-path-entries"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"path-status" : ("path_status", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus)}
+                                                self._child_list_classes = {}
+
+                                                self.nexthop = YLeaf(YType.str, "nexthop")
+
+                                                self.metric = YLeaf(YType.uint32, "metric")
+
+                                                self.local_pref = YLeaf(YType.uint32, "local-pref")
+
+                                                self.weight = YLeaf(YType.uint32, "weight")
+
+                                                self.as_path = YLeaf(YType.str, "as-path")
+
+                                                self.origin = YLeaf(YType.enumeration, "origin")
+
+                                                self.rpki_status = YLeaf(YType.enumeration, "rpki-status")
+
+                                                self.community = YLeaf(YType.str, "community")
+
+                                                self.mpls_in = YLeaf(YType.str, "mpls-in")
+
+                                                self.mpls_out = YLeaf(YType.str, "mpls-out")
+
+                                                self.sr_profile_name = YLeaf(YType.str, "sr-profile-name")
+
+                                                self.sr_binding_sid = YLeaf(YType.uint32, "sr-binding-sid")
+
+                                                self.sr_label_indx = YLeaf(YType.uint32, "sr-label-indx")
+
+                                                self.as4_path = YLeaf(YType.str, "as4-path")
+
+                                                self.atomic_aggregate = YLeaf(YType.boolean, "atomic-aggregate")
+
+                                                self.aggr_as_number = YLeaf(YType.uint32, "aggr-as-number")
+
+                                                self.aggr_as4_number = YLeaf(YType.uint32, "aggr-as4-number")
+
+                                                self.aggr_address = YLeaf(YType.str, "aggr-address")
+
+                                                self.originator_id = YLeaf(YType.str, "originator-id")
+
+                                                self.cluster_list = YLeaf(YType.str, "cluster-list")
+
+                                                self.extended_community = YLeaf(YType.str, "extended-community")
+
+                                                self.ext_aigp_metric = YLeaf(YType.uint64, "ext-aigp-metric")
+
+                                                self.path_id = YLeaf(YType.uint32, "path-id")
+
+                                                self.path_status = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus()
+                                                self.path_status.parent = self
+                                                self._children_name_map["path_status"] = "path-status"
+                                                self._children_yang_names.add("path-status")
+                                                self._segment_path = lambda: "bgp-rd-path-entry" + "[nexthop='" + self.nexthop.get() + "']"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry, ['nexthop', 'metric', 'local_pref', 'weight', 'as_path', 'origin', 'rpki_status', 'community', 'mpls_in', 'mpls_out', 'sr_profile_name', 'sr_binding_sid', 'sr_label_indx', 'as4_path', 'atomic_aggregate', 'aggr_as_number', 'aggr_as4_number', 'aggr_address', 'originator_id', 'cluster_list', 'extended_community', 'ext_aigp_metric', 'path_id'], name, value)
+
+
+                                            class PathStatus(Entity):
+                                                """
+                                                Path status
+                                                
+                                                .. attribute:: suppressed
+                                                
+                                                	Suppressed path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: damped
+                                                
+                                                	Damped path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: history
+                                                
+                                                	History path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: valid
+                                                
+                                                	Valid path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: sourced
+                                                
+                                                	Sourced path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: bestpath
+                                                
+                                                	Best path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: internal
+                                                
+                                                	Internal path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: rib_fail
+                                                
+                                                	RIB\-fail path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: stale
+                                                
+                                                	Stale path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: multipath
+                                                
+                                                	Multipath path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: backup_path
+                                                
+                                                	Backup path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: rt_filter
+                                                
+                                                	RT filter path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: best_external
+                                                
+                                                	Best externa path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: additional_path
+                                                
+                                                	Additional path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                .. attribute:: rib_compressed
+                                                
+                                                	RIB compressed path
+                                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'bgp-ios-xe-oper'
+                                                _revision = '2017-05-12'
+
+                                                def __init__(self):
+                                                    super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus, self).__init__()
+
+                                                    self.yang_name = "path-status"
+                                                    self.yang_parent_name = "bgp-rd-path-entry"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {}
+
+                                                    self.suppressed = YLeaf(YType.empty, "suppressed")
+
+                                                    self.damped = YLeaf(YType.empty, "damped")
+
+                                                    self.history = YLeaf(YType.empty, "history")
+
+                                                    self.valid = YLeaf(YType.empty, "valid")
+
+                                                    self.sourced = YLeaf(YType.empty, "sourced")
+
+                                                    self.bestpath = YLeaf(YType.empty, "bestpath")
+
+                                                    self.internal = YLeaf(YType.empty, "internal")
+
+                                                    self.rib_fail = YLeaf(YType.empty, "rib-fail")
+
+                                                    self.stale = YLeaf(YType.empty, "stale")
+
+                                                    self.multipath = YLeaf(YType.empty, "multipath")
+
+                                                    self.backup_path = YLeaf(YType.empty, "backup-path")
+
+                                                    self.rt_filter = YLeaf(YType.empty, "rt-filter")
+
+                                                    self.best_external = YLeaf(YType.empty, "best-external")
+
+                                                    self.additional_path = YLeaf(YType.empty, "additional-path")
+
+                                                    self.rib_compressed = YLeaf(YType.empty, "rib-compressed")
+                                                    self._segment_path = lambda: "path-status"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus, ['suppressed', 'damped', 'history', 'valid', 'sourced', 'bestpath', 'internal', 'rib_fail', 'stale', 'multipath', 'backup_path', 'rt_filter', 'best_external', 'additional_path', 'rib_compressed'], name, value)
+
+
+                    class BgpRdRouteNeighbors(Entity):
+                        """
+                        BGP RD route neighbors
+                        
+                        .. attribute:: bgp_rd_route_neighbor
+                        
+                        	List of BGP RD route neighbors
+                        	**type**\: list of  		 :py:class:`BgpRdRouteNeighbor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'bgp-ios-xe-oper'
+                        _revision = '2017-05-12'
+
+                        def __init__(self):
+                            super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors, self).__init__()
+
+                            self.yang_name = "bgp-rd-route-neighbors"
+                            self.yang_parent_name = "bgp-rd-route-af"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"bgp-rd-route-neighbor" : ("bgp_rd_route_neighbor", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor)}
+
+                            self.bgp_rd_route_neighbor = YList(self)
+                            self._segment_path = lambda: "bgp-rd-route-neighbors"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors, [], name, value)
+
+
+                        class BgpRdRouteNeighbor(Entity):
+                            """
+                            List of BGP RD route neighbors
+                            
+                            .. attribute:: neighbor_id  <key>
+                            
+                            	BGP RD neighbor ID
+                            	**type**\: str
+                            
+                            .. attribute:: bgp_rd_neighbor_route_filters
+                            
+                            	BGP RD neighbor route filters
+                            	**type**\:  :py:class:`BgpRdNeighborRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'bgp-ios-xe-oper'
+                            _revision = '2017-05-12'
+
+                            def __init__(self):
+                                super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor, self).__init__()
+
+                                self.yang_name = "bgp-rd-route-neighbor"
+                                self.yang_parent_name = "bgp-rd-route-neighbors"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"bgp-rd-neighbor-route-filters" : ("bgp_rd_neighbor_route_filters", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters)}
+                                self._child_list_classes = {}
+
+                                self.neighbor_id = YLeaf(YType.str, "neighbor-id")
+
+                                self.bgp_rd_neighbor_route_filters = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters()
+                                self.bgp_rd_neighbor_route_filters.parent = self
+                                self._children_name_map["bgp_rd_neighbor_route_filters"] = "bgp-rd-neighbor-route-filters"
+                                self._children_yang_names.add("bgp-rd-neighbor-route-filters")
+                                self._segment_path = lambda: "bgp-rd-route-neighbor" + "[neighbor-id='" + self.neighbor_id.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor, ['neighbor_id'], name, value)
+
+
+                            class BgpRdNeighborRouteFilters(Entity):
+                                """
+                                BGP RD neighbor route filters
+                                
+                                .. attribute:: bgp_rd_neighbor_route_filter
+                                
+                                	List of BGP RD neighbor route filters
+                                	**type**\: list of  		 :py:class:`BgpRdNeighborRouteFilter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'bgp-ios-xe-oper'
+                                _revision = '2017-05-12'
+
+                                def __init__(self):
+                                    super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters, self).__init__()
+
+                                    self.yang_name = "bgp-rd-neighbor-route-filters"
+                                    self.yang_parent_name = "bgp-rd-route-neighbor"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"bgp-rd-neighbor-route-filter" : ("bgp_rd_neighbor_route_filter", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter)}
+
+                                    self.bgp_rd_neighbor_route_filter = YList(self)
+                                    self._segment_path = lambda: "bgp-rd-neighbor-route-filters"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters, [], name, value)
+
+
+                                class BgpRdNeighborRouteFilter(Entity):
+                                    """
+                                    List of BGP RD neighbor route filters
+                                    
+                                    .. attribute:: neighbor_filter  <key>
+                                    
+                                    	BGP RD neighbor route filter
+                                    	**type**\:  :py:class:`BgpNeighborRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpNeighborRouteFilters>`
+                                    
+                                    .. attribute:: bgp_rd_neighbor_route_entries
+                                    
+                                    	BGP RD neighbor route entries
+                                    	**type**\:  :py:class:`BgpRdNeighborRouteEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'bgp-ios-xe-oper'
+                                    _revision = '2017-05-12'
+
+                                    def __init__(self):
+                                        super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter, self).__init__()
+
+                                        self.yang_name = "bgp-rd-neighbor-route-filter"
+                                        self.yang_parent_name = "bgp-rd-neighbor-route-filters"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {"bgp-rd-neighbor-route-entries" : ("bgp_rd_neighbor_route_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries)}
+                                        self._child_list_classes = {}
+
+                                        self.neighbor_filter = YLeaf(YType.enumeration, "neighbor-filter")
+
+                                        self.bgp_rd_neighbor_route_entries = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries()
+                                        self.bgp_rd_neighbor_route_entries.parent = self
+                                        self._children_name_map["bgp_rd_neighbor_route_entries"] = "bgp-rd-neighbor-route-entries"
+                                        self._children_yang_names.add("bgp-rd-neighbor-route-entries")
+                                        self._segment_path = lambda: "bgp-rd-neighbor-route-filter" + "[neighbor-filter='" + self.neighbor_filter.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter, ['neighbor_filter'], name, value)
+
+
+                                    class BgpRdNeighborRouteEntries(Entity):
+                                        """
+                                        BGP RD neighbor route entries
+                                        
+                                        .. attribute:: bgp_rd_neighbor_route_entry
+                                        
+                                        	List of BGP RD neighbor route entries
+                                        	**type**\: list of  		 :py:class:`BgpRdNeighborRouteEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'bgp-ios-xe-oper'
+                                        _revision = '2017-05-12'
+
+                                        def __init__(self):
+                                            super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries, self).__init__()
+
+                                            self.yang_name = "bgp-rd-neighbor-route-entries"
+                                            self.yang_parent_name = "bgp-rd-neighbor-route-filter"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self._child_container_classes = {}
+                                            self._child_list_classes = {"bgp-rd-neighbor-route-entry" : ("bgp_rd_neighbor_route_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry)}
+
+                                            self.bgp_rd_neighbor_route_entry = YList(self)
+                                            self._segment_path = lambda: "bgp-rd-neighbor-route-entries"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries, [], name, value)
+
+
+                                        class BgpRdNeighborRouteEntry(Entity):
+                                            """
+                                            List of BGP RD neighbor route entries
+                                            
+                                            .. attribute:: prefix  <key>
+                                            
+                                            	RD neighbor routing table entry prefix
+                                            	**type**\: str
+                                            
+                                            .. attribute:: version
+                                            
+                                            	RD neighbor routing table version
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: available_paths
+                                            
+                                            	Number of  paths available for BGP prefix
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: advertised_to
+                                            
+                                            	Who this prefix was advertized to
+                                            	**type**\: str
+                                            
+                                            .. attribute:: bgp_rd_neighbor_path_entries
+                                            
+                                            	Prefix next hop details
+                                            	**type**\:  :py:class:`BgpRdNeighborPathEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'bgp-ios-xe-oper'
+                                            _revision = '2017-05-12'
+
+                                            def __init__(self):
+                                                super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry, self).__init__()
+
+                                                self.yang_name = "bgp-rd-neighbor-route-entry"
+                                                self.yang_parent_name = "bgp-rd-neighbor-route-entries"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self._child_container_classes = {"bgp-rd-neighbor-path-entries" : ("bgp_rd_neighbor_path_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries)}
+                                                self._child_list_classes = {}
+
+                                                self.prefix = YLeaf(YType.str, "prefix")
+
+                                                self.version = YLeaf(YType.uint32, "version")
+
+                                                self.available_paths = YLeaf(YType.uint32, "available-paths")
+
+                                                self.advertised_to = YLeaf(YType.str, "advertised-to")
+
+                                                self.bgp_rd_neighbor_path_entries = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries()
+                                                self.bgp_rd_neighbor_path_entries.parent = self
+                                                self._children_name_map["bgp_rd_neighbor_path_entries"] = "bgp-rd-neighbor-path-entries"
+                                                self._children_yang_names.add("bgp-rd-neighbor-path-entries")
+                                                self._segment_path = lambda: "bgp-rd-neighbor-route-entry" + "[prefix='" + self.prefix.get() + "']"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry, ['prefix', 'version', 'available_paths', 'advertised_to'], name, value)
+
+
+                                            class BgpRdNeighborPathEntries(Entity):
+                                                """
+                                                Prefix next hop details
+                                                
+                                                .. attribute:: bgp_rd_neighbor_path_entry
+                                                
+                                                	List of prefix next hop details
+                                                	**type**\: list of  		 :py:class:`BgpRdNeighborPathEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'bgp-ios-xe-oper'
+                                                _revision = '2017-05-12'
+
+                                                def __init__(self):
+                                                    super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries, self).__init__()
+
+                                                    self.yang_name = "bgp-rd-neighbor-path-entries"
+                                                    self.yang_parent_name = "bgp-rd-neighbor-route-entry"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self._child_container_classes = {}
+                                                    self._child_list_classes = {"bgp-rd-neighbor-path-entry" : ("bgp_rd_neighbor_path_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry)}
+
+                                                    self.bgp_rd_neighbor_path_entry = YList(self)
+                                                    self._segment_path = lambda: "bgp-rd-neighbor-path-entries"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries, [], name, value)
+
+
+                                                class BgpRdNeighborPathEntry(Entity):
+                                                    """
+                                                    List of prefix next hop details
+                                                    
+                                                    .. attribute:: nexthop  <key>
+                                                    
+                                                    	Next hop for this path
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: metric
+                                                    
+                                                    	Metric associated with the path
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: local_pref
+                                                    
+                                                    	Local preference for this path
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: weight
+                                                    
+                                                    	Path weight
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: as_path
+                                                    
+                                                    	AS path
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: origin
+                                                    
+                                                    	Path origin
+                                                    	**type**\:  :py:class:`BgpOriginCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpOriginCode>`
+                                                    
+                                                    .. attribute:: path_status
+                                                    
+                                                    	Path status
+                                                    	**type**\:  :py:class:`PathStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus>`
+                                                    
+                                                    .. attribute:: rpki_status
+                                                    
+                                                    	RPKI path status
+                                                    	**type**\:  :py:class:`BgpRpkiStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRpkiStatus>`
+                                                    
+                                                    .. attribute:: community
+                                                    
+                                                    	Community label for the path
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: mpls_in
+                                                    
+                                                    	MPLS label in for the path
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: mpls_out
+                                                    
+                                                    	MPLS label out for the path
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: sr_profile_name
+                                                    
+                                                    	SR profile name for the path
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: sr_binding_sid
+                                                    
+                                                    	SR binding sid for the path
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: sr_label_indx
+                                                    
+                                                    	SR label index for the path
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: as4_path
+                                                    
+                                                    	path using 4\-octet AS numbers
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: atomic_aggregate
+                                                    
+                                                    	attribute indicating whether or not the prefix is an atomic aggregate
+                                                    	**type**\: bool
+                                                    
+                                                    .. attribute:: aggr_as_number
+                                                    
+                                                    	AS number of autonomous system them performed the aggregation
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: aggr_as4_number
+                                                    
+                                                    	AS4 number of autonomous system them performed the aggregation
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: aggr_address
+                                                    
+                                                    	IP address of the router that performed the aggregation
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: originator_id
+                                                    
+                                                    	the router ID of the originator of the route in the local AS
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: cluster_list
+                                                    
+                                                    	the reflection path the route has passed
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: extended_community
+                                                    
+                                                    	BGP extended community attribute
+                                                    	**type**\: str
+                                                    
+                                                    .. attribute:: ext_aigp_metric
+                                                    
+                                                    	the accumulated IGP metric for the path
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..18446744073709551615
+                                                    
+                                                    .. attribute:: path_id
+                                                    
+                                                    	path identifier used to uniquely identify a route
+                                                    	**type**\: int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'bgp-ios-xe-oper'
+                                                    _revision = '2017-05-12'
+
+                                                    def __init__(self):
+                                                        super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry, self).__init__()
+
+                                                        self.yang_name = "bgp-rd-neighbor-path-entry"
+                                                        self.yang_parent_name = "bgp-rd-neighbor-path-entries"
+                                                        self.is_top_level_class = False
+                                                        self.has_list_ancestor = True
+                                                        self._child_container_classes = {"path-status" : ("path_status", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus)}
+                                                        self._child_list_classes = {}
+
+                                                        self.nexthop = YLeaf(YType.str, "nexthop")
+
+                                                        self.metric = YLeaf(YType.uint32, "metric")
+
+                                                        self.local_pref = YLeaf(YType.uint32, "local-pref")
+
+                                                        self.weight = YLeaf(YType.uint32, "weight")
+
+                                                        self.as_path = YLeaf(YType.str, "as-path")
+
+                                                        self.origin = YLeaf(YType.enumeration, "origin")
+
+                                                        self.rpki_status = YLeaf(YType.enumeration, "rpki-status")
+
+                                                        self.community = YLeaf(YType.str, "community")
+
+                                                        self.mpls_in = YLeaf(YType.str, "mpls-in")
+
+                                                        self.mpls_out = YLeaf(YType.str, "mpls-out")
+
+                                                        self.sr_profile_name = YLeaf(YType.str, "sr-profile-name")
+
+                                                        self.sr_binding_sid = YLeaf(YType.uint32, "sr-binding-sid")
+
+                                                        self.sr_label_indx = YLeaf(YType.uint32, "sr-label-indx")
+
+                                                        self.as4_path = YLeaf(YType.str, "as4-path")
+
+                                                        self.atomic_aggregate = YLeaf(YType.boolean, "atomic-aggregate")
+
+                                                        self.aggr_as_number = YLeaf(YType.uint32, "aggr-as-number")
+
+                                                        self.aggr_as4_number = YLeaf(YType.uint32, "aggr-as4-number")
+
+                                                        self.aggr_address = YLeaf(YType.str, "aggr-address")
+
+                                                        self.originator_id = YLeaf(YType.str, "originator-id")
+
+                                                        self.cluster_list = YLeaf(YType.str, "cluster-list")
+
+                                                        self.extended_community = YLeaf(YType.str, "extended-community")
+
+                                                        self.ext_aigp_metric = YLeaf(YType.uint64, "ext-aigp-metric")
+
+                                                        self.path_id = YLeaf(YType.uint32, "path-id")
+
+                                                        self.path_status = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus()
+                                                        self.path_status.parent = self
+                                                        self._children_name_map["path_status"] = "path-status"
+                                                        self._children_yang_names.add("path-status")
+                                                        self._segment_path = lambda: "bgp-rd-neighbor-path-entry" + "[nexthop='" + self.nexthop.get() + "']"
+
+                                                    def __setattr__(self, name, value):
+                                                        self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry, ['nexthop', 'metric', 'local_pref', 'weight', 'as_path', 'origin', 'rpki_status', 'community', 'mpls_in', 'mpls_out', 'sr_profile_name', 'sr_binding_sid', 'sr_label_indx', 'as4_path', 'atomic_aggregate', 'aggr_as_number', 'aggr_as4_number', 'aggr_address', 'originator_id', 'cluster_list', 'extended_community', 'ext_aigp_metric', 'path_id'], name, value)
+
+
+                                                    class PathStatus(Entity):
+                                                        """
+                                                        Path status
+                                                        
+                                                        .. attribute:: suppressed
+                                                        
+                                                        	Suppressed path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: damped
+                                                        
+                                                        	Damped path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: history
+                                                        
+                                                        	History path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: valid
+                                                        
+                                                        	Valid path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: sourced
+                                                        
+                                                        	Sourced path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: bestpath
+                                                        
+                                                        	Best path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: internal
+                                                        
+                                                        	Internal path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: rib_fail
+                                                        
+                                                        	RIB\-fail path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: stale
+                                                        
+                                                        	Stale path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: multipath
+                                                        
+                                                        	Multipath path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: backup_path
+                                                        
+                                                        	Backup path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: rt_filter
+                                                        
+                                                        	RT filter path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: best_external
+                                                        
+                                                        	Best externa path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: additional_path
+                                                        
+                                                        	Additional path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        .. attribute:: rib_compressed
+                                                        
+                                                        	RIB compressed path
+                                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'bgp-ios-xe-oper'
+                                                        _revision = '2017-05-12'
+
+                                                        def __init__(self):
+                                                            super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus, self).__init__()
+
+                                                            self.yang_name = "path-status"
+                                                            self.yang_parent_name = "bgp-rd-neighbor-path-entry"
+                                                            self.is_top_level_class = False
+                                                            self.has_list_ancestor = True
+                                                            self._child_container_classes = {}
+                                                            self._child_list_classes = {}
+
+                                                            self.suppressed = YLeaf(YType.empty, "suppressed")
+
+                                                            self.damped = YLeaf(YType.empty, "damped")
+
+                                                            self.history = YLeaf(YType.empty, "history")
+
+                                                            self.valid = YLeaf(YType.empty, "valid")
+
+                                                            self.sourced = YLeaf(YType.empty, "sourced")
+
+                                                            self.bestpath = YLeaf(YType.empty, "bestpath")
+
+                                                            self.internal = YLeaf(YType.empty, "internal")
+
+                                                            self.rib_fail = YLeaf(YType.empty, "rib-fail")
+
+                                                            self.stale = YLeaf(YType.empty, "stale")
+
+                                                            self.multipath = YLeaf(YType.empty, "multipath")
+
+                                                            self.backup_path = YLeaf(YType.empty, "backup-path")
+
+                                                            self.rt_filter = YLeaf(YType.empty, "rt-filter")
+
+                                                            self.best_external = YLeaf(YType.empty, "best-external")
+
+                                                            self.additional_path = YLeaf(YType.empty, "additional-path")
+
+                                                            self.rib_compressed = YLeaf(YType.empty, "rib-compressed")
+                                                            self._segment_path = lambda: "path-status"
+
+                                                        def __setattr__(self, name, value):
+                                                            self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus, ['suppressed', 'damped', 'history', 'valid', 'sourced', 'bestpath', 'internal', 'rib_fail', 'stale', 'multipath', 'backup_path', 'rt_filter', 'best_external', 'additional_path', 'rib_compressed'], name, value)
 
     def clone_ptr(self):
         self._top_entity = BgpStateData()

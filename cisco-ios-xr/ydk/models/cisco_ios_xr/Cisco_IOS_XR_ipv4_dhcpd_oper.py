@@ -449,7 +449,7 @@ class DhcpClient(Entity):
     .. attribute:: nodes
     
     	DHCP client list of nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes>`
     
     
 
@@ -483,7 +483,7 @@ class DhcpClient(Entity):
         .. attribute:: node
         
         	DHCP client particular node name
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node>`
         
         
 
@@ -517,17 +517,19 @@ class DhcpClient(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: client_stats
             
             	IPv4 DHCP client statistics table
-            	**type**\:   :py:class:`ClientStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node.ClientStats>`
+            	**type**\:  :py:class:`ClientStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node.ClientStats>`
             
             .. attribute:: clients
             
             	IPv4 DHCP client table
-            	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node.Clients>`
+            	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node.Clients>`
             
             
 
@@ -571,7 +573,7 @@ class DhcpClient(Entity):
                 .. attribute:: client_stat
                 
                 	DHCP client binding statistics
-                	**type**\: list of    :py:class:`ClientStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node.ClientStats.ClientStat>`
+                	**type**\: list of  		 :py:class:`ClientStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node.ClientStats.ClientStat>`
                 
                 
 
@@ -604,327 +606,329 @@ class DhcpClient(Entity):
                     .. attribute:: client_ifhandle  <key>
                     
                     	Client Ifhandle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: interface_name
                     
                     	Dhcp Client interface name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..65
                     
                     .. attribute:: num_events_received
                     
                     	Number of events received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_create_event_received
                     
                     	Number of create client event received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_delete_event_received
                     
                     	Number of delete client event received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_reboot_event_received
                     
                     	Number of client rebooted event received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_reinit_event_received
                     
                     	Number of reinit client event received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_packet_event_received
                     
                     	Number of packet event received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_init_timer_eventi
                     
                     	Number of init timer event
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_t1_timer_event
                     
                     	Number of T1 timer event
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_t2_timer_event
                     
                     	Number of T2 timer event
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_lease_timer_event
                     
                     	Number of Lease timer event
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_discovers_sent_successfully
                     
                     	Number of discovers sent successfully
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_requests_sent_successfully
                     
                     	Number of requests sent successfully
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_releases_sent_successfully
                     
                     	Number of releases sent successfully
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_renews_sent_successfully
                     
                     	Number of renews sent successfully
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_rebinds_sent_successfully
                     
                     	Number of rebinds sent successfully
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_declines_sent_successfully
                     
                     	Number of declines sent successfully
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_request_after_reboot_sent
                     
                     	Number of requests sent after reboot
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_valid_offers_received
                     
                     	Number of valid offers received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_valid_acks_received
                     
                     	Number of valid acks received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_valid_nacks_received
                     
                     	Number of valid nacks received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_unicast_packet_sent_successfully
                     
                     	Number of unicast packet sent successfully
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_broadcast_packet_sent_success
                     
                     	Number of broadcast packet sent successfully
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_init_timer_start
                     
                     	Number of init timer starts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_init_timer_stop
                     
                     	Number of init timer stops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_t1_timer_start
                     
                     	Number of T1 timer starts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_t1_timer_stop
                     
                     	Number of T1 timer stops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_t2_timer_start
                     
                     	Number of T2 timer starts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_t2_timer_stop
                     
                     	Number of T2 timer stops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_lease_timer_start
                     
                     	Number of Lease timer starts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_lease_timer_stop
                     
                     	Number of Lease timer stops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_invalid_events
                     
                     	Number of invalid events received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_discovers_failed
                     
                     	Number of discover send failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_requests_failed
                     
                     	Number of request send failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_releases_failed
                     
                     	Number of release send failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_renews_failed
                     
                     	Number of renew send failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_rebinds_failed
                     
                     	Number of rebind send failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_declines_failed
                     
                     	Number of decline send failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_request_after_reboot_failed
                     
                     	Number of requests sent after reboot failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_invalid_offers
                     
                     	Number of invalid offers received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_invalid_acks
                     
                     	Number of invalid acks received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_invalid_nacks
                     
                     	Number of invalid nacks received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_invalid_packets
                     
                     	Number of invalid packets dropped
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_unicast_failed
                     
                     	Number of unicast packet send failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_broadcast_failed
                     
                     	Number of broadcast packet send failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: num_xid_mismatch
                     
                     	Number of XID mismatch packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1051,7 +1055,7 @@ class DhcpClient(Entity):
                 .. attribute:: client
                 
                 	Single DHCP client binding
-                	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node.Clients.Client>`
+                	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node.Clients.Client>`
                 
                 
 
@@ -1084,79 +1088,89 @@ class DhcpClient(Entity):
                     .. attribute:: client_ifhandle  <key>
                     
                     	Client Ifhandle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: interface_name
                     
                     	Dhcp Client interface name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..65
                     
                     .. attribute:: client_mac_address
                     
                     	Dhcp Client Interface MAC address
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..17
                     
                     .. attribute:: client_id
                     
                     	Dhcp Client ID
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..256
                     
                     .. attribute:: ipv4_client_state
                     
                     	Dhcp Client State
-                    	**type**\:   :py:class:`DhcpcIpv4State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpcIpv4State>`
+                    	**type**\:  :py:class:`DhcpcIpv4State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpcIpv4State>`
                     
                     .. attribute:: ipv4_address
                     
                     	Dhcp Client IP Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: ipv4_subnet_mask
                     
                     	Dhcp Client IP Address mask
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: ipv4_server_address
                     
                     	Dhcp Client selected server IP Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: next_hop_ipv4_address
                     
                     	Dhcp Client next hop IP Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: ipv4_lease_time
                     
                     	Dhcp Client Lease time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ipv4_renew_time
                     
                     	Dhcp Client Renew time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ipv4_rebind_time
                     
                     	Dhcp Client Rebind time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ipv4_address_configured
                     
                     	Dhcp Client IPV4 address configured in interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -1216,12 +1230,12 @@ class Ipv4Dhcpd(Entity):
     .. attribute:: snoop
     
     	DHCP Snoop operational data
-    	**type**\:   :py:class:`Snoop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop>`
+    	**type**\:  :py:class:`Snoop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop>`
     
     .. attribute:: nodes
     
     	IPv4 DHCPD operational data for a particular location
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes>`
     
     
 
@@ -1260,27 +1274,27 @@ class Ipv4Dhcpd(Entity):
         .. attribute:: bindings
         
         	DHCP Snoop Bindings
-        	**type**\:   :py:class:`Bindings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Bindings>`
+        	**type**\:  :py:class:`Bindings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Bindings>`
         
         .. attribute:: binding_statistics
         
         	DHCP snoop binding statistics
-        	**type**\:   :py:class:`BindingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.BindingStatistics>`
+        	**type**\:  :py:class:`BindingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.BindingStatistics>`
         
         .. attribute:: statistics_info
         
         	DHCP snoop statistics info
-        	**type**\:   :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.StatisticsInfo>`
+        	**type**\:  :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.StatisticsInfo>`
         
         .. attribute:: profiles
         
         	DHCP Snoop Profile
-        	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Profiles>`
+        	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Profiles>`
         
         .. attribute:: statistics
         
         	DHCP Snoop Statistics
-        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Statistics>`
+        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Statistics>`
         
         
 
@@ -1334,7 +1348,7 @@ class Ipv4Dhcpd(Entity):
             .. attribute:: binding
             
             	DHCP Snoop binding
-            	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Bindings.Binding>`
+            	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Bindings.Binding>`
             
             
 
@@ -1368,76 +1382,84 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: client_uid  <key>
                 
                 	Client opaque handle
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: snoop_binding_ch_addr
                 
                 	DHCP client MAC address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
                 .. attribute:: snoop_binding_ch_addr_len
                 
                 	DHCP client MAC address length
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: snoop_binding_i_addr
                 
                 	DHCP iaddr
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: snoop_binding_client_id
                 
                 	DHCP client id
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
                 .. attribute:: snoop_binding_client_id_len
                 
                 	DHCP client id len
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: snoop_binding_state
                 
                 	DHCP sm state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: snoop_binding_lease
                 
                 	DHCP lease time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: snoop_binding_lease_start_time
                 
                 	DHCP lease start time
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: snoop_binding_profile_name
                 
                 	DHCP profile name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..65
                 
                 .. attribute:: snoop_bindng_interface_name
                 
                 	DHCP interface to client
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..321
                 
                 .. attribute:: snoop_binding_bridge_name
                 
                 	DHCP L2 bridge name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..74
                 
@@ -1495,14 +1517,14 @@ class Ipv4Dhcpd(Entity):
             .. attribute:: snoop_binding_total
             
             	Total number of snoop bindings
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: snoop_binding_timestamp
             
             	Snoop binding timestamp
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1540,7 +1562,7 @@ class Ipv4Dhcpd(Entity):
             .. attribute:: snoop_stats_timestamp
             
             	Snoop Stats timestamp
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1576,7 +1598,7 @@ class Ipv4Dhcpd(Entity):
             .. attribute:: profile
             
             	DHCP Snoop profile
-            	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Profiles.Profile>`
+            	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Profiles.Profile>`
             
             
 
@@ -1610,47 +1632,49 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: profile_name  <key>
                 
                 	Profile name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: snoop_profile_name
                 
                 	Profile Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..65
                 
                 .. attribute:: snoop_profile_uid
                 
                 	Profile unique ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: snoop_profile_relay_info_option
                 
                 	Relay info option
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: snoop_profile_relay_info_allow_untrusted
                 
                 	Allow untrusted relay info
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: snoop_profile_relay_info_policy
                 
                 	Relay info policy
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: snoop_profile_trusted
                 
                 	Trust
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
@@ -1698,7 +1722,7 @@ class Ipv4Dhcpd(Entity):
             .. attribute:: statistic
             
             	DHCP Snoop bridge domain statistics
-            	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Statistics.Statistic>`
+            	**type**\: list of  		 :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Statistics.Statistic>`
             
             
 
@@ -1732,19 +1756,21 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: bridge_name  <key>
                 
                 	Bridge domain name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: snoop_statistics_bridge_name
                 
                 	DHCP L2 bridge name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 0..74
                 
                 .. attribute:: snoop_statistic
                 
                 	Public snoop statistics
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1785,7 +1811,7 @@ class Ipv4Dhcpd(Entity):
         .. attribute:: node
         
         	Location. For eg., 0/1/CPU0
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node>`
         
         
 
@@ -1819,32 +1845,34 @@ class Ipv4Dhcpd(Entity):
             .. attribute:: nodeid  <key>
             
             	The node id to filter on. For eg., 0/1/CPU0
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: proxy
             
             	IPv4 DHCP proxy operational data
-            	**type**\:   :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy>`
+            	**type**\:  :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy>`
             
             .. attribute:: interfaces
             
             	IPv4 DHCP proxy/server Interface
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Interfaces>`
             
             .. attribute:: base
             
             	IPv4 DHCP base operational data
-            	**type**\:   :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base>`
+            	**type**\:  :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base>`
             
             .. attribute:: server
             
             	IPv4 DHCP Server operational data
-            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server>`
+            	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server>`
             
             .. attribute:: relay
             
             	IPv4 DHCPD Relay operational data
-            	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay>`
+            	**type**\:  :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay>`
             
             
 
@@ -1903,27 +1931,27 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: statistics_info
                 
                 	DHCP proxy stats info
-                	**type**\:   :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo>`
+                	**type**\:  :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo>`
                 
                 .. attribute:: vrfs
                 
                 	DHCP proxy list of VRF names
-                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs>`
+                	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs>`
                 
                 .. attribute:: profiles
                 
                 	IPv4 DHCP proxy profile
-                	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles>`
+                	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles>`
                 
                 .. attribute:: statistics
                 
                 	DHCP proxy statistics
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics>`
+                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics>`
                 
                 .. attribute:: binding
                 
                 	DHCP proxy bindings
-                	**type**\:   :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding>`
+                	**type**\:  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding>`
                 
                 
 
@@ -1976,7 +2004,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: proxy_stats_timestamp
                     
                     	Proxy Stats timestamp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2011,7 +2039,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: vrf
                     
                     	IPv4 DHCP proxy VRF name
-                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf>`
+                    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf>`
                     
                     
 
@@ -2044,12 +2072,14 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: vrf_name  <key>
                         
                         	VRF name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: statistics
                         
                         	IPv4 DHCP proxy statistics
-                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics>`
+                        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics>`
                         
                         
 
@@ -2087,72 +2117,72 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: discover
                             
                             	DHCP discover packets
-                            	**type**\:   :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover>`
+                            	**type**\:  :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover>`
                             
                             .. attribute:: offer
                             
                             	DHCP offer packets
-                            	**type**\:   :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer>`
+                            	**type**\:  :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer>`
                             
                             .. attribute:: request
                             
                             	DHCP request packets
-                            	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request>`
+                            	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request>`
                             
                             .. attribute:: decline
                             
                             	DHCP decline packets
-                            	**type**\:   :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline>`
+                            	**type**\:  :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline>`
                             
                             .. attribute:: ack
                             
                             	DHCP ack packets
-                            	**type**\:   :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack>`
+                            	**type**\:  :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack>`
                             
                             .. attribute:: nak
                             
                             	DHCP nak packets
-                            	**type**\:   :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak>`
+                            	**type**\:  :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak>`
                             
                             .. attribute:: release
                             
                             	DHCP release packets
-                            	**type**\:   :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release>`
+                            	**type**\:  :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release>`
                             
                             .. attribute:: inform
                             
                             	DHCP inform packets
-                            	**type**\:   :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform>`
+                            	**type**\:  :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform>`
                             
                             .. attribute:: lease_query
                             
                             	DHCP lease query packets
-                            	**type**\:   :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            	**type**\:  :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery>`
                             
                             .. attribute:: lease_not_assigned
                             
                             	DHCP lease not assigned
-                            	**type**\:   :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
+                            	**type**\:  :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
                             
                             .. attribute:: lease_unknown
                             
                             	DHCP lease unknown
-                            	**type**\:   :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown>`
+                            	**type**\:  :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown>`
                             
                             .. attribute:: lease_active
                             
                             	DHCP lease active
-                            	**type**\:   :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive>`
+                            	**type**\:  :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive>`
                             
                             .. attribute:: bootp_request
                             
                             	DHCP BOOTP request
-                            	**type**\:   :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest>`
+                            	**type**\:  :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest>`
                             
                             .. attribute:: bootp_reply
                             
                             	DHCP BOOTP reply
-                            	**type**\:   :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply>`
+                            	**type**\:  :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply>`
                             
                             
 
@@ -2250,21 +2280,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2303,21 +2333,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2356,21 +2386,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2409,21 +2439,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2462,21 +2492,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2515,21 +2545,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2568,21 +2598,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2621,21 +2651,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2674,21 +2704,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2727,21 +2757,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2780,21 +2810,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2833,21 +2863,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2886,21 +2916,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2939,21 +2969,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2992,7 +3022,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: profile
                     
                     	IPv4 DHCP proxy profile
-                    	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile>`
+                    	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile>`
                     
                     
 
@@ -3025,67 +3055,69 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: profile_name  <key>
                         
                         	Profile name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: vrf_references
                         
                         	VRF references
-                        	**type**\:   :py:class:`VrfReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences>`
+                        	**type**\:  :py:class:`VrfReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences>`
                         
                         .. attribute:: interface_references
                         
                         	Interface references
-                        	**type**\:   :py:class:`InterfaceReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences>`
+                        	**type**\:  :py:class:`InterfaceReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences>`
                         
                         .. attribute:: is_relay_option_enabled
                         
                         	Is true if relay option is enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: relay_policy
                         
                         	Relay policy
-                        	**type**\:   :py:class:`RelayInfoPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoPolicy>`
+                        	**type**\:  :py:class:`RelayInfoPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoPolicy>`
                         
                         .. attribute:: relay_authenticate
                         
                         	Relay authenticate
-                        	**type**\:   :py:class:`RelayInfoAuthenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoAuthenticate>`
+                        	**type**\:  :py:class:`RelayInfoAuthenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoAuthenticate>`
                         
                         .. attribute:: is_relay_allow_untrusted_enabled
                         
                         	Is true if relay untrusted is enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_relay_optionvpn_enabled
                         
                         	Is true if relay VPN enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: relay_optionvpn_enabled_mode
                         
                         	Relay VPN RFC/Cisco mode
-                        	**type**\:   :py:class:`RelayInfoVpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoVpnMode>`
+                        	**type**\:  :py:class:`RelayInfoVpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoVpnMode>`
                         
                         .. attribute:: is_relay_check
                         
                         	Is true if relay check enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_move_allowed
                         
                         	Is true if dhcp subscriber is allowed to move
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: proxy_broadcast_flag_policy
                         
                         	Broadcast policy
-                        	**type**\:   :py:class:`BroadcastFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BroadcastFlag>`
+                        	**type**\:  :py:class:`BroadcastFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BroadcastFlag>`
                         
                         .. attribute:: proxy_profile_client_lease_time
                         
                         	Client lease time in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3094,31 +3126,35 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: proxy_lease_limit_type
                         
                         	Lease limit type
-                        	**type**\:   :py:class:`ProxyLeaseLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.ProxyLeaseLimit>`
+                        	**type**\:  :py:class:`ProxyLeaseLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.ProxyLeaseLimit>`
                         
                         .. attribute:: proxy_lease_limit_count
                         
                         	Lease limit count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: profile_helper_address
                         
                         	Helper addresses
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: vrf_name
                         
                         	VRF names
-                        	**type**\:  list of str
+                        	**type**\: list of str
                         
                         	**length:** 0..33
                         
                         .. attribute:: gi_addr
                         
                         	Gateway addresses
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -3191,7 +3227,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: ipv4_dhcpd_proxy_vrf_reference
                             
                             	ipv4 dhcpd proxy vrf reference
-                            	**type**\: list of    :py:class:`Ipv4DhcpdProxyVrfReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference>`
+                            	**type**\: list of  		 :py:class:`Ipv4DhcpdProxyVrfReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference>`
                             
                             
 
@@ -3224,7 +3260,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: proxy_reference_vrf_name
                                 
                                 	VRF name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..33
                                 
@@ -3259,7 +3295,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: ipv4_dhcpd_proxy_interface_reference
                             
                             	ipv4 dhcpd proxy interface reference
-                            	**type**\: list of    :py:class:`Ipv4DhcpdProxyInterfaceReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference>`
+                            	**type**\: list of  		 :py:class:`Ipv4DhcpdProxyInterfaceReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference>`
                             
                             
 
@@ -3292,7 +3328,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: proxy_reference_interface_name
                                 
                                 	Interface name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..65
                                 
@@ -3327,7 +3363,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: ipv4_dhcpd_proxy_stat
                     
                     	ipv4 dhcpd proxy stat
-                    	**type**\: list of    :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat>`
+                    	**type**\: list of  		 :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat>`
                     
                     
 
@@ -3360,12 +3396,12 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: statistics
                         
                         	Proxy statistics
-                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics>`
+                        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics>`
                         
                         .. attribute:: vrf_name
                         
                         	DHCP L3 VRF name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..33
                         
@@ -3405,21 +3441,21 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: received_packets
                             
                             	Received packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3458,12 +3494,12 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: clients
                     
                     	DHCP proxy client bindings
-                    	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients>`
+                    	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients>`
                     
                     .. attribute:: summary
                     
                     	DHCP proxy binding summary
-                    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary>`
+                    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary>`
                     
                     
 
@@ -3501,7 +3537,7 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: client
                         
                         	Single DHCP proxy binding
-                        	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client>`
+                        	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client>`
                         
                         
 
@@ -3534,63 +3570,75 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: client_id  <key>
                             
                             	Client ID
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: client_id_xr
                             
                             	DHCP client identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..1275
                             
                             .. attribute:: mac_address
                             
                             	DHCP client MAC address
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: vrf_name
                             
                             	DHCP client/subscriber VRF name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..33
                             
                             .. attribute:: server_vrf_name
                             
                             	DHCP server VRF name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..33
                             
                             .. attribute:: ip_address
                             
                             	DHCP IP address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: client_gi_addr
                             
                             	DHCP client GIADDR
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: to_server_gi_addr
                             
                             	DHCP to server GIADDR
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: server_ip_address
                             
                             	DHCP server IP address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: reply_server_ip_address
                             
                             	DHCP reply server IP address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: lease_time
                             
                             	Lease time in seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3599,7 +3647,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: remaining_lease_time
                             
                             	Remaining lease time in seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3608,149 +3656,153 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: state
                             
                             	DHCP client state
-                            	**type**\:   :py:class:`BagDhcpdProxyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdProxyState>`
+                            	**type**\:  :py:class:`BagDhcpdProxyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdProxyState>`
                             
                             .. attribute:: interface_name
                             
                             	DHCP access interface to client
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: access_vrf_name
                             
                             	DHCP access interface VRF name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..33
                             
                             .. attribute:: proxy_binding_outer_tag
                             
                             	DHCP VLAN outer VLAN
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: proxy_binding_inner_tag
                             
                             	DHCP VLAN inner VLAN
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: profile_name
                             
                             	DHCP profile name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..65
                             
                             .. attribute:: is_nak_next_renew
                             
                             	Is true if DHCP next renew from client will be NAK'd
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: subscriber_label
                             
                             	DHCP subscriber label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: old_subscriber_label
                             
                             	DHCP old subscriber label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: subscriber_interface_name
                             
                             	DHCP subscriber interface
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: rx_circuit_id
                             
                             	DHCP received circuit ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..768
                             
                             .. attribute:: tx_circuit_id
                             
                             	DHCP transmitted circuit ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..768
                             
                             .. attribute:: rx_remote_id
                             
                             	DHCP received Remote ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..768
                             
                             .. attribute:: tx_remote_id
                             
                             	DHCP transmitted Remote ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..768
                             
                             .. attribute:: rx_vsiso
                             
                             	DHCP received VSISO
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..768
                             
                             .. attribute:: tx_vsiso
                             
                             	DHCP transmitted VSISO
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..768
                             
                             .. attribute:: is_auth_received
                             
                             	Is true if authentication is on received option82
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_mbl_subscriber
                             
                             	Is true if DHCP subscriber is Mobile
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: param_request
                             
                             	DHCP parameter request option
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..513
                             
                             .. attribute:: param_response
                             
                             	DHCP saved options
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..2051
                             
                             .. attribute:: session_start_time
                             
                             	session start time
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: srg_state
                             
                             	DHCPV4 SRG state
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: event_history
                             
                             	event history
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..4294967295
                             
@@ -3853,133 +3905,133 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: clients
                         
                         	Total number of clients
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: initializing_clients
                         
                         	Number of clients in init state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: waiting_for_dpm_init
                         
                         	Number of clients in Init DPM wait state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: waiting_for_dpm_request
                         
                         	Number of clients in Request DPM wait state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: waiting_for_daps_init
                         
                         	Number of clients in Init DAPS wait state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: selecting_clients
                         
                         	Number of clients in selecting state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: offer_sent_for_client
                         
                         	Number of clients in Offer sent state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: requesting_clients
                         
                         	Number of clients in requesting state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: request_waiting_for_dpm
                         
                         	Number of clients in Waiting for DPM with Request
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ack_waiting_for_dpm
                         
                         	Number of clients in Waiting for DPM with ACK
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bound_clients
                         
                         	Number of clients in bound state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: renewing_clients
                         
                         	Number of clients in renewing state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: informing_clients
                         
                         	Number of clients in informing state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reauthorizing_clients
                         
                         	Number of clients in reauth state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: waiting_for_dpm_disconnect
                         
                         	Number of clients in waiting for DPM disconnect state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: waiting_for_dpm_addr_change
                         
                         	Number of clients in Waiting for DPM after addr change
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: deleting_clients_d
                         
                         	Number of clients in deleting state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: disconnected_clients
                         
                         	Number of clients in disconnected state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: restarting_clients
                         
                         	Number of clients in restarting state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4050,7 +4102,7 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: interface
                 
                 	IPv4 DHCP proxy/server interface info
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -4083,66 +4135,68 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: intf_ifhandle
                     
                     	Ifhandle of the interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: vrf_name
                     
                     	VRF name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..33
                     
                     .. attribute:: intf_mode
                     
                     	Mode of interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: intf_is_ambiguous
                     
                     	Is interface ambiguous
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: intf_profile_name
                     
                     	Name of profile attached to the interface
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..65
                     
                     .. attribute:: intf_lease_limit_type
                     
                     	Lease limit type on interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: intf_lease_limit_count
                     
                     	Lease limit count on interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: srg_role
                     
                     	DHCPv6 Interface SRG role
-                    	**type**\:   :py:class:`BagDhcpdIntfSrgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdIntfSrgRole>`
+                    	**type**\:  :py:class:`BagDhcpdIntfSrgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdIntfSrgRole>`
                     
                     .. attribute:: mac_throttle
                     
                     	Mac Throttle Status
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -4193,27 +4247,27 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: statistics
                 
                 	DHCP base statistics
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics>`
+                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics>`
                 
                 .. attribute:: issu_status
                 
                 	IPv4 DHCP ISSU status
-                	**type**\:   :py:class:`IssuStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.IssuStatus>`
+                	**type**\:  :py:class:`IssuStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.IssuStatus>`
                 
                 .. attribute:: vrfs
                 
                 	DHCP base list of VRF names
-                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs>`
+                	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs>`
                 
                 .. attribute:: profiles
                 
                 	IPv4 DHCP Base profile
-                	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles>`
+                	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles>`
                 
                 .. attribute:: database
                 
                 	IPv4 DHCP database
-                	**type**\:   :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Database>`
+                	**type**\:  :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Database>`
                 
                 
 
@@ -4266,7 +4320,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: ipv4_dhcpd_proxy_stat
                     
                     	ipv4 dhcpd proxy stat
-                    	**type**\: list of    :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat>`
+                    	**type**\: list of  		 :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat>`
                     
                     
 
@@ -4299,12 +4353,12 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: statistics
                         
                         	Proxy statistics
-                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics>`
+                        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics>`
                         
                         .. attribute:: vrf_name
                         
                         	DHCP L3 VRF name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..33
                         
@@ -4344,21 +4398,21 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: received_packets
                             
                             	Received packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4397,7 +4451,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: issu_sync_complete_time
                     
                     	Timestamp for the ISSU sync complete in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4406,7 +4460,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: issu_sync_start_time
                     
                     	Timestamp for the ISSU sync start in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC, January 1, 1970
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4415,7 +4469,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: issu_ready_time
                     
                     	Timestamp for the ISSU ready declaration in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4424,7 +4478,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: big_bang_time
                     
                     	Timestamp for the Big Bang notification time in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4433,7 +4487,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: primary_role_time
                     
                     	Timestamp for the change to Primary role notification time in nanoseconds since Epoch, i .e. since 00\:00\:00 UTC, January 1, 1970
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4442,27 +4496,27 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: role
                     
                     	The current role of the DHCP process
-                    	**type**\:   :py:class:`DhcpIssuRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuRole>`
+                    	**type**\:  :py:class:`DhcpIssuRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuRole>`
                     
                     .. attribute:: phase
                     
                     	The current ISSU phase of the DHCP process
-                    	**type**\:   :py:class:`DhcpIssuPhase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuPhase>`
+                    	**type**\:  :py:class:`DhcpIssuPhase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuPhase>`
                     
                     .. attribute:: version
                     
                     	The current version of the DHCP process in the context of an ISSU
-                    	**type**\:   :py:class:`DhcpIssuVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuVersion>`
+                    	**type**\:  :py:class:`DhcpIssuVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuVersion>`
                     
                     .. attribute:: issu_ready_issu_mgr_connection
                     
                     	Whether or not DHCP is currently connected to ISSU Manager during the ISSU Load Phase
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: issu_ready_entries_replicate
                     
                     	Whether or not DHCP has received all replicated entries during the ISSU Load Phase
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -4513,7 +4567,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: vrf
                     
                     	IPv4 DHCP base VRF name
-                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf>`
+                    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf>`
                     
                     
 
@@ -4546,12 +4600,14 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: vrf_name  <key>
                         
                         	VRF name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: statistics
                         
                         	IPv4 DHCP base statistics
-                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics>`
+                        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics>`
                         
                         
 
@@ -4589,72 +4645,72 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: discover
                             
                             	DHCP discover packets
-                            	**type**\:   :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover>`
+                            	**type**\:  :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover>`
                             
                             .. attribute:: offer
                             
                             	DHCP offer packets
-                            	**type**\:   :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer>`
+                            	**type**\:  :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer>`
                             
                             .. attribute:: request
                             
                             	DHCP request packets
-                            	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request>`
+                            	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request>`
                             
                             .. attribute:: decline
                             
                             	DHCP decline packets
-                            	**type**\:   :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline>`
+                            	**type**\:  :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline>`
                             
                             .. attribute:: ack
                             
                             	DHCP ack packets
-                            	**type**\:   :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack>`
+                            	**type**\:  :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack>`
                             
                             .. attribute:: nak
                             
                             	DHCP nak packets
-                            	**type**\:   :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak>`
+                            	**type**\:  :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak>`
                             
                             .. attribute:: release
                             
                             	DHCP release packets
-                            	**type**\:   :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release>`
+                            	**type**\:  :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release>`
                             
                             .. attribute:: inform
                             
                             	DHCP inform packets
-                            	**type**\:   :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform>`
+                            	**type**\:  :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform>`
                             
                             .. attribute:: lease_query
                             
                             	DHCP lease query packets
-                            	**type**\:   :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            	**type**\:  :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery>`
                             
                             .. attribute:: lease_not_assigned
                             
                             	DHCP lease not assigned
-                            	**type**\:   :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
+                            	**type**\:  :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
                             
                             .. attribute:: lease_unknown
                             
                             	DHCP lease unknown
-                            	**type**\:   :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown>`
+                            	**type**\:  :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown>`
                             
                             .. attribute:: lease_active
                             
                             	DHCP lease active
-                            	**type**\:   :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive>`
+                            	**type**\:  :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive>`
                             
                             .. attribute:: bootp_request
                             
                             	DHCP BOOTP request
-                            	**type**\:   :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest>`
+                            	**type**\:  :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest>`
                             
                             .. attribute:: bootp_reply
                             
                             	DHCP BOOTP reply
-                            	**type**\:   :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply>`
+                            	**type**\:  :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply>`
                             
                             
 
@@ -4752,21 +4808,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -4805,21 +4861,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -4858,21 +4914,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -4911,21 +4967,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -4964,21 +5020,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5017,21 +5073,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5070,21 +5126,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5123,21 +5179,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5176,21 +5232,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5229,21 +5285,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5282,21 +5338,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5335,21 +5391,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5388,21 +5444,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5441,21 +5497,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5494,7 +5550,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: profile
                     
                     	IPv4 DHCP base profile
-                    	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile>`
+                    	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile>`
                     
                     
 
@@ -5527,55 +5583,57 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: profile_name  <key>
                         
                         	Profile name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: interface_references
                         
                         	Interface references
-                        	**type**\:   :py:class:`InterfaceReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences>`
+                        	**type**\:  :py:class:`InterfaceReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences>`
                         
                         .. attribute:: child_profile_info
                         
                         	child profile info
-                        	**type**\:   :py:class:`ChildProfileInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo>`
+                        	**type**\:  :py:class:`ChildProfileInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo>`
                         
                         .. attribute:: base_default_profile_name
                         
                         	Base Default Profile name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..65
                         
                         .. attribute:: default_profile_mode
                         
                         	Default Profile mode
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: relay_authenticate
                         
                         	Relay authenticate
-                        	**type**\:   :py:class:`RelayInfoAuthenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoAuthenticate>`
+                        	**type**\:  :py:class:`RelayInfoAuthenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoAuthenticate>`
                         
                         .. attribute:: remote_id
                         
                         	DHCP configured Remote ID
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..768
                         
                         .. attribute:: child_profile_count
                         
                         	Child profile count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: intf_ref_count
                         
                         	Interface reference count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
@@ -5632,7 +5690,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: ipv4_dhcpd_base_interface_reference
                             
                             	ipv4 dhcpd base interface reference
-                            	**type**\: list of    :py:class:`Ipv4DhcpdBaseInterfaceReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference>`
+                            	**type**\: list of  		 :py:class:`Ipv4DhcpdBaseInterfaceReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference>`
                             
                             
 
@@ -5665,7 +5723,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: base_reference_interface_name
                                 
                                 	Interface name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..65
                                 
@@ -5700,7 +5758,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: ipv4_dhcpd_base_child_profile_info
                             
                             	ipv4 dhcpd base child profile info
-                            	**type**\: list of    :py:class:`Ipv4DhcpdBaseChildProfileInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo>`
+                            	**type**\: list of  		 :py:class:`Ipv4DhcpdBaseChildProfileInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo>`
                             
                             
 
@@ -5733,35 +5791,37 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: base_child_profile_name
                                 
                                 	Base Child Profile name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..65
                                 
                                 .. attribute:: mode
                                 
                                 	Profile mode
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: matched_option_code
                                 
                                 	Matched option code
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: matched_option_len
                                 
                                 	Matched option len
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..255
                                 
                                 .. attribute:: option_data
                                 
                                 	Matched option data
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
                                 
 
@@ -5802,19 +5862,19 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: configured
                     
                     	Database feature configured
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: version
                     
                     	Current file version
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: full_file_write_interval
                     
                     	Full file write interval in minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5823,49 +5883,49 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: last_full_write_file_name
                     
                     	Last full write file name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: last_full_write_time
                     
                     	Last full write time since epoch
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: full_file_write_count
                     
                     	Full file write count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: failed_full_file_write_count
                     
                     	Failed full file write count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: full_file_record_count
                     
                     	Full file record count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: last_full_file_write_error_timestamp
                     
                     	Last full file write error timestamp since epoch
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: incremental_file_write_interval
                     
                     	Incremental file write interval in minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5874,42 +5934,42 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: last_incremental_write_file_name
                     
                     	Last incremental write file name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: last_incremental_write_time
                     
                     	Last incremental write time since epoch
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: incremental_file_write_count
                     
                     	Incremental file write count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: failed_incremental_file_write_count
                     
                     	Failed incremental file write count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: incremental_file_record_count
                     
                     	Incremental file record count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: last_incremental_file_write_error_timestamp
                     
                     	Last incremental file write error timestamp since epoch
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5974,27 +6034,27 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: profiles
                 
                 	IPv4 DHCP Server profile
-                	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Profiles>`
+                	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Profiles>`
                 
                 .. attribute:: statistics
                 
                 	DHCP Server statistics
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Statistics>`
+                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Statistics>`
                 
                 .. attribute:: binding
                 
                 	DHCP server bindings
-                	**type**\:   :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding>`
+                	**type**\:  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding>`
                 
                 .. attribute:: statistics_info
                 
                 	DHCP proxy stats info
-                	**type**\:   :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo>`
+                	**type**\:  :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo>`
                 
                 .. attribute:: vrfs
                 
                 	DHCP Server list of VRF names
-                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs>`
+                	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs>`
                 
                 
 
@@ -6047,7 +6107,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: profile
                     
                     	IPv4 DHCP server profile
-                    	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile>`
+                    	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile>`
                     
                     
 
@@ -6080,167 +6140,179 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: server_profile_name  <key>
                         
                         	Profile name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: server_profile_name_xr
                         
                         	Profile Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..65
                         
                         .. attribute:: secure_arp
                         
                         	Secure ARP
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: requested_address_check
                         
                         	Requested Address Check
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: server_id_check
                         
                         	Server ID Check
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: duplicate_mac_address_check
                         
                         	Duplicate MAC Address Check
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: duplicate_ip_address_check
                         
                         	Duplicate IP Address Check
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_move_allowed
                         
                         	Is true if dhcp subscriber is allowed to move
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: bcast_policy
                         
                         	Bcast Policy
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: giaddr_policy
                         
                         	Giaddr Policy
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: subnet_mask
                         
                         	Subnet Mask
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: server_pool_name
                         
                         	Pool Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..65
                         
                         .. attribute:: server_profile_lease
                         
                         	Lease
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: server_profile_netbios_node_type
                         
                         	Server netbios node type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: server_bootfile_name
                         
                         	Server Bootfile name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..256
                         
                         .. attribute:: server_domain_name
                         
                         	Server Domain name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..256
                         
                         .. attribute:: server_profileiedge_check
                         
                         	Server iEdge Check
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: server_profile_server_dns_count
                         
                         	Server DNS Count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: server_profiledefault_router_count
                         
                         	Server default count 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: server_profile_netbios_name_svr_count
                         
                         	Server netbios svr count 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: server_profile_time_svr_count
                         
                         	Server time svr count 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: lease_limit_type
                         
                         	Lease Limit Type
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: lease_limit_count
                         
                         	Lease Limit Count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: server_profile_dns
                         
                         	Server DNS addresses
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: server_profile_default_router
                         
                         	Server default addresses
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: server_profile_netbious_name_server
                         
                         	Server netbios addresses
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: server_profile_time_server
                         
                         	Server Time addresses
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -6325,7 +6397,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: ipv4_dhcpd_proxy_stat
                     
                     	ipv4 dhcpd proxy stat
-                    	**type**\: list of    :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat>`
+                    	**type**\: list of  		 :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat>`
                     
                     
 
@@ -6358,12 +6430,12 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: statistics
                         
                         	Proxy statistics
-                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics>`
+                        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics>`
                         
                         .. attribute:: vrf_name
                         
                         	DHCP L3 VRF name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..33
                         
@@ -6403,21 +6475,21 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: received_packets
                             
                             	Received packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -6456,12 +6528,12 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: summary
                     
                     	DHCP server binding summary
-                    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary>`
+                    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary>`
                     
                     .. attribute:: clients
                     
                     	DHCP server client bindings
-                    	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients>`
+                    	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients>`
                     
                     
 
@@ -6499,133 +6571,133 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: clients
                         
                         	Total number of clients
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: initializing_clients
                         
                         	Number of clients in init state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: waiting_for_dpm_init
                         
                         	Number of clients in Init DPM wait state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: waiting_for_dpm_request
                         
                         	Number of clients in Request DPM wait state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: waiting_for_daps_init
                         
                         	Number of clients in Init DAPS wait state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: selecting_clients
                         
                         	Number of clients in selecting state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: offer_sent_for_client
                         
                         	Number of clients in Offer sent state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: requesting_clients
                         
                         	Number of clients in requesting state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: request_waiting_for_dpm
                         
                         	Number of clients in Waiting for DPM with Request
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ack_waiting_for_dpm
                         
                         	Number of clients in Waiting for DPM with ACK
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: bound_clients
                         
                         	Number of clients in bound state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: renewing_clients
                         
                         	Number of clients in renewing state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: informing_clients
                         
                         	Number of clients in informing state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: reauthorizing_clients
                         
                         	Number of clients in reauth state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: waiting_for_dpm_disconnect
                         
                         	Number of clients in waiting for DPM disconnect state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: waiting_for_dpm_addr_change
                         
                         	Number of clients in Waiting for DPM after addr change
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: deleting_clients_d
                         
                         	Number of clients in deleting state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: disconnected_clients
                         
                         	Number of clients in disconnected state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: restarting_clients
                         
                         	Number of clients in restarting state
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -6696,7 +6768,7 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: client
                         
                         	Single DHCP Server binding
-                        	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client>`
+                        	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client>`
                         
                         
 
@@ -6729,63 +6801,75 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: client_id  <key>
                             
                             	Client ID
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: client_id_xr
                             
                             	DHCP client identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..1275
                             
                             .. attribute:: mac_address
                             
                             	DHCP client MAC address
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: vrf_name
                             
                             	DHCP client/subscriber VRF name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..33
                             
                             .. attribute:: server_vrf_name
                             
                             	DHCP server VRF name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..33
                             
                             .. attribute:: ip_address
                             
                             	DHCP IP address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: client_gi_addr
                             
                             	DHCP client GIADDR
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: to_server_gi_addr
                             
                             	DHCP to server GIADDR
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: server_ip_address
                             
                             	DHCP server IP address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: reply_server_ip_address
                             
                             	DHCP reply server IP address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: lease_time
                             
                             	Lease time in seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -6794,7 +6878,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: remaining_lease_time
                             
                             	Remaining lease time in seconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -6803,149 +6887,153 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: state
                             
                             	DHCP client state
-                            	**type**\:   :py:class:`BagDhcpdProxyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdProxyState>`
+                            	**type**\:  :py:class:`BagDhcpdProxyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdProxyState>`
                             
                             .. attribute:: interface_name
                             
                             	DHCP access interface to client
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: access_vrf_name
                             
                             	DHCP access interface VRF name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..33
                             
                             .. attribute:: proxy_binding_outer_tag
                             
                             	DHCP VLAN outer VLAN
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: proxy_binding_inner_tag
                             
                             	DHCP VLAN inner VLAN
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: profile_name
                             
                             	DHCP profile name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..65
                             
                             .. attribute:: is_nak_next_renew
                             
                             	Is true if DHCP next renew from client will be NAK'd
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: subscriber_label
                             
                             	DHCP subscriber label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: old_subscriber_label
                             
                             	DHCP old subscriber label
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: subscriber_interface_name
                             
                             	DHCP subscriber interface
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: rx_circuit_id
                             
                             	DHCP received circuit ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..768
                             
                             .. attribute:: tx_circuit_id
                             
                             	DHCP transmitted circuit ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..768
                             
                             .. attribute:: rx_remote_id
                             
                             	DHCP received Remote ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..768
                             
                             .. attribute:: tx_remote_id
                             
                             	DHCP transmitted Remote ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..768
                             
                             .. attribute:: rx_vsiso
                             
                             	DHCP received VSISO
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..768
                             
                             .. attribute:: tx_vsiso
                             
                             	DHCP transmitted VSISO
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..768
                             
                             .. attribute:: is_auth_received
                             
                             	Is true if authentication is on received option82
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: is_mbl_subscriber
                             
                             	Is true if DHCP subscriber is Mobile
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: param_request
                             
                             	DHCP parameter request option
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..513
                             
                             .. attribute:: param_response
                             
                             	DHCP saved options
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..2051
                             
                             .. attribute:: session_start_time
                             
                             	session start time
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: srg_state
                             
                             	DHCPV4 SRG state
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: event_history
                             
                             	event history
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..4294967295
                             
@@ -7048,7 +7136,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: proxy_stats_timestamp
                     
                     	Proxy Stats timestamp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -7083,7 +7171,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: vrf
                     
                     	IPv4 DHCP server VRF name
-                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf>`
+                    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf>`
                     
                     
 
@@ -7116,12 +7204,14 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: vrf_name  <key>
                         
                         	VRF name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: statistics
                         
                         	IPv4 DHCP server statistics
-                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics>`
+                        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics>`
                         
                         
 
@@ -7159,72 +7249,72 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: discover
                             
                             	DHCP discover packets
-                            	**type**\:   :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover>`
+                            	**type**\:  :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover>`
                             
                             .. attribute:: offer
                             
                             	DHCP offer packets
-                            	**type**\:   :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer>`
+                            	**type**\:  :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer>`
                             
                             .. attribute:: request
                             
                             	DHCP request packets
-                            	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request>`
+                            	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request>`
                             
                             .. attribute:: decline
                             
                             	DHCP decline packets
-                            	**type**\:   :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline>`
+                            	**type**\:  :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline>`
                             
                             .. attribute:: ack
                             
                             	DHCP ack packets
-                            	**type**\:   :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack>`
+                            	**type**\:  :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack>`
                             
                             .. attribute:: nak
                             
                             	DHCP nak packets
-                            	**type**\:   :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak>`
+                            	**type**\:  :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak>`
                             
                             .. attribute:: release
                             
                             	DHCP release packets
-                            	**type**\:   :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release>`
+                            	**type**\:  :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release>`
                             
                             .. attribute:: inform
                             
                             	DHCP inform packets
-                            	**type**\:   :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform>`
+                            	**type**\:  :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform>`
                             
                             .. attribute:: lease_query
                             
                             	DHCP lease query packets
-                            	**type**\:   :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            	**type**\:  :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery>`
                             
                             .. attribute:: lease_not_assigned
                             
                             	DHCP lease not assigned
-                            	**type**\:   :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
+                            	**type**\:  :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
                             
                             .. attribute:: lease_unknown
                             
                             	DHCP lease unknown
-                            	**type**\:   :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown>`
+                            	**type**\:  :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown>`
                             
                             .. attribute:: lease_active
                             
                             	DHCP lease active
-                            	**type**\:   :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive>`
+                            	**type**\:  :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive>`
                             
                             .. attribute:: bootp_request
                             
                             	DHCP BOOTP request
-                            	**type**\:   :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest>`
+                            	**type**\:  :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest>`
                             
                             .. attribute:: bootp_reply
                             
                             	DHCP BOOTP reply
-                            	**type**\:   :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply>`
+                            	**type**\:  :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply>`
                             
                             
 
@@ -7322,21 +7412,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7375,21 +7465,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7428,21 +7518,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7481,21 +7571,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7534,21 +7624,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7587,21 +7677,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7640,21 +7730,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7693,21 +7783,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7746,21 +7836,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7799,21 +7889,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7852,21 +7942,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7905,21 +7995,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7958,21 +8048,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8011,21 +8101,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8064,22 +8154,22 @@ class Ipv4Dhcpd(Entity):
                 .. attribute:: profiles
                 
                 	DHCP Relay Profiles
-                	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Profiles>`
+                	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Profiles>`
                 
                 .. attribute:: statistics_info
                 
                 	DHCP relay statistics info
-                	**type**\:   :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo>`
+                	**type**\:  :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo>`
                 
                 .. attribute:: statistics
                 
                 	DHCP Relay VRF statistics
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics>`
+                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics>`
                 
                 .. attribute:: vrfs
                 
                 	DHCP relay list of VRF names
-                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs>`
+                	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs>`
                 
                 
 
@@ -8127,7 +8217,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: profile
                     
                     	DHCP Relay profile
-                    	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile>`
+                    	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile>`
                     
                     
 
@@ -8160,106 +8250,112 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: profile_name  <key>
                         
                         	Profile name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: relay_profile_name
                         
                         	Profile Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..65
                         
                         .. attribute:: relay_profile_uid
                         
                         	Profile UID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: relay_profile_helper_count
                         
                         	Helper address count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: relay_profile_relay_info_option
                         
                         	Relay info option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: relay_profile_relay_info_policy
                         
                         	Relay info policy
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: relay_profile_relay_info_allow_untrusted
                         
                         	Relay info untrusted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: relay_profile_relay_info_optionvpn
                         
                         	Relay info option vpn
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: relay_profile_relay_info_optionvpn_mode
                         
                         	Relay info option vpn\-mode
-                        	**type**\:   :py:class:`RelayInfoVpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoVpnMode>`
+                        	**type**\:  :py:class:`RelayInfoVpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoVpnMode>`
                         
                         .. attribute:: relay_profile_relay_info_check
                         
                         	Relay info check
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: relay_profile_gi_addr_policy
                         
                         	GIADDR policy
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: relay_profile_broadcast_flag_policy
                         
                         	Broadcast policy
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: relay_profile_mac_mismatch_action
                         
                         	Mac Mismatch Action
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: relay_profile_helper_address
                         
                         	Helper addresses
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: relay_profile_helper_vrf
                         
                         	Helper address vrfs
-                        	**type**\:  list of str
+                        	**type**\: list of str
                         
                         	**length:** 0..33
                         
                         .. attribute:: relay_profile_gi_addr
                         
                         	Gateway addresses
-                        	**type**\:  list of str
+                        	**type**\: list of str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -8322,7 +8418,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: relay_stats_timestamp
                     
                     	Relay Stats timestamp
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8357,7 +8453,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: ipv4_dhcpd_relay_stat
                     
                     	ipv4 dhcpd relay stat
-                    	**type**\: list of    :py:class:`Ipv4DhcpdRelayStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat>`
+                    	**type**\: list of  		 :py:class:`Ipv4DhcpdRelayStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat>`
                     
                     
 
@@ -8390,12 +8486,12 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: statistics
                         
                         	Public relay statistics
-                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics>`
+                        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics>`
                         
                         .. attribute:: relay_statistics_vrf_name
                         
                         	DHCP L3 VRF Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..33
                         
@@ -8435,21 +8531,21 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: received_packets
                             
                             	Received packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -8488,7 +8584,7 @@ class Ipv4Dhcpd(Entity):
                     .. attribute:: vrf
                     
                     	IPv4 DHCP relay VRF name
-                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf>`
+                    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf>`
                     
                     
 
@@ -8521,12 +8617,14 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: vrf_name  <key>
                         
                         	VRF name
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: vrf_statistics
                         
                         	IPv4 DHCP relay statistics
-                        	**type**\:   :py:class:`VrfStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics>`
+                        	**type**\:  :py:class:`VrfStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics>`
                         
                         
 
@@ -8564,72 +8662,72 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: discover
                             
                             	DHCP discover packets
-                            	**type**\:   :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover>`
+                            	**type**\:  :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover>`
                             
                             .. attribute:: offer
                             
                             	DHCP offer packets
-                            	**type**\:   :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer>`
+                            	**type**\:  :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer>`
                             
                             .. attribute:: request
                             
                             	DHCP request packets
-                            	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request>`
+                            	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request>`
                             
                             .. attribute:: decline
                             
                             	DHCP decline packets
-                            	**type**\:   :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline>`
+                            	**type**\:  :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline>`
                             
                             .. attribute:: ack
                             
                             	DHCP ack packets
-                            	**type**\:   :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack>`
+                            	**type**\:  :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack>`
                             
                             .. attribute:: nak
                             
                             	DHCP nak packets
-                            	**type**\:   :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak>`
+                            	**type**\:  :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak>`
                             
                             .. attribute:: release
                             
                             	DHCP release packets
-                            	**type**\:   :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release>`
+                            	**type**\:  :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release>`
                             
                             .. attribute:: inform
                             
                             	DHCP inform packets
-                            	**type**\:   :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform>`
+                            	**type**\:  :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform>`
                             
                             .. attribute:: lease_query
                             
                             	DHCP lease query packets
-                            	**type**\:   :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery>`
+                            	**type**\:  :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery>`
                             
                             .. attribute:: lease_not_assigned
                             
                             	DHCP lease not assigned
-                            	**type**\:   :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned>`
+                            	**type**\:  :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned>`
                             
                             .. attribute:: lease_unknown
                             
                             	DHCP lease unknown
-                            	**type**\:   :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown>`
+                            	**type**\:  :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown>`
                             
                             .. attribute:: lease_active
                             
                             	DHCP lease active
-                            	**type**\:   :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive>`
+                            	**type**\:  :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive>`
                             
                             .. attribute:: bootp_request
                             
                             	DHCP BOOTP request
-                            	**type**\:   :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest>`
+                            	**type**\:  :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest>`
                             
                             .. attribute:: bootp_reply
                             
                             	DHCP BOOTP reply
-                            	**type**\:   :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply>`
+                            	**type**\:  :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply>`
                             
                             
 
@@ -8727,21 +8825,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8780,21 +8878,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8833,21 +8931,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8886,21 +8984,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8939,21 +9037,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8992,21 +9090,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -9045,21 +9143,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -9098,21 +9196,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -9151,21 +9249,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -9204,21 +9302,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -9257,21 +9355,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -9310,21 +9408,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -9363,21 +9461,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -9416,21 +9514,21 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 

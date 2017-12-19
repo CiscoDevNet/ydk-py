@@ -25,7 +25,7 @@ class AsicErrorStats(Entity):
     .. attribute:: racks
     
     	Table of racks
-    	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks>`
+    	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks>`
     
     
 
@@ -59,7 +59,7 @@ class AsicErrorStats(Entity):
         .. attribute:: rack
         
         	Number
-        	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks.Rack>`
+        	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks.Rack>`
         
         
 
@@ -93,14 +93,14 @@ class AsicErrorStats(Entity):
             .. attribute:: rack  <key>
             
             	Rack number
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: nodes
             
             	Table of Nodes
-            	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks.Rack.Nodes>`
+            	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks.Rack.Nodes>`
             
             
 
@@ -139,7 +139,7 @@ class AsicErrorStats(Entity):
                 .. attribute:: node
                 
                 	Information about a particular node
-                	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks.Rack.Nodes.Node>`
+                	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks.Rack.Nodes.Node>`
                 
                 
 
@@ -172,12 +172,14 @@ class AsicErrorStats(Entity):
                     .. attribute:: node_name  <key>
                     
                     	Node name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
                     .. attribute:: counts
                     
                     	Table of all Asic Types information on a node
-                    	**type**\:   :py:class:`Counts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks.Rack.Nodes.Node.Counts>`
+                    	**type**\:  :py:class:`Counts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks.Rack.Nodes.Node.Counts>`
                     
                     
 
@@ -216,7 +218,7 @@ class AsicErrorStats(Entity):
                         .. attribute:: count
                         
                         	Summary Asic error counts for a Asic Type
-                        	**type**\: list of    :py:class:`Count <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks.Rack.Nodes.Node.Counts.Count>`
+                        	**type**\: list of  		 :py:class:`Count <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks.Rack.Nodes.Node.Counts.Count>`
                         
                         
 
@@ -249,12 +251,14 @@ class AsicErrorStats(Entity):
                             .. attribute:: type  <key>
                             
                             	Asic Type
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: sum_data
                             
                             	sum data
-                            	**type**\: list of    :py:class:`SumData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks.Rack.Nodes.Node.Counts.Count.SumData>`
+                            	**type**\: list of  		 :py:class:`SumData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Racks.Rack.Nodes.Node.Counts.Count.SumData>`
                             
                             
 
@@ -289,63 +293,63 @@ class AsicErrorStats(Entity):
                                 .. attribute:: instance
                                 
                                 	instance
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: num_nodes
                                 
                                 	num nodes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: crc_err_count
                                 
                                 	crc err count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: sbe_err_count
                                 
                                 	sbe err count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: mbe_err_count
                                 
                                 	mbe err count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: par_err_count
                                 
                                 	par err count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: gen_err_count
                                 
                                 	gen err count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: reset_err_count
                                 
                                 	reset err count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: node_key
                                 
                                 	node key
-                                	**type**\:  list of int
+                                	**type**\: list of int
                                 
                                 	**range:** 0..4294967295
                                 

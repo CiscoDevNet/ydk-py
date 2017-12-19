@@ -25,12 +25,12 @@ class PerfMgmt(Entity):
     .. attribute:: periodic
     
     	Data from periodic requests
-    	**type**\:   :py:class:`Periodic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic>`
+    	**type**\:  :py:class:`Periodic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic>`
     
     .. attribute:: monitor
     
     	Data from monitor (one history period) requests
-    	**type**\:   :py:class:`Monitor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor>`
+    	**type**\:  :py:class:`Monitor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor>`
     
     
 
@@ -69,27 +69,27 @@ class PerfMgmt(Entity):
         .. attribute:: ospf
         
         	Collected OSPF data
-        	**type**\:   :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf>`
+        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf>`
         
         .. attribute:: mpls
         
         	Collected MPLS data
-        	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls>`
+        	**type**\:  :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls>`
         
         .. attribute:: nodes
         
         	Nodes for which data is collected
-        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes>`
+        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes>`
         
         .. attribute:: bgp
         
         	Collected BGP data
-        	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp>`
+        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp>`
         
         .. attribute:: interface
         
         	Collected Interface data
-        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface>`
+        	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface>`
         
         
 
@@ -143,12 +143,12 @@ class PerfMgmt(Entity):
             .. attribute:: ospfv2_protocol_instances
             
             	OSPF v2 instances for which protocol statistics are collected
-            	**type**\:   :py:class:`Ospfv2ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances>`
+            	**type**\:  :py:class:`Ospfv2ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances>`
             
             .. attribute:: ospfv3_protocol_instances
             
             	OSPF v3 instances for which protocol statistics are collected
-            	**type**\:   :py:class:`Ospfv3ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances>`
+            	**type**\:  :py:class:`Ospfv3ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances>`
             
             
 
@@ -188,7 +188,7 @@ class PerfMgmt(Entity):
                 .. attribute:: ospfv2_protocol_instance
                 
                 	Protocol samples for a particular OSPF v2 instance
-                	**type**\: list of    :py:class:`Ospfv2ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance>`
+                	**type**\: list of  		 :py:class:`Ospfv2ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance>`
                 
                 
 
@@ -223,12 +223,14 @@ class PerfMgmt(Entity):
                     .. attribute:: instance_name  <key>
                     
                     	OSPF Instance Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: samples
                     
                     	Sample Table for an OSPV v2 instance
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples>`
                     
                     
 
@@ -267,7 +269,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	Generic Counters sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample>`
                         
                         
 
@@ -300,14 +302,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds drom UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -316,147 +318,147 @@ class PerfMgmt(Entity):
                             .. attribute:: input_packets
                             
                             	Total number of packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_packets
                             
                             	Total number of packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_hello_packets
                             
                             	Number of Hello packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_hello_packets
                             
                             	Number of Hello packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_db_ds
                             
                             	Number of DBD packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_db_ds_lsa
                             
                             	Number of LSA received in DBD packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_db_ds
                             
                             	Number of DBD packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_db_ds_lsa
                             
                             	Number of LSA sent in DBD packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_ls_requests
                             
                             	Number of LS Requests received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_ls_requests_lsa
                             
                             	Number of LSA received in LS Requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_ls_requests
                             
                             	Number of LS Requests sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_ls_requests_lsa
                             
                             	Number of LSA sent in LS Requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_updates
                             
                             	Number of LSA Updates received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_updates_lsa
                             
                             	Number of LSA received in LSA Updates
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_updates
                             
                             	Number of LSA Updates sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_updates_lsa
                             
                             	Number of LSA sent in LSA Updates
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_acks
                             
                             	Number of LSA Acknowledgements received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_acks_lsa
                             
                             	Number of LSA received in LSA Acknowledgements
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_acks
                             
                             	Number of LSA Acknowledgements sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_acks_lsa
                             
                             	Number of LSA sent in LSA Acknowledgements
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: checksum_errors
                             
                             	Number of packets received with checksum errors
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -536,7 +538,7 @@ class PerfMgmt(Entity):
                 .. attribute:: ospfv3_protocol_instance
                 
                 	Protocol samples for a particular OSPF v3 instance
-                	**type**\: list of    :py:class:`Ospfv3ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance>`
+                	**type**\: list of  		 :py:class:`Ospfv3ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance>`
                 
                 
 
@@ -571,12 +573,14 @@ class PerfMgmt(Entity):
                     .. attribute:: instance_name  <key>
                     
                     	OSPF Instance Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: samples
                     
                     	Sample Table for an OSPV v3 instance
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples>`
                     
                     
 
@@ -615,7 +619,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	Generic Counters sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample>`
                         
                         
 
@@ -648,14 +652,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds drom UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -664,140 +668,140 @@ class PerfMgmt(Entity):
                             .. attribute:: input_packets
                             
                             	Total number of packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_packets
                             
                             	Total number of packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_hello_packets
                             
                             	Number of Hello packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_hello_packets
                             
                             	Number of Hello packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_db_ds
                             
                             	Number of DBD packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_db_ds_lsa
                             
                             	Number of LSA received in DBD packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_db_ds
                             
                             	Number of DBD packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_db_ds_lsa
                             
                             	Number of LSA sent in DBD packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_ls_requests
                             
                             	Number of LS Requests received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_ls_requests_lsa
                             
                             	Number of LSA received in LS Requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_ls_requests
                             
                             	Number of LS Requests sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_ls_requests_lsa
                             
                             	Number of LSA sent in LS Requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_updates
                             
                             	Number of LSA Updates received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_updates_lsa
                             
                             	Number of LSA received in LSA Updates
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_updates
                             
                             	Number of LSA Updates sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_updates_lsa
                             
                             	Number of LSA sent in LSA Updates
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_acks
                             
                             	Number of LSA Acknowledgements received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_acks_lsa
                             
                             	Number of LSA received in LSA Acknowledgements
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_acks
                             
                             	Number of LSA Acknowledgements sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_acks_lsa
                             
                             	Number of LSA sent in LSA Acknowledgements
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -874,7 +878,7 @@ class PerfMgmt(Entity):
             .. attribute:: ldp_neighbors
             
             	LDP neighbors for which statistics are collected
-            	**type**\:   :py:class:`LdpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors>`
+            	**type**\:  :py:class:`LdpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors>`
             
             
 
@@ -909,7 +913,7 @@ class PerfMgmt(Entity):
                 .. attribute:: ldp_neighbor
                 
                 	Samples for a particular LDP neighbor
-                	**type**\: list of    :py:class:`LdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor>`
+                	**type**\: list of  		 :py:class:`LdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor>`
                 
                 
 
@@ -943,12 +947,14 @@ class PerfMgmt(Entity):
                     .. attribute:: nbr  <key>
                     
                     	Neighbor Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: samples
                     
                     	Samples for a particular LDP neighbor
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples>`
                     
                     
 
@@ -987,7 +993,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	LDP neighbor statistics sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample>`
                         
                         
 
@@ -1020,14 +1026,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds drom UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1036,126 +1042,126 @@ class PerfMgmt(Entity):
                             .. attribute:: total_msgs_sent
                             
                             	Total messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: total_msgs_rcvd
                             
                             	Total messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: init_msgs_sent
                             
                             	Init messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: init_msgs_rcvd
                             
                             	Tnit messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: address_msgs_sent
                             
                             	Address messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: address_msgs_rcvd
                             
                             	Address messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: address_withdraw_msgs_sent
                             
                             	Address withdraw messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: address_withdraw_msgs_rcvd
                             
                             	Address withdraw messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: label_mapping_msgs_sent
                             
                             	Label mapping messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: label_mapping_msgs_rcvd
                             
                             	Label mapping messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: label_withdraw_msgs_sent
                             
                             	Label withdraw messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: label_withdraw_msgs_rcvd
                             
                             	Label withdraw messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: label_release_msgs_sent
                             
                             	Label release messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: label_release_msgs_rcvd
                             
                             	Label release messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: notification_msgs_sent
                             
                             	Notification messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: notification_msgs_rcvd
                             
                             	Notification messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: keepalive_msgs_sent
                             
                             	Keepalive messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: keepalive_msgs_rcvd
                             
                             	Keepalive messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -1228,7 +1234,7 @@ class PerfMgmt(Entity):
             .. attribute:: node
             
             	Node Instance
-            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node>`
+            	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node>`
             
             
 
@@ -1262,22 +1268,24 @@ class PerfMgmt(Entity):
                 .. attribute:: node_id  <key>
                 
                 	Node ID
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: sample_xr
                 
                 	Node CPU data
-                	**type**\:   :py:class:`SampleXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.SampleXr>`
+                	**type**\:  :py:class:`SampleXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.SampleXr>`
                 
                 .. attribute:: processes
                 
                 	Processes data
-                	**type**\:   :py:class:`Processes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes>`
+                	**type**\:  :py:class:`Processes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes>`
                 
                 .. attribute:: samples
                 
                 	Node Memory data
-                	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Samples>`
+                	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Samples>`
                 
                 
 
@@ -1326,7 +1334,7 @@ class PerfMgmt(Entity):
                     .. attribute:: sample
                     
                     	Node CPU data sample
-                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample>`
+                    	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample>`
                     
                     
 
@@ -1359,14 +1367,14 @@ class PerfMgmt(Entity):
                         .. attribute:: sample_id  <key>
                         
                         	Sample ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: time_stamp
                         
                         	Timestamp of sample in seconds drom UCT
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1375,14 +1383,14 @@ class PerfMgmt(Entity):
                         .. attribute:: no_processes
                         
                         	Number of processes in the system
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: average_cpu_used
                         
                         	Average system %CPU utilization
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1423,7 +1431,7 @@ class PerfMgmt(Entity):
                     .. attribute:: process
                     
                     	Process data
-                    	**type**\: list of    :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes.Process>`
+                    	**type**\: list of  		 :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes.Process>`
                     
                     
 
@@ -1456,14 +1464,14 @@ class PerfMgmt(Entity):
                         .. attribute:: process_id  <key>
                         
                         	Process ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: samples
                         
                         	Process data
-                        	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples>`
+                        	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples>`
                         
                         
 
@@ -1501,7 +1509,7 @@ class PerfMgmt(Entity):
                             .. attribute:: sample
                             
                             	Process data sample
-                            	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample>`
+                            	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample>`
                             
                             
 
@@ -1534,14 +1542,14 @@ class PerfMgmt(Entity):
                                 .. attribute:: sample_id  <key>
                                 
                                 	Sample ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: time_stamp
                                 
                                 	Timestamp of sample in seconds drom UCT
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1550,7 +1558,7 @@ class PerfMgmt(Entity):
                                 .. attribute:: peak_memory
                                 
                                 	Max. dynamic memory (KBytes) used since startup time
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1559,14 +1567,14 @@ class PerfMgmt(Entity):
                                 .. attribute:: average_cpu_used
                                 
                                 	Average %CPU utilization
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: no_threads
                                 
                                 	Number of threads
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -1609,7 +1617,7 @@ class PerfMgmt(Entity):
                     .. attribute:: sample
                     
                     	Node Memory data sample
-                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Samples.Sample>`
+                    	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Samples.Sample>`
                     
                     
 
@@ -1642,14 +1650,14 @@ class PerfMgmt(Entity):
                         .. attribute:: sample_id  <key>
                         
                         	Sample ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: time_stamp
                         
                         	Timestamp of sample in seconds drom UCT
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1658,7 +1666,7 @@ class PerfMgmt(Entity):
                         .. attribute:: curr_memory
                         
                         	Current application memory (Bytes) in use
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1667,7 +1675,7 @@ class PerfMgmt(Entity):
                         .. attribute:: peak_memory
                         
                         	Max. system memory (MBytes) used since bootup
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1710,7 +1718,7 @@ class PerfMgmt(Entity):
             .. attribute:: bgp_neighbors
             
             	Neighbors for which statistics are collected
-            	**type**\:   :py:class:`BgpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors>`
+            	**type**\:  :py:class:`BgpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors>`
             
             
 
@@ -1744,7 +1752,7 @@ class PerfMgmt(Entity):
                 .. attribute:: bgp_neighbor
                 
                 	Samples for particular neighbor
-                	**type**\: list of    :py:class:`BgpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor>`
+                	**type**\: list of  		 :py:class:`BgpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor>`
                 
                 
 
@@ -1778,12 +1786,14 @@ class PerfMgmt(Entity):
                     .. attribute:: ip_address  <key>
                     
                     	BGP Neighbor Identifier
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: samples
                     
                     	Sample Table for a BGP neighbor
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples>`
                     
                     
 
@@ -1822,7 +1832,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	Neighbor statistics sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample>`
                         
                         
 
@@ -1855,14 +1865,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds drom UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1871,56 +1881,56 @@ class PerfMgmt(Entity):
                             .. attribute:: input_messages
                             
                             	Number of messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_messages
                             
                             	Number of messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_update_messages
                             
                             	Number of update messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_update_messages
                             
                             	Number of update messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: conn_established
                             
                             	Number of times the connection was established
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: conn_dropped
                             
                             	Number of times connection was dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: errors_received
                             
                             	Number of error notifications received on the connection
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: errors_sent
                             
                             	Number of error notifications sent on the connection
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1973,17 +1983,17 @@ class PerfMgmt(Entity):
             .. attribute:: generic_counter_interfaces
             
             	Interfaces for which Generic Counters are collected
-            	**type**\:   :py:class:`GenericCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces>`
+            	**type**\:  :py:class:`GenericCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces>`
             
             .. attribute:: basic_counter_interfaces
             
             	Interfaces for which Basic Counters are collected
-            	**type**\:   :py:class:`BasicCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces>`
+            	**type**\:  :py:class:`BasicCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces>`
             
             .. attribute:: data_rate_interfaces
             
             	Interfaces for which Data Rates are collected
-            	**type**\:   :py:class:`DataRateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces>`
+            	**type**\:  :py:class:`DataRateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces>`
             
             
 
@@ -2028,7 +2038,7 @@ class PerfMgmt(Entity):
                 .. attribute:: generic_counter_interface
                 
                 	Samples for a particular interface
-                	**type**\: list of    :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface>`
+                	**type**\: list of  		 :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface>`
                 
                 
 
@@ -2062,12 +2072,14 @@ class PerfMgmt(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: samples
                     
                     	Generic Counter samples for an interface
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples>`
                     
                     
 
@@ -2106,7 +2118,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	Generic Counters sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample>`
                         
                         
 
@@ -2139,14 +2151,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds drom UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2155,14 +2167,14 @@ class PerfMgmt(Entity):
                             .. attribute:: in_packets
                             
                             	Packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_octets
                             
                             	Bytes received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2171,14 +2183,14 @@ class PerfMgmt(Entity):
                             .. attribute:: out_packets
                             
                             	Packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_octets
                             
                             	Bytes sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2187,112 +2199,112 @@ class PerfMgmt(Entity):
                             .. attribute:: in_ucast_pkts
                             
                             	Unicast packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_multicast_pkts
                             
                             	Multicast packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_broadcast_pkts
                             
                             	Broadcast packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_ucast_pkts
                             
                             	Unicast packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_multicast_pkts
                             
                             	Multicast packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_broadcast_pkts
                             
                             	Broadcast packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: output_total_drops
                             
                             	Outbound correct packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_total_drops
                             
                             	Inbound correct packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_queue_drops
                             
                             	Input queue drops
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_unknown_proto
                             
                             	Inbound packets discarded with unknown proto
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_total_errors
                             
                             	Outbound incorrect packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_underrun
                             
                             	Output underruns
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_total_errors
                             
                             	Inbound incorrect packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_crc
                             
                             	Inbound packets discarded with incorrect CRC
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_overrun
                             
                             	Input overruns
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_frame
                             
                             	Inbound framing errors
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2370,7 +2382,7 @@ class PerfMgmt(Entity):
                 .. attribute:: basic_counter_interface
                 
                 	Samples for a particular interface
-                	**type**\: list of    :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface>`
+                	**type**\: list of  		 :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface>`
                 
                 
 
@@ -2404,12 +2416,14 @@ class PerfMgmt(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: samples
                     
                     	Basic Counter samples for an interface
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples>`
                     
                     
 
@@ -2448,7 +2462,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	Basic Counters sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample>`
                         
                         
 
@@ -2481,14 +2495,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds from UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2497,14 +2511,14 @@ class PerfMgmt(Entity):
                             .. attribute:: in_packets
                             
                             	Packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_octets
                             
                             	Bytes received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2513,14 +2527,14 @@ class PerfMgmt(Entity):
                             .. attribute:: out_packets
                             
                             	Packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_octets
                             
                             	Bytes sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2529,42 +2543,42 @@ class PerfMgmt(Entity):
                             .. attribute:: input_total_drops
                             
                             	Inbound correct packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: input_queue_drops
                             
                             	Input queue drops
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: input_total_errors
                             
                             	Inbound incorrect packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: output_total_drops
                             
                             	Outbound correct packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: output_queue_drops
                             
                             	Output queue drops
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: output_total_errors
                             
                             	Outbound incorrect packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2621,7 +2635,7 @@ class PerfMgmt(Entity):
                 .. attribute:: data_rate_interface
                 
                 	Samples for a particular interface
-                	**type**\: list of    :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface>`
+                	**type**\: list of  		 :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface>`
                 
                 
 
@@ -2655,12 +2669,14 @@ class PerfMgmt(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: samples
                     
                     	Data Rate samples for an interface
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples>`
                     
                     
 
@@ -2699,7 +2715,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	Data Rates sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample>`
                         
                         
 
@@ -2732,14 +2748,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds drom UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2748,7 +2764,7 @@ class PerfMgmt(Entity):
                             .. attribute:: input_data_rate
                             
                             	Input datarate in 1000's of bps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2757,7 +2773,7 @@ class PerfMgmt(Entity):
                             .. attribute:: input_packet_rate
                             
                             	Input packets per second
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2766,7 +2782,7 @@ class PerfMgmt(Entity):
                             .. attribute:: output_data_rate
                             
                             	Output datarate in 1000's of bps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2775,7 +2791,7 @@ class PerfMgmt(Entity):
                             .. attribute:: output_packet_rate
                             
                             	Output packets per second
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2784,35 +2800,35 @@ class PerfMgmt(Entity):
                             .. attribute:: input_peak_rate
                             
                             	Peak input datarate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_peak_pkts
                             
                             	Peak input packet rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_peak_rate
                             
                             	Peak output datarate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_peak_pkts
                             
                             	Peak output packet rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: bandwidth
                             
                             	Bandwidth (in kbps)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2869,27 +2885,27 @@ class PerfMgmt(Entity):
         .. attribute:: ospf
         
         	Collected OSPF data
-        	**type**\:   :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf>`
+        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf>`
         
         .. attribute:: mpls
         
         	Collected MPLS data
-        	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls>`
+        	**type**\:  :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls>`
         
         .. attribute:: nodes
         
         	Nodes for which data is collected
-        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes>`
+        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes>`
         
         .. attribute:: bgp
         
         	Collected BGP data
-        	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp>`
+        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp>`
         
         .. attribute:: interface
         
         	Collected Interface data
-        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface>`
+        	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface>`
         
         
 
@@ -2943,12 +2959,12 @@ class PerfMgmt(Entity):
             .. attribute:: ospfv2_protocol_instances
             
             	OSPF v2 instances for which protocol statistics are collected
-            	**type**\:   :py:class:`Ospfv2ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances>`
+            	**type**\:  :py:class:`Ospfv2ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances>`
             
             .. attribute:: ospfv3_protocol_instances
             
             	OSPF v3 instances for which protocol statistics are collected
-            	**type**\:   :py:class:`Ospfv3ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances>`
+            	**type**\:  :py:class:`Ospfv3ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances>`
             
             
 
@@ -2988,7 +3004,7 @@ class PerfMgmt(Entity):
                 .. attribute:: ospfv2_protocol_instance
                 
                 	Protocol samples for a particular OSPF v2 instance
-                	**type**\: list of    :py:class:`Ospfv2ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance>`
+                	**type**\: list of  		 :py:class:`Ospfv2ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance>`
                 
                 
 
@@ -3023,12 +3039,14 @@ class PerfMgmt(Entity):
                     .. attribute:: instance_name  <key>
                     
                     	OSPF Instance Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: samples
                     
                     	Sample Table for an OSPV v2 instance
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples>`
                     
                     
 
@@ -3067,7 +3085,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	Generic Counters sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample>`
                         
                         
 
@@ -3100,14 +3118,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds drom UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3116,147 +3134,147 @@ class PerfMgmt(Entity):
                             .. attribute:: input_packets
                             
                             	Total number of packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_packets
                             
                             	Total number of packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_hello_packets
                             
                             	Number of Hello packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_hello_packets
                             
                             	Number of Hello packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_db_ds
                             
                             	Number of DBD packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_db_ds_lsa
                             
                             	Number of LSA received in DBD packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_db_ds
                             
                             	Number of DBD packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_db_ds_lsa
                             
                             	Number of LSA sent in DBD packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_ls_requests
                             
                             	Number of LS Requests received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_ls_requests_lsa
                             
                             	Number of LSA received in LS Requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_ls_requests
                             
                             	Number of LS Requests sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_ls_requests_lsa
                             
                             	Number of LSA sent in LS Requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_updates
                             
                             	Number of LSA Updates received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_updates_lsa
                             
                             	Number of LSA received in LSA Updates
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_updates
                             
                             	Number of LSA Updates sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_updates_lsa
                             
                             	Number of LSA sent in LSA Updates
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_acks
                             
                             	Number of LSA Acknowledgements received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_acks_lsa
                             
                             	Number of LSA received in LSA Acknowledgements
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_acks
                             
                             	Number of LSA Acknowledgements sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_acks_lsa
                             
                             	Number of LSA sent in LSA Acknowledgements
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: checksum_errors
                             
                             	Number of packets received with checksum errors
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3336,7 +3354,7 @@ class PerfMgmt(Entity):
                 .. attribute:: ospfv3_protocol_instance
                 
                 	Protocol samples for a particular OSPF v3 instance
-                	**type**\: list of    :py:class:`Ospfv3ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance>`
+                	**type**\: list of  		 :py:class:`Ospfv3ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance>`
                 
                 
 
@@ -3371,12 +3389,14 @@ class PerfMgmt(Entity):
                     .. attribute:: instance_name  <key>
                     
                     	OSPF Instance Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: samples
                     
                     	Sample Table for an OSPV v3 instance
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples>`
                     
                     
 
@@ -3415,7 +3435,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	Generic Counters sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample>`
                         
                         
 
@@ -3448,14 +3468,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds drom UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3464,140 +3484,140 @@ class PerfMgmt(Entity):
                             .. attribute:: input_packets
                             
                             	Total number of packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_packets
                             
                             	Total number of packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_hello_packets
                             
                             	Number of Hello packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_hello_packets
                             
                             	Number of Hello packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_db_ds
                             
                             	Number of DBD packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_db_ds_lsa
                             
                             	Number of LSA received in DBD packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_db_ds
                             
                             	Number of DBD packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_db_ds_lsa
                             
                             	Number of LSA sent in DBD packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_ls_requests
                             
                             	Number of LS Requests received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_ls_requests_lsa
                             
                             	Number of LSA received in LS Requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_ls_requests
                             
                             	Number of LS Requests sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_ls_requests_lsa
                             
                             	Number of LSA sent in LS Requests
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_updates
                             
                             	Number of LSA Updates received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_updates_lsa
                             
                             	Number of LSA received in LSA Updates
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_updates
                             
                             	Number of LSA Updates sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_updates_lsa
                             
                             	Number of LSA sent in LSA Updates
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_acks
                             
                             	Number of LSA Acknowledgements received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_lsa_acks_lsa
                             
                             	Number of LSA received in LSA Acknowledgements
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_acks
                             
                             	Number of LSA Acknowledgements sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_lsa_acks_lsa
                             
                             	Number of LSA sent in LSA Acknowledgements
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -3674,7 +3694,7 @@ class PerfMgmt(Entity):
             .. attribute:: ldp_neighbors
             
             	LDP neighbors for which statistics are collected
-            	**type**\:   :py:class:`LdpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors>`
+            	**type**\:  :py:class:`LdpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors>`
             
             
 
@@ -3709,7 +3729,7 @@ class PerfMgmt(Entity):
                 .. attribute:: ldp_neighbor
                 
                 	Samples for a particular LDP neighbor
-                	**type**\: list of    :py:class:`LdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor>`
+                	**type**\: list of  		 :py:class:`LdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor>`
                 
                 
 
@@ -3743,12 +3763,14 @@ class PerfMgmt(Entity):
                     .. attribute:: nbr  <key>
                     
                     	Neighbor Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: samples
                     
                     	Samples for a particular LDP neighbor
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples>`
                     
                     
 
@@ -3787,7 +3809,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	LDP neighbor statistics sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample>`
                         
                         
 
@@ -3820,14 +3842,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds drom UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3836,126 +3858,126 @@ class PerfMgmt(Entity):
                             .. attribute:: total_msgs_sent
                             
                             	Total messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: total_msgs_rcvd
                             
                             	Total messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: init_msgs_sent
                             
                             	Init messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: init_msgs_rcvd
                             
                             	Tnit messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: address_msgs_sent
                             
                             	Address messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: address_msgs_rcvd
                             
                             	Address messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: address_withdraw_msgs_sent
                             
                             	Address withdraw messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: address_withdraw_msgs_rcvd
                             
                             	Address withdraw messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: label_mapping_msgs_sent
                             
                             	Label mapping messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: label_mapping_msgs_rcvd
                             
                             	Label mapping messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: label_withdraw_msgs_sent
                             
                             	Label withdraw messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: label_withdraw_msgs_rcvd
                             
                             	Label withdraw messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: label_release_msgs_sent
                             
                             	Label release messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: label_release_msgs_rcvd
                             
                             	Label release messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: notification_msgs_sent
                             
                             	Notification messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: notification_msgs_rcvd
                             
                             	Notification messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: keepalive_msgs_sent
                             
                             	Keepalive messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: keepalive_msgs_rcvd
                             
                             	Keepalive messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -4028,7 +4050,7 @@ class PerfMgmt(Entity):
             .. attribute:: node
             
             	Node Instance
-            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node>`
+            	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node>`
             
             
 
@@ -4062,22 +4084,24 @@ class PerfMgmt(Entity):
                 .. attribute:: node_id  <key>
                 
                 	Node ID
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: sample_xr
                 
                 	Node CPU data
-                	**type**\:   :py:class:`SampleXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.SampleXr>`
+                	**type**\:  :py:class:`SampleXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.SampleXr>`
                 
                 .. attribute:: processes
                 
                 	Processes data
-                	**type**\:   :py:class:`Processes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes>`
+                	**type**\:  :py:class:`Processes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes>`
                 
                 .. attribute:: samples
                 
                 	Node Memory data
-                	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Samples>`
+                	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Samples>`
                 
                 
 
@@ -4126,7 +4150,7 @@ class PerfMgmt(Entity):
                     .. attribute:: sample
                     
                     	Node CPU data sample
-                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample>`
+                    	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample>`
                     
                     
 
@@ -4159,14 +4183,14 @@ class PerfMgmt(Entity):
                         .. attribute:: sample_id  <key>
                         
                         	Sample ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: time_stamp
                         
                         	Timestamp of sample in seconds drom UCT
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4175,14 +4199,14 @@ class PerfMgmt(Entity):
                         .. attribute:: no_processes
                         
                         	Number of processes in the system
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: average_cpu_used
                         
                         	Average system %CPU utilization
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4223,7 +4247,7 @@ class PerfMgmt(Entity):
                     .. attribute:: process
                     
                     	Process data
-                    	**type**\: list of    :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes.Process>`
+                    	**type**\: list of  		 :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes.Process>`
                     
                     
 
@@ -4256,14 +4280,14 @@ class PerfMgmt(Entity):
                         .. attribute:: process_id  <key>
                         
                         	Process ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: samples
                         
                         	Process data
-                        	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples>`
+                        	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples>`
                         
                         
 
@@ -4301,7 +4325,7 @@ class PerfMgmt(Entity):
                             .. attribute:: sample
                             
                             	Process data sample
-                            	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample>`
+                            	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample>`
                             
                             
 
@@ -4334,14 +4358,14 @@ class PerfMgmt(Entity):
                                 .. attribute:: sample_id  <key>
                                 
                                 	Sample ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: time_stamp
                                 
                                 	Timestamp of sample in seconds drom UCT
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -4350,7 +4374,7 @@ class PerfMgmt(Entity):
                                 .. attribute:: peak_memory
                                 
                                 	Max. dynamic memory (KBytes) used since startup time
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -4359,14 +4383,14 @@ class PerfMgmt(Entity):
                                 .. attribute:: average_cpu_used
                                 
                                 	Average %CPU utilization
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: no_threads
                                 
                                 	Number of threads
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -4409,7 +4433,7 @@ class PerfMgmt(Entity):
                     .. attribute:: sample
                     
                     	Node Memory data sample
-                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Samples.Sample>`
+                    	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Samples.Sample>`
                     
                     
 
@@ -4442,14 +4466,14 @@ class PerfMgmt(Entity):
                         .. attribute:: sample_id  <key>
                         
                         	Sample ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: time_stamp
                         
                         	Timestamp of sample in seconds drom UCT
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4458,7 +4482,7 @@ class PerfMgmt(Entity):
                         .. attribute:: curr_memory
                         
                         	Current application memory (Bytes) in use
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4467,7 +4491,7 @@ class PerfMgmt(Entity):
                         .. attribute:: peak_memory
                         
                         	Max. system memory (MBytes) used since bootup
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4510,7 +4534,7 @@ class PerfMgmt(Entity):
             .. attribute:: bgp_neighbors
             
             	Neighbors for which statistics are collected
-            	**type**\:   :py:class:`BgpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors>`
+            	**type**\:  :py:class:`BgpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors>`
             
             
 
@@ -4544,7 +4568,7 @@ class PerfMgmt(Entity):
                 .. attribute:: bgp_neighbor
                 
                 	Samples for particular neighbor
-                	**type**\: list of    :py:class:`BgpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor>`
+                	**type**\: list of  		 :py:class:`BgpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor>`
                 
                 
 
@@ -4578,12 +4602,14 @@ class PerfMgmt(Entity):
                     .. attribute:: ip_address  <key>
                     
                     	BGP Neighbor Identifier
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: samples
                     
                     	Sample Table for a BGP neighbor
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples>`
                     
                     
 
@@ -4622,7 +4648,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	Neighbor statistics sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample>`
                         
                         
 
@@ -4655,14 +4681,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds drom UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4671,56 +4697,56 @@ class PerfMgmt(Entity):
                             .. attribute:: input_messages
                             
                             	Number of messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_messages
                             
                             	Number of messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_update_messages
                             
                             	Number of update messages received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_update_messages
                             
                             	Number of update messages sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: conn_established
                             
                             	Number of times the connection was established
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: conn_dropped
                             
                             	Number of times connection was dropped
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: errors_received
                             
                             	Number of error notifications received on the connection
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: errors_sent
                             
                             	Number of error notifications sent on the connection
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -4773,17 +4799,17 @@ class PerfMgmt(Entity):
             .. attribute:: generic_counter_interfaces
             
             	Interfaces for which Generic Counters are collected
-            	**type**\:   :py:class:`GenericCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces>`
+            	**type**\:  :py:class:`GenericCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces>`
             
             .. attribute:: basic_counter_interfaces
             
             	Interfaces for which Basic Counters are collected
-            	**type**\:   :py:class:`BasicCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces>`
+            	**type**\:  :py:class:`BasicCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces>`
             
             .. attribute:: data_rate_interfaces
             
             	Interfaces for which Data Rates are collected
-            	**type**\:   :py:class:`DataRateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces>`
+            	**type**\:  :py:class:`DataRateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces>`
             
             
 
@@ -4828,7 +4854,7 @@ class PerfMgmt(Entity):
                 .. attribute:: generic_counter_interface
                 
                 	Samples for a particular interface
-                	**type**\: list of    :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface>`
+                	**type**\: list of  		 :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface>`
                 
                 
 
@@ -4862,12 +4888,14 @@ class PerfMgmt(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: samples
                     
                     	Generic Counter samples for an interface
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples>`
                     
                     
 
@@ -4906,7 +4934,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	Generic Counters sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample>`
                         
                         
 
@@ -4939,14 +4967,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds drom UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4955,14 +4983,14 @@ class PerfMgmt(Entity):
                             .. attribute:: in_packets
                             
                             	Packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_octets
                             
                             	Bytes received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4971,14 +4999,14 @@ class PerfMgmt(Entity):
                             .. attribute:: out_packets
                             
                             	Packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_octets
                             
                             	Bytes sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4987,112 +5015,112 @@ class PerfMgmt(Entity):
                             .. attribute:: in_ucast_pkts
                             
                             	Unicast packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_multicast_pkts
                             
                             	Multicast packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_broadcast_pkts
                             
                             	Broadcast packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_ucast_pkts
                             
                             	Unicast packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_multicast_pkts
                             
                             	Multicast packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_broadcast_pkts
                             
                             	Broadcast packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: output_total_drops
                             
                             	Outbound correct packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_total_drops
                             
                             	Inbound correct packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_queue_drops
                             
                             	Input queue drops
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_unknown_proto
                             
                             	Inbound packets discarded with unknown proto
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_total_errors
                             
                             	Outbound incorrect packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_underrun
                             
                             	Output underruns
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_total_errors
                             
                             	Inbound incorrect packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_crc
                             
                             	Inbound packets discarded with incorrect CRC
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_overrun
                             
                             	Input overruns
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_frame
                             
                             	Inbound framing errors
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -5170,7 +5198,7 @@ class PerfMgmt(Entity):
                 .. attribute:: basic_counter_interface
                 
                 	Samples for a particular interface
-                	**type**\: list of    :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface>`
+                	**type**\: list of  		 :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface>`
                 
                 
 
@@ -5204,12 +5232,14 @@ class PerfMgmt(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: samples
                     
                     	Basic Counter samples for an interface
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples>`
                     
                     
 
@@ -5248,7 +5278,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	Basic Counters sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample>`
                         
                         
 
@@ -5281,14 +5311,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds from UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -5297,14 +5327,14 @@ class PerfMgmt(Entity):
                             .. attribute:: in_packets
                             
                             	Packets received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_octets
                             
                             	Bytes received
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -5313,14 +5343,14 @@ class PerfMgmt(Entity):
                             .. attribute:: out_packets
                             
                             	Packets sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_octets
                             
                             	Bytes sent
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -5329,42 +5359,42 @@ class PerfMgmt(Entity):
                             .. attribute:: input_total_drops
                             
                             	Inbound correct packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: input_queue_drops
                             
                             	Input queue drops
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: input_total_errors
                             
                             	Inbound incorrect packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: output_total_drops
                             
                             	Outbound correct packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: output_queue_drops
                             
                             	Output queue drops
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: output_total_errors
                             
                             	Outbound incorrect packets discarded
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -5421,7 +5451,7 @@ class PerfMgmt(Entity):
                 .. attribute:: data_rate_interface
                 
                 	Samples for a particular interface
-                	**type**\: list of    :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface>`
+                	**type**\: list of  		 :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface>`
                 
                 
 
@@ -5455,12 +5485,14 @@ class PerfMgmt(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: samples
                     
                     	Data Rate samples for an interface
-                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples>`
+                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples>`
                     
                     
 
@@ -5499,7 +5531,7 @@ class PerfMgmt(Entity):
                         .. attribute:: sample
                         
                         	Data Rates sample
-                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample>`
+                        	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample>`
                         
                         
 
@@ -5532,14 +5564,14 @@ class PerfMgmt(Entity):
                             .. attribute:: sample_id  <key>
                             
                             	Sample ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: time_stamp
                             
                             	Timestamp of sample in seconds drom UCT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -5548,7 +5580,7 @@ class PerfMgmt(Entity):
                             .. attribute:: input_data_rate
                             
                             	Input datarate in 1000's of bps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -5557,7 +5589,7 @@ class PerfMgmt(Entity):
                             .. attribute:: input_packet_rate
                             
                             	Input packets per second
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -5566,7 +5598,7 @@ class PerfMgmt(Entity):
                             .. attribute:: output_data_rate
                             
                             	Output datarate in 1000's of bps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -5575,7 +5607,7 @@ class PerfMgmt(Entity):
                             .. attribute:: output_packet_rate
                             
                             	Output packets per second
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -5584,35 +5616,35 @@ class PerfMgmt(Entity):
                             .. attribute:: input_peak_rate
                             
                             	Peak input datarate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: input_peak_pkts
                             
                             	Peak input packet rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_peak_rate
                             
                             	Peak output datarate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: output_peak_pkts
                             
                             	Peak output packet rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: bandwidth
                             
                             	Bandwidth (in kbps)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             

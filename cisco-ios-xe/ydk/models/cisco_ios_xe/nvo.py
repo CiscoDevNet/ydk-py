@@ -37,7 +37,7 @@ class NvoInstances(Entity):
     .. attribute:: nvo_instance
     
     	List of instances
-    	**type**\: list of    :py:class:`NvoInstance <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance>`
+    	**type**\: list of  		 :py:class:`NvoInstance <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance>`
     
     
 
@@ -71,24 +71,24 @@ class NvoInstances(Entity):
         .. attribute:: nvo_id  <key>
         
         	Network Virtualization Overlay Instance  Identifier
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
         .. attribute:: overlay_encapsulation
         
         	Encapsulation type
-        	**type**\:   :py:class:`OverlayEncapType <ydk.models.cisco_ios_xe.nvo.OverlayEncapType>`
+        	**type**\:  :py:class:`OverlayEncapType <ydk.models.cisco_ios_xe.nvo.OverlayEncapType>`
         
         .. attribute:: virtual_network
         
         	VNI member attributes
-        	**type**\: list of    :py:class:`VirtualNetwork <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork>`
+        	**type**\: list of  		 :py:class:`VirtualNetwork <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork>`
         
         .. attribute:: source_interface
         
         	Source interface name
-        	**type**\:  str
+        	**type**\: str
         
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
         
@@ -132,7 +132,7 @@ class NvoInstances(Entity):
             .. attribute:: vni_start  <key>
             
             	Single Virtual Network Identifier  or start of range
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..16777214
             
@@ -141,7 +141,7 @@ class NvoInstances(Entity):
             .. attribute:: vni_end  <key>
             
             	End of Virtual Network Identifier range  (make equal to vni\-start for single vni
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..16777214
             
@@ -150,36 +150,36 @@ class NvoInstances(Entity):
             .. attribute:: end_host_discovery
             
             	How to peform endpoint discovery
-            	**type**\:   :py:class:`EndHostDiscovery <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.EndHostDiscovery>`
+            	**type**\:  :py:class:`EndHostDiscovery <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.EndHostDiscovery>`
             
             	**default value**\: flood-and-learn
             
             .. attribute:: routing_instance
             
             	VRF Name
-            	**type**\:  str
+            	**type**\: str
             
             	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_routing.Routing.RoutingInstance>`
             
             .. attribute:: suppress_arp
             
             	Enable ARP request suppression for this VNI
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: bgp
-            
-            	Use control protocol BGP to discover  peers
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: peers
             
             	List of VTEP peers
-            	**type**\: list of    :py:class:`Peers <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Peers>`
+            	**type**\: list of  		 :py:class:`Peers <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Peers>`
             
             .. attribute:: multicast
             
             	Mulitcast group range associated  with the VxLAN segment(s)
-            	**type**\:   :py:class:`Multicast <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Multicast>`
+            	**type**\:  :py:class:`Multicast <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Multicast>`
+            
+            .. attribute:: bgp
+            
+            	Use control protocol BGP to discover  peers
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -252,16 +252,16 @@ class NvoInstances(Entity):
                 .. attribute:: peer_ip  <key>
                 
                 	VTEP peer IP address
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 
 
                 """
@@ -294,12 +294,16 @@ class NvoInstances(Entity):
                 .. attribute:: multicast_group_min
                 
                 	Single IPV4 Multicast group  address or start of range
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (2((2[4\-9])\|(3[0\-9]))\\.)(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){2}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                 
                 .. attribute:: multicast_group_max
                 
                 	End of IPV4 Multicast group  address (leave unspecified for single value
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (2((2[4\-9])\|(3[0\-9]))\\.)(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){2}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                 
                 
 

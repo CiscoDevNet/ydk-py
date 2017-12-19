@@ -61,7 +61,7 @@ class Classifiers(Entity):
     .. attribute:: classifier_entry
     
     	classifier entry template
-    	**type**\: list of    :py:class:`ClassifierEntry <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry>`
+    	**type**\: list of  		 :py:class:`ClassifierEntry <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry>`
     
     
 
@@ -95,24 +95,24 @@ class Classifiers(Entity):
         .. attribute:: classifier_entry_name  <key>
         
         	Diffserv classifier name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: classifier_entry_descr
         
         	Description of the class template
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: classifier_entry_filter_operation
         
         	Filters are applicable as any or all filters
-        	**type**\:   :py:class:`ClassifierEntryFilterOperationType <ydk.models.ietf.ietf_diffserv_classifier.ClassifierEntryFilterOperationType>`
+        	**type**\:  :py:class:`ClassifierEntryFilterOperationType <ydk.models.ietf.ietf_diffserv_classifier.ClassifierEntryFilterOperationType>`
         
         	**default value**\: match-any-filter
         
         .. attribute:: filter_entry
         
         	Filter configuration
-        	**type**\: list of    :py:class:`FilterEntry <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry>`
+        	**type**\: list of  		 :py:class:`FilterEntry <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry>`
         
         
 
@@ -152,42 +152,42 @@ class Classifiers(Entity):
             .. attribute:: filter_type  <key>
             
             	This leaf defines type of the filter
-            	**type**\:   :py:class:`FilterType <ydk.models.ietf.ietf_diffserv_classifier.FilterType>`
+            	**type**\:  :py:class:`FilterType <ydk.models.ietf.ietf_diffserv_classifier.FilterType>`
             
             .. attribute:: filter_logical_not  <key>
             
             	 This is logical\-not operator for a filter. When true, it  indicates filter looks for absence of a pattern defined  by the filter 
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: dscp_cfg
             
             	list of dscp ranges
-            	**type**\: list of    :py:class:`DscpCfg <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry.DscpCfg>`
+            	**type**\: list of  		 :py:class:`DscpCfg <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry.DscpCfg>`
             
             .. attribute:: source_ip_address_cfg
             
             	list of source ip address
-            	**type**\: list of    :py:class:`SourceIpAddressCfg <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg>`
+            	**type**\: list of  		 :py:class:`SourceIpAddressCfg <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg>`
             
             .. attribute:: destination_ip_address_cfg
             
             	list of destination ip address
-            	**type**\: list of    :py:class:`DestinationIpAddressCfg <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg>`
+            	**type**\: list of  		 :py:class:`DestinationIpAddressCfg <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg>`
             
             .. attribute:: source_port_cfg
             
             	list of ranges of source port
-            	**type**\: list of    :py:class:`SourcePortCfg <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg>`
+            	**type**\: list of  		 :py:class:`SourcePortCfg <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg>`
             
             .. attribute:: destination_port_cfg
             
             	list of ranges of destination port
-            	**type**\: list of    :py:class:`DestinationPortCfg <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg>`
+            	**type**\: list of  		 :py:class:`DestinationPortCfg <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg>`
             
             .. attribute:: protocol_cfg
             
             	list of ranges of protocol values
-            	**type**\: list of    :py:class:`ProtocolCfg <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg>`
+            	**type**\: list of  		 :py:class:`ProtocolCfg <ydk.models.ietf.ietf_diffserv_classifier.Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg>`
             
             
 
@@ -229,14 +229,14 @@ class Classifiers(Entity):
                 .. attribute:: dscp_min  <key>
                 
                 	Minimum value of dscp range
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..63
                 
                 .. attribute:: dscp_max  <key>
                 
                 	maximum value of dscp range
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..63
                 
@@ -273,16 +273,16 @@ class Classifiers(Entity):
                 .. attribute:: source_ip_addr  <key>
                 
                 	source ip prefix
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
-                ----
                 
 
                 """
@@ -314,16 +314,16 @@ class Classifiers(Entity):
                 .. attribute:: destination_ip_addr  <key>
                 
                 	destination ip prefix
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
-                ----
                 
 
                 """
@@ -355,14 +355,14 @@ class Classifiers(Entity):
                 .. attribute:: source_port_min  <key>
                 
                 	minimum value of source port range
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: source_port_max  <key>
                 
                 	maximum value of source port range
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -399,14 +399,14 @@ class Classifiers(Entity):
                 .. attribute:: destination_port_min  <key>
                 
                 	minimum value of destination port range
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: destination_port_max  <key>
                 
                 	maximum value of destination port range
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -443,14 +443,14 @@ class Classifiers(Entity):
                 .. attribute:: protocol_min  <key>
                 
                 	minimum value of protocol range
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: protocol_max  <key>
                 
                 	maximum value of protocol range
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 

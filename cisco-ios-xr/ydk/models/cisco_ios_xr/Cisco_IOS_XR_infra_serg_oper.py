@@ -348,17 +348,17 @@ class SessionRedundancyManager(Entity):
     .. attribute:: interfaces
     
     	Subscriber Redundancy Manager interface table
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Interfaces>`
     
     .. attribute:: groups
     
     	Session Redundancy Manager group table
-    	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Groups>`
+    	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Groups>`
     
     .. attribute:: summary
     
     	Session redundancy manager summary
-    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Summary>`
+    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Summary>`
     
     
 
@@ -402,7 +402,7 @@ class SessionRedundancyManager(Entity):
         .. attribute:: interface
         
         	interface redundancy manager interface
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Interfaces.Interface>`
         
         
 
@@ -436,36 +436,38 @@ class SessionRedundancyManager(Entity):
             .. attribute:: interface  <key>
             
             	Interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: interface_name
             
             	Interface Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: interface_mapping_id
             
             	Interface Mapping ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: forward_referenced
             
             	Forward Referenced
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: group_id
             
             	Group ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: role
             
             	SERG Role
-            	**type**\:   :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
+            	**type**\:  :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
             
             
 
@@ -509,7 +511,7 @@ class SessionRedundancyManager(Entity):
         .. attribute:: group
         
         	Session redundancy manager group
-        	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Groups.Group>`
+        	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Groups.Group>`
         
         
 
@@ -543,66 +545,72 @@ class SessionRedundancyManager(Entity):
             .. attribute:: group  <key>
             
             	Group
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: group_id
             
             	Group ID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: description
             
             	Group Description
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: disabled
             
             	Disabled by Config
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: role
             
             	SERG Role
-            	**type**\:   :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
+            	**type**\:  :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
             
             .. attribute:: peer_ipv4_address
             
             	Peer IPv4 Address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: peer_ipv6_address
             
             	Peer IPv6 Address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: interface_count
             
             	Interface Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: preferred_role
             
             	Preferred Role
-            	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+            	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
             
             .. attribute:: slave_mode
             
             	Slave Mode
-            	**type**\:   :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
+            	**type**\:  :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
             
             .. attribute:: object_tracking_status
             
             	Object Tracking Status (Enabled/Disabled)
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: node_name
             
             	Node Information
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -658,96 +666,100 @@ class SessionRedundancyManager(Entity):
         .. attribute:: disabled
         
         	Disabled by Config
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: active_state
         
         	Process Active State
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: preferred_role
         
         	Preferred Role
-        	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+        	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
         
         .. attribute:: slave_mode
         
         	Slave Mode
-        	**type**\:   :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
+        	**type**\:  :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
         
         .. attribute:: hold_timer
         
         	Switch Over Hold Time
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: source_interface_name
         
         	Source Interface Name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: vrf_name
         
         	VRF Name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: source_interface_ipv4_address
         
         	Source Interface IPv4 Address
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         .. attribute:: source_interface_ipv6_address
         
         	Source Interface IPv6 Address
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         .. attribute:: group_count
         
         	No. of Configured Groups
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: disabled_group_count
         
         	No. of Disabled Groups by Config
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: master_group_count
         
         	No. of Master/Active Groups
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: slave_group_count
         
         	No. of Slave Groups
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: interface_count
         
         	No. of Configured Interfaces
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: master_interface_count
         
         	No. of Master/Active Interfaces
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: slave_interface_count
         
         	No. of Slave Interfaces
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -816,7 +828,7 @@ class SessionRedundancyAgent(Entity):
     .. attribute:: nodes
     
     	List of nodes for which session data is collected
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes>`
     
     
 
@@ -851,7 +863,7 @@ class SessionRedundancyAgent(Entity):
         .. attribute:: node
         
         	Session data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node>`
         
         
 
@@ -885,42 +897,44 @@ class SessionRedundancyAgent(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: group_id_xr
             
             	Data for particular subscriber group session
-            	**type**\:   :py:class:`GroupIdXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIdXr>`
+            	**type**\:  :py:class:`GroupIdXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIdXr>`
             
             .. attribute:: client_ids
             
             	Stats Client
-            	**type**\:   :py:class:`ClientIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.ClientIds>`
+            	**type**\:  :py:class:`ClientIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.ClientIds>`
             
             .. attribute:: memory
             
             	Show Memory
-            	**type**\:   :py:class:`Memory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Memory>`
+            	**type**\:  :py:class:`Memory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Memory>`
             
             .. attribute:: group_ids
             
             	Data for particular subscriber group 
-            	**type**\:   :py:class:`GroupIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds>`
+            	**type**\:  :py:class:`GroupIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds>`
             
             .. attribute:: interfaces
             
             	List of interfaces
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces>`
             
             .. attribute:: stats_global
             
             	Stats Global
-            	**type**\:   :py:class:`StatsGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal>`
+            	**type**\:  :py:class:`StatsGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal>`
             
             .. attribute:: group_summaries
             
             	Session data for a particular node
-            	**type**\:   :py:class:`GroupSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupSummaries>`
+            	**type**\:  :py:class:`GroupSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupSummaries>`
             
             
 
@@ -989,7 +1003,7 @@ class SessionRedundancyAgent(Entity):
                 .. attribute:: group_id
                 
                 	Group id for subscriber group session
-                	**type**\: list of    :py:class:`GroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId>`
+                	**type**\: list of  		 :py:class:`GroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId>`
                 
                 
 
@@ -1022,44 +1036,46 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: group_id  <key>
                     
                     	GroupId
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: group_id_xr
                     
                     	Group ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: interface_name
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: key_index
                     
                     	Key index
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: role_master
                     
                     	Master Role is Set
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: negative_acknowledgement_update_all
                     
                     	Negative Acknowledgement Update Flag is Set
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: session_detailed_information
                     
                     	More Session Information
-                    	**type**\: list of    :py:class:`SessionDetailedInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation>`
+                    	**type**\: list of  		 :py:class:`SessionDetailedInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation>`
                     
                     .. attribute:: session_sync_error_information
                     
                     	Session Synchroniation Error Information
-                    	**type**\: list of    :py:class:`SessionSyncErrorInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation>`
+                    	**type**\: list of  		 :py:class:`SessionSyncErrorInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation>`
                     
                     
 
@@ -1105,27 +1121,27 @@ class SessionRedundancyAgent(Entity):
                         .. attribute:: component
                         
                         	Component
-                        	**type**\:   :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
+                        	**type**\:  :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                         
                         .. attribute:: operation_
                         
                         	Operation Code
-                        	**type**\:   :py:class:`SergShowSessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSessionOperation>`
+                        	**type**\:  :py:class:`SergShowSessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSessionOperation>`
                         
                         .. attribute:: tx_list_queue_fail
                         
                         	Tx List Queue Failed
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: marked_for_sweeping
                         
                         	Marked For Sweeping
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: marked_for_cleanup
                         
                         	Marked For Cleanup
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -1166,21 +1182,21 @@ class SessionRedundancyAgent(Entity):
                         .. attribute:: sync_error_count
                         
                         	No. of Errors occured during Synchronization
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: last_error_code
                         
                         	Last Error Code
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: last_error_type
                         
                         	Last Error Type
-                        	**type**\:   :py:class:`SergShowSessionError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSessionError>`
+                        	**type**\:  :py:class:`SergShowSessionError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSessionError>`
                         
                         
 
@@ -1217,7 +1233,7 @@ class SessionRedundancyAgent(Entity):
                 .. attribute:: client_id
                 
                 	Specify stats client
-                	**type**\: list of    :py:class:`ClientId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId>`
+                	**type**\: list of  		 :py:class:`ClientId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId>`
                 
                 
 
@@ -1250,336 +1266,336 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: stats_client_id  <key>
                     
                     	Client Id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: tx_list_start_of_download_add_ok
                     
                     	TxListStartOfDownloadAddOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_start_of_download_add_not_ok
                     
                     	TxListStartOfDownloadAddNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_end_of_download_add_ok
                     
                     	TxListEndOfDownloadAddOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_end_of_download_add_not_ok
                     
                     	TxListEndOfDownloadAddNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_end_of_message_add_ok
                     
                     	TxListEndOfMessageAddOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_end_of_message_add_not_ok
                     
                     	TxListEndOfMessageAddNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_clear_all_add_ok
                     
                     	TxListClearAllAddOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_clear_all_add_not_ok
                     
                     	TxListClearAllAddNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_clear_selected_add_ok
                     
                     	TxListClearSelectedAddOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_clear_selected_add_not_ok
                     
                     	TxListClearSelectedAddNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_replay_all_add_ok
                     
                     	TxListReplayAllAddOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_replay_all_add_not_ok
                     
                     	TxListReplayAllAddNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_replay_selected_add_ok
                     
                     	TxListReplaySelectedAddOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_replay_selected_add_not_ok
                     
                     	TxListReplaySelectedAddNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_session_session_add_ok
                     
                     	TxListSessionSessionAddOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_session_session_add_not_ok
                     
                     	TxListSessionSessionAddNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_session_session_update_ok
                     
                     	TxListSessionSessionUpdateOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_session_session_update_not_ok
                     
                     	TxListSessionSessionUpdateNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_session_session_delete
                     
                     	TxListSessionSessionDelete
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: clean_call_back
                     
                     	CleanCallBack
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_encode_session_session_ok
                     
                     	TxListEncodeSessionSessionOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_encode_session_session_partial_write
                     
                     	TxListEncodeSessionSessionPartialWrite
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: last_replay_all_count
                     
                     	LastReplayAllCount
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_command_replay_all
                     
                     	TxListReceiveCommandReplayAll
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_command_replay_selected
                     
                     	TxListReceiveCommandReplaySelected
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_delete_valid
                     
                     	TxListReceiveSessionSessionDeleteValid
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_delete_invalid
                     
                     	TxListReceiveSessionSessionDeleteInValid
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_update_valid
                     
                     	TxListReceiveSessionSessionUpdateValid
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_update_invalid
                     
                     	TxListReceiveSessionSessionUpdateInValid
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_sod_all
                     
                     	TxListReceiveSessionSessionSODAll
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_sod_selected
                     
                     	TxListReceiveSessionSessionSODSelected
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_eod_all
                     
                     	TxListReceiveSessionSessionEODAll
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_eod_selected
                     
                     	TxListReceiveSessionSessionEODSelected
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_eoms
                     
                     	TxListReceiveSessionSessionEOMS
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_clear_all
                     
                     	TxListReceiveSessionSessionClearAll
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_clear_selected
                     
                     	TxListReceiveSessionSessionClearSelected
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_neg_ack
                     
                     	TxListReceiveSessionSessionNegAck
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_receive_session_session_neg_ack_not_ok
                     
                     	TxListReceiveSessionSessionNegAckNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_client_registration_ok
                     
                     	TxListClientRegistrationOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_client_registration_not_ok
                     
                     	TxListClientRegistrationNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_client_de_registration
                     
                     	TxListClientDeRegistration
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_client_connection_down
                     
                     	TxListClientConnectionDown
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_client_cleanup
                     
                     	TxListClientCleanup
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_active_ok
                     
                     	TxListActiveOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_active_not_ok
                     
                     	TxListActiveNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_de_active_ok
                     
                     	TxListDeActiveOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_de_active_not_ok
                     
                     	TxListDeActiveNotOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1708,17 +1724,17 @@ class SessionRedundancyAgent(Entity):
                 .. attribute:: memory_info
                 
                 	Memory Info
-                	**type**\: list of    :py:class:`MemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo>`
+                	**type**\: list of  		 :py:class:`MemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo>`
                 
                 .. attribute:: edm_memory_info
                 
                 	EDM Memory Info
-                	**type**\: list of    :py:class:`EdmMemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo>`
+                	**type**\: list of  		 :py:class:`EdmMemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo>`
                 
                 .. attribute:: string_memory_info
                 
                 	String Memory Info
-                	**type**\: list of    :py:class:`StringMemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo>`
+                	**type**\: list of  		 :py:class:`StringMemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo>`
                 
                 
 
@@ -1753,47 +1769,47 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: structure_name
                     
                     	Structure Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: size
                     
                     	Size of the datastructure
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: current_count
                     
                     	Current Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: alloc_fails
                     
                     	Allocation Fails
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: alloc_count
                     
                     	Allocated count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: freed_count
                     
                     	Freed Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: memory_type
                     
                     	Memory Type
-                    	**type**\:   :py:class:`SergShowMem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowMem>`
+                    	**type**\:  :py:class:`SergShowMem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowMem>`
                     
                     
 
@@ -1838,28 +1854,28 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: size
                     
                     	Size of the block
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total
                     
                     	Total request
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: success
                     
                     	Cache\-hit success
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: failure
                     
                     	Cache\-hit failure
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1900,28 +1916,28 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: size
                     
                     	Size of the block
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: total
                     
                     	Total request
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: success
                     
                     	Cache\-hit success
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: failure
                     
                     	Cache\-hit failure
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1962,7 +1978,7 @@ class SessionRedundancyAgent(Entity):
                 .. attribute:: group_id
                 
                 	Group id for subscriber group
-                	**type**\: list of    :py:class:`GroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId>`
+                	**type**\: list of  		 :py:class:`GroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId>`
                 
                 
 
@@ -1995,148 +2011,154 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: group_id  <key>
                     
                     	Group Id
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: group_id_xr
                     
                     	Group ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: description
                     
                     	Group Description
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: disabled
                     
                     	Disabled by Config
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: init_role
                     
                     	Preferred Init Role
-                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+                    	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: negotiating_role
                     
                     	Negotiating Role
-                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+                    	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: current_role
                     
                     	Current Role
-                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+                    	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: slave_mode
                     
                     	Slave Mode
-                    	**type**\:   :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
+                    	**type**\:  :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
                     
                     .. attribute:: hold_timer
                     
                     	Switch Over Hold Time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: core_tracking_object_name
                     
                     	Core Object Tracking Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: core_tracking_object_status
                     
                     	Core Object Tracking Status
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: access_tracking_object_name
                     
                     	Access Object Tracking Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: access_tracking_object_status
                     
                     	Access Object Tracking Status
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: object_tracking_status
                     
                     	Object Tracking Status (Enabled/Disabled)
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: peer_ipv4_address
                     
                     	Peer IPv4 Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: peer_ipv6_address
                     
                     	Peer IPv6 Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: peer_status
                     
                     	Peer Status
-                    	**type**\:   :py:class:`SergPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergPeerStatus>`
+                    	**type**\:  :py:class:`SergPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergPeerStatus>`
                     
                     .. attribute:: peer_last_negotiation_time
                     
                     	Last Negotiation time of Peer
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: peer_last_up_time
                     
                     	Last UP time of Peer
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: peer_last_down_time
                     
                     	Last Down time of Peer
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: peer_init_role
                     
                     	Peer Preferred Init Role
-                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+                    	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: peer_negotiating_role
                     
                     	Peer Negotiating Role
-                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+                    	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: peer_current_role
                     
                     	Peer Current Role
-                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+                    	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: peer_object_tracking_status
                     
                     	Peer Object Tracking Status
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: last_switchover_time
                     
                     	Last Switchover time
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: switchover_count
                     
                     	Switchover Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: last_switchover_reason
                     
                     	Last Switchover Reason
-                    	**type**\:   :py:class:`SergShowSoReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSoReason>`
+                    	**type**\:  :py:class:`SergShowSoReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSoReason>`
                     
                     .. attribute:: switchover_hold_time
                     
                     	Switchover Hold Time in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2145,49 +2167,49 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: session_count
                     
                     	Session Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: slave_update_failure_count
                     
                     	Slave Session update fail count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pending_session_update_count
                     
                     	Pending Session Update Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pending_session_delete_count
                     
                     	Pending Session Delete Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: interface_count
                     
                     	No. of Configured Interfaces
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: revertive_timer
                     
                     	Revertive timer for SWO back
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: switchover_revert_time
                     
                     	Switchover Revert Time in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2196,12 +2218,12 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: client_session_count
                     
                     	Client Session Count
-                    	**type**\: list of    :py:class:`ClientSessionCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount>`
+                    	**type**\: list of  		 :py:class:`ClientSessionCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount>`
                     
                     .. attribute:: interface
                     
                     	Interface List
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface>`
                     
                     
 
@@ -2305,12 +2327,12 @@ class SessionRedundancyAgent(Entity):
                         .. attribute:: component
                         
                         	Component
-                        	**type**\:   :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
+                        	**type**\:  :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                         
                         .. attribute:: session_count
                         
                         	Session count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2347,24 +2369,24 @@ class SessionRedundancyAgent(Entity):
                         .. attribute:: interface_name
                         
                         	Interface Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: interface_synchronization_id
                         
                         	Interface Synchronization ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: forward_referenced
                         
                         	Forward Referenced
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: session_count
                         
                         	Session Count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2405,7 +2427,7 @@ class SessionRedundancyAgent(Entity):
                 .. attribute:: interface
                 
                 	Specify interface name
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -2438,93 +2460,95 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: interface  <key>
                     
                     	Interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: interface_oper
                     
                     	Interface Batch Operation
-                    	**type**\:   :py:class:`InterfaceOper <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper>`
+                    	**type**\:  :py:class:`InterfaceOper <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper>`
                     
                     .. attribute:: interface_status
                     
                     	Interface Status
-                    	**type**\:   :py:class:`InterfaceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus>`
+                    	**type**\:  :py:class:`InterfaceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus>`
                     
                     .. attribute:: interface_name
                     
                     	Interface Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: interface_synchronization_id
                     
                     	Interface Sync ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: group_id
                     
                     	Group ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: role
                     
                     	SERG Role
-                    	**type**\:   :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
+                    	**type**\:  :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
                     
                     .. attribute:: forward_referenced
                     
                     	Forward Referenced
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: session_count
                     
                     	Session Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: interface_enable_error_count
                     
                     	Interface Enable Error Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: interface_disable_error_count
                     
                     	Interface Disable Error Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: interface_caps_add_error_count
                     
                     	Interface Caps Add Error Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: interface_caps_remove_error_count
                     
                     	Interface Caps Remove Error Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: interface_attribute_update_error_count
                     
                     	Interface Attribute Update Error Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: client_status
                     
                     	Interface status for each client
-                    	**type**\: list of    :py:class:`ClientStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus>`
+                    	**type**\: list of  		 :py:class:`ClientStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus>`
                     
                     
 
@@ -2591,27 +2615,27 @@ class SessionRedundancyAgent(Entity):
                         .. attribute:: idb_oper_reg_enable
                         
                         	Operational Registration Enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: idb_oper_reg_disable
                         
                         	Operational Registration Disabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: idb_oper_caps_add
                         
                         	Operational Caps Add
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: idb_oper_caps_remove
                         
                         	Operational Caps Remove
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: idb_oper_attr_update
                         
                         	Operational Attribute Update
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -2652,42 +2676,42 @@ class SessionRedundancyAgent(Entity):
                         .. attribute:: idb_state_fwd_ref
                         
                         	Interface Forward Referenced
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: idb_state_stale
                         
                         	Interface State Stale
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: idb_state_registered
                         
                         	Interface State Registered
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: idb_state_caps_added
                         
                         	Interface State Caps Added
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: idb_state_owned_re_source
                         
                         	Interface State Owned Resource
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: idb_client_eoms_pending
                         
                         	Interface Client EOMS Pending
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: idb_state_p_end_caps_rem
                         
                         	Interface Caps Remove Pending
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: idb_state_p_end_reg_disable
                         
                         	Interface Registration Disable Pending
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -2734,22 +2758,22 @@ class SessionRedundancyAgent(Entity):
                         .. attribute:: component
                         
                         	Component
-                        	**type**\:   :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
+                        	**type**\:  :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                         
                         .. attribute:: serg_show_idb_client_eoms_pending
                         
                         	SERG SHOW IDB CLIENT EOMS PENDING
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: serg_show_idb_client_sync_eod_pending
                         
                         	SERG SHOW IDB CLIENT SYNC EOD PENDING
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: session_count
                         
                         	session count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2790,67 +2814,71 @@ class SessionRedundancyAgent(Entity):
                 .. attribute:: intf_status_statistics
                 
                 	intf status statistics
-                	**type**\:   :py:class:`IntfStatusStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics>`
+                	**type**\:  :py:class:`IntfStatusStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics>`
                 
                 .. attribute:: tx_list_statistics
                 
                 	tx list statistics
-                	**type**\:   :py:class:`TxListStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics>`
+                	**type**\:  :py:class:`TxListStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics>`
                 
                 .. attribute:: source_interface_name
                 
                 	Source Interface Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: vrf_name
                 
                 	VRF Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: source_interface_ipv4_address
                 
                 	Source Interface IPv4 Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: source_interface_ipv6_address
                 
                 	Source Interface IPv6 Address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: redundancy_role
                 
                 	Redundancy Role
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: restart_client_sync_in_progress
                 
                 	Restart Client Sync In Progress Flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: client_init_sync_time_stamp
                 
                 	Synchronization TimeStamp
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: restart_peer_sync_in_progress
                 
                 	Restart Peer Sync In Progress Flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: peer_init_sync_time_stamp
                 
                 	Synchronization TimeStamp
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: sync_in_progress
                 
                 	Sync In Progress Flag
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: peer_action_timer
                 
                 	Value in Seconds to trigger the peer actions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2859,7 +2887,7 @@ class SessionRedundancyAgent(Entity):
                 .. attribute:: retry_timer_remaining
                 
                 	Value in Seconds to trigger the retry
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -2868,171 +2896,171 @@ class SessionRedundancyAgent(Entity):
                 .. attribute:: tx_list_client_registration_invalid
                 
                 	TxListClientRegistrationInvalid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_client_de_registration_invalid
                 
                 	TxListClientDeRegistrationInvalid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_client_connection_up
                 
                 	TxListClientConnectionUp
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_client_connection_down
                 
                 	TxListClientConnectionDown
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_client_peer_done
                 
                 	TxListClientPeerDone
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_client_message_call_back
                 
                 	TxListClientMessageCallBack
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_client_receive_valid
                 
                 	TxListClientReceiveValid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_client_receive_invalid
                 
                 	TxListClientReceiveInValid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_client_receive_command_valid
                 
                 	TxListClientReceiveCommandValid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_client_receive_command_invalid
                 
                 	TxListClientReceiveCommandInValid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_client_receive_session_sessionvalid
                 
                 	TxListClientReceiveSessionSessionValid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_client_receive_session_session_invalid
                 
                 	TxListClientReceiveSessionSessionInValid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_peer_timer_handler
                 
                 	TxListPeerTimerHandler
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_peer_registration_invalid
                 
                 	TxListPeerRegistrationInValid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_peer_de_registration_invalid
                 
                 	TxListPeerDeRegistrationInValid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_peer_message_call_back_valid
                 
                 	TxListPeerMessageCallBackValid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_peer_message_call_back_invalid
                 
                 	TxListPeerMessageCallBackInValid
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_peer_done
                 
                 	TxListPeerDone
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_peer_cmd_connection_up_not_ok
                 
                 	TxListPeerCmdConnectionUpNotOk
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_peer_cmd_connection_down_not_ok
                 
                 	TxListPeerCmdConnectionDownNotOk
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_peer_session_connection_up_not_ok
                 
                 	TxListPeerSessionConnectionUpNotOk
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: tx_list_peer_session_connection_down_not_ok
                 
                 	TxListPeerSessionConnectionDownNotOk
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: client_status
                 
                 	Client Status
-                	**type**\: list of    :py:class:`ClientStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus>`
+                	**type**\: list of  		 :py:class:`ClientStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus>`
                 
                 .. attribute:: opaque_memory_status
                 
                 	Opaque memory Stats
-                	**type**\: list of    :py:class:`OpaqueMemoryStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus>`
+                	**type**\: list of  		 :py:class:`OpaqueMemoryStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus>`
                 
                 .. attribute:: tx_list_over_tcp_status
                 
                 	TCP TxList Statistics
-                	**type**\: list of    :py:class:`TxListOverTcpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus>`
+                	**type**\: list of  		 :py:class:`TxListOverTcpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus>`
                 
                 
 
@@ -3145,35 +3173,35 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: pend_caps_rem_cnt
                     
                     	No. of interfaces pending caps remove
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pend_reg_disable_cnt
                     
                     	No. of interfaces pending red disable
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pend_other_batch_oper_cnt
                     
                     	No. of interfaces pending for other (except unreg/caps rem) batch oper
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: non_stale_cnt
                     
                     	No. of non stale interfaces
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: grp_bound_cnt
                     
                     	No. of interface bound to a group
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3216,63 +3244,63 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: tx_list_encode_marker_ok
                     
                     	TxListEncodeMarkerOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_encode_marker_partial_write
                     
                     	TxListEncodeMarkerPartialWrite
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_clean_marker
                     
                     	TxListCleanMarker
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_encode_command_ok
                     
                     	TxListEncodeCommandOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_encode_command_partial_write
                     
                     	TxListEncodeCommandPartialWrite
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_clean_command
                     
                     	TxListCleanCommand
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_encode_negotiation_ok
                     
                     	TxListEncodeNegotiationOk
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_encode_negotiation_partial_write
                     
                     	TxListEncodeNegotiationPartialWrite
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: tx_list_clean_negotiation
                     
                     	TxListCleanNegotiation
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3323,37 +3351,37 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: component
                     
                     	Component
-                    	**type**\:   :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
+                    	**type**\:  :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                     
                     .. attribute:: client_connection_status
                     
                     	ClientConnectionStatus
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: client_initialization_synchronization_pending
                     
                     	ClientInitializationSynchronizationPending
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: client_synchronization_end_of_download_pending
                     
                     	ClientSynchronizationEndOfDownloadPending
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: up_time_stamp
                     
                     	UpTimeStamp
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: down_time_stamp
                     
                     	DownTimeStamp
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: clean_up_timer_remaining
                     
                     	Value in Seconds to trigger the client cleanup
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3402,33 +3430,33 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: component
                     
                     	Component
-                    	**type**\:   :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
+                    	**type**\:  :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                     
                     .. attribute:: session_count
                     
                     	Session count for each component
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: opaque_size
                     
                     	Current Opaque Memory Size for each component
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: opaque_high_size
                     
                     	High Watermark of Opaque Data Size for each component
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: opaque_data_size
                     
                     	Current Opaque Data Size for each component
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3471,14 +3499,14 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: messages_sent
                     
                     	Message Sent Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes Sent Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3487,14 +3515,14 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: messages_received
                     
                     	Message Received Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: bytes_received
                     
                     	Bytes Received Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3503,126 +3531,126 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: connect_count
                     
                     	Socket Connect Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: blocked_connect_count
                     
                     	Blocked Socket Connect Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: connect_retry_count
                     
                     	Socket Connect Retry Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: remote_node_down_count
                     
                     	Remote Peer DisConnect Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: accept_count
                     
                     	Socket Accept Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: maximum_sent_message_size
                     
                     	Maximum Size of Sent Message
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: maximum_received_message_size
                     
                     	Maximum Size of Received Message
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: peer_pause_count
                     
                     	Peer Pause Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: buffer_full_occurence_count
                     
                     	Buffer Full on Write Occurence Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mem_move_message_count
                     
                     	Partial Message Memory Move Occurence Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: mem_move_bytes_count
                     
                     	Partial Message Memory Move Byte Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: socket_read_count
                     
                     	Socket Read Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: socket_write_count
                     
                     	Socket Write Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: active_socket_count
                     
                     	Active Socket Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: maximum_requested_buffer_size
                     
                     	Maximum Size of Requested Buffer
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: buffer_freed_count
                     
                     	Buffer Free Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: buffer_cache_hit
                     
                     	Buffer Cache Hit Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: buffer_cache_miss
                     
                     	Buffer Cache Miss Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -3699,7 +3727,7 @@ class SessionRedundancyAgent(Entity):
                 .. attribute:: group_summary
                 
                 	Session redundancy agent group summary
-                	**type**\: list of    :py:class:`GroupSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary>`
+                	**type**\: list of  		 :py:class:`GroupSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary>`
                 
                 
 
@@ -3732,73 +3760,79 @@ class SessionRedundancyAgent(Entity):
                     .. attribute:: group_id  <key>
                     
                     	GroupId
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: group_id_xr
                     
                     	Group ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: role
                     
                     	SERG Role
-                    	**type**\:   :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
+                    	**type**\:  :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
                     
                     .. attribute:: disabled
                     
                     	Disabled by Config
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: peer_ipv4_address
                     
                     	Peer IPv4 Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: peer_ipv6_address
                     
                     	Peer IPv6 Address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: peer_status
                     
                     	Peer Status
-                    	**type**\:   :py:class:`SergPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergPeerStatus>`
+                    	**type**\:  :py:class:`SergPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergPeerStatus>`
                     
                     .. attribute:: preferred_role
                     
                     	Preferred Role
-                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+                    	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: slave_mode
                     
                     	Slave Mode
-                    	**type**\:   :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
+                    	**type**\:  :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
                     
                     .. attribute:: object_tracking_status
                     
                     	Object Tracking Status (Enabled/Disabled)
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: interface_count
                     
                     	Interface Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: session_count
                     
                     	Session Count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pending_add_session_count
                     
                     	Pending Session Count for Synchornization
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     

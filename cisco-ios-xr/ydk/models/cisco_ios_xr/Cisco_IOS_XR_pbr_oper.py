@@ -46,7 +46,7 @@ class Pbr(Entity):
     .. attribute:: nodes
     
     	Node\-specific PBR operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes>`
     
     
 
@@ -80,7 +80,7 @@ class Pbr(Entity):
         .. attribute:: node
         
         	PBR operational data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node>`
         
         
 
@@ -114,12 +114,14 @@ class Pbr(Entity):
             .. attribute:: node_name  <key>
             
             	The node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: policy_map
             
             	Operational data for policymaps
-            	**type**\:   :py:class:`PolicyMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap>`
+            	**type**\:  :py:class:`PolicyMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap>`
             
             
 
@@ -158,7 +160,7 @@ class Pbr(Entity):
                 .. attribute:: interfaces
                 
                 	Operational data for all interfaces
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces>`
+                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces>`
                 
                 
 
@@ -191,7 +193,7 @@ class Pbr(Entity):
                     .. attribute:: interface
                     
                     	PBR action data for a particular interface
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface>`
+                    	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface>`
                     
                     
 
@@ -224,12 +226,14 @@ class Pbr(Entity):
                         .. attribute:: interface_name  <key>
                         
                         	Name of the interface
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
                         .. attribute:: direction
                         
                         	PBR direction
-                        	**type**\:   :py:class:`Direction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction>`
+                        	**type**\:  :py:class:`Direction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction>`
                         
                         
 
@@ -267,7 +271,7 @@ class Pbr(Entity):
                             .. attribute:: input
                             
                             	PBR policy statistics
-                            	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input>`
+                            	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input>`
                             
                             
 
@@ -300,33 +304,33 @@ class Pbr(Entity):
                                 .. attribute:: node_name
                                 
                                 	NodeName
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..42
                                 
                                 .. attribute:: policy_name
                                 
                                 	PolicyName
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..65
                                 
                                 .. attribute:: state
                                 
                                 	State
-                                	**type**\:   :py:class:`PolicyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.PolicyState>`
+                                	**type**\:  :py:class:`PolicyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.PolicyState>`
                                 
                                 .. attribute:: state_description
                                 
                                 	StateDescription
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..128
                                 
                                 .. attribute:: class_stat
                                 
                                 	Array of classes contained in policy
-                                	**type**\: list of    :py:class:`ClassStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat>`
+                                	**type**\: list of  		 :py:class:`ClassStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat>`
                                 
                                 
 
@@ -367,17 +371,17 @@ class Pbr(Entity):
                                     .. attribute:: general_stats
                                     
                                     	general stats
-                                    	**type**\:   :py:class:`GeneralStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats>`
+                                    	**type**\:  :py:class:`GeneralStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats>`
                                     
                                     .. attribute:: httpr_stats
                                     
                                     	HTTPR stats
-                                    	**type**\:   :py:class:`HttprStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats>`
+                                    	**type**\:  :py:class:`HttprStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats>`
                                     
                                     .. attribute:: counter_validity_bitmask
                                     
                                     	 Bitmask to indicate which counter or counters are undetermined. Counters will be marked undetermined when one or more classes share queues with class\-default because in such cases the value of counters for each class is invalid. Based on the flag(s) set, the following counters will be marked undetermined. For example, if value of this object returned is 0x00000101, counters TransmitPackets/TransmitBytes/TotalTransmitRate and DropPackets/DropBytes are undetermined .0x00000001 \- Transmit (TransmitPackets/TransmitBytes/TotalTransmitRate ), 0x00000002 \- Drop (TotalDropPackets/TotalDropBytes/TotalDropRate), 0x00000004 \- Httpr (HttprTransmitPackets/HttprTransmitBytes), 
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -386,14 +390,14 @@ class Pbr(Entity):
                                     .. attribute:: class_name
                                     
                                     	ClassName
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..65
                                     
                                     .. attribute:: class_id
                                     
                                     	ClassId
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -442,7 +446,7 @@ class Pbr(Entity):
                                         .. attribute:: transmit_packets
                                         
                                         	Transmitted packets (packets/bytes)
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -451,7 +455,7 @@ class Pbr(Entity):
                                         .. attribute:: transmit_bytes
                                         
                                         	Transmitted bytes (packets/bytes)
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -460,7 +464,7 @@ class Pbr(Entity):
                                         .. attribute:: total_drop_packets
                                         
                                         	Dropped packets (packets/bytes)
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -469,7 +473,7 @@ class Pbr(Entity):
                                         .. attribute:: total_drop_bytes
                                         
                                         	Dropped bytes (packets/bytes)
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -478,7 +482,7 @@ class Pbr(Entity):
                                         .. attribute:: total_drop_rate
                                         
                                         	Total drop rate (packets/bytes)
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -487,7 +491,7 @@ class Pbr(Entity):
                                         .. attribute:: match_data_rate
                                         
                                         	Incoming matched data rate in kbps
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -496,7 +500,7 @@ class Pbr(Entity):
                                         .. attribute:: total_transmit_rate
                                         
                                         	Total transmit rate in kbps
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -505,14 +509,14 @@ class Pbr(Entity):
                                         .. attribute:: pre_policy_matched_packets
                                         
                                         	Matched pkts before applying policy
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: pre_policy_matched_bytes
                                         
                                         	Matched bytes before applying policy
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -565,14 +569,14 @@ class Pbr(Entity):
                                         .. attribute:: rqst_rcvd_packets
                                         
                                         	TotalNum of pkts HTTP request received
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: rqst_rcvd_bytes
                                         
                                         	TotalNum of Bytes HTTP request received
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -581,14 +585,14 @@ class Pbr(Entity):
                                         .. attribute:: drop_packets
                                         
                                         	Dropped  packets
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: drop_bytes
                                         
                                         	Dropped bytes
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -597,14 +601,14 @@ class Pbr(Entity):
                                         .. attribute:: resp_sent_packets
                                         
                                         	TotalNum of pkts HTTPR response sent
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: resp_sent_bytes
                                         
                                         	TotalNum of Bytes HTTPR response sent
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         

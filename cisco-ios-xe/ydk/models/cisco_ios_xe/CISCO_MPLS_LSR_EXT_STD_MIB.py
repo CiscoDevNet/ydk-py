@@ -23,7 +23,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
     .. attribute:: cmplsxcexttable
     
     	This table sparse augments the mplsXCTable of MPLS\-LSR\-STD\-MIB [RFC3813] to provide MPLS\-TP specific information about associated tunnel information
-    	**type**\:   :py:class:`Cmplsxcexttable <ydk.models.cisco_ios_xe.CISCO_MPLS_LSR_EXT_STD_MIB.CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable>`
+    	**type**\:  :py:class:`Cmplsxcexttable <ydk.models.cisco_ios_xe.CISCO_MPLS_LSR_EXT_STD_MIB.CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable>`
     
     
 
@@ -59,7 +59,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
         .. attribute:: cmplsxcextentry
         
         	An entry in this table extends the cross connect information represented by an entry in the mplsXCTable in MPLS\-LSR\-STD\-MIB [RFC3813] through a sparse augmentation.  An entry can be created by a network administrator via SNMP SET commands, or in response to signaling protocol events
-        	**type**\: list of    :py:class:`Cmplsxcextentry <ydk.models.cisco_ios_xe.CISCO_MPLS_LSR_EXT_STD_MIB.CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable.Cmplsxcextentry>`
+        	**type**\: list of  		 :py:class:`Cmplsxcextentry <ydk.models.cisco_ios_xe.CISCO_MPLS_LSR_EXT_STD_MIB.CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable.Cmplsxcextentry>`
         
         
 
@@ -98,7 +98,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             .. attribute:: mplsxcindex  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..24
             
@@ -107,7 +107,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             .. attribute:: mplsxcinsegmentindex  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..24
             
@@ -116,7 +116,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             .. attribute:: mplsxcoutsegmentindex  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..24
             
@@ -125,12 +125,16 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             .. attribute:: cmplsxcexttunnelpointer
             
             	This object indicates the back pointer to the tunnel entry segment.  This object cannot be modified if mplsXCRowStatus for the corresponding entry in the mplsXCTable is active(1)
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
             .. attribute:: cmplsxcoppositedirxcptr
             
             	This object indicates the pointer to the opposite direction XC entry.  This object cannot be modified if mplsXCRowStatus for the corresponding entry in the mplsXCTable is active(1)
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
             
 

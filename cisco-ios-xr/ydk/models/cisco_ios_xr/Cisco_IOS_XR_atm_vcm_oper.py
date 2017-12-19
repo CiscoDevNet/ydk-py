@@ -563,7 +563,7 @@ class AtmVcm(Entity):
     .. attribute:: nodes
     
     	Contains all the nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes>`
     
     
 
@@ -597,7 +597,7 @@ class AtmVcm(Entity):
         .. attribute:: node
         
         	The node on which ATM Interfaces/VCs/VPs are located
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node>`
         
         
 
@@ -632,37 +632,39 @@ class AtmVcm(Entity):
             .. attribute:: node_name  <key>
             
             	The node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: vcs
             
             	Contains all VC information for node
-            	**type**\:   :py:class:`Vcs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs>`
+            	**type**\:  :py:class:`Vcs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs>`
             
             .. attribute:: cell_packs
             
             	Contains all cell packing information for node
-            	**type**\:   :py:class:`CellPacks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks>`
+            	**type**\:  :py:class:`CellPacks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks>`
             
             .. attribute:: pvps
             
             	Contains all L2 PVP information for node
-            	**type**\:   :py:class:`Pvps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps>`
+            	**type**\:  :py:class:`Pvps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps>`
             
             .. attribute:: class_links
             
             	Contains all class link information for node
-            	**type**\:   :py:class:`ClassLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks>`
+            	**type**\:  :py:class:`ClassLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks>`
             
             .. attribute:: interfaces
             
             	Contains all Interface information for node
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces>`
             
             .. attribute:: vp_tunnels
             
             	Contains all VP\-tunnel information for node
-            	**type**\:   :py:class:`VpTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.VpTunnels>`
+            	**type**\:  :py:class:`VpTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.VpTunnels>`
             
             
 
@@ -726,7 +728,7 @@ class AtmVcm(Entity):
                 .. attribute:: vc
                 
                 	All VC information on a node
-                	**type**\: list of    :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc>`
+                	**type**\: list of  		 :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc>`
                 
                 
 
@@ -759,75 +761,83 @@ class AtmVcm(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: vpi
                     
                     	VPI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4095
                     
                     .. attribute:: vci
                     
                     	VCI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
                     .. attribute:: cell_packing_data
                     
                     	Cell packing specific data
-                    	**type**\:   :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData>`
+                    	**type**\:  :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData>`
                     
                     .. attribute:: main_interface
                     
                     	Main Interface handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: sub_interface
                     
                     	Subinterface handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: vc_interface
                     
                     	VC Interfcace handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: vpi_xr
                     
                     	VC VPI value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: vci_xr
                     
                     	VC VCI value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: type
                     
                     	VC Type
-                    	**type**\:   :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.Vc>`
+                    	**type**\:  :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.Vc>`
                     
                     .. attribute:: encapsulation
                     
                     	Encapsulation type
-                    	**type**\:   :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
+                    	**type**\:  :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
                     
                     .. attribute:: shape
                     
                     	ATM VC traffic shaping type
-                    	**type**\:   :py:class:`VcTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping>`
+                    	**type**\:  :py:class:`VcTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping>`
                     
                     .. attribute:: peak_cell_rate
                     
                     	Peak cell rate in Kbps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -836,7 +846,7 @@ class AtmVcm(Entity):
                     .. attribute:: sustained_cell_rate
                     
                     	Sustained cell rate in Kbps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -845,70 +855,70 @@ class AtmVcm(Entity):
                     .. attribute:: burst_rate
                     
                     	Burst size in cells
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: encaps_inherit_level
                     
                     	Encapsulation inherit level \- identifies if encapsulation is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                    	**type**\:  :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
                     
                     .. attribute:: qos_inherit_level
                     
                     	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                    	**type**\:  :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
                     
                     .. attribute:: transmit_mtu
                     
                     	Transmit MTU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: receive_mtu
                     
                     	Receive MTU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: vc_onvp_tunnel
                     
                     	VC on VP\-tunnel flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: vc_on_p2p_sub_interface
                     
                     	VC on Point\-to\-point Sub\-interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: oper_status
                     
                     	TRUE value indicates that the VC is operationally UP
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: amin_status
                     
                     	TRUE value indicates that the VC is administratively UP
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: internal_state
                     
                     	VC Internal state
-                    	**type**\:   :py:class:`VcState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcState>`
+                    	**type**\:  :py:class:`VcState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcState>`
                     
                     .. attribute:: last_state_change_time
                     
                     	Time when VC was last changed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: test_mode
                     
                     	VC test mode
-                    	**type**\:   :py:class:`VcTestMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTestMode>`
+                    	**type**\:  :py:class:`VcTestMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTestMode>`
                     
                     
 
@@ -994,21 +1004,21 @@ class AtmVcm(Entity):
                         .. attribute:: local_max_cells_packed_per_packet
                         
                         	Local configuration of maximum number of cells to be packed per packet
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: negotiated_max_cells_packed_per_packet
                         
                         	Negotiated value of maximum number of cells to be packed per packed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: max_cell_packed_timeout
                         
                         	Maximum cell packing timeout inmicro seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -1049,7 +1059,7 @@ class AtmVcm(Entity):
                 .. attribute:: cell_pack
                 
                 	All cell packing information on a node
-                	**type**\: list of    :py:class:`CellPack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks.CellPack>`
+                	**type**\: list of  		 :py:class:`CellPack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks.CellPack>`
                 
                 
 
@@ -1082,55 +1092,59 @@ class AtmVcm(Entity):
                     .. attribute:: interface_name
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: pci
                     
                     	PCI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: cell_packing
                     
                     	Cell packing specific data
-                    	**type**\:   :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking>`
+                    	**type**\:  :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking>`
                     
                     .. attribute:: sub_interface_name
                     
                     	Sub\-interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: cell_packing_mode
                     
                     	ATM cell packing mode
-                    	**type**\:   :py:class:`VcCellPackingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcCellPackingMode>`
+                    	**type**\:  :py:class:`VcCellPackingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcCellPackingMode>`
                     
                     .. attribute:: vpi
                     
                     	VPI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: vci
                     
                     	VCI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: received_average_cells_packets
                     
                     	Average cells/packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: sent_cells_packets
                     
                     	Average cells/packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1184,21 +1198,21 @@ class AtmVcm(Entity):
                         .. attribute:: local_max_cells_packed_per_packet
                         
                         	Local configuration of maximum number of cells to be packed per packet
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: negotiated_max_cells_packed_per_packet
                         
                         	Negotiated value of maximum number of cells to be packed per packed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: max_cell_packed_timeout
                         
                         	Maximum cell packing timeout inmicro seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -1239,7 +1253,7 @@ class AtmVcm(Entity):
                 .. attribute:: pvp
                 
                 	All L2 PVP information on a node
-                	**type**\: list of    :py:class:`Pvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp>`
+                	**type**\: list of  		 :py:class:`Pvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp>`
                 
                 
 
@@ -1272,68 +1286,76 @@ class AtmVcm(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: vpi
                     
                     	VPI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: cell_packing_data
                     
                     	Cell packing specific data
-                    	**type**\:   :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData>`
+                    	**type**\:  :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData>`
                     
                     .. attribute:: main_interface
                     
                     	Main Interface handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: sub_interface
                     
                     	Subinterface handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: vc_interface
                     
                     	VC Interfcace handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: vpi_xr
                     
                     	VC VPI value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: vci_xr
                     
                     	VC VCI value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: type
                     
                     	VC Type
-                    	**type**\:   :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.Vc>`
+                    	**type**\:  :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.Vc>`
                     
                     .. attribute:: encapsulation
                     
                     	Encapsulation type
-                    	**type**\:   :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
+                    	**type**\:  :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
                     
                     .. attribute:: shape
                     
                     	ATM VC traffic shaping type
-                    	**type**\:   :py:class:`VcTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping>`
+                    	**type**\:  :py:class:`VcTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping>`
                     
                     .. attribute:: peak_cell_rate
                     
                     	Peak cell rate in Kbps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1342,7 +1364,7 @@ class AtmVcm(Entity):
                     .. attribute:: sustained_cell_rate
                     
                     	Sustained cell rate in Kbps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1351,70 +1373,70 @@ class AtmVcm(Entity):
                     .. attribute:: burst_rate
                     
                     	Burst size in cells
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: encaps_inherit_level
                     
                     	Encapsulation inherit level \- identifies if encapsulation is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                    	**type**\:  :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
                     
                     .. attribute:: qos_inherit_level
                     
                     	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                    	**type**\:  :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
                     
                     .. attribute:: transmit_mtu
                     
                     	Transmit MTU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: receive_mtu
                     
                     	Receive MTU
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: vc_onvp_tunnel
                     
                     	VC on VP\-tunnel flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: vc_on_p2p_sub_interface
                     
                     	VC on Point\-to\-point Sub\-interface
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: oper_status
                     
                     	TRUE value indicates that the VC is operationally UP
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: amin_status
                     
                     	TRUE value indicates that the VC is administratively UP
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: internal_state
                     
                     	VC Internal state
-                    	**type**\:   :py:class:`VcState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcState>`
+                    	**type**\:  :py:class:`VcState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcState>`
                     
                     .. attribute:: last_state_change_time
                     
                     	Time when VC was last changed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: test_mode
                     
                     	VC test mode
-                    	**type**\:   :py:class:`VcTestMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTestMode>`
+                    	**type**\:  :py:class:`VcTestMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTestMode>`
                     
                     
 
@@ -1498,21 +1520,21 @@ class AtmVcm(Entity):
                         .. attribute:: local_max_cells_packed_per_packet
                         
                         	Local configuration of maximum number of cells to be packed per packet
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: negotiated_max_cells_packed_per_packet
                         
                         	Negotiated value of maximum number of cells to be packed per packed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: max_cell_packed_timeout
                         
                         	Maximum cell packing timeout inmicro seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -1553,7 +1575,7 @@ class AtmVcm(Entity):
                 .. attribute:: class_link
                 
                 	All ATM VC information on a node
-                	**type**\: list of    :py:class:`ClassLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink>`
+                	**type**\: list of  		 :py:class:`ClassLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink>`
                 
                 
 
@@ -1586,31 +1608,33 @@ class AtmVcm(Entity):
                     .. attribute:: vpi  <key>
                     
                     	VPI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: vci
                     
                     	VCI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: vc_class_not_supported
                     
                     	Not supported VC class
-                    	**type**\:   :py:class:`VcClassNotSupported <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported>`
+                    	**type**\:  :py:class:`VcClassNotSupported <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported>`
                     
                     .. attribute:: oam_config
                     
                     	Oam values for class link
-                    	**type**\:   :py:class:`OamConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig>`
+                    	**type**\:  :py:class:`OamConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig>`
                     
                     .. attribute:: sub_interface_name
                     
                     	Sub\-interface handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     
 
@@ -1657,12 +1681,12 @@ class AtmVcm(Entity):
                         .. attribute:: encapsulation_not_supported
                         
                         	Encapsulation type not supported
-                        	**type**\:   :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
+                        	**type**\:  :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
                         
                         .. attribute:: not_supported_inherit_level
                         
                         	NotSupportedInheritLevel
-                        	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                        	**type**\:  :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
                         
                         
 
@@ -1697,27 +1721,27 @@ class AtmVcm(Entity):
                         .. attribute:: class_link_shaping
                         
                         	Traffic Shaping detail of VC class
-                        	**type**\:   :py:class:`ClassLinkShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping>`
+                        	**type**\:  :py:class:`ClassLinkShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping>`
                         
                         .. attribute:: class_link_encapsulation
                         
                         	Encapsulation details of VC class
-                        	**type**\:   :py:class:`ClassLinkEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation>`
+                        	**type**\:  :py:class:`ClassLinkEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation>`
                         
                         .. attribute:: oam_pvc
                         
                         	OAM PVC details of VC class
-                        	**type**\:   :py:class:`OamPvc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc>`
+                        	**type**\:  :py:class:`OamPvc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc>`
                         
                         .. attribute:: oam_retry
                         
                         	OAM Retry details of VC class
-                        	**type**\:   :py:class:`OamRetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry>`
+                        	**type**\:  :py:class:`OamRetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry>`
                         
                         .. attribute:: ais_rdi
                         
                         	AIS RDI details of a VC class
-                        	**type**\:   :py:class:`AisRdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi>`
+                        	**type**\:  :py:class:`AisRdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi>`
                         
                         
 
@@ -1770,12 +1794,12 @@ class AtmVcm(Entity):
                             .. attribute:: shaping_type
                             
                             	ATM VC traffic shaping type
-                            	**type**\:   :py:class:`VcTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping>`
+                            	**type**\:  :py:class:`VcTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping>`
                             
                             .. attribute:: peak_output_rate
                             
                             	Peak output rate in Kbps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1784,21 +1808,21 @@ class AtmVcm(Entity):
                             .. attribute:: average_output_rate
                             
                             	Average output rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: burst_output_rate
                             
                             	Burst output rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: shaping_inherit_level
                             
                             	Shaping inherit level
-                            	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                            	**type**\:  :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
                             
                             
 
@@ -1839,12 +1863,12 @@ class AtmVcm(Entity):
                             .. attribute:: encapsulation_type
                             
                             	Encapsulation type
-                            	**type**\:   :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
+                            	**type**\:  :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
                             
                             .. attribute:: encapsulation_inherit_level
                             
                             	Encapsulation inherit level
-                            	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                            	**type**\:  :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
                             
                             
 
@@ -1879,29 +1903,29 @@ class AtmVcm(Entity):
                             .. attribute:: manage_level
                             
                             	Manage Level
-                            	**type**\:   :py:class:`VcManageLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcManageLevel>`
+                            	**type**\:  :py:class:`VcManageLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcManageLevel>`
                             
                             .. attribute:: pvc_frequency
                             
                             	PVC Frequency
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: keep_vc_up
                             
                             	Keep vc up
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: ais_rdi_failure
                             
                             	AIS RDI failure
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: manage_inherit_level
                             
                             	Manage inherit level
-                            	**type**\:   :py:class:`ClassLinkOamInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel>`
+                            	**type**\:  :py:class:`ClassLinkOamInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel>`
                             
                             
 
@@ -1942,28 +1966,28 @@ class AtmVcm(Entity):
                             .. attribute:: retry_up_count
                             
                             	Retry Count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: down_count
                             
                             	Down Count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: retry_frequency
                             
                             	Retry frequency
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: retry_inherit_level
                             
                             	Retry inherit level
-                            	**type**\:   :py:class:`ClassLinkOamInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel>`
+                            	**type**\:  :py:class:`ClassLinkOamInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel>`
                             
                             
 
@@ -2002,14 +2026,14 @@ class AtmVcm(Entity):
                             .. attribute:: ais_rdi_up_count
                             
                             	AIS RDI up count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: ais_rdi_up_time
                             
                             	Time (in seconds) with no AIS/RDI cells before declaring a VC as up
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2018,7 +2042,7 @@ class AtmVcm(Entity):
                             .. attribute:: ais_rdi_inherit_level
                             
                             	AIS RDI inherit level
-                            	**type**\:   :py:class:`ClassLinkOamInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel>`
+                            	**type**\:  :py:class:`ClassLinkOamInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel>`
                             
                             
 
@@ -2055,7 +2079,7 @@ class AtmVcm(Entity):
                 .. attribute:: interface
                 
                 	ATM Interface data
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -2088,116 +2112,120 @@ class AtmVcm(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: cell_packing_data
                     
                     	Cell packing specific information
-                    	**type**\:   :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData>`
+                    	**type**\:  :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData>`
                     
                     .. attribute:: ilmi_vpi
                     
                     	ILMI VPI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ilmi_vci
                     
                     	ILMI VCI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pvc_failures
                     
                     	Number of PVC Failures
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: currently_failing_layer2pv_ps
                     
                     	Number of currently failing Layer 2 PVPs
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: currently_failing_layer2pv_cs
                     
                     	Number of currently failing Layer 2 PVCs
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: currently_failing_layer3vp_tunnels
                     
                     	Number of currently failing Layer 3 VP tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: currently_failing_layer3pv_cs
                     
                     	Number of currently failing Layer 3 PVCs
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: pvc_failures_trap_enable
                     
                     	If true, PVC failures trap is enabled
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: pvc_notification_interval
                     
                     	PVC trap notification interval
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: configured_layer2pv_ps
                     
                     	Number of Layer 2 PVPs configured
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: configured_layer2pv_cs
                     
                     	Number of Layer 2 PVCs configured
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: configured_layer3vp_tunnels
                     
                     	Number of Layer 3 VP tunnels configured
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: configured_layer3pv_cs
                     
                     	Number of Layer 3 PVCs configured
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: port_type
                     
                     	ATM interface port type
-                    	**type**\:   :py:class:`VcmPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcmPort>`
+                    	**type**\:  :py:class:`VcmPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcmPort>`
                     
                     .. attribute:: main_interface
                     
                     	Main Interface handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: l2_cell_packing_count
                     
                     	Number of L2 attachment circuits with the cell packing feature enabled on this main interface
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -2269,21 +2297,21 @@ class AtmVcm(Entity):
                         .. attribute:: local_max_cells_packed_per_packet
                         
                         	Local configuration of maximum number of cells to be packed per packet
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: negotiated_max_cells_packed_per_packet
                         
                         	Negotiated value of maximum number of cells to be packed per packed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: max_cell_packed_timeout
                         
                         	Maximum cell packing timeout inmicro seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -2324,7 +2352,7 @@ class AtmVcm(Entity):
                 .. attribute:: vp_tunnel
                 
                 	All VP\-tunnel information on a node
-                	**type**\: list of    :py:class:`VpTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.VpTunnels.VpTunnel>`
+                	**type**\: list of  		 :py:class:`VpTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.VpTunnels.VpTunnel>`
                 
                 
 
@@ -2357,41 +2385,47 @@ class AtmVcm(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: vpi
                     
                     	VPI
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: main_interface
                     
                     	Main Interface handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: vp_interface
                     
                     	VP Interfcace handle
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: vpi_xr
                     
                     	VP\-Tunnel VPI value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: shape
                     
                     	ATM VP traffic shaping type
-                    	**type**\:   :py:class:`VpTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VpTrafShaping>`
+                    	**type**\:  :py:class:`VpTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VpTrafShaping>`
                     
                     .. attribute:: peak_cell_rate
                     
                     	Peak cell rate in Kbps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2400,7 +2434,7 @@ class AtmVcm(Entity):
                     .. attribute:: sustained_cell_rate
                     
                     	Sustained cell rate in Kbps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2409,41 +2443,41 @@ class AtmVcm(Entity):
                     .. attribute:: burst_rate
                     
                     	Burst size in cells
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: f4oam_enabled
                     
                     	F4OAM Enabled flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: data_vc_count
                     
                     	Number of Data PVCs under this VP\-tunnel
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: oper_status
                     
                     	TRUE value indicates that the VP is operationally UP
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: amin_status
                     
                     	TRUE value indicates that the VP is administratively UP
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: internal_state
                     
                     	Internal state
-                    	**type**\:   :py:class:`VpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VpState>`
+                    	**type**\:  :py:class:`VpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VpState>`
                     
                     .. attribute:: last_vp_state_change_time
                     
                     	Time when VP\-Tunnel state was last changed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     

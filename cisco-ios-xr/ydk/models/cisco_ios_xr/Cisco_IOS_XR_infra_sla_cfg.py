@@ -25,7 +25,7 @@ class Sla(Entity):
     .. attribute:: protocols
     
     	Table of all SLA protocols
-    	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols>`
+    	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols>`
     
     
 
@@ -59,7 +59,7 @@ class Sla(Entity):
         .. attribute:: ethernet
         
         	The Ethernet SLA protocol
-        	**type**\:   :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet>`
+        	**type**\:  :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet>`
         
         
 
@@ -75,7 +75,7 @@ class Sla(Entity):
             self.yang_parent_name = "sla"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"ethernet" : ("ethernet", Sla.Protocols.Ethernet)}
+            self._child_container_classes = {"Cisco-IOS-XR-ethernet-cfm-cfg:ethernet" : ("ethernet", Sla.Protocols.Ethernet)}
             self._child_list_classes = {}
 
             self.ethernet = Sla.Protocols.Ethernet()
@@ -93,7 +93,7 @@ class Sla(Entity):
             .. attribute:: profiles
             
             	Table of SLA profiles on the protocol
-            	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles>`
+            	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles>`
             
             
 
@@ -127,7 +127,7 @@ class Sla(Entity):
                 .. attribute:: profile
                 
                 	Name of the profile
-                	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile>`
+                	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile>`
                 
                 
 
@@ -161,29 +161,31 @@ class Sla(Entity):
                     .. attribute:: profile_name  <key>
                     
                     	Profile name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: statistics
                     
                     	Statistics configuration for the SLA profile
-                    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics>`
+                    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics>`
                     
                     .. attribute:: schedule
                     
                     	Schedule to use for probes within an operation
-                    	**type**\:   :py:class:`Schedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Schedule>`
+                    	**type**\:  :py:class:`Schedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Schedule>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: probe
                     
                     	Probe configuration for the SLA profile
-                    	**type**\:   :py:class:`Probe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Probe>`
+                    	**type**\:  :py:class:`Probe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Probe>`
                     
                     .. attribute:: packet_type
                     
                     	The possible packet types are cfm\-loopback, cfm\-delay\-measurement, cfm\-delay\-measurement\-version\-0, cfm\-loss\-measurement and cfm\-synthetic\-loss\-measurement
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -233,7 +235,7 @@ class Sla(Entity):
                         .. attribute:: statistic
                         
                         	Type of statistic
-                        	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic>`
+                        	**type**\: list of  		 :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic>`
                         
                         
 
@@ -266,31 +268,31 @@ class Sla(Entity):
                             .. attribute:: statistic_name  <key>
                             
                             	The type of statistic to measure
-                            	**type**\:   :py:class:`SlaStatisticTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaStatisticTypeEnum>`
+                            	**type**\:  :py:class:`SlaStatisticTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaStatisticTypeEnum>`
                             
                             .. attribute:: buckets_size
                             
                             	Size of the buckets into which statistics are collected
-                            	**type**\:   :py:class:`BucketsSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize>`
+                            	**type**\:  :py:class:`BucketsSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize>`
                             
                             	**presence node**\: True
                             
                             .. attribute:: aggregation
                             
                             	Aggregation to apply to results for the statistic
-                            	**type**\:   :py:class:`Aggregation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation>`
+                            	**type**\:  :py:class:`Aggregation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation>`
                             
                             	**presence node**\: True
                             
                             .. attribute:: enable
                             
                             	Enable statistic gathering of the metric
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: buckets_archive
                             
                             	Number of buckets to archive in memory
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..100
                             
@@ -338,7 +340,7 @@ class Sla(Entity):
                                 .. attribute:: buckets_size
                                 
                                 	Size of each bucket
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..100
                                 
@@ -347,7 +349,7 @@ class Sla(Entity):
                                 .. attribute:: buckets_size_unit
                                 
                                 	Unit associated with the BucketsSize
-                                	**type**\:   :py:class:`SlaBucketsSizeUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaBucketsSizeUnitsEnum>`
+                                	**type**\:  :py:class:`SlaBucketsSizeUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaBucketsSizeUnitsEnum>`
                                 
                                 	**mandatory**\: True
                                 
@@ -388,7 +390,7 @@ class Sla(Entity):
                                 .. attribute:: bins_count
                                 
                                 	Number of bins to aggregate results into (0 for no aggregation)
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..100
                                 
@@ -397,14 +399,14 @@ class Sla(Entity):
                                 .. attribute:: bins_width
                                 
                                 	Width of each bin
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..10000
                                 
                                 .. attribute:: bins_width_tenths
                                 
                                 	Tenths portion of the bin width
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..9
                                 
@@ -447,54 +449,54 @@ class Sla(Entity):
                         .. attribute:: probe_interval
                         
                         	Interval between probes.  This must be specified if, and only if, ProbeIntervalUnit is not 'Week' or 'Day'
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..90
                         
                         .. attribute:: probe_interval_day
                         
                         	Day of week on which to schedule probes.  This must be specified if, and only if, ProbeIntervalUnit is 'Week'
-                        	**type**\:   :py:class:`SlaProbeIntervalDayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalDayEnum>`
+                        	**type**\:  :py:class:`SlaProbeIntervalDayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalDayEnum>`
                         
                         .. attribute:: probe_interval_unit
                         
                         	Time unit associated with the ProbeInterval. The value must not be 'Once'.  If 'Week' or 'Day' is specified, probes are scheduled weekly or daily respectively
-                        	**type**\:   :py:class:`SlaProbeIntervalUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalUnitsEnum>`
+                        	**type**\:  :py:class:`SlaProbeIntervalUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalUnitsEnum>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: start_time_hour
                         
                         	Time after midnight (in UTC) to send the first packet each day
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..23
                         
                         .. attribute:: start_time_minute
                         
                         	Time after midnight (in UTC) to send the first packet each day. This must be specified if, and only if, StartTimeHour is specified
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..59
                         
                         .. attribute:: start_time_second
                         
                         	Time after midnight (in UTC) to send the first packet each day. This must only be specified if StartTimeHour is specified, and must not be specified if ProbeIntervalUnit is 'Week' or 'Day'
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..59
                         
                         .. attribute:: probe_duration
                         
                         	Duration of each probe.  This must be specified if, and only if, ProbeDurationUnit is specified
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..3600
                         
                         .. attribute:: probe_duration_unit
                         
                         	Time unit associated with the ProbeDuration. The value must not be 'Once'
-                        	**type**\:   :py:class:`SlaProbeDurationUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeDurationUnitsEnum>`
+                        	**type**\:  :py:class:`SlaProbeDurationUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeDurationUnitsEnum>`
                         
                         
 
@@ -544,28 +546,28 @@ class Sla(Entity):
                         .. attribute:: send
                         
                         	Schedule to use for packets within a burst.  The default value is to send a single packet once
-                        	**type**\:   :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send>`
+                        	**type**\:  :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: packet_size_and_padding
                         
                         	Minimum size to pad outgoing packet to
-                        	**type**\:   :py:class:`PacketSizeAndPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding>`
+                        	**type**\:  :py:class:`PacketSizeAndPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: priority
                         
                         	Priority class to assign to outgoing SLA packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..7
                         
                         .. attribute:: synthetic_loss_calculation_packets
                         
                         	Number of packets to use in each FLR calculation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 10..12096000
                         
@@ -612,40 +614,40 @@ class Sla(Entity):
                             .. attribute:: burst_interval
                             
                             	Interval between bursts.  This must be specified if, and only if, the SendType is 'Burst' and the 'BurstIntervalUnit' is not 'Once'
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..3600
                             
                             .. attribute:: burst_interval_unit
                             
                             	Time unit associated with the BurstInterval .  This must be specified if, and only if, SendType is 'Burst'
-                            	**type**\:   :py:class:`SlaBurstIntervalUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaBurstIntervalUnitsEnum>`
+                            	**type**\:  :py:class:`SlaBurstIntervalUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaBurstIntervalUnitsEnum>`
                             
                             .. attribute:: packet_interval
                             
                             	Interval between packets.  This must be specified if, and only if, PacketIntervalUnit is not 'Once'
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..30000
                             
                             .. attribute:: packet_interval_unit
                             
                             	Time unit associated with the PacketInterval
-                            	**type**\:   :py:class:`SlaPacketIntervalUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaPacketIntervalUnitsEnum>`
+                            	**type**\:  :py:class:`SlaPacketIntervalUnitsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaPacketIntervalUnitsEnum>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: packet_count
                             
                             	The number of packets in each burst.  This must be specified if, and only if, the SendType is 'Burst'
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 2..1200
                             
                             .. attribute:: send_type
                             
                             	The packet distribution\: single packets or bursts of packets.  If 'Burst' is specified , PacketCount and BurstInterval must be specified
-                            	**type**\:   :py:class:`SlaSend <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaSend>`
+                            	**type**\:  :py:class:`SlaSend <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaSend>`
                             
                             	**mandatory**\: True
                             
@@ -693,7 +695,7 @@ class Sla(Entity):
                             .. attribute:: size
                             
                             	Minimum size to pad outgoing packet to
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..9000
                             
@@ -702,12 +704,14 @@ class Sla(Entity):
                             .. attribute:: padding_type
                             
                             	Type of padding to be used for the packet
-                            	**type**\:   :py:class:`SlaPaddingPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaPaddingPattern>`
+                            	**type**\:  :py:class:`SlaPaddingPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaPaddingPattern>`
                             
                             .. attribute:: padding_value
                             
                             	Pattern to be used for hex padding. This can be specified if, and only if, the PaddingType is 'Hex'
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
                             
 

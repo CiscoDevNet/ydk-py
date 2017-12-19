@@ -61,24 +61,24 @@ class Ipv4NetworkGlobal(Entity):
     .. attribute:: unnumbered
     
     	Enable IPv4 processing without an explicit address
-    	**type**\:   :py:class:`Unnumbered <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered>`
+    	**type**\:  :py:class:`Unnumbered <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered>`
     
     .. attribute:: qppb
     
     	QPPB
-    	**type**\:   :py:class:`Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Qppb>`
+    	**type**\:  :py:class:`Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Qppb>`
     
     .. attribute:: source_route
     
     	The flag for enabling whether to process packets with source routing header options
-    	**type**\:  bool
+    	**type**\: bool
     
     	**default value**\: true
     
     .. attribute:: reassemble_max_packets
     
     	Percentage of total packets available in the system
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..50
     
@@ -87,7 +87,7 @@ class Ipv4NetworkGlobal(Entity):
     .. attribute:: reassemble_time_out
     
     	Number of seconds a reassembly queue will hold before timeout
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1..120
     
@@ -140,7 +140,7 @@ class Ipv4NetworkGlobal(Entity):
         .. attribute:: mpls
         
         	Configure MPLS routing protocol parameters
-        	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered.Mpls>`
+        	**type**\:  :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered.Mpls>`
         
         
 
@@ -174,7 +174,7 @@ class Ipv4NetworkGlobal(Entity):
             .. attribute:: te
             
             	IPv4 commands for MPLS Traffic Engineering
-            	**type**\:   :py:class:`Te <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered.Mpls.Te>`
+            	**type**\:  :py:class:`Te <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered.Mpls.Te>`
             
             
 
@@ -208,7 +208,7 @@ class Ipv4NetworkGlobal(Entity):
                 .. attribute:: interface
                 
                 	Enable IP processing without an explicit address on MPLS Traffic\-Eng
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -242,12 +242,12 @@ class Ipv4NetworkGlobal(Entity):
         .. attribute:: source
         
         	QPPB configuration on source
-        	**type**\:   :py:class:`Ipv4Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4Qppb>`
+        	**type**\:  :py:class:`Ipv4Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4Qppb>`
         
         .. attribute:: destination
         
         	QPPB configuration on destination
-        	**type**\:   :py:class:`Ipv4Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4Qppb>`
+        	**type**\:  :py:class:`Ipv4Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4Qppb>`
         
         
 
@@ -286,7 +286,7 @@ class SubscriberPta(Entity):
     .. attribute:: tcp_mss_adjust
     
     	TCP MSS Adjust (bytes)
-    	**type**\:  int
+    	**type**\: int
     
     	**range:** 1280..1536
     

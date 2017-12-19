@@ -46,12 +46,12 @@ class Icmp(Entity):
     .. attribute:: ipv6
     
     	IP Protocol Type
-    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv6>`
+    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv6>`
     
     .. attribute:: ipv4
     
     	IP Protocol Type
-    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4>`
+    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4>`
     
     
 
@@ -90,12 +90,12 @@ class Icmp(Entity):
         .. attribute:: rate_limit
         
         	Set ratelimit of ICMP packets
-        	**type**\:   :py:class:`RateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv6.RateLimit>`
+        	**type**\:  :py:class:`RateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv6.RateLimit>`
         
         .. attribute:: source
         
         	IP ICMP Source Address Selection Policy
-        	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv6.Source>`
+        	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv6.Source>`
         
         
 
@@ -134,7 +134,7 @@ class Icmp(Entity):
             .. attribute:: unreachable
             
             	Set unreachable ICMP packets ratelimit
-            	**type**\:   :py:class:`Unreachable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv6.RateLimit.Unreachable>`
+            	**type**\:  :py:class:`Unreachable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv6.RateLimit.Unreachable>`
             
             
 
@@ -168,14 +168,14 @@ class Icmp(Entity):
                 .. attribute:: rate
                 
                 	Rate Limit of Unreachable ICMP packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: fragmentation
                 
                 	Rate Limit of Unreachable DF packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -213,7 +213,7 @@ class Icmp(Entity):
             .. attribute:: source_address_policy
             
             	Configure Source Address Policy
-            	**type**\:   :py:class:`SourcePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.SourcePolicy>`
+            	**type**\:  :py:class:`SourcePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.SourcePolicy>`
             
             
 
@@ -247,12 +247,12 @@ class Icmp(Entity):
         .. attribute:: rate_limit
         
         	Set ratelimit of ICMP packets
-        	**type**\:   :py:class:`RateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4.RateLimit>`
+        	**type**\:  :py:class:`RateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4.RateLimit>`
         
         .. attribute:: source
         
         	IP ICMP Source Address Selection Policy
-        	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4.Source>`
+        	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4.Source>`
         
         
 
@@ -291,7 +291,7 @@ class Icmp(Entity):
             .. attribute:: unreachable
             
             	Set unreachable ICMP packets ratelimit
-            	**type**\:   :py:class:`Unreachable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4.RateLimit.Unreachable>`
+            	**type**\:  :py:class:`Unreachable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4.RateLimit.Unreachable>`
             
             
 
@@ -325,14 +325,14 @@ class Icmp(Entity):
                 .. attribute:: rate
                 
                 	Rate Limit of Unreachable ICMP packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: fragmentation
                 
                 	Rate Limit of Unreachable DF packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -370,7 +370,7 @@ class Icmp(Entity):
             .. attribute:: source_address_policy
             
             	Configure Source Address Policy
-            	**type**\:   :py:class:`SourcePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.SourcePolicy>`
+            	**type**\:  :py:class:`SourcePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.SourcePolicy>`
             
             
 

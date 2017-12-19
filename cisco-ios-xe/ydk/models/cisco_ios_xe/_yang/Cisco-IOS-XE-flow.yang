@@ -35,12 +35,26 @@ module Cisco-IOS-XE-flow {
 
   description
     "Cisco XE Native NetFlow Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
+  revision 2017-06-28 {
+    description
+      "add match datalink vlan input/output under flow record";
+  } 
+  revision 2017-06-18 {
+    description
+      "add flow record collect connection delay response to-server histogram late support";
+  }
   revision 2017-04-19 {
     description
       "flow exporter source interface dependency on loopbacks";
@@ -185,6 +199,13 @@ module Cisco-IOS-XE-flow {
     leaf ethertype {
       description "The Ethertype of the packet";
       type empty;
+    }
+    leaf vlan {
+      description "The VLAN the packet is on";
+      type enumeration {
+        enum "input";
+        enum "output";
+      }
     }
     container mac {
       description
@@ -1764,7 +1785,17 @@ module Cisco-IOS-XE-flow {
               leaf histogram {
                 description
                   "Histogram for response time";
-                type empty;
+                type enumeration {
+                  enum "all";
+                  enum "bucket1";
+                  enum "bucket2";
+                  enum "bucket3";
+                  enum "bucket4";
+                  enum "bucket5";
+                  enum "bucket6";
+                  enum "bucket7";
+                  enum "late";
+                }
               }
               leaf max {
                 description
@@ -3356,6 +3387,14 @@ module Cisco-IOS-XE-flow {
     uses config-interface-ip-flow-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ip" {
+    uses config-interface-ip-flow-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip" {
+    uses config-interface-ip-flow-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:Port-channel/ios:ip" {
     uses config-interface-ip-flow-grouping;
   }
@@ -3380,6 +3419,14 @@ module Cisco-IOS-XE-flow {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-flow-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-flow-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ipv6" {
     uses config-interface-ipv6-flow-grouping;
   }
 

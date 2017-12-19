@@ -145,7 +145,7 @@ class Keychains(Entity):
     .. attribute:: keychain
     
     	Name of the key chain
-    	**type**\: list of    :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain>`
+    	**type**\: list of  		 :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain>`
     
     
 
@@ -179,17 +179,19 @@ class Keychains(Entity):
         .. attribute:: chain_name  <key>
         
         	Name of the key chain
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: accept_tolerance
         
         	Accept Tolerance in seconds or infinite
-        	**type**\:   :py:class:`AcceptTolerance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.AcceptTolerance>`
+        	**type**\:  :py:class:`AcceptTolerance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.AcceptTolerance>`
         
         .. attribute:: keies
         
         	Configure a Key
-        	**type**\:   :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies>`
+        	**type**\:  :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies>`
         
         
 
@@ -233,7 +235,7 @@ class Keychains(Entity):
             .. attribute:: value
             
             	Value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..8640000
             
@@ -242,7 +244,7 @@ class Keychains(Entity):
             .. attribute:: infinite
             
             	Infinite tolerance
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -277,7 +279,7 @@ class Keychains(Entity):
             .. attribute:: key
             
             	Key Identifier
-            	**type**\: list of    :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key>`
+            	**type**\: list of  		 :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key>`
             
             
 
@@ -310,27 +312,31 @@ class Keychains(Entity):
                 .. attribute:: key_id  <key>
                 
                 	48\-bit Key identifier
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: accept_lifetime
                 
                 	Configure a key Acceptance Lifetime
-                	**type**\:   :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key.AcceptLifetime>`
+                	**type**\:  :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key.AcceptLifetime>`
                 
                 .. attribute:: send_lifetime
                 
                 	Configure a Send Lifetime
-                	**type**\:   :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key.SendLifetime>`
+                	**type**\:  :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key.SendLifetime>`
                 
                 .. attribute:: key_string
                 
                 	Configure a clear text/encrypted Key string 
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (!.+)\|([^!].+)
                 
                 .. attribute:: cryptographic_algorithm
                 
                 	Configure the cryptographic algorithm
-                	**type**\:   :py:class:`CryptoAlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.CryptoAlg>`
+                	**type**\:  :py:class:`CryptoAlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.CryptoAlg>`
                 
                 
 
@@ -377,14 +383,14 @@ class Keychains(Entity):
                     .. attribute:: start_hour
                     
                     	Start Hour
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..23
                     
                     .. attribute:: start_minutes
                     
                     	Start Minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..59
                     
@@ -393,7 +399,7 @@ class Keychains(Entity):
                     .. attribute:: start_seconds
                     
                     	Start Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..59
                     
@@ -402,26 +408,26 @@ class Keychains(Entity):
                     .. attribute:: start_date
                     
                     	Start Date
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..31
                     
                     .. attribute:: start_month
                     
                     	Start Month
-                    	**type**\:   :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
+                    	**type**\:  :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
                     
                     .. attribute:: start_year
                     
                     	Start Year
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1993..2035
                     
                     .. attribute:: life_time
                     
                     	Lifetime duration in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..2147483647
                     
@@ -430,19 +436,19 @@ class Keychains(Entity):
                     .. attribute:: infinite_flag
                     
                     	Infinite Lifetime flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: end_hour
                     
                     	End Hour
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..23
                     
                     .. attribute:: end_minutes
                     
                     	End Minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..59
                     
@@ -451,7 +457,7 @@ class Keychains(Entity):
                     .. attribute:: end_seconds
                     
                     	End Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..59
                     
@@ -460,19 +466,19 @@ class Keychains(Entity):
                     .. attribute:: end_date
                     
                     	End Date
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..31
                     
                     .. attribute:: end_month
                     
                     	End Month
-                    	**type**\:   :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
+                    	**type**\:  :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
                     
                     .. attribute:: end_year
                     
                     	End Year
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1993..2035
                     
@@ -533,14 +539,14 @@ class Keychains(Entity):
                     .. attribute:: start_hour
                     
                     	Start Hour
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..23
                     
                     .. attribute:: start_minutes
                     
                     	Start Minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..59
                     
@@ -549,7 +555,7 @@ class Keychains(Entity):
                     .. attribute:: start_seconds
                     
                     	Start Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..59
                     
@@ -558,26 +564,26 @@ class Keychains(Entity):
                     .. attribute:: start_date
                     
                     	Start Date
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..31
                     
                     .. attribute:: start_month
                     
                     	Start Month
-                    	**type**\:   :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
+                    	**type**\:  :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
                     
                     .. attribute:: start_year
                     
                     	Start Year
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1993..2035
                     
                     .. attribute:: life_time
                     
                     	Lifetime duration in seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..2147483647
                     
@@ -586,19 +592,19 @@ class Keychains(Entity):
                     .. attribute:: infinite_flag
                     
                     	Infinite Lifetime flag
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: end_hour
                     
                     	End Hour
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..23
                     
                     .. attribute:: end_minutes
                     
                     	End Minutes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..59
                     
@@ -607,7 +613,7 @@ class Keychains(Entity):
                     .. attribute:: end_seconds
                     
                     	End Seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..59
                     
@@ -616,19 +622,19 @@ class Keychains(Entity):
                     .. attribute:: end_date
                     
                     	End Date
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..31
                     
                     .. attribute:: end_month
                     
                     	End Month
-                    	**type**\:   :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
+                    	**type**\:  :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
                     
                     .. attribute:: end_year
                     
                     	End Year
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1993..2035
                     

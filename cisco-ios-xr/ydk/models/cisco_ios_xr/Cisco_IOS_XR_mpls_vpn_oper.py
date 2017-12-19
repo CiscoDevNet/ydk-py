@@ -100,12 +100,12 @@ class L3Vpn(Entity):
     .. attribute:: invalid_vrfs
     
     	Invalid VRF Table (VRFs that are forward referenced)
-    	**type**\:   :py:class:`InvalidVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs>`
+    	**type**\:  :py:class:`InvalidVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs>`
     
     .. attribute:: vrfs
     
     	VRF Table
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs>`
+    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs>`
     
     
 
@@ -145,7 +145,7 @@ class L3Vpn(Entity):
         .. attribute:: invalid_vrf
         
         	Invalid VRF (VRF that is forward referenced)
-        	**type**\: list of    :py:class:`InvalidVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf>`
+        	**type**\: list of  		 :py:class:`InvalidVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf>`
         
         
 
@@ -179,37 +179,37 @@ class L3Vpn(Entity):
             .. attribute:: vrf_name  <key>
             
             	The Name for an invalid VRF
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: vrf_name_xr
             
             	VRF Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: vrf_description
             
             	VRF Description
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: route_distinguisher
             
             	Route Distinguisher
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: is_big_vrf
             
             	VRF mode information
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: interface
             
             	Interfaces in VRF
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Interface>`
             
             .. attribute:: af
             
             	AF/SAF information
-            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Af>`
+            	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Af>`
             
             
 
@@ -254,7 +254,7 @@ class L3Vpn(Entity):
                 .. attribute:: interface_name
                 
                 	Interface Name
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -287,27 +287,27 @@ class L3Vpn(Entity):
                 .. attribute:: af_name
                 
                 	AF name
-                	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
+                	**type**\:  :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
                 
                 .. attribute:: saf_name
                 
                 	SAF name
-                	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
+                	**type**\:  :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
                 
                 .. attribute:: import_route_policy
                 
                 	Import Route Policy
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: export_route_policy
                 
                 	Export Route Policy
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: route_target
                 
                 	Route Targets
-                	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget>`
+                	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget>`
                 
                 
 
@@ -348,22 +348,22 @@ class L3Vpn(Entity):
                     .. attribute:: route_target_type
                     
                     	Route Target Type
-                    	**type**\:   :py:class:`MplsVpnRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRt>`
+                    	**type**\:  :py:class:`MplsVpnRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRt>`
                     
                     .. attribute:: route_target_value
                     
                     	Route Target Value
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: af_name
                     
                     	AF name
-                    	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
+                    	**type**\:  :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
                     
                     .. attribute:: saf_name
                     
                     	SAF name
-                    	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
+                    	**type**\:  :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
                     
                     
 
@@ -402,7 +402,7 @@ class L3Vpn(Entity):
         .. attribute:: vrf
         
         	VRF
-        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf>`
+        	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf>`
         
         
 
@@ -436,37 +436,37 @@ class L3Vpn(Entity):
             .. attribute:: vrf_name  <key>
             
             	The Name for a VRF
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: vrf_name_xr
             
             	VRF Name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: vrf_description
             
             	VRF Description
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: route_distinguisher
             
             	Route Distinguisher
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: is_big_vrf
             
             	VRF mode information
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: interface
             
             	Interfaces in VRF
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Interface>`
             
             .. attribute:: af
             
             	AF/SAF information
-            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Af>`
+            	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Af>`
             
             
 
@@ -511,7 +511,7 @@ class L3Vpn(Entity):
                 .. attribute:: interface_name
                 
                 	Interface Name
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -544,27 +544,27 @@ class L3Vpn(Entity):
                 .. attribute:: af_name
                 
                 	AF name
-                	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
+                	**type**\:  :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
                 
                 .. attribute:: saf_name
                 
                 	SAF name
-                	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
+                	**type**\:  :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
                 
                 .. attribute:: import_route_policy
                 
                 	Import Route Policy
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: export_route_policy
                 
                 	Export Route Policy
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: route_target
                 
                 	Route Targets
-                	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Af.RouteTarget>`
+                	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Af.RouteTarget>`
                 
                 
 
@@ -605,22 +605,22 @@ class L3Vpn(Entity):
                     .. attribute:: route_target_type
                     
                     	Route Target Type
-                    	**type**\:   :py:class:`MplsVpnRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRt>`
+                    	**type**\:  :py:class:`MplsVpnRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRt>`
                     
                     .. attribute:: route_target_value
                     
                     	Route Target Value
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: af_name
                     
                     	AF name
-                    	**type**\:   :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
+                    	**type**\:  :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
                     
                     .. attribute:: saf_name
                     
                     	SAF name
-                    	**type**\:   :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
+                    	**type**\:  :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
                     
                     
 

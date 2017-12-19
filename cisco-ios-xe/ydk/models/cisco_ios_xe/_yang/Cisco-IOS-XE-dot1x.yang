@@ -27,12 +27,18 @@ module Cisco-IOS-XE-dot1x {
 
   description
     "Cisco XE Native dot1x Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -319,6 +325,25 @@ module Cisco-IOS-XE-dot1x {
       if-feature ios-features:dot1x;
     } 
   }
+
+  /////////////////////////////////////////////////////////
+  // native / interface FiveGigabitEthernet * dot1x
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-dot1x-grouping {
+      if-feature ios-features:dot1x;
+    }
+  }
+
+  /////////////////////////////////////////////////////////
+  // native / interface TwentyFiveGigabitEthernet * dot1x
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+    uses config-interface-dot1x-grouping {
+      if-feature ios-features:dot1x;
+    }
+  }
+
 
   /////////////////////////////////////////////////////////
   // native / interface Port-channel * dot1x

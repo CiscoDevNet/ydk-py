@@ -22,39 +22,39 @@ class CISCOOSPFMIB(Entity):
     .. attribute:: cospfgeneralgroup
     
     	
-    	**type**\:   :py:class:`Cospfgeneralgroup <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfgeneralgroup>`
+    	**type**\:  :py:class:`Cospfgeneralgroup <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfgeneralgroup>`
     
     .. attribute:: cospflsdbtable
     
     	The OSPF Process's Link State Database. This  table is meant for Opaque LSA's
-    	**type**\:   :py:class:`Cospflsdbtable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflsdbtable>`
+    	**type**\:  :py:class:`Cospflsdbtable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflsdbtable>`
     
     .. attribute:: cospfshamlinktable
     
     	Information about this router's sham links
-    	**type**\:   :py:class:`Cospfshamlinktable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinktable>`
+    	**type**\:  :py:class:`Cospfshamlinktable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinktable>`
     
     	**status**\: deprecated
     
     .. attribute:: cospflocallsdbtable
     
     	The OSPF Process's Link\-Local Link State Database for non\-virtual links
-    	**type**\:   :py:class:`Cospflocallsdbtable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflocallsdbtable>`
+    	**type**\:  :py:class:`Cospflocallsdbtable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflocallsdbtable>`
     
     .. attribute:: cospfvirtlocallsdbtable
     
     	The OSPF Process's Link\-Local Link State Database for virtual links
-    	**type**\:   :py:class:`Cospfvirtlocallsdbtable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfvirtlocallsdbtable>`
+    	**type**\:  :py:class:`Cospfvirtlocallsdbtable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfvirtlocallsdbtable>`
     
     .. attribute:: cospfshamlinknbrtable
     
     	A table of sham link neighbor information
-    	**type**\:   :py:class:`Cospfshamlinknbrtable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinknbrtable>`
+    	**type**\:  :py:class:`Cospfshamlinknbrtable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinknbrtable>`
     
     .. attribute:: cospfshamlinkstable
     
     	Information about this router's sham links
-    	**type**\:   :py:class:`Cospfshamlinkstable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinkstable>`
+    	**type**\:  :py:class:`Cospfshamlinkstable <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinkstable>`
     
     
 
@@ -118,29 +118,29 @@ class CISCOOSPFMIB(Entity):
         .. attribute:: cospfrfc1583compatibility
         
         	Indicates metrics used to choose among multiple AS\- external\-LSAs. When cospfRFC1583Compatibility is set to enabled, only cost will be used when choosing among multiple AS\-external\-LSAs advertising the same destination. When cospfRFC1583Compatibility is set to disabled, preference will be driven first by type of path using cost only to break ties
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cospfopaquelsasupport
         
         	The router's support for Opaque LSA types
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cospftrafficengineeringsupport
         
         	The router's support for OSPF traffic engineering
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: cospfopaqueaslsacount
         
         	The total number of Opaque AS link\-state advertisements in the link state database
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: cospfopaqueaslsacksumsum
         
         	The 32\-bit unsigned sum of the Opaque AS  link\-state advertisements' LS checksums contained link state database
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -185,7 +185,7 @@ class CISCOOSPFMIB(Entity):
         .. attribute:: cospflsdbentry
         
         	A single Link State Advertisement
-        	**type**\: list of    :py:class:`Cospflsdbentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflsdbtable.Cospflsdbentry>`
+        	**type**\: list of  		 :py:class:`Cospflsdbentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflsdbtable.Cospflsdbentry>`
         
         
 
@@ -219,54 +219,60 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: ospflsdbareaid  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**refers to**\:  :py:class:`ospflsdbareaid <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable.Ospflsdbentry>`
             
             .. attribute:: cospflsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:   :py:class:`Cospflsdbtype <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflsdbtable.Cospflsdbentry.Cospflsdbtype>`
+            	**type**\:  :py:class:`Cospflsdbtype <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflsdbtable.Cospflsdbentry.Cospflsdbtype>`
             
             .. attribute:: ospflsdblsid  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**refers to**\:  :py:class:`ospflsdblsid <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable.Ospflsdbentry>`
             
             .. attribute:: ospflsdbrouterid  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**refers to**\:  :py:class:`ospflsdbrouterid <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.Ospflsdbtable.Ospflsdbentry>`
             
             .. attribute:: cospflsdbsequence
             
             	The sequence number field is a  signed  32\-bit integer.   It  is used to detect old and duplicate link state advertisements.  The  space  of sequence  numbers  is  linearly  ordered.   The larger the sequence number the more recent  the advertisement
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..147483647
             
             .. attribute:: cospflsdbage
             
             	This field is the age of the link state advertisement in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: cospflsdbchecksum
             
             	This field is the  checksum  of  the  complete contents  of  the  advertisement, excepting the age field.  The age field is excepted  so  that an   advertisement's  age  can  be  incremented without updating the  checksum.   The  checksum used  is  the same that is used for ISO connectionless datagrams; it is commonly referred  to as the Fletcher checksum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: cospflsdbadvertisement
             
             	The entire Link State Advertisement, including its header
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..65535
             
@@ -335,7 +341,7 @@ class CISCOOSPFMIB(Entity):
         .. attribute:: cospfshamlinkentry
         
         	Information about a single sham link
-        	**type**\: list of    :py:class:`Cospfshamlinkentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinktable.Cospfshamlinkentry>`
+        	**type**\: list of  		 :py:class:`Cospfshamlinkentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinktable.Cospfshamlinkentry>`
         
         	**status**\: deprecated
         
@@ -371,28 +377,34 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfshamlinkareaid  <key>
             
             	The  Transit  Area  that  the   Virtual   Link traverses.  By definition, this is not 0.0.0.0
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: deprecated
             
             .. attribute:: cospfshamlinklocalipaddress  <key>
             
             	The Local IP address of the sham link
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: deprecated
             
             .. attribute:: cospfshamlinkneighborid  <key>
             
             	The Router ID of the other end router of the sham link
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**status**\: deprecated
             
             .. attribute:: cospfshamlinkretransinterval
             
             	The number of seconds between  link\-state  advertisement retransmissions,  for  adjacencies belonging to this  link.   This  value  is also used when retransmitting database description   and  link\-state  request  packets. This value   should  be well over the expected round trip time
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..3600
             
@@ -401,7 +413,7 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfshamlinkhellointerval
             
             	The length of time, in  seconds,  between  the Hello  packets that the router sends on the sham link
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
@@ -410,7 +422,7 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfshamlinkrtrdeadinterval
             
             	The number of seconds that  a  router's  Hello packets  have  not been seen before it's neighbors declare the router down.  This  should  be some  multiple  of  the  Hello  interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -419,14 +431,14 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfshamlinkstate
             
             	OSPF sham link states
-            	**type**\:   :py:class:`Cospfshamlinkstate <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinktable.Cospfshamlinkentry.Cospfshamlinkstate>`
+            	**type**\:  :py:class:`Cospfshamlinkstate <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinktable.Cospfshamlinkentry.Cospfshamlinkstate>`
             
             	**status**\: deprecated
             
             .. attribute:: cospfshamlinkevents
             
             	The number of state changes or error events on this sham link
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -435,7 +447,7 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfshamlinkmetric
             
             	The Metric to be advertised
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -507,7 +519,7 @@ class CISCOOSPFMIB(Entity):
         .. attribute:: cospflocallsdbentry
         
         	A single Link State Advertisement
-        	**type**\: list of    :py:class:`Cospflocallsdbentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflocallsdbtable.Cospflocallsdbentry>`
+        	**type**\: list of  		 :py:class:`Cospflocallsdbentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflocallsdbtable.Cospflocallsdbentry>`
         
         
 
@@ -541,55 +553,61 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospflocallsdbipaddress  <key>
             
             	The IP Address of the interface from which the LSA was received if the interface is numbered
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: cospflocallsdbaddresslessif  <key>
             
             	The Interface Index of the interface from which the LSA was received if the interface is unnumbered
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: cospflocallsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:   :py:class:`Cospflocallsdbtype <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflocallsdbtable.Cospflocallsdbentry.Cospflocallsdbtype>`
+            	**type**\:  :py:class:`Cospflocallsdbtype <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospflocallsdbtable.Cospflocallsdbentry.Cospflocallsdbtype>`
             
             .. attribute:: cospflocallsdblsid  <key>
             
             	The Link State ID is an LS Type Specific field containing a 32 bit identifier in IP address format; it identifies the piece of the routing domain that is being described by the advertisement
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: cospflocallsdbrouterid  <key>
             
             	The 32 bit number that uniquely identifies the originating router in the Autonomous System
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: cospflocallsdbsequence
             
             	The sequence number field is a signed 32\-bit integer. It is used to detect old and duplicate link state advertisements. The space of sequence numbers is linearly ordered. The larger the sequence number the more recent the advertisement
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483647..2147483647
             
             .. attribute:: cospflocallsdbage
             
             	This field is the age of the link state advertisement  in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..3600
             
             .. attribute:: cospflocallsdbchecksum
             
             	This field is the checksum of the complete contents of the advertisement, excepting the age field. The age field is excepted so that an advertisement's age can be incremented without updating the checksum. The checksum used is the same that is used for ISO connectionless datagrams; it is commonly referred  to as the Fletcher checksum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cospflocallsdbadvertisement
             
             	The entire Link State Advertisement, including its header
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..65535
             
@@ -657,7 +675,7 @@ class CISCOOSPFMIB(Entity):
         .. attribute:: cospfvirtlocallsdbentry
         
         	A single Link State Advertisement
-        	**type**\: list of    :py:class:`Cospfvirtlocallsdbentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry>`
+        	**type**\: list of  		 :py:class:`Cospfvirtlocallsdbentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry>`
         
         
 
@@ -691,53 +709,61 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfvirtlocallsdbtransitarea  <key>
             
             	The Transit Area that the Virtual Link traverses. By definition, this is not 0.0.0.0
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: cospfvirtlocallsdbneighbor  <key>
             
             	The Router ID of the Virtual Neighbor
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: cospfvirtlocallsdbtype  <key>
             
             	The type of the link state advertisement. Each  link state type has a separate advertisement format
-            	**type**\:   :py:class:`Cospfvirtlocallsdbtype <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry.Cospfvirtlocallsdbtype>`
+            	**type**\:  :py:class:`Cospfvirtlocallsdbtype <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry.Cospfvirtlocallsdbtype>`
             
             .. attribute:: cospfvirtlocallsdblsid  <key>
             
             	The Link State ID is an LS Type Specific field containing a 32 bit identifier in IP address format; it identifies the piece of the routing domain that is being described by the advertisement
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: cospfvirtlocallsdbrouterid  <key>
             
             	The 32 bit number that uniquely identifies the originating router in the Autonomous System
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: cospfvirtlocallsdbsequence
             
             	The sequence number field is a  signed  32\-bit integer. It is used to detect old and duplicate link state advertisements. The space of sequence numbers is linearly ordered. The larger the sequence number the more recent the advertisement
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483647..2147483647
             
             .. attribute:: cospfvirtlocallsdbage
             
             	This field is the age of the link state advertisement in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..3600
             
             .. attribute:: cospfvirtlocallsdbchecksum
             
             	This field is the checksum of the complete contents of the advertisement, excepting the age field. The age field is excepted so that an advertisement's age can be incremented without updating the checksum. The checksum used is the same that is used for ISO connectionless datagrams; it is commonly referred  to as the Fletcher checksum
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cospfvirtlocallsdbadvertisement
             
             	The entire Link State Advertisement, including its header
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..65535
             
@@ -804,7 +830,7 @@ class CISCOOSPFMIB(Entity):
         .. attribute:: cospfshamlinknbrentry
         
         	Sham link neighbor information
-        	**type**\: list of    :py:class:`Cospfshamlinknbrentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinknbrtable.Cospfshamlinknbrentry>`
+        	**type**\: list of  		 :py:class:`Cospfshamlinknbrentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinknbrtable.Cospfshamlinknbrentry>`
         
         
 
@@ -838,12 +864,12 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfshamlinkslocalipaddrtype  <key>
             
             	
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cospfshamlinkslocalipaddr  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
@@ -852,55 +878,59 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfshamlinknbrarea  <key>
             
             	The area to which the sham link is part of
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: cospfshamlinknbripaddrtype  <key>
             
             	The type of internet address of this sham link neighbor's IP address
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cospfshamlinknbripaddr  <key>
             
             	The IP address this sham link neighbor is using
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cospfshamlinknbrrtrid
             
             	A 32\-bit integer uniquely identifying the neighboring router
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: cospfshamlinknbroptions
             
             	A Bit Mask corresponding to the neighbor's options field.  Bit 1, if set, indicates that the  system  will operate  on  Type of Service metrics other than TOS 0.  If zero, the neighbor will  ignore  all metrics except the TOS 0 metric.  Bit 2, if set, indicates  that  the  system  is Network  Multicast  capable; ie, that it implements  OSPF Multicast Routing
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
             .. attribute:: cospfshamlinknbrstate
             
             	The state of this sham link neighbor relation\- ship
-            	**type**\:   :py:class:`Cospfshamlinknbrstate <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinknbrtable.Cospfshamlinknbrentry.Cospfshamlinknbrstate>`
+            	**type**\:  :py:class:`Cospfshamlinknbrstate <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinknbrtable.Cospfshamlinknbrentry.Cospfshamlinknbrstate>`
             
             .. attribute:: cospfshamlinknbrevents
             
             	The number of  times  this sham link has changed state or an error has occurred
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cospfshamlinknbrlsretransqlen
             
             	The  current  length  of  the   retransmission queue. The retransmission queue is maintained for LSAs that have been flooded but not acknowledged on this adjacency
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cospfshamlinknbrhellosuppressed
             
             	Indicates whether Hellos are being  suppressed to the neighbor
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -997,7 +1027,7 @@ class CISCOOSPFMIB(Entity):
         .. attribute:: cospfshamlinksentry
         
         	Information about a single sham link
-        	**type**\: list of    :py:class:`Cospfshamlinksentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinkstable.Cospfshamlinksentry>`
+        	**type**\: list of  		 :py:class:`Cospfshamlinksentry <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinkstable.Cospfshamlinksentry>`
         
         
 
@@ -1031,69 +1061,71 @@ class CISCOOSPFMIB(Entity):
             .. attribute:: cospfshamlinksareaid  <key>
             
             	The area that this sham link is part of
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: cospfshamlinkslocalipaddrtype  <key>
             
             	The type of internet address of this sham link's local IP address
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cospfshamlinkslocalipaddr  <key>
             
             	The Local IP address of the sham link
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cospfshamlinksremoteipaddrtype  <key>
             
             	The type of internet address of this sham link's remote IP address
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cospfshamlinksremoteipaddr  <key>
             
             	The IP address of the other end router of the sham link
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: cospfshamlinksretransinterval
             
             	The number of seconds between  link\-state  advertisement retransmissions, for adjacencies belonging to this link. This value is also used when retransmitting database  description and link\-state request packets. This value should be well over the expected round trip time
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..3600
             
             .. attribute:: cospfshamlinkshellointerval
             
             	The length of time, in  seconds,  between  the Hello  packets that the router sends on the sham link
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..65535
             
             .. attribute:: cospfshamlinksrtrdeadinterval
             
             	The number of seconds that  a  router's  Hello packets  have  not been seen before it's neighbors declare the router down.  This  should  be some  multiple  of  the  Hello  interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: cospfshamlinksstate
             
             	OSPF sham link states
-            	**type**\:   :py:class:`Cospfshamlinksstate <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinkstable.Cospfshamlinksentry.Cospfshamlinksstate>`
+            	**type**\:  :py:class:`Cospfshamlinksstate <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CISCOOSPFMIB.Cospfshamlinkstable.Cospfshamlinksentry.Cospfshamlinksstate>`
             
             .. attribute:: cospfshamlinksevents
             
             	The number of state changes or error events on this sham link
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cospfshamlinksmetric
             
             	The Metric to be advertised
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             

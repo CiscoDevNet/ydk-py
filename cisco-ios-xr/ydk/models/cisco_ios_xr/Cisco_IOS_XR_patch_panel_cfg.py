@@ -25,24 +25,28 @@ class PatchPanel(Entity):
     .. attribute:: enable
     
     	Enable patch\-panel service
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     	**mandatory**\: True
     
     .. attribute:: user_name
     
     	User name to be used for Authentication with Patch\-Panel
-    	**type**\:  str
+    	**type**\: str
     
     .. attribute:: password
     
     	Password name to be used for Authentication with Patch\-Panel
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** (!.+)\|([^!].+)
     
     .. attribute:: ipv4
     
     	IP address for patch\-panel
-    	**type**\:  str
+    	**type**\: str
+    
+    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
     
     
 

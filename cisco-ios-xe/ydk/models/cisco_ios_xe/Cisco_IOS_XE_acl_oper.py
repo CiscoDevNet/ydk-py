@@ -21,7 +21,7 @@ class AccessLists(Entity):
     .. attribute:: access_list
     
     	An access list (acl) is an ordered list of access list entries (ACE). Each access control entries has a list of match criteria, and a list of actions. Since there are several kinds of access control lists implemented with different attributes for each and different for each vendor, this model accommodates customizing access control lists for each kind and for each vendor
-    	**type**\: list of    :py:class:`AccessList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl_oper.AccessLists.AccessList>`
+    	**type**\: list of  		 :py:class:`AccessList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl_oper.AccessLists.AccessList>`
     
     
 
@@ -62,12 +62,12 @@ class AccessLists(Entity):
         .. attribute:: access_control_list_name  <key>
         
         	The name of access\-list. A device MAY restrict the length and value of this name, possibly space and special characters are not allowed
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: access_list_entries
         
         	access\-list\-entry(ACE) information
-        	**type**\:   :py:class:`AccessListEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl_oper.AccessLists.AccessList.AccessListEntries>`
+        	**type**\:  :py:class:`AccessListEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl_oper.AccessLists.AccessList.AccessListEntries>`
         
         
 
@@ -106,7 +106,7 @@ class AccessLists(Entity):
             .. attribute:: access_list_entry
             
             	A list of ACEs
-            	**type**\: list of    :py:class:`AccessListEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl_oper.AccessLists.AccessList.AccessListEntries.AccessListEntry>`
+            	**type**\: list of  		 :py:class:`AccessListEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl_oper.AccessLists.AccessList.AccessListEntries.AccessListEntry>`
             
             
 
@@ -139,14 +139,14 @@ class AccessLists(Entity):
                 .. attribute:: rule_name  <key>
                 
                 	Entry number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: access_list_entries_oper_data
                 
                 	Per access list entries operational data
-                	**type**\:   :py:class:`AccessListEntriesOperData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl_oper.AccessLists.AccessList.AccessListEntries.AccessListEntry.AccessListEntriesOperData>`
+                	**type**\:  :py:class:`AccessListEntriesOperData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl_oper.AccessLists.AccessList.AccessListEntries.AccessListEntry.AccessListEntriesOperData>`
                 
                 
 
@@ -184,7 +184,7 @@ class AccessLists(Entity):
                     .. attribute:: match_counter
                     
                     	Number of matches for an access list entry
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     

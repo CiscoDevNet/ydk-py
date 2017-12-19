@@ -137,17 +137,17 @@ class TrafficCollector(Entity):
     .. attribute:: external_interfaces
     
     	Configure external interfaces
-    	**type**\:   :py:class:`ExternalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.ExternalInterfaces>`
+    	**type**\:  :py:class:`ExternalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.ExternalInterfaces>`
     
     .. attribute:: statistics
     
     	Configure statistics related parameters
-    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.Statistics>`
+    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.Statistics>`
     
     .. attribute:: enable_traffic_collector
     
     	Enable traffic collector
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -191,7 +191,7 @@ class TrafficCollector(Entity):
         .. attribute:: external_interface
         
         	Configure an external internface
-        	**type**\: list of    :py:class:`ExternalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.ExternalInterfaces.ExternalInterface>`
+        	**type**\: list of  		 :py:class:`ExternalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.ExternalInterfaces.ExternalInterface>`
         
         
 
@@ -225,12 +225,14 @@ class TrafficCollector(Entity):
             .. attribute:: interface_name  <key>
             
             	Name of interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: enable
             
             	Enable traffic collector on this interface
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -266,43 +268,35 @@ class TrafficCollector(Entity):
         .. attribute:: history_size
         
         	Configure statistics history size
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`HistorySize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.HistorySize>`
+        		**type**\:  :py:class:`HistorySize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.HistorySize>`
         
+        		**type**\: int
         
-        ----
-        	**type**\:  int
+        			**range:** 1..10
         
-        	**range:** 1..10
-        
-        
-        ----
         .. attribute:: collection_interval
         
         	Configure statistics collection interval
-        	**type**\:   :py:class:`CollectIonInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.CollectIonInterval>`
+        	**type**\:  :py:class:`CollectIonInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.CollectIonInterval>`
         
         .. attribute:: enable_traffic_collector_statistics
         
         	Enable traffic collector statistics
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: history_timeout
         
         	Configure statistics history timeout interval
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:   :py:class:`HistoryTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.HistoryTimeout>`
+        		**type**\:  :py:class:`HistoryTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.HistoryTimeout>`
         
+        		**type**\: int
         
-        ----
-        	**type**\:  int
+        			**range:** 0..720
         
-        	**range:** 0..720
-        
-        
-        ----
         
 
         """

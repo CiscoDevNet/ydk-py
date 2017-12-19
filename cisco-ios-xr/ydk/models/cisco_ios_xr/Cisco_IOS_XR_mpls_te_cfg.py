@@ -1358,47 +1358,47 @@ class MplsTe(Entity):
     .. attribute:: diff_serv_traffic_engineering
     
     	Configure Diff\-Serv Traffic\-Engineering
-    	**type**\:   :py:class:`DiffServTrafficEngineering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.DiffServTrafficEngineering>`
+    	**type**\:  :py:class:`DiffServTrafficEngineering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.DiffServTrafficEngineering>`
     
     .. attribute:: named_tunnels
     
     	Configure MPLS TE tunnel
-    	**type**\:   :py:class:`NamedTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels>`
+    	**type**\:  :py:class:`NamedTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels>`
     
     .. attribute:: gmpls_uni
     
     	GMPLS\-UNI configuration
-    	**type**\:   :py:class:`GmplsUni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni>`
+    	**type**\:  :py:class:`GmplsUni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni>`
     
     .. attribute:: global_attributes
     
     	Configure MPLS TE global attributes
-    	**type**\:   :py:class:`GlobalAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes>`
+    	**type**\:  :py:class:`GlobalAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes>`
     
     .. attribute:: transport_profile
     
     	MPLS transport profile configuration data
-    	**type**\:   :py:class:`TransportProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile>`
+    	**type**\:  :py:class:`TransportProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile>`
     
     .. attribute:: interfaces
     
     	Configure MPLS TE interfaces
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces>`
     
     .. attribute:: gmpls_nni
     
     	GMPLS\-NNI configuration
-    	**type**\:   :py:class:`GmplsNni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni>`
+    	**type**\:  :py:class:`GmplsNni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni>`
     
     .. attribute:: lcac
     
     	LCAC specific MPLS global configuration
-    	**type**\:   :py:class:`Lcac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Lcac>`
+    	**type**\:  :py:class:`Lcac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Lcac>`
     
     .. attribute:: enable_traffic_engineering
     
     	Enable MPLS Traffic Engineering
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -1472,17 +1472,17 @@ class MplsTe(Entity):
         .. attribute:: classes
         
         	Configure Diff\-Serv Traffic\-Engineering Classes
-        	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.DiffServTrafficEngineering.Classes>`
+        	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.DiffServTrafficEngineering.Classes>`
         
         .. attribute:: bandwidth_constraint_model
         
         	Diff\-Serv Traffic\-Engineering Bandwidth Constraint Model
-        	**type**\:   :py:class:`BandwidthConstraint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.BandwidthConstraint>`
+        	**type**\:  :py:class:`BandwidthConstraint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.BandwidthConstraint>`
         
         .. attribute:: mode_ietf
         
         	Diff\-Serv Traffic\-Engineering IETF mode
-        	**type**\:   :py:class:`IetfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.IetfMode>`
+        	**type**\:  :py:class:`IetfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.IetfMode>`
         
         
 
@@ -1523,7 +1523,7 @@ class MplsTe(Entity):
             .. attribute:: class_
             
             	DSTE class number
-            	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.DiffServTrafficEngineering.Classes.Class_>`
+            	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.DiffServTrafficEngineering.Classes.Class_>`
             
             
 
@@ -1557,28 +1557,28 @@ class MplsTe(Entity):
                 .. attribute:: class_number  <key>
                 
                 	DS\-TE class number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..7
                 
                 .. attribute:: class_type
                 
                 	Class type number
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
                 .. attribute:: class_priority
                 
                 	Class\-type priority
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..7
                 
                 .. attribute:: unused
                 
                 	TRUE to skip classtype and class priority provisioning FALSE to provision them
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -1618,12 +1618,12 @@ class MplsTe(Entity):
         .. attribute:: tunnels
         
         	Configure MPLS TE tunnel
-        	**type**\:   :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels>`
+        	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels>`
         
         .. attribute:: enable
         
         	Enable Named Tunnels
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -1662,7 +1662,7 @@ class MplsTe(Entity):
             .. attribute:: tunnel
             
             	Configure a MPLS TE tunnel
-            	**type**\: list of    :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel>`
+            	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel>`
             
             
 
@@ -1696,31 +1696,31 @@ class MplsTe(Entity):
                 .. attribute:: tunnel_name  <key>
                 
                 	Tunnel name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..59
                 
                 .. attribute:: tunnel_type  <key>
                 
                 	Tunnel Type
-                	**type**\:   :py:class:`MplsTeConfigTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeConfigTunnel>`
+                	**type**\:  :py:class:`MplsTeConfigTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeConfigTunnel>`
                 
                 .. attribute:: tunnel_attributes
                 
                 	MPLS tunnel attributes
-                	**type**\:   :py:class:`TunnelAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes>`
+                	**type**\:  :py:class:`TunnelAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes>`
                 
                 .. attribute:: tunnel_id
                 
                 	Set the tunnel ID
-                	**type**\:   :py:class:`TunnelId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId>`
+                	**type**\:  :py:class:`TunnelId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: enable
                 
                 	Always set to true
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1767,90 +1767,92 @@ class MplsTe(Entity):
                     .. attribute:: path_setups
                     
                     	Tunnel path setup table
-                    	**type**\:   :py:class:`PathSetups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups>`
+                    	**type**\:  :py:class:`PathSetups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups>`
                     
                     .. attribute:: shutdown
                     
                     	shutdown the tunnel
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: forward_class
                     
                     	Forward class value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..7
                     
                     .. attribute:: tunnel_path_selection
                     
                     	Configure path selection properties
-                    	**type**\:   :py:class:`TunnelPathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection>`
+                    	**type**\:  :py:class:`TunnelPathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection>`
                     
                     .. attribute:: auto_bandwidth
                     
                     	Tunnel Interface Auto\-bandwidth configuration data
-                    	**type**\:   :py:class:`AutoBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth>`
+                    	**type**\:  :py:class:`AutoBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth>`
                     
                     .. attribute:: priority
                     
                     	Tunnel Setup and Hold Priorities
-                    	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority>`
+                    	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: destination
                     
                     	Set the destination of the tunnel
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: record_route
                     
                     	Record the route used by the tunnel
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: logging
                     
                     	Log tunnel LSP messages
-                    	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging>`
+                    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging>`
                     
                     .. attribute:: bandwidth
                     
                     	Tunnel bandwidth requirement
-                    	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth>`
+                    	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: autoroute
                     
                     	Parameters for IGP routing over tunnel
-                    	**type**\:   :py:class:`Autoroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute>`
+                    	**type**\:  :py:class:`Autoroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute>`
                     
                     .. attribute:: path_selection_metric
                     
                     	Path selection metric to use in path calculation
-                    	**type**\:   :py:class:`MplsTePathSelectionMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric>`
+                    	**type**\:  :py:class:`MplsTePathSelectionMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric>`
                     
                     .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:   :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes>`
                     
                     .. attribute:: soft_preemption
                     
                     	Enable the soft\-preemption feature on the tunnel
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: fast_reroute
                     
                     	Specify MPLS tunnel can be fast\-rerouted
-                    	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute>`
+                    	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: load_share
                     
                     	Tunnel loadsharing metric
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..4294967295
                     
@@ -1939,7 +1941,7 @@ class MplsTe(Entity):
                         .. attribute:: path_setup
                         
                         	Tunnel path setup
-                        	**type**\: list of    :py:class:`PathSetup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup>`
+                        	**type**\: list of  		 :py:class:`PathSetup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup>`
                         
                         
 
@@ -1972,26 +1974,28 @@ class MplsTe(Entity):
                             .. attribute:: path_setup_name  <key>
                             
                             	Path Name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: path_computation
                             
                             	Path computation method
-                            	**type**\:   :py:class:`PathComputation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation>`
+                            	**type**\:  :py:class:`PathComputation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation>`
                             
                             	**presence node**\: True
                             
                             .. attribute:: preference
                             
                             	Path preference level
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: enable
                             
                             	Always set to true
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -2032,19 +2036,21 @@ class MplsTe(Entity):
                                 .. attribute:: path_computation_method
                                 
                                 	Path computation method
-                                	**type**\:   :py:class:`MplsTePathComputationMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathComputationMethod>`
+                                	**type**\:  :py:class:`MplsTePathComputationMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathComputationMethod>`
                                 
                                 	**mandatory**\: True
                                 
                                 .. attribute:: explicit_path_name
                                 
                                 	Explicit Path Name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: path_computation_server
                                 
                                 	Path Computation Server Address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 	**default value**\: 0.0.0.0
                                 
@@ -2086,26 +2092,26 @@ class MplsTe(Entity):
                         .. attribute:: tiebreaker
                         
                         	CSPF tiebreaker to use in path calculation
-                        	**type**\:   :py:class:`MplsTePathSelectionTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreaker>`
+                        	**type**\:  :py:class:`MplsTePathSelectionTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreaker>`
                         
                         .. attribute:: path_selection_hop_limit
                         
                         	Path selection hop limit configuration for this specific tunnel
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
                         .. attribute:: invalidation
                         
                         	Path invalidation configuration for this specific tunnel
-                        	**type**\:   :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation>`
+                        	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: path_selection_cost_limit
                         
                         	Path selection cost limit configuration for this specific tunnel
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4294967295
                         
@@ -2149,14 +2155,14 @@ class MplsTe(Entity):
                             .. attribute:: path_invalidation_timeout
                             
                             	Path Invalidation Timeout
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..60000
                             
                             .. attribute:: path_invalidation_action
                             
                             	Path Invalidation Action
-                            	**type**\:   :py:class:`PathInvalidationAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationAction>`
+                            	**type**\:  :py:class:`PathInvalidationAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationAction>`
                             
                             
 
@@ -2195,45 +2201,45 @@ class MplsTe(Entity):
                         .. attribute:: underflow
                         
                         	Configuring the tunnel underflow detection
-                        	**type**\:   :py:class:`Underflow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow>`
+                        	**type**\:  :py:class:`Underflow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: overflow
                         
                         	Configuring the tunnel overflow detection
-                        	**type**\:   :py:class:`Overflow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow>`
+                        	**type**\:  :py:class:`Overflow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: bandwidth_limits
                         
                         	Set min/max bandwidth auto\-bw can apply on a tunnel
-                        	**type**\:   :py:class:`BandwidthLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits>`
+                        	**type**\:  :py:class:`BandwidthLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: adjustment_threshold
                         
                         	Set the bandwidth change threshold to trigger adjustment
-                        	**type**\:   :py:class:`AdjustmentThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold>`
+                        	**type**\:  :py:class:`AdjustmentThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: underflow_enable
                         
                         	Enable auto bandwidth underflow detection
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: enabled
                         
                         	This object is only valid for tunnel interfaces and it controls whether that interface has auto\-bw enabled on it or not.The object must be set before any other auto\-bw configuration is supplied for the interface, and must be the last auto\-bw configuration object to be removed 
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: application_frequency
                         
                         	Set the tunnel auto\-bw application frequency in minutes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 5..10080
                         
@@ -2242,12 +2248,12 @@ class MplsTe(Entity):
                         .. attribute:: overflow_enable
                         
                         	Enable auto bandwidth overflow detection
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: collection_only
                         
                         	Enable bandwidth collection only, no auto\-bw adjustment
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -2304,7 +2310,7 @@ class MplsTe(Entity):
                             .. attribute:: underflow_threshold_percent
                             
                             	Bandwidth change percent to trigger an underflow
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..100
                             
@@ -2315,7 +2321,7 @@ class MplsTe(Entity):
                             .. attribute:: underflow_threshold_value
                             
                             	Bandwidth change value to trigger an underflow (kbps)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 10..4294967295
                             
@@ -2326,7 +2332,7 @@ class MplsTe(Entity):
                             .. attribute:: underflow_threshold_limit
                             
                             	Number of consecutive collections exceeding threshold
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..10
                             
@@ -2370,7 +2376,7 @@ class MplsTe(Entity):
                             .. attribute:: overflow_threshold_percent
                             
                             	Bandwidth change percent to trigger an overflow
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..100
                             
@@ -2381,7 +2387,7 @@ class MplsTe(Entity):
                             .. attribute:: overflow_threshold_value
                             
                             	Bandwidth change value to trigger an overflow (kbps)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 10..4294967295
                             
@@ -2392,7 +2398,7 @@ class MplsTe(Entity):
                             .. attribute:: overflow_threshold_limit
                             
                             	Number of consecutive collections exceeding threshold
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..10
                             
@@ -2437,7 +2443,7 @@ class MplsTe(Entity):
                             .. attribute:: bandwidth_min_limit
                             
                             	Set minimum bandwidth auto\-bw can apply on a tunnel
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2446,7 +2452,7 @@ class MplsTe(Entity):
                             .. attribute:: bandwidth_max_limit
                             
                             	Set maximum bandwidth auto\-bw can apply on a tunnel
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2489,7 +2495,7 @@ class MplsTe(Entity):
                             .. attribute:: adjustment_threshold_percent
                             
                             	Bandwidth change percent to trigger adjustment
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..100
                             
@@ -2500,7 +2506,7 @@ class MplsTe(Entity):
                             .. attribute:: adjustment_threshold_value
                             
                             	Bandwidth change value to trigger adjustment (kbps)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 10..4294967295
                             
@@ -2544,7 +2550,7 @@ class MplsTe(Entity):
                         .. attribute:: setup_priority
                         
                         	Setup Priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..7
                         
@@ -2553,7 +2559,7 @@ class MplsTe(Entity):
                         .. attribute:: hold_priority
                         
                         	Hold Priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..7
                         
@@ -2595,57 +2601,57 @@ class MplsTe(Entity):
                         .. attribute:: lsp_switch_over_change_message
                         
                         	Log tunnel messages for bandwidth change
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: all
                         
                         	Log all events for a tunnel
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: record_route_messsage
                         
                         	Log tunnel record\-route messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: bfd_state_message
                         
                         	Enable BFD session state change alarm
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: bandwidth_change_message
                         
                         	Log tunnel messages for bandwidth change
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reoptimize_attempts_message
                         
                         	Log tunnel reoptimization attempts messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reroute_messsage
                         
                         	Log tunnel rereoute messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: state_message
                         
                         	Log tunnel state messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: insufficient_bw_message
                         
                         	Log tunnel messages for insufficient bandwidth
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reoptimized_message
                         
                         	Log tunnel reoptimized messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: pcalc_failure_message
                         
                         	Enable logging for path\-calculation failures
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -2698,14 +2704,14 @@ class MplsTe(Entity):
                         .. attribute:: dste_type
                         
                         	DSTE\-standard flag
-                        	**type**\:   :py:class:`MplsTeBandwidthDste <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste>`
+                        	**type**\:  :py:class:`MplsTeBandwidthDste <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: class_or_pool_type
                         
                         	Class type for the bandwidth allocation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..1
                         
@@ -2714,7 +2720,7 @@ class MplsTe(Entity):
                         .. attribute:: bandwidth
                         
                         	The value of the bandwidth reserved by this tunnel in kbps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2760,12 +2766,12 @@ class MplsTe(Entity):
                         .. attribute:: autoroute_announce
                         
                         	Announce tunnel to IGP
-                        	**type**\:   :py:class:`AutorouteAnnounce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce>`
+                        	**type**\:  :py:class:`AutorouteAnnounce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce>`
                         
                         .. attribute:: destinations
                         
                         	Tunnel Autoroute Destination(s)
-                        	**type**\:   :py:class:`Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations>`
+                        	**type**\:  :py:class:`Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations>`
                         
                         
 
@@ -2803,22 +2809,22 @@ class MplsTe(Entity):
                             .. attribute:: exclude_traffic
                             
                             	Exclude traffic on autorouted tunnel
-                            	**type**\:   :py:class:`ExcludeTraffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic>`
+                            	**type**\:  :py:class:`ExcludeTraffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic>`
                             
                             .. attribute:: metric
                             
                             	Specify MPLS tunnel metric
-                            	**type**\:   :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric>`
+                            	**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric>`
                             
                             .. attribute:: enable
                             
                             	Enable autoroute announce
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: include_ipv6
                             
                             	Specify that the tunnel should be an IPv6 autoroute announce also
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -2863,7 +2869,7 @@ class MplsTe(Entity):
                                 .. attribute:: segment_routing
                                 
                                 	Exclude tunnel in IGP for SR prefixes
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -2896,26 +2902,26 @@ class MplsTe(Entity):
                                 .. attribute:: metric_type
                                 
                                 	Autoroute tunnel metric type
-                                	**type**\:   :py:class:`MplsTeAutorouteMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetric>`
+                                	**type**\:  :py:class:`MplsTeAutorouteMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetric>`
                                 
                                 .. attribute:: absolute_metric
                                 
                                 	The absolute metric value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..2147483647
                                 
                                 .. attribute:: relative_metric
                                 
                                 	The value of the adjustment
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-10..10
                                 
                                 .. attribute:: constant_metric
                                 
                                 	The constant metric value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..2147483647
                                 
@@ -2956,7 +2962,7 @@ class MplsTe(Entity):
                             .. attribute:: destination
                             
                             	Destination address to add in RIB
-                            	**type**\: list of    :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination>`
+                            	**type**\: list of  		 :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination>`
                             
                             
 
@@ -2989,7 +2995,9 @@ class MplsTe(Entity):
                                 .. attribute:: destination_address  <key>
                                 
                                 	IP address of destination
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -3022,57 +3030,57 @@ class MplsTe(Entity):
                         .. attribute:: new_style_affinity_affinity_type
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                         
                         
 
@@ -3115,7 +3123,7 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             
 
@@ -3148,12 +3156,14 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -3188,17 +3198,21 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -3235,22 +3249,28 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -3289,27 +3309,35 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -3350,32 +3378,42 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -3418,37 +3456,49 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -3493,42 +3543,56 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -3575,47 +3639,63 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -3664,52 +3744,70 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity9  <key>
                             
                             	The name of the nineth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -3760,57 +3858,77 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity9  <key>
                             
                             	The name of the nineth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity10  <key>
                             
                             	The name of the tenth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -3863,7 +3981,7 @@ class MplsTe(Entity):
                         .. attribute:: bandwidth_protection
                         
                         	Bandwidth Protection
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..1
                         
@@ -3872,7 +3990,7 @@ class MplsTe(Entity):
                         .. attribute:: node_protection
                         
                         	Node Protection
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..1
                         
@@ -3914,14 +4032,14 @@ class MplsTe(Entity):
                     .. attribute:: tunnel_id_type
                     
                     	Tunnel ID Type
-                    	**type**\:   :py:class:`MplsTeTunnelId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelId>`
+                    	**type**\:  :py:class:`MplsTeTunnelId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelId>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: tunnel_id
                     
                     	Tunnel ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -3961,12 +4079,12 @@ class MplsTe(Entity):
         .. attribute:: timers
         
         	GMPLS\-UNI timer configuration
-        	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Timers>`
+        	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Timers>`
         
         .. attribute:: controllers
         
         	GMPLS\-UNI controllers
-        	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers>`
+        	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers>`
         
         
 
@@ -4005,7 +4123,7 @@ class MplsTe(Entity):
             .. attribute:: path_option_timers
             
             	GMPLS\-UNI path\-option timer configuration
-            	**type**\:   :py:class:`PathOptionTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Timers.PathOptionTimers>`
+            	**type**\:  :py:class:`PathOptionTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Timers.PathOptionTimers>`
             
             
 
@@ -4039,7 +4157,7 @@ class MplsTe(Entity):
                 .. attribute:: holddown
                 
                 	GMPLS\-UNI path\-option holddown timer configuration
-                	**type**\:   :py:class:`Holddown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown>`
+                	**type**\:  :py:class:`Holddown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown>`
                 
                 
 
@@ -4074,7 +4192,7 @@ class MplsTe(Entity):
                     .. attribute:: minimum
                     
                     	Minimum holddown (seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 5..3600
                     
@@ -4083,7 +4201,7 @@ class MplsTe(Entity):
                     .. attribute:: maximum
                     
                     	Maximum holddown (seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 5..3600
                     
@@ -4123,7 +4241,7 @@ class MplsTe(Entity):
             .. attribute:: controller
             
             	Configure a GMPLS controller
-            	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller>`
+            	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller>`
             
             
 
@@ -4157,27 +4275,29 @@ class MplsTe(Entity):
                 .. attribute:: controller_name  <key>
                 
                 	Controller name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: announce
                 
                 	Announce discovered tunnel properties to system
-                	**type**\:   :py:class:`Announce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.Announce>`
+                	**type**\:  :py:class:`Announce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.Announce>`
                 
                 .. attribute:: controller_logging
                 
                 	Controller logging
-                	**type**\:   :py:class:`ControllerLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.ControllerLogging>`
+                	**type**\:  :py:class:`ControllerLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.ControllerLogging>`
                 
                 .. attribute:: gmpls_unitunnel_head
                 
                 	GMPLS\-UNI tunnel\-head properties
-                	**type**\:   :py:class:`GmplsUnitunnelHead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead>`
+                	**type**\:  :py:class:`GmplsUnitunnelHead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead>`
                 
                 .. attribute:: enable
                 
                 	Enable GMPLS\-UNI on the link
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -4229,7 +4349,7 @@ class MplsTe(Entity):
                     .. attribute:: srl_gs
                     
                     	Enable announcement of discovered SRLGs
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -4262,7 +4382,7 @@ class MplsTe(Entity):
                     .. attribute:: discovered_srlg_change_logging
                     
                     	Enable logging of changes to of discovered SRLGs
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -4295,51 +4415,53 @@ class MplsTe(Entity):
                     .. attribute:: path_options
                     
                     	Path\-option configuration
-                    	**type**\:   :py:class:`PathOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions>`
+                    	**type**\:  :py:class:`PathOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions>`
                     
                     .. attribute:: recording
                     
                     	Tunnel property recording
-                    	**type**\:   :py:class:`Recording <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording>`
+                    	**type**\:  :py:class:`Recording <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording>`
                     
                     .. attribute:: logging
                     
                     	Tunnel event logging
-                    	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging>`
+                    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging>`
                     
                     .. attribute:: tunnel_id
                     
                     	GMPLS\-UNI head tunnel\-id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: enable
                     
                     	Set link as a GMPLS tunnel head
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: destination
                     
                     	Set the destination of the tunnel
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: priority
                     
                     	Tunnel Setup and Hold Priorities
-                    	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority>`
+                    	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: record_route
                     
                     	Record the route used by the tunnel
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: signalled_name
                     
                     	The name of the tunnel to be included in signalling messages
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..254
                     
@@ -4401,7 +4523,7 @@ class MplsTe(Entity):
                         .. attribute:: path_option
                         
                         	A Path\-option
-                        	**type**\: list of    :py:class:`PathOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption>`
+                        	**type**\: list of  		 :py:class:`PathOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption>`
                         
                         
 
@@ -4434,21 +4556,21 @@ class MplsTe(Entity):
                             .. attribute:: preference_level  <key>
                             
                             	Preference level for this path option
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..1000
                             
                             .. attribute:: path_type
                             
                             	The type of the path option
-                            	**type**\:   :py:class:`MplsTePathOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOption>`
+                            	**type**\:  :py:class:`MplsTePathOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOption>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: path_id
                             
                             	The ID of the explicit path associated with this option
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..65535
                             
@@ -4457,47 +4579,47 @@ class MplsTe(Entity):
                             .. attribute:: path_name
                             
                             	The name of the explicit path associated with this option
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: xro_type
                             
                             	The route\-exclusion type
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: xro_attribute_set_name
                             
                             	The name of the XRO attribute set to be used for this path\-option
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..64
                             
                             .. attribute:: lockdown
                             
                             	Path option properties\: must be Lockdown
-                            	**type**\:   :py:class:`MplsTePathOptionProperty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty>`
+                            	**type**\:  :py:class:`MplsTePathOptionProperty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: verbatim
                             
                             	Path option properties\: must be verbatim if set
-                            	**type**\:   :py:class:`MplsTePathOptionProperty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty>`
+                            	**type**\:  :py:class:`MplsTePathOptionProperty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty>`
                             
                             	**default value**\: none
                             
                             .. attribute:: signaled_label
                             
                             	Signaled label type
-                            	**type**\:   :py:class:`MplsTeSignaledLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSignaledLabel>`
+                            	**type**\:  :py:class:`MplsTeSignaledLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSignaledLabel>`
                             
                             	**default value**\: not-set
                             
                             .. attribute:: dwdm_channel
                             
                             	DWDM channel number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..89
                             
@@ -4552,7 +4674,7 @@ class MplsTe(Entity):
                         .. attribute:: srlg
                         
                         	Enable SRLG\-recording during signaling
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -4585,7 +4707,7 @@ class MplsTe(Entity):
                         .. attribute:: state_message
                         
                         	Log tunnel state messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -4618,7 +4740,7 @@ class MplsTe(Entity):
                         .. attribute:: setup_priority
                         
                         	Setup Priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..7
                         
@@ -4627,7 +4749,7 @@ class MplsTe(Entity):
                         .. attribute:: hold_priority
                         
                         	Hold Priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..7
                         
@@ -4669,97 +4791,97 @@ class MplsTe(Entity):
         .. attribute:: auto_tunnel
         
         	Configure auto\-tunnels feature
-        	**type**\:   :py:class:`AutoTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel>`
+        	**type**\:  :py:class:`AutoTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel>`
         
         .. attribute:: hardware_out_of_resource
         
         	Configure HW OOR processing in MPLS\-TE
-        	**type**\:   :py:class:`HardwareOutOfResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.HardwareOutOfResource>`
+        	**type**\:  :py:class:`HardwareOutOfResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.HardwareOutOfResource>`
         
         .. attribute:: secondary_router_ids
         
         	Configure MPLS TE Secondary Router ID
-        	**type**\:   :py:class:`SecondaryRouterIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.SecondaryRouterIds>`
+        	**type**\:  :py:class:`SecondaryRouterIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.SecondaryRouterIds>`
         
         .. attribute:: srlg
         
         	Configure SRLG values and MPLS\-TE properties
-        	**type**\:   :py:class:`Srlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg>`
+        	**type**\:  :py:class:`Srlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg>`
         
         .. attribute:: queues
         
         	Configure MPLS TE route priority
-        	**type**\:   :py:class:`Queues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Queues>`
+        	**type**\:  :py:class:`Queues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Queues>`
         
         .. attribute:: mib
         
         	MPLS\-TE MIB properties
-        	**type**\:   :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Mib>`
+        	**type**\:  :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Mib>`
         
         .. attribute:: attribute_set
         
         	Attribute AttributeSets
-        	**type**\:   :py:class:`AttributeSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet>`
+        	**type**\:  :py:class:`AttributeSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet>`
         
         .. attribute:: bfd_over_lsp
         
         	BFD over MPLS TE Global Configurations
-        	**type**\:   :py:class:`BfdOverLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BfdOverLsp>`
+        	**type**\:  :py:class:`BfdOverLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BfdOverLsp>`
         
         .. attribute:: bandwidth_accounting
         
         	Bandwidth accounting configuration data
-        	**type**\:   :py:class:`BandwidthAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BandwidthAccounting>`
+        	**type**\:  :py:class:`BandwidthAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BandwidthAccounting>`
         
         .. attribute:: pce_attributes
         
         	Configuration MPLS TE PCE attributes
-        	**type**\:   :py:class:`PceAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes>`
+        	**type**\:  :py:class:`PceAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes>`
         
         .. attribute:: lsp_out_of_resource
         
         	Configure LSP OOR attributes in MPLS\-TE
-        	**type**\:   :py:class:`LspOutOfResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.LspOutOfResource>`
+        	**type**\:  :py:class:`LspOutOfResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.LspOutOfResource>`
         
         .. attribute:: soft_preemption
         
         	Soft preemption configuration data
-        	**type**\:   :py:class:`SoftPreemption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.SoftPreemption>`
+        	**type**\:  :py:class:`SoftPreemption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.SoftPreemption>`
         
         .. attribute:: fast_reroute
         
         	Configure fast reroute attributes
-        	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.FastReroute>`
+        	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.FastReroute>`
         
         .. attribute:: path_selection
         
         	Path selection configuration
-        	**type**\:   :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection>`
+        	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection>`
         
         .. attribute:: affinity_mappings
         
         	Affinity Mapping Table configuration
-        	**type**\:   :py:class:`AffinityMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AffinityMappings>`
+        	**type**\:  :py:class:`AffinityMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AffinityMappings>`
         
         .. attribute:: log_nsr_status
         
         	Log NSR status messages
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: log_issu_status
         
         	Log ISSU status messages
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: reoptimize_link_up
         
         	Enable reoptimization based on link\-up events
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: reoptimize_delay_cleanup_timer
         
         	Reoptimization Delay Cleanup Value (seconds)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..300
         
@@ -4768,12 +4890,12 @@ class MplsTe(Entity):
         .. attribute:: disable_reoptimize_affinity_failure
         
         	Disable reoptimization after affinity failures
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: maximum_tunnels
         
         	The maximum number of tunnel heads that will be allowed
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..65536
         
@@ -4782,7 +4904,7 @@ class MplsTe(Entity):
         .. attribute:: link_holddown_timer
         
         	Holddown time for links which had Path Errors in seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..300
         
@@ -4793,22 +4915,22 @@ class MplsTe(Entity):
         .. attribute:: fault_oam
         
         	Enable Fault\-OAM functionality for bidirectional tunnels
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: enable_unequal_load_balancing
         
         	Enable unequal load\-balancing over tunnels to the same destination
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: log_tail
         
         	Log all tail tunnel events
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: reoptimize_delay_after_frr_timer
         
         	Reoptimization Delay After FRR Value (seconds)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..120
         
@@ -4817,7 +4939,7 @@ class MplsTe(Entity):
         .. attribute:: auto_bandwidth_collect_frequency
         
         	Auto\-bandwidth global collection frequency in minutes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..10080
         
@@ -4828,7 +4950,7 @@ class MplsTe(Entity):
         .. attribute:: reopt_delay_path_protect_switchover_timer
         
         	Seconds between path protect switchover and tunnel re\-optimization. Set to 0 to disable
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..604800
         
@@ -4839,12 +4961,12 @@ class MplsTe(Entity):
         .. attribute:: log_all
         
         	Always set to true
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: loose_path_retry_period
         
         	Signalling retry for tunnels terminating outside the headend area
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 30..600
         
@@ -4853,32 +4975,32 @@ class MplsTe(Entity):
         .. attribute:: reoptimize_load_balancing
         
         	Load balance bandwidth during reoptimization
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: log_head
         
         	Log all head tunnel events
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: path_selection_ignore_overload
         
         	Deprecated \- do not use
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: graceful_preemption_on_bandwidth_reduction
         
         	Enable graceful preemption when there is a bandwidth reduction
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: advertise_explicit_nulls
         
         	Enable explicit\-null advertising to PHOP
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: reoptimize_delay_install_timer
         
         	Reoptimization Delay Install Value (seconds)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..3600
         
@@ -4887,7 +5009,7 @@ class MplsTe(Entity):
         .. attribute:: reoptimize_delay_after_affinity_failure_timer
         
         	Delay reoptimizing current LSP after affinity failures
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..604800
         
@@ -4896,12 +5018,12 @@ class MplsTe(Entity):
         .. attribute:: log_frr_protection
         
         	Log FRR Protection messages
-        	**type**\:   :py:class:`MplsTeLogFrrProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeLogFrrProtection>`
+        	**type**\:  :py:class:`MplsTeLogFrrProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeLogFrrProtection>`
         
         .. attribute:: reoptimize_timer_frequency
         
         	Reoptimize timers period in seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..604800
         
@@ -4912,12 +5034,12 @@ class MplsTe(Entity):
         .. attribute:: log_mid
         
         	Log all mid tunnel events
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: log_preemption
         
         	Log tunnel preemption messages
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -5076,27 +5198,27 @@ class MplsTe(Entity):
             .. attribute:: pcc
             
             	Configure auto\-tunnel PCC (Path Computation Client) feature
-            	**type**\:   :py:class:`Pcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Pcc>`
+            	**type**\:  :py:class:`Pcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Pcc>`
             
             .. attribute:: p2p_auto_tunnel
             
             	Configure P2P auto\-tunnel feature
-            	**type**\:   :py:class:`P2PAutoTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel>`
+            	**type**\:  :py:class:`P2PAutoTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel>`
             
             .. attribute:: backup
             
             	Configure auto\-tunnel backup feature
-            	**type**\:   :py:class:`Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Backup>`
+            	**type**\:  :py:class:`Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Backup>`
             
             .. attribute:: mesh
             
             	Configure auto\-tunnel mesh feature
-            	**type**\:   :py:class:`Mesh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh>`
+            	**type**\:  :py:class:`Mesh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh>`
             
             .. attribute:: p2mp_auto_tunnel
             
             	Configure P2MP auto\-tunnel feature
-            	**type**\:   :py:class:`P2MpAutoTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel>`
+            	**type**\:  :py:class:`P2MpAutoTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel>`
             
             
 
@@ -5151,7 +5273,7 @@ class MplsTe(Entity):
                 .. attribute:: tunnel_range
                 
                 	Configure tunnel ID range for auto\-tunnel features
-                	**type**\:   :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange>`
+                	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange>`
                 
                 
 
@@ -5186,14 +5308,14 @@ class MplsTe(Entity):
                     .. attribute:: min_tunnel_id
                     
                     	Minimum tunnel ID for auto\-tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: max_tunnel_id
                     
                     	Maximum tunnel ID for auto\-tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -5231,7 +5353,7 @@ class MplsTe(Entity):
                 .. attribute:: tunnel_range
                 
                 	Configure tunnel ID range for auto\-tunnel features
-                	**type**\:   :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange>`
+                	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange>`
                 
                 
 
@@ -5266,14 +5388,14 @@ class MplsTe(Entity):
                     .. attribute:: min_tunnel_id
                     
                     	Minimum tunnel ID for auto\-tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: max_tunnel_id
                     
                     	Maximum tunnel ID for auto\-tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -5311,17 +5433,17 @@ class MplsTe(Entity):
                 .. attribute:: affinity_ignore
                 
                 	Ignore affinity during CSPF for auto backup tunnels
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: timers
                 
                 	Configure auto\-tunnel backup timers value
-                	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers>`
+                	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers>`
                 
                 .. attribute:: tunnel_range
                 
                 	Configure tunnel ID range for auto\-tunnel features
-                	**type**\:   :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange>`
+                	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange>`
                 
                 
 
@@ -5365,7 +5487,7 @@ class MplsTe(Entity):
                     .. attribute:: removal
                     
                     	Configure auto\-tunnel backup removal timers value
-                    	**type**\:   :py:class:`Removal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal>`
+                    	**type**\:  :py:class:`Removal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal>`
                     
                     
 
@@ -5400,7 +5522,7 @@ class MplsTe(Entity):
                         .. attribute:: unused
                         
                         	Auto\-tunnel backup unused timeout in minutes (0=never timeout)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..10080
                         
@@ -5441,14 +5563,14 @@ class MplsTe(Entity):
                     .. attribute:: min_tunnel_id
                     
                     	Minimum tunnel ID for auto\-tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: max_tunnel_id
                     
                     	Maximum tunnel ID for auto\-tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -5486,17 +5608,17 @@ class MplsTe(Entity):
                 .. attribute:: mesh_groups
                 
                 	Configure auto\-tunnel mesh group
-                	**type**\:   :py:class:`MeshGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups>`
+                	**type**\:  :py:class:`MeshGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups>`
                 
                 .. attribute:: timers
                 
                 	Configure auto\-tunnel backup timers value
-                	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers>`
+                	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers>`
                 
                 .. attribute:: tunnel_range
                 
                 	Configure tunnel ID range for auto\-tunnel features
-                	**type**\:   :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange>`
+                	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange>`
                 
                 
 
@@ -5540,7 +5662,7 @@ class MplsTe(Entity):
                     .. attribute:: mesh_group
                     
                     	Auto\-mesh group identifier
-                    	**type**\: list of    :py:class:`MeshGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup>`
+                    	**type**\: list of  		 :py:class:`MeshGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup>`
                     
                     
 
@@ -5574,38 +5696,38 @@ class MplsTe(Entity):
                         .. attribute:: mesh_group_id  <key>
                         
                         	Mesh group ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: destination_list
                         
                         	The name of prefix\-list to be applied to this destination\-list
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..32
                         
                         .. attribute:: disable
                         
                         	Disables mesh group
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: attribute_set
                         
                         	The name of auto\-mesh attribute set to be applied to this group
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: create
                         
                         	Auto\-mesh group enable object that controls whether this group is configured or not .This object must be set before other configuration supplied for this group
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: one_hop
                         
                         	Automatically create tunnel to all next\-hops
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -5649,7 +5771,7 @@ class MplsTe(Entity):
                     .. attribute:: removal
                     
                     	Configure auto\-tunnel backup removal timers value
-                    	**type**\:   :py:class:`Removal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal>`
+                    	**type**\:  :py:class:`Removal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal>`
                     
                     
 
@@ -5684,7 +5806,7 @@ class MplsTe(Entity):
                         .. attribute:: unused
                         
                         	Auto\-tunnel backup unused timeout in minutes (0=never timeout)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..10080
                         
@@ -5725,14 +5847,14 @@ class MplsTe(Entity):
                     .. attribute:: min_tunnel_id
                     
                     	Minimum tunnel ID for auto\-tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: max_tunnel_id
                     
                     	Maximum tunnel ID for auto\-tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -5770,7 +5892,7 @@ class MplsTe(Entity):
                 .. attribute:: tunnel_range
                 
                 	Configure tunnel ID range for auto\-tunnel features
-                	**type**\:   :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange>`
+                	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange>`
                 
                 
 
@@ -5805,14 +5927,14 @@ class MplsTe(Entity):
                     .. attribute:: min_tunnel_id
                     
                     	Minimum tunnel ID for auto\-tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
                     .. attribute:: max_tunnel_id
                     
                     	Maximum tunnel ID for auto\-tunnels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -5850,17 +5972,17 @@ class MplsTe(Entity):
             .. attribute:: oor_red_state
             
             	Configuration for HW OOR Red State
-            	**type**\:   :py:class:`OorRedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState>`
+            	**type**\:  :py:class:`OorRedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState>`
             
             .. attribute:: oor_yellow_state
             
             	Configuration for HW OOR Yellow State
-            	**type**\:   :py:class:`OorYellowState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState>`
+            	**type**\:  :py:class:`OorYellowState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState>`
             
             .. attribute:: oor_green_state
             
             	Configuration for HW OOR Green State
-            	**type**\:   :py:class:`OorGreenState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState>`
+            	**type**\:  :py:class:`OorGreenState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState>`
             
             
 
@@ -5904,12 +6026,12 @@ class MplsTe(Entity):
                 .. attribute:: oor_node_protection_disable
                 
                 	Disable FRR node\-protection when the link is in this OOR State
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: oor_available_bandwidth_percentage
                 
                 	Flood a specific percentage of the available bandwidth
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..100
                 
@@ -5920,7 +6042,7 @@ class MplsTe(Entity):
                 .. attribute:: oor_accept_lsp_min_bandwidth
                 
                 	Only accept LSPs with at least the specified bandwidth (in kbps)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -5931,12 +6053,12 @@ class MplsTe(Entity):
                 .. attribute:: oor_accept_reopt_lsp
                 
                 	Allow the setup of reoptimized LSPs over the link in this OOR State
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: oor_metric_te_penalty
                 
                 	Penalty applied to the TE metric of a link in OOR state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -5982,12 +6104,12 @@ class MplsTe(Entity):
                 .. attribute:: oor_node_protection_disable
                 
                 	Disable FRR node\-protection when the link is in this OOR State
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: oor_available_bandwidth_percentage
                 
                 	Flood a specific percentage of the available bandwidth
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..100
                 
@@ -5998,7 +6120,7 @@ class MplsTe(Entity):
                 .. attribute:: oor_accept_lsp_min_bandwidth
                 
                 	Only accept LSPs with at least the specified bandwidth (in kbps)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -6009,12 +6131,12 @@ class MplsTe(Entity):
                 .. attribute:: oor_accept_reopt_lsp
                 
                 	Allow the setup of reoptimized LSPs over the link in this OOR State
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: oor_metric_te_penalty
                 
                 	Penalty applied to the TE metric of a link in OOR state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -6060,7 +6182,7 @@ class MplsTe(Entity):
                 .. attribute:: oor_recovery_duration
                 
                 	Period of time (minutes) during which the action in Green state are applied. After this period, the processing in TE goes back to normal state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..10080
                 
@@ -6071,12 +6193,12 @@ class MplsTe(Entity):
                 .. attribute:: oor_node_protection_disable
                 
                 	Disable FRR node\-protection when the link is in this OOR State
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: oor_available_bandwidth_percentage
                 
                 	Flood a specific percentage of the available bandwidth
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..100
                 
@@ -6087,7 +6209,7 @@ class MplsTe(Entity):
                 .. attribute:: oor_accept_lsp_min_bandwidth
                 
                 	Only accept LSPs with at least the specified bandwidth (in kbps)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -6098,12 +6220,12 @@ class MplsTe(Entity):
                 .. attribute:: oor_accept_reopt_lsp
                 
                 	Allow the setup of reoptimized LSPs over the link in this OOR State
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: oor_metric_te_penalty
                 
                 	Penalty applied to the TE metric of a link in OOR state
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -6151,7 +6273,7 @@ class MplsTe(Entity):
             .. attribute:: secondary_router_id
             
             	Secondary Router ID
-            	**type**\: list of    :py:class:`SecondaryRouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId>`
+            	**type**\: list of  		 :py:class:`SecondaryRouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId>`
             
             
 
@@ -6185,7 +6307,9 @@ class MplsTe(Entity):
                 .. attribute:: secondary_router_id_value  <key>
                 
                 	Secondary TE Router ID
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 
 
@@ -6219,12 +6343,12 @@ class MplsTe(Entity):
             .. attribute:: names
             
             	Configure SRLG identified by names
-            	**type**\:   :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Names>`
+            	**type**\:  :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Names>`
             
             .. attribute:: default_admin_weight
             
             	Default Admin weight any SRLG value that does not have one
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -6233,7 +6357,7 @@ class MplsTe(Entity):
             .. attribute:: enable
             
             	Enter SRLG property configuration
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -6274,7 +6398,7 @@ class MplsTe(Entity):
                 .. attribute:: name
                 
                 	SRLG name and its MPLS\-TE properties
-                	**type**\: list of    :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Names.Name>`
+                	**type**\: list of  		 :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Names.Name>`
                 
                 
 
@@ -6308,19 +6432,19 @@ class MplsTe(Entity):
                     .. attribute:: srlg_name  <key>
                     
                     	SRLG membership name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: static_srlg_members
                     
                     	Configure static SRLG members list
-                    	**type**\:   :py:class:`StaticSrlgMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers>`
+                    	**type**\:  :py:class:`StaticSrlgMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers>`
                     
                     .. attribute:: admin_weight
                     
                     	Administrative weight for the SRLG value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -6363,7 +6487,7 @@ class MplsTe(Entity):
                         .. attribute:: static_srlg_member
                         
                         	A mapping of the local static SRLG member
-                        	**type**\: list of    :py:class:`StaticSrlgMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember>`
+                        	**type**\: list of  		 :py:class:`StaticSrlgMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember>`
                         
                         
 
@@ -6396,12 +6520,16 @@ class MplsTe(Entity):
                             .. attribute:: from_address  <key>
                             
                             	From address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: to_address
                             
                             	To Addres
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
@@ -6438,7 +6566,7 @@ class MplsTe(Entity):
             .. attribute:: queue
             
             	Configure route priority queue value
-            	**type**\: list of    :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Queues.Queue>`
+            	**type**\: list of  		 :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Queues.Queue>`
             
             
 
@@ -6472,12 +6600,12 @@ class MplsTe(Entity):
                 .. attribute:: role  <key>
                 
                 	Route Priority Tunnel Role
-                	**type**\:   :py:class:`RoutePriorityRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.RoutePriorityRole>`
+                	**type**\:  :py:class:`RoutePriorityRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.RoutePriorityRole>`
                 
                 .. attribute:: value
                 
                 	Route priority queue value
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..12
                 
@@ -6517,7 +6645,7 @@ class MplsTe(Entity):
             .. attribute:: midpoint_lsp_stats_collection_disable
             
             	Disables mib midpoint LSP traffic stats collection
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -6551,37 +6679,37 @@ class MplsTe(Entity):
             .. attribute:: path_option_attributes
             
             	Path Option Attribute\-Set Table
-            	**type**\:   :py:class:`PathOptionAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes>`
+            	**type**\:  :py:class:`PathOptionAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes>`
             
             .. attribute:: p2mpte_attributes
             
             	P2MP\-TE Tunnel AttributeSets Table
-            	**type**\:   :py:class:`P2MpteAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes>`
+            	**type**\:  :py:class:`P2MpteAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes>`
             
             .. attribute:: p2p_te_attributes
             
             	P2P\-TE Tunnel AttributeSets Table
-            	**type**\:   :py:class:`P2PTeAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes>`
+            	**type**\:  :py:class:`P2PTeAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes>`
             
             .. attribute:: auto_backup_attributes
             
             	Auto\-backup Tunnel Attribute Table
-            	**type**\:   :py:class:`AutoBackupAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes>`
+            	**type**\:  :py:class:`AutoBackupAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes>`
             
             .. attribute:: otn_pp_attributes
             
             	OTN Path Protection Attributes table
-            	**type**\:   :py:class:`OtnPpAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes>`
+            	**type**\:  :py:class:`OtnPpAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes>`
             
             .. attribute:: auto_mesh_attributes
             
             	Auto\-mesh Tunnel AttributeSets Table
-            	**type**\:   :py:class:`AutoMeshAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes>`
+            	**type**\:  :py:class:`AutoMeshAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes>`
             
             .. attribute:: xro_attributes
             
             	XRO Tunnel Attributes table
-            	**type**\:   :py:class:`XroAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes>`
+            	**type**\:  :py:class:`XroAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes>`
             
             
 
@@ -6645,7 +6773,7 @@ class MplsTe(Entity):
                 .. attribute:: path_option_attribute
                 
                 	Path Option Attribute
-                	**type**\: list of    :py:class:`PathOptionAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute>`
+                	**type**\: list of  		 :py:class:`PathOptionAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute>`
                 
                 
 
@@ -6679,50 +6807,50 @@ class MplsTe(Entity):
                     .. attribute:: attribute_set_name  <key>
                     
                     	Attribute Set Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: bfd_reverse_path
                     
                     	Configure BFD reverse path
-                    	**type**\:   :py:class:`BfdReversePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath>`
+                    	**type**\:  :py:class:`BfdReversePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: att_path_option_path_selection
                     
                     	Configure path selection properties
-                    	**type**\:   :py:class:`AttPathOptionPathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection>`
+                    	**type**\:  :py:class:`AttPathOptionPathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection>`
                     
                     .. attribute:: pce
                     
                     	Configure pce properties
-                    	**type**\:   :py:class:`Pce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce>`
+                    	**type**\:  :py:class:`Pce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce>`
                     
                     .. attribute:: enable
                     
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
-                    	**type**\:   :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask>`
+                    	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: bandwidth
                     
                     	Tunnel bandwidth requirement
-                    	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth>`
+                    	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:   :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes>`
                     
                     
 
@@ -6785,12 +6913,12 @@ class MplsTe(Entity):
                         .. attribute:: bfd_reverse_path_type
                         
                         	BFD reverse path type
-                        	**type**\:   :py:class:`BfdReversePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.BfdReversePath>`
+                        	**type**\:  :py:class:`BfdReversePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.BfdReversePath>`
                         
                         .. attribute:: binding_label
                         
                         	BFD reverse path binding label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..1048575
                         
@@ -6832,26 +6960,26 @@ class MplsTe(Entity):
                         .. attribute:: path_selection_exclude_list
                         
                         	Path selection exclude list name configuration
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: enable
                         
                         	Enter path selection configuration
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: invalidation
                         
                         	Path invalidation configuration for this specific tunnel
-                        	**type**\:   :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation>`
+                        	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: path_selection_cost_limit
                         
                         	Path selection cost limit configuration for this specific tunnel
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4294967295
                         
@@ -6895,14 +7023,14 @@ class MplsTe(Entity):
                             .. attribute:: path_invalidation_timeout
                             
                             	Path Invalidation Timeout
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..60000
                             
                             .. attribute:: path_invalidation_action
                             
                             	Path Invalidation Action
-                            	**type**\:   :py:class:`PathInvalidationAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationAction>`
+                            	**type**\:  :py:class:`PathInvalidationAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationAction>`
                             
                             
 
@@ -6940,21 +7068,21 @@ class MplsTe(Entity):
                         .. attribute:: bidirectional
                         
                         	Bidirectional parameters
-                        	**type**\:   :py:class:`Bidirectional <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional>`
+                        	**type**\:  :py:class:`Bidirectional <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: disjoint_path
                         
                         	Disjoint path parameters
-                        	**type**\:   :py:class:`DisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath>`
+                        	**type**\:  :py:class:`DisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: enable
                         
                         	Always set to true
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -6995,14 +7123,16 @@ class MplsTe(Entity):
                             .. attribute:: bd_source_address
                             
                             	Bidirectional Source IP Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: bd_group_id
                             
                             	Bidirectional Group ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -7044,14 +7174,16 @@ class MplsTe(Entity):
                             .. attribute:: dp_source_address
                             
                             	Disjoint Path Source IP Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: dp_type
                             
                             	Disjoint Path Type
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..3
                             
@@ -7060,7 +7192,7 @@ class MplsTe(Entity):
                             .. attribute:: dp_group_id
                             
                             	Disjoint Path Group ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -7104,14 +7236,18 @@ class MplsTe(Entity):
                         .. attribute:: affinity
                         
                         	Affinity flags
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         	**mandatory**\: True
                         
                         .. attribute:: mask
                         
                         	Affinity mask
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         	**mandatory**\: True
                         
@@ -7151,14 +7287,14 @@ class MplsTe(Entity):
                         .. attribute:: dste_type
                         
                         	DSTE\-standard flag
-                        	**type**\:   :py:class:`MplsTeBandwidthDste <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste>`
+                        	**type**\:  :py:class:`MplsTeBandwidthDste <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: class_or_pool_type
                         
                         	Class type for the bandwidth allocation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..1
                         
@@ -7167,7 +7303,7 @@ class MplsTe(Entity):
                         .. attribute:: bandwidth
                         
                         	The value of the bandwidth reserved by this tunnel in kbps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -7213,57 +7349,57 @@ class MplsTe(Entity):
                         .. attribute:: new_style_affinity_affinity_type
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                         
                         
 
@@ -7306,7 +7442,7 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             
 
@@ -7339,12 +7475,14 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -7379,17 +7517,21 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -7426,22 +7568,28 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -7480,27 +7628,35 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -7541,32 +7697,42 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -7609,37 +7775,49 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -7684,42 +7862,56 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -7766,47 +7958,63 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -7855,52 +8063,70 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity9  <key>
                             
                             	The name of the nineth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -7951,57 +8177,77 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity9  <key>
                             
                             	The name of the nineth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity10  <key>
                             
                             	The name of the tenth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -8054,7 +8300,7 @@ class MplsTe(Entity):
                 .. attribute:: p2mpte_attribute
                 
                 	P2MP\-TE Tunnel Attribute
-                	**type**\: list of    :py:class:`P2MpteAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute>`
+                	**type**\: list of  		 :py:class:`P2MpteAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute>`
                 
                 
 
@@ -8088,14 +8334,14 @@ class MplsTe(Entity):
                     .. attribute:: attribute_set_name  <key>
                     
                     	Attribute Set Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: interface_bandwidth
                     
                     	The bandwidth of the interface in kbps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -8104,55 +8350,55 @@ class MplsTe(Entity):
                     .. attribute:: priority
                     
                     	Tunnel Setup and Hold Priorities
-                    	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority>`
+                    	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: enable
                     
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: record_route
                     
                     	Record the route used by the tunnel
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
-                    	**type**\:   :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask>`
+                    	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: bandwidth
                     
                     	Tunnel bandwidth requirement
-                    	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth>`
+                    	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: path_selection
                     
                     	Configure path selection properties
-                    	**type**\:   :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection>`
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection>`
                     
                     .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:   :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes>`
                     
                     .. attribute:: fast_reroute
                     
                     	Specify MPLS tunnel can be fast\-rerouted
-                    	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute>`
+                    	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: logging
                     
                     	Log tunnel LSP messages
-                    	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging>`
+                    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging>`
                     
                     
 
@@ -8223,7 +8469,7 @@ class MplsTe(Entity):
                         .. attribute:: setup_priority
                         
                         	Setup Priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..7
                         
@@ -8232,7 +8478,7 @@ class MplsTe(Entity):
                         .. attribute:: hold_priority
                         
                         	Hold Priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..7
                         
@@ -8274,14 +8520,18 @@ class MplsTe(Entity):
                         .. attribute:: affinity
                         
                         	Affinity flags
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         	**mandatory**\: True
                         
                         .. attribute:: mask
                         
                         	Affinity mask
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         	**mandatory**\: True
                         
@@ -8321,14 +8571,14 @@ class MplsTe(Entity):
                         .. attribute:: dste_type
                         
                         	DSTE\-standard flag
-                        	**type**\:   :py:class:`MplsTeBandwidthDste <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste>`
+                        	**type**\:  :py:class:`MplsTeBandwidthDste <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: class_or_pool_type
                         
                         	Class type for the bandwidth allocation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..1
                         
@@ -8337,7 +8587,7 @@ class MplsTe(Entity):
                         .. attribute:: bandwidth
                         
                         	The value of the bandwidth reserved by this tunnel in kbps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -8383,7 +8633,7 @@ class MplsTe(Entity):
                         .. attribute:: enable
                         
                         	Enable path selection
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -8416,57 +8666,57 @@ class MplsTe(Entity):
                         .. attribute:: new_style_affinity_affinity_type
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                         
                         
 
@@ -8509,7 +8759,7 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             
 
@@ -8542,12 +8792,14 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -8582,17 +8834,21 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -8629,22 +8885,28 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -8683,27 +8945,35 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -8744,32 +9014,42 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -8812,37 +9092,49 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -8887,42 +9179,56 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -8969,47 +9275,63 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -9058,52 +9380,70 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity9  <key>
                             
                             	The name of the nineth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -9154,57 +9494,77 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity9  <key>
                             
                             	The name of the nineth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity10  <key>
                             
                             	The name of the tenth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -9257,7 +9617,7 @@ class MplsTe(Entity):
                         .. attribute:: bandwidth_protection
                         
                         	Bandwidth Protection
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..1
                         
@@ -9266,7 +9626,7 @@ class MplsTe(Entity):
                         .. attribute:: node_protection
                         
                         	Node Protection
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..1
                         
@@ -9308,47 +9668,47 @@ class MplsTe(Entity):
                         .. attribute:: insufficient_bw_message
                         
                         	Log tunnel messages for insufficient bandwidth
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reoptimized_message
                         
                         	Log tunnel reoptimized messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: bandwidth_change_message
                         
                         	Log tunnel bandwidth change messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: all
                         
                         	Log all events for a tunnel
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: pcalc_failure_message
                         
                         	Enable logging for path\-calculation failures
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: state_message
                         
                         	Log tunnel state messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reoptimize_attempts_message
                         
                         	Log tunnel reoptimization attempts messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: sub_lsp_state_message
                         
                         	Log all tunnel sub\-LSP state messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reroute_messsage
                         
                         	Log tunnel rereoute messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -9397,7 +9757,7 @@ class MplsTe(Entity):
                 .. attribute:: p2p_te_attribute
                 
                 	P2P\-TE Tunnel Attribute
-                	**type**\: list of    :py:class:`P2PTeAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute>`
+                	**type**\: list of  		 :py:class:`P2PTeAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute>`
                 
                 
 
@@ -9431,41 +9791,41 @@ class MplsTe(Entity):
                     .. attribute:: attribute_set_name  <key>
                     
                     	Attribute Set Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: path_selection
                     
                     	Configure path selection properties
-                    	**type**\:   :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection>`
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection>`
                     
                     .. attribute:: pce
                     
                     	Configure pce properties
-                    	**type**\:   :py:class:`Pce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce>`
+                    	**type**\:  :py:class:`Pce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce>`
                     
                     .. attribute:: enable
                     
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
-                    	**type**\:   :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask>`
+                    	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: logging
                     
                     	Log tunnel LSP messages
-                    	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging>`
+                    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging>`
                     
                     .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:   :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes>`
                     
                     
 
@@ -9525,27 +9885,27 @@ class MplsTe(Entity):
                         .. attribute:: segment_routing_prepend
                         
                         	Path selection segment routing prepend configuration
-                        	**type**\:   :py:class:`SegmentRoutingPrepend <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend>`
+                        	**type**\:  :py:class:`SegmentRoutingPrepend <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend>`
                         
                         .. attribute:: invalidation
                         
                         	Path selection invalidation configuration
-                        	**type**\:   :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation>`
+                        	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation>`
                         
                         .. attribute:: path_selection_metric
                         
                         	Path selection metric to use in path calculation
-                        	**type**\:   :py:class:`MplsTePathSelectionMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric>`
+                        	**type**\:  :py:class:`MplsTePathSelectionMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric>`
                         
                         .. attribute:: path_selection_segment_routing_adjacency_protection
                         
                         	Segment routing adjacency protection type to use in path calculation
-                        	**type**\:   :py:class:`MplsTePathSelectionSegmentRoutingAdjacencyProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionSegmentRoutingAdjacencyProtection>`
+                        	**type**\:  :py:class:`MplsTePathSelectionSegmentRoutingAdjacencyProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionSegmentRoutingAdjacencyProtection>`
                         
                         .. attribute:: enable
                         
                         	Enter path selection configuration
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -9593,12 +9953,12 @@ class MplsTe(Entity):
                             .. attribute:: indexes
                             
                             	Segment routing prepend index table
-                            	**type**\:   :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes>`
+                            	**type**\:  :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes>`
                             
                             .. attribute:: enable
                             
                             	Enter path selection segment routing prepend submode
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -9636,7 +9996,7 @@ class MplsTe(Entity):
                                 .. attribute:: index
                                 
                                 	Prepend index information
-                                	**type**\: list of    :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index>`
+                                	**type**\: list of  		 :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index>`
                                 
                                 
 
@@ -9669,21 +10029,21 @@ class MplsTe(Entity):
                                     .. attribute:: index_number  <key>
                                     
                                     	Index number
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..10
                                     
                                     .. attribute:: prepend_type
                                     
                                     	Prepend type
-                                    	**type**\:   :py:class:`SrPrepend <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.SrPrepend>`
+                                    	**type**\:  :py:class:`SrPrepend <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.SrPrepend>`
                                     
                                     	**default value**\: none-type
                                     
                                     .. attribute:: mpls_label
                                     
                                     	MPLS Label
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
@@ -9724,7 +10084,7 @@ class MplsTe(Entity):
                             .. attribute:: invalidation_timer
                             
                             	Path selection invalidation timer value (milliseconds)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..60000
                             
@@ -9733,7 +10093,7 @@ class MplsTe(Entity):
                             .. attribute:: invalidation_timer_expire_type
                             
                             	Path selection invalidation timer expire type
-                            	**type**\:   :py:class:`MplsTePathSelectionInvalidationTimerExpire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionInvalidationTimerExpire>`
+                            	**type**\:  :py:class:`MplsTePathSelectionInvalidationTimerExpire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionInvalidationTimerExpire>`
                             
                             	**default value**\: tunnel-action-tear
                             
@@ -9770,21 +10130,21 @@ class MplsTe(Entity):
                         .. attribute:: bidirectional
                         
                         	Bidirectional parameters
-                        	**type**\:   :py:class:`Bidirectional <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional>`
+                        	**type**\:  :py:class:`Bidirectional <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: disjoint_path
                         
                         	Disjoint path parameters
-                        	**type**\:   :py:class:`DisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath>`
+                        	**type**\:  :py:class:`DisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: enable
                         
                         	Always set to true
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -9825,14 +10185,16 @@ class MplsTe(Entity):
                             .. attribute:: bd_source_address
                             
                             	Bidirectional Source IP Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: bd_group_id
                             
                             	Bidirectional Group ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -9874,14 +10236,16 @@ class MplsTe(Entity):
                             .. attribute:: dp_source_address
                             
                             	Disjoint Path Source IP Address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             	**mandatory**\: True
                             
                             .. attribute:: dp_type
                             
                             	Disjoint Path Type
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..3
                             
@@ -9890,7 +10254,7 @@ class MplsTe(Entity):
                             .. attribute:: dp_group_id
                             
                             	Disjoint Path Group ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
@@ -9934,14 +10298,18 @@ class MplsTe(Entity):
                         .. attribute:: affinity
                         
                         	Affinity flags
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         	**mandatory**\: True
                         
                         .. attribute:: mask
                         
                         	Affinity mask
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         	**mandatory**\: True
                         
@@ -9981,57 +10349,57 @@ class MplsTe(Entity):
                         .. attribute:: lsp_switch_over_change_message
                         
                         	Log tunnel messages for bandwidth change
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: all
                         
                         	Log all events for a tunnel
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: record_route_messsage
                         
                         	Log tunnel record\-route messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: bfd_state_message
                         
                         	Enable BFD session state change alarm
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: bandwidth_change_message
                         
                         	Log tunnel messages for bandwidth change
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reoptimize_attempts_message
                         
                         	Log tunnel reoptimization attempts messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reroute_messsage
                         
                         	Log tunnel rereoute messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: state_message
                         
                         	Log tunnel state messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: insufficient_bw_message
                         
                         	Log tunnel messages for insufficient bandwidth
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reoptimized_message
                         
                         	Log tunnel reoptimized messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: pcalc_failure_message
                         
                         	Enable logging for path\-calculation failures
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -10084,57 +10452,57 @@ class MplsTe(Entity):
                         .. attribute:: new_style_affinity_affinity_type
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                         
                         
 
@@ -10177,7 +10545,7 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             
 
@@ -10210,12 +10578,14 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -10250,17 +10620,21 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -10297,22 +10671,28 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -10351,27 +10731,35 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -10412,32 +10800,42 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -10480,37 +10878,49 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -10555,42 +10965,56 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -10637,47 +11061,63 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -10726,52 +11166,70 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity9  <key>
                             
                             	The name of the nineth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -10822,57 +11280,77 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity9  <key>
                             
                             	The name of the nineth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity10  <key>
                             
                             	The name of the tenth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -10925,7 +11403,7 @@ class MplsTe(Entity):
                 .. attribute:: auto_backup_attribute
                 
                 	Auto\-backup Tunnel Attribute
-                	**type**\: list of    :py:class:`AutoBackupAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute>`
+                	**type**\: list of  		 :py:class:`AutoBackupAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute>`
                 
                 
 
@@ -10959,58 +11437,58 @@ class MplsTe(Entity):
                     .. attribute:: attribute_set_name  <key>
                     
                     	Attribute Set Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: signalled_name
                     
                     	Signalled name
-                    	**type**\:   :py:class:`SignalledName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName>`
+                    	**type**\:  :py:class:`SignalledName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName>`
                     
                     .. attribute:: auto_backup_logging
                     
                     	Log tunnel LSP messages
-                    	**type**\:   :py:class:`AutoBackupLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging>`
+                    	**type**\:  :py:class:`AutoBackupLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging>`
                     
                     .. attribute:: priority
                     
                     	Tunnel Setup and Hold Priorities
-                    	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority>`
+                    	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: enable
                     
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: record_route
                     
                     	Record the route used by the tunnel
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
-                    	**type**\:   :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask>`
+                    	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: path_selection
                     
                     	Configure path selection properties
-                    	**type**\:   :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection>`
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection>`
                     
                     .. attribute:: policy_classes
                     
                     	Policy classes for PBTS
-                    	**type**\:   :py:class:`PolicyClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses>`
+                    	**type**\:  :py:class:`PolicyClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses>`
                     
                     .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:   :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes>`
                     
                     
 
@@ -11081,22 +11559,22 @@ class MplsTe(Entity):
                         .. attribute:: name
                         
                         	Signalled name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: source_type
                         
                         	Source address or name
-                        	**type**\:   :py:class:`MplsTeSigNameOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSigNameOption>`
+                        	**type**\:  :py:class:`MplsTeSigNameOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSigNameOption>`
                         
                         .. attribute:: protected_interface_type
                         
                         	Protected\-interface address or name
-                        	**type**\:   :py:class:`MplsTeSigNameOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSigNameOption>`
+                        	**type**\:  :py:class:`MplsTeSigNameOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSigNameOption>`
                         
                         .. attribute:: mp_address
                         
                         	Set if merge\-point address is to be appended
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -11135,22 +11613,22 @@ class MplsTe(Entity):
                         .. attribute:: bandwidth_change_message
                         
                         	Log tunnel messages for bandwidth change
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reoptimize_attempts_message
                         
                         	Log tunnel reoptimization attempts messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: state_message
                         
                         	Log tunnel state messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reoptimized_message
                         
                         	Log tunnel reoptimized messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -11189,7 +11667,7 @@ class MplsTe(Entity):
                         .. attribute:: setup_priority
                         
                         	Setup Priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..7
                         
@@ -11198,7 +11676,7 @@ class MplsTe(Entity):
                         .. attribute:: hold_priority
                         
                         	Hold Priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..7
                         
@@ -11240,14 +11718,18 @@ class MplsTe(Entity):
                         .. attribute:: affinity
                         
                         	Affinity flags
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         	**mandatory**\: True
                         
                         .. attribute:: mask
                         
                         	Affinity mask
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         	**mandatory**\: True
                         
@@ -11287,7 +11769,7 @@ class MplsTe(Entity):
                         .. attribute:: enable
                         
                         	Enable path selection
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -11320,7 +11802,7 @@ class MplsTe(Entity):
                         .. attribute:: policy_class
                         
                         	Array of Policy class
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 1..8
                         
@@ -11355,57 +11837,57 @@ class MplsTe(Entity):
                         .. attribute:: new_style_affinity_affinity_type
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                         
                         
 
@@ -11448,7 +11930,7 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             
 
@@ -11481,12 +11963,14 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -11521,17 +12005,21 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -11568,22 +12056,28 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -11622,27 +12116,35 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -11683,32 +12185,42 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -11751,37 +12263,49 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -11826,42 +12350,56 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -11908,47 +12446,63 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -11997,52 +12551,70 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity9  <key>
                             
                             	The name of the nineth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -12093,57 +12665,77 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity9  <key>
                             
                             	The name of the nineth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity10  <key>
                             
                             	The name of the tenth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -12196,7 +12788,7 @@ class MplsTe(Entity):
                 .. attribute:: otn_pp_attribute
                 
                 	OTN Path Protection Attribute
-                	**type**\: list of    :py:class:`OtnPpAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute>`
+                	**type**\: list of  		 :py:class:`OtnPpAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute>`
                 
                 
 
@@ -12230,49 +12822,49 @@ class MplsTe(Entity):
                     .. attribute:: attribute_set_name  <key>
                     
                     	Attribute Set Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: revert_schedule_names
                     
                     	Specify APS revert schedule
-                    	**type**\:   :py:class:`RevertScheduleNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames>`
+                    	**type**\:  :py:class:`RevertScheduleNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames>`
                     
                     .. attribute:: sub_network_connection_mode
                     
                     	Sub\-network connection mode
-                    	**type**\:   :py:class:`SubNetworkConnectionMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode>`
+                    	**type**\:  :py:class:`SubNetworkConnectionMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode>`
                     
                     .. attribute:: timers
                     
                     	Timers
-                    	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers>`
+                    	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers>`
                     
                     .. attribute:: aps_protection_mode
                     
                     	The APS protecion mode
-                    	**type**\:   :py:class:`MplsTeOtnApsProtectionMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsProtectionMode>`
+                    	**type**\:  :py:class:`MplsTeOtnApsProtectionMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsProtectionMode>`
                     
                     .. attribute:: aps_restoration_style
                     
                     	The APS restoration style
-                    	**type**\:   :py:class:`MplsTeOtnApsRestorationStyle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsRestorationStyle>`
+                    	**type**\:  :py:class:`MplsTeOtnApsRestorationStyle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsRestorationStyle>`
                     
                     .. attribute:: aps_protection_type
                     
                     	The APS protecion type
-                    	**type**\:   :py:class:`MplsTeOtnApsProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsProtection>`
+                    	**type**\:  :py:class:`MplsTeOtnApsProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsProtection>`
                     
                     .. attribute:: enable
                     
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: path_selection
                     
                     	Configure path selection properties
-                    	**type**\:   :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection>`
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection>`
                     
                     
 
@@ -12334,7 +12926,7 @@ class MplsTe(Entity):
                         .. attribute:: revert_schedule_name
                         
                         	Name Identifier for revert schedule
-                        	**type**\: list of    :py:class:`RevertScheduleName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName>`
+                        	**type**\: list of  		 :py:class:`RevertScheduleName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName>`
                         
                         
 
@@ -12367,40 +12959,40 @@ class MplsTe(Entity):
                             .. attribute:: schedule_name  <key>
                             
                             	Enter 64 characters for revert schedule name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..254
                             
                             .. attribute:: schedule_duration
                             
                             	Set duration in format hh\:mm
-                            	**type**\:   :py:class:`ScheduleDuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration>`
+                            	**type**\:  :py:class:`ScheduleDuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration>`
                             
                             	**presence node**\: True
                             
                             .. attribute:: schedule_date
                             
                             	Set date in format hh\:mm MMM DD YYYY
-                            	**type**\:   :py:class:`ScheduleDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate>`
+                            	**type**\:  :py:class:`ScheduleDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate>`
                             
                             	**presence node**\: True
                             
                             .. attribute:: revert_schedule_max_tries
                             
                             	Revert Schedule Max tries
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..2016
                             
                             .. attribute:: sch_name_enable
                             
                             	Schedule name enable object
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: revert_schedule_frequency
                             
                             	Frequency set as Once, Daily, Weekly
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..3
                             
@@ -12449,7 +13041,7 @@ class MplsTe(Entity):
                                 .. attribute:: hour
                                 
                                 	Hour of day
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..167
                                 
@@ -12458,7 +13050,7 @@ class MplsTe(Entity):
                                 .. attribute:: minutes
                                 
                                 	Minute of the hour
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..59
                                 
@@ -12500,7 +13092,7 @@ class MplsTe(Entity):
                                 .. attribute:: hour
                                 
                                 	Hour of day
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..23
                                 
@@ -12509,7 +13101,7 @@ class MplsTe(Entity):
                                 .. attribute:: minutes
                                 
                                 	Minute of the hour
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..59
                                 
@@ -12518,7 +13110,7 @@ class MplsTe(Entity):
                                 .. attribute:: month
                                 
                                 	Month of the year
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..11
                                 
@@ -12527,7 +13119,7 @@ class MplsTe(Entity):
                                 .. attribute:: day
                                 
                                 	Day of the month
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..31
                                 
@@ -12536,7 +13128,7 @@ class MplsTe(Entity):
                                 .. attribute:: year
                                 
                                 	Year
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 2015..2035
                                 
@@ -12584,12 +13176,12 @@ class MplsTe(Entity):
                         .. attribute:: connection_mode
                         
                         	The sub\-network connection mode
-                        	**type**\:   :py:class:`MplsTeOtnSncMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnSncMode>`
+                        	**type**\:  :py:class:`MplsTeOtnSncMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnSncMode>`
                         
                         .. attribute:: connection_monitoring_mode
                         
                         	Tandem Connection Monitoring ID for the interface
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..6
                         
@@ -12626,7 +13218,7 @@ class MplsTe(Entity):
                         .. attribute:: aps_wait_to_restore
                         
                         	G.709 OTN path protection wait to restore timer in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..720
                         
@@ -12635,7 +13227,7 @@ class MplsTe(Entity):
                         .. attribute:: aps_hold_off
                         
                         	G.709 OTN path protection hold\-off timer in milliseconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 100..10000
                         
@@ -12674,7 +13266,7 @@ class MplsTe(Entity):
                         .. attribute:: enable
                         
                         	Enable path selection
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -12707,7 +13299,7 @@ class MplsTe(Entity):
                 .. attribute:: auto_mesh_attribute
                 
                 	Auto\-mesh Tunnel Attribute
-                	**type**\: list of    :py:class:`AutoMeshAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute>`
+                	**type**\: list of  		 :py:class:`AutoMeshAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute>`
                 
                 
 
@@ -12741,24 +13333,24 @@ class MplsTe(Entity):
                     .. attribute:: attribute_set_name  <key>
                     
                     	Attribute Set Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: auto_mesh_logging
                     
                     	Log tunnel LSP messages
-                    	**type**\:   :py:class:`AutoMeshLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging>`
+                    	**type**\:  :py:class:`AutoMeshLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging>`
                     
                     .. attribute:: autoroute_announce
                     
                     	Enable autoroute announce
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: interface_bandwidth
                     
                     	The bandwidth of the interface in kbps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -12767,77 +13359,77 @@ class MplsTe(Entity):
                     .. attribute:: forward_class
                     
                     	Forward class value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..7
                     
                     .. attribute:: priority
                     
                     	Tunnel Setup and Hold Priorities
-                    	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority>`
+                    	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: enable
                     
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: record_route
                     
                     	Record the route used by the tunnel
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
-                    	**type**\:   :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask>`
+                    	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: bandwidth
                     
                     	Tunnel bandwidth requirement
-                    	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth>`
+                    	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: path_selection
                     
                     	Configure path selection properties
-                    	**type**\:   :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection>`
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection>`
                     
                     .. attribute:: collection_only
                     
                     	Enable bandwidth collection only, no auto\-bw adjustment
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: policy_classes
                     
                     	Policy classes for PBTS
-                    	**type**\:   :py:class:`PolicyClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses>`
+                    	**type**\:  :py:class:`PolicyClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses>`
                     
                     .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:   :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes>`
                     
                     .. attribute:: soft_preemption
                     
                     	Enable the soft\-preemption feature on the tunnel
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: fast_reroute
                     
                     	Specify MPLS tunnel can be fast\-rerouted
-                    	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute>`
+                    	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: load_share
                     
                     	Tunnel loadsharing metric
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..4294967295
                     
@@ -12925,37 +13517,37 @@ class MplsTe(Entity):
                         .. attribute:: bandwidth_change_message
                         
                         	Log tunnel messages for bandwidth change
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reoptimize_attempts_message
                         
                         	Log tunnel reoptimization attempts messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reroute_messsage
                         
                         	Log tunnel rereoute messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: state_message
                         
                         	Log tunnel state messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: insufficient_bw_message
                         
                         	Log tunnel messages for insufficient bandwidth
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reoptimized_message
                         
                         	Log tunnel reoptimized messages
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: pcalc_failure_message
                         
                         	Enable logging for path\-calculation failures
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -13000,7 +13592,7 @@ class MplsTe(Entity):
                         .. attribute:: setup_priority
                         
                         	Setup Priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..7
                         
@@ -13009,7 +13601,7 @@ class MplsTe(Entity):
                         .. attribute:: hold_priority
                         
                         	Hold Priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..7
                         
@@ -13051,14 +13643,18 @@ class MplsTe(Entity):
                         .. attribute:: affinity
                         
                         	Affinity flags
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         	**mandatory**\: True
                         
                         .. attribute:: mask
                         
                         	Affinity mask
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
                         	**mandatory**\: True
                         
@@ -13098,14 +13694,14 @@ class MplsTe(Entity):
                         .. attribute:: dste_type
                         
                         	DSTE\-standard flag
-                        	**type**\:   :py:class:`MplsTeBandwidthDste <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste>`
+                        	**type**\:  :py:class:`MplsTeBandwidthDste <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: class_or_pool_type
                         
                         	Class type for the bandwidth allocation
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..1
                         
@@ -13114,7 +13710,7 @@ class MplsTe(Entity):
                         .. attribute:: bandwidth
                         
                         	The value of the bandwidth reserved by this tunnel in kbps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -13160,7 +13756,7 @@ class MplsTe(Entity):
                         .. attribute:: enable
                         
                         	Enable path selection
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -13193,7 +13789,7 @@ class MplsTe(Entity):
                         .. attribute:: policy_class
                         
                         	Array of Policy class
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 1..8
                         
@@ -13228,57 +13824,57 @@ class MplsTe(Entity):
                         .. attribute:: new_style_affinity_affinity_type
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
                         
                         .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
+                        	**type**\: list of  		 :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                         
                         
 
@@ -13321,7 +13917,7 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             
 
@@ -13354,12 +13950,14 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -13394,17 +13992,21 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -13441,22 +14043,28 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -13495,27 +14103,35 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -13556,32 +14172,42 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -13624,37 +14250,49 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -13699,42 +14337,56 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -13781,47 +14433,63 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -13870,52 +14538,70 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity9  <key>
                             
                             	The name of the nineth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -13966,57 +14652,77 @@ class MplsTe(Entity):
                             .. attribute:: affinity_type  <key>
                             
                             	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
+                            	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity2  <key>
                             
                             	The name of the second affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity3  <key>
                             
                             	The name of the third affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity4  <key>
                             
                             	The name of the fourth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity5  <key>
                             
                             	The name of the fifth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity6  <key>
                             
                             	The name of the sixth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity7  <key>
                             
                             	The name of the seventh affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity8  <key>
                             
                             	The name of the eighth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity9  <key>
                             
                             	The name of the nineth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: affinity10  <key>
                             
                             	The name of the tenth affinity
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -14069,7 +14775,7 @@ class MplsTe(Entity):
                         .. attribute:: bandwidth_protection
                         
                         	Bandwidth Protection
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..1
                         
@@ -14078,7 +14784,7 @@ class MplsTe(Entity):
                         .. attribute:: node_protection
                         
                         	Node Protection
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..1
                         
@@ -14120,7 +14826,7 @@ class MplsTe(Entity):
                 .. attribute:: xro_attribute
                 
                 	XRO Attribute
-                	**type**\: list of    :py:class:`XroAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute>`
+                	**type**\: list of  		 :py:class:`XroAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute>`
                 
                 
 
@@ -14154,24 +14860,24 @@ class MplsTe(Entity):
                     .. attribute:: attribute_set_name  <key>
                     
                     	Attribute Set Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: path_diversity
                     
                     	Path diversity
-                    	**type**\:   :py:class:`PathDiversity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity>`
+                    	**type**\:  :py:class:`PathDiversity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity>`
                     
                     .. attribute:: enable
                     
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: path_selection
                     
                     	Configure path selection properties
-                    	**type**\:   :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection>`
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection>`
                     
                     
 
@@ -14217,12 +14923,12 @@ class MplsTe(Entity):
                         .. attribute:: srlgs
                         
                         	SRLG\-based path diversity
-                        	**type**\:   :py:class:`Srlgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs>`
+                        	**type**\:  :py:class:`Srlgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs>`
                         
                         .. attribute:: lsp
                         
                         	LSP\-based path diversity
-                        	**type**\:   :py:class:`Lsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp>`
+                        	**type**\:  :py:class:`Lsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp>`
                         
                         
 
@@ -14260,7 +14966,7 @@ class MplsTe(Entity):
                             .. attribute:: srlg
                             
                             	SRLG\-based path\-diversity element
-                            	**type**\: list of    :py:class:`Srlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg>`
+                            	**type**\: list of  		 :py:class:`Srlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg>`
                             
                             
 
@@ -14293,14 +14999,14 @@ class MplsTe(Entity):
                                 .. attribute:: srlg  <key>
                                 
                                 	SRLG
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: conformance
                                 
                                 	The diversity conformance requirements
-                                	**type**\:   :py:class:`MplsTePathDiversityConformance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathDiversityConformance>`
+                                	**type**\:  :py:class:`MplsTePathDiversityConformance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathDiversityConformance>`
                                 
                                 	**mandatory**\: True
                                 
@@ -14337,7 +15043,7 @@ class MplsTe(Entity):
                             .. attribute:: fecs
                             
                             	FEC LSP\-based path diversity
-                            	**type**\:   :py:class:`Fecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs>`
+                            	**type**\:  :py:class:`Fecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs>`
                             
                             
 
@@ -14370,7 +15076,7 @@ class MplsTe(Entity):
                                 .. attribute:: fec
                                 
                                 	LSP\-based path\-diversity, referenced by FEC
-                                	**type**\: list of    :py:class:`Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec>`
+                                	**type**\: list of  		 :py:class:`Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec>`
                                 
                                 
 
@@ -14404,36 +15110,42 @@ class MplsTe(Entity):
                                     .. attribute:: source  <key>
                                     
                                     	Source address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: destination  <key>
                                     
                                     	Destination address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: tunnel_id  <key>
                                     
                                     	Tunnel id
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: extended_tunnel_id  <key>
                                     
                                     	Extended tunnel\-id
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     .. attribute:: lsp_id  <key>
                                     
                                     	LSP id
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
                                     .. attribute:: conformance
                                     
                                     	The diversity conformance requirements
-                                    	**type**\:   :py:class:`MplsTePathDiversityConformance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathDiversityConformance>`
+                                    	**type**\:  :py:class:`MplsTePathDiversityConformance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathDiversityConformance>`
                                     
                                     	**mandatory**\: True
                                     
@@ -14478,7 +15190,7 @@ class MplsTe(Entity):
                         .. attribute:: enable
                         
                         	Enable path selection
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -14511,12 +15223,12 @@ class MplsTe(Entity):
             .. attribute:: tail
             
             	BFD over LSP Tail Global Configurations
-            	**type**\:   :py:class:`Tail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BfdOverLsp.Tail>`
+            	**type**\:  :py:class:`Tail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BfdOverLsp.Tail>`
             
             .. attribute:: head
             
             	BFD over LSP Head Global Configurations
-            	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BfdOverLsp.Head>`
+            	**type**\:  :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BfdOverLsp.Head>`
             
             
 
@@ -14555,14 +15267,14 @@ class MplsTe(Entity):
                 .. attribute:: multiplier
                 
                 	Specify BFD over LSP tail multiplier
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 3..10
                 
                 .. attribute:: minimum_interval
                 
                 	Specify BFD over LSP tail minimum interval
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 50..30000
                 
@@ -14600,14 +15312,14 @@ class MplsTe(Entity):
                 .. attribute:: reopt_timeout
                 
                 	BFD session down reopt timeout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 120..4294967295
                 
                 .. attribute:: down_action
                 
                 	Specify BFD session down action
-                	**type**\:   :py:class:`MplsTeBfdSessionDownAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBfdSessionDownAction>`
+                	**type**\:  :py:class:`MplsTeBfdSessionDownAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBfdSessionDownAction>`
                 
                 
 
@@ -14643,17 +15355,17 @@ class MplsTe(Entity):
             .. attribute:: application
             
             	Bandwidth accounting application configuration data
-            	**type**\:   :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BandwidthAccounting.Application>`
+            	**type**\:  :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BandwidthAccounting.Application>`
             
             .. attribute:: account_flooding_threshold
             
             	This object sets the flooding threshold as percentage of total link bandwidth for bandwidth accounting. Default to 10%, 10%
-            	**type**\:   :py:class:`AccountFloodingThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold>`
+            	**type**\:  :py:class:`AccountFloodingThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold>`
             
             .. attribute:: sampling_interval
             
             	This object sets the sampling interval in seconds for bandwidth accounting. Default to 60 seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 30..600
             
@@ -14664,7 +15376,7 @@ class MplsTe(Entity):
             .. attribute:: adjustment_factor
             
             	This object sets the percentage adjustment factor for the non RSVP\-TE bandwidth accounting.  Default is 100%
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..200
             
@@ -14675,14 +15387,14 @@ class MplsTe(Entity):
             .. attribute:: collection_type_rsvp_te
             
             	This object enables the bandwidth accounting RSVP\-TE sample collection
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
             .. attribute:: enable
             
             	This object controls whether BW accounting is enabled. This object must be set before setting any other objects  under the BandwidthAccounting class
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -14733,14 +15445,14 @@ class MplsTe(Entity):
                 .. attribute:: application_enforced
                 
                 	This object enables the application
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: application_interval
                 
                 	This object sets the application interval in seconds for bandwidth accounting. Default to 180 seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 90..1800
                 
@@ -14784,7 +15496,7 @@ class MplsTe(Entity):
                 .. attribute:: up_threshold
                 
                 	Upward flooding Threshold in percentages of total bandwidth
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..100
                 
@@ -14795,7 +15507,7 @@ class MplsTe(Entity):
                 .. attribute:: down_threshold
                 
                 	Downward flooding Threshold in percentages of total bandwidth
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..100
                 
@@ -14837,27 +15549,27 @@ class MplsTe(Entity):
             .. attribute:: pce_stateful
             
             	PCE Stateful
-            	**type**\:   :py:class:`PceStateful <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.PceStateful>`
+            	**type**\:  :py:class:`PceStateful <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.PceStateful>`
             
             .. attribute:: timer
             
             	Configure PCE (Path Computation Element) timers
-            	**type**\:   :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Timer>`
+            	**type**\:  :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Timer>`
             
             .. attribute:: peers
             
             	Configure PCE peers
-            	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Peers>`
+            	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Peers>`
             
             .. attribute:: logging
             
             	Configure PCE (Path Computation Element) logging feature
-            	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Logging>`
+            	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Logging>`
             
             .. attribute:: request_timeout
             
             	Request timeout value in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..100
             
@@ -14868,7 +15580,7 @@ class MplsTe(Entity):
             .. attribute:: reoptimize_period
             
             	PCE reoptimization period for PCE\-based paths
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 60..604800
             
@@ -14879,12 +15591,14 @@ class MplsTe(Entity):
             .. attribute:: address
             
             	Address of this PCE
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: deadtimer
             
             	Deadtimer interval in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -14895,7 +15609,7 @@ class MplsTe(Entity):
             .. attribute:: keepalive
             
             	Keepalive interval in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -14906,7 +15620,7 @@ class MplsTe(Entity):
             .. attribute:: keepalive_tolerance
             
             	Keepalive interval tolerance in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -14917,36 +15631,40 @@ class MplsTe(Entity):
             .. attribute:: peer_source_addr
             
             	PCE Peer Source Address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: speaker_entity_id
             
             	PCE speaker entity identifier
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..256
             
             .. attribute:: segment_routing
             
             	PCE segment routing capability
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: password
             
             	MD5 password
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (!.+)\|([^!].+)
             
             .. attribute:: keychain
             
             	Keychain based authentication
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: precedence
             
             	Precedence order
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..255
             
@@ -15024,37 +15742,37 @@ class MplsTe(Entity):
                 .. attribute:: stateful_timers
                 
                 	Configure Stateful PCE (Path Computation Element) timers
-                	**type**\:   :py:class:`StatefulTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers>`
+                	**type**\:  :py:class:`StatefulTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers>`
                 
                 .. attribute:: fast_repair
                 
                 	Enable reoptimization by PCC after path failures
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: instantiation
                 
                 	PCE stateful instantiation capability
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: cisco_extension
                 
                 	Enable processing of PCEP Cisco extension
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: delegation
                 
                 	Delegate all statically configured tunnels
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: report
                 
                 	Report all statically configured tunnels
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: enable
                 
                 	PCE stateful capability
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -15104,7 +15822,7 @@ class MplsTe(Entity):
                     .. attribute:: redelegation_timeout
                     
                     	Timer for static tunnel redelegation in seconds, default is 180 seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..3600
                     
@@ -15115,7 +15833,7 @@ class MplsTe(Entity):
                     .. attribute:: state_timeout
                     
                     	State timeout for LSPs without delegation in seconds, zero means immediate removal, default is 180 seconds
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..3600
                     
@@ -15182,7 +15900,7 @@ class MplsTe(Entity):
                 .. attribute:: peer
                 
                 	PCE peer
-                	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Peers.Peer>`
+                	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Peers.Peer>`
                 
                 
 
@@ -15216,29 +15934,33 @@ class MplsTe(Entity):
                     .. attribute:: pce_peer_address  <key>
                     
                     	Address of PCE Peer
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: enable
                     
                     	Enabled PCE peer (default source address uses local)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: password
                     
                     	MD5 password
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (!.+)\|([^!].+)
                     
                     .. attribute:: keychain
                     
                     	Keychain based authentication
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: precedence
                     
                     	Precedence order
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -15283,7 +16005,7 @@ class MplsTe(Entity):
                 .. attribute:: events
                 
                 	Configure logging events
-                	**type**\:   :py:class:`Events <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Logging.Events>`
+                	**type**\:  :py:class:`Events <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PceAttributes.Logging.Events>`
                 
                 
 
@@ -15317,7 +16039,7 @@ class MplsTe(Entity):
                     .. attribute:: peer_status
                     
                     	Peer status changes logging
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -15351,12 +16073,12 @@ class MplsTe(Entity):
             .. attribute:: lsp_oor_red_state
             
             	Configuration for LSP OOR Red/Major State
-            	**type**\:   :py:class:`LspOorRedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState>`
+            	**type**\:  :py:class:`LspOorRedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState>`
             
             .. attribute:: lsp_oor_yellow_state
             
             	Configuration for LSP OOR Yellow/Minor State
-            	**type**\:   :py:class:`LspOorYellowState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState>`
+            	**type**\:  :py:class:`LspOorYellowState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState>`
             
             
 
@@ -15395,14 +16117,14 @@ class MplsTe(Entity):
                 .. attribute:: all_transit_lsp_threshold
                 
                 	Threshold for all transit LSPs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: unprotected_transit_lsp_threshold
                 
                 	Threshold for unprotected transit LSPs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -15440,14 +16162,14 @@ class MplsTe(Entity):
                 .. attribute:: all_transit_lsp_threshold
                 
                 	Threshold for all transit LSPs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: unprotected_transit_lsp_threshold
                 
                 	Threshold for unprotected transit LSPs
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -15485,7 +16207,7 @@ class MplsTe(Entity):
             .. attribute:: timeout
             
             	This object sets the timeout in seconds before hard preemption is triggered
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..300
             
@@ -15496,12 +16218,12 @@ class MplsTe(Entity):
             .. attribute:: frr_rewrite
             
             	This object controls whether FRR rewrite during soft preemption is enabled
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable
             
             	This object controls whether soft preemption is enabled. This object must be set before setting any other objects under the SoftPreemption class
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -15539,7 +16261,7 @@ class MplsTe(Entity):
             .. attribute:: timers
             
             	Configure fast reroute timers
-            	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.FastReroute.Timers>`
+            	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.FastReroute.Timers>`
             
             
 
@@ -15573,7 +16295,7 @@ class MplsTe(Entity):
                 .. attribute:: hold_backup
                 
                 	Seconds before backup declared UP (0 disables hold\-timer)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..604800
                 
@@ -15582,7 +16304,7 @@ class MplsTe(Entity):
                 .. attribute:: promotion
                 
                 	The value of the promotion timer in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..604800
                 
@@ -15622,44 +16344,44 @@ class MplsTe(Entity):
             .. attribute:: loose_metrics
             
             	Path selection Loose ERO Metric Class configuration
-            	**type**\:   :py:class:`LooseMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.LooseMetrics>`
+            	**type**\:  :py:class:`LooseMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.LooseMetrics>`
             
             .. attribute:: invalidation
             
             	Path invalidation configuration for all tunnels
-            	**type**\:   :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.Invalidation>`
+            	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.Invalidation>`
             
             .. attribute:: ignore_overload_role
             
             	Path selection to ignore overload node during CSPF
-            	**type**\:   :py:class:`IgnoreOverloadRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole>`
+            	**type**\:  :py:class:`IgnoreOverloadRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole>`
             
             .. attribute:: loose_affinities
             
             	Path selection Loose ERO Affinity Class configuration
-            	**type**\:   :py:class:`LooseAffinities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.LooseAffinities>`
+            	**type**\:  :py:class:`LooseAffinities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.LooseAffinities>`
             
             .. attribute:: cost_limit
             
             	Path selection cost limit configuration for all tunnels
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: tiebreaker
             
             	CSPF tiebreaker to use in path calculation
-            	**type**\:   :py:class:`MplsTePathSelectionTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreaker>`
+            	**type**\:  :py:class:`MplsTePathSelectionTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreaker>`
             
             .. attribute:: metric
             
             	Metric to use in path calculation
-            	**type**\:   :py:class:`MplsTePathSelectionMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric>`
+            	**type**\:  :py:class:`MplsTePathSelectionMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric>`
             
             .. attribute:: loose_domain_match
             
             	Use only the IGP instance of the incoming interface
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -15720,7 +16442,7 @@ class MplsTe(Entity):
                 .. attribute:: loose_metric
                 
                 	Path selection Loose ERO Metric configuration
-                	**type**\: list of    :py:class:`LooseMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric>`
+                	**type**\: list of  		 :py:class:`LooseMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric>`
                 
                 
 
@@ -15754,14 +16476,14 @@ class MplsTe(Entity):
                     .. attribute:: class_type  <key>
                     
                     	Path Selection class Type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: metric_type
                     
                     	Metric to use for ERO Expansion
-                    	**type**\:   :py:class:`MplsTePathSelectionMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric>`
+                    	**type**\:  :py:class:`MplsTePathSelectionMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric>`
                     
                     	**mandatory**\: True
                     
@@ -15800,14 +16522,14 @@ class MplsTe(Entity):
                 .. attribute:: path_invalidation_timeout
                 
                 	Path Invalidation Timeout
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..60000
                 
                 .. attribute:: path_invalidation_action
                 
                 	Path Invalidation Action
-                	**type**\:   :py:class:`PathInvalidationAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationAction>`
+                	**type**\:  :py:class:`PathInvalidationAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationAction>`
                 
                 
 
@@ -15844,17 +16566,17 @@ class MplsTe(Entity):
                 .. attribute:: head
                 
                 	Set if the OL\-bit is to be applied to tunnel heads
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: mid
                 
                 	Set if the OL\-bit is to be applied to tunnel midpoints
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: tail
                 
                 	Set if the OL\-bit is to be applied to tunnel tails
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -15893,7 +16615,7 @@ class MplsTe(Entity):
                 .. attribute:: loose_affinity
                 
                 	Path selection Loose ERO Affinity configuration
-                	**type**\: list of    :py:class:`LooseAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity>`
+                	**type**\: list of  		 :py:class:`LooseAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity>`
                 
                 
 
@@ -15928,19 +16650,23 @@ class MplsTe(Entity):
                     .. attribute:: class_type  <key>
                     
                     	Path Selection class Type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: affinity
                     
                     	Affinity flags
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
                     .. attribute:: mask
                     
                     	Affinity mask
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
                     
 
@@ -15978,7 +16704,7 @@ class MplsTe(Entity):
             .. attribute:: affinity_mapping
             
             	Affinity Mapping configuration
-            	**type**\: list of    :py:class:`AffinityMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping>`
+            	**type**\: list of  		 :py:class:`AffinityMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping>`
             
             
 
@@ -16012,19 +16738,21 @@ class MplsTe(Entity):
                 .. attribute:: affinity_name  <key>
                 
                 	Affinity Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: value_type
                 
                 	Affinity value type
-                	**type**\:   :py:class:`MplsTeAffinityValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeAffinityValue>`
+                	**type**\:  :py:class:`MplsTeAffinityValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeAffinityValue>`
                 
                 .. attribute:: value
                 
                 	Affinity Value in Hex number or by Bit position
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 
 
@@ -16062,34 +16790,36 @@ class MplsTe(Entity):
         .. attribute:: fault
         
         	Fault management
-        	**type**\:   :py:class:`Fault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Fault>`
+        	**type**\:  :py:class:`Fault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Fault>`
         
         .. attribute:: alarm
         
         	Alarm management
-        	**type**\:   :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Alarm>`
+        	**type**\:  :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Alarm>`
         
         .. attribute:: bfd
         
         	Configure BFD parameters
-        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Bfd>`
+        	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Bfd>`
         
         .. attribute:: midpoints
         
         	MPLS\-TP tunnel mid\-point table
-        	**type**\:   :py:class:`Midpoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints>`
+        	**type**\:  :py:class:`Midpoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints>`
         
         .. attribute:: global_id
         
         	Transport profile global identifier
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..65535
         
         .. attribute:: node_id
         
         	Node identifier in IPv4 address format
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         
 
@@ -16145,12 +16875,12 @@ class MplsTe(Entity):
             .. attribute:: protection_trigger
             
             	OAM events that trigger protection switching
-            	**type**\:   :py:class:`ProtectionTrigger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Fault.ProtectionTrigger>`
+            	**type**\:  :py:class:`ProtectionTrigger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Fault.ProtectionTrigger>`
             
             .. attribute:: wait_to_restore_interval
             
             	Waiting time before restoring working LSP
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
@@ -16161,7 +16891,7 @@ class MplsTe(Entity):
             .. attribute:: refresh_interval
             
             	Periodic refresh interval for fault OAM messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..20
             
@@ -16208,17 +16938,17 @@ class MplsTe(Entity):
                 .. attribute:: ldi
                 
                 	Protection switching due to LDI event
-                	**type**\:   :py:class:`Ldi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi>`
+                	**type**\:  :py:class:`Ldi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi>`
                 
                 .. attribute:: lkr
                 
                 	Protection switching due to LKR event
-                	**type**\:   :py:class:`Lkr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr>`
+                	**type**\:  :py:class:`Lkr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr>`
                 
                 .. attribute:: ais
                 
                 	Enable protection switching due to AIS event
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -16262,7 +16992,7 @@ class MplsTe(Entity):
                     .. attribute:: disable
                     
                     	Disable protection switching due to LDI event
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -16296,7 +17026,7 @@ class MplsTe(Entity):
                     .. attribute:: disable
                     
                     	Disable protection switching due to LKR event
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -16330,12 +17060,12 @@ class MplsTe(Entity):
             .. attribute:: suppress_event
             
             	Suppress all tunnel/LSP alarms
-            	**type**\:   :py:class:`SuppressEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Alarm.SuppressEvent>`
+            	**type**\:  :py:class:`SuppressEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Alarm.SuppressEvent>`
             
             .. attribute:: soak_time
             
             	Duration of soaking alarms
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..10
             
@@ -16346,7 +17076,7 @@ class MplsTe(Entity):
             .. attribute:: enable_alarm
             
             	Enable Transport Profile Alarm
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -16387,7 +17117,7 @@ class MplsTe(Entity):
                 .. attribute:: disable
                 
                 	Disable alarm suppression
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -16421,24 +17151,24 @@ class MplsTe(Entity):
             .. attribute:: min_interval_standby
             
             	Hello interval for standby transport profile LSPs, either in milli\-seconds or in micro\-seconds
-            	**type**\:   :py:class:`MinIntervalStandby <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Bfd.MinIntervalStandby>`
+            	**type**\:  :py:class:`MinIntervalStandby <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Bfd.MinIntervalStandby>`
             
             .. attribute:: min_interval
             
             	Hello interval, either in milli\-seconds or in micro\-seconds
-            	**type**\:   :py:class:`MinInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Bfd.MinInterval>`
+            	**type**\:  :py:class:`MinInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Bfd.MinInterval>`
             
             .. attribute:: detection_multiplier_standby
             
             	Detect multiplier for standby transport profile LSP
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 2..10
             
             .. attribute:: detection_multiplier
             
             	Detect multiplier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 2..10
             
@@ -16488,7 +17218,7 @@ class MplsTe(Entity):
                 .. attribute:: interval_standby_ms
                 
                 	Hello interval in milli\-seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 3..5000
                 
@@ -16497,7 +17227,7 @@ class MplsTe(Entity):
                 .. attribute:: interval_standby_us
                 
                 	Hello interval in micro\-seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 3000..5000000
                 
@@ -16538,7 +17268,7 @@ class MplsTe(Entity):
                 .. attribute:: interval_ms
                 
                 	Hello interval in milli\-seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 3..5000
                 
@@ -16547,7 +17277,7 @@ class MplsTe(Entity):
                 .. attribute:: interval_us
                 
                 	Hello interval in micro\-seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 3000..5000000
                 
@@ -16587,7 +17317,7 @@ class MplsTe(Entity):
             .. attribute:: midpoint
             
             	Transport profile mid\-point identifier
-            	**type**\: list of    :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint>`
+            	**type**\: list of  		 :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint>`
             
             
 
@@ -16621,48 +17351,48 @@ class MplsTe(Entity):
                 .. attribute:: midpoint_name  <key>
                 
                 	Name of mid\-point
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: source
                 
                 	Node identifier, tunnel identifier and optional global identifier of the source of the LSP
-                	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.Source>`
+                	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.Source>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: destination
                 
                 	Node identifier, tunnel identifier and optional global identifier of the destination of the LSP
-                	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.Destination>`
+                	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.Destination>`
                 
                 	**presence node**\: True
                 
                 .. attribute:: forward_lsp
                 
                 	Forward transport profile LSP
-                	**type**\:   :py:class:`ForwardLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp>`
+                	**type**\:  :py:class:`ForwardLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp>`
                 
                 .. attribute:: reverse_lsp
                 
                 	none
-                	**type**\:   :py:class:`ReverseLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp>`
+                	**type**\:  :py:class:`ReverseLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp>`
                 
                 .. attribute:: tunnel_name
                 
                 	Tunnel Name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: lsp_protect
                 
                 	Enable LSP protection
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: lsp_id
                 
                 	Numeric identifier
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
@@ -16724,12 +17454,14 @@ class MplsTe(Entity):
                     .. attribute:: node_id
                     
                     	Node identifier in IPv4 address format
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: tunnel_id
                     
                     	Tunnel identifier in numeric value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -16738,7 +17470,7 @@ class MplsTe(Entity):
                     .. attribute:: global_id
                     
                     	Global identifier in numeric value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -16782,12 +17514,14 @@ class MplsTe(Entity):
                     .. attribute:: node_id
                     
                     	Node identifier in IPv4 address format
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: tunnel_id
                     
                     	Tunnel identifier in numeric value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -16796,7 +17530,7 @@ class MplsTe(Entity):
                     .. attribute:: global_id
                     
                     	Global identifier in numeric value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -16838,14 +17572,14 @@ class MplsTe(Entity):
                     .. attribute:: forward_io_map
                     
                     	Label cross\-connect of forward transport profile LSP
-                    	**type**\:   :py:class:`ForwardIoMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap>`
+                    	**type**\:  :py:class:`ForwardIoMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: forward_bandwidth
                     
                     	Bandwidth of forward transport profile LSP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -16887,14 +17621,14 @@ class MplsTe(Entity):
                         .. attribute:: in_label
                         
                         	MPLS label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 16..4015
                         
                         .. attribute:: out_label
                         
                         	Outgoing MPLS label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 16..1048575
                         
@@ -16903,7 +17637,7 @@ class MplsTe(Entity):
                         .. attribute:: out_link
                         
                         	Transport profile identifier of outgoing link
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
@@ -16947,14 +17681,14 @@ class MplsTe(Entity):
                     .. attribute:: reverse_io_map
                     
                     	Label cross\-connect of reverse transport profile LSP
-                    	**type**\:   :py:class:`ReverseIoMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap>`
+                    	**type**\:  :py:class:`ReverseIoMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap>`
                     
                     	**presence node**\: True
                     
                     .. attribute:: reverse_bandwidth
                     
                     	Bandwidth of reverse transport profile LSP
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -16996,14 +17730,14 @@ class MplsTe(Entity):
                         .. attribute:: in_label
                         
                         	MPLS label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 16..4015
                         
                         .. attribute:: out_label
                         
                         	Outgoing MPLS label
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 16..1048575
                         
@@ -17012,7 +17746,7 @@ class MplsTe(Entity):
                         .. attribute:: out_link
                         
                         	Transport profile identifier of outgoing link
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
@@ -17056,7 +17790,7 @@ class MplsTe(Entity):
         .. attribute:: interface
         
         	Configure an MPLS TE interface
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface>`
         
         
 
@@ -17090,22 +17824,24 @@ class MplsTe(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: transport_profile_link
             
             	MPLS transport profile capable link
-            	**type**\:   :py:class:`TransportProfileLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.TransportProfileLink>`
+            	**type**\:  :py:class:`TransportProfileLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.TransportProfileLink>`
             
             .. attribute:: lcac
             
             	LCAC specific MPLS interface configuration
-            	**type**\:   :py:class:`Lcac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac>`
+            	**type**\:  :py:class:`Lcac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac>`
             
             .. attribute:: global_attributes
             
             	MPLS TE global interface configuration
-            	**type**\:   :py:class:`GlobalAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes>`
+            	**type**\:  :py:class:`GlobalAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes>`
             
             
 
@@ -17154,7 +17890,7 @@ class MplsTe(Entity):
                 .. attribute:: links
                 
                 	Transport profile link table
-                	**type**\:   :py:class:`Links <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.TransportProfileLink.Links>`
+                	**type**\:  :py:class:`Links <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.TransportProfileLink.Links>`
                 
                 
 
@@ -17187,7 +17923,7 @@ class MplsTe(Entity):
                     .. attribute:: link
                     
                     	Transport profile link
-                    	**type**\: list of    :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link>`
+                    	**type**\: list of  		 :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link>`
                     
                     
 
@@ -17220,21 +17956,23 @@ class MplsTe(Entity):
                         .. attribute:: link_id  <key>
                         
                         	Numeric link identifier
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: next_hop_type
                         
                         	Next hop type
-                        	**type**\:   :py:class:`LinkNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.LinkNextHop>`
+                        	**type**\:  :py:class:`LinkNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.LinkNextHop>`
                         
                         	**default value**\: ipv4-address
                         
                         .. attribute:: next_hop_address
                         
                         	Next\-hop address in IPv4 format
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -17271,62 +18009,64 @@ class MplsTe(Entity):
                 .. attribute:: switchings
                 
                 	Set the te\-link switching attributes
-                	**type**\:   :py:class:`Switchings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.Switchings>`
+                	**type**\:  :py:class:`Switchings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.Switchings>`
                 
                 .. attribute:: flood_area
                 
                 	Set the IGP instance into which this interface is to be flooded (GMPLS only)
-                	**type**\:   :py:class:`FloodArea <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.FloodArea>`
+                	**type**\:  :py:class:`FloodArea <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.FloodArea>`
                 
                 .. attribute:: attribute_name_xr
                 
                 	Set the interface attribute names
-                	**type**\:   :py:class:`AttributeNameXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.AttributeNameXr>`
+                	**type**\:  :py:class:`AttributeNameXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.AttributeNameXr>`
                 
                 .. attribute:: attribute_names
                 
                 	Attribute name table
-                	**type**\:   :py:class:`AttributeNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.AttributeNames>`
+                	**type**\:  :py:class:`AttributeNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.AttributeNames>`
                 
                 .. attribute:: srlgs
                 
                 	Configure SRLG membership for the interface
-                	**type**\:   :py:class:`Srlgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.Srlgs>`
+                	**type**\:  :py:class:`Srlgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.Srlgs>`
                 
                 .. attribute:: up_thresholds
                 
                 	Set thresholds for increased resource availability in %
-                	**type**\:   :py:class:`UpThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.UpThresholds>`
+                	**type**\:  :py:class:`UpThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.UpThresholds>`
                 
                 .. attribute:: down_thresholds
                 
                 	Set thresholds for decreased resource availability in %
-                	**type**\:   :py:class:`DownThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.DownThresholds>`
+                	**type**\:  :py:class:`DownThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.DownThresholds>`
                 
                 .. attribute:: bfd
                 
                 	Enable use of Bidirectional Forwarding Detection
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: fault_oam_lockout
                 
                 	Lockout protection on the interface for Flex LSP
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: attribute_flags
                 
                 	Set user defined interface attribute flags
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
                 .. attribute:: enable
                 
                 	Enable MPLS\-TE on the link
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: admin_weight
                 
                 	Set administrative weight for the interface
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
@@ -17404,7 +18144,7 @@ class MplsTe(Entity):
                     .. attribute:: switching
                     
                     	The te\-link switching attributes
-                    	**type**\: list of    :py:class:`Switching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.Switchings.Switching>`
+                    	**type**\: list of  		 :py:class:`Switching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.Switchings.Switching>`
                     
                     
 
@@ -17437,27 +18177,23 @@ class MplsTe(Entity):
                         .. attribute:: switching_id  <key>
                         
                         	Switching index
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:   :py:class:`MplsTeSwitchingIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingIndex>`
+                        		**type**\:  :py:class:`MplsTeSwitchingIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingIndex>`
                         
+                        		**type**\: int
                         
-                        ----
-                        	**type**\:  int
+                        			**range:** 1..255
                         
-                        	**range:** 1..255
-                        
-                        
-                        ----
                         .. attribute:: encoding
                         
                         	Set the local encoding type
-                        	**type**\:   :py:class:`MplsTeSwitchingEncoding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncoding>`
+                        	**type**\:  :py:class:`MplsTeSwitchingEncoding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncoding>`
                         
                         .. attribute:: capability
                         
                         	Set the local switching capability
-                        	**type**\:   :py:class:`MplsTeSwitchingCap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCap>`
+                        	**type**\:  :py:class:`MplsTeSwitchingCap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCap>`
                         
                         
 
@@ -17495,19 +18231,19 @@ class MplsTe(Entity):
                     .. attribute:: igp_type
                     
                     	IGP type
-                    	**type**\:   :py:class:`MplsLcacFloodingIgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsLcacFloodingIgp>`
+                    	**type**\:  :py:class:`MplsLcacFloodingIgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsLcacFloodingIgp>`
                     
                     .. attribute:: process_name
                     
                     	Process name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: area_id
                     
                     	Area ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -17546,7 +18282,7 @@ class MplsTe(Entity):
                     .. attribute:: attribute_name
                     
                     	Array of Attribute Names
-                    	**type**\:  list of str
+                    	**type**\: list of str
                     
                     
 
@@ -17579,7 +18315,7 @@ class MplsTe(Entity):
                     .. attribute:: attribute_name
                     
                     	Set the interface attribute names
-                    	**type**\: list of    :py:class:`AttributeName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName>`
+                    	**type**\: list of  		 :py:class:`AttributeName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName>`
                     
                     
 
@@ -17612,14 +18348,14 @@ class MplsTe(Entity):
                         .. attribute:: affinity_index  <key>
                         
                         	Specify the entry index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..9
                         
                         .. attribute:: value
                         
                         	Array of Attribute Names
-                        	**type**\:  list of str
+                        	**type**\: list of str
                         
                         
 
@@ -17654,7 +18390,7 @@ class MplsTe(Entity):
                     .. attribute:: srlg
                     
                     	SRLG membership number
-                    	**type**\: list of    :py:class:`Srlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg>`
+                    	**type**\: list of  		 :py:class:`Srlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg>`
                     
                     
 
@@ -17687,7 +18423,7 @@ class MplsTe(Entity):
                         .. attribute:: srlg_number  <key>
                         
                         	SRLG membership number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -17723,7 +18459,7 @@ class MplsTe(Entity):
                     .. attribute:: up_threshold
                     
                     	Array of up threshold percentage
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..100
                     
@@ -17761,7 +18497,7 @@ class MplsTe(Entity):
                     .. attribute:: down_threshold
                     
                     	Array of down threshold percentage
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..100
                     
@@ -17798,17 +18534,17 @@ class MplsTe(Entity):
                 .. attribute:: backup_tunnels
                 
                 	Configure MPLS TE backup tunnels for this interface
-                	**type**\:   :py:class:`BackupTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels>`
+                	**type**\:  :py:class:`BackupTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels>`
                 
                 .. attribute:: auto_tunnel
                 
                 	Auto tunnel configuration
-                	**type**\:   :py:class:`AutoTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel>`
+                	**type**\:  :py:class:`AutoTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel>`
                 
                 .. attribute:: backup_paths
                 
                 	Configure MPLS TE backup tunnels for this interface
-                	**type**\:   :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths>`
+                	**type**\:  :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths>`
                 
                 
 
@@ -17852,7 +18588,7 @@ class MplsTe(Entity):
                     .. attribute:: backup_tunnel
                     
                     	Tunnel name
-                    	**type**\: list of    :py:class:`BackupTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel>`
+                    	**type**\: list of  		 :py:class:`BackupTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel>`
                     
                     
 
@@ -17885,7 +18621,7 @@ class MplsTe(Entity):
                         .. attribute:: tunnel_name  <key>
                         
                         	Tunnel name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..59
                         
@@ -17920,7 +18656,7 @@ class MplsTe(Entity):
                     .. attribute:: backup
                     
                     	Auto tunnel backup configuration
-                    	**type**\:   :py:class:`Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup>`
+                    	**type**\:  :py:class:`Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup>`
                     
                     
 
@@ -17953,24 +18689,24 @@ class MplsTe(Entity):
                         .. attribute:: exclude
                         
                         	Auto\-tunnel backup exclusion criteria
-                        	**type**\:   :py:class:`Exclude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude>`
+                        	**type**\:  :py:class:`Exclude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude>`
                         
                         .. attribute:: enable
                         
                         	Enable auto\-tunnel backup on this TE link
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: attribute_set
                         
                         	The name of attribute set to be applied to this auto backup lsp
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: next_hop_only
                         
                         	Enable NHOP\-only mode for auto\-tunnel backup on this TE link
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -18012,7 +18748,7 @@ class MplsTe(Entity):
                             .. attribute:: srlg_mode
                             
                             	Set exclude SRLG mode for auto\-tunnel backup on this TE link
-                            	**type**\:   :py:class:`MplsTesrlgExclude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTesrlgExclude>`
+                            	**type**\:  :py:class:`MplsTesrlgExclude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTesrlgExclude>`
                             
                             
 
@@ -18046,7 +18782,7 @@ class MplsTe(Entity):
                     .. attribute:: backup_path
                     
                     	Tunnel interface number
-                    	**type**\: list of    :py:class:`BackupPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath>`
+                    	**type**\: list of  		 :py:class:`BackupPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath>`
                     
                     
 
@@ -18079,7 +18815,7 @@ class MplsTe(Entity):
                         .. attribute:: tunnel_number  <key>
                         
                         	Tunnel interface number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -18114,22 +18850,22 @@ class MplsTe(Entity):
         .. attribute:: topology_instances
         
         	GMPLS\-NNI topology instance table
-        	**type**\:   :py:class:`TopologyInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances>`
+        	**type**\:  :py:class:`TopologyInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances>`
         
         .. attribute:: tunnel_heads
         
         	GMPLS\-NNI tunnel\-head table
-        	**type**\:   :py:class:`TunnelHeads <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads>`
+        	**type**\:  :py:class:`TunnelHeads <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads>`
         
         .. attribute:: path_selection_metric
         
         	Path selection configuration for all gmpls nni tunnels
-        	**type**\:   :py:class:`MplsTePathSelectionMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric>`
+        	**type**\:  :py:class:`MplsTePathSelectionMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric>`
         
         .. attribute:: enable_gmpls_nni
         
         	Enable MPLS Traffic Engineering GMPLS\-NNI
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -18175,7 +18911,7 @@ class MplsTe(Entity):
             .. attribute:: topology_instance
             
             	GMPLS\-NNI topology instance configuration
-            	**type**\: list of    :py:class:`TopologyInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance>`
+            	**type**\: list of  		 :py:class:`TopologyInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance>`
             
             
 
@@ -18209,29 +18945,29 @@ class MplsTe(Entity):
                 .. attribute:: ospf_area_type  <key>
                 
                 	OSPF area format
-                	**type**\:   :py:class:`OspfAreaMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OspfAreaMode>`
+                	**type**\:  :py:class:`OspfAreaMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OspfAreaMode>`
                 
                 .. attribute:: igp_instance_name  <key>
                 
                 	Name of IGP instance
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..40
                 
                 .. attribute:: igp_type  <key>
                 
                 	IGP type
-                	**type**\:   :py:class:`MplsTeIgpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocol>`
+                	**type**\:  :py:class:`MplsTeIgpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocol>`
                 
                 .. attribute:: ospf_int
                 
                 	ospf int
-                	**type**\: list of    :py:class:`OspfInt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt>`
+                	**type**\: list of  		 :py:class:`OspfInt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt>`
                 
                 .. attribute:: ospfip_addr
                 
                 	ospfip addr
-                	**type**\: list of    :py:class:`OspfipAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr>`
+                	**type**\: list of  		 :py:class:`OspfipAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr>`
                 
                 
 
@@ -18272,14 +19008,14 @@ class MplsTe(Entity):
                     .. attribute:: igp_area  <key>
                     
                     	IGP area
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: controllers
                     
                     	GMPLS\-NNI controllers
-                    	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers>`
+                    	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers>`
                     
                     
 
@@ -18317,7 +19053,7 @@ class MplsTe(Entity):
                         .. attribute:: controller
                         
                         	Configure a GMPLS NNI controller
-                        	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller>`
+                        	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller>`
                         
                         
 
@@ -18350,29 +19086,31 @@ class MplsTe(Entity):
                             .. attribute:: controller_name  <key>
                             
                             	Controller name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: tti_mode
                             
                             	Set tandem connection monitoring for the interface
-                            	**type**\:   :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode>`
+                            	**type**\:  :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode>`
                             
                             .. attribute:: admin_weight
                             
                             	Set administrative weight for the interface
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: enable
                             
                             	Enable GMPLS\-NNI on the link
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: delay
                             
                             	Set link delay for the interface
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..16777215
                             
@@ -18419,12 +19157,12 @@ class MplsTe(Entity):
                                 .. attribute:: tti_mode_type
                                 
                                 	Type of Trail Trace Identifier
-                                	**type**\:   :py:class:`GmplsttiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.GmplsttiMode>`
+                                	**type**\:  :py:class:`GmplsttiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.GmplsttiMode>`
                                 
                                 .. attribute:: tcmid
                                 
                                 	Tandem Connection Monitoring ID for the interface
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..6
                                 
@@ -18461,12 +19199,14 @@ class MplsTe(Entity):
                     .. attribute:: address  <key>
                     
                     	Area ID if in IP address format
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: controllers
                     
                     	GMPLS\-NNI controllers
-                    	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers>`
+                    	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers>`
                     
                     
 
@@ -18504,7 +19244,7 @@ class MplsTe(Entity):
                         .. attribute:: controller
                         
                         	Configure a GMPLS NNI controller
-                        	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller>`
+                        	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller>`
                         
                         
 
@@ -18537,29 +19277,31 @@ class MplsTe(Entity):
                             .. attribute:: controller_name  <key>
                             
                             	Controller name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: tti_mode
                             
                             	Set tandem connection monitoring for the interface
-                            	**type**\:   :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode>`
+                            	**type**\:  :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode>`
                             
                             .. attribute:: admin_weight
                             
                             	Set administrative weight for the interface
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: enable
                             
                             	Enable GMPLS\-NNI on the link
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: delay
                             
                             	Set link delay for the interface
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..16777215
                             
@@ -18606,12 +19348,12 @@ class MplsTe(Entity):
                                 .. attribute:: tti_mode_type
                                 
                                 	Type of Trail Trace Identifier
-                                	**type**\:   :py:class:`GmplsttiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.GmplsttiMode>`
+                                	**type**\:  :py:class:`GmplsttiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.GmplsttiMode>`
                                 
                                 .. attribute:: tcmid
                                 
                                 	Tandem Connection Monitoring ID for the interface
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..6
                                 
@@ -18648,7 +19390,7 @@ class MplsTe(Entity):
             .. attribute:: tunnel_head
             
             	The configuration for a GMPLS NNI tunnel head\-end
-            	**type**\: list of    :py:class:`TunnelHead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead>`
+            	**type**\: list of  		 :py:class:`TunnelHead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead>`
             
             
 
@@ -18683,91 +19425,91 @@ class MplsTe(Entity):
                 .. attribute:: tunnel_id  <key>
                 
                 	Tunnel ID
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: signalled_bandwidth
                 
                 	The existence of this configuration indicates the signalled bandwidth has been set for the tunnel
-                	**type**\:   :py:class:`SignalledBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth>`
+                	**type**\:  :py:class:`SignalledBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth>`
                 
                 .. attribute:: destination
                 
                 	The existence of this configuration indicates the destination has been set for the tunnel
-                	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination>`
+                	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination>`
                 
                 .. attribute:: protection_switching
                 
                 	The configuration for a GMPLS NNI tunnel protection switch
-                	**type**\:   :py:class:`ProtectionSwitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching>`
+                	**type**\:  :py:class:`ProtectionSwitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching>`
                 
                 .. attribute:: logging
                 
                 	Tunnel event logging
-                	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging>`
+                	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging>`
                 
                 .. attribute:: path_options
                 
                 	GMPLS NNI path options
-                	**type**\:   :py:class:`PathOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions>`
+                	**type**\:  :py:class:`PathOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions>`
                 
                 .. attribute:: static_uni
                 
                 	The existence of this configuration indicates the static UNI endpoints have been set for the tunnel
-                	**type**\:   :py:class:`StaticUni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni>`
+                	**type**\:  :py:class:`StaticUni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni>`
                 
                 .. attribute:: enable
                 
                 	The existence of this configuration indicates the a new GMPLS NNI tunnel has been enabled
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: restore_lsp_shutdown
                 
                 	The existence of this configuration indicates the restore LSP of tunnel is shutdown
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: current_lsp_shutdown
                 
                 	The existence of this configuration indicates the current/working LSP of tunnel is shutdown
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: path_selection_metric
                 
                 	Path selection configuration for this specific tunnel
-                	**type**\:   :py:class:`MplsTePathSelectionMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric>`
+                	**type**\:  :py:class:`MplsTePathSelectionMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric>`
                 
                 .. attribute:: payload
                 
                 	The existence of this configuration indicates the Payload type have been set for the tunnel
-                	**type**\:   :py:class:`OtnPayload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnPayload>`
+                	**type**\:  :py:class:`OtnPayload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnPayload>`
                 
                 .. attribute:: standby_lsp_shutdown
                 
                 	The existence of this configuration indicates the standby/protect LSP of tunnel is shutdown
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: shutdown
                 
                 	The existence of this configuration indicates the tunnel is shutdown
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: path_protection_attribute_set_profile
                 
                 	The name of the path\-protection profile to be included in signalling messages
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: record_route
                 
                 	Record the route used by the tunnel
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: signalled_name
                 
                 	The name of the tunnel to be included in signalling messages
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..254
                 
@@ -18855,12 +19597,12 @@ class MplsTe(Entity):
                     .. attribute:: signalled_bandwidth_type
                     
                     	The g.709 signal type requested
-                    	**type**\:   :py:class:`OtnSignaledBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnSignaledBandwidth>`
+                    	**type**\:  :py:class:`OtnSignaledBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnSignaledBandwidth>`
                     
                     .. attribute:: bitrate
                     
                     	Bitrate value in Kbps for ODUflex framing type
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -18869,7 +19611,7 @@ class MplsTe(Entity):
                     .. attribute:: od_uflex_framing_type
                     
                     	Framing type in case of ODUflex signal type
-                    	**type**\:   :py:class:`OtnSignaledBandwidthFlexFraming <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnSignaledBandwidthFlexFraming>`
+                    	**type**\:  :py:class:`OtnSignaledBandwidthFlexFraming <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnSignaledBandwidthFlexFraming>`
                     
                     
 
@@ -18907,17 +19649,19 @@ class MplsTe(Entity):
                     .. attribute:: destination
                     
                     	IPV4 tunnel destination
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: destination_type
                     
                     	Destination type whether it is unicast or unnumbered
-                    	**type**\:   :py:class:`OtnDestination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnDestination>`
+                    	**type**\:  :py:class:`OtnDestination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnDestination>`
                     
                     .. attribute:: interface_if_index
                     
                     	Interface index of port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -18957,7 +19701,7 @@ class MplsTe(Entity):
                     .. attribute:: lockout
                     
                     	The configuration is used to prevent switch over for a particular path type in tunnel
-                    	**type**\:   :py:class:`OtnProtectionSwitchLockout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnProtectionSwitchLockout>`
+                    	**type**\:  :py:class:`OtnProtectionSwitchLockout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnProtectionSwitchLockout>`
                     
                     
 
@@ -18990,37 +19734,37 @@ class MplsTe(Entity):
                     .. attribute:: active_lsp_message
                     
                     	Log all tunnel messages for changes in Active LSP
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: homepath_state_message
                     
                     	Log all messages for changes in state of Homepath of Working LSP
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: signalling_state_message
                     
                     	Log all tunnel sub\-LSP state messages
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: path_change_message
                     
                     	Log all tunnel messages for changes in path\-change
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: static_cross_connect_message
                     
                     	Log all tunnel messages for static cross\-connect messages
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: tunnel_state_message
                     
                     	Log all tunnel messages for changes in tunnel\-state
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: insufficient_bw_message
                     
                     	Log tunnel messages for insufficient bandwidth
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -19065,7 +19809,7 @@ class MplsTe(Entity):
                     .. attribute:: path_option
                     
                     	The existence of this configuration indicates the path options have been set for the tunnel
-                    	**type**\: list of    :py:class:`PathOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption>`
+                    	**type**\: list of  		 :py:class:`PathOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption>`
                     
                     
 
@@ -19100,59 +19844,59 @@ class MplsTe(Entity):
                         .. attribute:: preference_level  <key>
                         
                         	Preference level for this path option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1000
                         
                         .. attribute:: path_type
                         
                         	The type of the path option
-                        	**type**\:   :py:class:`MplsTePathOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOption>`
+                        	**type**\:  :py:class:`MplsTePathOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOption>`
                         
                         .. attribute:: path_id
                         
                         	The ID of the IP explicit path associated with this option
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: path_name
                         
                         	The name of the IP explicit path associated with this option
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: protected_by_preference_level
                         
                         	Preference level of the protecting explicit path. 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1001
                         
                         .. attribute:: restore_by_preference_level
                         
                         	Preference level of the restore path. 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..1000
                         
                         .. attribute:: xro_type
                         
                         	The route\-exclusion type
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         	**mandatory**\: True
                         
                         .. attribute:: xro_attribute_set_name
                         
                         	The name of the XRO attribute set to be used for this path\-option
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
                         .. attribute:: lockdown
                         
                         	Lockdown properties
-                        	**type**\:   :py:class:`MplsTePathOptionProperty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty>`
+                        	**type**\:  :py:class:`MplsTePathOptionProperty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty>`
                         
                         
 
@@ -19203,26 +19947,26 @@ class MplsTe(Entity):
                     .. attribute:: ingress_controller_name
                     
                     	Name of  ingress controller
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..255
                     
                     .. attribute:: egress_controller_if_index
                     
                     	Interface index of Egress controller
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: ingress_type
                     
                     	Ingress type whether it is xconnect or terminated
-                    	**type**\:   :py:class:`OtnStaticUni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUni>`
+                    	**type**\:  :py:class:`OtnStaticUni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUni>`
                     
                     .. attribute:: egress_type
                     
                     	Egress type whether it is xconnect or terminated
-                    	**type**\:   :py:class:`OtnStaticUni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUni>`
+                    	**type**\:  :py:class:`OtnStaticUni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUni>`
                     
                     
 
@@ -19261,17 +20005,17 @@ class MplsTe(Entity):
         .. attribute:: bfd
         
         	BFD configuration
-        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Lcac.Bfd>`
+        	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Lcac.Bfd>`
         
         .. attribute:: flooding_threshold
         
         	Configure flooding threshold as percentage of total link bandwidth
-        	**type**\:   :py:class:`FloodingThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Lcac.FloodingThreshold>`
+        	**type**\:  :py:class:`FloodingThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Lcac.FloodingThreshold>`
         
         .. attribute:: bandwidth_hold_timer
         
         	Bandwidth hold timer value (seconds)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..300
         
@@ -19280,7 +20024,7 @@ class MplsTe(Entity):
         .. attribute:: delay_preempt_bundle_capacity_timer
         
         	Bundle capacity preemption timer value (seconds)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..300
         
@@ -19289,7 +20033,7 @@ class MplsTe(Entity):
         .. attribute:: periodic_flooding_timer
         
         	Periodic flooding value (seconds)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..3600
         
@@ -19341,7 +20085,7 @@ class MplsTe(Entity):
             .. attribute:: interval
             
             	Hello interval for BFD sessions created by TE
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 15..200
             
@@ -19350,7 +20094,7 @@ class MplsTe(Entity):
             .. attribute:: detection_multiplier
             
             	Detection multiplier for BFD sessions created by TE
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 2..10
             
@@ -19389,7 +20133,7 @@ class MplsTe(Entity):
             .. attribute:: up_stream
             
             	Upward flooding Threshold in percentages of total bandwidth
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -19398,7 +20142,7 @@ class MplsTe(Entity):
             .. attribute:: down_stream
             
             	Downward flooding Threshold in percentages of total bandwidth
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             

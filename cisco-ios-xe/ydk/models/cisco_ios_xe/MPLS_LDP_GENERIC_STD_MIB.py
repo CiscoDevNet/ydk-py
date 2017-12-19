@@ -26,7 +26,7 @@ class MPLSLDPGENERICSTDMIB(Entity):
     .. attribute:: mplsldpentitygenericlrtable
     
     	The MPLS LDP Entity Generic Label Range (LR) Table.  The purpose of this table is to provide a mechanism for configurating a contiguous range of generic labels, or a 'label range' for LDP Entities.  LDP Entities which use Generic Labels must have at least one entry in this table.  In other words, this table 'extends' the mpldLdpEntityTable for Generic Labels
-    	**type**\:   :py:class:`Mplsldpentitygenericlrtable <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable>`
+    	**type**\:  :py:class:`Mplsldpentitygenericlrtable <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable>`
     
     
 
@@ -69,7 +69,7 @@ class MPLSLDPGENERICSTDMIB(Entity):
         .. attribute:: mplsldpentitygenericlrentry
         
         	A row in the LDP Entity Generic Label Range (LR) Table.  One entry in this table contains information on a single range of labels represented by the configured Upper and Lower Bounds pairs.  NOTE\: there is NO corresponding LDP message which relates to the information in this table, however, this table does provide a way for a user to 'reserve' a generic label range.  NOTE\:  The ranges for a specific LDP Entity are UNIQUE and non\-overlapping.  A row will not be created unless a unique and non\-overlapping range is specified
-        	**type**\: list of    :py:class:`Mplsldpentitygenericlrentry <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry>`
+        	**type**\: list of  		 :py:class:`Mplsldpentitygenericlrentry <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry>`
         
         
 
@@ -117,14 +117,14 @@ class MPLSLDPGENERICSTDMIB(Entity):
             .. attribute:: mplsldpentityldpid  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
             .. attribute:: mplsldpentityindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -133,38 +133,38 @@ class MPLSLDPGENERICSTDMIB(Entity):
             .. attribute:: mplsldpentitygenericlrmin  <key>
             
             	The minimum label configured for this range
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1048575
             
             .. attribute:: mplsldpentitygenericlrmax  <key>
             
             	The maximum label configured for this range
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..1048575
             
             .. attribute:: mplsldpentitygenericlabelspace
             
             	This value of this object is perPlatform(1), then this means that the label space type is per platform.  If this object is perInterface(2), then this means that the label space type is per Interface
-            	**type**\:   :py:class:`Mplsldpentitygenericlabelspace <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry.Mplsldpentitygenericlabelspace>`
+            	**type**\:  :py:class:`Mplsldpentitygenericlabelspace <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry.Mplsldpentitygenericlabelspace>`
             
             .. attribute:: mplsldpentitygenericifindexorzero
             
             	This value represents either the InterfaceIndex of the 'ifLayer' where these Generic Label would be created,   or 0 (zero).  The value of zero means that the InterfaceIndex is not known.  However, if the InterfaceIndex is known, then it must be represented by this value.  If an InterfaceIndex becomes known, then the network management entity (e.g., SNMP agent) responsible for this object MUST change the value from 0 (zero) to the value of the InterfaceIndex
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: mplsldpentitygenericlrstoragetype
             
             	The storage type for this conceptual row. Conceptual rows having the value 'permanent(4)' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
             .. attribute:: mplsldpentitygenericlrrowstatus
             
             	The status of this conceptual row.  All writable objects in this row may be modified at any time, however, as described in  detail in the section entitled, 'Changing Values After Session Establishment', and again described in the DESCRIPTION clause of the mplsLdpEntityAdminStatus object, if a session has been initiated with a Peer, changing objects in this table will wreak havoc with the session and interrupt traffic. To repeat again\:  the recommended procedure is to set the mplsLdpEntityAdminStatus to down, thereby explicitly causing a session to be torn down. Then, change objects in this entry, then set the mplsLdpEntityAdminStatus to enable which enables a new session to be initiated.  There must exist at least one entry in this table for every LDP Entity that has a generic label configured
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 

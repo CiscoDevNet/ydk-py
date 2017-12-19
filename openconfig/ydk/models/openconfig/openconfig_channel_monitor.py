@@ -19,7 +19,7 @@ class ChannelMonitors(Entity):
     .. attribute:: channel_monitor
     
     	List of channel monitors, keyed by channel monitor name
-    	**type**\: list of    :py:class:`ChannelMonitor <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor>`
+    	**type**\: list of  		 :py:class:`ChannelMonitor <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor>`
     
     
 
@@ -53,24 +53,24 @@ class ChannelMonitors(Entity):
         .. attribute:: name  <key>
         
         	References the optical channel monitor name
-        	**type**\:  str
+        	**type**\: str
         
         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Config>`
         
         .. attribute:: config
         
         	Configuration data 
-        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Config>`
+        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Config>`
         
         .. attribute:: state
         
         	Operational state data 
-        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.State>`
+        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.State>`
         
         .. attribute:: channels
         
         	Enclosing container for the list of values describing the power spectral density distribution
-        	**type**\:   :py:class:`Channels <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels>`
+        	**type**\:  :py:class:`Channels <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels>`
         
         
 
@@ -119,14 +119,14 @@ class ChannelMonitors(Entity):
             .. attribute:: name
             
             	Reference to system\-supplied name of the port on the optical channel monitor (OCM). If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the OCM even if it is internal and not physically present on the faceplate of the card
-            	**type**\:  str
+            	**type**\: str
             
             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
             
             .. attribute:: monitor_port
             
             	Reference to system\-supplied name of the port that the channel monitor is physically connected to. This port will be of type MONITOR. This port is a tap off of the monitored\-port and would be in the same card as the monitored port. If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the monitor port if it is internal and not physically present on the faceplate of the card
-            	**type**\:  str
+            	**type**\: str
             
             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
             
@@ -163,14 +163,14 @@ class ChannelMonitors(Entity):
             .. attribute:: name
             
             	Reference to system\-supplied name of the port on the optical channel monitor (OCM). If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the OCM even if it is internal and not physically present on the faceplate of the card
-            	**type**\:  str
+            	**type**\: str
             
             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
             
             .. attribute:: monitor_port
             
             	Reference to system\-supplied name of the port that the channel monitor is physically connected to. This port will be of type MONITOR. This port is a tap off of the monitored\-port and would be in the same card as the monitored port. If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the monitor port if it is internal and not physically present on the faceplate of the card
-            	**type**\:  str
+            	**type**\: str
             
             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
             
@@ -208,7 +208,7 @@ class ChannelMonitors(Entity):
             .. attribute:: channel
             
             	List of tuples describing the PSD distribution
-            	**type**\: list of    :py:class:`Channel <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels.Channel>`
+            	**type**\: list of  		 :py:class:`Channel <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels.Channel>`
             
             
 
@@ -241,7 +241,7 @@ class ChannelMonitors(Entity):
                 .. attribute:: lower_frequency  <key>
                 
                 	Reference to the list key
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -250,7 +250,7 @@ class ChannelMonitors(Entity):
                 .. attribute:: upper_frequency  <key>
                 
                 	Reference to the list key
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -259,7 +259,7 @@ class ChannelMonitors(Entity):
                 .. attribute:: state
                 
                 	Operational state data for PSD
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels.Channel.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels.Channel.State>`
                 
                 
 
@@ -299,21 +299,21 @@ class ChannelMonitors(Entity):
                     .. attribute:: lower_frequency
                     
                     	Lower frequency of the specified PSD
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: upper_frequency
                     
                     	Upper frequency of the specified PSD
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: psd
                     
                     	Power spectral density expressed in nanowatts per megahertz, nW/MHz.  These units allow the value to often be greater than 1.0.  It also avoids dealing with zero values for 0dBm.  For example, a 40GHz wide channel with 0dBm power would be\:  0dBm = 1mW = 10^6nW  40GHz = 40,000MHz  0dBm/40GHz = 10^6nW/40,000MHz = 1000/40 = 25
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 32
                     

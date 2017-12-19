@@ -40,7 +40,7 @@ class HardwareModule(Entity):
     .. attribute:: nodes
     
     	 subslot h/w module
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_vpa_infra_cfg.HardwareModule.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_vpa_infra_cfg.HardwareModule.Nodes>`
     
     
 
@@ -74,7 +74,7 @@ class HardwareModule(Entity):
         .. attribute:: node
         
         	The identifier for a SPA node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_vpa_infra_cfg.HardwareModule.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_vpa_infra_cfg.HardwareModule.Nodes.Node>`
         
         
 
@@ -108,12 +108,14 @@ class HardwareModule(Entity):
             .. attribute:: node_name  <key>
             
             	A SPA node
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: shutdown
             
             	Shutdown a subslot h/w module
-            	**type**\:   :py:class:`HwModuleShutdownPowerMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_vpa_infra_cfg.HwModuleShutdownPowerMode>`
+            	**type**\:  :py:class:`HwModuleShutdownPowerMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_vpa_infra_cfg.HwModuleShutdownPowerMode>`
             
             
 

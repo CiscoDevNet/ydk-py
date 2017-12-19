@@ -22,17 +22,17 @@ class KeyChains(Entity):
     .. attribute:: name  <key>
     
     	Name of the key\-chain
-    	**type**\:  str
+    	**type**\: str
     
     .. attribute:: accept_tolerance
     
     	Tolerance for key lifetime acceptance (seconds)
-    	**type**\:   :py:class:`AcceptTolerance <ydk.models.ietf.ietf_key_chain.KeyChains.AcceptTolerance>`
+    	**type**\:  :py:class:`AcceptTolerance <ydk.models.ietf.ietf_key_chain.KeyChains.AcceptTolerance>`
     
     .. attribute:: key
     
     	One key
-    	**type**\: list of    :py:class:`Key <ydk.models.ietf.ietf_key_chain.KeyChains.Key>`
+    	**type**\: list of  		 :py:class:`Key <ydk.models.ietf.ietf_key_chain.KeyChains.Key>`
     
     
 
@@ -73,7 +73,7 @@ class KeyChains(Entity):
         .. attribute:: duration
         
         	Tolerance range, in seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -112,24 +112,24 @@ class KeyChains(Entity):
         .. attribute:: key_id  <key>
         
         	Key id
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..18446744073709551615
         
         .. attribute:: key_string
         
         	The key string
-        	**type**\:   :py:class:`KeyString <ydk.models.ietf.ietf_key_chain.KeyChains.Key.KeyString>`
+        	**type**\:  :py:class:`KeyString <ydk.models.ietf.ietf_key_chain.KeyChains.Key.KeyString>`
         
         .. attribute:: lifetime
         
         	Specify a key's lifetime
-        	**type**\:   :py:class:`Lifetime <ydk.models.ietf.ietf_key_chain.KeyChains.Key.Lifetime>`
+        	**type**\:  :py:class:`Lifetime <ydk.models.ietf.ietf_key_chain.KeyChains.Key.Lifetime>`
         
         .. attribute:: crypto_algorithm
         
         	Cryptographic algorithm associated with key
-        	**type**\:   :py:class:`CryptoAlgorithm <ydk.models.ietf.ietf_key_chain.KeyChains.Key.CryptoAlgorithm>`
+        	**type**\:  :py:class:`CryptoAlgorithm <ydk.models.ietf.ietf_key_chain.KeyChains.Key.CryptoAlgorithm>`
         
         
 
@@ -177,12 +177,14 @@ class KeyChains(Entity):
             .. attribute:: keystring
             
             	Key string in ASCII format
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: hexadecimal_string
             
             	Key in hexadecimal string format
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
             
             
 
@@ -217,17 +219,17 @@ class KeyChains(Entity):
             .. attribute:: send_accept_lifetime
             
             	Single lifetime specification for both send and accept lifetimes
-            	**type**\:   :py:class:`SendAcceptLifetime <ydk.models.ietf.ietf_key_chain.KeyChains.Key.Lifetime.SendAcceptLifetime>`
+            	**type**\:  :py:class:`SendAcceptLifetime <ydk.models.ietf.ietf_key_chain.KeyChains.Key.Lifetime.SendAcceptLifetime>`
             
             .. attribute:: send_lifetime
             
             	Separate lifetime specification for send lifetime
-            	**type**\:   :py:class:`SendLifetime <ydk.models.ietf.ietf_key_chain.KeyChains.Key.Lifetime.SendLifetime>`
+            	**type**\:  :py:class:`SendLifetime <ydk.models.ietf.ietf_key_chain.KeyChains.Key.Lifetime.SendLifetime>`
             
             .. attribute:: accept_lifetime
             
             	Separate lifetime specification for accept lifetime
-            	**type**\:   :py:class:`AcceptLifetime <ydk.models.ietf.ietf_key_chain.KeyChains.Key.Lifetime.AcceptLifetime>`
+            	**type**\:  :py:class:`AcceptLifetime <ydk.models.ietf.ietf_key_chain.KeyChains.Key.Lifetime.AcceptLifetime>`
             
             
 
@@ -271,22 +273,24 @@ class KeyChains(Entity):
                 .. attribute:: always
                 
                 	Indicates key lifetime is always valid
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: start_date_time
                 
                 	Start time
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                 
                 .. attribute:: no_end_time
                 
                 	Indicates key lifetime end\-time in infinite
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: duration
                 
                 	Key lifetime duration, in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..2147483646
                 
@@ -295,7 +299,9 @@ class KeyChains(Entity):
                 .. attribute:: end_date_time
                 
                 	End time
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                 
                 
 
@@ -337,22 +343,24 @@ class KeyChains(Entity):
                 .. attribute:: always
                 
                 	Indicates key lifetime is always valid
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: start_date_time
                 
                 	Start time
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                 
                 .. attribute:: no_end_time
                 
                 	Indicates key lifetime end\-time in infinite
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: duration
                 
                 	Key lifetime duration, in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..2147483646
                 
@@ -361,7 +369,9 @@ class KeyChains(Entity):
                 .. attribute:: end_date_time
                 
                 	End time
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                 
                 
 
@@ -403,22 +413,24 @@ class KeyChains(Entity):
                 .. attribute:: always
                 
                 	Indicates key lifetime is always valid
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: start_date_time
                 
                 	Start time
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                 
                 .. attribute:: no_end_time
                 
                 	Indicates key lifetime end\-time in infinite
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: duration
                 
                 	Key lifetime duration, in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..2147483646
                 
@@ -427,7 +439,9 @@ class KeyChains(Entity):
                 .. attribute:: end_date_time
                 
                 	End time
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                 
                 
 
@@ -468,42 +482,42 @@ class KeyChains(Entity):
             .. attribute:: hmac_sha1_12
             
             	The HMAC\-SHA1\-12 algorithm
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: hmac_sha1_20
             
             	The HMAC\-SHA1\-20 algorithm
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: md5
             
             	The MD5 algorithm
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: sha_1
             
             	The SHA\-1 algorithm
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: hmac_sha_1
             
             	HMAC\-SHA\-1 authentication algorithm
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: hmac_sha_256
             
             	HMAC\-SHA\-256 authentication algorithm
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: hmac_sha_384
             
             	HMAC\-SHA\-384 authentication algorithm
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: hmac_sha_512
             
             	HMAC\-SHA\-512 authentication algorithm
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 

@@ -134,7 +134,7 @@ class BfdState(Entity):
     .. attribute:: sessions
     
     	
-    	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions>`
+    	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions>`
     
     
 
@@ -168,7 +168,7 @@ class BfdState(Entity):
         .. attribute:: session
         
         	
-        	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session>`
+        	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session>`
         
         
 
@@ -202,32 +202,32 @@ class BfdState(Entity):
             .. attribute:: type  <key>
             
             	Session type
-            	**type**\:   :py:class:`BfdOperSessionType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdOperSessionType>`
+            	**type**\:  :py:class:`BfdOperSessionType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdOperSessionType>`
             
             .. attribute:: bfd_tunnel_paths
             
             	
-            	**type**\:   :py:class:`BfdTunnelPaths <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdTunnelPaths>`
+            	**type**\:  :py:class:`BfdTunnelPaths <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdTunnelPaths>`
             
             .. attribute:: bfd_circuits
             
             	
-            	**type**\:   :py:class:`BfdCircuits <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdCircuits>`
+            	**type**\:  :py:class:`BfdCircuits <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdCircuits>`
             
             .. attribute:: bfd_nbrs
             
             	
-            	**type**\:   :py:class:`BfdNbrs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdNbrs>`
+            	**type**\:  :py:class:`BfdNbrs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdNbrs>`
             
             .. attribute:: bfd_mhop_nbrs
             
             	
-            	**type**\:   :py:class:`BfdMhopNbrs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdMhopNbrs>`
+            	**type**\:  :py:class:`BfdMhopNbrs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdMhopNbrs>`
             
             .. attribute:: bfd_mhop_vrf_nbrs
             
             	
-            	**type**\:   :py:class:`BfdMhopVrfNbrs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdMhopVrfNbrs>`
+            	**type**\:  :py:class:`BfdMhopVrfNbrs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdMhopVrfNbrs>`
             
             
 
@@ -286,7 +286,7 @@ class BfdState(Entity):
                 .. attribute:: bfd_tunnel_path
                 
                 	Tunnel Path
-                	**type**\: list of    :py:class:`BfdTunnelPath <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath>`
+                	**type**\: list of  		 :py:class:`BfdTunnelPath <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath>`
                 
                 
 
@@ -319,36 +319,36 @@ class BfdState(Entity):
                     .. attribute:: interface  <key>
                     
                     	
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: lsp_type  <key>
                     
                     	
-                    	**type**\:   :py:class:`BfdLspType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdLspType>`
+                    	**type**\:  :py:class:`BfdLspType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdLspType>`
                     
                     .. attribute:: ld
                     
                     	local\-discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rd
                     
                     	remote\-discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: remote_state
                     
                     	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
-                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
+                    	**type**\:  :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
                     
                     .. attribute:: state
                     
                     	BFD state
-                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
+                    	**type**\:  :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
                     
                     
 
@@ -391,7 +391,7 @@ class BfdState(Entity):
                 .. attribute:: bfd_circuit
                 
                 	BFD circuit
-                	**type**\: list of    :py:class:`BfdCircuit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdCircuits.BfdCircuit>`
+                	**type**\: list of  		 :py:class:`BfdCircuit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdCircuits.BfdCircuit>`
                 
                 
 
@@ -424,38 +424,38 @@ class BfdState(Entity):
                     .. attribute:: interface  <key>
                     
                     	
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: vcid  <key>
                     
                     	
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: ld
                     
                     	local\-discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rd
                     
                     	remote\-discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: remote_state
                     
                     	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
-                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
+                    	**type**\:  :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
                     
                     .. attribute:: state
                     
                     	BFD state
-                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
+                    	**type**\:  :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
                     
                     
 
@@ -498,7 +498,7 @@ class BfdState(Entity):
                 .. attribute:: bfd_nbr
                 
                 	This is for directly connected neighbor case
-                	**type**\: list of    :py:class:`BfdNbr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdNbrs.BfdNbr>`
+                	**type**\: list of  		 :py:class:`BfdNbr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdNbrs.BfdNbr>`
                 
                 
 
@@ -531,44 +531,44 @@ class BfdState(Entity):
                     .. attribute:: ip  <key>
                     
                     	
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: interface  <key>
                     
                     	
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: ld
                     
                     	local\-discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rd
                     
                     	remote\-discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: remote_state
                     
                     	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
-                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
+                    	**type**\:  :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
                     
                     .. attribute:: state
                     
                     	BFD state
-                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
+                    	**type**\:  :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
                     
                     
 
@@ -611,7 +611,7 @@ class BfdState(Entity):
                 .. attribute:: bfd_mhop_nbr
                 
                 	This is for multi hop neighbor scenario  for global VRF (no VRF)
-                	**type**\: list of    :py:class:`BfdMhopNbr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdMhopNbrs.BfdMhopNbr>`
+                	**type**\: list of  		 :py:class:`BfdMhopNbr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdMhopNbrs.BfdMhopNbr>`
                 
                 
 
@@ -645,39 +645,39 @@ class BfdState(Entity):
                     .. attribute:: ip  <key>
                     
                     	
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: ld
                     
                     	local\-discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rd
                     
                     	remote\-discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: remote_state
                     
                     	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
-                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
+                    	**type**\:  :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
                     
                     .. attribute:: state
                     
                     	BFD state
-                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
+                    	**type**\:  :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
                     
                     
 
@@ -718,7 +718,7 @@ class BfdState(Entity):
                 .. attribute:: bfd_mhop_vrf_nbr
                 
                 	This is for multi hop neighbor scenario  for non\-global VRF
-                	**type**\: list of    :py:class:`BfdMhopVrfNbr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdMhopVrfNbrs.BfdMhopVrfNbr>`
+                	**type**\: list of  		 :py:class:`BfdMhopVrfNbr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdMhopVrfNbrs.BfdMhopVrfNbr>`
                 
                 
 
@@ -752,44 +752,44 @@ class BfdState(Entity):
                     .. attribute:: ip  <key>
                     
                     	
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: vrf  <key>
                     
                     	
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: ld
                     
                     	local\-discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: rd
                     
                     	remote\-discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: remote_state
                     
                     	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
-                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
+                    	**type**\:  :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
                     
                     .. attribute:: state
                     
                     	BFD state
-                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
+                    	**type**\:  :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
                     
                     
 

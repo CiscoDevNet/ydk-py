@@ -84,17 +84,17 @@ class GlobalServiceFunctionChaining(Entity):
     .. attribute:: service_function_path
     
     	Service Function Path operational data
-    	**type**\:   :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath>`
+    	**type**\:  :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath>`
     
     .. attribute:: service_function
     
     	Service Function operational data
-    	**type**\:   :py:class:`ServiceFunction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction>`
+    	**type**\:  :py:class:`ServiceFunction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction>`
     
     .. attribute:: service_function_forwarder
     
     	Service Function Forwarder operational data
-    	**type**\:   :py:class:`ServiceFunctionForwarder <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder>`
+    	**type**\:  :py:class:`ServiceFunctionForwarder <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder>`
     
     
 
@@ -138,7 +138,7 @@ class GlobalServiceFunctionChaining(Entity):
         .. attribute:: path_ids
         
         	Service Function Path Id 
-        	**type**\:   :py:class:`PathIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds>`
+        	**type**\:  :py:class:`PathIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds>`
         
         
 
@@ -172,7 +172,7 @@ class GlobalServiceFunctionChaining(Entity):
             .. attribute:: path_id
             
             	Specific Service\-Function\-Path identifier 
-            	**type**\: list of    :py:class:`PathId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId>`
+            	**type**\: list of  		 :py:class:`PathId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId>`
             
             
 
@@ -206,19 +206,19 @@ class GlobalServiceFunctionChaining(Entity):
                 .. attribute:: id  <key>
                 
                 	Specific Service\-Function\-Path identifier
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..16777215
                 
                 .. attribute:: stats
                 
                 	SFP Statistics
-                	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats>`
+                	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats>`
                 
                 .. attribute:: service_indexes
                 
                 	Service Index Belonging to Path
-                	**type**\:   :py:class:`ServiceIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes>`
+                	**type**\:  :py:class:`ServiceIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes>`
                 
                 
 
@@ -262,12 +262,12 @@ class GlobalServiceFunctionChaining(Entity):
                     .. attribute:: detail
                     
                     	Detail statistics per service index 
-                    	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail>`
+                    	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail>`
                     
                     .. attribute:: summarized
                     
                     	Combined statistics of all service index in service functionpath
-                    	**type**\:   :py:class:`Summarized <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized>`
+                    	**type**\:  :py:class:`Summarized <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized>`
                     
                     
 
@@ -305,12 +305,12 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: data
                         
                         	Statistics data
-                        	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data>`
+                        	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data>`
                         
                         .. attribute:: si_arr
                         
                         	SI array in case of detail stats
-                        	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr>`
+                        	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr>`
                         
                         
 
@@ -348,37 +348,37 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: sfp
                             
                             	SFP stats
-                            	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp>`
+                            	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp>`
                             
                             .. attribute:: spi_si
                             
                             	SPI SI stats
-                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi>`
+                            	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi>`
                             
                             .. attribute:: term
                             
                             	Terminate stats
-                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term>`
+                            	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term>`
                             
                             .. attribute:: sf
                             
                             	Service function stats
-                            	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf>`
+                            	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf>`
                             
                             .. attribute:: sff
                             
                             	Service function forwarder stats
-                            	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff>`
+                            	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff>`
                             
                             .. attribute:: sff_local
                             
                             	Local service function forwarder stats
-                            	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal>`
+                            	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal>`
                             
                             .. attribute:: type
                             
                             	type
-                            	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                            	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                             
                             
 
@@ -441,12 +441,12 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: spi_si
                                 
                                 	Service index counters
-                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi>`
+                                	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi>`
                                 
                                 .. attribute:: term
                                 
                                 	Terminate counters
-                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term>`
+                                	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term>`
                                 
                                 
 
@@ -484,14 +484,14 @@ class GlobalServiceFunctionChaining(Entity):
                                     .. attribute:: processed_pkts
                                     
                                     	Number of packets processed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -530,14 +530,14 @@ class GlobalServiceFunctionChaining(Entity):
                                     .. attribute:: terminated_pkts
                                     
                                     	Number of terminated packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -576,14 +576,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: processed_pkts
                                 
                                 	Number of packets processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -622,14 +622,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: terminated_pkts
                                 
                                 	Number of terminated packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: terminated_bytes
                                 
                                 	Total bytes terminated
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -668,14 +668,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: processed_pkts
                                 
                                 	Number of packets processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -714,14 +714,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: processed_pkts
                                 
                                 	Number of packets processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -760,21 +760,21 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: malformed_err_pkts
                                 
                                 	Number of packets with invalid NSH header
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: lookup_err_pkts
                                 
                                 	Number of packets with unknown spi\-si
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: malformed_err_bytes
                                 
                                 	Total bytes with invalid NSH header
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -783,7 +783,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: lookup_err_bytes
                                 
                                 	Total bytes with unknown spi\-si
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -826,12 +826,12 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: data
                             
                             	Stats counter for this index
-                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data>`
+                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data>`
                             
                             .. attribute:: si
                             
                             	Service index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -871,17 +871,17 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: spi_si
                                 
                                 	SF/SFF stats
-                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi>`
+                                	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi>`
                                 
                                 .. attribute:: term
                                 
                                 	Terminate stats
-                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term>`
+                                	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term>`
                                 
                                 .. attribute:: type
                                 
                                 	type
-                                	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                                	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                                 
                                 
 
@@ -924,14 +924,14 @@ class GlobalServiceFunctionChaining(Entity):
                                     .. attribute:: processed_pkts
                                     
                                     	Number of packets processed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -970,14 +970,14 @@ class GlobalServiceFunctionChaining(Entity):
                                     .. attribute:: terminated_pkts
                                     
                                     	Number of terminated packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1017,12 +1017,12 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: data
                         
                         	Statistics data
-                        	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data>`
+                        	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data>`
                         
                         .. attribute:: si_arr
                         
                         	SI array in case of detail stats
-                        	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr>`
+                        	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr>`
                         
                         
 
@@ -1060,37 +1060,37 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: sfp
                             
                             	SFP stats
-                            	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp>`
+                            	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp>`
                             
                             .. attribute:: spi_si
                             
                             	SPI SI stats
-                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi>`
+                            	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi>`
                             
                             .. attribute:: term
                             
                             	Terminate stats
-                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term>`
+                            	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term>`
                             
                             .. attribute:: sf
                             
                             	Service function stats
-                            	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf>`
+                            	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf>`
                             
                             .. attribute:: sff
                             
                             	Service function forwarder stats
-                            	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff>`
+                            	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff>`
                             
                             .. attribute:: sff_local
                             
                             	Local service function forwarder stats
-                            	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal>`
+                            	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal>`
                             
                             .. attribute:: type
                             
                             	type
-                            	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                            	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                             
                             
 
@@ -1153,12 +1153,12 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: spi_si
                                 
                                 	Service index counters
-                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi>`
+                                	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi>`
                                 
                                 .. attribute:: term
                                 
                                 	Terminate counters
-                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term>`
+                                	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term>`
                                 
                                 
 
@@ -1196,14 +1196,14 @@ class GlobalServiceFunctionChaining(Entity):
                                     .. attribute:: processed_pkts
                                     
                                     	Number of packets processed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1242,14 +1242,14 @@ class GlobalServiceFunctionChaining(Entity):
                                     .. attribute:: terminated_pkts
                                     
                                     	Number of terminated packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1288,14 +1288,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: processed_pkts
                                 
                                 	Number of packets processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1334,14 +1334,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: terminated_pkts
                                 
                                 	Number of terminated packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: terminated_bytes
                                 
                                 	Total bytes terminated
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1380,14 +1380,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: processed_pkts
                                 
                                 	Number of packets processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1426,14 +1426,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: processed_pkts
                                 
                                 	Number of packets processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1472,21 +1472,21 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: malformed_err_pkts
                                 
                                 	Number of packets with invalid NSH header
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: lookup_err_pkts
                                 
                                 	Number of packets with unknown spi\-si
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: malformed_err_bytes
                                 
                                 	Total bytes with invalid NSH header
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1495,7 +1495,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: lookup_err_bytes
                                 
                                 	Total bytes with unknown spi\-si
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1538,12 +1538,12 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: data
                             
                             	Stats counter for this index
-                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data>`
+                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data>`
                             
                             .. attribute:: si
                             
                             	Service index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -1583,17 +1583,17 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: spi_si
                                 
                                 	SF/SFF stats
-                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi>`
+                                	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi>`
                                 
                                 .. attribute:: term
                                 
                                 	Terminate stats
-                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term>`
+                                	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term>`
                                 
                                 .. attribute:: type
                                 
                                 	type
-                                	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                                	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                                 
                                 
 
@@ -1636,14 +1636,14 @@ class GlobalServiceFunctionChaining(Entity):
                                     .. attribute:: processed_pkts
                                     
                                     	Number of packets processed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1682,14 +1682,14 @@ class GlobalServiceFunctionChaining(Entity):
                                     .. attribute:: terminated_pkts
                                     
                                     	Number of terminated packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1728,7 +1728,7 @@ class GlobalServiceFunctionChaining(Entity):
                     .. attribute:: service_index
                     
                     	Service index operational data belonging to this path
-                    	**type**\: list of    :py:class:`ServiceIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex>`
+                    	**type**\: list of  		 :py:class:`ServiceIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex>`
                     
                     
 
@@ -1762,19 +1762,19 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: index  <key>
                         
                         	Service Index
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..255
                         
                         .. attribute:: data
                         
                         	Statistics data
-                        	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data>`
+                        	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data>`
                         
                         .. attribute:: si_arr
                         
                         	SI array in case of detail stats
-                        	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr>`
+                        	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr>`
                         
                         
 
@@ -1814,37 +1814,37 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: sfp
                             
                             	SFP stats
-                            	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp>`
+                            	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp>`
                             
                             .. attribute:: spi_si
                             
                             	SPI SI stats
-                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi>`
+                            	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi>`
                             
                             .. attribute:: term
                             
                             	Terminate stats
-                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term>`
+                            	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term>`
                             
                             .. attribute:: sf
                             
                             	Service function stats
-                            	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf>`
+                            	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf>`
                             
                             .. attribute:: sff
                             
                             	Service function forwarder stats
-                            	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff>`
+                            	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff>`
                             
                             .. attribute:: sff_local
                             
                             	Local service function forwarder stats
-                            	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal>`
+                            	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal>`
                             
                             .. attribute:: type
                             
                             	type
-                            	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                            	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                             
                             
 
@@ -1907,12 +1907,12 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: spi_si
                                 
                                 	Service index counters
-                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi>`
+                                	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi>`
                                 
                                 .. attribute:: term
                                 
                                 	Terminate counters
-                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term>`
+                                	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term>`
                                 
                                 
 
@@ -1950,14 +1950,14 @@ class GlobalServiceFunctionChaining(Entity):
                                     .. attribute:: processed_pkts
                                     
                                     	Number of packets processed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1996,14 +1996,14 @@ class GlobalServiceFunctionChaining(Entity):
                                     .. attribute:: terminated_pkts
                                     
                                     	Number of terminated packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -2042,14 +2042,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: processed_pkts
                                 
                                 	Number of packets processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2088,14 +2088,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: terminated_pkts
                                 
                                 	Number of terminated packets
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: terminated_bytes
                                 
                                 	Total bytes terminated
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2134,14 +2134,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: processed_pkts
                                 
                                 	Number of packets processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2180,14 +2180,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: processed_pkts
                                 
                                 	Number of packets processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2226,21 +2226,21 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: malformed_err_pkts
                                 
                                 	Number of packets with invalid NSH header
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: lookup_err_pkts
                                 
                                 	Number of packets with unknown spi\-si
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: malformed_err_bytes
                                 
                                 	Total bytes with invalid NSH header
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2249,7 +2249,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: lookup_err_bytes
                                 
                                 	Total bytes with unknown spi\-si
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2292,12 +2292,12 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: data
                             
                             	Stats counter for this index
-                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data>`
+                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data>`
                             
                             .. attribute:: si
                             
                             	Service index
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -2337,17 +2337,17 @@ class GlobalServiceFunctionChaining(Entity):
                                 .. attribute:: spi_si
                                 
                                 	SF/SFF stats
-                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi>`
+                                	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi>`
                                 
                                 .. attribute:: term
                                 
                                 	Terminate stats
-                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term>`
+                                	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term>`
                                 
                                 .. attribute:: type
                                 
                                 	type
-                                	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                                	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                                 
                                 
 
@@ -2390,14 +2390,14 @@ class GlobalServiceFunctionChaining(Entity):
                                     .. attribute:: processed_pkts
                                     
                                     	Number of packets processed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -2436,14 +2436,14 @@ class GlobalServiceFunctionChaining(Entity):
                                     .. attribute:: terminated_pkts
                                     
                                     	Number of terminated packets
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -2482,7 +2482,7 @@ class GlobalServiceFunctionChaining(Entity):
         .. attribute:: sf_names
         
         	List of Service Function Names
-        	**type**\:   :py:class:`SfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames>`
+        	**type**\:  :py:class:`SfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames>`
         
         
 
@@ -2516,7 +2516,7 @@ class GlobalServiceFunctionChaining(Entity):
             .. attribute:: sf_name
             
             	Name of Service Function
-            	**type**\: list of    :py:class:`SfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName>`
+            	**type**\: list of  		 :py:class:`SfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName>`
             
             
 
@@ -2550,19 +2550,19 @@ class GlobalServiceFunctionChaining(Entity):
                 .. attribute:: name  <key>
                 
                 	Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: data
                 
                 	Statistics data
-                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data>`
+                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data>`
                 
                 .. attribute:: si_arr
                 
                 	SI array in case of detail stats
-                	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr>`
+                	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr>`
                 
                 
 
@@ -2603,37 +2603,37 @@ class GlobalServiceFunctionChaining(Entity):
                     .. attribute:: sfp
                     
                     	SFP stats
-                    	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp>`
+                    	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp>`
                     
                     .. attribute:: spi_si
                     
                     	SPI SI stats
-                    	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi>`
+                    	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi>`
                     
                     .. attribute:: term
                     
                     	Terminate stats
-                    	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term>`
+                    	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term>`
                     
                     .. attribute:: sf
                     
                     	Service function stats
-                    	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf>`
+                    	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf>`
                     
                     .. attribute:: sff
                     
                     	Service function forwarder stats
-                    	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff>`
+                    	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff>`
                     
                     .. attribute:: sff_local
                     
                     	Local service function forwarder stats
-                    	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal>`
+                    	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal>`
                     
                     .. attribute:: type
                     
                     	type
-                    	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                    	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                     
                     
 
@@ -2696,12 +2696,12 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: spi_si
                         
                         	Service index counters
-                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi>`
+                        	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi>`
                         
                         .. attribute:: term
                         
                         	Terminate counters
-                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term>`
+                        	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term>`
                         
                         
 
@@ -2739,14 +2739,14 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: processed_pkts
                             
                             	Number of packets processed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2785,14 +2785,14 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: terminated_pkts
                             
                             	Number of terminated packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: terminated_bytes
                             
                             	Total bytes terminated
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2831,14 +2831,14 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: processed_pkts
                         
                         	Number of packets processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2877,14 +2877,14 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: terminated_pkts
                         
                         	Number of terminated packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: terminated_bytes
                         
                         	Total bytes terminated
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2923,14 +2923,14 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: processed_pkts
                         
                         	Number of packets processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2969,14 +2969,14 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: processed_pkts
                         
                         	Number of packets processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3015,21 +3015,21 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: malformed_err_pkts
                         
                         	Number of packets with invalid NSH header
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: lookup_err_pkts
                         
                         	Number of packets with unknown spi\-si
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: malformed_err_bytes
                         
                         	Total bytes with invalid NSH header
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3038,7 +3038,7 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: lookup_err_bytes
                         
                         	Total bytes with unknown spi\-si
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3081,12 +3081,12 @@ class GlobalServiceFunctionChaining(Entity):
                     .. attribute:: data
                     
                     	Stats counter for this index
-                    	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data>`
+                    	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data>`
                     
                     .. attribute:: si
                     
                     	Service index
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -3126,17 +3126,17 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: spi_si
                         
                         	SF/SFF stats
-                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi>`
+                        	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi>`
                         
                         .. attribute:: term
                         
                         	Terminate stats
-                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term>`
+                        	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term>`
                         
                         .. attribute:: type
                         
                         	type
-                        	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                        	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                         
                         
 
@@ -3179,14 +3179,14 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: processed_pkts
                             
                             	Number of packets processed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3225,14 +3225,14 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: terminated_pkts
                             
                             	Number of terminated packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: terminated_bytes
                             
                             	Total bytes terminated
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3271,12 +3271,12 @@ class GlobalServiceFunctionChaining(Entity):
         .. attribute:: sff_names
         
         	List of Service Function Forwarder Names
-        	**type**\:   :py:class:`SffNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames>`
+        	**type**\:  :py:class:`SffNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames>`
         
         .. attribute:: local
         
         	Local Service Function Forwarder operational data
-        	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local>`
+        	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local>`
         
         
 
@@ -3315,7 +3315,7 @@ class GlobalServiceFunctionChaining(Entity):
             .. attribute:: sff_name
             
             	Name of Service Function Forwarder
-            	**type**\: list of    :py:class:`SffName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName>`
+            	**type**\: list of  		 :py:class:`SffName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName>`
             
             
 
@@ -3349,19 +3349,19 @@ class GlobalServiceFunctionChaining(Entity):
                 .. attribute:: name  <key>
                 
                 	Name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: data
                 
                 	Statistics data
-                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data>`
+                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data>`
                 
                 .. attribute:: si_arr
                 
                 	SI array in case of detail stats
-                	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr>`
+                	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr>`
                 
                 
 
@@ -3402,37 +3402,37 @@ class GlobalServiceFunctionChaining(Entity):
                     .. attribute:: sfp
                     
                     	SFP stats
-                    	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp>`
+                    	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp>`
                     
                     .. attribute:: spi_si
                     
                     	SPI SI stats
-                    	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi>`
+                    	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi>`
                     
                     .. attribute:: term
                     
                     	Terminate stats
-                    	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term>`
+                    	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term>`
                     
                     .. attribute:: sf
                     
                     	Service function stats
-                    	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf>`
+                    	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf>`
                     
                     .. attribute:: sff
                     
                     	Service function forwarder stats
-                    	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff>`
+                    	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff>`
                     
                     .. attribute:: sff_local
                     
                     	Local service function forwarder stats
-                    	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal>`
+                    	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal>`
                     
                     .. attribute:: type
                     
                     	type
-                    	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                    	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                     
                     
 
@@ -3495,12 +3495,12 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: spi_si
                         
                         	Service index counters
-                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi>`
+                        	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi>`
                         
                         .. attribute:: term
                         
                         	Terminate counters
-                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term>`
+                        	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term>`
                         
                         
 
@@ -3538,14 +3538,14 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: processed_pkts
                             
                             	Number of packets processed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3584,14 +3584,14 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: terminated_pkts
                             
                             	Number of terminated packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: terminated_bytes
                             
                             	Total bytes terminated
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3630,14 +3630,14 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: processed_pkts
                         
                         	Number of packets processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3676,14 +3676,14 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: terminated_pkts
                         
                         	Number of terminated packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: terminated_bytes
                         
                         	Total bytes terminated
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3722,14 +3722,14 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: processed_pkts
                         
                         	Number of packets processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3768,14 +3768,14 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: processed_pkts
                         
                         	Number of packets processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3814,21 +3814,21 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: malformed_err_pkts
                         
                         	Number of packets with invalid NSH header
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: lookup_err_pkts
                         
                         	Number of packets with unknown spi\-si
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: malformed_err_bytes
                         
                         	Total bytes with invalid NSH header
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3837,7 +3837,7 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: lookup_err_bytes
                         
                         	Total bytes with unknown spi\-si
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3880,12 +3880,12 @@ class GlobalServiceFunctionChaining(Entity):
                     .. attribute:: data
                     
                     	Stats counter for this index
-                    	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data>`
+                    	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data>`
                     
                     .. attribute:: si
                     
                     	Service index
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -3925,17 +3925,17 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: spi_si
                         
                         	SF/SFF stats
-                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi>`
+                        	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi>`
                         
                         .. attribute:: term
                         
                         	Terminate stats
-                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term>`
+                        	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term>`
                         
                         .. attribute:: type
                         
                         	type
-                        	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                        	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                         
                         
 
@@ -3978,14 +3978,14 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: processed_pkts
                             
                             	Number of packets processed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4024,14 +4024,14 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: terminated_pkts
                             
                             	Number of terminated packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: terminated_bytes
                             
                             	Total bytes terminated
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4071,7 +4071,7 @@ class GlobalServiceFunctionChaining(Entity):
             .. attribute:: error
             
             	Error Statistics for local service function forwarder
-            	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error>`
+            	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error>`
             
             
 
@@ -4106,12 +4106,12 @@ class GlobalServiceFunctionChaining(Entity):
                 .. attribute:: data
                 
                 	Statistics data
-                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data>`
+                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data>`
                 
                 .. attribute:: si_arr
                 
                 	SI array in case of detail stats
-                	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr>`
+                	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr>`
                 
                 
 
@@ -4150,37 +4150,37 @@ class GlobalServiceFunctionChaining(Entity):
                     .. attribute:: sfp
                     
                     	SFP stats
-                    	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp>`
+                    	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp>`
                     
                     .. attribute:: spi_si
                     
                     	SPI SI stats
-                    	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi>`
+                    	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi>`
                     
                     .. attribute:: term
                     
                     	Terminate stats
-                    	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term>`
+                    	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term>`
                     
                     .. attribute:: sf
                     
                     	Service function stats
-                    	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf>`
+                    	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf>`
                     
                     .. attribute:: sff
                     
                     	Service function forwarder stats
-                    	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff>`
+                    	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff>`
                     
                     .. attribute:: sff_local
                     
                     	Local service function forwarder stats
-                    	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal>`
+                    	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal>`
                     
                     .. attribute:: type
                     
                     	type
-                    	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                    	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                     
                     
 
@@ -4244,12 +4244,12 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: spi_si
                         
                         	Service index counters
-                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi>`
+                        	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi>`
                         
                         .. attribute:: term
                         
                         	Terminate counters
-                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term>`
+                        	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term>`
                         
                         
 
@@ -4288,14 +4288,14 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: processed_pkts
                             
                             	Number of packets processed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4335,14 +4335,14 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: terminated_pkts
                             
                             	Number of terminated packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: terminated_bytes
                             
                             	Total bytes terminated
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4382,14 +4382,14 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: processed_pkts
                         
                         	Number of packets processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4429,14 +4429,14 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: terminated_pkts
                         
                         	Number of terminated packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: terminated_bytes
                         
                         	Total bytes terminated
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4476,14 +4476,14 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: processed_pkts
                         
                         	Number of packets processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4523,14 +4523,14 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: processed_pkts
                         
                         	Number of packets processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4570,21 +4570,21 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: malformed_err_pkts
                         
                         	Number of packets with invalid NSH header
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: lookup_err_pkts
                         
                         	Number of packets with unknown spi\-si
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: malformed_err_bytes
                         
                         	Total bytes with invalid NSH header
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4593,7 +4593,7 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: lookup_err_bytes
                         
                         	Total bytes with unknown spi\-si
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4637,12 +4637,12 @@ class GlobalServiceFunctionChaining(Entity):
                     .. attribute:: data
                     
                     	Stats counter for this index
-                    	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data>`
+                    	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data>`
                     
                     .. attribute:: si
                     
                     	Service index
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -4683,17 +4683,17 @@ class GlobalServiceFunctionChaining(Entity):
                         .. attribute:: spi_si
                         
                         	SF/SFF stats
-                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi>`
+                        	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi>`
                         
                         .. attribute:: term
                         
                         	Terminate stats
-                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term>`
+                        	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term>`
                         
                         .. attribute:: type
                         
                         	type
-                        	**type**\:   :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                        	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
                         
                         
 
@@ -4737,14 +4737,14 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: processed_pkts
                             
                             	Number of packets processed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4784,14 +4784,14 @@ class GlobalServiceFunctionChaining(Entity):
                             .. attribute:: terminated_pkts
                             
                             	Number of terminated packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: terminated_bytes
                             
                             	Total bytes terminated
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             

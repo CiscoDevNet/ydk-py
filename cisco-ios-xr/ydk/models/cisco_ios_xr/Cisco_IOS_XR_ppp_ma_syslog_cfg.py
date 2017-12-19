@@ -25,7 +25,7 @@ class Ppp(Entity):
     .. attribute:: syslog
     
     	syslog option for session status
-    	**type**\:   :py:class:`Syslog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_syslog_cfg.Ppp.Syslog>`
+    	**type**\:  :py:class:`Syslog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_syslog_cfg.Ppp.Syslog>`
     
     
 
@@ -59,7 +59,7 @@ class Ppp(Entity):
         .. attribute:: enable_session_status
         
         	Enable syslog for ppp session status
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 

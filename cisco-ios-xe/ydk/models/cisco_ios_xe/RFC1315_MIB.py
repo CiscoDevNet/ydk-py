@@ -16,22 +16,22 @@ class RFC1315MIB(Entity):
     .. attribute:: frame_relay_globals
     
     	
-    	**type**\:   :py:class:`FrameRelayGlobals <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrameRelayGlobals>`
+    	**type**\:  :py:class:`FrameRelayGlobals <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrameRelayGlobals>`
     
     .. attribute:: frdlcmitable
     
     	The Parameters for the Data Link Connection Management Interface for the frame relay service on this interface
-    	**type**\:   :py:class:`Frdlcmitable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable>`
+    	**type**\:  :py:class:`Frdlcmitable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable>`
     
     .. attribute:: frcircuittable
     
     	A table containing information about specific Data Link Connection Identifiers and corresponding virtual circuits
-    	**type**\:   :py:class:`Frcircuittable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable>`
+    	**type**\:  :py:class:`Frcircuittable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable>`
     
     .. attribute:: frerrtable
     
     	A table containing information about Errors on the Frame Relay interface
-    	**type**\:   :py:class:`Frerrtable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frerrtable>`
+    	**type**\:  :py:class:`Frerrtable <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frerrtable>`
     
     
 
@@ -79,7 +79,7 @@ class RFC1315MIB(Entity):
         .. attribute:: frtrapstate
         
         	This variable  indicates  whether  the  system produces the frDLCIStatusChange trap
-        	**type**\:   :py:class:`Frtrapstate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrameRelayGlobals.Frtrapstate>`
+        	**type**\:  :py:class:`Frtrapstate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.FrameRelayGlobals.Frtrapstate>`
         
         
 
@@ -133,7 +133,7 @@ class RFC1315MIB(Entity):
         .. attribute:: frdlcmientry
         
         	The Parameters for a particular Data Link Con\- nection Management Interface
-        	**type**\: list of    :py:class:`Frdlcmientry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry>`
+        	**type**\: list of  		 :py:class:`Frdlcmientry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry>`
         
         
 
@@ -167,64 +167,64 @@ class RFC1315MIB(Entity):
             .. attribute:: frdlcmiifindex  <key>
             
             	The ifIndex value of the  corresponding  ifEn\- try
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: frdlcmistate
             
             	This variable states which Data  Link  Connec\- tion Management scheme is active (and by impli\- cation, what DLCI it uses) on the  Frame  Relay interface
-            	**type**\:   :py:class:`Frdlcmistate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmistate>`
+            	**type**\:  :py:class:`Frdlcmistate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmistate>`
             
             .. attribute:: frdlcmiaddress
             
             	This variable states which address  format  is in use on the Frame Relay interface
-            	**type**\:   :py:class:`Frdlcmiaddress <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmiaddress>`
+            	**type**\:  :py:class:`Frdlcmiaddress <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmiaddress>`
             
             .. attribute:: frdlcmiaddresslen
             
             	This variable states which address  length  in octets.  In the case of Q922 format, the length indicates the entire length of the address  in\- cluding the control portion
-            	**type**\:   :py:class:`Frdlcmiaddresslen <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmiaddresslen>`
+            	**type**\:  :py:class:`Frdlcmiaddresslen <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmiaddresslen>`
             
             .. attribute:: frdlcmipollinginterval
             
             	This is the number of seconds between  succes\- sive status enquiry messages
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..30
             
             .. attribute:: frdlcmifullenquiryinterval
             
             	Number of status enquiry intervals  that  pass before  issuance  of a full status enquiry mes\- sage
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..255
             
             .. attribute:: frdlcmierrorthreshold
             
             	This  is  the  maximum  number  of  unanswered Status Enquiries the equipment shall accept be\- fore declaring the interface down
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..10
             
             .. attribute:: frdlcmimonitoredevents
             
             	This is the number of status polling intervals over which the error threshold is counted.  For example, if within 'MonitoredEvents' number  of events  the  station  receives 'ErrorThreshold' number of errors, the interface  is  marked  as down
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..10
             
             .. attribute:: frdlcmimaxsupportedvcs
             
             	The maximum number of Virtual Circuits allowed for  this  interface.   Usually dictated by the Frame Relay network.  In response to a SET, if a value less than zero or  higher  than the agent's maximal capability is configured, the agent  should  respond  bad\- Value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: frdlcmimulticast
             
             	This indicates whether the Frame Relay  inter\- face is using a multicast service
-            	**type**\:   :py:class:`Frdlcmimulticast <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmimulticast>`
+            	**type**\:  :py:class:`Frdlcmimulticast <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frdlcmitable.Frdlcmientry.Frdlcmimulticast>`
             
             
 
@@ -381,7 +381,7 @@ class RFC1315MIB(Entity):
         .. attribute:: frcircuitentry
         
         	The information regarding a single  Data  Link Connection Identifier
-        	**type**\: list of    :py:class:`Frcircuitentry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable.Frcircuitentry>`
+        	**type**\: list of  		 :py:class:`Frcircuitentry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable.Frcircuitentry>`
         
         
 
@@ -415,96 +415,96 @@ class RFC1315MIB(Entity):
             .. attribute:: frcircuitifindex  <key>
             
             	The ifIndex Value of the ifEntry this  virtual circuit is layered onto
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: frcircuitdlci  <key>
             
             	The Data Link Connection Identifier  for  this virtual circuit
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: frcircuitstate
             
             	Indicates whether the particular virtual  cir\- cuit  is operational.  In the absence of a Data Link Connection Management  Interface,  virtual circuit  entries  (rows) may be created by set\- ting virtual  circuit  state  to  'active',  or deleted by changing Circuit state to 'invalid'. Whether or not the row actually  disappears  is left  to the implementation, so this object may actually read as 'invalid' for  some  arbitrary length  of  time.   It is also legal to set the state of a virtual  circuit  to  'inactive'  to temporarily disable a given circuit
-            	**type**\:   :py:class:`Frcircuitstate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable.Frcircuitentry.Frcircuitstate>`
+            	**type**\:  :py:class:`Frcircuitstate <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frcircuittable.Frcircuitentry.Frcircuitstate>`
             
             .. attribute:: frcircuitreceivedfecns
             
             	Number of frames received from the network in\- dicating  forward  congestion since the virtual circuit was created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: frcircuitreceivedbecns
             
             	Number of frames received from the network in\- dicating  backward congestion since the virtual circuit was created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: frcircuitsentframes
             
             	The number of frames sent  from  this  virtual circuit since it was created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: frcircuitsentoctets
             
             	The number of octets sent  from  this  virtual circuit since it was created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: frcircuitreceivedframes
             
             	Number of frames received  over  this  virtual circuit since it was created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: frcircuitreceivedoctets
             
             	Number of octets received  over  this  virtual circuit since it was created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: frcircuitcreationtime
             
             	The value of sysUpTime when the  virtual  cir\- cuit was created, whether by the Data Link Con\- nection Management Interface  or  by  a  SetRe\- quest
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: frcircuitlasttimechange
             
             	The value of sysUpTime when last there  was  a change in the virtual circuit state
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: frcircuitcommittedburst
             
             	This variable indicates the maximum amount  of data,  in  bits,  that  the  network  agrees to transfer under normal  conditions,  during  the measurement interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: frcircuitexcessburst
             
             	This variable indicates the maximum amount  of uncommitted data bits that the network will at\- tempt to deliver over the measurement interval.  By default, if not configured when creating the entry, the Excess Information Burst Size is set to the value of ifSpeed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: frcircuitthroughput
             
             	Throughput is the average number of 'Frame Re\- lay  Information  Field'  bits  transferred per second across a user network interface  in  one direction, measured over the measurement inter\- val.  If the  configured  committed  burst  rate  and throughput  are  both non\-zero, the measurement interval T=frCircuitCommittedBurst/frCircuitThroughput.  If the  configured  committed  burst  rate  and throughput  are  both zero, the measurement in\- terval        T=frCircuitExcessBurst/ifSpeed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -609,7 +609,7 @@ class RFC1315MIB(Entity):
         .. attribute:: frerrentry
         
         	The error information for a single frame relay interface
-        	**type**\: list of    :py:class:`Frerrentry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frerrtable.Frerrentry>`
+        	**type**\: list of  		 :py:class:`Frerrentry <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frerrtable.Frerrentry>`
         
         
 
@@ -643,24 +643,24 @@ class RFC1315MIB(Entity):
             .. attribute:: frerrifindex  <key>
             
             	The ifIndex Value of the  corresponding  ifEn\- try
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
             .. attribute:: frerrtype
             
             	The type of error that was last seen  on  this interface
-            	**type**\:   :py:class:`Frerrtype <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frerrtable.Frerrentry.Frerrtype>`
+            	**type**\:  :py:class:`Frerrtype <ydk.models.cisco_ios_xe.RFC1315_MIB.RFC1315MIB.Frerrtable.Frerrentry.Frerrtype>`
             
             .. attribute:: frerrdata
             
             	An octet string containing as much of the  er\- ror  packet as possible.  As a minimum, it must contain the Q.922 Address or  as  much  as  was delivered.   It is desirable to include all in\- formation up to the PDU
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: frerrtime
             
             	The value of sysUpTime at which the error  was detected
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

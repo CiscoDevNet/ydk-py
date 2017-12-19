@@ -25,7 +25,7 @@ class Drop(Entity):
     .. attribute:: nodes
     
     	Drop data per node
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class Drop(Entity):
         .. attribute:: node
         
         	Drop stats data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes.Node>`
         
         
 
@@ -93,12 +93,14 @@ class Drop(Entity):
             .. attribute:: node_name  <key>
             
             	Node ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: npu_number_for_drop_stats
             
             	NPU drop stats
-            	**type**\:   :py:class:`NpuNumberForDropStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes.Node.NpuNumberForDropStats>`
+            	**type**\:  :py:class:`NpuNumberForDropStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes.Node.NpuNumberForDropStats>`
             
             
 
@@ -137,7 +139,7 @@ class Drop(Entity):
                 .. attribute:: npu_number_for_drop_stat
                 
                 	All drop stats for a particular NPU
-                	**type**\: list of    :py:class:`NpuNumberForDropStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat>`
+                	**type**\: list of  		 :py:class:`NpuNumberForDropStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat>`
                 
                 
 
@@ -170,14 +172,14 @@ class Drop(Entity):
                     .. attribute:: npu_id  <key>
                     
                     	NPU number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: drop_specific_stats_data
                     
                     	Second argument to the module
-                    	**type**\: list of    :py:class:`DropSpecificStatsData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat.DropSpecificStatsData>`
+                    	**type**\: list of  		 :py:class:`DropSpecificStatsData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat.DropSpecificStatsData>`
                     
                     
 
@@ -212,26 +214,26 @@ class Drop(Entity):
                         .. attribute:: drop_data  <key>
                         
                         	Drop ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: id
                         
                         	id
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: name
                         
                         	name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: count
                         
                         	count
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         

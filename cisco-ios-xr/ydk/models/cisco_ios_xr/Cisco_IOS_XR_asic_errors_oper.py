@@ -25,7 +25,7 @@ class AsicErrors(Entity):
     .. attribute:: nodes
     
     	Asic errors for each available nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class AsicErrors(Entity):
         .. attribute:: node
         
         	Asic error for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node>`
         
         
 
@@ -93,12 +93,14 @@ class AsicErrors(Entity):
             .. attribute:: node_name  <key>
             
             	Node ID
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: asic_information
             
             	Asic on the node
-            	**type**\: list of    :py:class:`AsicInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation>`
+            	**type**\: list of  		 :py:class:`AsicInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation>`
             
             
 
@@ -134,17 +136,19 @@ class AsicErrors(Entity):
                 .. attribute:: asic  <key>
                 
                 	Asic string
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: all_instances
                 
                 	All asic instance on the node
-                	**type**\:   :py:class:`AllInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances>`
+                	**type**\:  :py:class:`AllInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances>`
                 
                 .. attribute:: instances
                 
                 	All asic errors  on the node
-                	**type**\:   :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances>`
+                	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances>`
                 
                 
 
@@ -187,7 +191,7 @@ class AsicErrors(Entity):
                     .. attribute:: all_error_path
                     
                     	Error path of all instances
-                    	**type**\:   :py:class:`AllErrorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath>`
+                    	**type**\:  :py:class:`AllErrorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath>`
                     
                     
 
@@ -220,7 +224,7 @@ class AsicErrors(Entity):
                         .. attribute:: summary
                         
                         	Summary of all instances errors
-                        	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary>`
+                        	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary>`
                         
                         
 
@@ -253,17 +257,17 @@ class AsicErrors(Entity):
                             .. attribute:: legacy_client
                             
                             	legacy client
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: cih_client
                             
                             	cih client
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: sum_data
                             
                             	sum data
-                            	**type**\: list of    :py:class:`SumData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData>`
+                            	**type**\: list of  		 :py:class:`SumData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData>`
                             
                             
 
@@ -300,70 +304,70 @@ class AsicErrors(Entity):
                                 .. attribute:: num_nodes
                                 
                                 	num nodes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: crc_err_count
                                 
                                 	crc err count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: sbe_err_count
                                 
                                 	sbe err count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: mbe_err_count
                                 
                                 	mbe err count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: par_err_count
                                 
                                 	par err count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: gen_err_count
                                 
                                 	gen err count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: reset_err_count
                                 
                                 	reset err count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: err_count
                                 
                                 	err count
-                                	**type**\:  list of int
+                                	**type**\: list of int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: pcie_err_count
                                 
                                 	pcie err count
-                                	**type**\:  list of int
+                                	**type**\: list of int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: node_key
                                 
                                 	node key
-                                	**type**\:  list of int
+                                	**type**\: list of int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -416,7 +420,7 @@ class AsicErrors(Entity):
                     .. attribute:: instance
                     
                     	Particular asic instance on the node
-                    	**type**\: list of    :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance>`
+                    	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance>`
                     
                     
 
@@ -449,14 +453,14 @@ class AsicErrors(Entity):
                         .. attribute:: asic_instance  <key>
                         
                         	asic instance
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: error_path
                         
                         	Error path of the instances
-                        	**type**\:   :py:class:`ErrorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath>`
+                        	**type**\:  :py:class:`ErrorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath>`
                         
                         
 
@@ -494,257 +498,257 @@ class AsicErrors(Entity):
                             .. attribute:: multiple_bit_soft_errors
                             
                             	Multiple bit soft error information
-                            	**type**\:   :py:class:`MultipleBitSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors>`
+                            	**type**\:  :py:class:`MultipleBitSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors>`
                             
                             .. attribute:: asic_error_generic_soft
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`AsicErrorGenericSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft>`
+                            	**type**\:  :py:class:`AsicErrorGenericSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft>`
                             
                             .. attribute:: crc_hard_errors
                             
                             	CRC hard error information
-                            	**type**\:   :py:class:`CrcHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors>`
+                            	**type**\:  :py:class:`CrcHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors>`
                             
                             .. attribute:: asic_error_sbe_soft
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`AsicErrorSbeSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft>`
+                            	**type**\:  :py:class:`AsicErrorSbeSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft>`
                             
                             .. attribute:: hardware_soft_errors
                             
                             	Hardware soft error information
-                            	**type**\:   :py:class:`HardwareSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors>`
+                            	**type**\:  :py:class:`HardwareSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors>`
                             
                             .. attribute:: asic_error_crc_soft
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`AsicErrorCrcSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft>`
+                            	**type**\:  :py:class:`AsicErrorCrcSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft>`
                             
                             .. attribute:: asic_error_parity_soft
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`AsicErrorParitySoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft>`
+                            	**type**\:  :py:class:`AsicErrorParitySoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft>`
                             
                             .. attribute:: io_soft_errors
                             
                             	IO soft error information
-                            	**type**\:   :py:class:`IoSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors>`
+                            	**type**\:  :py:class:`IoSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors>`
                             
                             .. attribute:: reset_soft_errors
                             
                             	Reset soft error information
-                            	**type**\:   :py:class:`ResetSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors>`
+                            	**type**\:  :py:class:`ResetSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors>`
                             
                             .. attribute:: barrier_hard_errors
                             
                             	Barrier hard error information
-                            	**type**\:   :py:class:`BarrierHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors>`
+                            	**type**\:  :py:class:`BarrierHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors>`
                             
                             .. attribute:: ucode_soft_errors
                             
                             	Ucode soft error information
-                            	**type**\:   :py:class:`UcodeSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors>`
+                            	**type**\:  :py:class:`UcodeSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors>`
                             
                             .. attribute:: asic_error_reset_hard
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`AsicErrorResetHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard>`
+                            	**type**\:  :py:class:`AsicErrorResetHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard>`
                             
                             .. attribute:: single_bit_hard_errors
                             
                             	Single bit hard error information
-                            	**type**\:   :py:class:`SingleBitHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors>`
+                            	**type**\:  :py:class:`SingleBitHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors>`
                             
                             .. attribute:: indirect_hard_errors
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`IndirectHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors>`
+                            	**type**\:  :py:class:`IndirectHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors>`
                             
                             .. attribute:: outof_resource_soft
                             
                             	OOR thresh information
-                            	**type**\:   :py:class:`OutofResourceSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft>`
+                            	**type**\:  :py:class:`OutofResourceSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft>`
                             
                             .. attribute:: crc_soft_errors
                             
                             	CRC soft error information
-                            	**type**\:   :py:class:`CrcSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors>`
+                            	**type**\:  :py:class:`CrcSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors>`
                             
                             .. attribute:: time_out_hard_errors
                             
                             	Time out hard error information
-                            	**type**\:   :py:class:`TimeOutHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors>`
+                            	**type**\:  :py:class:`TimeOutHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors>`
                             
                             .. attribute:: barrier_soft_errors
                             
                             	Barrier soft error information
-                            	**type**\:   :py:class:`BarrierSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors>`
+                            	**type**\:  :py:class:`BarrierSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors>`
                             
                             .. attribute:: asic_error_mbe_soft
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`AsicErrorMbeSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft>`
+                            	**type**\:  :py:class:`AsicErrorMbeSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft>`
                             
                             .. attribute:: back_pressure_hard_errors
                             
                             	BP hard error information
-                            	**type**\:   :py:class:`BackPressureHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors>`
+                            	**type**\:  :py:class:`BackPressureHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors>`
                             
                             .. attribute:: single_bit_soft_errors
                             
                             	Single bit soft error information
-                            	**type**\:   :py:class:`SingleBitSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors>`
+                            	**type**\:  :py:class:`SingleBitSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors>`
                             
                             .. attribute:: indirect_soft_errors
                             
                             	Indirect soft error information
-                            	**type**\:   :py:class:`IndirectSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors>`
+                            	**type**\:  :py:class:`IndirectSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors>`
                             
                             .. attribute:: generic_hard_errors
                             
                             	Generic hard error information
-                            	**type**\:   :py:class:`GenericHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors>`
+                            	**type**\:  :py:class:`GenericHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors>`
                             
                             .. attribute:: link_hard_errors
                             
                             	Link hard error information
-                            	**type**\:   :py:class:`LinkHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors>`
+                            	**type**\:  :py:class:`LinkHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors>`
                             
                             .. attribute:: configuration_hard_errors
                             
                             	Configuration hard error information
-                            	**type**\:   :py:class:`ConfigurationHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors>`
+                            	**type**\:  :py:class:`ConfigurationHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors>`
                             
                             .. attribute:: instance_summary
                             
                             	Summary for a specific instance
-                            	**type**\:   :py:class:`InstanceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary>`
+                            	**type**\:  :py:class:`InstanceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary>`
                             
                             .. attribute:: unexpected_hard_errors
                             
                             	Unexpected hard error information
-                            	**type**\:   :py:class:`UnexpectedHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors>`
+                            	**type**\:  :py:class:`UnexpectedHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors>`
                             
                             .. attribute:: time_out_soft_errors
                             
                             	Time out soft error information
-                            	**type**\:   :py:class:`TimeOutSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors>`
+                            	**type**\:  :py:class:`TimeOutSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors>`
                             
                             .. attribute:: asic_error_generic_hard
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`AsicErrorGenericHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard>`
+                            	**type**\:  :py:class:`AsicErrorGenericHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard>`
                             
                             .. attribute:: parity_hard_errors
                             
                             	Parity hard error information
-                            	**type**\:   :py:class:`ParityHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors>`
+                            	**type**\:  :py:class:`ParityHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors>`
                             
                             .. attribute:: descriptor_hard_errors
                             
                             	Descriptor hard error information
-                            	**type**\:   :py:class:`DescriptorHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors>`
+                            	**type**\:  :py:class:`DescriptorHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors>`
                             
                             .. attribute:: interface_hard_errors
                             
                             	Interface hard error information
-                            	**type**\:   :py:class:`InterfaceHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors>`
+                            	**type**\:  :py:class:`InterfaceHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors>`
                             
                             .. attribute:: asic_error_sbe_hard
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`AsicErrorSbeHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard>`
+                            	**type**\:  :py:class:`AsicErrorSbeHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard>`
                             
                             .. attribute:: asic_error_crc_hard
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`AsicErrorCrcHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard>`
+                            	**type**\:  :py:class:`AsicErrorCrcHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard>`
                             
                             .. attribute:: asic_error_parity_hard
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`AsicErrorParityHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard>`
+                            	**type**\:  :py:class:`AsicErrorParityHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard>`
                             
                             .. attribute:: asic_error_reset_soft
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`AsicErrorResetSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft>`
+                            	**type**\:  :py:class:`AsicErrorResetSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft>`
                             
                             .. attribute:: back_pressure_soft_errors
                             
                             	BP soft error information
-                            	**type**\:   :py:class:`BackPressureSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors>`
+                            	**type**\:  :py:class:`BackPressureSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors>`
                             
                             .. attribute:: generic_soft_errors
                             
                             	Generic soft error information
-                            	**type**\:   :py:class:`GenericSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors>`
+                            	**type**\:  :py:class:`GenericSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors>`
                             
                             .. attribute:: link_soft_errors
                             
                             	Link soft error information
-                            	**type**\:   :py:class:`LinkSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors>`
+                            	**type**\:  :py:class:`LinkSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors>`
                             
                             .. attribute:: configuration_soft_errors
                             
                             	Configuration soft error information
-                            	**type**\:   :py:class:`ConfigurationSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors>`
+                            	**type**\:  :py:class:`ConfigurationSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors>`
                             
                             .. attribute:: multiple_bit_hard_errors
                             
                             	Multiple bit hard error information
-                            	**type**\:   :py:class:`MultipleBitHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors>`
+                            	**type**\:  :py:class:`MultipleBitHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors>`
                             
                             .. attribute:: unexpected_soft_errors
                             
                             	Unexpected soft error information
-                            	**type**\:   :py:class:`UnexpectedSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors>`
+                            	**type**\:  :py:class:`UnexpectedSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors>`
                             
                             .. attribute:: outof_resource_hard
                             
                             	OOR thresh information
-                            	**type**\:   :py:class:`OutofResourceHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard>`
+                            	**type**\:  :py:class:`OutofResourceHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard>`
                             
                             .. attribute:: hardware_hard_errors
                             
                             	Hardware hard error information
-                            	**type**\:   :py:class:`HardwareHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors>`
+                            	**type**\:  :py:class:`HardwareHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors>`
                             
                             .. attribute:: parity_soft_errors
                             
                             	Parity soft error information
-                            	**type**\:   :py:class:`ParitySoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors>`
+                            	**type**\:  :py:class:`ParitySoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors>`
                             
                             .. attribute:: descriptor_soft_errors
                             
                             	Descriptor soft error information
-                            	**type**\:   :py:class:`DescriptorSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors>`
+                            	**type**\:  :py:class:`DescriptorSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors>`
                             
                             .. attribute:: interface_soft_errors
                             
                             	Interface soft error information
-                            	**type**\:   :py:class:`InterfaceSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors>`
+                            	**type**\:  :py:class:`InterfaceSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors>`
                             
                             .. attribute:: io_hard_errors
                             
                             	IO hard error information
-                            	**type**\:   :py:class:`IoHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors>`
+                            	**type**\:  :py:class:`IoHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors>`
                             
                             .. attribute:: reset_hard_errors
                             
                             	Reset hard error information
-                            	**type**\:   :py:class:`ResetHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors>`
+                            	**type**\:  :py:class:`ResetHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors>`
                             
                             .. attribute:: ucode_hard_errors
                             
                             	UCode hard error information
-                            	**type**\:   :py:class:`UcodeHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors>`
+                            	**type**\:  :py:class:`UcodeHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors>`
                             
                             .. attribute:: asic_error_mbe_hard
                             
                             	Indirect hard error information
-                            	**type**\:   :py:class:`AsicErrorMbeHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard>`
+                            	**type**\:  :py:class:`AsicErrorMbeHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard>`
                             
                             
 
@@ -1027,7 +1031,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error>`
                                 
                                 
 
@@ -1060,90 +1064,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -1201,19 +1205,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1252,33 +1256,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -1321,7 +1325,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error>`
                                 
                                 
 
@@ -1354,90 +1358,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr>`
                                     
                                     
 
@@ -1495,19 +1499,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1546,33 +1550,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -1615,7 +1619,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error>`
                                 
                                 
 
@@ -1648,90 +1652,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -1789,19 +1793,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1840,33 +1844,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -1909,7 +1913,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error>`
                                 
                                 
 
@@ -1942,90 +1946,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr>`
                                     
                                     
 
@@ -2083,19 +2087,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2134,33 +2138,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -2203,7 +2207,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error>`
                                 
                                 
 
@@ -2236,90 +2240,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -2377,19 +2381,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2428,33 +2432,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -2497,7 +2501,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error>`
                                 
                                 
 
@@ -2530,90 +2534,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr>`
                                     
                                     
 
@@ -2671,19 +2675,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2722,33 +2726,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -2791,7 +2795,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error>`
                                 
                                 
 
@@ -2824,90 +2828,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr>`
                                     
                                     
 
@@ -2965,19 +2969,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3016,33 +3020,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -3085,7 +3089,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error>`
                                 
                                 
 
@@ -3118,90 +3122,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -3259,19 +3263,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3310,33 +3314,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -3379,7 +3383,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error>`
                                 
                                 
 
@@ -3412,90 +3416,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -3553,19 +3557,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3604,33 +3608,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -3673,7 +3677,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error>`
                                 
                                 
 
@@ -3706,90 +3710,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -3847,19 +3851,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -3898,33 +3902,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -3967,7 +3971,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error>`
                                 
                                 
 
@@ -4000,90 +4004,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -4141,19 +4145,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -4192,33 +4196,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -4261,7 +4265,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error>`
                                 
                                 
 
@@ -4294,90 +4298,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr>`
                                     
                                     
 
@@ -4435,19 +4439,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -4486,33 +4490,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -4555,7 +4559,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error>`
                                 
                                 
 
@@ -4588,90 +4592,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -4729,19 +4733,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -4780,33 +4784,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -4849,7 +4853,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error>`
                                 
                                 
 
@@ -4882,90 +4886,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -5023,19 +5027,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -5074,33 +5078,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -5143,7 +5147,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error>`
                                 
                                 
 
@@ -5176,90 +5180,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr>`
                                     
                                     
 
@@ -5317,19 +5321,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -5368,33 +5372,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -5437,7 +5441,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error>`
                                 
                                 
 
@@ -5470,90 +5474,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -5611,19 +5615,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -5662,33 +5666,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -5731,7 +5735,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error>`
                                 
                                 
 
@@ -5764,90 +5768,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -5905,19 +5909,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -5956,33 +5960,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -6025,7 +6029,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error>`
                                 
                                 
 
@@ -6058,90 +6062,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -6199,19 +6203,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -6250,33 +6254,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -6319,7 +6323,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error>`
                                 
                                 
 
@@ -6352,90 +6356,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr>`
                                     
                                     
 
@@ -6493,19 +6497,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -6544,33 +6548,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -6613,7 +6617,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error>`
                                 
                                 
 
@@ -6646,90 +6650,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -6787,19 +6791,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -6838,33 +6842,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -6907,7 +6911,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error>`
                                 
                                 
 
@@ -6940,90 +6944,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -7081,19 +7085,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -7132,33 +7136,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -7201,7 +7205,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error>`
                                 
                                 
 
@@ -7234,90 +7238,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -7375,19 +7379,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -7426,33 +7430,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -7495,7 +7499,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error>`
                                 
                                 
 
@@ -7528,90 +7532,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -7669,19 +7673,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -7720,33 +7724,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -7789,7 +7793,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error>`
                                 
                                 
 
@@ -7822,90 +7826,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -7963,19 +7967,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -8014,33 +8018,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -8083,7 +8087,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error>`
                                 
                                 
 
@@ -8116,90 +8120,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -8257,19 +8261,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -8308,33 +8312,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -8377,17 +8381,17 @@ class AsicErrors(Entity):
                                 .. attribute:: legacy_client
                                 
                                 	legacy client
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: cih_client
                                 
                                 	cih client
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: sum_data
                                 
                                 	sum data
-                                	**type**\: list of    :py:class:`SumData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData>`
+                                	**type**\: list of  		 :py:class:`SumData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData>`
                                 
                                 
 
@@ -8424,70 +8428,70 @@ class AsicErrors(Entity):
                                     .. attribute:: num_nodes
                                     
                                     	num nodes
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: crc_err_count
                                     
                                     	crc err count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: sbe_err_count
                                     
                                     	sbe err count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: mbe_err_count
                                     
                                     	mbe err count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: par_err_count
                                     
                                     	par err count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: gen_err_count
                                     
                                     	gen err count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: reset_err_count
                                     
                                     	reset err count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: err_count
                                     
                                     	err count
-                                    	**type**\:  list of int
+                                    	**type**\: list of int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: pcie_err_count
                                     
                                     	pcie err count
-                                    	**type**\:  list of int
+                                    	**type**\: list of int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: node_key
                                     
                                     	node key
-                                    	**type**\:  list of int
+                                    	**type**\: list of int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -8540,7 +8544,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error>`
                                 
                                 
 
@@ -8573,90 +8577,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -8714,19 +8718,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -8765,33 +8769,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -8834,7 +8838,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error>`
                                 
                                 
 
@@ -8867,90 +8871,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -9008,19 +9012,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -9059,33 +9063,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -9128,7 +9132,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error>`
                                 
                                 
 
@@ -9161,90 +9165,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr>`
                                     
                                     
 
@@ -9302,19 +9306,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -9353,33 +9357,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -9422,7 +9426,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error>`
                                 
                                 
 
@@ -9455,90 +9459,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -9596,19 +9600,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -9647,33 +9651,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -9716,7 +9720,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error>`
                                 
                                 
 
@@ -9749,90 +9753,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -9890,19 +9894,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -9941,33 +9945,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -10010,7 +10014,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error>`
                                 
                                 
 
@@ -10043,90 +10047,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -10184,19 +10188,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -10235,33 +10239,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -10304,7 +10308,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error>`
                                 
                                 
 
@@ -10337,90 +10341,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr>`
                                     
                                     
 
@@ -10478,19 +10482,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -10529,33 +10533,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -10598,7 +10602,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error>`
                                 
                                 
 
@@ -10631,90 +10635,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr>`
                                     
                                     
 
@@ -10772,19 +10776,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -10823,33 +10827,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -10892,7 +10896,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error>`
                                 
                                 
 
@@ -10925,90 +10929,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr>`
                                     
                                     
 
@@ -11066,19 +11070,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -11117,33 +11121,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -11186,7 +11190,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error>`
                                 
                                 
 
@@ -11219,90 +11223,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr>`
                                     
                                     
 
@@ -11360,19 +11364,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -11411,33 +11415,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -11480,7 +11484,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error>`
                                 
                                 
 
@@ -11513,90 +11517,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -11654,19 +11658,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -11705,33 +11709,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -11774,7 +11778,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error>`
                                 
                                 
 
@@ -11807,90 +11811,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -11948,19 +11952,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -11999,33 +12003,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -12068,7 +12072,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error>`
                                 
                                 
 
@@ -12101,90 +12105,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -12242,19 +12246,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -12293,33 +12297,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -12362,7 +12366,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error>`
                                 
                                 
 
@@ -12395,90 +12399,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -12536,19 +12540,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -12587,33 +12591,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -12656,7 +12660,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error>`
                                 
                                 
 
@@ -12689,90 +12693,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -12830,19 +12834,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -12881,33 +12885,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -12950,7 +12954,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error>`
                                 
                                 
 
@@ -12983,90 +12987,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -13124,19 +13128,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -13175,33 +13179,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -13244,7 +13248,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error>`
                                 
                                 
 
@@ -13277,90 +13281,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr>`
                                     
                                     
 
@@ -13418,19 +13422,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -13469,33 +13473,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -13538,7 +13542,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error>`
                                 
                                 
 
@@ -13571,90 +13575,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -13712,19 +13716,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -13763,33 +13767,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -13832,7 +13836,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error>`
                                 
                                 
 
@@ -13865,90 +13869,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -14006,19 +14010,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -14057,33 +14061,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -14126,7 +14130,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error>`
                                 
                                 
 
@@ -14159,90 +14163,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -14300,19 +14304,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -14351,33 +14355,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -14420,7 +14424,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error>`
                                 
                                 
 
@@ -14453,90 +14457,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr>`
                                     
                                     
 
@@ -14594,19 +14598,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -14645,33 +14649,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -14714,7 +14718,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error>`
                                 
                                 
 
@@ -14747,90 +14751,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -14888,19 +14892,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -14939,33 +14943,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -15008,7 +15012,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error>`
                                 
                                 
 
@@ -15041,90 +15045,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -15182,19 +15186,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -15233,33 +15237,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -15302,7 +15306,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error>`
                                 
                                 
 
@@ -15335,90 +15339,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr>`
                                     
                                     
 
@@ -15476,19 +15480,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -15527,33 +15531,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         
@@ -15596,7 +15600,7 @@ class AsicErrors(Entity):
                                 .. attribute:: error
                                 
                                 	Collection of errors
-                                	**type**\: list of    :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error>`
+                                	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error>`
                                 
                                 
 
@@ -15629,90 +15633,90 @@ class AsicErrors(Entity):
                                     .. attribute:: name
                                     
                                     	Name assigned to mem
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: node_key
                                     
                                     	32 bit key
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     .. attribute:: thresh_hi
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_hi
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: thresh_lo
                                     
                                     	High threshold value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: period_lo
                                     
                                     	High period value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: count
                                     
                                     	Accumulated count
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: intr_type
                                     
                                     	Type of error
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: leaf_id
                                     
                                     	Leaf ID defined in user data
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
-                                    	**type**\: list of    :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo>`
+                                    	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo>`
                                     
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
-                                    	**type**\: list of    :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr>`
+                                    	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr>`
                                     
                                     
 
@@ -15770,19 +15774,19 @@ class AsicErrors(Entity):
                                         .. attribute:: name
                                         
                                         	name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: address
                                         
                                         	address
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: width
                                         
                                         	width
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -15821,33 +15825,33 @@ class AsicErrors(Entity):
                                         .. attribute:: at_time
                                         
                                         	at time
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: counter_val
                                         
                                         	counter val
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: error_desc
                                         
                                         	error desc
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         .. attribute:: error_regval
                                         
                                         	error regval
-                                        	**type**\:  list of int
+                                        	**type**\: list of int
                                         
                                         	**range:** 0..255
                                         

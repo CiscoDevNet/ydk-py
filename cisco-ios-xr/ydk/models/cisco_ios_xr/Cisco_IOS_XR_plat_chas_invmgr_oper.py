@@ -731,7 +731,7 @@ class Platform(Entity):
     .. attribute:: racks
     
     	Table of racks
-    	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks>`
+    	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks>`
     
     
 
@@ -765,7 +765,7 @@ class Platform(Entity):
         .. attribute:: rack
         
         	Rack name
-        	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack>`
+        	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack>`
         
         
 
@@ -799,12 +799,14 @@ class Platform(Entity):
             .. attribute:: rack_name  <key>
             
             	Rack name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: slots
             
             	Table of slots
-            	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots>`
+            	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots>`
             
             
 
@@ -843,7 +845,7 @@ class Platform(Entity):
                 .. attribute:: slot
                 
                 	Slot name
-                	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot>`
+                	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot>`
                 
                 
 
@@ -876,22 +878,24 @@ class Platform(Entity):
                     .. attribute:: slot_name  <key>
                     
                     	Slot name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: instances
                     
                     	Table of Instances
-                    	**type**\:   :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances>`
+                    	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances>`
                     
                     .. attribute:: vm
                     
                     	VM information
-                    	**type**\:   :py:class:`Vm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Vm>`
+                    	**type**\:  :py:class:`Vm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Vm>`
                     
                     .. attribute:: state
                     
                     	State information
-                    	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.State>`
+                    	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.State>`
                     
                     
 
@@ -939,7 +943,7 @@ class Platform(Entity):
                         .. attribute:: instance
                         
                         	Instance name
-                        	**type**\: list of    :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances.Instance>`
+                        	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances.Instance>`
                         
                         
 
@@ -972,12 +976,12 @@ class Platform(Entity):
                             .. attribute:: instance_name  <key>
                             
                             	Instance name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: state
                             
                             	State information
-                            	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances.Instance.State>`
+                            	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances.Instance.State>`
                             
                             
 
@@ -1015,42 +1019,42 @@ class Platform(Entity):
                                 .. attribute:: card_type
                                 
                                 	Card type
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: card_redundancy_state
                                 
                                 	Redundancy state
-                                	**type**\:   :py:class:`CardRedundancyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyState>`
+                                	**type**\:  :py:class:`CardRedundancyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyState>`
                                 
                                 .. attribute:: plim
                                 
                                 	PLIM
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 .. attribute:: state
                                 
                                 	State
-                                	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeState>`
+                                	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeState>`
                                 
                                 .. attribute:: is_monitored
                                 
                                 	True if power state is active
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: is_powered
                                 
                                 	True if monitor state is active
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: is_shutdown
                                 
                                 	True if shutdown state is active
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: admin_state
                                 
                                 	Admin state
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -1097,27 +1101,27 @@ class Platform(Entity):
                         .. attribute:: node_descriptiton
                         
                         	Node Type
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: red_role
                         
                         	Node Redundency Role
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: partner_name
                         
                         	Partner Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: software_status
                         
                         	SW status
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: node_ip
                         
                         	Node IP Address
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -1158,42 +1162,42 @@ class Platform(Entity):
                         .. attribute:: card_type
                         
                         	Card type
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: card_redundancy_state
                         
                         	Redundancy state
-                        	**type**\:   :py:class:`CardRedundancyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyState>`
+                        	**type**\:  :py:class:`CardRedundancyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyState>`
                         
                         .. attribute:: plim
                         
                         	PLIM
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: state
                         
                         	State
-                        	**type**\:   :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeState>`
+                        	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeState>`
                         
                         .. attribute:: is_monitored
                         
                         	True if power state is active
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_powered
                         
                         	True if monitor state is active
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: is_shutdown
                         
                         	True if shutdown state is active
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: admin_state
                         
                         	Admin state
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -1243,7 +1247,7 @@ class PlatformInventory(Entity):
     .. attribute:: racks
     
     	Table of racks
-    	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks>`
+    	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks>`
     
     
 
@@ -1277,7 +1281,7 @@ class PlatformInventory(Entity):
         .. attribute:: rack
         
         	Rack name
-        	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack>`
+        	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack>`
         
         
 
@@ -1311,17 +1315,19 @@ class PlatformInventory(Entity):
             .. attribute:: name  <key>
             
             	Rack name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: slots
             
             	Table of slots
-            	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots>`
+            	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots>`
             
             .. attribute:: attributes
             
             	Attributes
-            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes>`
+            	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes>`
             
             
 
@@ -1365,7 +1371,7 @@ class PlatformInventory(Entity):
                 .. attribute:: slot
                 
                 	Slot name
-                	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot>`
+                	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot>`
                 
                 
 
@@ -1398,17 +1404,19 @@ class PlatformInventory(Entity):
                     .. attribute:: name  <key>
                     
                     	Slot name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: cards
                     
                     	Table of cards
-                    	**type**\:   :py:class:`Cards <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards>`
+                    	**type**\:  :py:class:`Cards <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards>`
                     
                     .. attribute:: attributes
                     
                     	Attributes
-                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes>`
+                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes>`
                     
                     
 
@@ -1451,7 +1459,7 @@ class PlatformInventory(Entity):
                         .. attribute:: card
                         
                         	Card number
-                        	**type**\: list of    :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card>`
+                        	**type**\: list of  		 :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card>`
                         
                         
 
@@ -1484,37 +1492,39 @@ class PlatformInventory(Entity):
                             .. attribute:: name  <key>
                             
                             	Card name
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: hardware_information
                             
                             	HardwareInformationDir
-                            	**type**\:   :py:class:`HardwareInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation>`
+                            	**type**\:  :py:class:`HardwareInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation>`
                             
                             .. attribute:: sub_slots
                             
                             	Table of subslots
-                            	**type**\:   :py:class:`SubSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots>`
+                            	**type**\:  :py:class:`SubSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots>`
                             
                             .. attribute:: port_slots
                             
                             	Table of port slots
-                            	**type**\:   :py:class:`PortSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots>`
+                            	**type**\:  :py:class:`PortSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots>`
                             
                             .. attribute:: hw_components
                             
                             	Table of  HW components 
-                            	**type**\:   :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents>`
+                            	**type**\:  :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents>`
                             
                             .. attribute:: sensors
                             
                             	Table of sensors
-                            	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors>`
+                            	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors>`
                             
                             .. attribute:: attributes
                             
                             	Attributes
-                            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes>`
+                            	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes>`
                             
                             
 
@@ -1577,22 +1587,22 @@ class PlatformInventory(Entity):
                                 .. attribute:: processor_information
                                 
                                 	ProcesorInformation
-                                	**type**\:   :py:class:`ProcessorInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation>`
+                                	**type**\:  :py:class:`ProcessorInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation>`
                                 
                                 .. attribute:: motherboard_information
                                 
                                 	MotherboardInformation
-                                	**type**\:   :py:class:`MotherboardInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation>`
+                                	**type**\:  :py:class:`MotherboardInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation>`
                                 
                                 .. attribute:: bootflash_information
                                 
                                 	BootflashInformation
-                                	**type**\:   :py:class:`BootflashInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation>`
+                                	**type**\:  :py:class:`BootflashInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation>`
                                 
                                 .. attribute:: disk_information
                                 
                                 	DiskInformation
-                                	**type**\:   :py:class:`DiskInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation>`
+                                	**type**\:  :py:class:`DiskInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation>`
                                 
                                 
 
@@ -1640,21 +1650,21 @@ class PlatformInventory(Entity):
                                     .. attribute:: processor_type
                                     
                                     	Type e.g. 7457
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: speed
                                     
                                     	Speed e.g. 1197Mhz
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: revision
                                     
                                     	Revision. e.g 1.1
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
@@ -1693,22 +1703,22 @@ class PlatformInventory(Entity):
                                     .. attribute:: rom
                                     
                                     	ROM information
-                                    	**type**\:   :py:class:`Rom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom>`
+                                    	**type**\:  :py:class:`Rom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom>`
                                     
                                     .. attribute:: bootflash
                                     
                                     	Bootflash information
-                                    	**type**\:   :py:class:`Bootflash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash>`
+                                    	**type**\:  :py:class:`Bootflash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash>`
                                     
                                     .. attribute:: processor
                                     
                                     	Processor information
-                                    	**type**\:   :py:class:`Processor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor>`
+                                    	**type**\:  :py:class:`Processor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor>`
                                     
                                     .. attribute:: main_memory_size
                                     
                                     	Memory size in bytes
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1717,7 +1727,7 @@ class PlatformInventory(Entity):
                                     .. attribute:: nvram_size
                                     
                                     	NVRAM size in bytes
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1771,42 +1781,42 @@ class PlatformInventory(Entity):
                                         .. attribute:: image_name
                                         
                                         	Image name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: major_version
                                         
                                         	Major version
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_version
                                         
                                         	Minor version
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: micro_image_version
                                         
                                         	Micro image version
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: platform_specific
                                         
                                         	Platform specific text
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: release_type
                                         
                                         	Release type
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
@@ -1851,63 +1861,63 @@ class PlatformInventory(Entity):
                                         .. attribute:: image_name
                                         
                                         	Image name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: platform_type
                                         
                                         	Platform Type
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: major_version
                                         
                                         	Major version
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: minor_version
                                         
                                         	Minor version
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: micro_image_version
                                         
                                         	Micro image version
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: platform_specific
                                         
                                         	Platform specific text
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: release_type
                                         
                                         	Release type
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: bootflash_type
                                         
                                         	Bootflash type e.g. SIMM
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: bootflash_size
                                         
                                         	Bootflash size in kilo\-bytes
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1916,7 +1926,7 @@ class PlatformInventory(Entity):
                                         .. attribute:: sector_size
                                         
                                         	Sector size in bytes
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -1971,21 +1981,21 @@ class PlatformInventory(Entity):
                                         .. attribute:: processor_type
                                         
                                         	Type e.g. 7457
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: speed
                                         
                                         	Speed e.g. 1197Mhz
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: revision
                                         
                                         	Revision. e.g 1.1
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
@@ -2024,63 +2034,63 @@ class PlatformInventory(Entity):
                                     .. attribute:: image_name
                                     
                                     	Image name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: platform_type
                                     
                                     	Platform Type
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: major_version
                                     
                                     	Major version
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: minor_version
                                     
                                     	Minor version
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: micro_image_version
                                     
                                     	Micro image version
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: platform_specific
                                     
                                     	Platform specific text
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: release_type
                                     
                                     	Release type
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: bootflash_type
                                     
                                     	Bootflash type e.g. SIMM
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: bootflash_size
                                     
                                     	Bootflash size in kilo\-bytes
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2089,7 +2099,7 @@ class PlatformInventory(Entity):
                                     .. attribute:: sector_size
                                     
                                     	Sector size in bytes
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2144,14 +2154,14 @@ class PlatformInventory(Entity):
                                     .. attribute:: disk_name
                                     
                                     	(Deprecated) Disk name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: disk_size
                                     
                                     	(Deprecated) Disk size in mega\-bytes
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2160,7 +2170,7 @@ class PlatformInventory(Entity):
                                     .. attribute:: sector_size
                                     
                                     	(Deprecated) Disk sector size in bytes
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -2169,7 +2179,7 @@ class PlatformInventory(Entity):
                                     .. attribute:: disks
                                     
                                     	Disk attributes
-                                    	**type**\: list of    :py:class:`Disks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks>`
+                                    	**type**\: list of  		 :py:class:`Disks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks>`
                                     
                                     
 
@@ -2208,14 +2218,14 @@ class PlatformInventory(Entity):
                                         .. attribute:: disk_name
                                         
                                         	Disk name
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..255
                                         
                                         .. attribute:: disk_size
                                         
                                         	Disk size in mega\-bytes
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2224,7 +2234,7 @@ class PlatformInventory(Entity):
                                         .. attribute:: sector_size
                                         
                                         	Disk sector size in bytes
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2265,7 +2275,7 @@ class PlatformInventory(Entity):
                                 .. attribute:: sub_slot
                                 
                                 	Subslot number
-                                	**type**\: list of    :py:class:`SubSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot>`
+                                	**type**\: list of  		 :py:class:`SubSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot>`
                                 
                                 
 
@@ -2298,17 +2308,19 @@ class PlatformInventory(Entity):
                                     .. attribute:: name  <key>
                                     
                                     	Subslot name
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: module
                                     
                                     	Module of a subslot
-                                    	**type**\:   :py:class:`Module <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module>`
+                                    	**type**\:  :py:class:`Module <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module>`
                                     
                                     .. attribute:: attributes
                                     
                                     	Attributes
-                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes>`
+                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes>`
                                     
                                     
 
@@ -2351,17 +2363,17 @@ class PlatformInventory(Entity):
                                         .. attribute:: port_slots
                                         
                                         	Table of port slots
-                                        	**type**\:   :py:class:`PortSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots>`
+                                        	**type**\:  :py:class:`PortSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots>`
                                         
                                         .. attribute:: sensors
                                         
                                         	Table of sensors
-                                        	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors>`
+                                        	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors>`
                                         
                                         .. attribute:: attributes
                                         
                                         	Attributes
-                                        	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes>`
+                                        	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes>`
                                         
                                         
 
@@ -2404,7 +2416,7 @@ class PlatformInventory(Entity):
                                             .. attribute:: port_slot
                                             
                                             	Port slot number
-                                            	**type**\: list of    :py:class:`PortSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot>`
+                                            	**type**\: list of  		 :py:class:`PortSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot>`
                                             
                                             
 
@@ -2437,22 +2449,24 @@ class PlatformInventory(Entity):
                                                 .. attribute:: name  <key>
                                                 
                                                 	Port slot name
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                 
                                                 .. attribute:: portses
                                                 
                                                 	Table of spirit port slots
-                                                	**type**\:   :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses>`
+                                                	**type**\:  :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses>`
                                                 
                                                 .. attribute:: sensors
                                                 
                                                 	Table of sensors
-                                                	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors>`
+                                                	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors>`
                                                 
                                                 .. attribute:: attributes
                                                 
                                                 	Attributes
-                                                	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes>`
+                                                	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes>`
                                                 
                                                 
 
@@ -2500,7 +2514,7 @@ class PlatformInventory(Entity):
                                                     .. attribute:: ports
                                                     
                                                     	Port number
-                                                    	**type**\: list of    :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports>`
+                                                    	**type**\: list of  		 :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports>`
                                                     
                                                     
 
@@ -2533,22 +2547,24 @@ class PlatformInventory(Entity):
                                                         .. attribute:: name  <key>
                                                         
                                                         	Port name
-                                                        	**type**\:  str
+                                                        	**type**\: str
+                                                        
+                                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                         
                                                         .. attribute:: hw_components
                                                         
                                                         	Table of  HW components 
-                                                        	**type**\:   :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents>`
+                                                        	**type**\:  :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents>`
                                                         
                                                         .. attribute:: sensors
                                                         
                                                         	Table of sensors
-                                                        	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors>`
+                                                        	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors>`
                                                         
                                                         .. attribute:: attributes
                                                         
                                                         	Attributes
-                                                        	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes>`
+                                                        	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes>`
                                                         
                                                         
 
@@ -2596,7 +2612,7 @@ class PlatformInventory(Entity):
                                                             .. attribute:: hw_component
                                                             
                                                             	HW component number
-                                                            	**type**\: list of    :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent>`
+                                                            	**type**\: list of  		 :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent>`
                                                             
                                                             
 
@@ -2629,17 +2645,19 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: name  <key>
                                                                 
                                                                 	HW component name
-                                                                	**type**\:  str
+                                                                	**type**\: str
+                                                                
+                                                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                                 
                                                                 .. attribute:: sensors
                                                                 
                                                                 	Table of sensors
-                                                                	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors>`
+                                                                	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors>`
                                                                 
                                                                 .. attribute:: attributes
                                                                 
                                                                 	Attributes
-                                                                	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes>`
+                                                                	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes>`
                                                                 
                                                                 
 
@@ -2682,7 +2700,7 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: sensor
                                                                     
                                                                     	Sensor number
-                                                                    	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor>`
+                                                                    	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor>`
                                                                     
                                                                     
 
@@ -2715,12 +2733,14 @@ class PlatformInventory(Entity):
                                                                         .. attribute:: name  <key>
                                                                         
                                                                         	Sensor name
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
+                                                                        
+                                                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                                         
                                                                         .. attribute:: attributes
                                                                         
                                                                         	Attributes
-                                                                        	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
+                                                                        	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
                                                                         
                                                                         
 
@@ -2758,12 +2778,12 @@ class PlatformInventory(Entity):
                                                                             .. attribute:: basic_info
                                                                             
                                                                             	Entity attributes
-                                                                            	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
+                                                                            	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
                                                                             
                                                                             .. attribute:: fru_info
                                                                             
                                                                             	Field Replaceable Unit (FRU) attributes
-                                                                            	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
+                                                                            	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
                                                                             
                                                                             
 
@@ -2801,63 +2821,63 @@ class PlatformInventory(Entity):
                                                                                 .. attribute:: name
                                                                                 
                                                                                 	name string for the entity
-                                                                                	**type**\:  str
+                                                                                	**type**\: str
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
                                                                                 .. attribute:: description
                                                                                 
                                                                                 	describes in user\-readable terms                 what the entity in question does
-                                                                                	**type**\:  str
+                                                                                	**type**\: str
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
                                                                                 .. attribute:: model_name
                                                                                 
                                                                                 	model name
-                                                                                	**type**\:  str
+                                                                                	**type**\: str
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
                                                                                 .. attribute:: hardware_revision
                                                                                 
                                                                                 	hw revision string
-                                                                                	**type**\:  str
+                                                                                	**type**\: str
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
                                                                                 .. attribute:: serial_number
                                                                                 
                                                                                 	serial number
-                                                                                	**type**\:  str
+                                                                                	**type**\: str
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
                                                                                 .. attribute:: firmware_revision
                                                                                 
                                                                                 	firmware revision string
-                                                                                	**type**\:  str
+                                                                                	**type**\: str
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
                                                                                 .. attribute:: software_revision
                                                                                 
                                                                                 	software revision string
-                                                                                	**type**\:  str
+                                                                                	**type**\: str
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
                                                                                 .. attribute:: vendor_type
                                                                                 
                                                                                 	maps to the vendor OID string
-                                                                                	**type**\:  str
+                                                                                	**type**\: str
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
                                                                                 .. attribute:: is_field_replaceable_unit
                                                                                 
                                                                                 	1 if Field Replaceable Unit 0, if not
-                                                                                	**type**\:  bool
+                                                                                	**type**\: bool
                                                                                 
                                                                                 
 
@@ -2906,37 +2926,37 @@ class PlatformInventory(Entity):
                                                                                 .. attribute:: last_operational_state_change
                                                                                 
                                                                                 	Time operational state is   last changed
-                                                                                	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                                                	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                                                 
                                                                                 .. attribute:: module_up_time
                                                                                 
                                                                                 	Module up time
-                                                                                	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                                                	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                                                 
                                                                                 .. attribute:: module_administrative_state
                                                                                 
                                                                                 	Administrative    state
-                                                                                	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                                                	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                                                 
                                                                                 .. attribute:: module_power_administrative_state
                                                                                 
                                                                                 	Power administrative state
-                                                                                	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                                                	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                                                 
                                                                                 .. attribute:: module_operational_state
                                                                                 
                                                                                 	Operation state
-                                                                                	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                                                	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                                                 
                                                                                 .. attribute:: module_monitor_state
                                                                                 
                                                                                 	Monitor state
-                                                                                	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                                                	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                                                 
                                                                                 .. attribute:: module_reset_reason
                                                                                 
                                                                                 	Reset reason
-                                                                                	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                                                	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                                                 
                                                                                 
 
@@ -2987,7 +3007,7 @@ class PlatformInventory(Entity):
                                                                                     .. attribute:: time_in_seconds
                                                                                     
                                                                                     	Time Value in Seconds
-                                                                                    	**type**\:  int
+                                                                                    	**type**\: int
                                                                                     
                                                                                     	**range:** \-2147483648..2147483647
                                                                                     
@@ -2996,7 +3016,7 @@ class PlatformInventory(Entity):
                                                                                     .. attribute:: time_in_nano_seconds
                                                                                     
                                                                                     	Time Value in Nano\-seconds
-                                                                                    	**type**\:  int
+                                                                                    	**type**\: int
                                                                                     
                                                                                     	**range:** \-2147483648..2147483647
                                                                                     
@@ -3035,7 +3055,7 @@ class PlatformInventory(Entity):
                                                                                     .. attribute:: time_in_seconds
                                                                                     
                                                                                     	Time Value in Seconds
-                                                                                    	**type**\:  int
+                                                                                    	**type**\: int
                                                                                     
                                                                                     	**range:** \-2147483648..2147483647
                                                                                     
@@ -3044,7 +3064,7 @@ class PlatformInventory(Entity):
                                                                                     .. attribute:: time_in_nano_seconds
                                                                                     
                                                                                     	Time Value in Nano\-seconds
-                                                                                    	**type**\:  int
+                                                                                    	**type**\: int
                                                                                     
                                                                                     	**range:** \-2147483648..2147483647
                                                                                     
@@ -3083,12 +3103,12 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: basic_info
                                                                     
                                                                     	Entity attributes
-                                                                    	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo>`
+                                                                    	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo>`
                                                                     
                                                                     .. attribute:: fru_info
                                                                     
                                                                     	Field Replaceable Unit (FRU) attributes
-                                                                    	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo>`
+                                                                    	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo>`
                                                                     
                                                                     
 
@@ -3126,63 +3146,63 @@ class PlatformInventory(Entity):
                                                                         .. attribute:: name
                                                                         
                                                                         	name string for the entity
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: description
                                                                         
                                                                         	describes in user\-readable terms                 what the entity in question does
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: model_name
                                                                         
                                                                         	model name
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: hardware_revision
                                                                         
                                                                         	hw revision string
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: serial_number
                                                                         
                                                                         	serial number
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: firmware_revision
                                                                         
                                                                         	firmware revision string
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: software_revision
                                                                         
                                                                         	software revision string
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: vendor_type
                                                                         
                                                                         	maps to the vendor OID string
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: is_field_replaceable_unit
                                                                         
                                                                         	1 if Field Replaceable Unit 0, if not
-                                                                        	**type**\:  bool
+                                                                        	**type**\: bool
                                                                         
                                                                         
 
@@ -3231,37 +3251,37 @@ class PlatformInventory(Entity):
                                                                         .. attribute:: last_operational_state_change
                                                                         
                                                                         	Time operational state is   last changed
-                                                                        	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
+                                                                        	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
                                                                         
                                                                         .. attribute:: module_up_time
                                                                         
                                                                         	Module up time
-                                                                        	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
+                                                                        	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
                                                                         
                                                                         .. attribute:: module_administrative_state
                                                                         
                                                                         	Administrative    state
-                                                                        	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                                        	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                                         
                                                                         .. attribute:: module_power_administrative_state
                                                                         
                                                                         	Power administrative state
-                                                                        	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                                        	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                                         
                                                                         .. attribute:: module_operational_state
                                                                         
                                                                         	Operation state
-                                                                        	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                                        	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                                         
                                                                         .. attribute:: module_monitor_state
                                                                         
                                                                         	Monitor state
-                                                                        	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                                        	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                                         
                                                                         .. attribute:: module_reset_reason
                                                                         
                                                                         	Reset reason
-                                                                        	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                                        	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                                         
                                                                         
 
@@ -3312,7 +3332,7 @@ class PlatformInventory(Entity):
                                                                             .. attribute:: time_in_seconds
                                                                             
                                                                             	Time Value in Seconds
-                                                                            	**type**\:  int
+                                                                            	**type**\: int
                                                                             
                                                                             	**range:** \-2147483648..2147483647
                                                                             
@@ -3321,7 +3341,7 @@ class PlatformInventory(Entity):
                                                                             .. attribute:: time_in_nano_seconds
                                                                             
                                                                             	Time Value in Nano\-seconds
-                                                                            	**type**\:  int
+                                                                            	**type**\: int
                                                                             
                                                                             	**range:** \-2147483648..2147483647
                                                                             
@@ -3360,7 +3380,7 @@ class PlatformInventory(Entity):
                                                                             .. attribute:: time_in_seconds
                                                                             
                                                                             	Time Value in Seconds
-                                                                            	**type**\:  int
+                                                                            	**type**\: int
                                                                             
                                                                             	**range:** \-2147483648..2147483647
                                                                             
@@ -3369,7 +3389,7 @@ class PlatformInventory(Entity):
                                                                             .. attribute:: time_in_nano_seconds
                                                                             
                                                                             	Time Value in Nano\-seconds
-                                                                            	**type**\:  int
+                                                                            	**type**\: int
                                                                             
                                                                             	**range:** \-2147483648..2147483647
                                                                             
@@ -3408,7 +3428,7 @@ class PlatformInventory(Entity):
                                                             .. attribute:: sensor
                                                             
                                                             	Sensor number
-                                                            	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor>`
+                                                            	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor>`
                                                             
                                                             
 
@@ -3441,12 +3461,14 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: name  <key>
                                                                 
                                                                 	Sensor name
-                                                                	**type**\:  str
+                                                                	**type**\: str
+                                                                
+                                                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                                 
                                                                 .. attribute:: attributes
                                                                 
                                                                 	Attributes
-                                                                	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes>`
+                                                                	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes>`
                                                                 
                                                                 
 
@@ -3484,12 +3506,12 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: basic_info
                                                                     
                                                                     	Entity attributes
-                                                                    	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo>`
+                                                                    	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo>`
                                                                     
                                                                     .. attribute:: fru_info
                                                                     
                                                                     	Field Replaceable Unit (FRU) attributes
-                                                                    	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo>`
+                                                                    	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo>`
                                                                     
                                                                     
 
@@ -3527,63 +3549,63 @@ class PlatformInventory(Entity):
                                                                         .. attribute:: name
                                                                         
                                                                         	name string for the entity
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: description
                                                                         
                                                                         	describes in user\-readable terms                 what the entity in question does
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: model_name
                                                                         
                                                                         	model name
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: hardware_revision
                                                                         
                                                                         	hw revision string
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: serial_number
                                                                         
                                                                         	serial number
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: firmware_revision
                                                                         
                                                                         	firmware revision string
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: software_revision
                                                                         
                                                                         	software revision string
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: vendor_type
                                                                         
                                                                         	maps to the vendor OID string
-                                                                        	**type**\:  str
+                                                                        	**type**\: str
                                                                         
                                                                         	**length:** 0..255
                                                                         
                                                                         .. attribute:: is_field_replaceable_unit
                                                                         
                                                                         	1 if Field Replaceable Unit 0, if not
-                                                                        	**type**\:  bool
+                                                                        	**type**\: bool
                                                                         
                                                                         
 
@@ -3632,37 +3654,37 @@ class PlatformInventory(Entity):
                                                                         .. attribute:: last_operational_state_change
                                                                         
                                                                         	Time operational state is   last changed
-                                                                        	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                                        	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                                         
                                                                         .. attribute:: module_up_time
                                                                         
                                                                         	Module up time
-                                                                        	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                                        	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                                         
                                                                         .. attribute:: module_administrative_state
                                                                         
                                                                         	Administrative    state
-                                                                        	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                                        	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                                         
                                                                         .. attribute:: module_power_administrative_state
                                                                         
                                                                         	Power administrative state
-                                                                        	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                                        	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                                         
                                                                         .. attribute:: module_operational_state
                                                                         
                                                                         	Operation state
-                                                                        	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                                        	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                                         
                                                                         .. attribute:: module_monitor_state
                                                                         
                                                                         	Monitor state
-                                                                        	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                                        	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                                         
                                                                         .. attribute:: module_reset_reason
                                                                         
                                                                         	Reset reason
-                                                                        	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                                        	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                                         
                                                                         
 
@@ -3713,7 +3735,7 @@ class PlatformInventory(Entity):
                                                                             .. attribute:: time_in_seconds
                                                                             
                                                                             	Time Value in Seconds
-                                                                            	**type**\:  int
+                                                                            	**type**\: int
                                                                             
                                                                             	**range:** \-2147483648..2147483647
                                                                             
@@ -3722,7 +3744,7 @@ class PlatformInventory(Entity):
                                                                             .. attribute:: time_in_nano_seconds
                                                                             
                                                                             	Time Value in Nano\-seconds
-                                                                            	**type**\:  int
+                                                                            	**type**\: int
                                                                             
                                                                             	**range:** \-2147483648..2147483647
                                                                             
@@ -3761,7 +3783,7 @@ class PlatformInventory(Entity):
                                                                             .. attribute:: time_in_seconds
                                                                             
                                                                             	Time Value in Seconds
-                                                                            	**type**\:  int
+                                                                            	**type**\: int
                                                                             
                                                                             	**range:** \-2147483648..2147483647
                                                                             
@@ -3770,7 +3792,7 @@ class PlatformInventory(Entity):
                                                                             .. attribute:: time_in_nano_seconds
                                                                             
                                                                             	Time Value in Nano\-seconds
-                                                                            	**type**\:  int
+                                                                            	**type**\: int
                                                                             
                                                                             	**range:** \-2147483648..2147483647
                                                                             
@@ -3809,12 +3831,12 @@ class PlatformInventory(Entity):
                                                             .. attribute:: basic_info
                                                             
                                                             	Entity attributes
-                                                            	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo>`
+                                                            	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo>`
                                                             
                                                             .. attribute:: fru_info
                                                             
                                                             	Field Replaceable Unit (FRU) attributes
-                                                            	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo>`
+                                                            	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo>`
                                                             
                                                             
 
@@ -3852,63 +3874,63 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: name
                                                                 
                                                                 	name string for the entity
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: description
                                                                 
                                                                 	describes in user\-readable terms                 what the entity in question does
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: model_name
                                                                 
                                                                 	model name
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: hardware_revision
                                                                 
                                                                 	hw revision string
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: serial_number
                                                                 
                                                                 	serial number
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: firmware_revision
                                                                 
                                                                 	firmware revision string
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: software_revision
                                                                 
                                                                 	software revision string
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: vendor_type
                                                                 
                                                                 	maps to the vendor OID string
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: is_field_replaceable_unit
                                                                 
                                                                 	1 if Field Replaceable Unit 0, if not
-                                                                	**type**\:  bool
+                                                                	**type**\: bool
                                                                 
                                                                 
 
@@ -3957,37 +3979,37 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: last_operational_state_change
                                                                 
                                                                 	Time operational state is   last changed
-                                                                	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
+                                                                	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
                                                                 
                                                                 .. attribute:: module_up_time
                                                                 
                                                                 	Module up time
-                                                                	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
+                                                                	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
                                                                 
                                                                 .. attribute:: module_administrative_state
                                                                 
                                                                 	Administrative    state
-                                                                	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                                	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                                 
                                                                 .. attribute:: module_power_administrative_state
                                                                 
                                                                 	Power administrative state
-                                                                	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                                	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                                 
                                                                 .. attribute:: module_operational_state
                                                                 
                                                                 	Operation state
-                                                                	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                                	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                                 
                                                                 .. attribute:: module_monitor_state
                                                                 
                                                                 	Monitor state
-                                                                	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                                	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                                 
                                                                 .. attribute:: module_reset_reason
                                                                 
                                                                 	Reset reason
-                                                                	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                                	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                                 
                                                                 
 
@@ -4038,7 +4060,7 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: time_in_seconds
                                                                     
                                                                     	Time Value in Seconds
-                                                                    	**type**\:  int
+                                                                    	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
@@ -4047,7 +4069,7 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: time_in_nano_seconds
                                                                     
                                                                     	Time Value in Nano\-seconds
-                                                                    	**type**\:  int
+                                                                    	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
@@ -4086,7 +4108,7 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: time_in_seconds
                                                                     
                                                                     	Time Value in Seconds
-                                                                    	**type**\:  int
+                                                                    	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
@@ -4095,7 +4117,7 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: time_in_nano_seconds
                                                                     
                                                                     	Time Value in Nano\-seconds
-                                                                    	**type**\:  int
+                                                                    	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
@@ -4134,7 +4156,7 @@ class PlatformInventory(Entity):
                                                     .. attribute:: sensor
                                                     
                                                     	Sensor number
-                                                    	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor>`
+                                                    	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor>`
                                                     
                                                     
 
@@ -4167,12 +4189,14 @@ class PlatformInventory(Entity):
                                                         .. attribute:: name  <key>
                                                         
                                                         	Sensor name
-                                                        	**type**\:  str
+                                                        	**type**\: str
+                                                        
+                                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                         
                                                         .. attribute:: attributes
                                                         
                                                         	Attributes
-                                                        	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes>`
+                                                        	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes>`
                                                         
                                                         
 
@@ -4210,12 +4234,12 @@ class PlatformInventory(Entity):
                                                             .. attribute:: basic_info
                                                             
                                                             	Entity attributes
-                                                            	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo>`
+                                                            	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo>`
                                                             
                                                             .. attribute:: fru_info
                                                             
                                                             	Field Replaceable Unit (FRU) attributes
-                                                            	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo>`
+                                                            	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo>`
                                                             
                                                             
 
@@ -4253,63 +4277,63 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: name
                                                                 
                                                                 	name string for the entity
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: description
                                                                 
                                                                 	describes in user\-readable terms                 what the entity in question does
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: model_name
                                                                 
                                                                 	model name
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: hardware_revision
                                                                 
                                                                 	hw revision string
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: serial_number
                                                                 
                                                                 	serial number
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: firmware_revision
                                                                 
                                                                 	firmware revision string
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: software_revision
                                                                 
                                                                 	software revision string
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: vendor_type
                                                                 
                                                                 	maps to the vendor OID string
-                                                                	**type**\:  str
+                                                                	**type**\: str
                                                                 
                                                                 	**length:** 0..255
                                                                 
                                                                 .. attribute:: is_field_replaceable_unit
                                                                 
                                                                 	1 if Field Replaceable Unit 0, if not
-                                                                	**type**\:  bool
+                                                                	**type**\: bool
                                                                 
                                                                 
 
@@ -4358,37 +4382,37 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: last_operational_state_change
                                                                 
                                                                 	Time operational state is   last changed
-                                                                	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                                	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                                 
                                                                 .. attribute:: module_up_time
                                                                 
                                                                 	Module up time
-                                                                	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                                	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                                 
                                                                 .. attribute:: module_administrative_state
                                                                 
                                                                 	Administrative    state
-                                                                	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                                	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                                 
                                                                 .. attribute:: module_power_administrative_state
                                                                 
                                                                 	Power administrative state
-                                                                	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                                	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                                 
                                                                 .. attribute:: module_operational_state
                                                                 
                                                                 	Operation state
-                                                                	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                                	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                                 
                                                                 .. attribute:: module_monitor_state
                                                                 
                                                                 	Monitor state
-                                                                	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                                	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                                 
                                                                 .. attribute:: module_reset_reason
                                                                 
                                                                 	Reset reason
-                                                                	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                                	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                                 
                                                                 
 
@@ -4439,7 +4463,7 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: time_in_seconds
                                                                     
                                                                     	Time Value in Seconds
-                                                                    	**type**\:  int
+                                                                    	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
@@ -4448,7 +4472,7 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: time_in_nano_seconds
                                                                     
                                                                     	Time Value in Nano\-seconds
-                                                                    	**type**\:  int
+                                                                    	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
@@ -4487,7 +4511,7 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: time_in_seconds
                                                                     
                                                                     	Time Value in Seconds
-                                                                    	**type**\:  int
+                                                                    	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
@@ -4496,7 +4520,7 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: time_in_nano_seconds
                                                                     
                                                                     	Time Value in Nano\-seconds
-                                                                    	**type**\:  int
+                                                                    	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
@@ -4535,12 +4559,12 @@ class PlatformInventory(Entity):
                                                     .. attribute:: basic_info
                                                     
                                                     	Entity attributes
-                                                    	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo>`
+                                                    	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo>`
                                                     
                                                     .. attribute:: fru_info
                                                     
                                                     	Field Replaceable Unit (FRU) attributes
-                                                    	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo>`
+                                                    	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo>`
                                                     
                                                     
 
@@ -4578,63 +4602,63 @@ class PlatformInventory(Entity):
                                                         .. attribute:: name
                                                         
                                                         	name string for the entity
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: description
                                                         
                                                         	describes in user\-readable terms                 what the entity in question does
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: model_name
                                                         
                                                         	model name
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: hardware_revision
                                                         
                                                         	hw revision string
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: serial_number
                                                         
                                                         	serial number
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: firmware_revision
                                                         
                                                         	firmware revision string
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: software_revision
                                                         
                                                         	software revision string
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: vendor_type
                                                         
                                                         	maps to the vendor OID string
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: is_field_replaceable_unit
                                                         
                                                         	1 if Field Replaceable Unit 0, if not
-                                                        	**type**\:  bool
+                                                        	**type**\: bool
                                                         
                                                         
 
@@ -4683,37 +4707,37 @@ class PlatformInventory(Entity):
                                                         .. attribute:: last_operational_state_change
                                                         
                                                         	Time operational state is   last changed
-                                                        	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
+                                                        	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
                                                         
                                                         .. attribute:: module_up_time
                                                         
                                                         	Module up time
-                                                        	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
+                                                        	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
                                                         
                                                         .. attribute:: module_administrative_state
                                                         
                                                         	Administrative    state
-                                                        	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                        	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                         
                                                         .. attribute:: module_power_administrative_state
                                                         
                                                         	Power administrative state
-                                                        	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                        	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                         
                                                         .. attribute:: module_operational_state
                                                         
                                                         	Operation state
-                                                        	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                        	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                         
                                                         .. attribute:: module_monitor_state
                                                         
                                                         	Monitor state
-                                                        	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                        	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                         
                                                         .. attribute:: module_reset_reason
                                                         
                                                         	Reset reason
-                                                        	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                        	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                         
                                                         
 
@@ -4764,7 +4788,7 @@ class PlatformInventory(Entity):
                                                             .. attribute:: time_in_seconds
                                                             
                                                             	Time Value in Seconds
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
@@ -4773,7 +4797,7 @@ class PlatformInventory(Entity):
                                                             .. attribute:: time_in_nano_seconds
                                                             
                                                             	Time Value in Nano\-seconds
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
@@ -4812,7 +4836,7 @@ class PlatformInventory(Entity):
                                                             .. attribute:: time_in_seconds
                                                             
                                                             	Time Value in Seconds
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
@@ -4821,7 +4845,7 @@ class PlatformInventory(Entity):
                                                             .. attribute:: time_in_nano_seconds
                                                             
                                                             	Time Value in Nano\-seconds
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
@@ -4860,7 +4884,7 @@ class PlatformInventory(Entity):
                                             .. attribute:: sensor
                                             
                                             	Sensor number
-                                            	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor>`
+                                            	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor>`
                                             
                                             
 
@@ -4893,12 +4917,14 @@ class PlatformInventory(Entity):
                                                 .. attribute:: name  <key>
                                                 
                                                 	Sensor name
-                                                	**type**\:  str
+                                                	**type**\: str
+                                                
+                                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                 
                                                 .. attribute:: attributes
                                                 
                                                 	Attributes
-                                                	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes>`
+                                                	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes>`
                                                 
                                                 
 
@@ -4936,12 +4962,12 @@ class PlatformInventory(Entity):
                                                     .. attribute:: basic_info
                                                     
                                                     	Entity attributes
-                                                    	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo>`
+                                                    	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo>`
                                                     
                                                     .. attribute:: fru_info
                                                     
                                                     	Field Replaceable Unit (FRU) attributes
-                                                    	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo>`
+                                                    	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo>`
                                                     
                                                     
 
@@ -4979,63 +5005,63 @@ class PlatformInventory(Entity):
                                                         .. attribute:: name
                                                         
                                                         	name string for the entity
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: description
                                                         
                                                         	describes in user\-readable terms                 what the entity in question does
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: model_name
                                                         
                                                         	model name
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: hardware_revision
                                                         
                                                         	hw revision string
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: serial_number
                                                         
                                                         	serial number
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: firmware_revision
                                                         
                                                         	firmware revision string
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: software_revision
                                                         
                                                         	software revision string
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: vendor_type
                                                         
                                                         	maps to the vendor OID string
-                                                        	**type**\:  str
+                                                        	**type**\: str
                                                         
                                                         	**length:** 0..255
                                                         
                                                         .. attribute:: is_field_replaceable_unit
                                                         
                                                         	1 if Field Replaceable Unit 0, if not
-                                                        	**type**\:  bool
+                                                        	**type**\: bool
                                                         
                                                         
 
@@ -5084,37 +5110,37 @@ class PlatformInventory(Entity):
                                                         .. attribute:: last_operational_state_change
                                                         
                                                         	Time operational state is   last changed
-                                                        	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                        	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                         
                                                         .. attribute:: module_up_time
                                                         
                                                         	Module up time
-                                                        	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                        	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                         
                                                         .. attribute:: module_administrative_state
                                                         
                                                         	Administrative    state
-                                                        	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                        	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                         
                                                         .. attribute:: module_power_administrative_state
                                                         
                                                         	Power administrative state
-                                                        	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                        	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                         
                                                         .. attribute:: module_operational_state
                                                         
                                                         	Operation state
-                                                        	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                        	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                         
                                                         .. attribute:: module_monitor_state
                                                         
                                                         	Monitor state
-                                                        	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                        	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                         
                                                         .. attribute:: module_reset_reason
                                                         
                                                         	Reset reason
-                                                        	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                        	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                         
                                                         
 
@@ -5165,7 +5191,7 @@ class PlatformInventory(Entity):
                                                             .. attribute:: time_in_seconds
                                                             
                                                             	Time Value in Seconds
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
@@ -5174,7 +5200,7 @@ class PlatformInventory(Entity):
                                                             .. attribute:: time_in_nano_seconds
                                                             
                                                             	Time Value in Nano\-seconds
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
@@ -5213,7 +5239,7 @@ class PlatformInventory(Entity):
                                                             .. attribute:: time_in_seconds
                                                             
                                                             	Time Value in Seconds
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
@@ -5222,7 +5248,7 @@ class PlatformInventory(Entity):
                                                             .. attribute:: time_in_nano_seconds
                                                             
                                                             	Time Value in Nano\-seconds
-                                                            	**type**\:  int
+                                                            	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
@@ -5261,12 +5287,12 @@ class PlatformInventory(Entity):
                                             .. attribute:: basic_info
                                             
                                             	Entity attributes
-                                            	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo>`
+                                            	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo>`
                                             
                                             .. attribute:: fru_info
                                             
                                             	Field Replaceable Unit (FRU) attributes
-                                            	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo>`
+                                            	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo>`
                                             
                                             
 
@@ -5304,63 +5330,63 @@ class PlatformInventory(Entity):
                                                 .. attribute:: name
                                                 
                                                 	name string for the entity
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..255
                                                 
                                                 .. attribute:: description
                                                 
                                                 	describes in user\-readable terms                 what the entity in question does
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..255
                                                 
                                                 .. attribute:: model_name
                                                 
                                                 	model name
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..255
                                                 
                                                 .. attribute:: hardware_revision
                                                 
                                                 	hw revision string
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..255
                                                 
                                                 .. attribute:: serial_number
                                                 
                                                 	serial number
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..255
                                                 
                                                 .. attribute:: firmware_revision
                                                 
                                                 	firmware revision string
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..255
                                                 
                                                 .. attribute:: software_revision
                                                 
                                                 	software revision string
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..255
                                                 
                                                 .. attribute:: vendor_type
                                                 
                                                 	maps to the vendor OID string
-                                                	**type**\:  str
+                                                	**type**\: str
                                                 
                                                 	**length:** 0..255
                                                 
                                                 .. attribute:: is_field_replaceable_unit
                                                 
                                                 	1 if Field Replaceable Unit 0, if not
-                                                	**type**\:  bool
+                                                	**type**\: bool
                                                 
                                                 
 
@@ -5409,37 +5435,37 @@ class PlatformInventory(Entity):
                                                 .. attribute:: last_operational_state_change
                                                 
                                                 	Time operational state is   last changed
-                                                	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange>`
+                                                	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange>`
                                                 
                                                 .. attribute:: module_up_time
                                                 
                                                 	Module up time
-                                                	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime>`
+                                                	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime>`
                                                 
                                                 .. attribute:: module_administrative_state
                                                 
                                                 	Administrative    state
-                                                	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                 
                                                 .. attribute:: module_power_administrative_state
                                                 
                                                 	Power administrative state
-                                                	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                 
                                                 .. attribute:: module_operational_state
                                                 
                                                 	Operation state
-                                                	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                 
                                                 .. attribute:: module_monitor_state
                                                 
                                                 	Monitor state
-                                                	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                 
                                                 .. attribute:: module_reset_reason
                                                 
                                                 	Reset reason
-                                                	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                 
                                                 
 
@@ -5490,7 +5516,7 @@ class PlatformInventory(Entity):
                                                     .. attribute:: time_in_seconds
                                                     
                                                     	Time Value in Seconds
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
@@ -5499,7 +5525,7 @@ class PlatformInventory(Entity):
                                                     .. attribute:: time_in_nano_seconds
                                                     
                                                     	Time Value in Nano\-seconds
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
@@ -5538,7 +5564,7 @@ class PlatformInventory(Entity):
                                                     .. attribute:: time_in_seconds
                                                     
                                                     	Time Value in Seconds
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
@@ -5547,7 +5573,7 @@ class PlatformInventory(Entity):
                                                     .. attribute:: time_in_nano_seconds
                                                     
                                                     	Time Value in Nano\-seconds
-                                                    	**type**\:  int
+                                                    	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
@@ -5586,12 +5612,12 @@ class PlatformInventory(Entity):
                                         .. attribute:: basic_info
                                         
                                         	Entity attributes
-                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo>`
+                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo>`
                                         
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
-                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo>`
+                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo>`
                                         
                                         
 
@@ -5629,63 +5655,63 @@ class PlatformInventory(Entity):
                                             .. attribute:: name
                                             
                                             	name string for the entity
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: model_name
                                             
                                             	model name
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: serial_number
                                             
                                             	serial number
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
                                             	1 if Field Replaceable Unit 0, if not
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             
 
@@ -5734,37 +5760,37 @@ class PlatformInventory(Entity):
                                             .. attribute:: last_operational_state_change
                                             
                                             	Time operational state is   last changed
-                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange>`
+                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange>`
                                             
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
-                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime>`
+                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                            	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                            	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                            	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                            	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                            	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                             
                                             
 
@@ -5815,7 +5841,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -5824,7 +5850,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_nano_seconds
                                                 
                                                 	Time Value in Nano\-seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -5863,7 +5889,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -5872,7 +5898,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_nano_seconds
                                                 
                                                 	Time Value in Nano\-seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -5911,7 +5937,7 @@ class PlatformInventory(Entity):
                                 .. attribute:: port_slot
                                 
                                 	Port slot number
-                                	**type**\: list of    :py:class:`PortSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot>`
+                                	**type**\: list of  		 :py:class:`PortSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot>`
                                 
                                 
 
@@ -5944,22 +5970,24 @@ class PlatformInventory(Entity):
                                     .. attribute:: name  <key>
                                     
                                     	Port slot name
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: portses
                                     
                                     	Table of spirit port slots
-                                    	**type**\:   :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses>`
+                                    	**type**\:  :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses>`
                                     
                                     .. attribute:: sensors
                                     
                                     	Table of sensors
-                                    	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors>`
+                                    	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors>`
                                     
                                     .. attribute:: attributes
                                     
                                     	Attributes
-                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes>`
+                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes>`
                                     
                                     
 
@@ -6007,7 +6035,7 @@ class PlatformInventory(Entity):
                                         .. attribute:: ports
                                         
                                         	Port number
-                                        	**type**\: list of    :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports>`
+                                        	**type**\: list of  		 :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports>`
                                         
                                         
 
@@ -6040,22 +6068,24 @@ class PlatformInventory(Entity):
                                             .. attribute:: name  <key>
                                             
                                             	Port name
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                             
                                             .. attribute:: hw_components
                                             
                                             	Table of  HW components 
-                                            	**type**\:   :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents>`
+                                            	**type**\:  :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents>`
                                             
                                             .. attribute:: sensors
                                             
                                             	Table of sensors
-                                            	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors>`
+                                            	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors>`
                                             
                                             .. attribute:: attributes
                                             
                                             	Attributes
-                                            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes>`
+                                            	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes>`
                                             
                                             
 
@@ -6103,7 +6133,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: hw_component
                                                 
                                                 	HW component number
-                                                	**type**\: list of    :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent>`
+                                                	**type**\: list of  		 :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent>`
                                                 
                                                 
 
@@ -6136,17 +6166,19 @@ class PlatformInventory(Entity):
                                                     .. attribute:: name  <key>
                                                     
                                                     	HW component name
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                     
                                                     .. attribute:: sensors
                                                     
                                                     	Table of sensors
-                                                    	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors>`
+                                                    	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors>`
                                                     
                                                     .. attribute:: attributes
                                                     
                                                     	Attributes
-                                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes>`
+                                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes>`
                                                     
                                                     
 
@@ -6189,7 +6221,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: sensor
                                                         
                                                         	Sensor number
-                                                        	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor>`
+                                                        	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor>`
                                                         
                                                         
 
@@ -6222,12 +6254,14 @@ class PlatformInventory(Entity):
                                                             .. attribute:: name  <key>
                                                             
                                                             	Sensor name
-                                                            	**type**\:  str
+                                                            	**type**\: str
+                                                            
+                                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                             
                                                             .. attribute:: attributes
                                                             
                                                             	Attributes
-                                                            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
+                                                            	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
                                                             
                                                             
 
@@ -6265,12 +6299,12 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: basic_info
                                                                 
                                                                 	Entity attributes
-                                                                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
+                                                                	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
                                                                 
                                                                 .. attribute:: fru_info
                                                                 
                                                                 	Field Replaceable Unit (FRU) attributes
-                                                                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
+                                                                	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
                                                                 
                                                                 
 
@@ -6308,63 +6342,63 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: name
                                                                     
                                                                     	name string for the entity
-                                                                    	**type**\:  str
+                                                                    	**type**\: str
                                                                     
                                                                     	**length:** 0..255
                                                                     
                                                                     .. attribute:: description
                                                                     
                                                                     	describes in user\-readable terms                 what the entity in question does
-                                                                    	**type**\:  str
+                                                                    	**type**\: str
                                                                     
                                                                     	**length:** 0..255
                                                                     
                                                                     .. attribute:: model_name
                                                                     
                                                                     	model name
-                                                                    	**type**\:  str
+                                                                    	**type**\: str
                                                                     
                                                                     	**length:** 0..255
                                                                     
                                                                     .. attribute:: hardware_revision
                                                                     
                                                                     	hw revision string
-                                                                    	**type**\:  str
+                                                                    	**type**\: str
                                                                     
                                                                     	**length:** 0..255
                                                                     
                                                                     .. attribute:: serial_number
                                                                     
                                                                     	serial number
-                                                                    	**type**\:  str
+                                                                    	**type**\: str
                                                                     
                                                                     	**length:** 0..255
                                                                     
                                                                     .. attribute:: firmware_revision
                                                                     
                                                                     	firmware revision string
-                                                                    	**type**\:  str
+                                                                    	**type**\: str
                                                                     
                                                                     	**length:** 0..255
                                                                     
                                                                     .. attribute:: software_revision
                                                                     
                                                                     	software revision string
-                                                                    	**type**\:  str
+                                                                    	**type**\: str
                                                                     
                                                                     	**length:** 0..255
                                                                     
                                                                     .. attribute:: vendor_type
                                                                     
                                                                     	maps to the vendor OID string
-                                                                    	**type**\:  str
+                                                                    	**type**\: str
                                                                     
                                                                     	**length:** 0..255
                                                                     
                                                                     .. attribute:: is_field_replaceable_unit
                                                                     
                                                                     	1 if Field Replaceable Unit 0, if not
-                                                                    	**type**\:  bool
+                                                                    	**type**\: bool
                                                                     
                                                                     
 
@@ -6413,37 +6447,37 @@ class PlatformInventory(Entity):
                                                                     .. attribute:: last_operational_state_change
                                                                     
                                                                     	Time operational state is   last changed
-                                                                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                                    	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                                     
                                                                     .. attribute:: module_up_time
                                                                     
                                                                     	Module up time
-                                                                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                                    	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                                     
                                                                     .. attribute:: module_administrative_state
                                                                     
                                                                     	Administrative    state
-                                                                    	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                                    	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                                     
                                                                     .. attribute:: module_power_administrative_state
                                                                     
                                                                     	Power administrative state
-                                                                    	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                                    	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                                     
                                                                     .. attribute:: module_operational_state
                                                                     
                                                                     	Operation state
-                                                                    	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                                    	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                                     
                                                                     .. attribute:: module_monitor_state
                                                                     
                                                                     	Monitor state
-                                                                    	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                                    	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                                     
                                                                     .. attribute:: module_reset_reason
                                                                     
                                                                     	Reset reason
-                                                                    	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                                    	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                                     
                                                                     
 
@@ -6494,7 +6528,7 @@ class PlatformInventory(Entity):
                                                                         .. attribute:: time_in_seconds
                                                                         
                                                                         	Time Value in Seconds
-                                                                        	**type**\:  int
+                                                                        	**type**\: int
                                                                         
                                                                         	**range:** \-2147483648..2147483647
                                                                         
@@ -6503,7 +6537,7 @@ class PlatformInventory(Entity):
                                                                         .. attribute:: time_in_nano_seconds
                                                                         
                                                                         	Time Value in Nano\-seconds
-                                                                        	**type**\:  int
+                                                                        	**type**\: int
                                                                         
                                                                         	**range:** \-2147483648..2147483647
                                                                         
@@ -6542,7 +6576,7 @@ class PlatformInventory(Entity):
                                                                         .. attribute:: time_in_seconds
                                                                         
                                                                         	Time Value in Seconds
-                                                                        	**type**\:  int
+                                                                        	**type**\: int
                                                                         
                                                                         	**range:** \-2147483648..2147483647
                                                                         
@@ -6551,7 +6585,7 @@ class PlatformInventory(Entity):
                                                                         .. attribute:: time_in_nano_seconds
                                                                         
                                                                         	Time Value in Nano\-seconds
-                                                                        	**type**\:  int
+                                                                        	**type**\: int
                                                                         
                                                                         	**range:** \-2147483648..2147483647
                                                                         
@@ -6590,12 +6624,12 @@ class PlatformInventory(Entity):
                                                         .. attribute:: basic_info
                                                         
                                                         	Entity attributes
-                                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo>`
+                                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo>`
                                                         
                                                         .. attribute:: fru_info
                                                         
                                                         	Field Replaceable Unit (FRU) attributes
-                                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo>`
+                                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo>`
                                                         
                                                         
 
@@ -6633,63 +6667,63 @@ class PlatformInventory(Entity):
                                                             .. attribute:: name
                                                             
                                                             	name string for the entity
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: description
                                                             
                                                             	describes in user\-readable terms                 what the entity in question does
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: model_name
                                                             
                                                             	model name
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: hardware_revision
                                                             
                                                             	hw revision string
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: serial_number
                                                             
                                                             	serial number
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: firmware_revision
                                                             
                                                             	firmware revision string
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: software_revision
                                                             
                                                             	software revision string
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: vendor_type
                                                             
                                                             	maps to the vendor OID string
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: is_field_replaceable_unit
                                                             
                                                             	1 if Field Replaceable Unit 0, if not
-                                                            	**type**\:  bool
+                                                            	**type**\: bool
                                                             
                                                             
 
@@ -6738,37 +6772,37 @@ class PlatformInventory(Entity):
                                                             .. attribute:: last_operational_state_change
                                                             
                                                             	Time operational state is   last changed
-                                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
+                                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
                                                             
                                                             .. attribute:: module_up_time
                                                             
                                                             	Module up time
-                                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
+                                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
                                                             
                                                             .. attribute:: module_administrative_state
                                                             
                                                             	Administrative    state
-                                                            	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                            	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                             
                                                             .. attribute:: module_power_administrative_state
                                                             
                                                             	Power administrative state
-                                                            	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                            	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                             
                                                             .. attribute:: module_operational_state
                                                             
                                                             	Operation state
-                                                            	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                            	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                             
                                                             .. attribute:: module_monitor_state
                                                             
                                                             	Monitor state
-                                                            	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                            	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                             
                                                             .. attribute:: module_reset_reason
                                                             
                                                             	Reset reason
-                                                            	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                            	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                             
                                                             
 
@@ -6819,7 +6853,7 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: time_in_seconds
                                                                 
                                                                 	Time Value in Seconds
-                                                                	**type**\:  int
+                                                                	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
@@ -6828,7 +6862,7 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: time_in_nano_seconds
                                                                 
                                                                 	Time Value in Nano\-seconds
-                                                                	**type**\:  int
+                                                                	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
@@ -6867,7 +6901,7 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: time_in_seconds
                                                                 
                                                                 	Time Value in Seconds
-                                                                	**type**\:  int
+                                                                	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
@@ -6876,7 +6910,7 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: time_in_nano_seconds
                                                                 
                                                                 	Time Value in Nano\-seconds
-                                                                	**type**\:  int
+                                                                	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
@@ -6915,7 +6949,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: sensor
                                                 
                                                 	Sensor number
-                                                	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor>`
+                                                	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor>`
                                                 
                                                 
 
@@ -6948,12 +6982,14 @@ class PlatformInventory(Entity):
                                                     .. attribute:: name  <key>
                                                     
                                                     	Sensor name
-                                                    	**type**\:  str
+                                                    	**type**\: str
+                                                    
+                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                     
                                                     .. attribute:: attributes
                                                     
                                                     	Attributes
-                                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes>`
+                                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes>`
                                                     
                                                     
 
@@ -6991,12 +7027,12 @@ class PlatformInventory(Entity):
                                                         .. attribute:: basic_info
                                                         
                                                         	Entity attributes
-                                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo>`
+                                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo>`
                                                         
                                                         .. attribute:: fru_info
                                                         
                                                         	Field Replaceable Unit (FRU) attributes
-                                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo>`
+                                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo>`
                                                         
                                                         
 
@@ -7034,63 +7070,63 @@ class PlatformInventory(Entity):
                                                             .. attribute:: name
                                                             
                                                             	name string for the entity
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: description
                                                             
                                                             	describes in user\-readable terms                 what the entity in question does
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: model_name
                                                             
                                                             	model name
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: hardware_revision
                                                             
                                                             	hw revision string
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: serial_number
                                                             
                                                             	serial number
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: firmware_revision
                                                             
                                                             	firmware revision string
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: software_revision
                                                             
                                                             	software revision string
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: vendor_type
                                                             
                                                             	maps to the vendor OID string
-                                                            	**type**\:  str
+                                                            	**type**\: str
                                                             
                                                             	**length:** 0..255
                                                             
                                                             .. attribute:: is_field_replaceable_unit
                                                             
                                                             	1 if Field Replaceable Unit 0, if not
-                                                            	**type**\:  bool
+                                                            	**type**\: bool
                                                             
                                                             
 
@@ -7139,37 +7175,37 @@ class PlatformInventory(Entity):
                                                             .. attribute:: last_operational_state_change
                                                             
                                                             	Time operational state is   last changed
-                                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                             
                                                             .. attribute:: module_up_time
                                                             
                                                             	Module up time
-                                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                             
                                                             .. attribute:: module_administrative_state
                                                             
                                                             	Administrative    state
-                                                            	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                            	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                             
                                                             .. attribute:: module_power_administrative_state
                                                             
                                                             	Power administrative state
-                                                            	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                            	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                             
                                                             .. attribute:: module_operational_state
                                                             
                                                             	Operation state
-                                                            	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                            	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                             
                                                             .. attribute:: module_monitor_state
                                                             
                                                             	Monitor state
-                                                            	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                            	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                             
                                                             .. attribute:: module_reset_reason
                                                             
                                                             	Reset reason
-                                                            	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                            	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                             
                                                             
 
@@ -7220,7 +7256,7 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: time_in_seconds
                                                                 
                                                                 	Time Value in Seconds
-                                                                	**type**\:  int
+                                                                	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
@@ -7229,7 +7265,7 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: time_in_nano_seconds
                                                                 
                                                                 	Time Value in Nano\-seconds
-                                                                	**type**\:  int
+                                                                	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
@@ -7268,7 +7304,7 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: time_in_seconds
                                                                 
                                                                 	Time Value in Seconds
-                                                                	**type**\:  int
+                                                                	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
@@ -7277,7 +7313,7 @@ class PlatformInventory(Entity):
                                                                 .. attribute:: time_in_nano_seconds
                                                                 
                                                                 	Time Value in Nano\-seconds
-                                                                	**type**\:  int
+                                                                	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
@@ -7316,12 +7352,12 @@ class PlatformInventory(Entity):
                                                 .. attribute:: basic_info
                                                 
                                                 	Entity attributes
-                                                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo>`
+                                                	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo>`
                                                 
                                                 .. attribute:: fru_info
                                                 
                                                 	Field Replaceable Unit (FRU) attributes
-                                                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo>`
+                                                	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo>`
                                                 
                                                 
 
@@ -7359,63 +7395,63 @@ class PlatformInventory(Entity):
                                                     .. attribute:: name
                                                     
                                                     	name string for the entity
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: description
                                                     
                                                     	describes in user\-readable terms                 what the entity in question does
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: model_name
                                                     
                                                     	model name
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: hardware_revision
                                                     
                                                     	hw revision string
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: serial_number
                                                     
                                                     	serial number
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: firmware_revision
                                                     
                                                     	firmware revision string
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: software_revision
                                                     
                                                     	software revision string
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: vendor_type
                                                     
                                                     	maps to the vendor OID string
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: is_field_replaceable_unit
                                                     
                                                     	1 if Field Replaceable Unit 0, if not
-                                                    	**type**\:  bool
+                                                    	**type**\: bool
                                                     
                                                     
 
@@ -7464,37 +7500,37 @@ class PlatformInventory(Entity):
                                                     .. attribute:: last_operational_state_change
                                                     
                                                     	Time operational state is   last changed
-                                                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
+                                                    	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
                                                     
                                                     .. attribute:: module_up_time
                                                     
                                                     	Module up time
-                                                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
+                                                    	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
                                                     
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
-                                                    	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                    	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                     
                                                     .. attribute:: module_power_administrative_state
                                                     
                                                     	Power administrative state
-                                                    	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                    	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                     
                                                     .. attribute:: module_operational_state
                                                     
                                                     	Operation state
-                                                    	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                    	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                     
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
-                                                    	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                    	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                     
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
-                                                    	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                    	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                     
                                                     
 
@@ -7545,7 +7581,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: time_in_seconds
                                                         
                                                         	Time Value in Seconds
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
@@ -7554,7 +7590,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: time_in_nano_seconds
                                                         
                                                         	Time Value in Nano\-seconds
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
@@ -7593,7 +7629,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: time_in_seconds
                                                         
                                                         	Time Value in Seconds
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
@@ -7602,7 +7638,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: time_in_nano_seconds
                                                         
                                                         	Time Value in Nano\-seconds
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
@@ -7641,7 +7677,7 @@ class PlatformInventory(Entity):
                                         .. attribute:: sensor
                                         
                                         	Sensor number
-                                        	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor>`
+                                        	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor>`
                                         
                                         
 
@@ -7674,12 +7710,14 @@ class PlatformInventory(Entity):
                                             .. attribute:: name  <key>
                                             
                                             	Sensor name
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                             
                                             .. attribute:: attributes
                                             
                                             	Attributes
-                                            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes>`
+                                            	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes>`
                                             
                                             
 
@@ -7717,12 +7755,12 @@ class PlatformInventory(Entity):
                                                 .. attribute:: basic_info
                                                 
                                                 	Entity attributes
-                                                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo>`
+                                                	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo>`
                                                 
                                                 .. attribute:: fru_info
                                                 
                                                 	Field Replaceable Unit (FRU) attributes
-                                                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo>`
+                                                	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo>`
                                                 
                                                 
 
@@ -7760,63 +7798,63 @@ class PlatformInventory(Entity):
                                                     .. attribute:: name
                                                     
                                                     	name string for the entity
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: description
                                                     
                                                     	describes in user\-readable terms                 what the entity in question does
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: model_name
                                                     
                                                     	model name
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: hardware_revision
                                                     
                                                     	hw revision string
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: serial_number
                                                     
                                                     	serial number
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: firmware_revision
                                                     
                                                     	firmware revision string
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: software_revision
                                                     
                                                     	software revision string
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: vendor_type
                                                     
                                                     	maps to the vendor OID string
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: is_field_replaceable_unit
                                                     
                                                     	1 if Field Replaceable Unit 0, if not
-                                                    	**type**\:  bool
+                                                    	**type**\: bool
                                                     
                                                     
 
@@ -7865,37 +7903,37 @@ class PlatformInventory(Entity):
                                                     .. attribute:: last_operational_state_change
                                                     
                                                     	Time operational state is   last changed
-                                                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                    	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                     
                                                     .. attribute:: module_up_time
                                                     
                                                     	Module up time
-                                                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                    	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                     
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
-                                                    	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                    	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                     
                                                     .. attribute:: module_power_administrative_state
                                                     
                                                     	Power administrative state
-                                                    	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                    	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                     
                                                     .. attribute:: module_operational_state
                                                     
                                                     	Operation state
-                                                    	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                    	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                     
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
-                                                    	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                    	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                     
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
-                                                    	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                    	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                     
                                                     
 
@@ -7946,7 +7984,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: time_in_seconds
                                                         
                                                         	Time Value in Seconds
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
@@ -7955,7 +7993,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: time_in_nano_seconds
                                                         
                                                         	Time Value in Nano\-seconds
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
@@ -7994,7 +8032,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: time_in_seconds
                                                         
                                                         	Time Value in Seconds
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
@@ -8003,7 +8041,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: time_in_nano_seconds
                                                         
                                                         	Time Value in Nano\-seconds
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
@@ -8042,12 +8080,12 @@ class PlatformInventory(Entity):
                                         .. attribute:: basic_info
                                         
                                         	Entity attributes
-                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo>`
+                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo>`
                                         
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
-                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo>`
+                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo>`
                                         
                                         
 
@@ -8085,63 +8123,63 @@ class PlatformInventory(Entity):
                                             .. attribute:: name
                                             
                                             	name string for the entity
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: model_name
                                             
                                             	model name
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: serial_number
                                             
                                             	serial number
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
                                             	1 if Field Replaceable Unit 0, if not
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             
 
@@ -8190,37 +8228,37 @@ class PlatformInventory(Entity):
                                             .. attribute:: last_operational_state_change
                                             
                                             	Time operational state is   last changed
-                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
+                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
                                             
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
-                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
+                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                            	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                            	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                            	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                            	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                            	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                             
                                             
 
@@ -8271,7 +8309,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -8280,7 +8318,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_nano_seconds
                                                 
                                                 	Time Value in Nano\-seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -8319,7 +8357,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -8328,7 +8366,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_nano_seconds
                                                 
                                                 	Time Value in Nano\-seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -8367,7 +8405,7 @@ class PlatformInventory(Entity):
                                 .. attribute:: hw_component
                                 
                                 	HW component number
-                                	**type**\: list of    :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent>`
+                                	**type**\: list of  		 :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent>`
                                 
                                 
 
@@ -8400,17 +8438,19 @@ class PlatformInventory(Entity):
                                     .. attribute:: name  <key>
                                     
                                     	HW component name
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: sensors
                                     
                                     	Table of sensors
-                                    	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors>`
+                                    	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors>`
                                     
                                     .. attribute:: attributes
                                     
                                     	Attributes
-                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes>`
+                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes>`
                                     
                                     
 
@@ -8453,7 +8493,7 @@ class PlatformInventory(Entity):
                                         .. attribute:: sensor
                                         
                                         	Sensor number
-                                        	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor>`
+                                        	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor>`
                                         
                                         
 
@@ -8486,12 +8526,14 @@ class PlatformInventory(Entity):
                                             .. attribute:: name  <key>
                                             
                                             	Sensor name
-                                            	**type**\:  str
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                             
                                             .. attribute:: attributes
                                             
                                             	Attributes
-                                            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
+                                            	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
                                             
                                             
 
@@ -8529,12 +8571,12 @@ class PlatformInventory(Entity):
                                                 .. attribute:: basic_info
                                                 
                                                 	Entity attributes
-                                                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
+                                                	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
                                                 
                                                 .. attribute:: fru_info
                                                 
                                                 	Field Replaceable Unit (FRU) attributes
-                                                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
+                                                	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
                                                 
                                                 
 
@@ -8572,63 +8614,63 @@ class PlatformInventory(Entity):
                                                     .. attribute:: name
                                                     
                                                     	name string for the entity
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: description
                                                     
                                                     	describes in user\-readable terms                 what the entity in question does
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: model_name
                                                     
                                                     	model name
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: hardware_revision
                                                     
                                                     	hw revision string
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: serial_number
                                                     
                                                     	serial number
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: firmware_revision
                                                     
                                                     	firmware revision string
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: software_revision
                                                     
                                                     	software revision string
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: vendor_type
                                                     
                                                     	maps to the vendor OID string
-                                                    	**type**\:  str
+                                                    	**type**\: str
                                                     
                                                     	**length:** 0..255
                                                     
                                                     .. attribute:: is_field_replaceable_unit
                                                     
                                                     	1 if Field Replaceable Unit 0, if not
-                                                    	**type**\:  bool
+                                                    	**type**\: bool
                                                     
                                                     
 
@@ -8677,37 +8719,37 @@ class PlatformInventory(Entity):
                                                     .. attribute:: last_operational_state_change
                                                     
                                                     	Time operational state is   last changed
-                                                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                    	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                     
                                                     .. attribute:: module_up_time
                                                     
                                                     	Module up time
-                                                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                    	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                     
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
-                                                    	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                                    	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                                     
                                                     .. attribute:: module_power_administrative_state
                                                     
                                                     	Power administrative state
-                                                    	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                                    	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                                     
                                                     .. attribute:: module_operational_state
                                                     
                                                     	Operation state
-                                                    	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                                    	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                                     
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
-                                                    	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                                    	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                                     
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
-                                                    	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                                    	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                                     
                                                     
 
@@ -8758,7 +8800,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: time_in_seconds
                                                         
                                                         	Time Value in Seconds
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
@@ -8767,7 +8809,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: time_in_nano_seconds
                                                         
                                                         	Time Value in Nano\-seconds
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
@@ -8806,7 +8848,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: time_in_seconds
                                                         
                                                         	Time Value in Seconds
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
@@ -8815,7 +8857,7 @@ class PlatformInventory(Entity):
                                                         .. attribute:: time_in_nano_seconds
                                                         
                                                         	Time Value in Nano\-seconds
-                                                        	**type**\:  int
+                                                        	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
@@ -8854,12 +8896,12 @@ class PlatformInventory(Entity):
                                         .. attribute:: basic_info
                                         
                                         	Entity attributes
-                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo>`
+                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo>`
                                         
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
-                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo>`
+                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo>`
                                         
                                         
 
@@ -8897,63 +8939,63 @@ class PlatformInventory(Entity):
                                             .. attribute:: name
                                             
                                             	name string for the entity
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: model_name
                                             
                                             	model name
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: serial_number
                                             
                                             	serial number
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
                                             	1 if Field Replaceable Unit 0, if not
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             
 
@@ -9002,37 +9044,37 @@ class PlatformInventory(Entity):
                                             .. attribute:: last_operational_state_change
                                             
                                             	Time operational state is   last changed
-                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
+                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
                                             
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
-                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
+                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                            	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                            	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                            	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                            	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                            	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                             
                                             
 
@@ -9083,7 +9125,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -9092,7 +9134,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_nano_seconds
                                                 
                                                 	Time Value in Nano\-seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -9131,7 +9173,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -9140,7 +9182,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_nano_seconds
                                                 
                                                 	Time Value in Nano\-seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -9179,7 +9221,7 @@ class PlatformInventory(Entity):
                                 .. attribute:: sensor
                                 
                                 	Sensor number
-                                	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor>`
+                                	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor>`
                                 
                                 
 
@@ -9212,12 +9254,14 @@ class PlatformInventory(Entity):
                                     .. attribute:: name  <key>
                                     
                                     	Sensor name
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: attributes
                                     
                                     	Attributes
-                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes>`
+                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes>`
                                     
                                     
 
@@ -9255,12 +9299,12 @@ class PlatformInventory(Entity):
                                         .. attribute:: basic_info
                                         
                                         	Entity attributes
-                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo>`
+                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo>`
                                         
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
-                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo>`
+                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo>`
                                         
                                         
 
@@ -9298,63 +9342,63 @@ class PlatformInventory(Entity):
                                             .. attribute:: name
                                             
                                             	name string for the entity
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: model_name
                                             
                                             	model name
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: serial_number
                                             
                                             	serial number
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
-                                            	**type**\:  str
+                                            	**type**\: str
                                             
                                             	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
                                             	1 if Field Replaceable Unit 0, if not
-                                            	**type**\:  bool
+                                            	**type**\: bool
                                             
                                             
 
@@ -9403,37 +9447,37 @@ class PlatformInventory(Entity):
                                             .. attribute:: last_operational_state_change
                                             
                                             	Time operational state is   last changed
-                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                             
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
-                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                            	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                            	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                            	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                            	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                            	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                             
                                             
 
@@ -9484,7 +9528,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -9493,7 +9537,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_nano_seconds
                                                 
                                                 	Time Value in Nano\-seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -9532,7 +9576,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -9541,7 +9585,7 @@ class PlatformInventory(Entity):
                                                 .. attribute:: time_in_nano_seconds
                                                 
                                                 	Time Value in Nano\-seconds
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
@@ -9580,12 +9624,12 @@ class PlatformInventory(Entity):
                                 .. attribute:: basic_info
                                 
                                 	Entity attributes
-                                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo>`
+                                	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo>`
                                 
                                 .. attribute:: fru_info
                                 
                                 	Field Replaceable Unit (FRU) attributes
-                                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo>`
+                                	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo>`
                                 
                                 
 
@@ -9623,63 +9667,63 @@ class PlatformInventory(Entity):
                                     .. attribute:: name
                                     
                                     	name string for the entity
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: description
                                     
                                     	describes in user\-readable terms                 what the entity in question does
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: model_name
                                     
                                     	model name
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: hardware_revision
                                     
                                     	hw revision string
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: serial_number
                                     
                                     	serial number
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: firmware_revision
                                     
                                     	firmware revision string
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: software_revision
                                     
                                     	software revision string
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: vendor_type
                                     
                                     	maps to the vendor OID string
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..255
                                     
                                     .. attribute:: is_field_replaceable_unit
                                     
                                     	1 if Field Replaceable Unit 0, if not
-                                    	**type**\:  bool
+                                    	**type**\: bool
                                     
                                     
 
@@ -9728,37 +9772,37 @@ class PlatformInventory(Entity):
                                     .. attribute:: last_operational_state_change
                                     
                                     	Time operational state is   last changed
-                                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange>`
+                                    	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange>`
                                     
                                     .. attribute:: module_up_time
                                     
                                     	Module up time
-                                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime>`
+                                    	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime>`
                                     
                                     .. attribute:: module_administrative_state
                                     
                                     	Administrative    state
-                                    	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                                    	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                                     
                                     .. attribute:: module_power_administrative_state
                                     
                                     	Power administrative state
-                                    	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                                    	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                                     
                                     .. attribute:: module_operational_state
                                     
                                     	Operation state
-                                    	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                                    	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                                     
                                     .. attribute:: module_monitor_state
                                     
                                     	Monitor state
-                                    	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                                    	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                                     
                                     .. attribute:: module_reset_reason
                                     
                                     	Reset reason
-                                    	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                                    	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                                     
                                     
 
@@ -9809,7 +9853,7 @@ class PlatformInventory(Entity):
                                         .. attribute:: time_in_seconds
                                         
                                         	Time Value in Seconds
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -9818,7 +9862,7 @@ class PlatformInventory(Entity):
                                         .. attribute:: time_in_nano_seconds
                                         
                                         	Time Value in Nano\-seconds
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -9857,7 +9901,7 @@ class PlatformInventory(Entity):
                                         .. attribute:: time_in_seconds
                                         
                                         	Time Value in Seconds
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -9866,7 +9910,7 @@ class PlatformInventory(Entity):
                                         .. attribute:: time_in_nano_seconds
                                         
                                         	Time Value in Nano\-seconds
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
                                         
@@ -9905,12 +9949,12 @@ class PlatformInventory(Entity):
                         .. attribute:: basic_info
                         
                         	Entity attributes
-                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo>`
+                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo>`
                         
                         .. attribute:: fru_info
                         
                         	Field Replaceable Unit (FRU) attributes
-                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo>`
+                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo>`
                         
                         
 
@@ -9948,63 +9992,63 @@ class PlatformInventory(Entity):
                             .. attribute:: name
                             
                             	name string for the entity
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..255
                             
                             .. attribute:: description
                             
                             	describes in user\-readable terms                 what the entity in question does
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..255
                             
                             .. attribute:: model_name
                             
                             	model name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..255
                             
                             .. attribute:: hardware_revision
                             
                             	hw revision string
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..255
                             
                             .. attribute:: serial_number
                             
                             	serial number
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..255
                             
                             .. attribute:: firmware_revision
                             
                             	firmware revision string
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..255
                             
                             .. attribute:: software_revision
                             
                             	software revision string
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..255
                             
                             .. attribute:: vendor_type
                             
                             	maps to the vendor OID string
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..255
                             
                             .. attribute:: is_field_replaceable_unit
                             
                             	1 if Field Replaceable Unit 0, if not
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -10053,37 +10097,37 @@ class PlatformInventory(Entity):
                             .. attribute:: last_operational_state_change
                             
                             	Time operational state is   last changed
-                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange>`
+                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange>`
                             
                             .. attribute:: module_up_time
                             
                             	Module up time
-                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime>`
+                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime>`
                             
                             .. attribute:: module_administrative_state
                             
                             	Administrative    state
-                            	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                            	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                             
                             .. attribute:: module_power_administrative_state
                             
                             	Power administrative state
-                            	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                            	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                             
                             .. attribute:: module_operational_state
                             
                             	Operation state
-                            	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                            	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                             
                             .. attribute:: module_monitor_state
                             
                             	Monitor state
-                            	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                            	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                             
                             .. attribute:: module_reset_reason
                             
                             	Reset reason
-                            	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                            	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                             
                             
 
@@ -10134,7 +10178,7 @@ class PlatformInventory(Entity):
                                 .. attribute:: time_in_seconds
                                 
                                 	Time Value in Seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
@@ -10143,7 +10187,7 @@ class PlatformInventory(Entity):
                                 .. attribute:: time_in_nano_seconds
                                 
                                 	Time Value in Nano\-seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
@@ -10182,7 +10226,7 @@ class PlatformInventory(Entity):
                                 .. attribute:: time_in_seconds
                                 
                                 	Time Value in Seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
@@ -10191,7 +10235,7 @@ class PlatformInventory(Entity):
                                 .. attribute:: time_in_nano_seconds
                                 
                                 	Time Value in Nano\-seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
                                 
@@ -10230,12 +10274,12 @@ class PlatformInventory(Entity):
                 .. attribute:: basic_info
                 
                 	Entity attributes
-                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.BasicInfo>`
+                	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.BasicInfo>`
                 
                 .. attribute:: fru_info
                 
                 	Field Replaceable Unit (FRU) attributes
-                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo>`
+                	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo>`
                 
                 
 
@@ -10273,63 +10317,63 @@ class PlatformInventory(Entity):
                     .. attribute:: name
                     
                     	name string for the entity
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..255
                     
                     .. attribute:: description
                     
                     	describes in user\-readable terms                 what the entity in question does
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..255
                     
                     .. attribute:: model_name
                     
                     	model name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..255
                     
                     .. attribute:: hardware_revision
                     
                     	hw revision string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..255
                     
                     .. attribute:: serial_number
                     
                     	serial number
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..255
                     
                     .. attribute:: firmware_revision
                     
                     	firmware revision string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..255
                     
                     .. attribute:: software_revision
                     
                     	software revision string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..255
                     
                     .. attribute:: vendor_type
                     
                     	maps to the vendor OID string
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..255
                     
                     .. attribute:: is_field_replaceable_unit
                     
                     	1 if Field Replaceable Unit 0, if not
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -10378,37 +10422,37 @@ class PlatformInventory(Entity):
                     .. attribute:: last_operational_state_change
                     
                     	Time operational state is   last changed
-                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange>`
+                    	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange>`
                     
                     .. attribute:: module_up_time
                     
                     	Module up time
-                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime>`
+                    	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime>`
                     
                     .. attribute:: module_administrative_state
                     
                     	Administrative    state
-                    	**type**\:   :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
+                    	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState>`
                     
                     .. attribute:: module_power_administrative_state
                     
                     	Power administrative state
-                    	**type**\:   :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
+                    	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState>`
                     
                     .. attribute:: module_operational_state
                     
                     	Operation state
-                    	**type**\:   :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
+                    	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState>`
                     
                     .. attribute:: module_monitor_state
                     
                     	Monitor state
-                    	**type**\:   :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
+                    	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState>`
                     
                     .. attribute:: module_reset_reason
                     
                     	Reset reason
-                    	**type**\:   :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
+                    	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason>`
                     
                     
 
@@ -10459,7 +10503,7 @@ class PlatformInventory(Entity):
                         .. attribute:: time_in_seconds
                         
                         	Time Value in Seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -10468,7 +10512,7 @@ class PlatformInventory(Entity):
                         .. attribute:: time_in_nano_seconds
                         
                         	Time Value in Nano\-seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -10507,7 +10551,7 @@ class PlatformInventory(Entity):
                         .. attribute:: time_in_seconds
                         
                         	Time Value in Seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -10516,7 +10560,7 @@ class PlatformInventory(Entity):
                         .. attribute:: time_in_nano_seconds
                         
                         	Time Value in Nano\-seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         

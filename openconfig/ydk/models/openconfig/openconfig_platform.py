@@ -51,7 +51,7 @@ class Components(Entity):
     .. attribute:: component
     
     	List of components, keyed by component name
-    	**type**\: list of    :py:class:`Component <ydk.models.openconfig.openconfig_platform.Components.Component>`
+    	**type**\: list of  		 :py:class:`Component <ydk.models.openconfig.openconfig_platform.Components.Component>`
     
     
 
@@ -85,44 +85,44 @@ class Components(Entity):
         .. attribute:: name  <key>
         
         	References the component name
-        	**type**\:  str
+        	**type**\: str
         
         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component.Config>`
         
         .. attribute:: config
         
         	Configuration data for each component
-        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.Config>`
+        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.Config>`
         
         .. attribute:: state
         
         	Operational state data for each component
-        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.State>`
+        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.State>`
         
         .. attribute:: properties
         
         	Enclosing container 
-        	**type**\:   :py:class:`Properties <ydk.models.openconfig.openconfig_platform.Components.Component.Properties>`
+        	**type**\:  :py:class:`Properties <ydk.models.openconfig.openconfig_platform.Components.Component.Properties>`
         
         .. attribute:: subcomponents
         
         	Enclosing container for subcomponent references
-        	**type**\:   :py:class:`Subcomponents <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents>`
+        	**type**\:  :py:class:`Subcomponents <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents>`
         
         .. attribute:: optical_port
         
         	Top\-level container 
-        	**type**\:   :py:class:`OpticalPort <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort>`
+        	**type**\:  :py:class:`OpticalPort <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort>`
         
         .. attribute:: transceiver
         
         	Top\-level container for client port transceiver data
-        	**type**\:   :py:class:`Transceiver <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver>`
+        	**type**\:  :py:class:`Transceiver <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver>`
         
         .. attribute:: optical_channel
         
         	Enclosing container for the list of optical channels
-        	**type**\:   :py:class:`OpticalChannel <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel>`
+        	**type**\:  :py:class:`OpticalChannel <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel>`
         
         
 
@@ -138,7 +138,7 @@ class Components(Entity):
             self.yang_parent_name = "components"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"config" : ("config", Components.Component.Config), "state" : ("state", Components.Component.State), "properties" : ("properties", Components.Component.Properties), "subcomponents" : ("subcomponents", Components.Component.Subcomponents), "optical-port" : ("optical_port", Components.Component.OpticalPort), "transceiver" : ("transceiver", Components.Component.Transceiver), "optical-channel" : ("optical_channel", Components.Component.OpticalChannel)}
+            self._child_container_classes = {"config" : ("config", Components.Component.Config), "state" : ("state", Components.Component.State), "properties" : ("properties", Components.Component.Properties), "subcomponents" : ("subcomponents", Components.Component.Subcomponents), "openconfig-transport-line-common:optical-port" : ("optical_port", Components.Component.OpticalPort), "openconfig-platform-transceiver:transceiver" : ("transceiver", Components.Component.Transceiver), "openconfig-terminal-device:optical-channel" : ("optical_channel", Components.Component.OpticalChannel)}
             self._child_list_classes = {}
 
             self.name = YLeaf(YType.str, "name")
@@ -191,7 +191,7 @@ class Components(Entity):
             .. attribute:: name
             
             	Device name for the component \-\- this will not be a configurable parameter on many implementations
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -224,50 +224,46 @@ class Components(Entity):
             .. attribute:: name
             
             	Device name for the component \-\- this will not be a configurable parameter on many implementations
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: type
             
             	Type of component as identified by the system
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`OPENCONFIGHARDWARECOMPONENT <ydk.models.openconfig.openconfig_platform_types.OPENCONFIGHARDWARECOMPONENT>`
+            		**type**\:  :py:class:`OPENCONFIGHARDWARECOMPONENT <ydk.models.openconfig.openconfig_platform_types.OPENCONFIGHARDWARECOMPONENT>`
             
+            		**type**\:  :py:class:`OPENCONFIGSOFTWARECOMPONENT <ydk.models.openconfig.openconfig_platform_types.OPENCONFIGSOFTWARECOMPONENT>`
             
-            ----
-            	**type**\:   :py:class:`OPENCONFIGSOFTWARECOMPONENT <ydk.models.openconfig.openconfig_platform_types.OPENCONFIGSOFTWARECOMPONENT>`
-            
-            
-            ----
             .. attribute:: id
             
             	Unique identifier assigned by the system for the component
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: description
             
             	System\-supplied description of the component
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: mfg_name
             
             	System\-supplied identifier for the manufacturer of the component.  This data is particularly useful when a component manufacturer is different than the overall device vendor
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: version
             
             	System\-defined version string for a hardware, firmware, or software component
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: serial_no
             
             	System\-assigned serial number of the component
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: part_no
             
             	System\-assigned part number for the component.  This should be present in particular if the component is also an FRU (field replacable unit)
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -314,7 +310,7 @@ class Components(Entity):
             .. attribute:: property
             
             	List of system properties for the component
-            	**type**\: list of    :py:class:`Property <ydk.models.openconfig.openconfig_platform.Components.Component.Properties.Property>`
+            	**type**\: list of  		 :py:class:`Property <ydk.models.openconfig.openconfig_platform.Components.Component.Properties.Property>`
             
             
 
@@ -347,19 +343,19 @@ class Components(Entity):
                 .. attribute:: name  <key>
                 
                 	Reference to the property name
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component.Properties.Property.Config>`
                 
                 .. attribute:: config
                 
                 	Configuration data for each property
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.Properties.Property.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.Properties.Property.Config>`
                 
                 .. attribute:: state
                 
                 	Operational state data for each property
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.Properties.Property.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.Properties.Property.State>`
                 
                 
 
@@ -402,39 +398,29 @@ class Components(Entity):
                     .. attribute:: name
                     
                     	System\-supplied name of the property \-\- this is typically non\-configurable
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: value
                     
                     	Property values can take on a variety of types.  Signed and unsigned integer types may be provided in smaller sizes, e.g., int8, uint16, etc
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    		**type**\: bool
                     
-                    ----
-                    	**type**\:  bool
+                    		**type**\: int
                     
+                    			**range:** \-9223372036854775808..9223372036854775807
                     
-                    ----
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** \-9223372036854775808..9223372036854775807
+                    			**range:** 0..18446744073709551615
                     
+                    		**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
-                    ----
-                    	**type**\:  int
+                    			**range:** \-92233720368547758.08..92233720368547758.07
                     
-                    	**range:** 0..18446744073709551615
-                    
-                    
-                    ----
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    
-                    ----
                     
 
                     """
@@ -468,43 +454,33 @@ class Components(Entity):
                     .. attribute:: name
                     
                     	System\-supplied name of the property \-\- this is typically non\-configurable
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: value
                     
                     	Property values can take on a variety of types.  Signed and unsigned integer types may be provided in smaller sizes, e.g., int8, uint16, etc
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    		**type**\: bool
                     
-                    ----
-                    	**type**\:  bool
+                    		**type**\: int
                     
+                    			**range:** \-9223372036854775808..9223372036854775807
                     
-                    ----
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** \-9223372036854775808..9223372036854775807
+                    			**range:** 0..18446744073709551615
                     
+                    		**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
-                    ----
-                    	**type**\:  int
+                    			**range:** \-92233720368547758.08..92233720368547758.07
                     
-                    	**range:** 0..18446744073709551615
-                    
-                    
-                    ----
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    
-                    ----
                     .. attribute:: configurable
                     
                     	Indication whether the property is user\-configurable
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     
 
@@ -541,7 +517,7 @@ class Components(Entity):
             .. attribute:: subcomponent
             
             	List of subcomponent references
-            	**type**\: list of    :py:class:`Subcomponent <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents.Subcomponent>`
+            	**type**\: list of  		 :py:class:`Subcomponent <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents.Subcomponent>`
             
             
 
@@ -574,19 +550,19 @@ class Components(Entity):
                 .. attribute:: name  <key>
                 
                 	Reference to the name list key
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents.Subcomponent.Config>`
                 
                 .. attribute:: config
                 
                 	Configuration data 
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents.Subcomponent.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents.Subcomponent.Config>`
                 
                 .. attribute:: state
                 
                 	Operational state data 
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents.Subcomponent.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents.Subcomponent.State>`
                 
                 
 
@@ -629,7 +605,7 @@ class Components(Entity):
                     .. attribute:: name
                     
                     	Reference to the name of the subcomponent
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component.Config>`
                     
@@ -664,7 +640,7 @@ class Components(Entity):
                     .. attribute:: name
                     
                     	Reference to the name of the subcomponent
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component.Config>`
                     
@@ -699,12 +675,12 @@ class Components(Entity):
             .. attribute:: config
             
             	Operational config data for optical line ports
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.Config>`
             
             .. attribute:: state
             
             	Operational state data for optical line ports
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State>`
             
             
 
@@ -742,7 +718,7 @@ class Components(Entity):
                 .. attribute:: admin_state
                 
                 	Sets the admin state of the optical\-port
-                	**type**\:   :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
+                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
                 
                 
 
@@ -775,22 +751,22 @@ class Components(Entity):
                 .. attribute:: admin_state
                 
                 	Sets the admin state of the optical\-port
-                	**type**\:   :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
+                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
                 
                 .. attribute:: optical_port_type
                 
                 	Indicates the type of transport line port.  This is an informational field that should be made available by the device (e.g., in the openconfig\-platform model)
-                	**type**\:   :py:class:`OPTICALLINEPORTTYPE <ydk.models.openconfig.openconfig_transport_line_common.OPTICALLINEPORTTYPE>`
+                	**type**\:  :py:class:`OPTICALLINEPORTTYPE <ydk.models.openconfig.openconfig_transport_line_common.OPTICALLINEPORTTYPE>`
                 
                 .. attribute:: input_power
                 
                 	The total input optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:   :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.InputPower>`
+                	**type**\:  :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.InputPower>`
                 
                 .. attribute:: output_power
                 
                 	The total output optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:   :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.OutputPower>`
+                	**type**\:  :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.OutputPower>`
                 
                 
 
@@ -837,7 +813,7 @@ class Components(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -846,7 +822,7 @@ class Components(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -855,7 +831,7 @@ class Components(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -864,7 +840,7 @@ class Components(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -909,7 +885,7 @@ class Components(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -918,7 +894,7 @@ class Components(Entity):
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -927,7 +903,7 @@ class Components(Entity):
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -936,7 +912,7 @@ class Components(Entity):
                     .. attribute:: max
                     
                     	The maximum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -979,17 +955,17 @@ class Components(Entity):
             .. attribute:: config
             
             	Configuration data for client port transceivers
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.Config>`
             
             .. attribute:: state
             
             	Operational state data for client port transceivers
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State>`
             
             .. attribute:: physical_channels
             
             	Enclosing container for client channels
-            	**type**\:   :py:class:`PhysicalChannels <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels>`
+            	**type**\:  :py:class:`PhysicalChannels <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels>`
             
             
 
@@ -1032,12 +1008,12 @@ class Components(Entity):
                 .. attribute:: enabled
                 
                 	Turns power on / off to the transceiver \-\- provides a means to power on/off the transceiver (in the case of SFP, SFP+, QSFP,...) or enable high\-power mode (in the case of CFP, CFP2, CFP4) and is optionally supported (device can choose to always enable).  True = power on / high power, False = powered off
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: form_factor
                 
                 	Indicates the type of optical transceiver used on this port.  If the client port is built into the device and not plugable, then non\-pluggable is the corresponding state. If a device port supports multiple form factors (e.g. QSFP28 and QSFP+, then the value of the transceiver installed shall be reported. If no transceiver is present, then the value of the highest rate form factor shall be reported (QSFP28, for example).  The form factor is included in configuration data to allow pre\-configuring a device with the expected type of transceiver ahead of deployment.  The corresponding state leaf should reflect the actual transceiver type plugged into the system
-                	**type**\:   :py:class:`TRANSCEIVERFORMFACTORTYPE <ydk.models.openconfig.openconfig_transport_types.TRANSCEIVERFORMFACTORTYPE>`
+                	**type**\:  :py:class:`TRANSCEIVERFORMFACTORTYPE <ydk.models.openconfig.openconfig_transport_types.TRANSCEIVERFORMFACTORTYPE>`
                 
                 
 
@@ -1072,82 +1048,84 @@ class Components(Entity):
                 .. attribute:: enabled
                 
                 	Turns power on / off to the transceiver \-\- provides a means to power on/off the transceiver (in the case of SFP, SFP+, QSFP,...) or enable high\-power mode (in the case of CFP, CFP2, CFP4) and is optionally supported (device can choose to always enable).  True = power on / high power, False = powered off
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: form_factor
                 
                 	Indicates the type of optical transceiver used on this port.  If the client port is built into the device and not plugable, then non\-pluggable is the corresponding state. If a device port supports multiple form factors (e.g. QSFP28 and QSFP+, then the value of the transceiver installed shall be reported. If no transceiver is present, then the value of the highest rate form factor shall be reported (QSFP28, for example).  The form factor is included in configuration data to allow pre\-configuring a device with the expected type of transceiver ahead of deployment.  The corresponding state leaf should reflect the actual transceiver type plugged into the system
-                	**type**\:   :py:class:`TRANSCEIVERFORMFACTORTYPE <ydk.models.openconfig.openconfig_transport_types.TRANSCEIVERFORMFACTORTYPE>`
+                	**type**\:  :py:class:`TRANSCEIVERFORMFACTORTYPE <ydk.models.openconfig.openconfig_transport_types.TRANSCEIVERFORMFACTORTYPE>`
                 
                 .. attribute:: present
                 
                 	Indicates whether a transceiver is present in the specified client port
-                	**type**\:   :py:class:`Present <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.Present>`
+                	**type**\:  :py:class:`Present <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.Present>`
                 
                 .. attribute:: connector_type
                 
                 	Connector type used on this port
-                	**type**\:   :py:class:`FIBERCONNECTORTYPE <ydk.models.openconfig.openconfig_transport_types.FIBERCONNECTORTYPE>`
+                	**type**\:  :py:class:`FIBERCONNECTORTYPE <ydk.models.openconfig.openconfig_transport_types.FIBERCONNECTORTYPE>`
                 
                 .. attribute:: internal_temp
                 
                 	Internally measured temperature in degrees Celsius. MSA valid range is between \-40 and +125C. Accuracy shall be better than +/\- 3 degC over the whole temperature range
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** \-40..125
                 
                 .. attribute:: vendor
                 
                 	Full name of transceiver vendor. 16\-octet field that contains ASCII characters, left\-aligned and padded on the right with ASCII spaces (20h)
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..16
                 
                 .. attribute:: vendor_part
                 
                 	Transceiver vendor's part number. 16\-octet field that contains ASCII characters, left\-aligned and padded on the right with ASCII spaces (20h). If part number is undefined, all 16 octets = 0h
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..16
                 
                 .. attribute:: vendor_rev
                 
                 	Transceiver vendor's revision number. 2\-octet field that contains ASCII characters, left\-aligned and padded on the right with ASCII spaces (20h)
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..2
                 
                 .. attribute:: ethernet_compliance_code
                 
                 	Ethernet PMD that the transceiver supports. The SFF/QSFP MSAs have registers for this and CFP MSA has similar
-                	**type**\:   :py:class:`ETHERNETPMDTYPE <ydk.models.openconfig.openconfig_transport_types.ETHERNETPMDTYPE>`
+                	**type**\:  :py:class:`ETHERNETPMDTYPE <ydk.models.openconfig.openconfig_transport_types.ETHERNETPMDTYPE>`
                 
                 .. attribute:: sonet_sdh_compliance_code
                 
                 	SONET/SDH application code supported by the port
-                	**type**\:   :py:class:`SONETAPPLICATIONCODE <ydk.models.openconfig.openconfig_transport_types.SONETAPPLICATIONCODE>`
+                	**type**\:  :py:class:`SONETAPPLICATIONCODE <ydk.models.openconfig.openconfig_transport_types.SONETAPPLICATIONCODE>`
                 
                 .. attribute:: otn_compliance_code
                 
                 	OTN application code supported by the port
-                	**type**\:   :py:class:`OTNAPPLICATIONCODE <ydk.models.openconfig.openconfig_transport_types.OTNAPPLICATIONCODE>`
+                	**type**\:  :py:class:`OTNAPPLICATIONCODE <ydk.models.openconfig.openconfig_transport_types.OTNAPPLICATIONCODE>`
                 
                 .. attribute:: serial_no
                 
                 	Transceiver serial number. 16\-octet field that contains ASCII characters, left\-aligned and padded on the right with ASCII spaces (20h). If part serial number is undefined, all 16 octets = 0h
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..16
                 
                 .. attribute:: date_code
                 
                 	Representation of the transceiver date code, typically stored as YYMMDD.  The time portion of the value is undefined and not intended to be read
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                 
                 .. attribute:: fault_condition
                 
                 	Indicates if a fault condition exists in the transceiver
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -1229,7 +1207,7 @@ class Components(Entity):
                 .. attribute:: channel
                 
                 	List of client channels, keyed by index within a physical client port.  A physical port with a single channel would have a single zero\-indexed element
-                	**type**\: list of    :py:class:`Channel <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel>`
+                	**type**\: list of  		 :py:class:`Channel <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel>`
                 
                 
 
@@ -1264,7 +1242,7 @@ class Components(Entity):
                     .. attribute:: index  <key>
                     
                     	Reference to the index number of the channel
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..65535
                     
@@ -1273,12 +1251,12 @@ class Components(Entity):
                     .. attribute:: config
                     
                     	Configuration data for physical channels
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.Config>`
                     
                     .. attribute:: state
                     
                     	Operational state data for channels
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.State>`
                     
                     
 
@@ -1321,24 +1299,24 @@ class Components(Entity):
                         .. attribute:: index
                         
                         	Index of the physical channnel or lane within a physical client port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: description
                         
                         	Text description for the client physical channel
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: tx_laser
                         
                         	Enable (true) or disable (false) the transmit label for the channel
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: target_output_power
                         
                         	Target output optical power level of the optical channel, expressed in increments of 0.01 dBm (decibel\-milliwats)
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -1381,24 +1359,24 @@ class Components(Entity):
                         .. attribute:: index
                         
                         	Index of the physical channnel or lane within a physical client port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: description
                         
                         	Text description for the client physical channel
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: tx_laser
                         
                         	Enable (true) or disable (false) the transmit label for the channel
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: target_output_power
                         
                         	Target output optical power level of the optical channel, expressed in increments of 0.01 dBm (decibel\-milliwats)
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
@@ -1407,24 +1385,24 @@ class Components(Entity):
                         .. attribute:: output_frequency
                         
                         	The frequency in MHz of the individual physical channel (e.g. ITU C50 \- 195.0THz and would be reported as 195,000,000 MHz in this model). This attribute is not configurable on most client ports
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: output_power
                         
                         	The output optical power of this port in units of 0.01dBm. If the port is an aggregate of multiple physical channels, this attribute is the total power or sum of all channels. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                        	**type**\:   :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower>`
+                        	**type**\:  :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower>`
                         
                         .. attribute:: input_power
                         
                         	The input optical power of this port in units of 0.01dBm. If the port is an aggregate of multiple physical channels, this attribute is the total power or sum of all channels. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                        	**type**\:   :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.State.InputPower>`
+                        	**type**\:  :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.State.InputPower>`
                         
                         .. attribute:: laser_bias_current
                         
                         	The current applied by the system to the transmit laser to achieve the output power.  The current is expressed in mA with up to one decimal precision. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                        	**type**\:   :py:class:`LaserBiasCurrent <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.State.LaserBiasCurrent>`
+                        	**type**\:  :py:class:`LaserBiasCurrent <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel.State.LaserBiasCurrent>`
                         
                         
 
@@ -1484,28 +1462,28 @@ class Components(Entity):
                             .. attribute:: instant
                             
                             	The instantaneous value of the statistic
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
                             .. attribute:: avg
                             
                             	The arithmetic mean value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
                             .. attribute:: min
                             
                             	The minimum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
                             .. attribute:: max
                             
                             	The maximum value of the statitic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
@@ -1550,28 +1528,28 @@ class Components(Entity):
                             .. attribute:: instant
                             
                             	The instantaneous value of the statistic
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
                             .. attribute:: avg
                             
                             	The arithmetic mean value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
                             .. attribute:: min
                             
                             	The minimum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
                             .. attribute:: max
                             
                             	The maximum value of the statitic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
@@ -1616,28 +1594,28 @@ class Components(Entity):
                             .. attribute:: instant
                             
                             	The instantaneous value of the statistic
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
                             .. attribute:: avg
                             
                             	The arithmetic mean value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
                             .. attribute:: min
                             
                             	The minimum value of the statistic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
                             .. attribute:: max
                             
                             	The maximum value of the statitic over the sampling period
-                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                            	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-922337203685477580.8..922337203685477580.7
                             
@@ -1678,12 +1656,12 @@ class Components(Entity):
             .. attribute:: config
             
             	Configuration data for optical channels
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.Config>`
             
             .. attribute:: state
             
             	Operational state data for optical channels
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State>`
             
             
 
@@ -1721,14 +1699,14 @@ class Components(Entity):
                 .. attribute:: frequency
                 
                 	Frequency of the optical channel, expressed in MHz
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: target_output_power
                 
                 	Target output optical power level of the optical channel, expressed in increments of 0.01 dBm (decibel\-milliwats)
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -1737,14 +1715,14 @@ class Components(Entity):
                 .. attribute:: operational_mode
                 
                 	Vendor\-specific mode identifier \-\- sets the operational mode for the channel
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: line_port
                 
                 	Reference to the line\-side physical port that carries this optical channel.  The target port should be a component in the physical inventory data model
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                 
@@ -1785,14 +1763,14 @@ class Components(Entity):
                 .. attribute:: frequency
                 
                 	Frequency of the optical channel, expressed in MHz
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: target_output_power
                 
                 	Target output optical power level of the optical channel, expressed in increments of 0.01 dBm (decibel\-milliwats)
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -1801,58 +1779,58 @@ class Components(Entity):
                 .. attribute:: operational_mode
                 
                 	Vendor\-specific mode identifier \-\- sets the operational mode for the channel
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: line_port
                 
                 	Reference to the line\-side physical port that carries this optical channel.  The target port should be a component in the physical inventory data model
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                 
                 .. attribute:: group_id
                 
                 	If the device places constraints on which optical channels must be managed together (e.g., transmitted on the same line port), it can indicate that by setting the group\-id to the same value across related optical channels
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: output_power
                 
                 	The output optical power of this port in units of 0.01dBm. If the port is an aggregate of multiple physical channels, this attribute is the total power or sum of all channels. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                	**type**\:   :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.OutputPower>`
+                	**type**\:  :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.OutputPower>`
                 
                 .. attribute:: input_power
                 
                 	The input optical power of this port in units of 0.01dBm. If the port is an aggregate of multiple physical channels, this attribute is the total power or sum of all channels. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                	**type**\:   :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.InputPower>`
+                	**type**\:  :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.InputPower>`
                 
                 .. attribute:: laser_bias_current
                 
                 	The current applied by the system to the transmit laser to achieve the output power.  The current is expressed in mA with up to one decimal precision. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-                	**type**\:   :py:class:`LaserBiasCurrent <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.LaserBiasCurrent>`
+                	**type**\:  :py:class:`LaserBiasCurrent <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.LaserBiasCurrent>`
                 
                 .. attribute:: chromatic_dispersion
                 
                 	Chromatic Dispersion of an optical channel in ps/nm as reported by receiver
-                	**type**\:   :py:class:`ChromaticDispersion <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.ChromaticDispersion>`
+                	**type**\:  :py:class:`ChromaticDispersion <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.ChromaticDispersion>`
                 
                 .. attribute:: polarization_mode_dispersion
                 
                 	Polarization Mode Dispersion of an optical channel in ps as reported by receiver
-                	**type**\:   :py:class:`PolarizationModeDispersion <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.PolarizationModeDispersion>`
+                	**type**\:  :py:class:`PolarizationModeDispersion <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.PolarizationModeDispersion>`
                 
                 .. attribute:: second_order_polarization_mode_dispersion
                 
                 	Second Order Polarization Mode Dispersion of an optical channel in ps^2 as reported by receiver
-                	**type**\:   :py:class:`SecondOrderPolarizationModeDispersion <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion>`
+                	**type**\:  :py:class:`SecondOrderPolarizationModeDispersion <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion>`
                 
                 .. attribute:: polarization_dependent_loss
                 
                 	Polarization Dependent Loss of an optical channel in dB as reported by receiver
-                	**type**\:   :py:class:`PolarizationDependentLoss <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.PolarizationDependentLoss>`
+                	**type**\:  :py:class:`PolarizationDependentLoss <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.PolarizationDependentLoss>`
                 
                 
 
@@ -1932,28 +1910,28 @@ class Components(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
@@ -1998,28 +1976,28 @@ class Components(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
@@ -2064,28 +2042,28 @@ class Components(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
@@ -2127,28 +2105,28 @@ class Components(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
@@ -2190,28 +2168,28 @@ class Components(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
@@ -2253,28 +2231,28 @@ class Components(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
@@ -2316,28 +2294,28 @@ class Components(Entity):
                     .. attribute:: instant
                     
                     	The instantaneous value of the statistic
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: avg
                     
                     	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: min
                     
                     	The minimum value of the statistic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     
                     .. attribute:: max
                     
                     	The maximum value of the statitic over the sampling period
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-922337203685477580.8..922337203685477580.7
                     

@@ -203,17 +203,17 @@ class PseudowireConfig(Entity):
     .. attribute:: global_
     
     	Global configurations related to pseudowires
-    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.Global_>`
+    	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.Global_>`
     
     .. attribute:: pw_templates
     
     	Contains list of all pw\-template definitions. Also called PW Class (XR) and Port Profile (NX\-OS)
-    	**type**\:   :py:class:`PwTemplates <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates>`
+    	**type**\:  :py:class:`PwTemplates <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates>`
     
     .. attribute:: pw_static_oam_classes
     
     	List of pseudowire static oam classes
-    	**type**\:   :py:class:`PwStaticOamClasses <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwStaticOamClasses>`
+    	**type**\:  :py:class:`PwStaticOamClasses <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwStaticOamClasses>`
     
     
 
@@ -257,43 +257,43 @@ class PseudowireConfig(Entity):
         .. attribute:: pw_grouping
         
         	Enable pw\-grouping.  When pseudowires (PW) are established, each PW is assigned a group ID that is common for all PWs created from the same physical port. Hence, when the physical port becomes non\-functional or is deleted, L2VPN sends a single message to advertise the status change of all PWs belonging to the group. A single L2VPN signal thus avoids a lot of processing and loss in reactivity
-        	**type**\:  bool
+        	**type**\: bool
         
         	**default value**\: false
         
         .. attribute:: pw_oam_refresh_transmit
         
         	Set pseudowire oam transmit refresh time (in seconds)
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..4095
         
         .. attribute:: pw_status
         
         	Enable pw\-status
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: predictive_redundancy
         
         	Enable predictive redundancy
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: vc_state_notification_enabled
         
         	If this leaf is set to true, then it enables the emission of 'vc\-state\-notification'; otherwise these notifications are not emitted
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: vc_state_notification_batch_size
         
         	'vc\-state\-notification' allows batching of pseudowires in order to reduce number of notifications generated from the device. All pseudowires in a batched notification MUST share same state at the same time.  This leaf defines the maximum number of VCs that can be batched in vc\-state\-notification
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vc_state_notification_rate
         
         	This leaf defines the maximum number of VC state change notifications that can be emitted from the device per second
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -342,7 +342,7 @@ class PseudowireConfig(Entity):
         .. attribute:: pw_template
         
         	Pseudowire template list
-        	**type**\: list of    :py:class:`PwTemplate <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate>`
+        	**type**\: list of  		 :py:class:`PwTemplate <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate>`
         
         
 
@@ -376,86 +376,88 @@ class PseudowireConfig(Entity):
             .. attribute:: name  <key>
             
             	PW Template name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: encapsulation
             
             	Encapsulation used for PW
-            	**type**\:   :py:class:`PwEncapsulationType <ydk.models.cisco_ios_xe.cisco_pw.PwEncapsulationType>`
+            	**type**\:  :py:class:`PwEncapsulationType <ydk.models.cisco_ios_xe.cisco_pw.PwEncapsulationType>`
             
             .. attribute:: control_word
             
             	Use control word in the MPLS PW header
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: signaling_protocol
             
             	Signaling protocol to use
-            	**type**\:   :py:class:`PwSignalingProtocolType <ydk.models.cisco_ios_xe.cisco_pw.PwSignalingProtocolType>`
+            	**type**\:  :py:class:`PwSignalingProtocolType <ydk.models.cisco_ios_xe.cisco_pw.PwSignalingProtocolType>`
             
             .. attribute:: load_balance
             
             	Load balancing mechanism
-            	**type**\:   :py:class:`LoadBalance <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.LoadBalance>`
+            	**type**\:  :py:class:`LoadBalance <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.LoadBalance>`
             
             .. attribute:: preferred_path
             
             	Preferred path for the PW
-            	**type**\:   :py:class:`PreferredPath <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.PreferredPath>`
+            	**type**\:  :py:class:`PreferredPath <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.PreferredPath>`
             
             .. attribute:: sequencing
             
             	Sequencing options
-            	**type**\:   :py:class:`Sequencing <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.Sequencing>`
+            	**type**\:  :py:class:`Sequencing <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.Sequencing>`
             
             .. attribute:: vc_type
             
             	Type of VC in the PW
-            	**type**\:   :py:class:`PwVcType <ydk.models.cisco_ios_xe.cisco_pw.PwVcType>`
+            	**type**\:  :py:class:`PwVcType <ydk.models.cisco_ios_xe.cisco_pw.PwVcType>`
             
             .. attribute:: switching_tlv
             
             	Send switching TLV
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: vccv
             
             	VCCV configuration
-            	**type**\:   :py:class:`Vccv <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.Vccv>`
+            	**type**\:  :py:class:`Vccv <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.Vccv>`
             
             .. attribute:: switchover_delay
             
             	Timer configuration related to pseudowire redundancy switchover and restoring to primary
-            	**type**\:   :py:class:`SwitchoverDelay <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay>`
+            	**type**\:  :py:class:`SwitchoverDelay <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay>`
             
             .. attribute:: source_ip
             
             	The local source IPv4 address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: tag_rewrite_ingress_vlan
             
             	Configure ingress tag rewrite vlan
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4094
             
             .. attribute:: mac_withdraw
             
             	Send Mac\-withdraw message when PW becomes active
-            	**type**\:  bool
+            	**type**\: bool
             
             	**default value**\: false
             
             .. attribute:: status
             
             	TODO
-            	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.Status>`
+            	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.Status>`
             
             .. attribute:: port_profile_spec
             
             	Pseudowire port profile configurations
-            	**type**\:   :py:class:`PortProfileSpec <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec>`
+            	**type**\:  :py:class:`PortProfileSpec <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec>`
             
             
 
@@ -540,19 +542,19 @@ class PseudowireConfig(Entity):
                 .. attribute:: ethernet
                 
                 	Ethernet mac address based load balancing
-                	**type**\:   :py:class:`PwLbEthernetType <ydk.models.cisco_ios_xe.cisco_pw.PwLbEthernetType>`
+                	**type**\:  :py:class:`PwLbEthernetType <ydk.models.cisco_ios_xe.cisco_pw.PwLbEthernetType>`
                 
                 	**default value**\: pw-lb-eth-src-dst-mac
                 
                 .. attribute:: ip
                 
                 	IP address based load balancing
-                	**type**\:   :py:class:`PwLbIpType <ydk.models.cisco_ios_xe.cisco_pw.PwLbIpType>`
+                	**type**\:  :py:class:`PwLbIpType <ydk.models.cisco_ios_xe.cisco_pw.PwLbIpType>`
                 
                 .. attribute:: flow_label
                 
                 	Enable Flow Aware Label (FAT) PW \- the capability to carry flow label on PW
-                	**type**\:   :py:class:`FlowLabel <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel>`
+                	**type**\:  :py:class:`FlowLabel <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel>`
                 
                 
 
@@ -593,17 +595,17 @@ class PseudowireConfig(Entity):
                     .. attribute:: direction
                     
                     	Directions to enable Flow Aware Label PW
-                    	**type**\:   :py:class:`Direction <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel.Direction>`
+                    	**type**\:  :py:class:`Direction <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel.Direction>`
                     
                     .. attribute:: tlv_code_17
                     
                     	Carry code 0x17 as Flow Aware Label (FAT) PW signalled sub\-tlv id
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: static
                     
                     	Use statically configured flow label on traffic flowing on the PW
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     	**default value**\: false
                     
@@ -669,32 +671,32 @@ class PseudowireConfig(Entity):
                 .. attribute:: interface
                 
                 	Reference to a tunnel interface
-                	**type**\:  str
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: address
                 
                 	TODO
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                ----
                 .. attribute:: hostname
                 
                 	TODO
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: disable_fallback
                 
                 	Disable fall back to alternative route
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -733,12 +735,12 @@ class PseudowireConfig(Entity):
                 .. attribute:: direction
                 
                 	TODO
-                	**type**\:   :py:class:`PwSequencingType <ydk.models.cisco_ios_xe.cisco_pw.PwSequencingType>`
+                	**type**\:  :py:class:`PwSequencingType <ydk.models.cisco_ios_xe.cisco_pw.PwSequencingType>`
                 
                 .. attribute:: resync
                 
                 	TODO
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 5..65535
                 
@@ -775,7 +777,7 @@ class PseudowireConfig(Entity):
                 .. attribute:: control_word
                 
                 	Enable VCCV verification type
-                	**type**\:  bool
+                	**type**\: bool
                 
                 
 
@@ -809,21 +811,21 @@ class PseudowireConfig(Entity):
                 .. attribute:: switchover_timer
                 
                 	Specifies how long the backup pseudowire should wait before taking over
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..120
                 
                 .. attribute:: timer
                 
                 	Specifies how long the primary pseudowire should wait after it becomes active to take over for the backup pseudowire
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..180
                 
                 .. attribute:: never
                 
                 	The primary pseudowire never takes over for the backup
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
@@ -862,33 +864,33 @@ class PseudowireConfig(Entity):
                 .. attribute:: decoupled
                 
                 	Reflect standby status of the attachment circuit as up on the pseudowire
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: disable
                 
                 	Do not send pseudowire status to peer
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: peer_topo_dual_homed
                 
                 	Our peer(s) are participating in a redundant solution with some form of redundancy protocol running between the peer routers. Only one of the remote peers will advertise a status of UP at a time. The other will advertise standby. Change our configuration so we can send a status of UP on both active and redundant pseudowires
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: route_watch_disable
                 
                 	Disable listening for routing events to trigger redundancy status changes
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: redundancy_master
                 
                 	Make the PE as master to enables Pseudowire Preferential Forwarding feature to display the status of  the active and backup pseudowires
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
@@ -931,40 +933,40 @@ class PseudowireConfig(Entity):
                 .. attribute:: description
                 
                 	Description string for the port profile
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: shutdown
                 
                 	Shut down this template
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: shut_force
                 
                 	Force shut down this port profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: mtu
                 
                 	MTU of the port
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: max_ports
                 
                 	Maximum number of ports
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..16384
                 
                 .. attribute:: enabled
                 
                 	Enable this port profile
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
@@ -1009,7 +1011,7 @@ class PseudowireConfig(Entity):
         .. attribute:: pw_static_oam_class
         
         	Pseudowire static oam class configuration
-        	**type**\: list of    :py:class:`PwStaticOamClass <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwStaticOamClasses.PwStaticOamClass>`
+        	**type**\: list of  		 :py:class:`PwStaticOamClass <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwStaticOamClasses.PwStaticOamClass>`
         
         
 
@@ -1043,17 +1045,17 @@ class PseudowireConfig(Entity):
             .. attribute:: name  <key>
             
             	OAM class name
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: ack
             
             	Enable ack
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: keepalive
             
             	Keepalive in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4095
             
@@ -1062,7 +1064,7 @@ class PseudowireConfig(Entity):
             .. attribute:: timeout_refresh_send
             
             	Refresh timeout in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4095
             
@@ -1071,7 +1073,7 @@ class PseudowireConfig(Entity):
             .. attribute:: timeout_refresh_ack
             
             	Ack timeout in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4095
             
@@ -1122,7 +1124,7 @@ class PseudowireState(Entity):
     .. attribute:: pseudowires
     
     	Each list element contains the state for a pseudowire instance. The list can be optionally keyed by any combination of vc\-id, peer\-address, etc. Additional filtering of the list by the agent may be performed upon request by the client using subtree filtering as described in RFC 6020 Section 6
-    	**type**\: list of    :py:class:`Pseudowires <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires>`
+    	**type**\: list of  		 :py:class:`Pseudowires <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires>`
     
     
 
@@ -1161,126 +1163,126 @@ class PseudowireState(Entity):
         .. attribute:: vc_peer_address  <key>
         
         	This object contains the value of the peer node address of the PW/PE protocol entity
-        	**type**\: one of the below types:
+        	**type**\: union of the below types:
         
-        	**type**\:  str
+        		**type**\: str
         
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
-        ----
-        	**type**\:  str
+        		**type**\: str
         
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
-        ----
         .. attribute:: vc_id  <key>
         
         	Used to distinguish between pseudowires going to the same peer node
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vc_owner_type  <key>
         
         	Indicates the service responsible for establishing this VC
-        	**type**\:   :py:class:`VcOwnerType <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.VcOwnerType>`
+        	**type**\:  :py:class:`VcOwnerType <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.VcOwnerType>`
         
         .. attribute:: vc_name  <key>
         
         	The canonical name assigned to the VC. The name may be autogenerated by the device; this Yang model does not currently support direct configuration of this name
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: vc_index  <key>
         
         	Locally\-unique ID within the device for this pseudowire
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vc_type
         
         	Indicates the service to be carried over this VC
-        	**type**\:   :py:class:`PwVcType <ydk.models.cisco_ios_xe.cisco_pw.PwVcType>`
+        	**type**\:  :py:class:`PwVcType <ydk.models.cisco_ios_xe.cisco_pw.PwVcType>`
         
         .. attribute:: vc_owner_name
         
         	Name of the L2VPN service instance that created the pseudowire VC
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: vc_psn_type
         
         	Indicates the type of packet\-switched network that carries this VC
-        	**type**\:   :py:class:`VcPsnType <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.VcPsnType>`
+        	**type**\:  :py:class:`VcPsnType <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.VcPsnType>`
         
         .. attribute:: vc_local_group_id
         
         	Used to identify which local pseudowire group this pseudowire belongs to
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vc_control_word
         
         	Indicates if the control word is sent with each packet by the local node
-        	**type**\:  bool
+        	**type**\: bool
         
         .. attribute:: vc_local_if_mtu
         
         	If not zero, this represents the locally supported MTU size over the interface (or the virtual interface) associated with the VC
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vc_remote_group_id
         
         	If not zero, indicates the pseudowire group to which this pseudowire belongs on the peer node
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vc_remote_control_word
         
         	Indicates whether MPLS control words are used by the pseudowire PSN service
-        	**type**\:   :py:class:`VcRemoteControlWord <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.VcRemoteControlWord>`
+        	**type**\:  :py:class:`VcRemoteControlWord <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.VcRemoteControlWord>`
         
         .. attribute:: vc_remote_if_mtu
         
         	The remote interface MTU as (optionally) received from the remote node via the signaling protocol. Should be zero if this parameter is not available or not used
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vc_outbound_label
         
         	The VC label used in the outbound direction (i.e. toward the PSN). Example\: for MPLS PSN, it represents the 20 bits of VC tag, for L2TP it represent the 32 bits Session ID. If the label is not yet known (signaling in procesS), the object should return a value of 0xFFFFFFFF
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vc_inbound_label
         
         	The VC label used in the inbound direction (i.e. packets received from the PSN). Example\: for MPLS PSN, it represents the 20 bits of VC tag, for L2TP it represents the 32 bits Session ID. If the label is not yet known (signaling in process), the object should return a value of 0xFFFFFFFF
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: vc_oper_status
         
         	Indicates the actual combined operational status of this VC. It is 'up' if both vc\-inbound\-oper\-status and vc\-outbound\-oper\-status are in 'up' state. For all other values, if the VCs in both directions are of the same value it reflects that value, otherwise it is set to the most severe status out of the two statuses. The order of severance from most severe to less severe is\: unknown, notPresent, down, lowerLayerDown, dormant, testing, up. The operator may consult the per direction oper\-status for fault isolation per direction
-        	**type**\:   :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
+        	**type**\:  :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
         
         .. attribute:: vc_inbound_oper_status
         
         	Indicates the actual operational status of this VC in the  inbound direction
-        	**type**\:   :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
+        	**type**\:  :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
         
         .. attribute:: vc_outbound_oper_status
         
         	Indicates the actual operational status of this VC in the outbound direction
-        	**type**\:   :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
+        	**type**\:  :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
         
         .. attribute:: statistics
         
         	A collection of pseudowire\-related statistics objects
-        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.Statistics>`
+        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.Statistics>`
         
         
 
@@ -1470,63 +1472,65 @@ class PseudowireState(Entity):
             .. attribute:: vc_create_time
             
             	System time when this VC was created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: vc_up_time
             
             	Number of consecutive ticks this VC has been 'up' in both directions together
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: discontinuity_time
             
             	The time on the most recent occasion at which any of this pseudowire's counters sufferred discontinuity. If no such discontinuities have occurred since the last re\-initialization of the local management subsystem, then this node contains the time the local management subsystem re\-initialized itself
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
             	**mandatory**\: True
             
             .. attribute:: in_octets
             
             	The total number of octets received on this pseudowire.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: in_pkts
             
             	The total number of packets received on this pseudowire.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: in_errors
             
             	The total number of inbound packets that contained errors.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: out_octets
             
             	The total number of octets sent on this pseudowire.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: out_pkts
             
             	The total number of packets sent on this pseudowire.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: out_errors
             
             	The total number of outbound packets that could not be sent on this pseudowire.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             

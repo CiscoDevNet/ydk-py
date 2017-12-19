@@ -643,12 +643,12 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
     .. attribute:: cvcommondccallactivetable
     
     	This table is a common extension to the call active table of IETF Dial Control MIB. It contains common call  leg information about a network call leg
-    	**type**\:   :py:class:`Cvcommondccallactivetable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable>`
+    	**type**\:  :py:class:`Cvcommondccallactivetable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable>`
     
     .. attribute:: cvcommondccallhistorytable
     
     	This table is the Common extension to the call history table of IETF Dial Control MIB. It contains Common call  leg information about a network call leg
-    	**type**\:   :py:class:`Cvcommondccallhistorytable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable>`
+    	**type**\:  :py:class:`Cvcommondccallhistorytable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable>`
     
     
 
@@ -689,7 +689,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
         .. attribute:: cvcommondccallactiveentry
         
         	The common information regarding a single network call leg. The call leg entry is identified by using the same  index objects that are used by Call Active table of IETF  Dial Control MIB to identify the call. An entry of this table is created when its associated  call active entry in the IETF Dial Control MIB is created and the call active entry contains information for the  call establishment to a network dialpeer.              The entry is deleted when its associated call active entry  in the IETF Dial Control MIB is deleted
-        	**type**\: list of    :py:class:`Cvcommondccallactiveentry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable.Cvcommondccallactiveentry>`
+        	**type**\: list of  		 :py:class:`Cvcommondccallactiveentry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable.Cvcommondccallactiveentry>`
         
         
 
@@ -732,7 +732,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             .. attribute:: callactivesetuptime  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -741,7 +741,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             .. attribute:: callactiveindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -750,43 +750,43 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             .. attribute:: cvcommondccallactiveconnectionid
             
             	The global call identifier for the network call
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..16
             
             .. attribute:: cvcommondccallactivevadenable
             
             	The object indicates whether or not the VAD (Voice Activity Detection) is enabled for the voice call
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvcommondccallactivecodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg  for the call. This rate is different from the configuration rate  because of rate negotiation during the call
-            	**type**\:   :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
+            	**type**\:  :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
             
             .. attribute:: cvcommondccallactivecodecbytes
             
             	Specifies the payload size of the voice packet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 10..255
             
             .. attribute:: cvcommondccallactiveinbandsignaling
             
             	Specifies the type of in\-band signaling being used on the call.  This object is instantiated only for  Connection Trunk calls
-            	**type**\:   :py:class:`CvcInBandSignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcInBandSignaling>`
+            	**type**\:  :py:class:`CvcInBandSignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcInBandSignaling>`
             
             .. attribute:: cvcommondccallactivecallingname
             
             	The calling party name this call is connected to. If the name is not available, then it will have a length of zero
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: cvcommondccallactivecalleridblock
             
             	The object indicates whether or not the caller ID feature is blocked for this voice call
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -838,7 +838,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
         .. attribute:: cvcommondccallhistoryentry
         
         	The common information regarding a single network call leg. The call leg entry is identified by using the same  index objects that are used by Call Active table of IETF  Dial Control MIB to identify the call. An entry of this table is created when its associated  call history entry in the IETF Dial Control MIB is  created and the call history entry contains information  for the call establishment to a network dialpeer. The entry is deleted when its associated call history  entry in the IETF Dial Control MIB is deleted
-        	**type**\: list of    :py:class:`Cvcommondccallhistoryentry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable.Cvcommondccallhistoryentry>`
+        	**type**\: list of  		 :py:class:`Cvcommondccallhistoryentry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable.Cvcommondccallhistoryentry>`
         
         
 
@@ -881,7 +881,7 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             .. attribute:: ccallhistoryindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -890,43 +890,43 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             .. attribute:: cvcommondccallhistoryconnectionid
             
             	The global call identifier for the gateway call
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..16
             
             .. attribute:: cvcommondccallhistoryvadenable
             
             	The object indicates whether or not the VAD (Voice Activity Detection) was enabled for the voice call
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: cvcommondccallhistorycodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for  the call. This rate is different from the configuration rate  because of rate negotiation during the call
-            	**type**\:   :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
+            	**type**\:  :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
             
             .. attribute:: cvcommondccallhistorycodecbytes
             
             	Specifies the payload size of the voice packet
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 10..255
             
             .. attribute:: cvcommondccallhistoryinbandsignaling
             
             	Specifies the type of in\-band signaling used on the call.  This object is instantiated only for  Connection Trunk calls
-            	**type**\:   :py:class:`CvcInBandSignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcInBandSignaling>`
+            	**type**\:  :py:class:`CvcInBandSignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcInBandSignaling>`
             
             .. attribute:: cvcommondccallhistorycallingname
             
             	The calling party name this call is connected to. If the name is not available, then it will have a length  of zero
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: cvcommondccallhistorycalleridblock
             
             	The object indicates whether or not the caller ID feature is blocked for this voice call
-            	**type**\:  bool
+            	**type**\: bool
             
             
 

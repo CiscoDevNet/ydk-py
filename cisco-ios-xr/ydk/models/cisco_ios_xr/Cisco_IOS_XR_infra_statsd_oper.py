@@ -25,7 +25,7 @@ class InfraStatistics(Entity):
     .. attribute:: interfaces
     
     	List of interfaces
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces>`
     
     
 
@@ -59,7 +59,7 @@ class InfraStatistics(Entity):
         .. attribute:: interface
         
         	Statistics of an interface
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface>`
         
         
 
@@ -93,42 +93,44 @@ class InfraStatistics(Entity):
             .. attribute:: interface_name  <key>
             
             	Name of the interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: cache
             
             	Cached stats data of interfaces
-            	**type**\:   :py:class:`Cache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache>`
+            	**type**\:  :py:class:`Cache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache>`
             
             .. attribute:: latest
             
             	Latest stats data of interfaces
-            	**type**\:   :py:class:`Latest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest>`
+            	**type**\:  :py:class:`Latest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest>`
             
             .. attribute:: total
             
             	Total stats data of interfaces
-            	**type**\:   :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total>`
+            	**type**\:  :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total>`
             
             .. attribute:: protocols
             
             	List of protocols
-            	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Protocols>`
+            	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Protocols>`
             
             .. attribute:: interfaces_mib_counters
             
             	Set of interface counters as displayed by the InterfacesMIB
-            	**type**\:   :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.InterfacesMibCounters>`
+            	**type**\:  :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.InterfacesMibCounters>`
             
             .. attribute:: data_rate
             
             	Datarate information
-            	**type**\:   :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.DataRate>`
+            	**type**\:  :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.DataRate>`
             
             .. attribute:: generic_counters
             
             	Generic set of interface counters
-            	**type**\:   :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.GenericCounters>`
+            	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.GenericCounters>`
             
             
 
@@ -197,22 +199,22 @@ class InfraStatistics(Entity):
                 .. attribute:: protocols
                 
                 	List of protocols
-                	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.Protocols>`
+                	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.Protocols>`
                 
                 .. attribute:: interfaces_mib_counters
                 
                 	Set of interface counters as displayed by the InterfacesMIB
-                	**type**\:   :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters>`
+                	**type**\:  :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters>`
                 
                 .. attribute:: data_rate
                 
                 	Datarate information
-                	**type**\:   :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.DataRate>`
+                	**type**\:  :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.DataRate>`
                 
                 .. attribute:: generic_counters
                 
                 	Generic set of interface counters
-                	**type**\:   :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.GenericCounters>`
+                	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.GenericCounters>`
                 
                 
 
@@ -260,7 +262,7 @@ class InfraStatistics(Entity):
                     .. attribute:: protocol
                     
                     	Interface counters per protocol
-                    	**type**\: list of    :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol>`
+                    	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol>`
                     
                     
 
@@ -293,12 +295,14 @@ class InfraStatistics(Entity):
                         .. attribute:: protocol_name  <key>
                         
                         	Name of the protocol
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: bytes_received
                         
                         	Bytes received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -307,14 +311,14 @@ class InfraStatistics(Entity):
                         .. attribute:: packets_received
                         
                         	Packets received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: bytes_sent
                         
                         	Bytes sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -323,21 +327,21 @@ class InfraStatistics(Entity):
                         .. attribute:: packets_sent
                         
                         	Packets sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: protocol
                         
                         	Protocol number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: last_data_time
                         
                         	Time when counters were last written (in seconds)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -346,7 +350,7 @@ class InfraStatistics(Entity):
                         .. attribute:: input_data_rate
                         
                         	Input data rate in 1000's of bps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -355,7 +359,7 @@ class InfraStatistics(Entity):
                         .. attribute:: input_packet_rate
                         
                         	Input packets per second
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -364,7 +368,7 @@ class InfraStatistics(Entity):
                         .. attribute:: output_data_rate
                         
                         	Output data rate in 1000's of bps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -373,7 +377,7 @@ class InfraStatistics(Entity):
                         .. attribute:: output_packet_rate
                         
                         	Output packets per second
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -431,14 +435,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -447,14 +451,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -463,196 +467,196 @@ class InfraStatistics(Entity):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: output_drops
                     
                     	Total output drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_drops
                     
                     	Total input drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: runt_packets_received
                     
                     	Received runt packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: throttled_packets_received
                     
                     	Received throttled packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unknown_protocol_packets_received
                     
                     	Unknown protocol packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_errors
                     
                     	Total input errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: crc_errors
                     
                     	Input CRC errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_overruns
                     
                     	Input overruns
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: framing_errors_received
                     
                     	Framing\-errors received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_aborts
                     
                     	Input aborts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_errors
                     
                     	Total output errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_underruns
                     
                     	Output underruns
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_buffers_swapped_out
                     
                     	Output buffers swapped out
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: applique
                     
                     	Applique
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: resets
                     
                     	Number of board resets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: availability_flag
                     
                     	Availability bit mask
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -661,7 +665,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_last_clear_counters
                     
                     	Number of seconds since last clear counters
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -670,7 +674,7 @@ class InfraStatistics(Entity):
                     .. attribute:: last_discontinuity_time
                     
                     	SysUpTime when counters were last reset (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -679,7 +683,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_packet_received
                     
                     	Seconds since packet received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -688,7 +692,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_packet_sent
                     
                     	Seconds since packet sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -795,7 +799,7 @@ class InfraStatistics(Entity):
                     .. attribute:: input_data_rate
                     
                     	Input data rate in 1000's of bps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -804,7 +808,7 @@ class InfraStatistics(Entity):
                     .. attribute:: input_packet_rate
                     
                     	Input packets per second
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -813,7 +817,7 @@ class InfraStatistics(Entity):
                     .. attribute:: output_data_rate
                     
                     	Output data rate in 1000's of bps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -822,7 +826,7 @@ class InfraStatistics(Entity):
                     .. attribute:: output_packet_rate
                     
                     	Output packets per second
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -831,35 +835,35 @@ class InfraStatistics(Entity):
                     .. attribute:: peak_input_data_rate
                     
                     	Peak input data rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_input_packet_rate
                     
                     	Peak input packet rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_output_data_rate
                     
                     	Peak output data rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_output_packet_rate
                     
                     	Peak output packet rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bandwidth
                     
                     	Bandwidth (in kbps)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -868,28 +872,28 @@ class InfraStatistics(Entity):
                     .. attribute:: load_interval
                     
                     	Number of 30\-sec intervals less one
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_load
                     
                     	Output load as fraction of 255
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: input_load
                     
                     	Input load as fraction of 255
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: reliability
                     
                     	Reliability coefficient
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -948,14 +952,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -964,14 +968,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -980,196 +984,196 @@ class InfraStatistics(Entity):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: output_drops
                     
                     	Total output drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_drops
                     
                     	Total input drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: runt_packets_received
                     
                     	Received runt packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: throttled_packets_received
                     
                     	Received throttled packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unknown_protocol_packets_received
                     
                     	Unknown protocol packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_errors
                     
                     	Total input errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: crc_errors
                     
                     	Input CRC errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_overruns
                     
                     	Input overruns
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: framing_errors_received
                     
                     	Framing\-errors received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_aborts
                     
                     	Input aborts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_errors
                     
                     	Total output errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_underruns
                     
                     	Output underruns
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_buffers_swapped_out
                     
                     	Output buffers swapped out
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: applique
                     
                     	Applique
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: resets
                     
                     	Number of board resets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: availability_flag
                     
                     	Availability bit mask
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1178,7 +1182,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_last_clear_counters
                     
                     	Number of seconds since last clear counters
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1187,7 +1191,7 @@ class InfraStatistics(Entity):
                     .. attribute:: last_discontinuity_time
                     
                     	SysUpTime when counters were last reset (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1196,7 +1200,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_packet_received
                     
                     	Seconds since packet received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1205,7 +1209,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_packet_sent
                     
                     	Seconds since packet sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1312,22 +1316,22 @@ class InfraStatistics(Entity):
                 .. attribute:: protocols
                 
                 	List of protocols
-                	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.Protocols>`
+                	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.Protocols>`
                 
                 .. attribute:: interfaces_mib_counters
                 
                 	Set of interface counters as displayed by the InterfacesMIB
-                	**type**\:   :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters>`
+                	**type**\:  :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters>`
                 
                 .. attribute:: data_rate
                 
                 	Datarate information
-                	**type**\:   :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.DataRate>`
+                	**type**\:  :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.DataRate>`
                 
                 .. attribute:: generic_counters
                 
                 	Generic set of interface counters
-                	**type**\:   :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.GenericCounters>`
+                	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.GenericCounters>`
                 
                 
 
@@ -1375,7 +1379,7 @@ class InfraStatistics(Entity):
                     .. attribute:: protocol
                     
                     	Interface counters per protocol
-                    	**type**\: list of    :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol>`
+                    	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol>`
                     
                     
 
@@ -1408,12 +1412,14 @@ class InfraStatistics(Entity):
                         .. attribute:: protocol_name  <key>
                         
                         	Name of the protocol
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: bytes_received
                         
                         	Bytes received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1422,14 +1428,14 @@ class InfraStatistics(Entity):
                         .. attribute:: packets_received
                         
                         	Packets received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: bytes_sent
                         
                         	Bytes sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1438,21 +1444,21 @@ class InfraStatistics(Entity):
                         .. attribute:: packets_sent
                         
                         	Packets sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: protocol
                         
                         	Protocol number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: last_data_time
                         
                         	Time when counters were last written (in seconds)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1461,7 +1467,7 @@ class InfraStatistics(Entity):
                         .. attribute:: input_data_rate
                         
                         	Input data rate in 1000's of bps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1470,7 +1476,7 @@ class InfraStatistics(Entity):
                         .. attribute:: input_packet_rate
                         
                         	Input packets per second
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1479,7 +1485,7 @@ class InfraStatistics(Entity):
                         .. attribute:: output_data_rate
                         
                         	Output data rate in 1000's of bps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1488,7 +1494,7 @@ class InfraStatistics(Entity):
                         .. attribute:: output_packet_rate
                         
                         	Output packets per second
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1546,14 +1552,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1562,14 +1568,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1578,196 +1584,196 @@ class InfraStatistics(Entity):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: output_drops
                     
                     	Total output drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_drops
                     
                     	Total input drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: runt_packets_received
                     
                     	Received runt packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: throttled_packets_received
                     
                     	Received throttled packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unknown_protocol_packets_received
                     
                     	Unknown protocol packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_errors
                     
                     	Total input errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: crc_errors
                     
                     	Input CRC errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_overruns
                     
                     	Input overruns
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: framing_errors_received
                     
                     	Framing\-errors received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_aborts
                     
                     	Input aborts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_errors
                     
                     	Total output errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_underruns
                     
                     	Output underruns
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_buffers_swapped_out
                     
                     	Output buffers swapped out
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: applique
                     
                     	Applique
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: resets
                     
                     	Number of board resets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: availability_flag
                     
                     	Availability bit mask
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1776,7 +1782,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_last_clear_counters
                     
                     	Number of seconds since last clear counters
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1785,7 +1791,7 @@ class InfraStatistics(Entity):
                     .. attribute:: last_discontinuity_time
                     
                     	SysUpTime when counters were last reset (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1794,7 +1800,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_packet_received
                     
                     	Seconds since packet received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1803,7 +1809,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_packet_sent
                     
                     	Seconds since packet sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1910,7 +1916,7 @@ class InfraStatistics(Entity):
                     .. attribute:: input_data_rate
                     
                     	Input data rate in 1000's of bps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1919,7 +1925,7 @@ class InfraStatistics(Entity):
                     .. attribute:: input_packet_rate
                     
                     	Input packets per second
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1928,7 +1934,7 @@ class InfraStatistics(Entity):
                     .. attribute:: output_data_rate
                     
                     	Output data rate in 1000's of bps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1937,7 +1943,7 @@ class InfraStatistics(Entity):
                     .. attribute:: output_packet_rate
                     
                     	Output packets per second
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1946,35 +1952,35 @@ class InfraStatistics(Entity):
                     .. attribute:: peak_input_data_rate
                     
                     	Peak input data rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_input_packet_rate
                     
                     	Peak input packet rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_output_data_rate
                     
                     	Peak output data rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_output_packet_rate
                     
                     	Peak output packet rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bandwidth
                     
                     	Bandwidth (in kbps)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1983,28 +1989,28 @@ class InfraStatistics(Entity):
                     .. attribute:: load_interval
                     
                     	Number of 30\-sec intervals less one
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_load
                     
                     	Output load as fraction of 255
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: input_load
                     
                     	Input load as fraction of 255
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: reliability
                     
                     	Reliability coefficient
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -2063,14 +2069,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2079,14 +2085,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2095,196 +2101,196 @@ class InfraStatistics(Entity):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: output_drops
                     
                     	Total output drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_drops
                     
                     	Total input drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: runt_packets_received
                     
                     	Received runt packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: throttled_packets_received
                     
                     	Received throttled packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unknown_protocol_packets_received
                     
                     	Unknown protocol packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_errors
                     
                     	Total input errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: crc_errors
                     
                     	Input CRC errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_overruns
                     
                     	Input overruns
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: framing_errors_received
                     
                     	Framing\-errors received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_aborts
                     
                     	Input aborts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_errors
                     
                     	Total output errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_underruns
                     
                     	Output underruns
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_buffers_swapped_out
                     
                     	Output buffers swapped out
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: applique
                     
                     	Applique
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: resets
                     
                     	Number of board resets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: availability_flag
                     
                     	Availability bit mask
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2293,7 +2299,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_last_clear_counters
                     
                     	Number of seconds since last clear counters
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2302,7 +2308,7 @@ class InfraStatistics(Entity):
                     .. attribute:: last_discontinuity_time
                     
                     	SysUpTime when counters were last reset (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2311,7 +2317,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_packet_received
                     
                     	Seconds since packet received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2320,7 +2326,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_packet_sent
                     
                     	Seconds since packet sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2427,22 +2433,22 @@ class InfraStatistics(Entity):
                 .. attribute:: protocols
                 
                 	List of protocols
-                	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols>`
+                	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols>`
                 
                 .. attribute:: interfaces_mib_counters
                 
                 	Set of interface counters as displayed by the InterfacesMIB
-                	**type**\:   :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters>`
+                	**type**\:  :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters>`
                 
                 .. attribute:: data_rate
                 
                 	Datarate information
-                	**type**\:   :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.DataRate>`
+                	**type**\:  :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.DataRate>`
                 
                 .. attribute:: generic_counters
                 
                 	Generic set of interface counters
-                	**type**\:   :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.GenericCounters>`
+                	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.GenericCounters>`
                 
                 
 
@@ -2490,7 +2496,7 @@ class InfraStatistics(Entity):
                     .. attribute:: protocol
                     
                     	Interface counters per protocol
-                    	**type**\: list of    :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol>`
+                    	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol>`
                     
                     
 
@@ -2523,12 +2529,14 @@ class InfraStatistics(Entity):
                         .. attribute:: protocol_name  <key>
                         
                         	Name of the protocol
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: bytes_received
                         
                         	Bytes received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2537,14 +2545,14 @@ class InfraStatistics(Entity):
                         .. attribute:: packets_received
                         
                         	Packets received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: bytes_sent
                         
                         	Bytes sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2553,21 +2561,21 @@ class InfraStatistics(Entity):
                         .. attribute:: packets_sent
                         
                         	Packets sent
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: protocol
                         
                         	Protocol number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: last_data_time
                         
                         	Time when counters were last written (in seconds)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2576,7 +2584,7 @@ class InfraStatistics(Entity):
                         .. attribute:: input_data_rate
                         
                         	Input data rate in 1000's of bps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2585,7 +2593,7 @@ class InfraStatistics(Entity):
                         .. attribute:: input_packet_rate
                         
                         	Input packets per second
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2594,7 +2602,7 @@ class InfraStatistics(Entity):
                         .. attribute:: output_data_rate
                         
                         	Output data rate in 1000's of bps
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2603,7 +2611,7 @@ class InfraStatistics(Entity):
                         .. attribute:: output_packet_rate
                         
                         	Output packets per second
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2661,14 +2669,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2677,14 +2685,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2693,196 +2701,196 @@ class InfraStatistics(Entity):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: output_drops
                     
                     	Total output drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_drops
                     
                     	Total input drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: runt_packets_received
                     
                     	Received runt packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: throttled_packets_received
                     
                     	Received throttled packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unknown_protocol_packets_received
                     
                     	Unknown protocol packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_errors
                     
                     	Total input errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: crc_errors
                     
                     	Input CRC errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_overruns
                     
                     	Input overruns
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: framing_errors_received
                     
                     	Framing\-errors received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_aborts
                     
                     	Input aborts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_errors
                     
                     	Total output errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_underruns
                     
                     	Output underruns
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_buffers_swapped_out
                     
                     	Output buffers swapped out
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: applique
                     
                     	Applique
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: resets
                     
                     	Number of board resets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: availability_flag
                     
                     	Availability bit mask
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2891,7 +2899,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_last_clear_counters
                     
                     	Number of seconds since last clear counters
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2900,7 +2908,7 @@ class InfraStatistics(Entity):
                     .. attribute:: last_discontinuity_time
                     
                     	SysUpTime when counters were last reset (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2909,7 +2917,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_packet_received
                     
                     	Seconds since packet received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -2918,7 +2926,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_packet_sent
                     
                     	Seconds since packet sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3025,7 +3033,7 @@ class InfraStatistics(Entity):
                     .. attribute:: input_data_rate
                     
                     	Input data rate in 1000's of bps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3034,7 +3042,7 @@ class InfraStatistics(Entity):
                     .. attribute:: input_packet_rate
                     
                     	Input packets per second
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3043,7 +3051,7 @@ class InfraStatistics(Entity):
                     .. attribute:: output_data_rate
                     
                     	Output data rate in 1000's of bps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3052,7 +3060,7 @@ class InfraStatistics(Entity):
                     .. attribute:: output_packet_rate
                     
                     	Output packets per second
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3061,35 +3069,35 @@ class InfraStatistics(Entity):
                     .. attribute:: peak_input_data_rate
                     
                     	Peak input data rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_input_packet_rate
                     
                     	Peak input packet rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_output_data_rate
                     
                     	Peak output data rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_output_packet_rate
                     
                     	Peak output packet rate
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bandwidth
                     
                     	Bandwidth (in kbps)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3098,28 +3106,28 @@ class InfraStatistics(Entity):
                     .. attribute:: load_interval
                     
                     	Number of 30\-sec intervals less one
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_load
                     
                     	Output load as fraction of 255
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: input_load
                     
                     	Input load as fraction of 255
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: reliability
                     
                     	Reliability coefficient
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
@@ -3178,14 +3186,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3194,14 +3202,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3210,196 +3218,196 @@ class InfraStatistics(Entity):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: output_drops
                     
                     	Total output drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_drops
                     
                     	Total input drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: runt_packets_received
                     
                     	Received runt packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: throttled_packets_received
                     
                     	Received throttled packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unknown_protocol_packets_received
                     
                     	Unknown protocol packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_errors
                     
                     	Total input errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: crc_errors
                     
                     	Input CRC errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_overruns
                     
                     	Input overruns
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: framing_errors_received
                     
                     	Framing\-errors received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: input_aborts
                     
                     	Input aborts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_errors
                     
                     	Total output errors
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_underruns
                     
                     	Output underruns
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: output_buffers_swapped_out
                     
                     	Output buffers swapped out
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: applique
                     
                     	Applique
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: resets
                     
                     	Number of board resets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: availability_flag
                     
                     	Availability bit mask
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3408,7 +3416,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_last_clear_counters
                     
                     	Number of seconds since last clear counters
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3417,7 +3425,7 @@ class InfraStatistics(Entity):
                     .. attribute:: last_discontinuity_time
                     
                     	SysUpTime when counters were last reset (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3426,7 +3434,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_packet_received
                     
                     	Seconds since packet received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3435,7 +3443,7 @@ class InfraStatistics(Entity):
                     .. attribute:: seconds_since_packet_sent
                     
                     	Seconds since packet sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3542,7 +3550,7 @@ class InfraStatistics(Entity):
                 .. attribute:: protocol
                 
                 	Interface counters per protocol
-                	**type**\: list of    :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Protocols.Protocol>`
+                	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Protocols.Protocol>`
                 
                 
 
@@ -3575,12 +3583,14 @@ class InfraStatistics(Entity):
                     .. attribute:: protocol_name  <key>
                     
                     	Name of the protocol
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3589,14 +3599,14 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3605,21 +3615,21 @@ class InfraStatistics(Entity):
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: protocol
                     
                     	Protocol number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -3628,7 +3638,7 @@ class InfraStatistics(Entity):
                     .. attribute:: input_data_rate
                     
                     	Input data rate in 1000's of bps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3637,7 +3647,7 @@ class InfraStatistics(Entity):
                     .. attribute:: input_packet_rate
                     
                     	Input packets per second
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3646,7 +3656,7 @@ class InfraStatistics(Entity):
                     .. attribute:: output_data_rate
                     
                     	Output data rate in 1000's of bps
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3655,7 +3665,7 @@ class InfraStatistics(Entity):
                     .. attribute:: output_packet_rate
                     
                     	Output packets per second
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3713,14 +3723,14 @@ class InfraStatistics(Entity):
                 .. attribute:: packets_received
                 
                 	Packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes_received
                 
                 	Bytes received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3729,14 +3739,14 @@ class InfraStatistics(Entity):
                 .. attribute:: packets_sent
                 
                 	Packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes_sent
                 
                 	Bytes sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3745,196 +3755,196 @@ class InfraStatistics(Entity):
                 .. attribute:: multicast_packets_received
                 
                 	Multicast packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: broadcast_packets_received
                 
                 	Broadcast packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: multicast_packets_sent
                 
                 	Multicast packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: broadcast_packets_sent
                 
                 	Broadcast packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: output_drops
                 
                 	Total output drops
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: output_queue_drops
                 
                 	Output queue drops
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: input_drops
                 
                 	Total input drops
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: input_queue_drops
                 
                 	Input queue drops
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: runt_packets_received
                 
                 	Received runt packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: giant_packets_received
                 
                 	Received giant packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: throttled_packets_received
                 
                 	Received throttled packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: parity_packets_received
                 
                 	Received parity packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: unknown_protocol_packets_received
                 
                 	Unknown protocol packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: input_errors
                 
                 	Total input errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: crc_errors
                 
                 	Input CRC errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: input_overruns
                 
                 	Input overruns
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: framing_errors_received
                 
                 	Framing\-errors received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: input_ignored_packets
                 
                 	Input ignored packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: input_aborts
                 
                 	Input aborts
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: output_errors
                 
                 	Total output errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: output_underruns
                 
                 	Output underruns
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: output_buffer_failures
                 
                 	Output buffer failures
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: output_buffers_swapped_out
                 
                 	Output buffers swapped out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: applique
                 
                 	Applique
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: resets
                 
                 	Number of board resets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: carrier_transitions
                 
                 	Carrier transitions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: availability_flag
                 
                 	Availability bit mask
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: last_data_time
                 
                 	Time when counters were last written (in seconds)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3943,7 +3953,7 @@ class InfraStatistics(Entity):
                 .. attribute:: seconds_since_last_clear_counters
                 
                 	Number of seconds since last clear counters
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3952,7 +3962,7 @@ class InfraStatistics(Entity):
                 .. attribute:: last_discontinuity_time
                 
                 	SysUpTime when counters were last reset (in seconds)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3961,7 +3971,7 @@ class InfraStatistics(Entity):
                 .. attribute:: seconds_since_packet_received
                 
                 	Seconds since packet received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -3970,7 +3980,7 @@ class InfraStatistics(Entity):
                 .. attribute:: seconds_since_packet_sent
                 
                 	Seconds since packet sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4077,7 +4087,7 @@ class InfraStatistics(Entity):
                 .. attribute:: input_data_rate
                 
                 	Input data rate in 1000's of bps
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4086,7 +4096,7 @@ class InfraStatistics(Entity):
                 .. attribute:: input_packet_rate
                 
                 	Input packets per second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4095,7 +4105,7 @@ class InfraStatistics(Entity):
                 .. attribute:: output_data_rate
                 
                 	Output data rate in 1000's of bps
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4104,7 +4114,7 @@ class InfraStatistics(Entity):
                 .. attribute:: output_packet_rate
                 
                 	Output packets per second
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4113,35 +4123,35 @@ class InfraStatistics(Entity):
                 .. attribute:: peak_input_data_rate
                 
                 	Peak input data rate
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: peak_input_packet_rate
                 
                 	Peak input packet rate
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: peak_output_data_rate
                 
                 	Peak output data rate
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: peak_output_packet_rate
                 
                 	Peak output packet rate
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bandwidth
                 
                 	Bandwidth (in kbps)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4150,28 +4160,28 @@ class InfraStatistics(Entity):
                 .. attribute:: load_interval
                 
                 	Number of 30\-sec intervals less one
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: output_load
                 
                 	Output load as fraction of 255
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: input_load
                 
                 	Input load as fraction of 255
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
                 .. attribute:: reliability
                 
                 	Reliability coefficient
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..255
                 
@@ -4230,14 +4240,14 @@ class InfraStatistics(Entity):
                 .. attribute:: packets_received
                 
                 	Packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes_received
                 
                 	Bytes received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4246,14 +4256,14 @@ class InfraStatistics(Entity):
                 .. attribute:: packets_sent
                 
                 	Packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes_sent
                 
                 	Bytes sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4262,196 +4272,196 @@ class InfraStatistics(Entity):
                 .. attribute:: multicast_packets_received
                 
                 	Multicast packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: broadcast_packets_received
                 
                 	Broadcast packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: multicast_packets_sent
                 
                 	Multicast packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: broadcast_packets_sent
                 
                 	Broadcast packets sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: output_drops
                 
                 	Total output drops
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: output_queue_drops
                 
                 	Output queue drops
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: input_drops
                 
                 	Total input drops
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: input_queue_drops
                 
                 	Input queue drops
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: runt_packets_received
                 
                 	Received runt packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: giant_packets_received
                 
                 	Received giant packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: throttled_packets_received
                 
                 	Received throttled packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: parity_packets_received
                 
                 	Received parity packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: unknown_protocol_packets_received
                 
                 	Unknown protocol packets received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: input_errors
                 
                 	Total input errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: crc_errors
                 
                 	Input CRC errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: input_overruns
                 
                 	Input overruns
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: framing_errors_received
                 
                 	Framing\-errors received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: input_ignored_packets
                 
                 	Input ignored packets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: input_aborts
                 
                 	Input aborts
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: output_errors
                 
                 	Total output errors
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: output_underruns
                 
                 	Output underruns
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: output_buffer_failures
                 
                 	Output buffer failures
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: output_buffers_swapped_out
                 
                 	Output buffers swapped out
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: applique
                 
                 	Applique
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: resets
                 
                 	Number of board resets
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: carrier_transitions
                 
                 	Carrier transitions
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: availability_flag
                 
                 	Availability bit mask
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: last_data_time
                 
                 	Time when counters were last written (in seconds)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4460,7 +4470,7 @@ class InfraStatistics(Entity):
                 .. attribute:: seconds_since_last_clear_counters
                 
                 	Number of seconds since last clear counters
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4469,7 +4479,7 @@ class InfraStatistics(Entity):
                 .. attribute:: last_discontinuity_time
                 
                 	SysUpTime when counters were last reset (in seconds)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4478,7 +4488,7 @@ class InfraStatistics(Entity):
                 .. attribute:: seconds_since_packet_received
                 
                 	Seconds since packet received
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4487,7 +4497,7 @@ class InfraStatistics(Entity):
                 .. attribute:: seconds_since_packet_sent
                 
                 	Seconds since packet sent
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 

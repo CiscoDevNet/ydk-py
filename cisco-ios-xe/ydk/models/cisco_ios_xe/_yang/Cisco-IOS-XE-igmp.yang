@@ -31,12 +31,22 @@ module Cisco-IOS-XE-igmp {
 
   description
     "Cisco XE Native Internet Group Management Protocol (IGMP) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+
+  revision 2017-08-28 {
+    description
+      "Extend modeling for multicast";
+  }
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -284,6 +294,14 @@ module Cisco-IOS-XE-igmp {
               }
             }
           }
+          leaf-list source {
+            type union {
+              type inet:ipv4-address;
+              type enumeration {
+                enum "ssm-map";
+              }
+            }
+          }
         }
 
         list class-map {
@@ -342,6 +360,14 @@ module Cisco-IOS-XE-igmp {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip" {
+    uses config-interface-ip-igmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ip" {
+    uses config-interface-ip-igmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip" {
     uses config-interface-ip-igmp-grouping;
   }
 

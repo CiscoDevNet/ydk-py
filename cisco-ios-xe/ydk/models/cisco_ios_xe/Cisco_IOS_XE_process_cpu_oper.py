@@ -20,7 +20,7 @@ class CpuUsage(Entity):
     .. attribute:: cpu_utilization
     
     	Data nodes for Total CPU Utilization Statistics
-    	**type**\:   :py:class:`CpuUtilization <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_cpu_oper.CpuUsage.CpuUtilization>`
+    	**type**\:  :py:class:`CpuUtilization <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_cpu_oper.CpuUsage.CpuUtilization>`
     
     
 
@@ -54,7 +54,7 @@ class CpuUsage(Entity):
         .. attribute:: five_seconds
         
         	Busy percentage in last 5\-seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -63,7 +63,7 @@ class CpuUsage(Entity):
         .. attribute:: five_seconds_intr
         
         	Interrupt busy percentage in last 5\-seconds
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -72,7 +72,7 @@ class CpuUsage(Entity):
         .. attribute:: one_minute
         
         	Busy percentage in last one minute
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -81,7 +81,7 @@ class CpuUsage(Entity):
         .. attribute:: five_minutes
         
         	Busy percentage in last five minutes
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..255
         
@@ -90,7 +90,7 @@ class CpuUsage(Entity):
         .. attribute:: cpu_usage_processes
         
         	Data nodes for System wide Process CPU usage Statistics
-        	**type**\:   :py:class:`CpuUsageProcesses <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_cpu_oper.CpuUsage.CpuUtilization.CpuUsageProcesses>`
+        	**type**\:  :py:class:`CpuUsageProcesses <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_cpu_oper.CpuUsage.CpuUtilization.CpuUsageProcesses>`
         
         
 
@@ -135,7 +135,7 @@ class CpuUsage(Entity):
             .. attribute:: cpu_usage_process
             
             	The list of software processes on the device
-            	**type**\: list of    :py:class:`CpuUsageProcess <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_cpu_oper.CpuUsage.CpuUtilization.CpuUsageProcesses.CpuUsageProcess>`
+            	**type**\: list of  		 :py:class:`CpuUsageProcess <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_cpu_oper.CpuUsage.CpuUtilization.CpuUsageProcesses.CpuUsageProcess>`
             
             
 
@@ -169,26 +169,26 @@ class CpuUsage(Entity):
                 .. attribute:: pid  <key>
                 
                 	Process\-ID of the process
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: name  <key>
                 
                 	The name of the process
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: tty
                 
                 	TTY bound to by the process
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..65535
                 
                 .. attribute:: total_run_time
                 
                 	Total Run\-time of this process (mSec)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -197,14 +197,14 @@ class CpuUsage(Entity):
                 .. attribute:: invocation_count
                 
                 	Total number of invocations
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: avg_run_time
                 
                 	Average Run\-time of this process (uSec)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -213,7 +213,7 @@ class CpuUsage(Entity):
                 .. attribute:: five_seconds
                 
                 	Busy percentage in last 5\-seconds
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -222,7 +222,7 @@ class CpuUsage(Entity):
                 .. attribute:: one_minute
                 
                 	Busy percentage in last one minute
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -231,7 +231,7 @@ class CpuUsage(Entity):
                 .. attribute:: five_minutes
                 
                 	Busy percentage in last five minutes
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 

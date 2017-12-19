@@ -38,6 +38,18 @@ module Cisco-IOS-XE-bfd {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-23 {
+     description
+       "Modify yang model for interval * command under bfd-template";
+  }
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+  revision 2017-07-20 {
+    description
+      "Add interface BDI bfd";
+  }
   revision 2017-04-28 {
     description
       "inet:ipv6-prefix changed to ios-types:ipv6-prefix";
@@ -201,43 +213,63 @@ module Cisco-IOS-XE-bfd {
     }
   }
 
+  typedef range-type {
+    type union {
+      type uint32 {
+        range "4..9999";
+      }
+      type uint32 {
+        range "3300..9999000";
+      }
+    }
+  }
+
   grouping config-bfd-template-grouping {
-    container single-hop {
+    list single-hop {
       description
         "Single-hop template";
+      key "name";
       leaf name {
         type string;
       }
       container interval {
         description
           "Transmit interval between BFD packets";
-        container microseconds {
+        leaf microseconds {
           description
             "Specify BFD timers in microseconds";
-          leaf min-tx {
-            description
-              "Minimum transmit interval capability";
-            type uint32 {
-              range "3300..999000";
+          type empty;
+        }
+        choice both-or-tx-rx {
+          case both {
+            leaf both {
+              description
+                "Minimum transmit and receive interval capability";
+              type range-type;  
             }
-          }
-          leaf min-rx {
-            description
-              "Minimum receive interval capability";
-            type uint32 {
-              range "3300..999000";
+          }  
+          case tx-rx {
+            leaf min-tx {
+              description
+                "Minimum transmit interval capability";
+              type range-type;
             }
-          }
-          leaf multiplier {
-            description
-              "Multiplier value used to compute holddown";
-            type uint8 {
-              range "3..50";
+            leaf min-rx {
+              description
+                "Minimum receive interval capability";
+              type range-type;
             }
           }
         }
-      }
-    }
+        leaf multiplier {
+          description
+            "Multiplier value used to compute holddown";
+          type uint8 {
+            range "3..50";
+          }
+        }
+      }        
+    }  
   }
 
   /////////////////////////////////////////////////////////
@@ -269,6 +301,18 @@ module Cisco-IOS-XE-bfd {
     uses config-interface-bfd-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:bfd" {
+    uses config-interface-bfd-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:bfd" {
+    uses config-interface-bfd-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:Vlan/ios:bfd" {
+    uses config-interface-bfd-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:Tunnel/ios:bfd" {
     uses config-interface-bfd-grouping;
   }
@@ -278,6 +322,9 @@ module Cisco-IOS-XE-bfd {
   }
 
   augment "/ios:native/ios:interface/ios:VirtualPortGroup/ios:bfd" {
+    uses config-interface-bfd-grouping;
+  }
+  augment "/ios:native/ios:interface/ios:BDI/ios:bfd" {
     uses config-interface-bfd-grouping;
   }
 }

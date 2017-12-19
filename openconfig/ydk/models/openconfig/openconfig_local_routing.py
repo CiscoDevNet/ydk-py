@@ -49,22 +49,22 @@ class LocalRoutes(Entity):
     .. attribute:: config
     
     	Configuration data for locally defined routes
-    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.Config>`
+    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.Config>`
     
     .. attribute:: state
     
     	Operational state data for locally defined routes
-    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.State>`
+    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.State>`
     
     .. attribute:: static_routes
     
     	Enclosing container for the list of static routes
-    	**type**\:   :py:class:`StaticRoutes <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes>`
+    	**type**\:  :py:class:`StaticRoutes <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes>`
     
     .. attribute:: local_aggregates
     
     	Enclosing container for locally\-defined aggregate routes
-    	**type**\:   :py:class:`LocalAggregates <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates>`
+    	**type**\:  :py:class:`LocalAggregates <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates>`
     
     
 
@@ -161,7 +161,7 @@ class LocalRoutes(Entity):
         .. attribute:: static
         
         	List of locally configured static routes
-        	**type**\: list of    :py:class:`Static <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static>`
+        	**type**\: list of  		 :py:class:`Static <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static>`
         
         
 
@@ -195,30 +195,32 @@ class LocalRoutes(Entity):
             .. attribute:: prefix  <key>
             
             	Reference to the destination prefix list key
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
             
-            ----
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
             
-            ----
+            	**refers to**\:  :py:class:`prefix <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.Config>`
+            
             .. attribute:: config
             
             	Configuration data for static routes
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.Config>`
             
             .. attribute:: state
             
             	Operational state data for static routes
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.State>`
             
             .. attribute:: next_hops
             
             	Configuration and state parameters relating to the next\-hops that are to be utilised for the static route being specified
-            	**type**\:   :py:class:`NextHops <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops>`
+            	**type**\:  :py:class:`NextHops <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops>`
             
             
 
@@ -267,31 +269,29 @@ class LocalRoutes(Entity):
                 .. attribute:: prefix
                 
                 	Destination prefix for the static route, either IPv4 or IPv6
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
-                ----
                 .. attribute:: set_tag
                 
                 	Set a generic tag value on the route. This tag can be used for filtering routes that are distributed to other routing protocols
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  int
+                		**type**\: int
                 
-                	**range:** 0..4294967295
+                			**range:** 0..4294967295
                 
+                		**type**\: str
                 
-                ----
-                	**type**\:  str
+                			**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
-                
-                ----
                 
 
                 """
@@ -325,31 +325,29 @@ class LocalRoutes(Entity):
                 .. attribute:: prefix
                 
                 	Destination prefix for the static route, either IPv4 or IPv6
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
-                ----
                 .. attribute:: set_tag
                 
                 	Set a generic tag value on the route. This tag can be used for filtering routes that are distributed to other routing protocols
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  int
+                		**type**\: int
                 
-                	**range:** 0..4294967295
+                			**range:** 0..4294967295
                 
+                		**type**\: str
                 
-                ----
-                	**type**\:  str
+                			**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
-                
-                ----
                 
 
                 """
@@ -385,7 +383,7 @@ class LocalRoutes(Entity):
                 .. attribute:: next_hop
                 
                 	A list of next\-hops to be utilised for the static route being specified
-                	**type**\: list of    :py:class:`NextHop <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop>`
+                	**type**\: list of  		 :py:class:`NextHop <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop>`
                 
                 
 
@@ -419,24 +417,24 @@ class LocalRoutes(Entity):
                     .. attribute:: index  <key>
                     
                     	A reference to the index of the current next\-hop. The index is intended to be a user\-specified value which can be used to reference the next\-hop in question, without any other semantics being assigned to it
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config>`
                     
                     .. attribute:: config
                     
                     	Configuration parameters relating to the next\-hop entry
-                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config>`
                     
                     .. attribute:: state
                     
                     	Operational state parameters relating to the next\-hop entry
-                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State>`
                     
                     .. attribute:: interface_ref
                     
                     	Reference to an interface or subinterface
-                    	**type**\:   :py:class:`InterfaceRef <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef>`
+                    	**type**\:  :py:class:`InterfaceRef <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef>`
                     
                     
 
@@ -485,38 +483,34 @@ class LocalRoutes(Entity):
                         .. attribute:: index
                         
                         	An user\-specified identifier utilised to uniquely reference the next\-hop entry in the next\-hop list. The value of this index has no semantic meaning other than for referencing the entry
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: next_hop
                         
                         	The next\-hop that is to be used for the static route \- this may be specified as an IP address, an interface or a pre\-defined next\-hop type \- for instance, DROP or LOCAL\_LINK. When this leaf is not set, and the interface\-ref value is specified for the next\-hop, then the system should treat the prefix as though it is directly connected to the interface
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
+                        		**type**\:  :py:class:`LOCALDEFINEDNEXTHOP <ydk.models.openconfig.openconfig_local_routing.LOCALDEFINEDNEXTHOP>`
                         
-                        ----
-                        	**type**\:   :py:class:`LOCALDEFINEDNEXTHOP <ydk.models.openconfig.openconfig_local_routing.LOCALDEFINEDNEXTHOP>`
-                        
-                        
-                        ----
                         .. attribute:: metric
                         
                         	A metric which is utilised to specify the preference of the next\-hop entry when it is injected into the RIB. The lower the metric, the more preferable the prefix is. When this value is not specified the metric is inherited from the default metric utilised for static routes within the network instance that the static routes are being instantiated. When multiple next\-hops are specified for a static route, the metric is utilised to determine which of the next\-hops is to be installed in the RIB. When multiple next\-hops have the same metric (be it specified, or simply the default) then these next\-hops should all be installed in the RIB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: recurse
                         
                         	Determines whether the next\-hop should be allowed to be looked up recursively \- i.e., via a RIB entry which has been installed by a routing protocol, or another static route \- rather than needing to be connected directly to an interface of the local system within the current network instance. When the interface reference specified within the next\-hop entry is set (i.e., is not null) then forwarding is restricted to being via the interface specified \- and recursion is hence disabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -558,38 +552,34 @@ class LocalRoutes(Entity):
                         .. attribute:: index
                         
                         	An user\-specified identifier utilised to uniquely reference the next\-hop entry in the next\-hop list. The value of this index has no semantic meaning other than for referencing the entry
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: next_hop
                         
                         	The next\-hop that is to be used for the static route \- this may be specified as an IP address, an interface or a pre\-defined next\-hop type \- for instance, DROP or LOCAL\_LINK. When this leaf is not set, and the interface\-ref value is specified for the next\-hop, then the system should treat the prefix as though it is directly connected to the interface
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        ----
-                        	**type**\:  str
+                        		**type**\: str
                         
+                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        ----
+                        		**type**\:  :py:class:`LOCALDEFINEDNEXTHOP <ydk.models.openconfig.openconfig_local_routing.LOCALDEFINEDNEXTHOP>`
                         
-                        ----
-                        	**type**\:   :py:class:`LOCALDEFINEDNEXTHOP <ydk.models.openconfig.openconfig_local_routing.LOCALDEFINEDNEXTHOP>`
-                        
-                        
-                        ----
                         .. attribute:: metric
                         
                         	A metric which is utilised to specify the preference of the next\-hop entry when it is injected into the RIB. The lower the metric, the more preferable the prefix is. When this value is not specified the metric is inherited from the default metric utilised for static routes within the network instance that the static routes are being instantiated. When multiple next\-hops are specified for a static route, the metric is utilised to determine which of the next\-hops is to be installed in the RIB. When multiple next\-hops have the same metric (be it specified, or simply the default) then these next\-hops should all be installed in the RIB
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: recurse
                         
                         	Determines whether the next\-hop should be allowed to be looked up recursively \- i.e., via a RIB entry which has been installed by a routing protocol, or another static route \- rather than needing to be connected directly to an interface of the local system within the current network instance. When the interface reference specified within the next\-hop entry is set (i.e., is not null) then forwarding is restricted to being via the interface specified \- and recursion is hence disabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         	**default value**\: false
                         
@@ -630,12 +620,12 @@ class LocalRoutes(Entity):
                         .. attribute:: config
                         
                         	Configured reference to interface / subinterface
-                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config>`
                         
                         .. attribute:: state
                         
                         	Operational state for interface\-ref
-                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State>`
                         
                         
 
@@ -673,14 +663,14 @@ class LocalRoutes(Entity):
                             .. attribute:: interface
                             
                             	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                             
                             .. attribute:: subinterface
                             
                             	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -719,14 +709,14 @@ class LocalRoutes(Entity):
                             .. attribute:: interface
                             
                             	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                             
                             .. attribute:: subinterface
                             
                             	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -766,7 +756,7 @@ class LocalRoutes(Entity):
         .. attribute:: aggregate
         
         	List of aggregates
-        	**type**\: list of    :py:class:`Aggregate <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate>`
+        	**type**\: list of  		 :py:class:`Aggregate <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate>`
         
         
 
@@ -800,25 +790,27 @@ class LocalRoutes(Entity):
             .. attribute:: prefix  <key>
             
             	Reference to the configured prefix for this aggregate
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
             
-            ----
-            	**type**\:  str
+            		**type**\: str
             
+            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
             
-            ----
+            	**refers to**\:  :py:class:`prefix <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate.Config>`
+            
             .. attribute:: config
             
             	Configuration data for aggregate advertisements
-            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate.Config>`
             
             .. attribute:: state
             
             	Operational state data for aggregate advertisements
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_local_routing.LocalRoutes.LocalAggregates.Aggregate.State>`
             
             
 
@@ -862,38 +854,36 @@ class LocalRoutes(Entity):
                 .. attribute:: prefix
                 
                 	Aggregate prefix to be advertised
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
-                ----
                 .. attribute:: discard
                 
                 	When true, install the aggregate route with a discard next\-hop \-\- traffic destined to the aggregate will be discarded with no ICMP message generated.  When false, traffic destined to an aggregate address when no constituent routes are present will generate an ICMP unreachable message
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: set_tag
                 
                 	Set a generic tag value on the route. This tag can be used for filtering routes that are distributed to other routing protocols
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  int
+                		**type**\: int
                 
-                	**range:** 0..4294967295
+                			**range:** 0..4294967295
                 
+                		**type**\: str
                 
-                ----
-                	**type**\:  str
+                			**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
-                
-                ----
                 
 
                 """
@@ -930,38 +920,36 @@ class LocalRoutes(Entity):
                 .. attribute:: prefix
                 
                 	Aggregate prefix to be advertised
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                 
-                ----
-                	**type**\:  str
+                		**type**\: str
                 
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
-                ----
                 .. attribute:: discard
                 
                 	When true, install the aggregate route with a discard next\-hop \-\- traffic destined to the aggregate will be discarded with no ICMP message generated.  When false, traffic destined to an aggregate address when no constituent routes are present will generate an ICMP unreachable message
-                	**type**\:  bool
+                	**type**\: bool
                 
                 	**default value**\: false
                 
                 .. attribute:: set_tag
                 
                 	Set a generic tag value on the route. This tag can be used for filtering routes that are distributed to other routing protocols
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  int
+                		**type**\: int
                 
-                	**range:** 0..4294967295
+                			**range:** 0..4294967295
                 
+                		**type**\: str
                 
-                ----
-                	**type**\:  str
+                			**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
-                
-                ----
                 
 
                 """

@@ -73,7 +73,7 @@ class Sbfd(Entity):
     .. attribute:: target_identifier
     
     	Target\-identifier information
-    	**type**\:   :py:class:`TargetIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier>`
+    	**type**\:  :py:class:`TargetIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier>`
     
     
 
@@ -107,12 +107,12 @@ class Sbfd(Entity):
         .. attribute:: remote_vrfs
         
         	SBFD remote discriminator data
-        	**type**\:   :py:class:`RemoteVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs>`
+        	**type**\:  :py:class:`RemoteVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs>`
         
         .. attribute:: local_vrfs
         
         	SBFD local discriminator  data
-        	**type**\:   :py:class:`LocalVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs>`
+        	**type**\:  :py:class:`LocalVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs>`
         
         
 
@@ -151,7 +151,7 @@ class Sbfd(Entity):
             .. attribute:: remote_vrf
             
             	Table of remote discriminator data per VRF
-            	**type**\: list of    :py:class:`RemoteVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf>`
+            	**type**\: list of  		 :py:class:`RemoteVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf>`
             
             
 
@@ -185,12 +185,14 @@ class Sbfd(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	VRF name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: remote_discriminator
                 
                 	SBFD remote discriminator 
-                	**type**\: list of    :py:class:`RemoteDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator>`
+                	**type**\: list of  		 :py:class:`RemoteDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator>`
                 
                 
 
@@ -226,59 +228,61 @@ class Sbfd(Entity):
                     .. attribute:: vrf_name
                     
                     	VRF Name 
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: remote_discriminator
                     
                     	Remote Discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: address
                     
                     	Address
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    ----
-                    	**type**\:  str
+                    		**type**\: str
                     
+                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    ----
                     .. attribute:: ip_address
                     
                     	IP address
-                    	**type**\:   :py:class:`IpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress>`
+                    	**type**\:  :py:class:`IpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress>`
                     
                     .. attribute:: tid_type
                     
                     	Target identifier for sbfd
-                    	**type**\:   :py:class:`SbfdAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.SbfdAddressFamily>`
+                    	**type**\:  :py:class:`SbfdAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.SbfdAddressFamily>`
                     
                     .. attribute:: discr
                     
                     	Remote discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: vrf_name_xr
                     
                     	VRF Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: status
                     
                     	Status
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: discr_src
                     
                     	Discriminator source name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -330,24 +334,28 @@ class Sbfd(Entity):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:   :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.BfdAfId>`
+                        	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.BfdAfId>`
                         
                         .. attribute:: dummy
                         
                         	No Address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..255
                         
                         .. attribute:: ipv4
                         
                         	IPv4 address type
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6
                         
                         	IPv6 address type
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -386,7 +394,7 @@ class Sbfd(Entity):
             .. attribute:: local_vrf
             
             	Table of local discriminator data per VRF
-            	**type**\: list of    :py:class:`LocalVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf>`
+            	**type**\: list of  		 :py:class:`LocalVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf>`
             
             
 
@@ -420,12 +428,14 @@ class Sbfd(Entity):
                 .. attribute:: vrf_name  <key>
                 
                 	VRF name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: local_discriminator
                 
                 	SBFD local discriminator 
-                	**type**\: list of    :py:class:`LocalDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator>`
+                	**type**\: list of  		 :py:class:`LocalDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator>`
                 
                 
 
@@ -461,41 +471,43 @@ class Sbfd(Entity):
                     .. attribute:: local_discriminator
                     
                     	Local discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: vrf_name
                     
                     	VRF Name 
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: discr
                     
                     	Local discriminator
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: vrf_name_xr
                     
                     	VRF Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: flags
                     
                     	MODE name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: status
                     
                     	Status
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: discr_src
                     
                     	Discriminator source name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 

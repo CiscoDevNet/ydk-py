@@ -71,22 +71,22 @@ class NetFlow(Entity):
     .. attribute:: flow_exporter_maps
     
     	Configure a flow exporter map
-    	**type**\:   :py:class:`FlowExporterMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps>`
+    	**type**\:  :py:class:`FlowExporterMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps>`
     
     .. attribute:: flow_sampler_maps
     
     	Flow sampler map configuration
-    	**type**\:   :py:class:`FlowSamplerMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowSamplerMaps>`
+    	**type**\:  :py:class:`FlowSamplerMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowSamplerMaps>`
     
     .. attribute:: flow_monitor_map_table
     
     	Flow monitor map configuration
-    	**type**\:   :py:class:`FlowMonitorMapTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable>`
+    	**type**\:  :py:class:`FlowMonitorMapTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable>`
     
     .. attribute:: flow_monitor_map_performance_table
     
     	Configure a performance traffic flow monitor map
-    	**type**\:   :py:class:`FlowMonitorMapPerformanceTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable>`
+    	**type**\:  :py:class:`FlowMonitorMapPerformanceTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable>`
     
     
 
@@ -135,7 +135,7 @@ class NetFlow(Entity):
         .. attribute:: flow_exporter_map
         
         	Exporter map name
-        	**type**\: list of    :py:class:`FlowExporterMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap>`
+        	**type**\: list of  		 :py:class:`FlowExporterMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap>`
         
         
 
@@ -169,41 +169,43 @@ class NetFlow(Entity):
             .. attribute:: exporter_map_name  <key>
             
             	Exporter map name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: udp
             
             	Use UDP as transport protocol
-            	**type**\:   :py:class:`Udp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Udp>`
+            	**type**\:  :py:class:`Udp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Udp>`
             
             .. attribute:: versions
             
             	Specify export version parameters
-            	**type**\:   :py:class:`Versions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Versions>`
+            	**type**\:  :py:class:`Versions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Versions>`
             
             .. attribute:: destination
             
             	Configure export destination (collector)
-            	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Destination>`
+            	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Destination>`
             
             .. attribute:: source_interface
             
             	Configure source interface for collector
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: dscp
             
             	Specify DSCP value for export packets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..63
             
             .. attribute:: packet_length
             
             	Configure Maximum Value for Export Packet size
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 512..1468
             
@@ -260,7 +262,7 @@ class NetFlow(Entity):
                 .. attribute:: destination_port
                 
                 	Configure Destination UDP port
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1024..65535
                 
@@ -295,7 +297,7 @@ class NetFlow(Entity):
                 .. attribute:: version
                 
                 	Configure export version options
-                	**type**\: list of    :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version>`
+                	**type**\: list of  		 :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version>`
                 
                 
 
@@ -328,19 +330,19 @@ class NetFlow(Entity):
                     .. attribute:: version_number  <key>
                     
                     	Export version number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 9..10
                     
                     .. attribute:: options
                     
                     	Specify options for exporting templates
-                    	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options>`
+                    	**type**\:  :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options>`
                     
                     .. attribute:: options_template_timeout
                     
                     	Option template configuration options
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..604800
                     
@@ -351,7 +353,7 @@ class NetFlow(Entity):
                     .. attribute:: common_template_timeout
                     
                     	Specify custom timeout for the template
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..604800
                     
@@ -362,7 +364,7 @@ class NetFlow(Entity):
                     .. attribute:: data_template_timeout
                     
                     	Data template configuration options
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..604800
                     
@@ -412,7 +414,7 @@ class NetFlow(Entity):
                         .. attribute:: interface_table_export_timeout
                         
                         	Specify timeout for exporting interface table
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..604800
                         
@@ -421,7 +423,7 @@ class NetFlow(Entity):
                         .. attribute:: sampler_table_export_timeout
                         
                         	Specify timeout for exporting sampler table
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..604800
                         
@@ -430,7 +432,7 @@ class NetFlow(Entity):
                         .. attribute:: vrf_table_export_timeout
                         
                         	Specify timeout for exporting vrf table
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..604800
                         
@@ -471,17 +473,19 @@ class NetFlow(Entity):
                 .. attribute:: ip_address
                 
                 	Destination IPv4 address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: ipv6_address
                 
                 	IPV6 address of the tunnel destination
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: vrf_name
                 
                 	VRF name
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -518,7 +522,7 @@ class NetFlow(Entity):
         .. attribute:: flow_sampler_map
         
         	Sampler map name
-        	**type**\: list of    :py:class:`FlowSamplerMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowSamplerMaps.FlowSamplerMap>`
+        	**type**\: list of  		 :py:class:`FlowSamplerMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowSamplerMaps.FlowSamplerMap>`
         
         
 
@@ -552,14 +556,14 @@ class NetFlow(Entity):
             .. attribute:: sampler_map_name  <key>
             
             	Sampler map name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: sampling_modes
             
             	Configure packet sampling mode
-            	**type**\:   :py:class:`SamplingModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes>`
+            	**type**\:  :py:class:`SamplingModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes>`
             
             
 
@@ -598,7 +602,7 @@ class NetFlow(Entity):
                 .. attribute:: sampling_mode
                 
                 	Configure sampling mode
-                	**type**\: list of    :py:class:`SamplingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode>`
+                	**type**\: list of  		 :py:class:`SamplingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode>`
                 
                 
 
@@ -631,12 +635,12 @@ class NetFlow(Entity):
                     .. attribute:: mode  <key>
                     
                     	Sampling mode
-                    	**type**\:   :py:class:`NfSamplingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfSamplingMode>`
+                    	**type**\:  :py:class:`NfSamplingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfSamplingMode>`
                     
                     .. attribute:: sample_number
                     
                     	Number of packets to be sampled in the sampling interval
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -645,7 +649,7 @@ class NetFlow(Entity):
                     .. attribute:: interval
                     
                     	Sampling interval in units of packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
@@ -686,7 +690,7 @@ class NetFlow(Entity):
         .. attribute:: flow_monitor_map
         
         	Monitor map name
-        	**type**\: list of    :py:class:`FlowMonitorMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap>`
+        	**type**\: list of  		 :py:class:`FlowMonitorMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap>`
         
         
 
@@ -720,31 +724,31 @@ class NetFlow(Entity):
             .. attribute:: monitor_map_name  <key>
             
             	Monitor map name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: option
             
             	Specify an option for the flow cache
-            	**type**\:   :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option>`
+            	**type**\:  :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option>`
             
             .. attribute:: exporters
             
             	Configure exporters to be used by the monitor\-map
-            	**type**\:   :py:class:`Exporters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters>`
+            	**type**\:  :py:class:`Exporters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters>`
             
             .. attribute:: record
             
             	Specify a flow record format
-            	**type**\:   :py:class:`Record <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record>`
+            	**type**\:  :py:class:`Record <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record>`
             
             	**presence node**\: True
             
             .. attribute:: cache_update_aging_timeout
             
             	Specify the update flow cache aging timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..604800
             
@@ -755,7 +759,7 @@ class NetFlow(Entity):
             .. attribute:: cache_entries
             
             	Specify the number of entries in the flow cache
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 4096..1000000
             
@@ -764,7 +768,7 @@ class NetFlow(Entity):
             .. attribute:: cache_inactive_aging_timeout
             
             	Specify the inactive flow cache aging timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..604800
             
@@ -775,7 +779,7 @@ class NetFlow(Entity):
             .. attribute:: cache_active_aging_timeout
             
             	Specify the active flow cache aging timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..604800
             
@@ -786,7 +790,7 @@ class NetFlow(Entity):
             .. attribute:: cache_timeout_rate_limit
             
             	Specify the maximum number of entries to age each second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..1000000
             
@@ -795,7 +799,7 @@ class NetFlow(Entity):
             .. attribute:: cache_aging_mode
             
             	Specify the flow cache aging mode
-            	**type**\:   :py:class:`NfCacheAgingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingMode>`
+            	**type**\:  :py:class:`NfCacheAgingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingMode>`
             
             	**default value**\: normal
             
@@ -857,22 +861,22 @@ class NetFlow(Entity):
                 .. attribute:: filtered
                 
                 	Specify whether data should be filtered
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: out_bundle_member
                 
                 	Specify whether to export physical ifh for bundle interface
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: out_phys_int
                 
                 	Specify whether it exports the physical output interface
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: bgp_attr
                 
                 	Specify if BGP Attributes AS\_PATH STD\_COMM should be exported
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -912,7 +916,7 @@ class NetFlow(Entity):
                 .. attribute:: exporter
                 
                 	Configure exporter to be used by the monitor\-map
-                	**type**\: list of    :py:class:`Exporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter>`
+                	**type**\: list of  		 :py:class:`Exporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter>`
                 
                 
 
@@ -946,7 +950,7 @@ class NetFlow(Entity):
                     .. attribute:: exporter_name  <key>
                     
                     	Exporter name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
@@ -981,7 +985,7 @@ class NetFlow(Entity):
                 .. attribute:: record_name
                 
                 	Flow record format (Either 'ipv4\-raw' ,'ipv4\-peer\-as', 'ipv6', 'mpls', 'mpls\-ipv4', 'mpls\-ipv6', 'mpls\-ipv4\-ipv6', 'ipv6\-peer\-as')
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
@@ -990,7 +994,7 @@ class NetFlow(Entity):
                 .. attribute:: label
                 
                 	Enter label value for MPLS record type
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..6
                 
@@ -1030,7 +1034,7 @@ class NetFlow(Entity):
         .. attribute:: flow_monitor_map
         
         	Monitor map name
-        	**type**\: list of    :py:class:`FlowMonitorMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap>`
+        	**type**\: list of  		 :py:class:`FlowMonitorMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap>`
         
         
 
@@ -1064,31 +1068,31 @@ class NetFlow(Entity):
             .. attribute:: monitor_map_name  <key>
             
             	Monitor map name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: option
             
             	Specify an option for the flow cache
-            	**type**\:   :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option>`
+            	**type**\:  :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option>`
             
             .. attribute:: exporters
             
             	Configure exporters to be used by the monitor\-map
-            	**type**\:   :py:class:`Exporters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters>`
+            	**type**\:  :py:class:`Exporters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters>`
             
             .. attribute:: record
             
             	Specify a flow record format
-            	**type**\:   :py:class:`Record <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record>`
+            	**type**\:  :py:class:`Record <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record>`
             
             	**presence node**\: True
             
             .. attribute:: cache_update_aging_timeout
             
             	Specify the update flow cache aging timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..604800
             
@@ -1099,7 +1103,7 @@ class NetFlow(Entity):
             .. attribute:: cache_entries
             
             	Specify the number of entries in the flow cache
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 4096..1000000
             
@@ -1108,7 +1112,7 @@ class NetFlow(Entity):
             .. attribute:: cache_inactive_aging_timeout
             
             	Specify the inactive flow cache aging timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..604800
             
@@ -1119,7 +1123,7 @@ class NetFlow(Entity):
             .. attribute:: cache_active_aging_timeout
             
             	Specify the active flow cache aging timeout
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..604800
             
@@ -1130,7 +1134,7 @@ class NetFlow(Entity):
             .. attribute:: cache_timeout_rate_limit
             
             	Specify the maximum number of entries to age each second
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..1000000
             
@@ -1139,7 +1143,7 @@ class NetFlow(Entity):
             .. attribute:: cache_aging_mode
             
             	Specify the flow cache aging mode
-            	**type**\:   :py:class:`NfCacheAgingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingMode>`
+            	**type**\:  :py:class:`NfCacheAgingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingMode>`
             
             	**default value**\: normal
             
@@ -1201,22 +1205,22 @@ class NetFlow(Entity):
                 .. attribute:: filtered
                 
                 	Specify whether data should be filtered
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: out_bundle_member
                 
                 	Specify whether to export physical ifh for bundle interface
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: out_phys_int
                 
                 	Specify whether it exports the physical output interface
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: bgp_attr
                 
                 	Specify if BGP Attributes AS\_PATH STD\_COMM should be exported
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1256,7 +1260,7 @@ class NetFlow(Entity):
                 .. attribute:: exporter
                 
                 	Configure exporter to be used by the monitor\-map
-                	**type**\: list of    :py:class:`Exporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter>`
+                	**type**\: list of  		 :py:class:`Exporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter>`
                 
                 
 
@@ -1290,7 +1294,7 @@ class NetFlow(Entity):
                     .. attribute:: exporter_name  <key>
                     
                     	Exporter name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
@@ -1325,7 +1329,7 @@ class NetFlow(Entity):
                 .. attribute:: record_name
                 
                 	Flow record format (Either 'ipv4\-raw' ,'ipv4\-peer\-as', 'ipv6', 'mpls', 'mpls\-ipv4', 'mpls\-ipv6', 'mpls\-ipv4\-ipv6', 'ipv6\-peer\-as')
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
@@ -1334,7 +1338,7 @@ class NetFlow(Entity):
                 .. attribute:: label
                 
                 	Enter label value for MPLS record type
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..6
                 

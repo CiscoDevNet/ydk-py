@@ -67,17 +67,17 @@ class Fib(Entity):
     .. attribute:: pbts_forward_class_fallbacks
     
     	PBTS class configuration
-    	**type**\:   :py:class:`PbtsForwardClassFallbacks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.Fib.PbtsForwardClassFallbacks>`
+    	**type**\:  :py:class:`PbtsForwardClassFallbacks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.Fib.PbtsForwardClassFallbacks>`
     
     .. attribute:: platform
     
     	FIB platform parameters
-    	**type**\:   :py:class:`Platform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.Fib.Platform>`
+    	**type**\:  :py:class:`Platform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.Fib.Platform>`
     
     .. attribute:: prefer_aib_routes
     
     	Set options for adjacency routes overriding RIB routes
-    	**type**\:  bool
+    	**type**\: bool
     
     
 
@@ -121,7 +121,7 @@ class Fib(Entity):
         .. attribute:: pbts_forward_class_fallback
         
         	Set PBTS class for fallback
-        	**type**\: list of    :py:class:`PbtsForwardClassFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback>`
+        	**type**\: list of  		 :py:class:`PbtsForwardClassFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback>`
         
         
 
@@ -155,29 +155,25 @@ class Fib(Entity):
             .. attribute:: forward_class_number  <key>
             
             	PBTS forward class number
-            	**type**\: one of the below types:
+            	**type**\: union of the below types:
             
-            	**type**\:   :py:class:`FibPbtsForwardClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.FibPbtsForwardClass>`
+            		**type**\:  :py:class:`FibPbtsForwardClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.FibPbtsForwardClass>`
             
+            		**type**\: int
             
-            ----
-            	**type**\:  int
+            			**range:** 0..8
             
-            	**range:** 0..8
-            
-            
-            ----
             .. attribute:: fallback_type
             
             	Set PBTS fallback type
-            	**type**\:   :py:class:`FibPbtsFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.FibPbtsFallback>`
+            	**type**\:  :py:class:`FibPbtsFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.FibPbtsFallback>`
             
             	**mandatory**\: True
             
             .. attribute:: fallback_class_number_array
             
             	Set PBTS fallback class number array
-            	**type**\:  list of int
+            	**type**\: list of int
             
             	**range:** 0..7
             
@@ -217,7 +213,7 @@ class Fib(Entity):
         .. attribute:: label_switched_multicast
         
         	Options for label\-switched\-multicast parameters
-        	**type**\:   :py:class:`LabelSwitchedMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.Fib.Platform.LabelSwitchedMulticast>`
+        	**type**\:  :py:class:`LabelSwitchedMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.Fib.Platform.LabelSwitchedMulticast>`
         
         
 
@@ -251,7 +247,7 @@ class Fib(Entity):
             .. attribute:: frr_holdtime
             
             	Set time to keep FRR slots programmed post FRR
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 3..180
             

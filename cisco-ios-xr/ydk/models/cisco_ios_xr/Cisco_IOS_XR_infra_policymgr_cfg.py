@@ -303,12 +303,12 @@ class PolicyManager(Entity):
     .. attribute:: class_maps
     
     	Class\-maps configuration
-    	**type**\:   :py:class:`ClassMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps>`
+    	**type**\:  :py:class:`ClassMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps>`
     
     .. attribute:: policy_maps
     
     	Policy\-maps configuration
-    	**type**\:   :py:class:`PolicyMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps>`
+    	**type**\:  :py:class:`PolicyMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps>`
     
     
 
@@ -347,7 +347,7 @@ class PolicyManager(Entity):
         .. attribute:: class_map
         
         	Class\-map configuration
-        	**type**\: list of    :py:class:`ClassMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap>`
+        	**type**\: list of  		 :py:class:`ClassMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap>`
         
         
 
@@ -381,37 +381,39 @@ class PolicyManager(Entity):
             .. attribute:: type  <key>
             
             	Type of class\-map
-            	**type**\:   :py:class:`ClassMapType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.ClassMapType>`
+            	**type**\:  :py:class:`ClassMapType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.ClassMapType>`
             
             .. attribute:: name  <key>
             
             	Name of class\-map
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9][a\-zA\-Z0\-9\\.\_@$%+#\:=<>\\\-]{0,62}
             
             .. attribute:: class_map_mode_match_any
             
             	Match all match criteria
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: class_map_mode_match_all
             
             	Match any match criteria
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: match
             
             	Match rules
-            	**type**\:   :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match>`
+            	**type**\:  :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match>`
             
             .. attribute:: match_not
             
             	Match not rules
-            	**type**\:   :py:class:`MatchNot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot>`
+            	**type**\:  :py:class:`MatchNot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot>`
             
             .. attribute:: description
             
             	Description for this policy\-map
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -463,427 +465,465 @@ class PolicyManager(Entity):
                 .. attribute:: ipv4_dscp
                 
                 	Match IPv4 DSCP
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                 
                 .. attribute:: ipv6_dscp
                 
                 	Match IPv6 DSCP
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                 
                 .. attribute:: dscp
                 
                 	Match DSCP
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                 
                 .. attribute:: ipv4_precedence
                 
                 	Match IPv4 precedence
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  list of int
+                		**type**\: list of int
                 
-                	**range:** 0..7
+                			**range:** 0..7
                 
+                		**type**\: list of str
                 
-                ----
-                	**type**\:  list of str
+                			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                 
-                
-                ----
                 .. attribute:: ipv6_precedence
                 
                 	Match IPv6 precedence
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  list of int
+                		**type**\: list of int
                 
-                	**range:** 0..7
+                			**range:** 0..7
                 
+                		**type**\: list of str
                 
-                ----
-                	**type**\:  list of str
+                			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                 
-                
-                ----
                 .. attribute:: precedence
                 
                 	Match precedence
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  list of int
+                		**type**\: list of int
                 
-                	**range:** 0..7
+                			**range:** 0..7
                 
+                		**type**\: list of str
                 
-                ----
-                	**type**\:  list of str
+                			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                 
-                
-                ----
                 .. attribute:: qos_group
                 
                 	Match QoS group. Should be value 0..512 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: traffic_class
                 
                 	Match Traffic Class. Should be value 0..63 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: cos
                 
                 	Match CoS
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..7
                 
                 .. attribute:: inner_cos
                 
                 	Match inner CoS
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..7
                 
                 .. attribute:: dei
                 
                 	Match DEI bit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
                 .. attribute:: dei_inner
                 
                 	Match DEI INNER  bit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
                 .. attribute:: protocol
                 
                 	Match protocol
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\|(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\\-([1\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5]))\|((ahp)\|(dhcpv4)\|(dhcpv6)\|(eigrp)\|(esp)\|(gre)\|(icmp)\|(igmp)\|(igrp)\|(ipinip)\|(ipv4)\|(ipv6)\|(ipv6icmp)\|(mpls)\|(nos)\|(ospf)\|(pcp)\|(pim)\|(ppp)\|(sctp)\|(tcp)\|(udp))
                 
                 .. attribute:: ipv4_acl
                 
                 	Match IPv4 ACL
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: ipv6_acl
                 
                 	Match IPv6 ACL
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: ethernet_services_acl
                 
                 	Match Ethernet Services
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: mpls_experimental_topmost
                 
                 	Match MPLS experimental topmost label
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..7
                 
                 .. attribute:: mpls_experimental_imposition
                 
                 	Match MPLS experimental imposition label
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..7
                 
                 .. attribute:: discard_class
                 
                 	Match discard class
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..7
                 
                 .. attribute:: ipv4_packet_length
                 
                 	Match IPv4 packet length. Should be value 0..65535 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: ipv6_packet_length
                 
                 	Match IPv6 packet length.  Should be value 0..65535 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: packet_length
                 
                 	Match packet length.  Should be value 0..65535 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: mpls_disposition_ipv4_access_list
                 
                 	Match MPLS Label Disposition IPv4 access list
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: mpls_disposition_ipv6_access_list
                 
                 	Match MPLS Label Disposition IPv6 access list
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: vlan
                 
                 	Match VLAN ID
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: inner_vlan
                 
                 	Match inner VLAN ID
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: flow_tag
                 
                 	Match flow\-tag. Should be value 1..63 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: ethertype
                 
                 	Match Ethertype
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** ((153[6\-9]\|15[4\-9][0\-9]\|1[6\-9][0\-9][0\-9]\|[2\-9][0\-9][0\-9][0\-9])\|([1\-5][0\-9][0\-9][0\-9][0\-9]\|6[0\-4][0\-9][0\-9][0\-9])\|(65[0\-4][0\-9][0\-9]\|655[0\-2][0\-9]\|6553[0\-5]))\|((arp)\|(ipv4)\|(ipv6))
                 
                 .. attribute:: destination_address_ipv4
                 
                 	Match destination IPv4 address
-                	**type**\: list of    :py:class:`DestinationAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4>`
+                	**type**\: list of  		 :py:class:`DestinationAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4>`
                 
                 .. attribute:: destination_address_ipv6
                 
                 	Match destination IPv6 address
-                	**type**\: list of    :py:class:`DestinationAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6>`
+                	**type**\: list of  		 :py:class:`DestinationAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6>`
                 
                 .. attribute:: destination_port
                 
                 	Match destination port.  Should be value 0..65535 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: fragment_type
                 
                 	Match fragment type for a packet
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (first\-fragment)\|(is\-fragment)\|(last\-fragment)
                 
                 .. attribute:: frame_relay_dlci
                 
                 	Match frame\-relay DLCI value.  Should be value 16..1007 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: fr_de
                 
                 	Set FrameRelay DE bit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
                 .. attribute:: icmpv4_code
                 
                 	Match IPv4 ICMP code.  Should be value 0..255 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv4_type
                 
                 	Match IPv4 ICMP type.  Should be value 0..255 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv6_code
                 
                 	Match IPv6 ICMP code.  Should be value 0..255 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv6_type
                 
                 	Match IPv6 ICMP type.  Should be value 0..255 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: source_address_ipv4
                 
                 	Match source IPv4 address
-                	**type**\: list of    :py:class:`SourceAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4>`
+                	**type**\: list of  		 :py:class:`SourceAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4>`
                 
                 .. attribute:: source_address_ipv6
                 
                 	Match source IPv6 address
-                	**type**\: list of    :py:class:`SourceAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6>`
+                	**type**\: list of  		 :py:class:`SourceAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6>`
                 
                 .. attribute:: source_port
                 
                 	Match source port.  Should be value 0..65535 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: tcp_flag
                 
                 	Match TCP flags
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4095
                 
                 .. attribute:: authen_status
                 
                 	Match authentication status
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (authenticated)\|(unauthenticated)
                 
                 .. attribute:: circuit_id
                 
                 	Match Circuit ID
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: circuit_id_regex
                 
                 	Match Circuit id regex
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: dhcp_client_id
                 
                 	Match dhcp client ID
-                	**type**\: list of    :py:class:`DhcpClientId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DhcpClientId>`
+                	**type**\: list of  		 :py:class:`DhcpClientId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DhcpClientId>`
                 
                 .. attribute:: dhcp_client_id_regex
                 
                 	Match dhcp client id regex
-                	**type**\: list of    :py:class:`DhcpClientIdRegex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DhcpClientIdRegex>`
+                	**type**\: list of  		 :py:class:`DhcpClientIdRegex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DhcpClientIdRegex>`
                 
                 .. attribute:: domain_name
                 
                 	Match domain name
-                	**type**\: list of    :py:class:`DomainName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DomainName>`
+                	**type**\: list of  		 :py:class:`DomainName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DomainName>`
                 
                 .. attribute:: domain_name_regex
                 
                 	Match domain name
-                	**type**\: list of    :py:class:`DomainNameRegex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex>`
+                	**type**\: list of  		 :py:class:`DomainNameRegex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex>`
                 
                 .. attribute:: remote_id
                 
                 	Match remote ID
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: remote_id_regex
                 
                 	Match remote id regex
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: service_name
                 
                 	Match servicve name
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: service_name_regex
                 
                 	Match servicve name regular expression
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: timer
                 
                 	Match timer
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: timer_regex
                 
                 	Match timer regular expression
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: user_name
                 
                 	Match user name
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: user_name_regex
                 
                 	Match user name regular expression
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: source_mac
                 
                 	Match source MAC address
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 .. attribute:: destination_mac
                 
                 	Match destination MAC address
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 .. attribute:: vpls_control
                 
                 	Match VPLS control
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: vpls_broadcast
                 
                 	Match VPLS Broadcast
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: vpls_multicast
                 
                 	Match VPLS Multicast
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: vpls_known
                 
                 	Match VPLS Known
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: vpls_unknown
                 
                 	Match VPLS Unknown
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: atm_clp
                 
                 	Match ATM CLP bit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
                 .. attribute:: atm_oam
                 
                 	Match ATM OAM
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: cac_admit
                 
                 	Match CAC admitted
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: cac_unadmit
                 
                 	Match CAC unadmitted
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: flow
                 
                 	Match flow
-                	**type**\:   :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.Flow>`
+                	**type**\:  :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.Flow>`
                 
                 
 
@@ -1048,12 +1088,16 @@ class PolicyManager(Entity):
                     .. attribute:: address  <key>
                     
                     	IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: netmask  <key>
                     
                     	IPv4 netmask
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -1088,12 +1132,14 @@ class PolicyManager(Entity):
                     .. attribute:: address  <key>
                     
                     	IPv6 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: prefix_length  <key>
                     
                     	IPv6 prefix length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
@@ -1130,12 +1176,16 @@ class PolicyManager(Entity):
                     .. attribute:: address  <key>
                     
                     	IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: netmask  <key>
                     
                     	IPv4 netmask
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -1170,12 +1220,14 @@ class PolicyManager(Entity):
                     .. attribute:: address  <key>
                     
                     	IPv6 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: prefix_length  <key>
                     
                     	IPv6 prefix length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
@@ -1212,14 +1264,16 @@ class PolicyManager(Entity):
                     .. attribute:: value  <key>
                     
                     	Dhcp client Id
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: flag  <key>
                     
                     	Dhcp client id Ascii/Hex
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (none)\|(ascii)\|(hex)
                     
                     
 
@@ -1254,14 +1308,16 @@ class PolicyManager(Entity):
                     .. attribute:: value  <key>
                     
                     	Dhcp client id regular expression
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: flag  <key>
                     
                     	Dhcp client Id regex Ascii/Hex
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (none)\|(ascii)\|(hex)
                     
                     
 
@@ -1296,14 +1352,14 @@ class PolicyManager(Entity):
                     .. attribute:: name  <key>
                     
                     	Domain name or regular expression
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: format  <key>
                     
                     	Domain\-format name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
@@ -1340,14 +1396,14 @@ class PolicyManager(Entity):
                     .. attribute:: regex  <key>
                     
                     	Domain name or regular expression
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: format  <key>
                     
                     	Domain\-format name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
@@ -1384,12 +1440,14 @@ class PolicyManager(Entity):
                     .. attribute:: flow_key
                     
                     	Configure the flow\-key parameters
-                    	**type**\:  list of str
+                    	**type**\: list of str
+                    
+                    	**pattern:** (SourceIP)\|(DestinationIP)\|(5Tuple)
                     
                     .. attribute:: flow_cache
                     
                     	Configure the flow\-cache parameters
-                    	**type**\:   :py:class:`FlowCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache>`
+                    	**type**\:  :py:class:`FlowCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache>`
                     
                     
 
@@ -1427,18 +1485,16 @@ class PolicyManager(Entity):
                         .. attribute:: idle_timeout
                         
                         	Maximum time of inactivity for a flow
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:  int
+                        		**type**\: int
                         
-                        	**range:** 10..2550
+                        			**range:** 10..2550
                         
+                        		**type**\: str
                         
-                        ----
-                        	**type**\:  str
+                        			**pattern:** (None)\|(none)
                         
-                        
-                        ----
                         
 
                         """
@@ -1470,405 +1526,443 @@ class PolicyManager(Entity):
                 .. attribute:: ipv4_dscp
                 
                 	Match IPv4 DSCP
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                 
                 .. attribute:: ipv6_dscp
                 
                 	Match IPv6 DSCP
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                 
                 .. attribute:: dscp
                 
                 	Match DSCP
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                 
                 .. attribute:: ipv4_precedence
                 
                 	Match IPv4 precedence
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  list of int
+                		**type**\: list of int
                 
-                	**range:** 0..7
+                			**range:** 0..7
                 
+                		**type**\: list of str
                 
-                ----
-                	**type**\:  list of str
+                			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                 
-                
-                ----
                 .. attribute:: ipv6_precedence
                 
                 	Match IPv6 precedence
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  list of int
+                		**type**\: list of int
                 
-                	**range:** 0..7
+                			**range:** 0..7
                 
+                		**type**\: list of str
                 
-                ----
-                	**type**\:  list of str
+                			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                 
-                
-                ----
                 .. attribute:: precedence
                 
                 	Match precedence
-                	**type**\: one of the below types:
+                	**type**\: union of the below types:
                 
-                	**type**\:  list of int
+                		**type**\: list of int
                 
-                	**range:** 0..7
+                			**range:** 0..7
                 
+                		**type**\: list of str
                 
-                ----
-                	**type**\:  list of str
+                			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                 
-                
-                ----
                 .. attribute:: qos_group
                 
                 	Match QoS group. Should be value 0..512 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: traffic_class
                 
                 	Match Traffic Class. Should be value 0..63 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: cos
                 
                 	Match CoS
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..7
                 
                 .. attribute:: inner_cos
                 
                 	Match inner CoS
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..7
                 
                 .. attribute:: dei
                 
                 	Match DEI bit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
                 .. attribute:: dei_inner
                 
                 	Match DEI INNER  bit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
                 .. attribute:: protocol
                 
                 	Match protocol
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** ([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\|(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\\-([1\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5]))\|((ahp)\|(dhcpv4)\|(dhcpv6)\|(eigrp)\|(esp)\|(gre)\|(icmp)\|(igmp)\|(igrp)\|(ipinip)\|(ipv4)\|(ipv6)\|(ipv6icmp)\|(mpls)\|(nos)\|(ospf)\|(pcp)\|(pim)\|(ppp)\|(sctp)\|(tcp)\|(udp))
                 
                 .. attribute:: ipv4_acl
                 
                 	Match IPv4 ACL
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: ipv6_acl
                 
                 	Match IPv6 ACL
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: ethernet_services_acl
                 
                 	Match Ethernet Services
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: mpls_experimental_topmost
                 
                 	Match MPLS experimental topmost label
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..7
                 
                 .. attribute:: mpls_experimental_imposition
                 
                 	Match MPLS experimental imposition label
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..7
                 
                 .. attribute:: discard_class
                 
                 	Match discard class
-                	**type**\:  list of int
+                	**type**\: list of int
                 
                 	**range:** 0..7
                 
                 .. attribute:: ipv4_packet_length
                 
                 	Match IPv4 packet length. Should be value 0..65535 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: ipv6_packet_length
                 
                 	Match IPv6 packet length.  Should be value 0..65535 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: packet_length
                 
                 	Match packet length.  Should be value 0..65535 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: mpls_disposition_ipv4_access_list
                 
                 	Match MPLS Label Disposition IPv4 access list
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: mpls_disposition_ipv6_access_list
                 
                 	Match MPLS Label Disposition IPv6 access list
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..32
                 
                 .. attribute:: vlan
                 
                 	Match VLAN ID
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: inner_vlan
                 
                 	Match inner VLAN ID
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: flow_tag
                 
                 	Match flow\-tag. Should be value 1..63 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: ethertype
                 
                 	Match Ethertype
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** ((153[6\-9]\|15[4\-9][0\-9]\|1[6\-9][0\-9][0\-9]\|[2\-9][0\-9][0\-9][0\-9])\|([1\-5][0\-9][0\-9][0\-9][0\-9]\|6[0\-4][0\-9][0\-9][0\-9])\|(65[0\-4][0\-9][0\-9]\|655[0\-2][0\-9]\|6553[0\-5]))\|((arp)\|(ipv4)\|(ipv6))
                 
                 .. attribute:: destination_address_ipv4
                 
                 	Match destination IPv4 address
-                	**type**\: list of    :py:class:`DestinationAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4>`
+                	**type**\: list of  		 :py:class:`DestinationAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4>`
                 
                 .. attribute:: destination_address_ipv6
                 
                 	Match destination IPv6 address
-                	**type**\: list of    :py:class:`DestinationAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6>`
+                	**type**\: list of  		 :py:class:`DestinationAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6>`
                 
                 .. attribute:: destination_port
                 
                 	Match destination port.  Should be value 0..65535 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: fragment_type
                 
                 	Match fragment type for a packet
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (first\-fragment)\|(is\-fragment)\|(last\-fragment)
                 
                 .. attribute:: frame_relay_dlci
                 
                 	Match frame\-relay DLCI value.  Should be value 16..1007 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: fr_de
                 
                 	Set FrameRelay DE bit
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..1
                 
                 .. attribute:: icmpv4_code
                 
                 	Match IPv4 ICMP code.  Should be value 0..255 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv4_type
                 
                 	Match IPv4 ICMP type.  Should be value 0..255 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv6_code
                 
                 	Match IPv6 ICMP code.  Should be value 0..255 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv6_type
                 
                 	Match IPv6 ICMP type.  Should be value 0..255 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: source_address_ipv4
                 
                 	Match source IPv4 address
-                	**type**\: list of    :py:class:`SourceAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4>`
+                	**type**\: list of  		 :py:class:`SourceAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4>`
                 
                 .. attribute:: source_address_ipv6
                 
                 	Match source IPv6 address
-                	**type**\: list of    :py:class:`SourceAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6>`
+                	**type**\: list of  		 :py:class:`SourceAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6>`
                 
                 .. attribute:: source_port
                 
                 	Match source port.  Should be value 0..65535 or range
-                	**type**\:  list of str
+                	**type**\: list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: tcp_flag
                 
                 	Match TCP flags
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4095
                 
                 .. attribute:: authen_status
                 
                 	Match authentication status
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (authenticated)\|(unauthenticated)
                 
                 .. attribute:: circuit_id
                 
                 	Match Circuit ID
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: circuit_id_regex
                 
                 	Match Circuit id regex
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: dhcp_client_id
                 
                 	Match dhcp client ID
-                	**type**\: list of    :py:class:`DhcpClientId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientId>`
+                	**type**\: list of  		 :py:class:`DhcpClientId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientId>`
                 
                 .. attribute:: dhcp_client_id_regex
                 
                 	Match dhcp client id regex
-                	**type**\: list of    :py:class:`DhcpClientIdRegex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientIdRegex>`
+                	**type**\: list of  		 :py:class:`DhcpClientIdRegex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientIdRegex>`
                 
                 .. attribute:: domain_name
                 
                 	Match domain name
-                	**type**\: list of    :py:class:`DomainName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName>`
+                	**type**\: list of  		 :py:class:`DomainName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName>`
                 
                 .. attribute:: domain_name_regex
                 
                 	Match domain name
-                	**type**\: list of    :py:class:`DomainNameRegex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex>`
+                	**type**\: list of  		 :py:class:`DomainNameRegex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex>`
                 
                 .. attribute:: remote_id
                 
                 	Match remote ID
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: remote_id_regex
                 
                 	Match remote id regex
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: service_name
                 
                 	Match servicve name
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: service_name_regex
                 
                 	Match servicve name regular expression
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: timer
                 
                 	Match timer
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: timer_regex
                 
                 	Match timer regular expression
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: user_name
                 
                 	Match user name
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: user_name_regex
                 
                 	Match user name regular expression
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 	**length:** 1..32
                 
                 .. attribute:: source_mac
                 
                 	Match source MAC address
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 .. attribute:: destination_mac
                 
                 	Match destination MAC address
-                	**type**\:  list of str
+                	**type**\: list of str
                 
                 .. attribute:: vpls_control
                 
                 	Match VPLS control
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: vpls_broadcast
                 
                 	Match VPLS Broadcast
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: vpls_multicast
                 
                 	Match VPLS Multicast
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: vpls_known
                 
                 	Match VPLS Known
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: vpls_unknown
                 
                 	Match VPLS Unknown
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: flow
                 
                 	Match flow
-                	**type**\:   :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.Flow>`
+                	**type**\:  :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.Flow>`
                 
                 
 
@@ -2025,12 +2119,16 @@ class PolicyManager(Entity):
                     .. attribute:: address  <key>
                     
                     	IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: netmask  <key>
                     
                     	IPv4 netmask
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -2065,12 +2163,14 @@ class PolicyManager(Entity):
                     .. attribute:: address  <key>
                     
                     	IPv6 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: prefix_length  <key>
                     
                     	IPv6 prefix length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
@@ -2107,12 +2207,16 @@ class PolicyManager(Entity):
                     .. attribute:: address  <key>
                     
                     	IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: netmask  <key>
                     
                     	IPv4 netmask
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -2147,12 +2251,14 @@ class PolicyManager(Entity):
                     .. attribute:: address  <key>
                     
                     	IPv6 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: prefix_length  <key>
                     
                     	IPv6 prefix length
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..128
                     
@@ -2189,14 +2295,16 @@ class PolicyManager(Entity):
                     .. attribute:: value  <key>
                     
                     	Dhcp client Id
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: flag  <key>
                     
                     	Dhcp client id Ascii/Hex
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (none)\|(ascii)\|(hex)
                     
                     
 
@@ -2231,14 +2339,16 @@ class PolicyManager(Entity):
                     .. attribute:: value  <key>
                     
                     	Dhcp client id regular expression
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: flag  <key>
                     
                     	Dhcp client Id regex Ascii/Hex
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (none)\|(ascii)\|(hex)
                     
                     
 
@@ -2273,14 +2383,14 @@ class PolicyManager(Entity):
                     .. attribute:: name  <key>
                     
                     	Domain name or regular expression
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: format  <key>
                     
                     	Domain\-format name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
@@ -2317,14 +2427,14 @@ class PolicyManager(Entity):
                     .. attribute:: regex  <key>
                     
                     	Domain name or regular expression
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
                     .. attribute:: format  <key>
                     
                     	Domain\-format name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..32
                     
@@ -2361,7 +2471,7 @@ class PolicyManager(Entity):
                     .. attribute:: flow_tag
                     
                     	Configure the flow\-tag parameters
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 1..63
                     
@@ -2396,7 +2506,7 @@ class PolicyManager(Entity):
         .. attribute:: policy_map
         
         	Policy\-map configuration
-        	**type**\: list of    :py:class:`PolicyMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap>`
+        	**type**\: list of  		 :py:class:`PolicyMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap>`
         
         
 
@@ -2430,27 +2540,29 @@ class PolicyManager(Entity):
             .. attribute:: type  <key>
             
             	Type of policy\-map
-            	**type**\:   :py:class:`PolicyMapType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyMapType>`
+            	**type**\:  :py:class:`PolicyMapType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyMapType>`
             
             .. attribute:: name  <key>
             
             	Name of policy\-map
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9][a\-zA\-Z0\-9\\.\_@$%+#\:=<>\\\-]{0,62}
             
             .. attribute:: event
             
             	Policy event
-            	**type**\: list of    :py:class:`Event <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event>`
+            	**type**\: list of  		 :py:class:`Event <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event>`
             
             .. attribute:: policy_map_rule
             
             	Class\-map rule
-            	**type**\: list of    :py:class:`PolicyMapRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule>`
+            	**type**\: list of  		 :py:class:`PolicyMapRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule>`
             
             .. attribute:: description
             
             	Description for this policy\-map
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -2491,22 +2603,22 @@ class PolicyManager(Entity):
                 .. attribute:: event_type  <key>
                 
                 	Event type
-                	**type**\:   :py:class:`EventType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.EventType>`
+                	**type**\:  :py:class:`EventType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.EventType>`
                 
                 .. attribute:: event_mode_match_all
                 
                 	Execute all the matched classes
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: event_mode_match_first
                 
                 	Execute only the first matched class
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: class_
                 
                 	Class\-map rule
-                	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_>`
+                	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_>`
                 
                 
 
@@ -2545,22 +2657,24 @@ class PolicyManager(Entity):
                     .. attribute:: class_name  <key>
                     
                     	Name of class
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9][a\-zA\-Z0\-9\\.\_@$%+#\:=<>\\\-]{0,62}
                     
                     .. attribute:: class_type  <key>
                     
                     	Type of class
-                    	**type**\:   :py:class:`PmapClassMapType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PmapClassMapType>`
+                    	**type**\:  :py:class:`PmapClassMapType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PmapClassMapType>`
                     
                     .. attribute:: class_execution_strategy
                     
                     	Class execution strategy
-                    	**type**\:   :py:class:`ExecutionStrategy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.ExecutionStrategy>`
+                    	**type**\:  :py:class:`ExecutionStrategy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.ExecutionStrategy>`
                     
                     .. attribute:: action_rule
                     
                     	Action rule
-                    	**type**\: list of    :py:class:`ActionRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule>`
+                    	**type**\: list of  		 :py:class:`ActionRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule>`
                     
                     
 
@@ -2599,57 +2713,57 @@ class PolicyManager(Entity):
                         .. attribute:: action_sequence_number  <key>
                         
                         	Sequence number for this action
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..65535
                         
                         .. attribute:: activate_dynamic_template
                         
                         	Activate dynamic templates
-                        	**type**\:   :py:class:`ActivateDynamicTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.ActivateDynamicTemplate>`
+                        	**type**\:  :py:class:`ActivateDynamicTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.ActivateDynamicTemplate>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: authenticate
                         
                         	Authentication related configuration
-                        	**type**\:   :py:class:`Authenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate>`
+                        	**type**\:  :py:class:`Authenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate>`
                         
                         .. attribute:: authorize
                         
                         	Authorize
-                        	**type**\:   :py:class:`Authorize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authorize>`
+                        	**type**\:  :py:class:`Authorize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authorize>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: deactivate_dynamic_template
                         
                         	Deactivate dynamic templates
-                        	**type**\:   :py:class:`DeactivateDynamicTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.DeactivateDynamicTemplate>`
+                        	**type**\:  :py:class:`DeactivateDynamicTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.DeactivateDynamicTemplate>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: disconnect
                         
                         	Disconnect session
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: monitor
                         
                         	Monitor session
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: set_timer
                         
                         	Set a timer to execute a rule on its  expiry
-                        	**type**\:   :py:class:`SetTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.SetTimer>`
+                        	**type**\:  :py:class:`SetTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.SetTimer>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: stop_timer
                         
                         	Disable timer before it expires
-                        	**type**\:   :py:class:`StopTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer>`
+                        	**type**\:  :py:class:`StopTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer>`
                         
                         
 
@@ -2712,14 +2826,14 @@ class PolicyManager(Entity):
                             .. attribute:: name
                             
                             	Dynamic template name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**mandatory**\: True
                             
                             .. attribute:: aaa_list
                             
                             	Name of the AAA method list
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -2757,7 +2871,7 @@ class PolicyManager(Entity):
                             .. attribute:: aaa_list
                             
                             	Name of the AAA method list
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -2790,24 +2904,24 @@ class PolicyManager(Entity):
                             .. attribute:: aaa_list
                             
                             	Name of the AAA method list
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**mandatory**\: True
                             
                             .. attribute:: format
                             
                             	Specify an Authorize format name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: identifier
                             
                             	Specify an Authorize format name
-                            	**type**\:   :py:class:`AuthorizeIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.AuthorizeIdentifier>`
+                            	**type**\:  :py:class:`AuthorizeIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.AuthorizeIdentifier>`
                             
                             .. attribute:: password
                             
                             	Specify a password to be used for AAA request
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**mandatory**\: True
                             
@@ -2851,14 +2965,14 @@ class PolicyManager(Entity):
                             .. attribute:: name
                             
                             	Dynamic template name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**mandatory**\: True
                             
                             .. attribute:: aaa_list
                             
                             	Name of the AAA method list
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -2897,14 +3011,14 @@ class PolicyManager(Entity):
                             .. attribute:: timer_name
                             
                             	Name of the timer
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**mandatory**\: True
                             
                             .. attribute:: timer_value
                             
                             	Timer value in minutes
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2948,7 +3062,7 @@ class PolicyManager(Entity):
                             .. attribute:: timer_name
                             
                             	Name of the timer
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -2981,139 +3095,141 @@ class PolicyManager(Entity):
                 .. attribute:: class_name  <key>
                 
                 	Name of class\-map
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9][a\-zA\-Z0\-9\\.\_@$%+#\:=<>\\\-]{0,62}
                 
                 .. attribute:: class_type  <key>
                 
                 	Type of class\-map
-                	**type**\:   :py:class:`PmapClassMapType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PmapClassMapType>`
+                	**type**\:  :py:class:`PmapClassMapType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PmapClassMapType>`
                 
                 .. attribute:: shape
                 
                 	Policy action shape
-                	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape>`
+                	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape>`
                 
                 .. attribute:: min_bandwidth
                 
                 	Policy action minimum bandwidth queue
-                	**type**\:   :py:class:`MinBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth>`
+                	**type**\:  :py:class:`MinBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth>`
                 
                 .. attribute:: bandwidth_remaining
                 
                 	Policy action bandwidth remaining queue
-                	**type**\:   :py:class:`BandwidthRemaining <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining>`
+                	**type**\:  :py:class:`BandwidthRemaining <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining>`
                 
                 .. attribute:: queue_limit
                 
                 	Policy action queue limit
-                	**type**\:   :py:class:`QueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit>`
+                	**type**\:  :py:class:`QueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit>`
                 
                 .. attribute:: pfc
                 
                 	Policy action pfc
-                	**type**\:   :py:class:`Pfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc>`
+                	**type**\:  :py:class:`Pfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc>`
                 
                 .. attribute:: priority_level
                 
                 	Priority level
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 1..7
                 
                 .. attribute:: default_red
                 
                 	Default random early detection
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ecn_red
                 
                 	ECN based random early detection
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: random_detect
                 
                 	Random early detection. All RED profiles in a class must be based on the same field
-                	**type**\: list of    :py:class:`RandomDetect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect>`
+                	**type**\: list of  		 :py:class:`RandomDetect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect>`
                 
                 .. attribute:: set
                 
                 	Policy action packet marking
-                	**type**\:   :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set>`
+                	**type**\:  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set>`
                 
                 .. attribute:: police
                 
                 	Configures traffic policing action
-                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police>`
+                	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police>`
                 
                 .. attribute:: service_policy
                 
                 	Configure a child service policy
-                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy>`
+                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy>`
                 
                 .. attribute:: cac_local
                 
                 	Policy action CAC
-                	**type**\:   :py:class:`CacLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal>`
+                	**type**\:  :py:class:`CacLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal>`
                 
                 .. attribute:: flow_params
                 
                 	Policy flow monitoring action
-                	**type**\:   :py:class:`FlowParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams>`
+                	**type**\:  :py:class:`FlowParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams>`
                 
                 .. attribute:: metrics_ipcbr
                 
                 	Policy IP\-CBR metric action
-                	**type**\:   :py:class:`MetricsIpcbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr>`
+                	**type**\:  :py:class:`MetricsIpcbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr>`
                 
                 .. attribute:: react
                 
                 	Policy action react
-                	**type**\:   :py:class:`React <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React>`
+                	**type**\:  :py:class:`React <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React>`
                 
                 .. attribute:: http_redirect
                 
                 	Policy action http redirect. Redirect to this url
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: pbr_transmit
                 
                 	Policy action PBR transmit
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: pbr_drop
                 
                 	Policy action PBR drop
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: decap_gre
                 
                 	Policy action DECAP GRE
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: pbr_redirect
                 
                 	Policy action redirect
-                	**type**\:   :py:class:`PbrRedirect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect>`
+                	**type**\:  :py:class:`PbrRedirect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect>`
                 
                 .. attribute:: pbr_forward
                 
                 	Policy action PBR forward
-                	**type**\:   :py:class:`PbrForward <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward>`
+                	**type**\:  :py:class:`PbrForward <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward>`
                 
                 .. attribute:: service_fragment
                 
                 	Policy action service fragment.  Service fragment name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: fragment
                 
                 	Policy action fragment. Fragment name
-                	**type**\:  str
+                	**type**\: str
                 
                 .. attribute:: service_function_path
                 
                 	Policy action service function path
-                	**type**\:   :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath>`
+                	**type**\:  :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath>`
                 
                 	**presence node**\: True
                 
@@ -3244,12 +3360,12 @@ class PolicyManager(Entity):
                     .. attribute:: rate
                     
                     	Rate configuration
-                    	**type**\:   :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate>`
+                    	**type**\:  :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate>`
                     
                     .. attribute:: burst
                     
                     	Burst size configuration
-                    	**type**\:   :py:class:`Burst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst>`
+                    	**type**\:  :py:class:`Burst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst>`
                     
                     
 
@@ -3287,14 +3403,16 @@ class PolicyManager(Entity):
                         .. attribute:: value
                         
                         	Shape bandwidth value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unit
                         
                         	Shape bandwidth units
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(percent)\|(per\-million)\|(per\-thousand)
                         
                         
 
@@ -3329,14 +3447,16 @@ class PolicyManager(Entity):
                         .. attribute:: value
                         
                         	Burst size value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: units
                         
                         	Burst size units
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
                         
                         
 
@@ -3371,14 +3491,16 @@ class PolicyManager(Entity):
                     .. attribute:: value
                     
                     	Minimum bandwidth value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unit
                     
                     	Minimum bandwidth units
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(percent)\|(per\-million)\|(per\-thousand)
                     
                     
 
@@ -3413,14 +3535,16 @@ class PolicyManager(Entity):
                     .. attribute:: value
                     
                     	Remaining bandwidth value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unit
                     
                     	Remaining bandwidth units
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (percent)\|(ratio)
                     
                     
 
@@ -3455,14 +3579,16 @@ class PolicyManager(Entity):
                     .. attribute:: value
                     
                     	Remaining bandwidth value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: unit
                     
                     	Remaining bandwidth units
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)\|(percent)
                     
                     
 
@@ -3497,22 +3623,22 @@ class PolicyManager(Entity):
                     .. attribute:: pfc_pause_set
                     
                     	Pfc Pause set value
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: pfc_buffer_size
                     
                     	
-                    	**type**\:   :py:class:`PfcBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize>`
+                    	**type**\:  :py:class:`PfcBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize>`
                     
                     .. attribute:: pfc_pause_threshold
                     
                     	
-                    	**type**\:   :py:class:`PfcPauseThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold>`
+                    	**type**\:  :py:class:`PfcPauseThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold>`
                     
                     .. attribute:: pfc_resume_threshold
                     
                     	
-                    	**type**\:   :py:class:`PfcResumeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold>`
+                    	**type**\:  :py:class:`PfcResumeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold>`
                     
                     
 
@@ -3560,14 +3686,16 @@ class PolicyManager(Entity):
                         .. attribute:: value
                         
                         	Pfc buffer size value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unit
                         
                         	Pfc buffer size units
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
                         
                         
 
@@ -3602,14 +3730,16 @@ class PolicyManager(Entity):
                         .. attribute:: value
                         
                         	Pfc pause threshold value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unit
                         
                         	Pfc pause threshold units
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
                         
                         
 
@@ -3644,14 +3774,16 @@ class PolicyManager(Entity):
                         .. attribute:: value
                         
                         	Pfc resume threshold value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: unit
                         
                         	Pfc resume threshold units
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
                         
                         
 
@@ -3688,77 +3820,83 @@ class PolicyManager(Entity):
                     .. attribute:: threshold_min_value  <key>
                     
                     	Minimum RED threshold value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: threshold_min_units  <key>
                     
                     	Minimum RED threshold units
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
                     
                     .. attribute:: threshold_max_value  <key>
                     
                     	Maximum RED threshold value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: threshold_max_units  <key>
                     
                     	Maximum RED threshold units
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
                     
                     .. attribute:: cos
                     
                     	WRED based on CoS
-                    	**type**\:  list of str
+                    	**type**\: list of str
+                    
+                    	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                     
                     .. attribute:: discard_class
                     
                     	WRED based on discard class
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..7
                     
                     .. attribute:: dscp
                     
                     	WRED based on DSCP
-                    	**type**\:  list of str
+                    	**type**\: list of str
+                    
+                    	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                     
                     .. attribute:: mpls_exp
                     
                     	MPLS Experimental value based WRED
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..7
                     
                     .. attribute:: precedence
                     
                     	WRED based on precedence
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  list of int
+                    		**type**\: list of int
                     
-                    	**range:** 0..7
+                    			**range:** 0..7
                     
+                    		**type**\: list of str
                     
-                    ----
-                    	**type**\:  list of str
+                    			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                     
-                    
-                    ----
                     .. attribute:: dei
                     
                     	DEI based WRED
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..1
                     
                     .. attribute:: ecn
                     
                     	ECN based WRED
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -3811,138 +3949,140 @@ class PolicyManager(Entity):
                     .. attribute:: dscp
                     
                     	Marks a packet by setting the DSCP in the ToS byte
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                     
                     .. attribute:: qos_group
                     
                     	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..512
                     
                     .. attribute:: traffic_class
                     
                     	Sets the Traffic class identifiers on IPv4 or MPLS packets
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..63
                     
                     .. attribute:: discard_class
                     
                     	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: forward_class
                     
                     	Sets the forward class
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: df
                     
                     	Set DF bit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..1
                     
                     .. attribute:: cos
                     
                     	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: inner_cos
                     
                     	Set inner cos
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: precedence
                     
                     	Sets the precedence value in the IP header
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** 0..7
+                    			**range:** 0..7
                     
+                    		**type**\: str
                     
-                    ----
-                    	**type**\:  str
+                    			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                     
-                    
-                    ----
                     .. attribute:: precedence_tunnel
                     
                     	Sets the precedence tunnel value for ipsec
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** 0..7
+                    			**range:** 0..7
                     
+                    		**type**\: str
                     
-                    ----
-                    	**type**\:  str
+                    			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                     
-                    
-                    ----
                     .. attribute:: mpls_experimental_top_most
                     
                     	Sets the experimental value of the MPLS packet top\-most labels
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: mpls_experimental_imposition
                     
                     	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: srp_priority
                     
                     	Sets the spatial reuse protocol priority value of an  outgoing packet
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: fr_de
                     
                     	Set FrameRelay DE bit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..1
                     
                     .. attribute:: dei
                     
                     	Set DEI bit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..1
                     
                     .. attribute:: dei_imposition
                     
                     	Set DEI imposition bit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..1
                     
                     .. attribute:: source_address
                     
                     	Source IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     .. attribute:: destination_address
                     
                     	Destination IPv4 address
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -4009,37 +4149,37 @@ class PolicyManager(Entity):
                     .. attribute:: rate
                     
                     	Rate configuration
-                    	**type**\:   :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate>`
+                    	**type**\:  :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate>`
                     
                     .. attribute:: peak_rate
                     
                     	Peak rate configuration
-                    	**type**\:   :py:class:`PeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate>`
+                    	**type**\:  :py:class:`PeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate>`
                     
                     .. attribute:: burst
                     
                     	Burst configuration
-                    	**type**\:   :py:class:`Burst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst>`
+                    	**type**\:  :py:class:`Burst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst>`
                     
                     .. attribute:: peak_burst
                     
                     	Peak burst configuration
-                    	**type**\:   :py:class:`PeakBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst>`
+                    	**type**\:  :py:class:`PeakBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst>`
                     
                     .. attribute:: conform_action
                     
                     	Configures the action to take on packets that conform  to the rate limit
-                    	**type**\:   :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction>`
+                    	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction>`
                     
                     .. attribute:: exceed_action
                     
                     	Configures the action to take on packets that exceed  the rate limit
-                    	**type**\:   :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction>`
+                    	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction>`
                     
                     .. attribute:: violate_action
                     
                     	Configures the action to take on packets that violate the rate limit
-                    	**type**\:   :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction>`
+                    	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction>`
                     
                     
 
@@ -4102,14 +4242,16 @@ class PolicyManager(Entity):
                         .. attribute:: value
                         
                         	Rate value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: units
                         
                         	Rate units
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(pps)\|(percent)\|(cellsps)
                         
                         
 
@@ -4144,14 +4286,16 @@ class PolicyManager(Entity):
                         .. attribute:: value
                         
                         	Peak rate value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: units
                         
                         	Peak rate units
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(pps)\|(percent)\|(cellsps)
                         
                         
 
@@ -4186,14 +4330,16 @@ class PolicyManager(Entity):
                         .. attribute:: value
                         
                         	Burst value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: units
                         
                         	Burst units
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
                         
                         
 
@@ -4228,14 +4374,16 @@ class PolicyManager(Entity):
                         .. attribute:: value
                         
                         	Peak burst value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: units
                         
                         	Peak burst units
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
                         
                         
 
@@ -4271,17 +4419,17 @@ class PolicyManager(Entity):
                         .. attribute:: transmit
                         
                         	Police action transmit
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: drop
                         
                         	Police action drop
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: set
                         
                         	Police action packet marking
-                        	**type**\:   :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set>`
+                        	**type**\:  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set>`
                         
                         
 
@@ -4321,138 +4469,140 @@ class PolicyManager(Entity):
                             .. attribute:: dscp
                             
                             	Marks a packet by setting the DSCP in the ToS byte
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                             
                             .. attribute:: qos_group
                             
                             	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..512
                             
                             .. attribute:: traffic_class
                             
                             	Sets the Traffic class identifiers on IPv4 or MPLS packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..63
                             
                             .. attribute:: discard_class
                             
                             	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: forward_class
                             
                             	Sets the forward class
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: df
                             
                             	Set DF bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
                             .. attribute:: cos
                             
                             	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: inner_cos
                             
                             	Set inner cos
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: precedence
                             
                             	Sets the precedence value in the IP header
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  int
+                            		**type**\: int
                             
-                            	**range:** 0..7
+                            			**range:** 0..7
                             
+                            		**type**\: str
                             
-                            ----
-                            	**type**\:  str
+                            			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                             
-                            
-                            ----
                             .. attribute:: precedence_tunnel
                             
                             	Sets the precedence tunnel value for ipsec
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  int
+                            		**type**\: int
                             
-                            	**range:** 0..7
+                            			**range:** 0..7
                             
+                            		**type**\: str
                             
-                            ----
-                            	**type**\:  str
+                            			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                             
-                            
-                            ----
                             .. attribute:: mpls_experimental_top_most
                             
                             	Sets the experimental value of the MPLS packet top\-most labels
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: mpls_experimental_imposition
                             
                             	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: srp_priority
                             
                             	Sets the spatial reuse protocol priority value of an  outgoing packet
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: fr_de
                             
                             	Set FrameRelay DE bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
                             .. attribute:: dei
                             
                             	Set DEI bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
                             .. attribute:: dei_imposition
                             
                             	Set DEI imposition bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
                             .. attribute:: source_address
                             
                             	Source IPv4 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: destination_address
                             
                             	Destination IPv4 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -4520,17 +4670,17 @@ class PolicyManager(Entity):
                         .. attribute:: transmit
                         
                         	Police action transmit
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: drop
                         
                         	Police action drop
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: set
                         
                         	Police action packet marking
-                        	**type**\:   :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set>`
+                        	**type**\:  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set>`
                         
                         
 
@@ -4570,138 +4720,140 @@ class PolicyManager(Entity):
                             .. attribute:: dscp
                             
                             	Marks a packet by setting the DSCP in the ToS byte
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                             
                             .. attribute:: qos_group
                             
                             	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..512
                             
                             .. attribute:: traffic_class
                             
                             	Sets the Traffic class identifiers on IPv4 or MPLS packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..63
                             
                             .. attribute:: discard_class
                             
                             	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: forward_class
                             
                             	Sets the forward class
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: df
                             
                             	Set DF bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
                             .. attribute:: cos
                             
                             	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: inner_cos
                             
                             	Set inner cos
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: precedence
                             
                             	Sets the precedence value in the IP header
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  int
+                            		**type**\: int
                             
-                            	**range:** 0..7
+                            			**range:** 0..7
                             
+                            		**type**\: str
                             
-                            ----
-                            	**type**\:  str
+                            			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                             
-                            
-                            ----
                             .. attribute:: precedence_tunnel
                             
                             	Sets the precedence tunnel value for ipsec
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  int
+                            		**type**\: int
                             
-                            	**range:** 0..7
+                            			**range:** 0..7
                             
+                            		**type**\: str
                             
-                            ----
-                            	**type**\:  str
+                            			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                             
-                            
-                            ----
                             .. attribute:: mpls_experimental_top_most
                             
                             	Sets the experimental value of the MPLS packet top\-most labels
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: mpls_experimental_imposition
                             
                             	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: srp_priority
                             
                             	Sets the spatial reuse protocol priority value of an  outgoing packet
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: fr_de
                             
                             	Set FrameRelay DE bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
                             .. attribute:: dei
                             
                             	Set DEI bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
                             .. attribute:: dei_imposition
                             
                             	Set DEI imposition bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
                             .. attribute:: source_address
                             
                             	Source IPv4 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: destination_address
                             
                             	Destination IPv4 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -4769,17 +4921,17 @@ class PolicyManager(Entity):
                         .. attribute:: transmit
                         
                         	Police action transmit
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: drop
                         
                         	Police action drop
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: set
                         
                         	Police action packet marking
-                        	**type**\:   :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set>`
+                        	**type**\:  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set>`
                         
                         
 
@@ -4819,138 +4971,140 @@ class PolicyManager(Entity):
                             .. attribute:: dscp
                             
                             	Marks a packet by setting the DSCP in the ToS byte
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                             
                             .. attribute:: qos_group
                             
                             	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..512
                             
                             .. attribute:: traffic_class
                             
                             	Sets the Traffic class identifiers on IPv4 or MPLS packets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..63
                             
                             .. attribute:: discard_class
                             
                             	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: forward_class
                             
                             	Sets the forward class
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: df
                             
                             	Set DF bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
                             .. attribute:: cos
                             
                             	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: inner_cos
                             
                             	Set inner cos
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: precedence
                             
                             	Sets the precedence value in the IP header
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  int
+                            		**type**\: int
                             
-                            	**range:** 0..7
+                            			**range:** 0..7
                             
+                            		**type**\: str
                             
-                            ----
-                            	**type**\:  str
+                            			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                             
-                            
-                            ----
                             .. attribute:: precedence_tunnel
                             
                             	Sets the precedence tunnel value for ipsec
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  int
+                            		**type**\: int
                             
-                            	**range:** 0..7
+                            			**range:** 0..7
                             
+                            		**type**\: str
                             
-                            ----
-                            	**type**\:  str
+                            			**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
                             
-                            
-                            ----
                             .. attribute:: mpls_experimental_top_most
                             
                             	Sets the experimental value of the MPLS packet top\-most labels
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: mpls_experimental_imposition
                             
                             	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: srp_priority
                             
                             	Sets the spatial reuse protocol priority value of an  outgoing packet
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: fr_de
                             
                             	Set FrameRelay DE bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
                             .. attribute:: dei
                             
                             	Set DEI bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
                             .. attribute:: dei_imposition
                             
                             	Set DEI imposition bit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..1
                             
                             .. attribute:: source_address
                             
                             	Source IPv4 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: destination_address
                             
                             	Destination IPv4 address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -5017,12 +5171,16 @@ class PolicyManager(Entity):
                     .. attribute:: policy_name
                     
                     	Name of service\-policy
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9][a\-zA\-Z0\-9\\.\_@$%+#\:=<>\\\-]{0,62}
                     
                     .. attribute:: type
                     
                     	Type of service\-policy
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** (PBR)\|(QOS)\|(REDIRECT)\|(TRAFFIC)\|(pbr)\|(qos)\|(redirect)\|(traffic)
                     
                     
 
@@ -5057,28 +5215,26 @@ class PolicyManager(Entity):
                     .. attribute:: rate
                     
                     	The rate allocated for all flows
-                    	**type**\:   :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate>`
+                    	**type**\:  :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate>`
                     
                     .. attribute:: flow_rate
                     
                     	The rate allocated per flow
-                    	**type**\:   :py:class:`FlowRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate>`
+                    	**type**\:  :py:class:`FlowRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate>`
                     
                     .. attribute:: flow_idle_timeout
                     
                     	The interval after which a flow is removed,  if there is no activity. If timeout is 0 this flow does not expire
-                    	**type**\: one of the below types:
+                    	**type**\: union of the below types:
                     
-                    	**type**\:  int
+                    		**type**\: int
                     
-                    	**range:** 10..2550
+                    			**range:** 10..2550
                     
+                    		**type**\: str
                     
-                    ----
-                    	**type**\:  str
+                    			**pattern:** (None)\|(none)
                     
-                    
-                    ----
                     
 
                     """
@@ -5120,14 +5276,16 @@ class PolicyManager(Entity):
                         .. attribute:: value
                         
                         	Rate value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4294967295
                         
                         .. attribute:: units
                         
                         	Rate units
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(cellsps)
                         
                         
 
@@ -5162,14 +5320,16 @@ class PolicyManager(Entity):
                         .. attribute:: value
                         
                         	Rate value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..4294967295
                         
                         .. attribute:: units
                         
                         	Rate units
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(cellsps)
                         
                         
 
@@ -5204,14 +5364,14 @@ class PolicyManager(Entity):
                     .. attribute:: max_flow
                     
                     	Max simultaneous flows monitored per policy class
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4096
                     
                     .. attribute:: interval_duration
                     
                     	Monitored interval duration
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5220,14 +5380,14 @@ class PolicyManager(Entity):
                     .. attribute:: history
                     
                     	Keep stats/metrics on box for so many intervals
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: timeout
                     
                     	Declare a flow dead if no packets received in so much time
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -5270,12 +5430,12 @@ class PolicyManager(Entity):
                     .. attribute:: rate
                     
                     	Nominal per\-flow data rate
-                    	**type**\:   :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate>`
+                    	**type**\:  :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate>`
                     
                     .. attribute:: media_packet
                     
                     	Media\-packet structure
-                    	**type**\:   :py:class:`MediaPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket>`
+                    	**type**\:  :py:class:`MediaPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket>`
                     
                     
 
@@ -5313,7 +5473,7 @@ class PolicyManager(Entity):
                         .. attribute:: layer3
                         
                         	Nominal rate specified at the L3 (IP)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5322,7 +5482,7 @@ class PolicyManager(Entity):
                         .. attribute:: packet
                         
                         	Nominal IP layer packet rate (in pps)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5331,7 +5491,7 @@ class PolicyManager(Entity):
                         .. attribute:: media
                         
                         	Nominal data rate of the media flow (ip payload)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..3000000000
                         
@@ -5372,7 +5532,7 @@ class PolicyManager(Entity):
                         .. attribute:: size
                         
                         	Nominal size of the media\-packet
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -5381,7 +5541,7 @@ class PolicyManager(Entity):
                         .. attribute:: count_in_layer3
                         
                         	Nominal number of media packets in an IP payload
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..64
                         
@@ -5420,47 +5580,47 @@ class PolicyManager(Entity):
                     .. attribute:: descrition
                     
                     	String describing the react statement
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: action
                     
                     	Action on alert
-                    	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action>`
+                    	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action>`
                     
                     .. attribute:: alarm
                     
                     	Alaram settings
-                    	**type**\:   :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm>`
+                    	**type**\:  :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm>`
                     
                     .. attribute:: threshold
                     
                     	Alarm threshold settings
-                    	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold>`
+                    	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold>`
                     
                     .. attribute:: criterion_delay_factor
                     
                     	React criterion delay factor
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: criterion_media_stop
                     
                     	React criterion media stop
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: criterion_mrv
                     
                     	React criterion mrv
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: criterion_flow_count
                     
                     	React criterion flow count
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: criterion_packet_rate
                     
                     	React criterion packet rate
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -5518,12 +5678,12 @@ class PolicyManager(Entity):
                         .. attribute:: syslog
                         
                         	Syslog
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: snmp
                         
                         	SNMP
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -5558,12 +5718,14 @@ class PolicyManager(Entity):
                         .. attribute:: type
                         
                         	Alarm type
-                        	**type**\:   :py:class:`Type <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type>`
+                        	**type**\:  :py:class:`Type <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type>`
                         
                         .. attribute:: severity
                         
                         	Severity of the alarm
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (informational)\|(notification)\|(warning)\|(error)\|(critical)\|(alert)\|(emergency)
                         
                         
 
@@ -5601,12 +5763,12 @@ class PolicyManager(Entity):
                             .. attribute:: discrete
                             
                             	Discrete alarm type
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: group_count
                             
                             	Number of flows to reach before  triggering alarm
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -5615,7 +5777,7 @@ class PolicyManager(Entity):
                             .. attribute:: group_percent
                             
                             	Percent to reach before triggering alarm
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -5656,12 +5818,12 @@ class PolicyManager(Entity):
                         .. attribute:: trigger_value
                         
                         	Alarm trigger value settings
-                        	**type**\:   :py:class:`TriggerValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue>`
+                        	**type**\:  :py:class:`TriggerValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue>`
                         
                         .. attribute:: trigger_type
                         
                         	Alarm trigger type settings
-                        	**type**\:   :py:class:`TriggerType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType>`
+                        	**type**\:  :py:class:`TriggerType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType>`
                         
                         
 
@@ -5699,27 +5861,27 @@ class PolicyManager(Entity):
                             .. attribute:: greater_than
                             
                             	Greater than
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: greater_than_equal
                             
                             	Greater than equal
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: less_than
                             
                             	Less than
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: less_than_equal
                             
                             	Less than equal
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: range
                             
                             	Range
-                            	**type**\:  str
+                            	**type**\: str
                             
                             
 
@@ -5760,12 +5922,12 @@ class PolicyManager(Entity):
                             .. attribute:: immediate
                             
                             	Immediate trigger
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: average
                             
                             	Trigger averaged over N intervals
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -5802,17 +5964,17 @@ class PolicyManager(Entity):
                     .. attribute:: ipv4
                     
                     	Policy action redirect IPv4
-                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv4>`
+                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv4>`
                     
                     .. attribute:: ipv6
                     
                     	Policy action redirect IPv6
-                    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv6>`
+                    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv6>`
                     
                     .. attribute:: next_hop
                     
                     	Next hop address
-                    	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop>`
+                    	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop>`
                     
                     
 
@@ -5855,12 +6017,14 @@ class PolicyManager(Entity):
                         .. attribute:: ipv4_next_hop
                         
                         	IPv4 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: vrf
                         
                         	IPv4 VRF
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -5895,12 +6059,14 @@ class PolicyManager(Entity):
                         .. attribute:: ipv6_next_hop
                         
                         	IPv6 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: vrf
                         
                         	IPv6 VRF
-                        	**type**\:  str
+                        	**type**\: str
                         
                         
 
@@ -5935,7 +6101,7 @@ class PolicyManager(Entity):
                         .. attribute:: route_target
                         
                         	Route Target
-                        	**type**\:   :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget>`
+                        	**type**\:  :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget>`
                         
                         
 
@@ -5968,19 +6134,19 @@ class PolicyManager(Entity):
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
-                            	**type**\:   :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget.Ipv4Address>`
+                            	**type**\:  :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget.Ipv4Address>`
                             
                             .. attribute:: as_number
                             
                             	2\-byte/4\-byte AS number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 1..4294967295
                             
                             .. attribute:: index
                             
                             	ASN2\:index 2/4 byte (hex or decimal format)
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -6022,12 +6188,14 @@ class PolicyManager(Entity):
                                 .. attribute:: address
                                 
                                 	IPv4 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: netmask
                                 
                                 	IPv4 netmask
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 
 
@@ -6062,12 +6230,12 @@ class PolicyManager(Entity):
                     .. attribute:: default
                     
                     	Use system default routing table
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: next_hop
                     
                     	Use specific next\-hop. Here we present 5 different combination  for the pbf next\-hop.  1. vrf with v6 address  2. vrf with v4 address  3. vrf   4. v4 address  5. v6 address
-                    	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop>`
+                    	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop>`
                     
                     
 
@@ -6112,17 +6280,21 @@ class PolicyManager(Entity):
                         .. attribute:: vrf
                         
                         	VRF name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -6159,7 +6331,7 @@ class PolicyManager(Entity):
                     .. attribute:: path_id
                     
                     	Service function path id
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..16777215
                     
@@ -6168,7 +6340,7 @@ class PolicyManager(Entity):
                     .. attribute:: index
                     
                     	Service function path index
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..255
                     
@@ -6177,7 +6349,7 @@ class PolicyManager(Entity):
                     .. attribute:: metadata
                     
                     	Service function path metadata name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 

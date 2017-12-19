@@ -323,12 +323,12 @@ class GetConfig(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.GetConfig.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.GetConfig.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf.GetConfig.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.ietf.ietf_netconf.GetConfig.Output>`
     
     
 
@@ -367,17 +367,17 @@ class GetConfig(Entity):
         .. attribute:: source
         
         	Particular configuration to retrieve
-        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.GetConfig.Input.Source>`
+        	**type**\:  :py:class:`Source <ydk.models.ietf.ietf_netconf.GetConfig.Input.Source>`
         
         .. attribute:: filter
         
         	Subtree or XPath filter to use
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: with_defaults
         
         	The explicit defaults processing mode requested
-        	**type**\:   :py:class:`WithDefaultsMode <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsMode>`
+        	**type**\:  :py:class:`WithDefaultsMode <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsMode>`
         
         
 
@@ -418,17 +418,17 @@ class GetConfig(Entity):
             .. attribute:: candidate
             
             	The candidate configuration is the config source
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	The running configuration is the config source
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
             	The startup configuration is the config source. This is optional\-to\-implement on the server because not all servers will support filtering for this datastore
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -466,7 +466,7 @@ class GetConfig(Entity):
         .. attribute:: data
         
         	Copy of the source datastore subset that matched the filter criteria (if any).  An empty data container indicates that the request did not produce any results
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         
 
@@ -504,7 +504,7 @@ class EditConfig(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.EditConfig.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.EditConfig.Input>`
     
     
 
@@ -538,38 +538,38 @@ class EditConfig(Entity):
         .. attribute:: target
         
         	Particular configuration to edit
-        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.EditConfig.Input.Target>`
+        	**type**\:  :py:class:`Target <ydk.models.ietf.ietf_netconf.EditConfig.Input.Target>`
         
         .. attribute:: default_operation
         
         	The default operation to use
-        	**type**\:   :py:class:`DefaultOperation <ydk.models.ietf.ietf_netconf.EditConfig.Input.DefaultOperation>`
+        	**type**\:  :py:class:`DefaultOperation <ydk.models.ietf.ietf_netconf.EditConfig.Input.DefaultOperation>`
         
         	**default value**\: merge
         
         .. attribute:: test_option
         
         	The test option to use
-        	**type**\:   :py:class:`TestOption <ydk.models.ietf.ietf_netconf.EditConfig.Input.TestOption>`
+        	**type**\:  :py:class:`TestOption <ydk.models.ietf.ietf_netconf.EditConfig.Input.TestOption>`
         
         	**default value**\: test-then-set
         
         .. attribute:: error_option
         
         	The error option to use
-        	**type**\:   :py:class:`ErrorOption <ydk.models.ietf.ietf_netconf.EditConfig.Input.ErrorOption>`
+        	**type**\:  :py:class:`ErrorOption <ydk.models.ietf.ietf_netconf.EditConfig.Input.ErrorOption>`
         
         	**default value**\: stop-on-error
         
         .. attribute:: config
         
         	Inline Config content
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: url
         
         	URL\-based config content
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -703,12 +703,12 @@ class EditConfig(Entity):
             .. attribute:: candidate
             
             	The candidate configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	The running configuration is the config source
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -748,7 +748,7 @@ class CopyConfig(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CopyConfig.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.CopyConfig.Input>`
     
     
 
@@ -782,17 +782,17 @@ class CopyConfig(Entity):
         .. attribute:: target
         
         	Particular configuration to copy to
-        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.CopyConfig.Input.Target>`
+        	**type**\:  :py:class:`Target <ydk.models.ietf.ietf_netconf.CopyConfig.Input.Target>`
         
         .. attribute:: source
         
         	Particular configuration to copy from
-        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.CopyConfig.Input.Source>`
+        	**type**\:  :py:class:`Source <ydk.models.ietf.ietf_netconf.CopyConfig.Input.Source>`
         
         .. attribute:: with_defaults
         
         	The explicit defaults processing mode requested
-        	**type**\:   :py:class:`WithDefaultsMode <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsMode>`
+        	**type**\:  :py:class:`WithDefaultsMode <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsMode>`
         
         
 
@@ -836,22 +836,22 @@ class CopyConfig(Entity):
             .. attribute:: candidate
             
             	The candidate configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	The running configuration is the config target. This is optional\-to\-implement on the server
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
             	The startup configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: url
             
             	The URL\-based configuration is the config target
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -891,27 +891,27 @@ class CopyConfig(Entity):
             .. attribute:: candidate
             
             	The candidate configuration is the config source
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	The running configuration is the config source
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
             	The startup configuration is the config source
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: url
             
             	The URL\-based configuration is the config source
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: config
             
             	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
-            	**type**\:  anyxml
+            	**type**\: anyxml
             
             
 
@@ -956,7 +956,7 @@ class DeleteConfig(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.DeleteConfig.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.DeleteConfig.Input>`
     
     
 
@@ -990,7 +990,7 @@ class DeleteConfig(Entity):
         .. attribute:: target
         
         	Particular configuration to delete
-        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.DeleteConfig.Input.Target>`
+        	**type**\:  :py:class:`Target <ydk.models.ietf.ietf_netconf.DeleteConfig.Input.Target>`
         
         
 
@@ -1024,12 +1024,12 @@ class DeleteConfig(Entity):
             .. attribute:: startup
             
             	The startup configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: url
             
             	The URL\-based configuration is the config target
-            	**type**\:  str
+            	**type**\: str
             
             
 
@@ -1069,7 +1069,7 @@ class Lock(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Lock.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.Lock.Input>`
     
     
 
@@ -1103,7 +1103,7 @@ class Lock(Entity):
         .. attribute:: target
         
         	Particular configuration to lock
-        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.Lock.Input.Target>`
+        	**type**\:  :py:class:`Target <ydk.models.ietf.ietf_netconf.Lock.Input.Target>`
         
         
 
@@ -1137,17 +1137,17 @@ class Lock(Entity):
             .. attribute:: candidate
             
             	The candidate configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	The running configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
             	The startup configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1189,7 +1189,7 @@ class Unlock(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Unlock.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.Unlock.Input>`
     
     
 
@@ -1223,7 +1223,7 @@ class Unlock(Entity):
         .. attribute:: target
         
         	Particular configuration to unlock
-        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.Unlock.Input.Target>`
+        	**type**\:  :py:class:`Target <ydk.models.ietf.ietf_netconf.Unlock.Input.Target>`
         
         
 
@@ -1257,17 +1257,17 @@ class Unlock(Entity):
             .. attribute:: candidate
             
             	The candidate configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	The running configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
             	The startup configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1308,12 +1308,12 @@ class Get(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Get.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.Get.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf.Get.Output>`
+    	**type**\:  :py:class:`Output <ydk.models.ietf.ietf_netconf.Get.Output>`
     
     
 
@@ -1352,12 +1352,12 @@ class Get(Entity):
         .. attribute:: filter
         
         	This parameter specifies the portion of the system configuration and state data to retrieve
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         .. attribute:: with_defaults
         
         	The explicit defaults processing mode requested
-        	**type**\:   :py:class:`WithDefaultsMode <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsMode>`
+        	**type**\:  :py:class:`WithDefaultsMode <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsMode>`
         
         
 
@@ -1393,7 +1393,7 @@ class Get(Entity):
         .. attribute:: data
         
         	Copy of the running datastore subset and/or state data that matched the filter criteria (if any). An empty data container indicates that the request did not produce any results
-        	**type**\:  anyxml
+        	**type**\: anyxml
         
         
 
@@ -1457,7 +1457,7 @@ class KillSession(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.KillSession.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.KillSession.Input>`
     
     
 
@@ -1491,7 +1491,7 @@ class KillSession(Entity):
         .. attribute:: session_id
         
         	Particular session to kill
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..4294967295
         
@@ -1533,7 +1533,7 @@ class Commit(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Commit.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.Commit.Input>`
     
     
 
@@ -1567,12 +1567,12 @@ class Commit(Entity):
         .. attribute:: confirmed
         
         	Requests a confirmed commit
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: confirm_timeout
         
         	The timeout interval for a confirmed commit
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..4294967295
         
@@ -1583,12 +1583,12 @@ class Commit(Entity):
         .. attribute:: persist
         
         	This parameter is used to make a confirmed commit persistent.  A persistent confirmed commit is not aborted if the NETCONF session terminates.  The only way to abort a persistent confirmed commit is to let the timer expire, or to use the <cancel\-commit> operation.  The value of this parameter is a token that must be given in the 'persist\-id' parameter of <commit> or <cancel\-commit> operations in order to confirm or cancel the persistent confirmed commit.  The token should be a random string
-        	**type**\:  str
+        	**type**\: str
         
         .. attribute:: persist_id
         
         	This parameter is given in order to commit a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -1662,7 +1662,7 @@ class CancelCommit(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CancelCommit.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.CancelCommit.Input>`
     
     
 
@@ -1696,7 +1696,7 @@ class CancelCommit(Entity):
         .. attribute:: persist_id
         
         	This parameter is given in order to cancel a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -1733,7 +1733,7 @@ class Validate(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Validate.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.Validate.Input>`
     
     
 
@@ -1767,7 +1767,7 @@ class Validate(Entity):
         .. attribute:: source
         
         	Particular configuration to validate
-        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.Validate.Input.Source>`
+        	**type**\:  :py:class:`Source <ydk.models.ietf.ietf_netconf.Validate.Input.Source>`
         
         
 
@@ -1801,27 +1801,27 @@ class Validate(Entity):
             .. attribute:: candidate
             
             	The candidate configuration is the config source
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	The running configuration is the config source
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
             	The startup configuration is the config source
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: url
             
             	The URL\-based configuration is the config source
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: config
             
             	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
-            	**type**\:  anyxml
+            	**type**\: anyxml
             
             
 

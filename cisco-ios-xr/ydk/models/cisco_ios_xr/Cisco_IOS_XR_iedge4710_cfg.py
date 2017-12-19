@@ -32,12 +32,12 @@ class SubscriberManager(Entity):
     .. attribute:: accounting
     
     	iEdge accounting feature
-    	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting>`
+    	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting>`
     
     .. attribute:: srg
     
     	SRG specific config
-    	**type**\:   :py:class:`Srg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Srg>`
+    	**type**\:  :py:class:`Srg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Srg>`
     
     
 
@@ -76,12 +76,12 @@ class SubscriberManager(Entity):
         .. attribute:: send_stop
         
         	Accounting send stop feature
-        	**type**\:   :py:class:`SendStop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.SendStop>`
+        	**type**\:  :py:class:`SendStop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.SendStop>`
         
         .. attribute:: interim
         
         	interim accounting related
-        	**type**\:   :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.Interim>`
+        	**type**\:  :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.Interim>`
         
         
 
@@ -120,7 +120,7 @@ class SubscriberManager(Entity):
             .. attribute:: setup_failure
             
             	Setup failure feature
-            	**type**\:   :py:class:`SetupFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.SendStop.SetupFailure>`
+            	**type**\:  :py:class:`SetupFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.SendStop.SetupFailure>`
             
             
 
@@ -154,7 +154,7 @@ class SubscriberManager(Entity):
                 .. attribute:: method_list_name
                 
                 	AAA List name either default or preconfigured
-                	**type**\:  str
+                	**type**\: str
                 
                 
 
@@ -188,7 +188,7 @@ class SubscriberManager(Entity):
             .. attribute:: variation
             
             	variation of first session or service interim record from configured timeout
-            	**type**\:   :py:class:`Variation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.Interim.Variation>`
+            	**type**\:  :py:class:`Variation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.Interim.Variation>`
             
             
 
@@ -223,7 +223,7 @@ class SubscriberManager(Entity):
                 .. attribute:: maximum_percentage_variation
                 
                 	maximum percentage variation (maximum absolute variation is 15 minutes)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..50
                 
@@ -261,7 +261,7 @@ class SubscriberManager(Entity):
         .. attribute:: sync_account_session_id
         
         	sync account session id from master to slave
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -298,7 +298,7 @@ class SubscriberFeaturette(Entity):
     .. attribute:: identity_change
     
     	enable identity change processing
-    	**type**\: list of    :py:class:`IdentityChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberFeaturette.IdentityChange>`
+    	**type**\: list of  		 :py:class:`IdentityChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberFeaturette.IdentityChange>`
     
     
 
@@ -332,12 +332,14 @@ class SubscriberFeaturette(Entity):
         .. attribute:: identity_change  <key>
         
         	identity change
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: enable
         
         	instance of identity\-change
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
@@ -378,7 +380,7 @@ class IedgeLicenseManager(Entity):
     .. attribute:: node
     
     	Location. For eg., 0/1/CPU0
-    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.IedgeLicenseManager.Node>`
+    	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.IedgeLicenseManager.Node>`
     
     
 
@@ -412,19 +414,21 @@ class IedgeLicenseManager(Entity):
         .. attribute:: node_name  <key>
         
         	The node id to filter on. For eg., 0/1/CPU0
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: session_limit
         
         	Session limit configured on linecard
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
         .. attribute:: session_threshold
         
         	Session threshold configured on linecard
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** \-2147483648..2147483647
         
@@ -467,7 +471,7 @@ class SubManager(Entity):
     .. attribute:: location
     
     	Select location
-    	**type**\: list of    :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubManager.Location>`
+    	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubManager.Location>`
     
     
 
@@ -501,17 +505,19 @@ class SubManager(Entity):
         .. attribute:: location1  <key>
         
         	Specify location
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: trace
         
         	Subscriber manager trace
-        	**type**\:   :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubManager.Location.Trace>`
+        	**type**\:  :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubManager.Location.Trace>`
         
         .. attribute:: history
         
         	Disable history for subscriber manager
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -552,7 +558,7 @@ class SubManager(Entity):
             .. attribute:: trace_level
             
             	Subscriber manager trace level
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             

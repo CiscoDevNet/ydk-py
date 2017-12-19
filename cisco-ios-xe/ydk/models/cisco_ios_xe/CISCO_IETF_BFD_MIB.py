@@ -73,27 +73,27 @@ class CISCOIETFBFDMIB(Entity):
     .. attribute:: ciscobfdscalarobjects
     
     	
-    	**type**\:   :py:class:`Ciscobfdscalarobjects <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdscalarobjects>`
+    	**type**\:  :py:class:`Ciscobfdscalarobjects <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdscalarobjects>`
     
     .. attribute:: ciscobfdsesstable
     
     	The BFD Session Table describes the BFD sessions
-    	**type**\:   :py:class:`Ciscobfdsesstable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable>`
+    	**type**\:  :py:class:`Ciscobfdsesstable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable>`
     
     .. attribute:: ciscobfdsessmaptable
     
     	The BFD Session Mapping Table maps the complex indexing of the BFD sessions to the flat  CiscoBfdSessIndexTC used in the ciscoBfdSessTable
-    	**type**\:   :py:class:`Ciscobfdsessmaptable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessmaptable>`
+    	**type**\:  :py:class:`Ciscobfdsessmaptable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessmaptable>`
     
     .. attribute:: ciscobfdsessdiscmaptable
     
     	The BFD Session Discriminator Mapping Table maps a local discriminator value to associated BFD sessions' CiscoBfdSessIndexTC used in the ciscoBfdSessTable
-    	**type**\:   :py:class:`Ciscobfdsessdiscmaptable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable>`
+    	**type**\:  :py:class:`Ciscobfdsessdiscmaptable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable>`
     
     .. attribute:: ciscobfdsessipmaptable
     
     	The BFD Session IP Mapping Table maps given ciscoBfdSessInterface, ciscoBfdSessAddrType, and ciscoBbfdSessAddr to an associated BFD sessions' CiscoBfdSessIndexTC used in the ciscoBfdSessTable. This table SHOULD contains those BFD sessions are of IP type\: singleHop(1) and multiHop(2)
-    	**type**\:   :py:class:`Ciscobfdsessipmaptable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessipmaptable>`
+    	**type**\:  :py:class:`Ciscobfdsessipmaptable <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessipmaptable>`
     
     
 
@@ -147,19 +147,19 @@ class CISCOIETFBFDMIB(Entity):
         .. attribute:: ciscobfdadminstatus
         
         	The global administrative status of BFD in this router. The value 'enabled' denotes that the BFD Process is  active on at least one interface; 'disabled' disables   it on all interfaces
-        	**type**\:   :py:class:`Ciscobfdadminstatus <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdscalarobjects.Ciscobfdadminstatus>`
+        	**type**\:  :py:class:`Ciscobfdadminstatus <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdscalarobjects.Ciscobfdadminstatus>`
         
         .. attribute:: ciscobfdversionnumber
         
         	The current version number of the BFD protocol
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
         .. attribute:: ciscobfdsessnotificationsenable
         
         	If this object is set to true(1), then it enables the emission of ciscoBfdSessUp and ciscoBfdSessDown  notifications; otherwise these notifications are not  emitted
-        	**type**\:  bool
+        	**type**\: bool
         
         
 
@@ -220,7 +220,7 @@ class CISCOIETFBFDMIB(Entity):
         .. attribute:: ciscobfdsessentry
         
         	The BFD Session Entry describes BFD session
-        	**type**\: list of    :py:class:`Ciscobfdsessentry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry>`
+        	**type**\: list of  		 :py:class:`Ciscobfdsessentry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry>`
         
         
 
@@ -254,210 +254,210 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessindex  <key>
             
             	This object contains an index used to represent a unique BFD session on this device
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: ciscobfdsessapplicationid
             
             	This object contains an index used to indicate a local application which owns or maintains this  BFD session. For instance, the MPLS VPN process may  maintain a subset of the total number of BFD  sessions.  This application ID provides a convenient  way to segregate sessions by the applications which  maintain them
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsessdiscriminator
             
             	This object specifies the local discriminator for this BFD session, used to uniquely identify it
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: ciscobfdsessremotediscr
             
             	This object specifies the session discriminator chosen by the remote system for this BFD session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsessudpport
             
             	The destination UDP Port for BFD. The default value is the well\-known value for this port. BFD State failing(5) is only applicable if this BFD session is running version 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
             .. attribute:: ciscobfdsessstate
             
             	The perceived state of the BFD session
-            	**type**\:   :py:class:`Ciscobfdsessstate <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry.Ciscobfdsessstate>`
+            	**type**\:  :py:class:`Ciscobfdsessstate <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry.Ciscobfdsessstate>`
             
             .. attribute:: ciscobfdsessremoteheardflag
             
             	This object specifies status of BFD packet reception from the remote system. Specifically, it is set to true(1) if  the local system is actively receiving BFD packets from the   remote system, and is set to false(0) if the local system   has not received BFD packets recently (within the detection   time) or if the local system is attempting to tear down  the BFD session
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ciscobfdsessdiag
             
             	A diagnostic code specifying the local system's reason for the last transition of the session from up(1)   to some other state
-            	**type**\:   :py:class:`CiscoBfdDiag <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CiscoBfdDiag>`
+            	**type**\:  :py:class:`CiscoBfdDiag <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CiscoBfdDiag>`
             
             .. attribute:: ciscobfdsessopermode
             
             	This object specifies current operating mode that BFD session is operating in
-            	**type**\:   :py:class:`Ciscobfdsessopermode <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry.Ciscobfdsessopermode>`
+            	**type**\:  :py:class:`Ciscobfdsessopermode <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry.Ciscobfdsessopermode>`
             
             .. attribute:: ciscobfdsessdemandmodedesiredflag
             
             	This object indicates that the local system's desire to use Demand mode. Specifically, it is set   to true(1) if the local system wishes to use   Demand mode or false(0) if not
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ciscobfdsessechofuncmodedesiredflag
             
             	This object indicates that the local system's desire to use Echo mode. Specifically, it is set   to true(1) if the local system wishes to use   Echo mode or false(0) if not
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ciscobfdsesscontrolplanindepflag
             
             	This object indicates that the local system's ability to continue to function through a disruption of   the control plane. Specifically, it is set   to true(1) if the local system BFD implementation is  independent of the control plane. Otherwise, the   value is set to false(0)
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ciscobfdsessaddrtype
             
             	This object specifies IP address type of the neighboring IP address which is being monitored with this BFD session.  Only values unknown(0), ipv4(1) or ipv6(2)  have to be supported.    A value of unknown(0) is allowed only when   the outgoing interface is of type point\-to\-point, or  when the BFD session is not associated with a specific   interface.   If any other unsupported values are attempted in a set  operation, the agent MUST return an inconsistentValue   error
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: ciscobfdsessaddr
             
             	This object specifies the neighboring IP address which is being monitored with this BFD session. It can also be used to enabled BFD on a specific   interface. The value is set to zero when BFD session is not   associated with a specific interface
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
             .. attribute:: ciscobfdsessdesiredmintxinterval
             
             	This object specifies the minimum interval, in microseconds, that the local system would like to use when       transmitting BFD Control packets
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsessreqminrxinterval
             
             	This object specifies the minimum interval, in microseconds, between received  BFD Control packets the   local system is capable of supporting
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsessreqminechorxinterval
             
             	This object specifies the minimum interval, in microseconds, between received BFD Echo packets that this  system is capable of supporting
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsessdetectmult
             
             	This object specifies the Detect time multiplier
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsessstortype
             
             	This variable indicates the storage type for this object. Conceptual rows having the value   'permanent' need not allow write\-access to any   columnar objects in the row
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
             .. attribute:: ciscobfdsessrowstatus
             
             	This variable is used to create, modify, and/or delete a row in this table. When a row in this  table has a row in the active(1) state, no   objects in this row can be modified except the  ciscoBfdSessRowStatus and ciscoBfdSessStorageType
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: ciscobfdsessauthpresflag
             
             	This object indicates that the local system's desire to use Authentication. Specifically, it is set   to true(1) if the local system wishes the session   to be authenticated or false(0) if not
-            	**type**\:  bool
+            	**type**\: bool
             
             .. attribute:: ciscobfdsessauthenticationtype
             
             	The Authentication Type used for this BFD session. This field is valid only when the Authentication Present bit is set
-            	**type**\:   :py:class:`Ciscobfdsessauthenticationtype <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry.Ciscobfdsessauthenticationtype>`
+            	**type**\:  :py:class:`Ciscobfdsessauthenticationtype <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry.Ciscobfdsessauthenticationtype>`
             
             .. attribute:: ciscobfdsessversionnumber
             
             	The version number of the BFD protocol that this session is running in
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsesstype
             
             	The type of this BFD session
-            	**type**\:   :py:class:`Ciscobfdsesstype <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry.Ciscobfdsesstype>`
+            	**type**\:  :py:class:`Ciscobfdsesstype <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsesstable.Ciscobfdsessentry.Ciscobfdsesstype>`
             
             .. attribute:: ciscobfdsessinterface
             
             	This object contains an interface index used to indicate the interface which this BFD session is running on
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: ciscobfdsessperfpktin
             
             	The total number of BFD messages received for this BFD session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsessperfpktout
             
             	The total number of BFD messages sent for this BFD session
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsessuptime
             
             	The value of sysUpTime on the most recent occasion at which the session came up. If no such up event exists this object  contains a zero value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsessperflastsessdowntime
             
             	The value of sysUpTime on the most recent occasion at which the last time communication was lost with the neighbor. If   no such down event exist this object contains a zero value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsessperflastcommlostdiag
             
             	The BFD diag code for the last time communication was lost with the neighbor. If no such down event exists this object   contains a zero value
-            	**type**\:   :py:class:`CiscoBfdDiag <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CiscoBfdDiag>`
+            	**type**\:  :py:class:`CiscoBfdDiag <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CiscoBfdDiag>`
             
             .. attribute:: ciscobfdsessperfsessupcount
             
             	The number of times this session has gone into the Up state since the router last rebooted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsessperfdisctime
             
             	The value of sysUpTime on the most recent occasion at which any one or more of the session counters suffered  a discontinuity.    The relevant counters are the specific instances associated   with this BFD session of any Counter32 object contained in  the ciscoBfdSessPerfTable. If no such discontinuities have occurred   since the last re\-initialization of the local management  subsystem, then this object contains a zero value
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: ciscobfdsessperfpktinhc
             
             	This value represents the total number of BFD messages received for this BFD session. It MUST be equal to the  least significant 32 bits of ciscoBfdSessPerfPktIn  if ciscoBfdSessPerfPktInHC is supported according to  the rules spelled out in RFC2863
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: ciscobfdsessperfpktouthc
             
             	This value represents the total number of total number of BFD messages transmitted for this   BFD session. It MUST be equal to the  least significant 32 bits of ciscoBfdSessPerfPktIn  if ciscoBfdSessPerfPktOutHC is supported according to  the rules spelled out in RFC2863
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -665,7 +665,7 @@ class CISCOIETFBFDMIB(Entity):
         .. attribute:: ciscobfdsessmapentry
         
         	The BFD Session Entry describes BFD session that is mapped to this index
-        	**type**\: list of    :py:class:`Ciscobfdsessmapentry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessmaptable.Ciscobfdsessmapentry>`
+        	**type**\: list of  		 :py:class:`Ciscobfdsessmapentry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessmaptable.Ciscobfdsessmapentry>`
         
         
 
@@ -700,7 +700,7 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessapplicationid  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -709,7 +709,7 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessdiscriminator  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -718,12 +718,12 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessaddrtype  <key>
             
             	
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: ciscobfdsessaddr  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
@@ -732,7 +732,7 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessmapbfdindex
             
             	This object indicates the CiscoBfdSessIndexTC referred to by the indices of this row. In essence, a mapping is  provided between these indices and the ciscoBfdSessTable
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -778,7 +778,7 @@ class CISCOIETFBFDMIB(Entity):
         .. attribute:: ciscobfdsessdiscmapentry
         
         	Each row contains a mapping between a local discriminator value to an entry in ciscoBfdSessTable
-        	**type**\: list of    :py:class:`Ciscobfdsessdiscmapentry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry>`
+        	**type**\: list of  		 :py:class:`Ciscobfdsessdiscmapentry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry>`
         
         
 
@@ -813,7 +813,7 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessdiscriminator  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -822,7 +822,7 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessdiscmapindex
             
             	This object indicates the CiscoBfdSessIndexTC referred to by the index of this row. In essence, a mapping is  provided between this index and the ciscoBfdSessTable
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -865,7 +865,7 @@ class CISCOIETFBFDMIB(Entity):
         .. attribute:: ciscobfdsessipmapentry
         
         	Each row contains a mapping between ciscoBfdSessInterface, ciscoBfdSessAddrType and ciscoBfdSessAddr values to an  entry in ciscoBfdSessTable
-        	**type**\: list of    :py:class:`Ciscobfdsessipmapentry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessipmaptable.Ciscobfdsessipmapentry>`
+        	**type**\: list of  		 :py:class:`Ciscobfdsessipmapentry <ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB.CISCOIETFBFDMIB.Ciscobfdsessipmaptable.Ciscobfdsessipmapentry>`
         
         
 
@@ -901,7 +901,7 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessinterface  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -910,12 +910,12 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessaddrtype  <key>
             
             	
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: ciscobfdsessaddr  <key>
             
             	
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..255
             
@@ -924,7 +924,7 @@ class CISCOIETFBFDMIB(Entity):
             .. attribute:: ciscobfdsessipmapindex
             
             	This object indicates the CiscoBfdSessIndexTC referred to by the indices of this row. In essence, a mapping is  provided between these indices and an entry in ciscoBfdSessTable
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             

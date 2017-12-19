@@ -75,7 +75,7 @@ class InterfaceLinkUp(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.InterfaceLinkUp.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.InterfaceLinkUp.Input>`
     
     
 
@@ -109,7 +109,7 @@ class InterfaceLinkUp(Entity):
         .. attribute:: ifindex
         
         	interface index for which to generate LinkUp trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -148,7 +148,7 @@ class InterfaceLinkDown(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.InterfaceLinkDown.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.InterfaceLinkDown.Input>`
     
     
 
@@ -182,7 +182,7 @@ class InterfaceLinkDown(Entity):
         .. attribute:: ifindex
         
         	interface index for which to generate LinkDown trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -221,7 +221,7 @@ class SonetSectionStatus(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetSectionStatus.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetSectionStatus.Input>`
     
     
 
@@ -255,7 +255,7 @@ class SonetSectionStatus(Entity):
         .. attribute:: ifindex
         
         	interface index for which to generate ciscoSonetSectionStatusChange trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -294,7 +294,7 @@ class SonetLineStatus(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetLineStatus.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetLineStatus.Input>`
     
     
 
@@ -328,7 +328,7 @@ class SonetLineStatus(Entity):
         .. attribute:: ifindex
         
         	interface index for which to generate ciscoSonetLineStatusChange trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -367,7 +367,7 @@ class SonetPathStatus(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetPathStatus.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetPathStatus.Input>`
     
     
 
@@ -401,7 +401,7 @@ class SonetPathStatus(Entity):
         .. attribute:: ifindex
         
         	interface index for which to generate ciscoSonetPathStatusChange trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -656,7 +656,7 @@ class EntitySensorThresholdNotification(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntitySensorThresholdNotification.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntitySensorThresholdNotification.Input>`
     
     
 
@@ -690,7 +690,7 @@ class EntitySensorThresholdNotification(Entity):
         .. attribute:: entindex
         
         	entity Physical Index for which to generate trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -729,7 +729,7 @@ class EntityFruPowerStatusChangeFailed(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruPowerStatusChangeFailed.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruPowerStatusChangeFailed.Input>`
     
     
 
@@ -763,7 +763,7 @@ class EntityFruPowerStatusChangeFailed(Entity):
         .. attribute:: entindex
         
         	entity Physical Index for which to generate trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -802,7 +802,7 @@ class EntityFruModuleStatusChangeUp(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruModuleStatusChangeUp.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruModuleStatusChangeUp.Input>`
     
     
 
@@ -836,7 +836,7 @@ class EntityFruModuleStatusChangeUp(Entity):
         .. attribute:: entindex
         
         	entity Physical Index for which to generate trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -875,7 +875,7 @@ class EntityFruModuleStatusChangeDown(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruModuleStatusChangeDown.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruModuleStatusChangeDown.Input>`
     
     
 
@@ -909,7 +909,7 @@ class EntityFruModuleStatusChangeDown(Entity):
         .. attribute:: entindex
         
         	entity Physical Index for which to generate trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -948,7 +948,7 @@ class EntityFruFanTrayOperStatusUp(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayOperStatusUp.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayOperStatusUp.Input>`
     
     
 
@@ -982,7 +982,7 @@ class EntityFruFanTrayOperStatusUp(Entity):
         .. attribute:: entindex
         
         	entity Physical Index for which to generate trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -1021,7 +1021,7 @@ class EntityFruFanTrayInserted(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayInserted.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayInserted.Input>`
     
     
 
@@ -1055,7 +1055,7 @@ class EntityFruFanTrayInserted(Entity):
         .. attribute:: entindex
         
         	entity Physical Index for which to generate trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -1094,7 +1094,7 @@ class EntityFruFanTrayRemoved(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayRemoved.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayRemoved.Input>`
     
     
 
@@ -1128,7 +1128,7 @@ class EntityFruFanTrayRemoved(Entity):
         .. attribute:: entindex
         
         	entity Physical Index for which to generate trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..2147483647
         
@@ -1167,7 +1167,7 @@ class PlatformHfrBundleDownedLink(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.PlatformHfrBundleDownedLink.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.PlatformHfrBundleDownedLink.Input>`
     
     
 
@@ -1201,7 +1201,7 @@ class PlatformHfrBundleDownedLink(Entity):
         .. attribute:: bundle_name
         
         	bundle name for which to generate the trap
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -1238,7 +1238,7 @@ class PlatformHfrBundleState(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.PlatformHfrBundleState.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.PlatformHfrBundleState.Input>`
     
     
 
@@ -1272,7 +1272,7 @@ class PlatformHfrBundleState(Entity):
         .. attribute:: bundle_name
         
         	bundle name for which to generate the trap
-        	**type**\:  str
+        	**type**\: str
         
         
 
@@ -1309,7 +1309,7 @@ class PlatformHfrPlaneState(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.PlatformHfrPlaneState.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.PlatformHfrPlaneState.Input>`
     
     
 
@@ -1343,7 +1343,7 @@ class PlatformHfrPlaneState(Entity):
         .. attribute:: plane_id
         
         	plane identifier for which to generate the trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..4294967295
         
@@ -1409,7 +1409,7 @@ class RoutingBgpEstablishedRemotePeer(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingBgpEstablishedRemotePeer.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingBgpEstablishedRemotePeer.Input>`
     
     
 
@@ -1443,7 +1443,9 @@ class RoutingBgpEstablishedRemotePeer(Entity):
         .. attribute:: address
         
         	BGP remote peer IP address for which to generate the trap
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -1509,7 +1511,7 @@ class RoutingBgpStateChangeRemotePeer(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingBgpStateChangeRemotePeer.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingBgpStateChangeRemotePeer.Input>`
     
     
 
@@ -1543,7 +1545,9 @@ class RoutingBgpStateChangeRemotePeer(Entity):
         .. attribute:: address
         
         	BGP remote peer IP address for which to generate the trap
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -1609,7 +1613,7 @@ class RoutingOspfNeighborStateChangeAddress(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingOspfNeighborStateChangeAddress.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingOspfNeighborStateChangeAddress.Input>`
     
     
 
@@ -1643,14 +1647,16 @@ class RoutingOspfNeighborStateChangeAddress(Entity):
         .. attribute:: address
         
         	neighbor's IP source address for which to generate the trap
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: ifindex
         
         	0 for interfaces having IP addresses or IF\-MIB ifindex of addressless interface
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..2147483647
         
@@ -1720,7 +1726,7 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsLdpSessionDownEntityId.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsLdpSessionDownEntityId.Input>`
     
     
 
@@ -1754,7 +1760,7 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
         .. attribute:: entity_id
         
         	entity ldp\-id in x.x.x.x.y.y format where x.x.x.x is the entity IP address and y.y is the label space
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 23
         
@@ -1763,7 +1769,7 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
         .. attribute:: entity_index
         
         	entity index for which to generate the trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..4294967295
         
@@ -1772,7 +1778,7 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
         .. attribute:: peer_id
         
         	peer ldp\-id in x.x.x.x.y.y format where x.x.x.x is the entity IP address and y.y is the label space
-        	**type**\:  str
+        	**type**\: str
         
         	**length:** 23
         
@@ -1844,7 +1850,7 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReRoutedIndex.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReRoutedIndex.Input>`
     
     
 
@@ -1878,7 +1884,7 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
         .. attribute:: index
         
         	tunnel index for which to generate the trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
@@ -1887,7 +1893,7 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
         .. attribute:: instance
         
         	tunnel instance for which to generate the trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
@@ -1896,14 +1902,18 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
         .. attribute:: source
         
         	source address for which to generate the trap
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: destination
         
         	destination address for which to generate the trap
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -1975,7 +1985,7 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReOptimizedIndex.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReOptimizedIndex.Input>`
     
     
 
@@ -2009,7 +2019,7 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
         .. attribute:: index
         
         	tunnel index for which to generate the trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
@@ -2018,7 +2028,7 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
         .. attribute:: instance
         
         	tunnel instance for which to generate the trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
@@ -2027,14 +2037,18 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
         .. attribute:: source
         
         	source address for which to generate the trap
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: destination
         
         	destination address for which to generate the trap
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
@@ -2106,7 +2120,7 @@ class RoutingMplsTunnelDownIndex(Entity):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelDownIndex.Input>`
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelDownIndex.Input>`
     
     
 
@@ -2140,7 +2154,7 @@ class RoutingMplsTunnelDownIndex(Entity):
         .. attribute:: index
         
         	tunnel index for which to generate the trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
@@ -2149,7 +2163,7 @@ class RoutingMplsTunnelDownIndex(Entity):
         .. attribute:: instance
         
         	tunnel instance for which to generate the trap
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 0..65535
         
@@ -2158,14 +2172,18 @@ class RoutingMplsTunnelDownIndex(Entity):
         .. attribute:: source
         
         	src address
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         
         .. attribute:: destination
         
         	destination address for which to generate the trap
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         	**mandatory**\: True
         

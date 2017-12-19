@@ -25,7 +25,7 @@ class Mlan(Entity):
     .. attribute:: nodes
     
     	Table of nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class Mlan(Entity):
         .. attribute:: node
         
         	Number
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node>`
         
         
 
@@ -93,27 +93,29 @@ class Mlan(Entity):
             .. attribute:: node  <key>
             
             	node number
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: port_status_numbers
             
             	Table of port status
-            	**type**\:   :py:class:`PortStatusNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers>`
+            	**type**\:  :py:class:`PortStatusNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers>`
             
             .. attribute:: switch_status_table
             
             	Table of switch status
-            	**type**\:   :py:class:`SwitchStatusTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.SwitchStatusTable>`
+            	**type**\:  :py:class:`SwitchStatusTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.SwitchStatusTable>`
             
             .. attribute:: port_counters_numbers
             
             	Table of port counters
-            	**type**\:   :py:class:`PortCountersNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortCountersNumbers>`
+            	**type**\:  :py:class:`PortCountersNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortCountersNumbers>`
             
             .. attribute:: atu_entry_numbers
             
             	Table of switch ATU
-            	**type**\:   :py:class:`AtuEntryNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.AtuEntryNumbers>`
+            	**type**\:  :py:class:`AtuEntryNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.AtuEntryNumbers>`
             
             
 
@@ -167,7 +169,7 @@ class Mlan(Entity):
                 .. attribute:: port_status_number
                 
                 	Number
-                	**type**\: list of    :py:class:`PortStatusNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber>`
+                	**type**\: list of  		 :py:class:`PortStatusNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber>`
                 
                 
 
@@ -200,14 +202,14 @@ class Mlan(Entity):
                     .. attribute:: number  <key>
                     
                     	port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: port_status
                     
                     	mlan port status info
-                    	**type**\:   :py:class:`PortStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus>`
+                    	**type**\:  :py:class:`PortStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus>`
                     
                     
 
@@ -245,48 +247,48 @@ class Mlan(Entity):
                         .. attribute:: config
                         
                         	Configuration Data
-                        	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Config>`
                         
                         .. attribute:: phy
                         
                         	PHY Registers
-                        	**type**\:   :py:class:`Phy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy>`
+                        	**type**\:  :py:class:`Phy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy>`
                         
                         .. attribute:: serdes
                         
                         	SERDES Registers
-                        	**type**\:   :py:class:`Serdes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes>`
+                        	**type**\:  :py:class:`Serdes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes>`
                         
                         .. attribute:: mac
                         
                         	MAC Registers
-                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac>`
+                        	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac>`
                         
                         .. attribute:: port_num
                         
                         	Port Number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: phy_valid
                         
                         	PHY data valid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: serdes_valid
                         
                         	SERDES data valid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mac_valid
                         
                         	MAC data valid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -347,35 +349,35 @@ class Mlan(Entity):
                             .. attribute:: speed
                             
                             	speed
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: duplex
                             
                             	duplex
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: pause
                             
                             	pauseEn
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: my_pause
                             
                             	myPause
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: loopback
                             
                             	loopback
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -418,7 +420,7 @@ class Mlan(Entity):
                             .. attribute:: reg
                             
                             	reg
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..65535
                             
@@ -453,7 +455,7 @@ class Mlan(Entity):
                             .. attribute:: reg
                             
                             	reg
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..65535
                             
@@ -488,7 +490,7 @@ class Mlan(Entity):
                             .. attribute:: reg
                             
                             	reg
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..65535
                             
@@ -523,7 +525,7 @@ class Mlan(Entity):
                 .. attribute:: switch_status
                 
                 	mlan switch status info
-                	**type**\:   :py:class:`SwitchStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus>`
+                	**type**\:  :py:class:`SwitchStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus>`
                 
                 
 
@@ -556,22 +558,22 @@ class Mlan(Entity):
                     .. attribute:: sw_reg_1
                     
                     	Switch Global Registers
-                    	**type**\:   :py:class:`SwReg1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1>`
+                    	**type**\:  :py:class:`SwReg1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1>`
                     
                     .. attribute:: sw_reg_2
                     
                     	Switch Global Registers
-                    	**type**\:   :py:class:`SwReg2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2>`
+                    	**type**\:  :py:class:`SwReg2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2>`
                     
                     .. attribute:: sw_status
                     
                     	Switch Status Data
-                    	**type**\:   :py:class:`SwStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwStatus>`
+                    	**type**\:  :py:class:`SwStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwStatus>`
                     
                     .. attribute:: rate_limit
                     
                     	CPU Interface Rate Limit
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -621,7 +623,7 @@ class Mlan(Entity):
                         .. attribute:: reg
                         
                         	reg
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..65535
                         
@@ -656,7 +658,7 @@ class Mlan(Entity):
                         .. attribute:: reg
                         
                         	reg
-                        	**type**\:  list of int
+                        	**type**\: list of int
                         
                         	**range:** 0..65535
                         
@@ -691,49 +693,49 @@ class Mlan(Entity):
                         .. attribute:: ppu
                         
                         	ppu
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mtu
                         
                         	mtu
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: mac
                         
                         	mac
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..6
                         
                         .. attribute:: cpu_port
                         
                         	cpu port
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: cpu_mac
                         
                         	cpu mac
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: initialized
                         
                         	initialized
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: restarted
                         
                         	restarted
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
@@ -780,7 +782,7 @@ class Mlan(Entity):
                 .. attribute:: port_counters_number
                 
                 	Number
-                	**type**\: list of    :py:class:`PortCountersNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber>`
+                	**type**\: list of  		 :py:class:`PortCountersNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber>`
                 
                 
 
@@ -813,14 +815,14 @@ class Mlan(Entity):
                     .. attribute:: number  <key>
                     
                     	port number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: port_counters
                     
                     	mlan port counters info
-                    	**type**\:   :py:class:`PortCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters>`
+                    	**type**\:  :py:class:`PortCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters>`
                     
                     
 
@@ -858,12 +860,12 @@ class Mlan(Entity):
                         .. attribute:: mlan_stats
                         
                         	Switch Port Statistics
-                        	**type**\:   :py:class:`MlanStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters.MlanStats>`
+                        	**type**\:  :py:class:`MlanStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters.MlanStats>`
                         
                         .. attribute:: port_num
                         
                         	Port Number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -903,245 +905,245 @@ class Mlan(Entity):
                             .. attribute:: in_good_octets_hi
                             
                             	inGoodOctets hi
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_good_octets
                             
                             	inGoodOctets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_bad_octets
                             
                             	inBadOctets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_unicast_pkt
                             
                             	inUnicastPkt
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_bcast_pkt
                             
                             	inBcastPkt
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_mcast_pkt
                             
                             	inMcastPkt
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_pause_pkt
                             
                             	inPausePkt
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_undersize_pkt
                             
                             	inUndersizePkt
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_fragments
                             
                             	inFragments
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_oversize
                             
                             	inOversize
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_jabber
                             
                             	inJabber
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_rx_err
                             
                             	inRxErr
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_fcs_err
                             
                             	inFcsErr
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_octets_hi
                             
                             	outOctets hi
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_octets
                             
                             	outOctets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_unicast_pkt
                             
                             	outUnicastPkt
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_bcast_pkt
                             
                             	outBcastPkt
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_mcast_pkt
                             
                             	outMcastPkt
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_pause_pkt
                             
                             	outPausePkt
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: excessive
                             
                             	excessive
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: collisions
                             
                             	collisions
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: deferred
                             
                             	deferred
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: single
                             
                             	single
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: multiple
                             
                             	multiple
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_fcs_err
                             
                             	outFcsErr
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: late
                             
                             	late
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: rx_tx_64_octets
                             
                             	rx tx 64 Octets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: rx_tx_65_127_octets
                             
                             	rx tx 65 127 Octets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: rx_tx_128_255_octets
                             
                             	rx tx 128 255 Octets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: rx_tx_256_511_octets
                             
                             	rx tx 256 511 Octets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: rx_tx_512_1023_octets
                             
                             	rx tx 512 1023 Octets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: rx_tx_1024_max_octets
                             
                             	rx tx 1024 Max Octets
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_discards
                             
                             	inDiscards
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: in_filtered
                             
                             	inFiltered
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: out_filtered
                             
                             	outFiltered
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1244,7 +1246,7 @@ class Mlan(Entity):
                 .. attribute:: atu_entry_number
                 
                 	Entry number
-                	**type**\: list of    :py:class:`AtuEntryNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber>`
+                	**type**\: list of  		 :py:class:`AtuEntryNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber>`
                 
                 
 
@@ -1277,14 +1279,14 @@ class Mlan(Entity):
                     .. attribute:: entry  <key>
                     
                     	entry number
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: switch_counters
                     
                     	mlan switch counters info
-                    	**type**\:   :py:class:`SwitchCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters>`
+                    	**type**\:  :py:class:`SwitchCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters>`
                     
                     
 
@@ -1322,12 +1324,12 @@ class Mlan(Entity):
                         .. attribute:: atu
                         
                         	Switch ATU Data
-                        	**type**\:   :py:class:`Atu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu>`
+                        	**type**\:  :py:class:`Atu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper.Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu>`
                         
                         .. attribute:: entry_num
                         
                         	Index of ATU Entry
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1367,40 +1369,40 @@ class Mlan(Entity):
                             .. attribute:: db_num
                             
                             	dbNum
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: priority
                             
                             	priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: trunk
                             
                             	trunk
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: dpv
                             
                             	dpv
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: es
                             
                             	es
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: macaddr
                             
                             	macaddr
-                            	**type**\:  list of int
+                            	**type**\: list of int
                             
                             	**range:** 0..65535
                             

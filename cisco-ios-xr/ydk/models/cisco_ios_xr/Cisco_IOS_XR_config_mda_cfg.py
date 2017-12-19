@@ -26,7 +26,7 @@ class ActiveNodes(Entity):
     .. attribute:: active_node
     
     	The configuration for an active node
-    	**type**\: list of    :py:class:`ActiveNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode>`
+    	**type**\: list of  		 :py:class:`ActiveNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode>`
     
     
 
@@ -60,37 +60,39 @@ class ActiveNodes(Entity):
         .. attribute:: node_name  <key>
         
         	The identifier for this node
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
         .. attribute:: clock_interface
         
         	Configuration for a clock interface
-        	**type**\:   :py:class:`ClockInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface>`
+        	**type**\:  :py:class:`ClockInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface>`
         
         .. attribute:: ltrace
         
         	Ltrace Memory configuration
-        	**type**\:   :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace>`
+        	**type**\:  :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace>`
         
         .. attribute:: lpts_local
         
         	lpts node specific configuration commands
-        	**type**\:   :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
+        	**type**\:  :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
         
         .. attribute:: ssrp_group
         
         	Per\-node SSRP configuration data
-        	**type**\:   :py:class:`SsrpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup>`
+        	**type**\:  :py:class:`SsrpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup>`
         
         .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold
         
         	watchdog node threshold
-        	**type**\:   :py:class:`CiscoIOSXRWatchdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold>`
+        	**type**\:  :py:class:`CiscoIOSXRWatchdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold>`
         
-        .. attribute:: cisco_ios_xr_wd_cfg_watchdog_node_threshold
+        .. attribute:: cisco_ios_xr_wd_cfg_watchdog_node_threshold_
         
         	Watchdog threshold configuration
-        	**type**\:   :py:class:`CiscoIOSXRWdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold>`
+        	**type**\:  :py:class:`CiscoIOSXRWdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold>`
         
         
 
@@ -106,7 +108,7 @@ class ActiveNodes(Entity):
             self.yang_parent_name = "active-nodes"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"clock-interface" : ("clock_interface", ActiveNodes.ActiveNode.ClockInterface), "ltrace" : ("ltrace", ActiveNodes.ActiveNode.Ltrace), "lpts-local" : ("lpts_local", ActiveNodes.ActiveNode.LptsLocal), "ssrp-group" : ("ssrp_group", ActiveNodes.ActiveNode.SsrpGroup), "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold" : ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold), "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold" : ("cisco_ios_xr_wd_cfg_watchdog_node_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold)}
+            self._child_container_classes = {"Cisco-IOS-XR-freqsync-cfg:clock-interface" : ("clock_interface", ActiveNodes.ActiveNode.ClockInterface), "Cisco-IOS-XR-infra-ltrace-cfg:ltrace" : ("ltrace", ActiveNodes.ActiveNode.Ltrace), "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local" : ("lpts_local", ActiveNodes.ActiveNode.LptsLocal), "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group" : ("ssrp_group", ActiveNodes.ActiveNode.SsrpGroup), "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold" : ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold), "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold" : ("cisco_ios_xr_wd_cfg_watchdog_node_threshold_", ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold)}
             self._child_list_classes = {}
 
             self.node_name = YLeaf(YType.str, "node-name")
@@ -133,13 +135,13 @@ class ActiveNodes(Entity):
 
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold()
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.parent = self
-            self._children_name_map["cisco_ios_xr_watchd_cfg_watchdog_node_threshold"] = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
-            self._children_yang_names.add("Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold")
+            self._children_name_map["cisco_ios_xr_watchd_cfg_watchdog_node_threshold"] = "watchdog-node-threshold"
+            self._children_yang_names.add("watchdog-node-threshold")
 
-            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold()
-            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
-            self._children_name_map["cisco_ios_xr_wd_cfg_watchdog_node_threshold"] = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
-            self._children_yang_names.add("Cisco-IOS-XR-wd-cfg_watchdog-node-threshold")
+            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold_ = ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold()
+            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold_.parent = self
+            self._children_name_map["cisco_ios_xr_wd_cfg_watchdog_node_threshold_"] = "watchdog-node-threshold"
+            self._children_yang_names.add("watchdog-node-threshold")
             self._segment_path = lambda: "active-node" + "[node-name='" + self.node_name.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-mda-cfg:active-nodes/%s" % self._segment_path()
 
@@ -154,7 +156,7 @@ class ActiveNodes(Entity):
             .. attribute:: clocks
             
             	Configuration for a clock interface
-            	**type**\:   :py:class:`Clocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks>`
+            	**type**\:  :py:class:`Clocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks>`
             
             
 
@@ -187,7 +189,7 @@ class ActiveNodes(Entity):
                 .. attribute:: clock
                 
                 	Configuration for a clock interface
-                	**type**\: list of    :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock>`
+                	**type**\: list of  		 :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock>`
                 
                 
 
@@ -220,19 +222,19 @@ class ActiveNodes(Entity):
                     .. attribute:: clock_type  <key>
                     
                     	Clock type
-                    	**type**\:   :py:class:`FsyncClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncClock>`
+                    	**type**\:  :py:class:`FsyncClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncClock>`
                     
                     .. attribute:: port  <key>
                     
                     	Clock port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: frequency_synchronization
                     
                     	Frequency Synchronization clock configuraiton
-                    	**type**\:   :py:class:`FrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization>`
+                    	**type**\:  :py:class:`FrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization>`
                     
                     
 
@@ -272,17 +274,17 @@ class ActiveNodes(Entity):
                         .. attribute:: output_quality_level
                         
                         	Set the output quality level
-                        	**type**\:   :py:class:`OutputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel>`
+                        	**type**\:  :py:class:`OutputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel>`
                         
                         .. attribute:: input_quality_level
                         
                         	Set the input quality level
-                        	**type**\:   :py:class:`InputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel>`
+                        	**type**\:  :py:class:`InputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel>`
                         
                         .. attribute:: wait_to_restore_time
                         
                         	Set the wait\-to\-restore time for this source
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..12
                         
@@ -291,7 +293,7 @@ class ActiveNodes(Entity):
                         .. attribute:: priority
                         
                         	Set the priority of this source
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..254
                         
@@ -300,12 +302,12 @@ class ActiveNodes(Entity):
                         .. attribute:: selection_input
                         
                         	Assign this source as a selection input
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: time_of_day_priority
                         
                         	Set the time\-of\-day priority of this source
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..254
                         
@@ -314,7 +316,7 @@ class ActiveNodes(Entity):
                         .. attribute:: ssm_disable
                         
                         	Disable SSM on this source
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -365,22 +367,22 @@ class ActiveNodes(Entity):
                             .. attribute:: quality_level_option
                             
                             	Quality level option
-                            	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                            	**type**\:  :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
                             
                             .. attribute:: exact_quality_level_value
                             
                             	Exact quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             .. attribute:: min_quality_level_value
                             
                             	Minimum quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             .. attribute:: max_quality_level_value
                             
                             	Maximum quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             
 
@@ -419,22 +421,22 @@ class ActiveNodes(Entity):
                             .. attribute:: quality_level_option
                             
                             	Quality level option
-                            	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                            	**type**\:  :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
                             
                             .. attribute:: exact_quality_level_value
                             
                             	Exact quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             .. attribute:: min_quality_level_value
                             
                             	Minimum quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             .. attribute:: max_quality_level_value
                             
                             	Maximum quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             
 
@@ -473,7 +475,7 @@ class ActiveNodes(Entity):
             .. attribute:: allocation_params
             
             	Select Ltrace mode and scale\-factor
-            	**type**\:   :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace.AllocationParams>`
+            	**type**\:  :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace.AllocationParams>`
             
             
 
@@ -506,12 +508,12 @@ class ActiveNodes(Entity):
                 .. attribute:: mode
                 
                 	Select an allocation mode (static\:1, dynamic \:2)
-                	**type**\:   :py:class:`InfraLtraceMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceMode>`
+                	**type**\:  :py:class:`InfraLtraceMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceMode>`
                 
                 .. attribute:: scale_factor
                 
                 	Select a scaling down factor
-                	**type**\:   :py:class:`InfraLtraceScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScale>`
+                	**type**\:  :py:class:`InfraLtraceScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScale>`
                 
                 
 
@@ -546,17 +548,17 @@ class ActiveNodes(Entity):
             .. attribute:: ipolicer_local_tables
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\:   :py:class:`IpolicerLocalTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables>`
+            	**type**\:  :py:class:`IpolicerLocalTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables>`
             
             .. attribute:: dynamic_flows_tables
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\:   :py:class:`DynamicFlowsTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables>`
+            	**type**\:  :py:class:`DynamicFlowsTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables>`
             
             .. attribute:: ipolicer_local
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\:   :py:class:`IpolicerLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal>`
+            	**type**\:  :py:class:`IpolicerLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal>`
             
             	**presence node**\: True
             
@@ -601,7 +603,7 @@ class ActiveNodes(Entity):
                 .. attribute:: ipolicer_local_table
                 
                 	Pre IFIB (Internal Forwarding Information Base) configuration table
-                	**type**\: list of    :py:class:`IpolicerLocalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable>`
+                	**type**\: list of  		 :py:class:`IpolicerLocalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable>`
                 
                 
 
@@ -635,12 +637,14 @@ class ActiveNodes(Entity):
                     .. attribute:: id1  <key>
                     
                     	none
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: nps
                     
                     	NP name
-                    	**type**\:   :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
+                    	**type**\:  :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
                     
                     
 
@@ -678,7 +682,7 @@ class ActiveNodes(Entity):
                         .. attribute:: np
                         
                         	Table of NP names
-                        	**type**\: list of    :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
+                        	**type**\: list of  		 :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
                         
                         
 
@@ -711,14 +715,14 @@ class ActiveNodes(Entity):
                             .. attribute:: id1  <key>
                             
                             	none
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: rate
                             
                             	Packets per second
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -758,7 +762,7 @@ class ActiveNodes(Entity):
                 .. attribute:: dynamic_flows_table
                 
                 	Table for Dynamic Flows
-                	**type**\: list of    :py:class:`DynamicFlowsTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable>`
+                	**type**\: list of  		 :py:class:`DynamicFlowsTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable>`
                 
                 
 
@@ -791,12 +795,12 @@ class ActiveNodes(Entity):
                     .. attribute:: table_type  <key>
                     
                     	LPTS Dynamic Flows Table Type
-                    	**type**\:   :py:class:`LptsDynamicFlowConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsDynamicFlowConfig>`
+                    	**type**\:  :py:class:`LptsDynamicFlowConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsDynamicFlowConfig>`
                     
                     .. attribute:: flow_type
                     
                     	Selected flow type
-                    	**type**\: list of    :py:class:`FlowType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable.FlowType>`
+                    	**type**\: list of  		 :py:class:`FlowType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable.FlowType>`
                     
                     
 
@@ -831,12 +835,12 @@ class ActiveNodes(Entity):
                         .. attribute:: flow_type  <key>
                         
                         	LPTS Flow Type
-                        	**type**\:   :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
+                        	**type**\:  :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
                         
                         .. attribute:: max
                         
                         	Configured Max TCAM value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -874,14 +878,14 @@ class ActiveNodes(Entity):
                 .. attribute:: enable
                 
                 	Enabled
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: flows
                 
                 	Table for Flows
-                	**type**\:   :py:class:`Flows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows>`
+                	**type**\:  :py:class:`Flows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows>`
                 
                 
 
@@ -922,7 +926,7 @@ class ActiveNodes(Entity):
                     .. attribute:: flow
                     
                     	selected flow type
-                    	**type**\: list of    :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow>`
+                    	**type**\: list of  		 :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow>`
                     
                     
 
@@ -955,17 +959,17 @@ class ActiveNodes(Entity):
                         .. attribute:: flow_type  <key>
                         
                         	LPTS Flow Type
-                        	**type**\:   :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
+                        	**type**\:  :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
                         
                         .. attribute:: precedences
                         
                         	TOS Precedence value(s)
-                        	**type**\:   :py:class:`Precedences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences>`
+                        	**type**\:  :py:class:`Precedences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences>`
                         
                         .. attribute:: rate
                         
                         	Configured rate value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -1007,18 +1011,14 @@ class ActiveNodes(Entity):
                             .. attribute:: precedence
                             
                             	Precedence values
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  list of   :py:class:`LptsPreIFibPrecedenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumber>`
+                            		**type**\: list of   :py:class:`LptsPreIFibPrecedenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumber>`
                             
+                            		**type**\: list of int
                             
-                            ----
-                            	**type**\:  list of int
+                            			**range:** 0..7
                             
-                            	**range:** 0..7
-                            
-                            
-                            ----
                             
 
                             """
@@ -1050,7 +1050,7 @@ class ActiveNodes(Entity):
             .. attribute:: groups
             
             	Table of SSRP Group configuration
-            	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup.Groups>`
+            	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup.Groups>`
             
             
 
@@ -1083,7 +1083,7 @@ class ActiveNodes(Entity):
                 .. attribute:: group
                 
                 	SSRP Group configuration
-                	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup.Groups.Group>`
+                	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup.Groups.Group>`
                 
                 
 
@@ -1116,14 +1116,14 @@ class ActiveNodes(Entity):
                     .. attribute:: group_id  <key>
                     
                     	The identifier for this group
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 1..65535
                     
                     .. attribute:: profile
                     
                     	This specifies the SSRP profile to use for this group
-                    	**type**\:  str
+                    	**type**\: str
                     
                     
 
@@ -1158,7 +1158,7 @@ class ActiveNodes(Entity):
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold>`
+            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -1170,7 +1170,7 @@ class ActiveNodes(Entity):
             def __init__(self):
                 super(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold, self).__init__()
 
-                self.yang_name = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
+                self.yang_name = "watchdog-node-threshold"
                 self.yang_parent_name = "active-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
@@ -1181,7 +1181,7 @@ class ActiveNodes(Entity):
                 self.memory_threshold.parent = self
                 self._children_name_map["memory_threshold"] = "memory-threshold"
                 self._children_yang_names.add("memory-threshold")
-                self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
+                self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
 
 
             class MemoryThreshold(Entity):
@@ -1191,21 +1191,21 @@ class ActiveNodes(Entity):
                 .. attribute:: minor
                 
                 	Threshold, Range(5, 40)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 5..40
                 
                 .. attribute:: severe
                 
                 	Threshold, Range(4, minor)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 4..40
                 
                 .. attribute:: critical
                 
                 	Threshold, Range(3, severe)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 3..40
                 
@@ -1220,7 +1220,7 @@ class ActiveNodes(Entity):
                     super(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
 
                     self.yang_name = "memory-threshold"
-                    self.yang_parent_name = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
+                    self.yang_parent_name = "watchdog-node-threshold"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
@@ -1244,7 +1244,7 @@ class ActiveNodes(Entity):
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold>`
+            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -1256,7 +1256,7 @@ class ActiveNodes(Entity):
             def __init__(self):
                 super(ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold, self).__init__()
 
-                self.yang_name = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
+                self.yang_name = "watchdog-node-threshold"
                 self.yang_parent_name = "active-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
@@ -1267,7 +1267,7 @@ class ActiveNodes(Entity):
                 self.memory_threshold.parent = self
                 self._children_name_map["memory_threshold"] = "memory-threshold"
                 self._children_yang_names.add("memory-threshold")
-                self._segment_path = lambda: "Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
+                self._segment_path = lambda: "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold"
 
 
             class MemoryThreshold(Entity):
@@ -1277,21 +1277,21 @@ class ActiveNodes(Entity):
                 .. attribute:: minor
                 
                 	Threshold, Range(5, 40)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 5..40
                 
                 .. attribute:: severe
                 
                 	Threshold, Range(4, minor)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 4..40
                 
                 .. attribute:: critical
                 
                 	Threshold, Range(3, severe)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 3..40
                 
@@ -1306,7 +1306,7 @@ class ActiveNodes(Entity):
                     super(ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
 
                     self.yang_name = "memory-threshold"
-                    self.yang_parent_name = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
+                    self.yang_parent_name = "watchdog-node-threshold"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
@@ -1333,7 +1333,7 @@ class PreconfiguredNodes(Entity):
     .. attribute:: preconfigured_node
     
     	The configuration for a non\-active node
-    	**type**\: list of    :py:class:`PreconfiguredNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode>`
+    	**type**\: list of  		 :py:class:`PreconfiguredNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode>`
     
     
 
@@ -1367,32 +1367,34 @@ class PreconfiguredNodes(Entity):
         .. attribute:: node_name  <key>
         
         	The identifier for this node
-        	**type**\:  str
+        	**type**\: str
+        
+        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
         .. attribute:: clock_interface
         
         	Configuration for a clock interface
-        	**type**\:   :py:class:`ClockInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface>`
+        	**type**\:  :py:class:`ClockInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface>`
         
         .. attribute:: ltrace
         
         	Ltrace Memory configuration
-        	**type**\:   :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace>`
+        	**type**\:  :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace>`
         
         .. attribute:: lpts_local
         
         	lpts node specific configuration commands
-        	**type**\:   :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
+        	**type**\:  :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
         
         .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold
         
         	watchdog node threshold
-        	**type**\:   :py:class:`CiscoIOSXRWatchdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold>`
+        	**type**\:  :py:class:`CiscoIOSXRWatchdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold>`
         
-        .. attribute:: cisco_ios_xr_wd_cfg_watchdog_node_threshold
+        .. attribute:: cisco_ios_xr_wd_cfg_watchdog_node_threshold_
         
         	Watchdog threshold configuration
-        	**type**\:   :py:class:`CiscoIOSXRWdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold>`
+        	**type**\:  :py:class:`CiscoIOSXRWdCfgWatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold>`
         
         
 
@@ -1408,7 +1410,7 @@ class PreconfiguredNodes(Entity):
             self.yang_parent_name = "preconfigured-nodes"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"clock-interface" : ("clock_interface", PreconfiguredNodes.PreconfiguredNode.ClockInterface), "ltrace" : ("ltrace", PreconfiguredNodes.PreconfiguredNode.Ltrace), "lpts-local" : ("lpts_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal), "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold" : ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold), "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold" : ("cisco_ios_xr_wd_cfg_watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold)}
+            self._child_container_classes = {"Cisco-IOS-XR-freqsync-cfg:clock-interface" : ("clock_interface", PreconfiguredNodes.PreconfiguredNode.ClockInterface), "Cisco-IOS-XR-infra-ltrace-cfg:ltrace" : ("ltrace", PreconfiguredNodes.PreconfiguredNode.Ltrace), "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local" : ("lpts_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal), "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold" : ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold), "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold" : ("cisco_ios_xr_wd_cfg_watchdog_node_threshold_", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold)}
             self._child_list_classes = {}
 
             self.node_name = YLeaf(YType.str, "node-name")
@@ -1430,13 +1432,13 @@ class PreconfiguredNodes(Entity):
 
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold()
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.parent = self
-            self._children_name_map["cisco_ios_xr_watchd_cfg_watchdog_node_threshold"] = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
-            self._children_yang_names.add("Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold")
+            self._children_name_map["cisco_ios_xr_watchd_cfg_watchdog_node_threshold"] = "watchdog-node-threshold"
+            self._children_yang_names.add("watchdog-node-threshold")
 
-            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold()
-            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
-            self._children_name_map["cisco_ios_xr_wd_cfg_watchdog_node_threshold"] = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
-            self._children_yang_names.add("Cisco-IOS-XR-wd-cfg_watchdog-node-threshold")
+            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold_ = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold()
+            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold_.parent = self
+            self._children_name_map["cisco_ios_xr_wd_cfg_watchdog_node_threshold_"] = "watchdog-node-threshold"
+            self._children_yang_names.add("watchdog-node-threshold")
             self._segment_path = lambda: "preconfigured-node" + "[node-name='" + self.node_name.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/%s" % self._segment_path()
 
@@ -1451,7 +1453,7 @@ class PreconfiguredNodes(Entity):
             .. attribute:: clocks
             
             	Configuration for a clock interface
-            	**type**\:   :py:class:`Clocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks>`
+            	**type**\:  :py:class:`Clocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks>`
             
             
 
@@ -1484,7 +1486,7 @@ class PreconfiguredNodes(Entity):
                 .. attribute:: clock
                 
                 	Configuration for a clock interface
-                	**type**\: list of    :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock>`
+                	**type**\: list of  		 :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock>`
                 
                 
 
@@ -1517,19 +1519,19 @@ class PreconfiguredNodes(Entity):
                     .. attribute:: clock_type  <key>
                     
                     	Clock type
-                    	**type**\:   :py:class:`FsyncClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncClock>`
+                    	**type**\:  :py:class:`FsyncClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncClock>`
                     
                     .. attribute:: port  <key>
                     
                     	Clock port
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: frequency_synchronization
                     
                     	Frequency Synchronization clock configuraiton
-                    	**type**\:   :py:class:`FrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization>`
+                    	**type**\:  :py:class:`FrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization>`
                     
                     
 
@@ -1569,17 +1571,17 @@ class PreconfiguredNodes(Entity):
                         .. attribute:: output_quality_level
                         
                         	Set the output quality level
-                        	**type**\:   :py:class:`OutputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel>`
+                        	**type**\:  :py:class:`OutputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel>`
                         
                         .. attribute:: input_quality_level
                         
                         	Set the input quality level
-                        	**type**\:   :py:class:`InputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel>`
+                        	**type**\:  :py:class:`InputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel>`
                         
                         .. attribute:: wait_to_restore_time
                         
                         	Set the wait\-to\-restore time for this source
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..12
                         
@@ -1588,7 +1590,7 @@ class PreconfiguredNodes(Entity):
                         .. attribute:: priority
                         
                         	Set the priority of this source
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..254
                         
@@ -1597,12 +1599,12 @@ class PreconfiguredNodes(Entity):
                         .. attribute:: selection_input
                         
                         	Assign this source as a selection input
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: time_of_day_priority
                         
                         	Set the time\-of\-day priority of this source
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 1..254
                         
@@ -1611,7 +1613,7 @@ class PreconfiguredNodes(Entity):
                         .. attribute:: ssm_disable
                         
                         	Disable SSM on this source
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -1662,22 +1664,22 @@ class PreconfiguredNodes(Entity):
                             .. attribute:: quality_level_option
                             
                             	Quality level option
-                            	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                            	**type**\:  :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
                             
                             .. attribute:: exact_quality_level_value
                             
                             	Exact quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             .. attribute:: min_quality_level_value
                             
                             	Minimum quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             .. attribute:: max_quality_level_value
                             
                             	Maximum quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             
 
@@ -1716,22 +1718,22 @@ class PreconfiguredNodes(Entity):
                             .. attribute:: quality_level_option
                             
                             	Quality level option
-                            	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                            	**type**\:  :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
                             
                             .. attribute:: exact_quality_level_value
                             
                             	Exact quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             .. attribute:: min_quality_level_value
                             
                             	Minimum quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             .. attribute:: max_quality_level_value
                             
                             	Maximum quality level value
-                            	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
+                            	**type**\:  :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                             
                             
 
@@ -1770,7 +1772,7 @@ class PreconfiguredNodes(Entity):
             .. attribute:: allocation_params
             
             	Select Ltrace mode and scale\-factor
-            	**type**\:   :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams>`
+            	**type**\:  :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams>`
             
             
 
@@ -1803,12 +1805,12 @@ class PreconfiguredNodes(Entity):
                 .. attribute:: mode
                 
                 	Select an allocation mode (static\:1, dynamic \:2)
-                	**type**\:   :py:class:`InfraLtraceMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceMode>`
+                	**type**\:  :py:class:`InfraLtraceMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceMode>`
                 
                 .. attribute:: scale_factor
                 
                 	Select a scaling down factor
-                	**type**\:   :py:class:`InfraLtraceScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScale>`
+                	**type**\:  :py:class:`InfraLtraceScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScale>`
                 
                 
 
@@ -1843,17 +1845,17 @@ class PreconfiguredNodes(Entity):
             .. attribute:: ipolicer_local_tables
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\:   :py:class:`IpolicerLocalTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables>`
+            	**type**\:  :py:class:`IpolicerLocalTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables>`
             
             .. attribute:: dynamic_flows_tables
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\:   :py:class:`DynamicFlowsTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables>`
+            	**type**\:  :py:class:`DynamicFlowsTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables>`
             
             .. attribute:: ipolicer_local
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\:   :py:class:`IpolicerLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal>`
+            	**type**\:  :py:class:`IpolicerLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal>`
             
             	**presence node**\: True
             
@@ -1898,7 +1900,7 @@ class PreconfiguredNodes(Entity):
                 .. attribute:: ipolicer_local_table
                 
                 	Pre IFIB (Internal Forwarding Information Base) configuration table
-                	**type**\: list of    :py:class:`IpolicerLocalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable>`
+                	**type**\: list of  		 :py:class:`IpolicerLocalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable>`
                 
                 
 
@@ -1932,12 +1934,14 @@ class PreconfiguredNodes(Entity):
                     .. attribute:: id1  <key>
                     
                     	none
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: nps
                     
                     	NP name
-                    	**type**\:   :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
+                    	**type**\:  :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
                     
                     
 
@@ -1975,7 +1979,7 @@ class PreconfiguredNodes(Entity):
                         .. attribute:: np
                         
                         	Table of NP names
-                        	**type**\: list of    :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
+                        	**type**\: list of  		 :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
                         
                         
 
@@ -2008,14 +2012,14 @@ class PreconfiguredNodes(Entity):
                             .. attribute:: id1  <key>
                             
                             	none
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: rate
                             
                             	Packets per second
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -2055,7 +2059,7 @@ class PreconfiguredNodes(Entity):
                 .. attribute:: dynamic_flows_table
                 
                 	Table for Dynamic Flows
-                	**type**\: list of    :py:class:`DynamicFlowsTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable>`
+                	**type**\: list of  		 :py:class:`DynamicFlowsTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable>`
                 
                 
 
@@ -2088,12 +2092,12 @@ class PreconfiguredNodes(Entity):
                     .. attribute:: table_type  <key>
                     
                     	LPTS Dynamic Flows Table Type
-                    	**type**\:   :py:class:`LptsDynamicFlowConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsDynamicFlowConfig>`
+                    	**type**\:  :py:class:`LptsDynamicFlowConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsDynamicFlowConfig>`
                     
                     .. attribute:: flow_type
                     
                     	Selected flow type
-                    	**type**\: list of    :py:class:`FlowType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable.FlowType>`
+                    	**type**\: list of  		 :py:class:`FlowType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable.FlowType>`
                     
                     
 
@@ -2128,12 +2132,12 @@ class PreconfiguredNodes(Entity):
                         .. attribute:: flow_type  <key>
                         
                         	LPTS Flow Type
-                        	**type**\:   :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
+                        	**type**\:  :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
                         
                         .. attribute:: max
                         
                         	Configured Max TCAM value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -2171,14 +2175,14 @@ class PreconfiguredNodes(Entity):
                 .. attribute:: enable
                 
                 	Enabled
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: flows
                 
                 	Table for Flows
-                	**type**\:   :py:class:`Flows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows>`
+                	**type**\:  :py:class:`Flows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows>`
                 
                 
 
@@ -2219,7 +2223,7 @@ class PreconfiguredNodes(Entity):
                     .. attribute:: flow
                     
                     	selected flow type
-                    	**type**\: list of    :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow>`
+                    	**type**\: list of  		 :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow>`
                     
                     
 
@@ -2252,17 +2256,17 @@ class PreconfiguredNodes(Entity):
                         .. attribute:: flow_type  <key>
                         
                         	LPTS Flow Type
-                        	**type**\:   :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
+                        	**type**\:  :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
                         
                         .. attribute:: precedences
                         
                         	TOS Precedence value(s)
-                        	**type**\:   :py:class:`Precedences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences>`
+                        	**type**\:  :py:class:`Precedences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences>`
                         
                         .. attribute:: rate
                         
                         	Configured rate value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -2304,18 +2308,14 @@ class PreconfiguredNodes(Entity):
                             .. attribute:: precedence
                             
                             	Precedence values
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  list of   :py:class:`LptsPreIFibPrecedenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumber>`
+                            		**type**\: list of   :py:class:`LptsPreIFibPrecedenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumber>`
                             
+                            		**type**\: list of int
                             
-                            ----
-                            	**type**\:  list of int
+                            			**range:** 0..7
                             
-                            	**range:** 0..7
-                            
-                            
-                            ----
                             
 
                             """
@@ -2347,7 +2347,7 @@ class PreconfiguredNodes(Entity):
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold>`
+            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -2359,7 +2359,7 @@ class PreconfiguredNodes(Entity):
             def __init__(self):
                 super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold, self).__init__()
 
-                self.yang_name = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
+                self.yang_name = "watchdog-node-threshold"
                 self.yang_parent_name = "preconfigured-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
@@ -2370,7 +2370,7 @@ class PreconfiguredNodes(Entity):
                 self.memory_threshold.parent = self
                 self._children_name_map["memory_threshold"] = "memory-threshold"
                 self._children_yang_names.add("memory-threshold")
-                self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
+                self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
 
 
             class MemoryThreshold(Entity):
@@ -2380,21 +2380,21 @@ class PreconfiguredNodes(Entity):
                 .. attribute:: minor
                 
                 	Threshold, Range(5, 40)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 5..40
                 
                 .. attribute:: severe
                 
                 	Threshold, Range(4, minor)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 4..40
                 
                 .. attribute:: critical
                 
                 	Threshold, Range(3, severe)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 3..40
                 
@@ -2409,7 +2409,7 @@ class PreconfiguredNodes(Entity):
                     super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
 
                     self.yang_name = "memory-threshold"
-                    self.yang_parent_name = "Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold"
+                    self.yang_parent_name = "watchdog-node-threshold"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
@@ -2433,7 +2433,7 @@ class PreconfiguredNodes(Entity):
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold>`
+            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -2445,7 +2445,7 @@ class PreconfiguredNodes(Entity):
             def __init__(self):
                 super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold, self).__init__()
 
-                self.yang_name = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
+                self.yang_name = "watchdog-node-threshold"
                 self.yang_parent_name = "preconfigured-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
@@ -2456,7 +2456,7 @@ class PreconfiguredNodes(Entity):
                 self.memory_threshold.parent = self
                 self._children_name_map["memory_threshold"] = "memory-threshold"
                 self._children_yang_names.add("memory-threshold")
-                self._segment_path = lambda: "Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
+                self._segment_path = lambda: "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold"
 
 
             class MemoryThreshold(Entity):
@@ -2466,21 +2466,21 @@ class PreconfiguredNodes(Entity):
                 .. attribute:: minor
                 
                 	Threshold, Range(5, 40)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 5..40
                 
                 .. attribute:: severe
                 
                 	Threshold, Range(4, minor)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 4..40
                 
                 .. attribute:: critical
                 
                 	Threshold, Range(3, severe)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 3..40
                 
@@ -2495,7 +2495,7 @@ class PreconfiguredNodes(Entity):
                     super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold, self).__init__()
 
                     self.yang_name = "memory-threshold"
-                    self.yang_parent_name = "Cisco-IOS-XR-wd-cfg_watchdog-node-threshold"
+                    self.yang_parent_name = "watchdog-node-threshold"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}

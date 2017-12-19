@@ -58,12 +58,12 @@ class Hsrp(Entity):
     .. attribute:: interfaces
     
     	Interface Table for HSRP configuration
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces>`
     
     .. attribute:: logging
     
     	HSRP logging options
-    	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Logging>`
+    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Logging>`
     
     
 
@@ -102,7 +102,7 @@ class Hsrp(Entity):
         .. attribute:: interface
         
         	Per\-interface HSRP configuration
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface>`
         
         
 
@@ -136,32 +136,34 @@ class Hsrp(Entity):
             .. attribute:: interface_name  <key>
             
             	Interface name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: ipv6
             
             	IPv6 HSRP configuration
-            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6>`
+            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6>`
             
             .. attribute:: bfd
             
             	BFD configuration
-            	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Bfd>`
+            	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Bfd>`
             
             .. attribute:: delay
             
             	Minimum and Reload Delay
-            	**type**\:   :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Delay>`
+            	**type**\:  :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Delay>`
             
             .. attribute:: ipv4
             
             	IPv4 HSRP configuration
-            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4>`
+            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4>`
             
             .. attribute:: mac_refresh
             
             	HSRP MGO slave MAC refresh rate
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..10000
             
@@ -170,12 +172,12 @@ class Hsrp(Entity):
             .. attribute:: use_bia
             
             	Use burned\-in address
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: redirects_disable
             
             	Disable HSRP filtered ICMP redirects
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -235,12 +237,12 @@ class Hsrp(Entity):
                 .. attribute:: version2
                 
                 	Version 2 HSRP configuration
-                	**type**\:   :py:class:`Version2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2>`
+                	**type**\:  :py:class:`Version2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2>`
                 
                 .. attribute:: slave_groups
                 
                 	The HSRP slave group configuration table
-                	**type**\:   :py:class:`SlaveGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups>`
+                	**type**\:  :py:class:`SlaveGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups>`
                 
                 
 
@@ -278,7 +280,7 @@ class Hsrp(Entity):
                     .. attribute:: groups
                     
                     	The HSRP group configuration table
-                    	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups>`
+                    	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups>`
                     
                     
 
@@ -311,7 +313,7 @@ class Hsrp(Entity):
                         .. attribute:: group
                         
                         	The HSRP group being configured
-                        	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group>`
+                        	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group>`
                         
                         
 
@@ -344,44 +346,44 @@ class Hsrp(Entity):
                             .. attribute:: group_number  <key>
                             
                             	HSRP group number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4095
                             
                             .. attribute:: bfd
                             
                             	Enable use of Bidirectional Forwarding Detection
-                            	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd>`
+                            	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd>`
                             
                             .. attribute:: tracked_interfaces
                             
                             	The HSRP tracked interface configuration table
-                            	**type**\:   :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces>`
+                            	**type**\:  :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces>`
                             
                             .. attribute:: tracked_objects
                             
                             	The HSRP tracked interface configuration table
-                            	**type**\:   :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects>`
+                            	**type**\:  :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects>`
                             
                             .. attribute:: timers
                             
                             	Hello and hold timers
-                            	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers>`
+                            	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers>`
                             
                             .. attribute:: link_local_ipv6_address
                             
                             	The HSRP IPv6 virtual linklocal address
-                            	**type**\:   :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address>`
+                            	**type**\:  :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address>`
                             
                             .. attribute:: global_ipv6_addresses
                             
                             	The table of HSRP virtual global IPv6 addresses
-                            	**type**\:   :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses>`
+                            	**type**\:  :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses>`
                             
                             .. attribute:: priority
                             
                             	Priority value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -390,7 +392,7 @@ class Hsrp(Entity):
                             .. attribute:: preempt
                             
                             	Force active if higher priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -399,14 +401,16 @@ class Hsrp(Entity):
                             .. attribute:: session_name
                             
                             	HSRP Session name (for MGO)
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..16
                             
                             .. attribute:: virtual_mac_address
                             
                             	HSRP MAC address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             
 
@@ -478,12 +482,16 @@ class Hsrp(Entity):
                                 .. attribute:: address
                                 
                                 	Enable BFD for this remote IP
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: interface_name
                                 
                                 	Interface name to run BFD
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 
 
@@ -519,7 +527,7 @@ class Hsrp(Entity):
                                 .. attribute:: tracked_interface
                                 
                                 	Interface being tracked
-                                	**type**\: list of    :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces.TrackedInterface>`
+                                	**type**\: list of  		 :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces.TrackedInterface>`
                                 
                                 
 
@@ -552,12 +560,14 @@ class Hsrp(Entity):
                                     .. attribute:: interface_name  <key>
                                     
                                     	Interface being tracked
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                                     
                                     .. attribute:: priority_decrement
                                     
                                     	Priority decrement
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..255
                                     
@@ -597,7 +607,7 @@ class Hsrp(Entity):
                                 .. attribute:: tracked_object
                                 
                                 	Object being tracked
-                                	**type**\: list of    :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects.TrackedObject>`
+                                	**type**\: list of  		 :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects.TrackedObject>`
                                 
                                 
 
@@ -630,12 +640,14 @@ class Hsrp(Entity):
                                     .. attribute:: object_name  <key>
                                     
                                     	Interface being tracked
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: priority_decrement
                                     
                                     	Priority decrement
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..255
                                     
@@ -674,14 +686,14 @@ class Hsrp(Entity):
                                 .. attribute:: hello_msec_flag
                                 
                                 	TRUE \- Hello time configured in milliseconds, FALSE \- Hello time configured in seconds
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: hello_msec
                                 
                                 	Hello time in msecs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 100..3000
                                 
@@ -690,7 +702,7 @@ class Hsrp(Entity):
                                 .. attribute:: hello_sec
                                 
                                 	Hello time in seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..255
                                 
@@ -701,14 +713,14 @@ class Hsrp(Entity):
                                 .. attribute:: hold_msec_flag
                                 
                                 	TRUE \- Hold time configured in milliseconds, FALSE \- Hold time configured in seconds
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: hold_msec
                                 
                                 	Hold time in msecs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 100..3000
                                 
@@ -717,7 +729,7 @@ class Hsrp(Entity):
                                 .. attribute:: hold_sec
                                 
                                 	Hold time in seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..255
                                 
@@ -766,12 +778,14 @@ class Hsrp(Entity):
                                 .. attribute:: address
                                 
                                 	HSRP IPv6 virtual linklocal address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: auto_configure
                                 
                                 	Linklocal Configuration Type
-                                	**type**\:   :py:class:`HsrpLinklocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.HsrpLinklocal>`
+                                	**type**\:  :py:class:`HsrpLinklocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.HsrpLinklocal>`
                                 
                                 	**default value**\: manual
                                 
@@ -809,7 +823,7 @@ class Hsrp(Entity):
                                 .. attribute:: global_ipv6_address
                                 
                                 	A HSRP virtual global IPv6 IP address
-                                	**type**\: list of    :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses.GlobalIpv6Address>`
+                                	**type**\: list of  		 :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses.GlobalIpv6Address>`
                                 
                                 
 
@@ -842,7 +856,9 @@ class Hsrp(Entity):
                                     .. attribute:: address  <key>
                                     
                                     	HSRP virtual global IPv6 address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -875,7 +891,7 @@ class Hsrp(Entity):
                     .. attribute:: slave_group
                     
                     	The HSRP slave group being configured
-                    	**type**\: list of    :py:class:`SlaveGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup>`
+                    	**type**\: list of  		 :py:class:`SlaveGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup>`
                     
                     
 
@@ -908,29 +924,31 @@ class Hsrp(Entity):
                         .. attribute:: slave_group_number  <key>
                         
                         	HSRP group number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4095
                         
                         .. attribute:: link_local_ipv6_address
                         
                         	The HSRP IPv6 virtual linklocal address
-                        	**type**\:   :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address>`
+                        	**type**\:  :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address>`
                         
                         .. attribute:: global_ipv6_addresses
                         
                         	The table of HSRP virtual global IPv6 addresses
-                        	**type**\:   :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses>`
+                        	**type**\:  :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses>`
                         
                         .. attribute:: follow
                         
                         	HSRP Group name for this slave to follow
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: virtual_mac_address
                         
                         	HSRP MAC address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         
 
@@ -977,12 +995,14 @@ class Hsrp(Entity):
                             .. attribute:: address
                             
                             	HSRP IPv6 virtual linklocal address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: auto_configure
                             
                             	Linklocal Configuration Type
-                            	**type**\:   :py:class:`HsrpLinklocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.HsrpLinklocal>`
+                            	**type**\:  :py:class:`HsrpLinklocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.HsrpLinklocal>`
                             
                             	**default value**\: manual
                             
@@ -1020,7 +1040,7 @@ class Hsrp(Entity):
                             .. attribute:: global_ipv6_address
                             
                             	A HSRP virtual global IPv6 IP address
-                            	**type**\: list of    :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address>`
+                            	**type**\: list of  		 :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address>`
                             
                             
 
@@ -1053,7 +1073,9 @@ class Hsrp(Entity):
                                 .. attribute:: address  <key>
                                 
                                 	HSRP virtual global IPv6 address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -1086,14 +1108,14 @@ class Hsrp(Entity):
                 .. attribute:: detection_multiplier
                 
                 	Detection multiplier for BFD sessions created by hsrp
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 2..50
                 
                 .. attribute:: interval
                 
                 	Hello interval for BFD sessions created by hsrp
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 3..30000
                 
@@ -1132,7 +1154,7 @@ class Hsrp(Entity):
                 .. attribute:: minimum_delay
                 
                 	Minimum delay in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..10000
                 
@@ -1143,7 +1165,7 @@ class Hsrp(Entity):
                 .. attribute:: reload_delay
                 
                 	Reload delay in seconds
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..10000
                 
@@ -1184,17 +1206,17 @@ class Hsrp(Entity):
                 .. attribute:: slave_groups
                 
                 	The HSRP slave group configuration table
-                	**type**\:   :py:class:`SlaveGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SlaveGroups>`
+                	**type**\:  :py:class:`SlaveGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SlaveGroups>`
                 
                 .. attribute:: version1
                 
                 	Version 1 HSRP configuration
-                	**type**\:   :py:class:`Version1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1>`
+                	**type**\:  :py:class:`Version1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1>`
                 
                 .. attribute:: version2
                 
                 	Version 2 HSRP configuration
-                	**type**\:   :py:class:`Version2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2>`
+                	**type**\:  :py:class:`Version2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2>`
                 
                 
 
@@ -1237,7 +1259,7 @@ class Hsrp(Entity):
                     .. attribute:: slave_group
                     
                     	The HSRP slave group being configured
-                    	**type**\: list of    :py:class:`SlaveGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup>`
+                    	**type**\: list of  		 :py:class:`SlaveGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup>`
                     
                     
 
@@ -1270,29 +1292,33 @@ class Hsrp(Entity):
                         .. attribute:: slave_group_number  <key>
                         
                         	HSRP group number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4095
                         
                         .. attribute:: secondary_ipv4_addresses
                         
                         	Secondary HSRP IP address Table
-                        	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses>`
+                        	**type**\:  :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses>`
                         
                         .. attribute:: follow
                         
                         	HSRP Group name for this slave to follow
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: virtual_mac_address
                         
                         	HSRP MAC address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: primary_ipv4_address
                         
                         	Primary HSRP IP address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -1336,7 +1362,7 @@ class Hsrp(Entity):
                             .. attribute:: secondary_ipv4_address
                             
                             	Secondary HSRP IP address
-                            	**type**\: list of    :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address>`
+                            	**type**\: list of  		 :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address>`
                             
                             
 
@@ -1369,7 +1395,9 @@ class Hsrp(Entity):
                                 .. attribute:: address  <key>
                                 
                                 	HSRP IP address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -1402,7 +1430,7 @@ class Hsrp(Entity):
                     .. attribute:: groups
                     
                     	The HSRP group configuration table
-                    	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups>`
+                    	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups>`
                     
                     
 
@@ -1435,7 +1463,7 @@ class Hsrp(Entity):
                         .. attribute:: group
                         
                         	The HSRP group being configured
-                        	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group>`
+                        	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group>`
                         
                         
 
@@ -1468,44 +1496,44 @@ class Hsrp(Entity):
                             .. attribute:: group_number  <key>
                             
                             	HSRP group number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: tracked_interfaces
                             
                             	The HSRP tracked interface configuration table
-                            	**type**\:   :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces>`
+                            	**type**\:  :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces>`
                             
                             .. attribute:: bfd
                             
                             	Enable use of Bidirectional Forwarding Detection
-                            	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd>`
+                            	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd>`
                             
                             .. attribute:: tracked_objects
                             
                             	The HSRP tracked interface configuration table
-                            	**type**\:   :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects>`
+                            	**type**\:  :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects>`
                             
                             .. attribute:: timers
                             
                             	Hello and hold timers
-                            	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers>`
+                            	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers>`
                             
                             .. attribute:: primary_ipv4_address
                             
                             	Primary HSRP IP address
-                            	**type**\:   :py:class:`PrimaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address>`
+                            	**type**\:  :py:class:`PrimaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address>`
                             
                             .. attribute:: secondary_ipv4_addresses
                             
                             	Secondary HSRP IP address Table
-                            	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses>`
+                            	**type**\:  :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses>`
                             
                             .. attribute:: authentication
                             
                             	Authentication string
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..8
                             
@@ -1514,14 +1542,14 @@ class Hsrp(Entity):
                             .. attribute:: session_name
                             
                             	HSRP Session name (for MGO)
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..16
                             
                             .. attribute:: priority
                             
                             	Priority value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -1530,7 +1558,7 @@ class Hsrp(Entity):
                             .. attribute:: preempt
                             
                             	Force active if higher priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -1539,7 +1567,9 @@ class Hsrp(Entity):
                             .. attribute:: virtual_mac_address
                             
                             	HSRP MAC address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             
 
@@ -1613,7 +1643,7 @@ class Hsrp(Entity):
                                 .. attribute:: tracked_interface
                                 
                                 	Interface being tracked
-                                	**type**\: list of    :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces.TrackedInterface>`
+                                	**type**\: list of  		 :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces.TrackedInterface>`
                                 
                                 
 
@@ -1646,12 +1676,14 @@ class Hsrp(Entity):
                                     .. attribute:: interface_name  <key>
                                     
                                     	Interface being tracked
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                                     
                                     .. attribute:: priority_decrement
                                     
                                     	Priority decrement
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..255
                                     
@@ -1691,12 +1723,16 @@ class Hsrp(Entity):
                                 .. attribute:: address
                                 
                                 	Enable BFD for this remote IP
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: interface_name
                                 
                                 	Interface name to run BFD
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 
 
@@ -1732,7 +1768,7 @@ class Hsrp(Entity):
                                 .. attribute:: tracked_object
                                 
                                 	Object being tracked
-                                	**type**\: list of    :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects.TrackedObject>`
+                                	**type**\: list of  		 :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects.TrackedObject>`
                                 
                                 
 
@@ -1765,12 +1801,14 @@ class Hsrp(Entity):
                                     .. attribute:: object_name  <key>
                                     
                                     	Interface being tracked
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: priority_decrement
                                     
                                     	Priority decrement
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..255
                                     
@@ -1809,14 +1847,14 @@ class Hsrp(Entity):
                                 .. attribute:: hello_msec_flag
                                 
                                 	TRUE \- Hello time configured in milliseconds, FALSE \- Hello time configured in seconds
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: hello_msec
                                 
                                 	Hello time in msecs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 100..3000
                                 
@@ -1825,7 +1863,7 @@ class Hsrp(Entity):
                                 .. attribute:: hello_sec
                                 
                                 	Hello time in seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..255
                                 
@@ -1836,14 +1874,14 @@ class Hsrp(Entity):
                                 .. attribute:: hold_msec_flag
                                 
                                 	TRUE \- Hold time configured in milliseconds, FALSE \- Hold time configured in seconds
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: hold_msec
                                 
                                 	Hold time in msecs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 100..3000
                                 
@@ -1852,7 +1890,7 @@ class Hsrp(Entity):
                                 .. attribute:: hold_sec
                                 
                                 	Hold time in seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..255
                                 
@@ -1901,12 +1939,14 @@ class Hsrp(Entity):
                                 .. attribute:: virtual_ip_learn
                                 
                                 	TRUE if the HSRP protocol is to learn the virtual IP address it is to use
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: address
                                 
                                 	HSRP IP address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -1941,7 +1981,7 @@ class Hsrp(Entity):
                                 .. attribute:: secondary_ipv4_address
                                 
                                 	Secondary HSRP IP address
-                                	**type**\: list of    :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address>`
+                                	**type**\: list of  		 :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address>`
                                 
                                 
 
@@ -1974,7 +2014,9 @@ class Hsrp(Entity):
                                     .. attribute:: address  <key>
                                     
                                     	HSRP IP address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -2007,7 +2049,7 @@ class Hsrp(Entity):
                     .. attribute:: groups
                     
                     	The HSRP group configuration table
-                    	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups>`
+                    	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups>`
                     
                     
 
@@ -2040,7 +2082,7 @@ class Hsrp(Entity):
                         .. attribute:: group
                         
                         	The HSRP group being configured
-                        	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group>`
+                        	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group>`
                         
                         
 
@@ -2073,44 +2115,44 @@ class Hsrp(Entity):
                             .. attribute:: group_number  <key>
                             
                             	HSRP group number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4095
                             
                             .. attribute:: secondary_ipv4_addresses
                             
                             	Secondary HSRP IP address Table
-                            	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses>`
+                            	**type**\:  :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses>`
                             
                             .. attribute:: bfd
                             
                             	Enable use of Bidirectional Forwarding Detection
-                            	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd>`
+                            	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd>`
                             
                             .. attribute:: primary_ipv4_address
                             
                             	Primary HSRP IP address
-                            	**type**\:   :py:class:`PrimaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address>`
+                            	**type**\:  :py:class:`PrimaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address>`
                             
                             .. attribute:: tracked_objects
                             
                             	The HSRP tracked interface configuration table
-                            	**type**\:   :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects>`
+                            	**type**\:  :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects>`
                             
                             .. attribute:: tracked_interfaces
                             
                             	The HSRP tracked interface configuration table
-                            	**type**\:   :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces>`
+                            	**type**\:  :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces>`
                             
                             .. attribute:: timers
                             
                             	Hello and hold timers
-                            	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers>`
+                            	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers>`
                             
                             .. attribute:: preempt
                             
                             	Force active if higher priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -2119,7 +2161,7 @@ class Hsrp(Entity):
                             .. attribute:: priority
                             
                             	Priority value
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
@@ -2128,12 +2170,14 @@ class Hsrp(Entity):
                             .. attribute:: virtual_mac_address
                             
                             	HSRP MAC address
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             .. attribute:: session_name
                             
                             	HSRP Session name (for MGO)
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..16
                             
@@ -2206,7 +2250,7 @@ class Hsrp(Entity):
                                 .. attribute:: secondary_ipv4_address
                                 
                                 	Secondary HSRP IP address
-                                	**type**\: list of    :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address>`
+                                	**type**\: list of  		 :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address>`
                                 
                                 
 
@@ -2239,7 +2283,9 @@ class Hsrp(Entity):
                                     .. attribute:: address  <key>
                                     
                                     	HSRP IP address
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -2273,12 +2319,16 @@ class Hsrp(Entity):
                                 .. attribute:: address
                                 
                                 	Enable BFD for this remote IP
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 .. attribute:: interface_name
                                 
                                 	Interface name to run BFD
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9./\-]+
                                 
                                 
 
@@ -2313,12 +2363,14 @@ class Hsrp(Entity):
                                 .. attribute:: virtual_ip_learn
                                 
                                 	TRUE if the HSRP protocol is to learn the virtual IP address it is to use
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 .. attribute:: address
                                 
                                 	HSRP IP address
-                                	**type**\:  str
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -2354,7 +2406,7 @@ class Hsrp(Entity):
                                 .. attribute:: tracked_object
                                 
                                 	Object being tracked
-                                	**type**\: list of    :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects.TrackedObject>`
+                                	**type**\: list of  		 :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects.TrackedObject>`
                                 
                                 
 
@@ -2387,12 +2439,14 @@ class Hsrp(Entity):
                                     .. attribute:: object_name  <key>
                                     
                                     	Interface being tracked
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: priority_decrement
                                     
                                     	Priority decrement
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..255
                                     
@@ -2432,7 +2486,7 @@ class Hsrp(Entity):
                                 .. attribute:: tracked_interface
                                 
                                 	Interface being tracked
-                                	**type**\: list of    :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces.TrackedInterface>`
+                                	**type**\: list of  		 :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg.Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces.TrackedInterface>`
                                 
                                 
 
@@ -2465,12 +2519,14 @@ class Hsrp(Entity):
                                     .. attribute:: interface_name  <key>
                                     
                                     	Interface being tracked
-                                    	**type**\:  str
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                                     
                                     .. attribute:: priority_decrement
                                     
                                     	Priority decrement
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 1..255
                                     
@@ -2509,14 +2565,14 @@ class Hsrp(Entity):
                                 .. attribute:: hello_msec_flag
                                 
                                 	TRUE \- Hello time configured in milliseconds, FALSE \- Hello time configured in seconds
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: hello_msec
                                 
                                 	Hello time in msecs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 100..3000
                                 
@@ -2525,7 +2581,7 @@ class Hsrp(Entity):
                                 .. attribute:: hello_sec
                                 
                                 	Hello time in seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..255
                                 
@@ -2536,14 +2592,14 @@ class Hsrp(Entity):
                                 .. attribute:: hold_msec_flag
                                 
                                 	TRUE \- Hold time configured in milliseconds, FALSE \- Hold time configured in seconds
-                                	**type**\:  bool
+                                	**type**\: bool
                                 
                                 	**default value**\: false
                                 
                                 .. attribute:: hold_msec
                                 
                                 	Hold time in msecs
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 100..3000
                                 
@@ -2552,7 +2608,7 @@ class Hsrp(Entity):
                                 .. attribute:: hold_sec
                                 
                                 	Hold time in seconds
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 1..255
                                 
@@ -2601,7 +2657,7 @@ class Hsrp(Entity):
         .. attribute:: state_change_disable
         
         	HSRP state change IOS messages disable
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 

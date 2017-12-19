@@ -25,7 +25,7 @@ class Vty(Entity):
     .. attribute:: vty_pools
     
     	List of VTY Pools
-    	**type**\:   :py:class:`VtyPools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_vty_cfg.Vty.VtyPools>`
+    	**type**\:  :py:class:`VtyPools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_vty_cfg.Vty.VtyPools>`
     
     
 
@@ -59,7 +59,7 @@ class Vty(Entity):
         .. attribute:: vty_pool
         
         	VTY Pool
-        	**type**\: list of    :py:class:`VtyPool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_vty_cfg.Vty.VtyPools.VtyPool>`
+        	**type**\: list of  		 :py:class:`VtyPool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_vty_cfg.Vty.VtyPools.VtyPool>`
         
         
 
@@ -93,12 +93,14 @@ class Vty(Entity):
             .. attribute:: pool_name  <key>
             
             	For configuring range for default pool use 'default',For configuring range for fault\-manager pool use 'fm',For configuring range for any user defined pool use any other string
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: first_vty
             
             	First VTY number,For default VTY use 0,For user\-defined use 5,For fault\-manager use 100
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -107,7 +109,7 @@ class Vty(Entity):
             .. attribute:: last_vty
             
             	Last VTY number,For default configure between 0\-99,For user\-defined configure between 5\-99 ,For fault\-manager configure between 100\-199
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
@@ -116,12 +118,12 @@ class Vty(Entity):
             .. attribute:: line_template
             
             	Name of line template
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: none
             
             	Empty Option
-            	**type**\:  str
+            	**type**\: str
             
             
 

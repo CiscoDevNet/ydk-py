@@ -25,7 +25,7 @@ class Macsec(Entity):
     .. attribute:: mka
     
     	MKA Data
-    	**type**\:   :py:class:`Mka <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka>`
+    	**type**\:  :py:class:`Mka <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka>`
     
     
 
@@ -59,7 +59,7 @@ class Macsec(Entity):
         .. attribute:: interfaces
         
         	MKA Data
-        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces>`
         
         
 
@@ -93,7 +93,7 @@ class Macsec(Entity):
             .. attribute:: interface
             
             	MKA Data for the Interface
-            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface>`
             
             
 
@@ -127,12 +127,14 @@ class Macsec(Entity):
                 .. attribute:: name  <key>
                 
                 	Interface Name
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: session
                 
                 	MKA Session Data
-                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session>`
+                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session>`
                 
                 
 
@@ -171,17 +173,17 @@ class Macsec(Entity):
                     .. attribute:: session_summary
                     
                     	Session summary
-                    	**type**\:   :py:class:`SessionSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary>`
+                    	**type**\:  :py:class:`SessionSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary>`
                     
                     .. attribute:: vp
                     
                     	Virtual Pointer Info
-                    	**type**\:   :py:class:`Vp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp>`
+                    	**type**\:  :py:class:`Vp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp>`
                     
                     .. attribute:: ca
                     
                     	CA List for a Session
-                    	**type**\: list of    :py:class:`Ca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca>`
+                    	**type**\: list of  		 :py:class:`Ca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca>`
                     
                     
 
@@ -224,92 +226,92 @@ class Macsec(Entity):
                         .. attribute:: outer_tag
                         
                         	VLAN Outer TAG
-                        	**type**\:   :py:class:`OuterTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag>`
+                        	**type**\:  :py:class:`OuterTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag>`
                         
                         .. attribute:: inner_tag
                         
                         	VLAN Inner TAG
-                        	**type**\:   :py:class:`InnerTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag>`
+                        	**type**\:  :py:class:`InnerTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag>`
                         
                         .. attribute:: interface_name
                         
                         	macsec configured interface
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: inherited_policy
                         
                         	Is Inherited Policy
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: policy
                         
                         	Policy Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: priority
                         
                         	Key Server Priority
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: my_mac
                         
                         	My MAC
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: delay_protection
                         
                         	Delay Protect
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: replay_protect
                         
                         	Replay Protect
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: window_size
                         
                         	Replay Window Size
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: include_icv_indicator
                         
                         	IncludeICVIndicator
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: confidentiality_offset
                         
                         	Confidentiality Offset
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: algo_agility
                         
                         	Alogorithm Agility
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: capability
                         
                         	MACSec Capability
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: cipher_str
                         
                         	Cipher String
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: mac_sec_desired
                         
                         	MACSec Desired
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         
 
@@ -378,28 +380,28 @@ class Macsec(Entity):
                             .. attribute:: etype
                             
                             	etype
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: priority
                             
                             	priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: cfi
                             
                             	cfi
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: vlan_id
                             
                             	vlan id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -440,28 +442,28 @@ class Macsec(Entity):
                             .. attribute:: etype
                             
                             	etype
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: priority
                             
                             	priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: cfi
                             
                             	cfi
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: vlan_id
                             
                             	vlan id
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..65535
                             
@@ -502,110 +504,110 @@ class Macsec(Entity):
                         .. attribute:: my_sci
                         
                         	Local SCI(MAC)
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: virtual_port_id
                         
                         	Virtual Port ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: latest_rx
                         
                         	Latest Rx status
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: latest_tx
                         
                         	Latest Tx status
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: latest_an
                         
                         	Latest SAK AN
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: latest_ki
                         
                         	Latest SAK KI
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: latest_kn
                         
                         	Latest SAK KN
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: old_rx
                         
                         	Old Rx status
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: old_tx
                         
                         	Old Tx status
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: old_an
                         
                         	Old SAK AN
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: old_ki
                         
                         	Old SAK KI
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: old_kn
                         
                         	Old SAK KN
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: wait_time
                         
                         	SAK Transmit Wait Time
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: retire_time
                         
                         	SAK Retire time
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: cipher_suite
                         
                         	SAK Cipher Suite
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ssci
                         
                         	SSCI of the Local TxSC
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: time_to_sak_rekey
                         
                         	Next SAK Rekey time in Sec
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: fallback_keepalive
                         
                         	Fallback Keepalive
-                        	**type**\: list of    :py:class:`FallbackKeepalive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive>`
+                        	**type**\: list of  		 :py:class:`FallbackKeepalive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive>`
                         
                         
 
@@ -672,26 +674,26 @@ class Macsec(Entity):
                             .. attribute:: peers_status
                             
                             	Peers Status
-                            	**type**\:   :py:class:`PeersStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus>`
+                            	**type**\:  :py:class:`PeersStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus>`
                             
                             .. attribute:: ckn
                             
                             	CKN
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..65
                             
                             .. attribute:: mi
                             
                             	Member Identifier
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..25
                             
                             .. attribute:: mn
                             
                             	Message Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -735,21 +737,21 @@ class Macsec(Entity):
                                 .. attribute:: tx_mkpdu_timestamp
                                 
                                 	Tx MKPDU Timestamp
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..128
                                 
                                 .. attribute:: peer_count
                                 
                                 	Peer Count
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: peer
                                 
                                 	Peer List
-                                	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer>`
+                                	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer>`
                                 
                                 
 
@@ -786,12 +788,12 @@ class Macsec(Entity):
                                     .. attribute:: peer_data
                                     
                                     	Peer Status Data
-                                    	**type**\:   :py:class:`PeerData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData>`
+                                    	**type**\:  :py:class:`PeerData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData>`
                                     
                                     .. attribute:: sci
                                     
                                     	Rx SCI
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..17
                                     
@@ -831,21 +833,21 @@ class Macsec(Entity):
                                         .. attribute:: mi
                                         
                                         	Member ID
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..25
                                         
                                         .. attribute:: icv_status
                                         
                                         	ICV Status
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..10
                                         
                                         .. attribute:: icv_check_timestamp
                                         
                                         	ICV Check Timestamp
-                                        	**type**\:  str
+                                        	**type**\: str
                                         
                                         	**length:** 0..128
                                         
@@ -884,95 +886,95 @@ class Macsec(Entity):
                         .. attribute:: peers_status
                         
                         	Peers Status
-                        	**type**\:   :py:class:`PeersStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus>`
+                        	**type**\:  :py:class:`PeersStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus>`
                         
                         .. attribute:: is_key_server
                         
                         	Is Key Server
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: status
                         
                         	Session Status [Secured/Not Secured]
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: num_live_peers
                         
                         	Number of Live Peers
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: first_ca
                         
                         	Is First CA
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: peer_sci
                         
                         	Peer SCI(MAC)
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: num_live_peers_responded
                         
                         	Number of Live Peers responded
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: ckn
                         
                         	CKN
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: my_mi
                         
                         	Member Identifier
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: my_mn
                         
                         	Message Number
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: authenticator
                         
                         	authenticator
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: status_description
                         
                         	Status Description
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: authentication_mode
                         
                         	CA Authentication Mode \:PRIMARY\-PSK/FALLBACK\-PSK/EAP
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: key_chain
                         
                         	Key Chain name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         .. attribute:: live_peer
                         
                         	Live Peer List
-                        	**type**\: list of    :py:class:`LivePeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer>`
+                        	**type**\: list of  		 :py:class:`LivePeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer>`
                         
                         .. attribute:: potential_peer
                         
                         	Potential Peer List
-                        	**type**\: list of    :py:class:`PotentialPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer>`
+                        	**type**\: list of  		 :py:class:`PotentialPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer>`
                         
                         .. attribute:: dormant_peer
                         
                         	Dormant Peer List
-                        	**type**\: list of    :py:class:`DormantPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer>`
+                        	**type**\: list of  		 :py:class:`DormantPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer>`
                         
                         
 
@@ -1038,21 +1040,21 @@ class Macsec(Entity):
                             .. attribute:: tx_mkpdu_timestamp
                             
                             	Tx MKPDU Timestamp
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..128
                             
                             .. attribute:: peer_count
                             
                             	Peer Count
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: peer
                             
                             	Peer List
-                            	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer>`
+                            	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer>`
                             
                             
 
@@ -1089,12 +1091,12 @@ class Macsec(Entity):
                                 .. attribute:: peer_data
                                 
                                 	Peer Status Data
-                                	**type**\:   :py:class:`PeerData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData>`
+                                	**type**\:  :py:class:`PeerData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData>`
                                 
                                 .. attribute:: sci
                                 
                                 	Rx SCI
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..17
                                 
@@ -1134,21 +1136,21 @@ class Macsec(Entity):
                                     .. attribute:: mi
                                     
                                     	Member ID
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..25
                                     
                                     .. attribute:: icv_status
                                     
                                     	ICV Status
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..10
                                     
                                     .. attribute:: icv_check_timestamp
                                     
                                     	ICV Check Timestamp
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     	**length:** 0..128
                                     
@@ -1187,31 +1189,31 @@ class Macsec(Entity):
                             .. attribute:: mi
                             
                             	Member ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: sci
                             
                             	Rx SCI
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: mn
                             
                             	Message Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: priority
                             
                             	KS Priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: ssci
                             
                             	Peer SSCI
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1254,31 +1256,31 @@ class Macsec(Entity):
                             .. attribute:: mi
                             
                             	Member ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: sci
                             
                             	Rx SCI
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: mn
                             
                             	Message Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: priority
                             
                             	KS Priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: ssci
                             
                             	Peer SSCI
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -1321,31 +1323,31 @@ class Macsec(Entity):
                             .. attribute:: mi
                             
                             	Member ID
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: sci
                             
                             	Rx SCI
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: mn
                             
                             	Message Number
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: priority
                             
                             	KS Priority
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: ssci
                             
                             	Peer SSCI
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             

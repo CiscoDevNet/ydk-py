@@ -25,7 +25,7 @@ class CrossBarStats(Entity):
     .. attribute:: nodes
     
     	Table of Nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes>`
     
     
 
@@ -59,7 +59,7 @@ class CrossBarStats(Entity):
         .. attribute:: node
         
         	Information about a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node>`
         
         
 
@@ -93,12 +93,14 @@ class CrossBarStats(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: cross_bar_table
             
             	Table of stats information
-            	**type**\:   :py:class:`CrossBarTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable>`
+            	**type**\:  :py:class:`CrossBarTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable>`
             
             
 
@@ -137,12 +139,12 @@ class CrossBarStats(Entity):
                 .. attribute:: pkt_stats
                 
                 	Table of packet stats
-                	**type**\:   :py:class:`PktStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.PktStats>`
+                	**type**\:  :py:class:`PktStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.PktStats>`
                 
                 .. attribute:: sm15_stats
                 
                 	Table of packet stats for SM15
-                	**type**\:   :py:class:`Sm15Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats>`
+                	**type**\:  :py:class:`Sm15Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats>`
                 
                 
 
@@ -180,7 +182,7 @@ class CrossBarStats(Entity):
                     .. attribute:: pkt_stat
                     
                     	Stats information for a particular asic type and port
-                    	**type**\: list of    :py:class:`PktStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.PktStats.PktStat>`
+                    	**type**\: list of  		 :py:class:`PktStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.PktStats.PktStat>`
                     
                     
 
@@ -214,325 +216,329 @@ class CrossBarStats(Entity):
                         .. attribute:: asic_id
                         
                         	Asic ID
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: port
                         
                         	Port
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: internal_error_count
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_buffer_queued_packet_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: ingress_packet_count_since_last_read_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: ingress_channel_utilization_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_buffer_back_pressure_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: xbar_timeout_drop_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: holdrop_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: null_fpoe_drop_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: diagnostic_packet_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_buffer_correctable_ecc_error_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_buffer_uncorrectable_ecc_error_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: header_crc_error_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: short_input_header_error_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: packet_crc_error_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: short_packet_error_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: output_buffer_queued_packet_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: egress_packet_count_since_last_read_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: egress_channel_utilization_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: output_buffer_back_pressure_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: output_buffer_correctable_ecc_error_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: output_buffer_uncorrectable_ecc_error_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: fpoedb_correctable_ecc_error_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: fpoedb_uncorrectable_ecc_error_count_high
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_buffer_queued_packet_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: ingress_packet_count_since_last_read_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: ingress_channel_utilization_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_buffer_back_pressure_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: xbar_timeout_drop_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: holdrop_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: null_fpoe_drop_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: diagnostic_packet_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_buffer_correctable_ecc_error_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_buffer_uncorrectable_ecc_error_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: header_crc_error_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: short_input_header_error_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: packet_crc_error_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: short_packet_error_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: output_buffer_queued_packet_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: egress_packet_count_since_last_read_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: egress_channel_utilization_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: output_buffer_back_pressure_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: output_buffer_correctable_ecc_error_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: output_buffer_uncorrectable_ecc_error_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: fpoedb_correctable_ecc_error_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: fpoedb_uncorrectable_ecc_error_count_low
                         
                         	
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -659,7 +665,7 @@ class CrossBarStats(Entity):
                     .. attribute:: sm15_stat
                     
                     	Stats information for a particular asic type and port
-                    	**type**\: list of    :py:class:`Sm15Stat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat>`
+                    	**type**\: list of  		 :py:class:`Sm15Stat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat>`
                     
                     
 
@@ -693,82 +699,86 @@ class CrossBarStats(Entity):
                         .. attribute:: asic_id
                         
                         	Asic ID
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: port
                         
                         	Port
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: ua0_stats
                         
                         	ua0 stats
-                        	**type**\:   :py:class:`Ua0Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats>`
+                        	**type**\:  :py:class:`Ua0Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua0Stats>`
                         
                         .. attribute:: ua1_stats
                         
                         	ua1 stats
-                        	**type**\:   :py:class:`Ua1Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats>`
+                        	**type**\:  :py:class:`Ua1Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua1Stats>`
                         
                         .. attribute:: ua2_stats
                         
                         	ua2 stats
-                        	**type**\:   :py:class:`Ua2Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats>`
+                        	**type**\:  :py:class:`Ua2Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.Ua2Stats>`
                         
                         .. attribute:: ma_stats
                         
                         	ma stats
-                        	**type**\:   :py:class:`MaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats>`
+                        	**type**\:  :py:class:`MaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.MaStats>`
                         
                         .. attribute:: ca_stats
                         
                         	ca stats
-                        	**type**\:   :py:class:`CaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats>`
+                        	**type**\:  :py:class:`CaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.CaStats>`
                         
                         .. attribute:: pi_stats
                         
                         	pi stats
-                        	**type**\:   :py:class:`PiStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats>`
+                        	**type**\:  :py:class:`PiStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiStats>`
                         
                         .. attribute:: pe_stats
                         
                         	pe stats
-                        	**type**\:   :py:class:`PeStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats>`
+                        	**type**\:  :py:class:`PeStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeStats>`
                         
                         .. attribute:: pi_uc_stats
                         
                         	pi uc stats
-                        	**type**\:   :py:class:`PiUcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats>`
+                        	**type**\:  :py:class:`PiUcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiUcStats>`
                         
                         .. attribute:: pi_mc_stats
                         
                         	pi mc stats
-                        	**type**\:   :py:class:`PiMcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats>`
+                        	**type**\:  :py:class:`PiMcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiMcStats>`
                         
                         .. attribute:: pi_cc_stats
                         
                         	pi cc stats
-                        	**type**\:   :py:class:`PiCcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats>`
+                        	**type**\:  :py:class:`PiCcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PiCcStats>`
                         
                         .. attribute:: pe_uc_stats
                         
                         	pe uc stats
-                        	**type**\:   :py:class:`PeUcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats>`
+                        	**type**\:  :py:class:`PeUcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeUcStats>`
                         
                         .. attribute:: pe_mc_stats
                         
                         	pe mc stats
-                        	**type**\:   :py:class:`PeMcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats>`
+                        	**type**\:  :py:class:`PeMcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeMcStats>`
                         
                         .. attribute:: pe_cc_stats
                         
                         	pe cc stats
-                        	**type**\:   :py:class:`PeCcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats>`
+                        	**type**\:  :py:class:`PeCcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper.CrossBarStats.Nodes.Node.CrossBarTable.Sm15Stats.Sm15Stat.PeCcStats>`
                         
                         .. attribute:: internal_err_cnt
                         
                         	internal err cnt
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -872,56 +882,56 @@ class CrossBarStats(Entity):
                             .. attribute:: dest_drop_pkt_cnt
                             
                             	DEST DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: src_dest_pkt_cnt
                             
                             	SRC DEST PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dest_src_pkt_cnt
                             
                             	DEST SRC PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rcv_pkt_cnt
                             
                             	RCV PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: tx_pkt_cnt
                             
                             	TX PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rx_drop_pkt_cnt
                             
                             	RX DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rx_fabric_to_cnt
                             
                             	RX FABRIC TO CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ack_wait_cnt
                             
                             	ACK WAIT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -970,56 +980,56 @@ class CrossBarStats(Entity):
                             .. attribute:: dest_drop_pkt_cnt
                             
                             	DEST DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: src_dest_pkt_cnt
                             
                             	SRC DEST PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dest_src_pkt_cnt
                             
                             	DEST SRC PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rcv_pkt_cnt
                             
                             	RCV PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: tx_pkt_cnt
                             
                             	TX PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rx_drop_pkt_cnt
                             
                             	RX DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rx_fabric_to_cnt
                             
                             	RX FABRIC TO CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ack_wait_cnt
                             
                             	ACK WAIT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1068,56 +1078,56 @@ class CrossBarStats(Entity):
                             .. attribute:: dest_drop_pkt_cnt
                             
                             	DEST DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: src_dest_pkt_cnt
                             
                             	SRC DEST PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dest_src_pkt_cnt
                             
                             	DEST SRC PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rcv_pkt_cnt
                             
                             	RCV PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: tx_pkt_cnt
                             
                             	TX PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rx_drop_pkt_cnt
                             
                             	RX DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rx_fabric_to_cnt
                             
                             	RX FABRIC TO CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ack_wait_cnt
                             
                             	ACK WAIT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1166,63 +1176,63 @@ class CrossBarStats(Entity):
                             .. attribute:: dest_drop_pkt_cnt
                             
                             	DEST DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: src_dest_pkt_cnt
                             
                             	SRC DEST PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dest_src_pkt_cnt
                             
                             	DEST SRC PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rcv_pkt_cnt
                             
                             	RCV PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: tx_pkt_cnt
                             
                             	TX PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rx_drop_pkt_cnt
                             
                             	RX DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rx_re_transmit_cnt
                             
                             	RX RETRANSMIT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rx_fabric_to_cnt
                             
                             	RX FABRIC TO CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rx_hol_to_cnt
                             
                             	RX HOL TO CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1273,42 +1283,42 @@ class CrossBarStats(Entity):
                             .. attribute:: dest_drop_pkt_cnt
                             
                             	DEST DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: src_dest_pkt_cnt
                             
                             	SRC DEST PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dest_src_pkt_cnt
                             
                             	DEST SRC PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rcv_pkt_cnt
                             
                             	RCV PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: tx_pkt_cnt
                             
                             	TX PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rx_drop_pkt_cnt
                             
                             	RX DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1353,28 +1363,28 @@ class CrossBarStats(Entity):
                             .. attribute:: total_rate1_cnt
                             
                             	TOTAL RATE1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: total_rate2_cnt
                             
                             	TOTAL RATE2 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: total_rate3_cnt
                             
                             	TOTAL RATE3 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: total_calc_rate
                             
                             	total calc rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1415,35 +1425,35 @@ class CrossBarStats(Entity):
                             .. attribute:: total_rate1_cnt
                             
                             	TOTAL RATE1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: total_rate2_cnt
                             
                             	TOTAL RATE2 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: total_rate3_cnt
                             
                             	TOTAL RATE3 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: total_calc_rate
                             
                             	total calc rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: mc2uc_preempt_cnt
                             
                             	MC2UC PREEMPT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1486,252 +1496,252 @@ class CrossBarStats(Entity):
                             .. attribute:: pkt_rcv_cnt
                             
                             	PKT RCV CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_seq_err_cnt
                             
                             	PKT SEQ ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_coming_pkt_err_cnt
                             
                             	INCOMING PKT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: min_pkt_len_err_cnt
                             
                             	MIN PKT LEN ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: max_pkt_len_err_cnt
                             
                             	MAX PKT LEN ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: line_err_drp_pkt
                             
                             	LINE ERR DRP PKT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_crc_err_cnt
                             
                             	PKT CRC ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_cfh_crc_err_cnt
                             
                             	PKT CFH CRC ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: line_s_written_in_mem0
                             
                             	LINES WRITTEN IN MEM0
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: line_s_written_in_mem1
                             
                             	LINES WRITTEN IN MEM1
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: line_s_written_in_mem2
                             
                             	LINES WRITTEN IN MEM2
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: tail_drp_pkt_cnt
                             
                             	TAIL DRP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: uc0_data_mem_ecc_1bit_err_cnt
                             
                             	UC0 DATA MEM ECC 1BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: uc1_data_mem_ecc_1bit_err_cnt
                             
                             	UC1 DATA MEM ECC 1BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: uc2_data_mem_ecc_1bit_err_cnt
                             
                             	UC2 DATA MEM ECC 1BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: uc0_data_mem_ecc_2bit_err_cnt
                             
                             	UC0 DATA MEM ECC 2BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: uc1_data_mem_ecc_2bit_err_cnt
                             
                             	UC1 DATA MEM ECC 2BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: uc2_data_mem_ecc_2bit_err_cnt
                             
                             	UC2 DATA MEM ECC 2BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: diag_pkt_cnt
                             
                             	DIAG PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_sent_to_disabled_port_cnt
                             
                             	PKT SENT TO DISABLED PORT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_null_poe_sent_ua0_cnt
                             
                             	PKT NULL POE SENT UA0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_null_poe_sent_ua1_cnt
                             
                             	PKT NULL POE SENT UA1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_null_poe_sent_ua2_cnt
                             
                             	PKT NULL POE SENT UA2 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_fpoe_addr_rng_hit_cnt
                             
                             	PKT FPOE ADDR RNG HIT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpoe_mem_ecc_1bit_err_cnt
                             
                             	FPOE MEM ECC 1BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpoe_mem_ecc_2bit_err_cnt
                             
                             	FPOE MEM ECC 2BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkts_sent_to_ux0_cnt
                             
                             	PKTS SENT TO UX0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkts_sent_to_ux1_cnt
                             
                             	PKTS SENT TO UX1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkts_sent_to_ux2_cnt
                             
                             	PKTS SENT TO UX2 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: cpp_head_drop_pkt_cnt
                             
                             	CPP HEAD DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: tr_head_drop_pkt_cnt
                             
                             	TR HEAD DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: tr_pkt_sent_to_ux
                             
                             	TR PKT SENT TO UX
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: stop_thrsh_hit_cnt
                             
                             	STOP THRSH HIT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rate_cnt
                             
                             	RATE CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: calc_rate
                             
                             	calc rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: crc_stomp_pkt_cnt
                             
                             	CRC STOMP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1836,231 +1846,231 @@ class CrossBarStats(Entity):
                             .. attribute:: pkt_rcv_cnt
                             
                             	PKT RCV CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_seq_err_cnt
                             
                             	PKT SEQ ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_coming_pkt_err_cnt
                             
                             	INCOMING PKT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: min_pkt_len_err_cnt
                             
                             	MIN PKT LEN ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: max_pkt_len_err_cnt
                             
                             	MAX PKT LEN ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: line_err_drp_pkt
                             
                             	LINE ERR DRP PKT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_crc_err_cnt
                             
                             	PKT CRC ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_cfh_crc_err_cnt
                             
                             	PKT CFH CRC ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: line_s_written_in_mem
                             
                             	LINES WRITTEN IN MEM
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: tail_drp_pkt_cnt
                             
                             	TAIL DRP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: data_mem0_ecc_1bit_err_cnt
                             
                             	DATA MEM0 ECC 1BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: data_mem1_ecc_1bit_err_cnt
                             
                             	DATA MEM1 ECC 1BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: data_mem2_ecc_1bit_err_cnt
                             
                             	DATA MEM2 ECC 1BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: data_mem0_ecc_2bit_err_cnt
                             
                             	DATA MEM0 ECC 2BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: data_mem1_ecc_2bit_err_cnt
                             
                             	DATA MEM1 ECC 2BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: data_mem2_ecc_2bit_err_cnt
                             
                             	DATA MEM2 ECC 2BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: diag_pkt_cnt
                             
                             	DIAG PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_sent_to_disabled_port
                             
                             	PKT SENT TO DISABLED PORT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_fpoe_match_hit_cnt
                             
                             	PKT FPOE MATCH HIT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_null_poe_sent_cnt
                             
                             	PKT NULL POE SENT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_fpoe_addr_rng_hit_cnt
                             
                             	PKT FPOE ADDR RNG HIT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: di_hdr_len_err_pkt_cnt
                             
                             	DI HDR LEN ERR PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: di_err_pkt_cnt
                             
                             	DI ERR PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpoe_mem_ecc_1bit_err_cnt
                             
                             	FPOE MEM ECC 1BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpoe_mem_ecc_2bit_err_cnt
                             
                             	FPOE MEM ECC 2BIT ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkts_sent_to_mx_cnt
                             
                             	PKTS SENT TO MX CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: cpp_head_drop_pkt_from_ma_cnt
                             
                             	CPP HEAD DROP PKT FROM MA CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: tr_head_drop_pkt_from_ma_cnt
                             
                             	TR HEAD DROP PKT FROM MA CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: tr_pkt_sent_to_mx
                             
                             	TR PKT SENT TO MX
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: stop_thrsh_hit_cnt
                             
                             	STOP THRSH HIT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rate_cnt
                             
                             	RATE CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: calc_rate
                             
                             	calc rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: crc_stomp_pkt_cnt
                             
                             	CRC STOMP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2159,210 +2169,210 @@ class CrossBarStats(Entity):
                             .. attribute:: in0_ecc_serr_cnt
                             
                             	IN0 ECC SERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in0_ecc_derr_cnt
                             
                             	IN0 ECC DERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in1_ecc_serr_cnt
                             
                             	IN1 ECC SERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in1_ecc_derr_cnt
                             
                             	IN1 ECC DERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: data_mem_ecc_serr_cnt
                             
                             	DATA MEM ECC SERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: data_mem_ecc_derr_cnt
                             
                             	DATA MEM ECC DERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: data_mem_ovf0_cnt
                             
                             	DATA MEM OVF0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: data_mem_ovf1_cnt
                             
                             	DATA MEM OVF1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpoe_mem_ecc_serr_cnt
                             
                             	FPOE MEM ECC SERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpoe_mem_ecc_derr_cnt
                             
                             	FPOE MEM ECC DERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: null_poe_cnt
                             
                             	NULL POE CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: shut_ack_cnt
                             
                             	SHUT ACK CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in0_fnc_err_cnt
                             
                             	IN0 FNC ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in1_fnc_err_cnt
                             
                             	IN1 FNC ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in0_drop_cnt
                             
                             	IN0 DROP CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in1_drop_cnt
                             
                             	IN1 DROP CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in0_cong_cnt
                             
                             	IN0 CONG CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in1_cong_cnt
                             
                             	IN1 CONG CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in0_shut_cnt
                             
                             	IN0 SHUT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in1_shut_cnt
                             
                             	IN1 SHUT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: tail_drop_msg_cnt
                             
                             	TAIL DROP MSG CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in0_pkt_cnt
                             
                             	IN0 PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in1_pkt_cnt
                             
                             	IN1 PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: dmem_rd_cnt
                             
                             	DMEM RD CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_dmem0_cnt
                             
                             	IN DMEM0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_dmem1_cnt
                             
                             	IN DMEM1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_pkt_cnt
                             
                             	OUT PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: stop_thrsh_hit_cnt
                             
                             	STOP THRSH HIT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rate_cnt
                             
                             	RATE CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: calc_rate
                             
                             	calc rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2455,217 +2465,217 @@ class CrossBarStats(Entity):
                             .. attribute:: in_pkt_uc0_cnt
                             
                             	IN PKT UC0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_pkt_uc1_cnt
                             
                             	IN PKT UC1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_pkt_uc2_cnt
                             
                             	IN PKT UC2 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_full_line_uc0_cnt
                             
                             	IN FULL LINE UC0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_full_line_uc1_cnt
                             
                             	IN FULL LINE UC1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_full_line_uc2_cnt
                             
                             	IN FULL LINE UC2 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_trunc_eop_uc0_cnt
                             
                             	PKT TRUNC EOP UC0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_trunc_eop_uc1_cnt
                             
                             	PKT TRUNC EOP UC1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_trunc_eop_uc2_cnt
                             
                             	PKT TRUNC EOP UC2 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_sop_drop_uc0_cnt
                             
                             	PKT SOP DROP UC0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_sop_drop_uc1_cnt
                             
                             	PKT SOP DROP UC1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_sop_drop_uc2_cnt
                             
                             	PKT SOP DROP UC2 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_ecc_err_drop_uc_cnt
                             
                             	PKT ECC ERR DROP UC CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_ecc_trunc_cnt_uc_cnt
                             
                             	PKT ECC TRUNC CNT UC CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_1bit_err_uc0_0_cnt
                             
                             	ECC 1BIT ERR UC0 0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_1bit_err_uc0_1_cnt
                             
                             	ECC 1BIT ERR UC0 1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_1bit_err_uc1_0_cnt
                             
                             	ECC 1BIT ERR UC1 0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_1bit_err_uc1_1_cnt
                             
                             	ECC 1BIT ERR UC1 1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_1bit_err_uc2_0_cnt
                             
                             	ECC 1BIT ERR UC2 0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_1bit_err_uc2_1_cnt
                             
                             	ECC 1BIT ERR UC2 1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_2bit_err_uc0_0_cnt
                             
                             	ECC 2BIT ERR UC0 0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_2bit_err_uc0_1_cnt
                             
                             	ECC 2BIT ERR UC0 1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_2bit_err_uc1_0_cnt
                             
                             	ECC 2BIT ERR UC1 0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_2bit_err_uc1_1_cnt
                             
                             	ECC 2BIT ERR UC1 1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_2bit_err_uc2_0_cnt
                             
                             	ECC 2BIT ERR UC2 0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_2bit_err_uc2_1_cnt
                             
                             	ECC 2BIT ERR UC2 1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_pkt_uc_cnt
                             
                             	OUT PKT UC CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fe_uc_sop_eop_pack_cnt
                             
                             	FE UC SOP EOP PACK CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fc_uc_0_1_trans_cnt
                             
                             	FC UC 0 1 TRANS CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rate_cnt
                             
                             	RATE CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: calc_rate
                             
                             	calc rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2760,119 +2770,119 @@ class CrossBarStats(Entity):
                             .. attribute:: in_pkt_mc_cnt
                             
                             	IN PKT MC CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_full_line_mc_cnt
                             
                             	IN FULL LINE MC CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_trunc_eop_mc_cnt
                             
                             	PKT TRUNC EOP MC CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_sop_drop_mc_cnt
                             
                             	PKT SOP DROP MC CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_ecc_err_drop_mc_cnt
                             
                             	PKT ECC ERR DROP MC CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: pkt_ecc_err_trunc_cnt_mc_cnt
                             
                             	PKT ECC ERR TRUNC CNT MC CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_1bit_err_mc0_cnt
                             
                             	ECC 1BIT ERR MC0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_1bit_err_mc1_cnt
                             
                             	ECC 1BIT ERR MC1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_1bit_err_mc2_cnt
                             
                             	ECC 1BIT ERR MC2 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_2bit_err_mc0_cnt
                             
                             	ECC 2BIT ERR MC0 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_2bit_err_mc1_cnt
                             
                             	ECC 2BIT ERR MC1 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: ecc_2bit_err_mc2_cnt
                             
                             	ECC 2BIT ERR MC2 CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_pkt_mc_cnt
                             
                             	OUT PKT MC CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fe_mc_sop_eop_pack_cnt
                             
                             	FE MC SOP EOP PACK CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fc_mc_0_1_trans_cnt
                             
                             	FC MC 0 1 TRANS CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rate_cnt
                             
                             	RATE CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: calc_rate
                             
                             	calc rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2939,112 +2949,112 @@ class CrossBarStats(Entity):
                             .. attribute:: in_pkt_cnt
                             
                             	IN PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_path0_pkt_cnt
                             
                             	OUT PATH0 PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_path1_pkt_cnt
                             
                             	OUT PATH1 PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: xbar_ecc_drop_pkt_cnt
                             
                             	XBAR ECC DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: mem0_drop_pkt_cnt
                             
                             	MEM0 DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: mem1_drop_pkt_cnt
                             
                             	MEM1 DROP PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: congn_pkt_cnt
                             
                             	CONGN PKT CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: xbar_ecc_single_err_cnt
                             
                             	XBAR ECC SINGLE ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: xbar_ecc_double_err_cnt
                             
                             	XBAR ECC DOUBLE ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: mem0_ecc_single_err_cnt
                             
                             	MEM0 ECC SINGLE ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: mem0_ecc_double_err_cnt
                             
                             	MEM0 ECC DOUBLE ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: mem1_ecc_single_err_cnt
                             
                             	MEM1 ECC SINGLE ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: mem1_ecc_double_err_cnt
                             
                             	MEM1 ECC DOUBLE ERR CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fc_cc_0_1_trans_cnt
                             
                             	FC CC 0 1 TRANS CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rate_cnt
                             
                             	RATE CNT
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: calc_rate
                             
                             	calc rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             

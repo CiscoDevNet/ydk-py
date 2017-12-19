@@ -37,17 +37,35 @@ module Cisco-IOS-XE-acl {
   // =========================================================================
   // REVISION
   // =========================================================================
-  revision 2017-06-06 {
+  revision 2017-08-01 {
+    description
+      "Removed ordered-by-user for acl lists";
+  }
+
+  revision 2017-07-31 {
+    description
+      "Restored ipv4 acl name type to union";
+  }
+
+  revision 2017-05-26 {
+    description
+      "MAC access list entry key turned into a blob";
+  }
+  revision 2017-05-17 {
     description
       "inet:ipv6-prefix changed to ios-types:ipv6-prefix";
-  }
-  revision 2017-06-01 {
-    description
-      "Removed access-list group";
   }
   revision 2017-05-16 {
     description
       "Removed access-list data model";
+  }
+  revision 2017-05-02 {
+    description
+      "MAC access list entry made a list";
+  }
+  revision 2017-04-25 {
+    description
+      "Updated MAC access list target ";
   }
   revision 2017-03-24 {
     description
@@ -565,6 +583,37 @@ module Cisco-IOS-XE-acl {
     }
   }
 
+  grouping target-choice {
+   choice target-choice {
+      case any {
+        leaf any {
+          description
+           "any MAC address";
+          type empty;
+        }
+     }
+     case host {
+       leaf host {
+         description
+           "A single host MAC address";
+         type string;
+       }
+     }
+     case address {
+       leaf mac-address {
+         description
+          "48-bit MAC address";
+         type string;
+       }
+       leaf mac-address-mask {
+         description
+          "48-bit MAC address";
+         type string;
+       }
+     }
+    }
+  }
+
   grouping ipv6-acl-match-common-attribute {
     leaf auth {
       description
@@ -947,7 +996,8 @@ module Cisco-IOS-XE-acl {
             "Match only packets not on a given port number";
           type acl-port-type;
         }
-      }
+      } 
+
       case dst-range-case {
         leaf dst-range1 {
           description
@@ -975,7 +1025,7 @@ module Cisco-IOS-XE-acl {
 
   grouping ipv6-acl-grouping {
     list access-list-seq-rule {
-      ordered-by user;
+//      ordered-by user;
       key "sequence";
       leaf sequence {
         description
@@ -992,7 +1042,8 @@ module Cisco-IOS-XE-acl {
 	      }
 	    }
         leaf protocol {
-	      type union {
+	      type union { 
+
 	        type uint8 {
 	          range "0..255";
 	        }
@@ -1040,7 +1091,8 @@ module Cisco-IOS-XE-acl {
       }
       uses acl-remark-grouping;
     }
-  }
+  } 
+
 
   grouping ipv4-ext-acl-grouping {
     list access-list-seq-rule {
@@ -1075,7 +1127,8 @@ module Cisco-IOS-XE-acl {
               enum object-group;
               enum ospf;
               enum pcp;
-              enum pim;
+              enum pim; 
+
               enum tcp;
               enum udp;
             }
@@ -1106,6 +1159,7 @@ module Cisco-IOS-XE-acl {
       }
       container ace-rule {
         leaf action {
+
           type enumeration {
             enum deny;
             enum permit;
@@ -1183,7 +1237,8 @@ module Cisco-IOS-XE-acl {
     //  ip access-list extended *
     list extended {
       description
-        "Extended Access List";
+        "Extended Access List"; 
+
       key "name";
       leaf name {
         type ios-types:ext-acl-type;
@@ -1222,7 +1277,8 @@ module Cisco-IOS-XE-acl {
         }
       }
     }
-    //ip access-list logging
+    //ip access-list logging 
+
     container logging {
       description
         "Control access list logging";
@@ -1276,7 +1332,8 @@ module Cisco-IOS-XE-acl {
   }
 
   grouping config-ipv6-acl-grouping {
-    list named-acl {
+    list named-acl { 
+
       key "name";
       leaf name {
         type string;
@@ -1313,7 +1370,8 @@ module Cisco-IOS-XE-acl {
         "Control access list log updates";
       leaf threshold {
         description
-          "Set access-list logging threshold";
+          "Set access-list logging threshold"; 
+
         type uint64 {
           range "0..2147483647";
         }
@@ -1323,6 +1381,94 @@ module Cisco-IOS-XE-acl {
       description
         "Match locally-generated traffic";
       type empty;
+    }
+  }
+
+  //access-list
+  grouping config-access-list-grouping {
+    list access-list-standard-range {
+      key "listnumber";
+      leaf listnumber {
+        type uint16 {
+          range "1..99";
+        }
+      }
+      list std-access-list-rule {
+//        ordered-by user;
+        key "rule";
+        leaf rule {
+          type string;
+        }
+      }
+      container permit {
+        description 
+          "Specify packets to forward";
+        list ipv4-or-hostname {
+          key "ipv4-or-hostname";
+          leaf ipv4-or-hostname {
+            description
+              "Address to match";
+            type inet:host;
+          }
+          leaf wildcard {
+            description
+              "Wildcard bits";
+            type inet:ipv4-address;
+          }
+          leaf log {
+            description
+              "Log matches against this entry"; 
+
+            type empty;
+          }
+        }
+      }
+    }
+    // acess-list *
+    list access-list-extended-range {
+      key "listnumber";
+      leaf listnumber {
+        type uint16 {
+          range "100..199";
+        }
+      }
+      list ext-access-list-rule {
+//        ordered-by user;
+        key "rule";
+        leaf rule {
+          type string;
+        }
+      }
+    }
+    container hardware {
+      container capture {
+        leaf mode {
+          type enumeration {
+            enum "vlan";
+          }
+        }
+      }
+    }
+    list access-list-expanded-range {
+      key "IP-extended-range";
+      leaf IP-extended-range {
+        description
+          "IP extended access list (expanded range)";
+        type uint16 {
+          range "2000..2699";
+        }
+      } 
+
+      container permit {
+        description
+          "Specify packets to forward";
+        uses access-list-ip-grouping;
+      }
+      container deny {
+        description
+          "Specify packets to reject";
+        uses access-list-ip-grouping;
+      }
     }
   }
 
@@ -1337,94 +1483,23 @@ module Cisco-IOS-XE-acl {
         leaf id {
           type string;
         }
-        container deny {
-          description
-            "Specify packets to reject";
-          container source {
-            choice target-choice {
-              leaf any {
-                description
-                  "any source MAC address";
-                type empty;
-              }
-              leaf host {
-                description
-                  "A single source host";
-                type string;
-              }
-              leaf mac-address {
-                description
-                  "48-bit source MAC address";
-                type string;
-              }
+        list entry {
+//          ordered-by user;
+          key "action values";
+          leaf action {
+            type enumeration {
+              enum deny; 
+
+              enum permit;
             }
           }
-          container dest {
-            choice target-choice {
-              leaf any {
-                description
-                  "any destination MAC address";
-                type empty;
-              }
-              leaf host {
-                description
-                  "A single destination host";
-                type string;
-              }
-              leaf mac-address {
-                description
-                  "48-bit destination MAC address";
-                type string;
-              }
+          leaf values {
+            type string {
+              pattern
+                "(([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4}|host) [0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4})" +
+                " (([0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4}|host) [0-9a-f]{4}[.][0-9a-f]{4}[.][0-9a-f]{4})" +
+                "( (0x0|0x[1-9A-F][0-9A-F]{,3}) (0x0|0x[1-9A-F][0-9A-F]{,3}))?";
             }
-          }
-          leaf ethertype {
-            type string;
-          }
-        }
-        container permit {
-          description
-            "Specify packets to forward";
-          container source {
-            choice target-choice {
-              leaf any {
-                description
-                  "any source MAC address";
-                type empty;
-              }
-              leaf host {
-                description
-                  "A single source host";
-                type string;
-              }
-              leaf mac-address {
-                description
-                  "48-bit source MAC address";
-                type string;
-              }
-            }
-          }
-          container dest {
-            choice target-choice {
-              leaf any {
-                description
-                  "any destination MAC address";
-                type empty;
-              }
-              leaf host {
-                description
-                  "A single destination host";
-                type string;
-              }
-              leaf mac-address {
-                description
-                  "48-bit destination MAC address";
-                type string;
-              }
-            }
-          }
-          leaf ethertype {
-            type string;
           }
         }
       }
@@ -1438,7 +1513,8 @@ module Cisco-IOS-XE-acl {
     uses config-mac-access-list-grouping;
   }
 
-  /////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////// 
+
   // native / ip / access-list
   /////////////////////////////////////////////////////////
   augment "/ios:native/ios:ip/ios:access-list" {

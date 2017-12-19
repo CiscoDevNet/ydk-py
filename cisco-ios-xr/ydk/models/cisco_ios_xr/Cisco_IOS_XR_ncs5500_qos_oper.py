@@ -577,7 +577,7 @@ class PlatformQos(Entity):
     .. attribute:: nodes
     
     	List of nodes with platform specific QoS configuration
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes>`
     
     
 
@@ -612,7 +612,7 @@ class PlatformQos(Entity):
         .. attribute:: node
         
         	Node with platform specific QoS configuration
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node>`
         
         
 
@@ -646,22 +646,24 @@ class PlatformQos(Entity):
             .. attribute:: node_name  <key>
             
             	Node name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: bundle_interfaces
             
             	QoS list of bundle interfaces
-            	**type**\:   :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces>`
+            	**type**\:  :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces>`
             
             .. attribute:: interfaces
             
             	QoS list of interfaces
-            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces>`
+            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces>`
             
             .. attribute:: remote_interfaces
             
             	QoS list of remote interfaces
-            	**type**\:   :py:class:`RemoteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces>`
+            	**type**\:  :py:class:`RemoteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces>`
             
             
 
@@ -710,7 +712,7 @@ class PlatformQos(Entity):
                 .. attribute:: bundle_interface
                 
                 	QoS interface names
-                	**type**\: list of    :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface>`
+                	**type**\: list of  		 :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface>`
                 
                 
 
@@ -743,34 +745,36 @@ class PlatformQos(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	Bundle interface name
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: member_interfaces
                     
                     	QoS list of member interfaces
-                    	**type**\:   :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces>`
+                    	**type**\:  :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces>`
                     
                     .. attribute:: npu_id
                     
                     	NPU ID
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: qos_direction
                     
                     	The interface direction on which QoS is applied to
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: policy_details
                     
                     	Policy Details
-                    	**type**\:   :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails>`
+                    	**type**\:  :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails>`
                     
                     .. attribute:: classes
                     
                     	QoS list of class names
-                    	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes>`
+                    	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes>`
                     
                     
 
@@ -822,7 +826,7 @@ class PlatformQos(Entity):
                         .. attribute:: member_interface
                         
                         	QoS interface names
-                        	**type**\: list of    :py:class:`MemberInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface>`
+                        	**type**\: list of  		 :py:class:`MemberInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface>`
                         
                         
 
@@ -855,17 +859,19 @@ class PlatformQos(Entity):
                             .. attribute:: interface_name  <key>
                             
                             	Member interface
-                            	**type**\:  str
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: policy_details
                             
                             	Policy Details
-                            	**type**\:   :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails>`
+                            	**type**\:  :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails>`
                             
                             .. attribute:: classes
                             
                             	QoS list of class names
-                            	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes>`
+                            	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes>`
                             
                             
 
@@ -908,21 +914,21 @@ class PlatformQos(Entity):
                                 .. attribute:: npu_id
                                 
                                 	NPU ID
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: interface_handle
                                 
                                 	InterfaceHandle
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: interface_bandwidth_kbps
                                 
                                 	Interface Bandwidth (in kbps)
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -931,45 +937,45 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_name
                                 
                                 	Policy name
-                                	**type**\:  str
+                                	**type**\: str
                                 
                                 	**length:** 0..64
                                 
                                 .. attribute:: total_number_of_classes
                                 
                                 	Number of Classes
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: voq_base_address
                                 
                                 	VOQ base address
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: voq_stats_handle
                                 
                                 	VOQ stats handle
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: stats_accounting_type
                                 
                                 	QoS Statistics Accounting Type
-                                	**type**\:   :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum>`
+                                	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum>`
                                 
                                 .. attribute:: policy_status
                                 
                                 	Policy Status
-                                	**type**\:   :py:class:`DnxQoseaShowPolicyStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus>`
+                                	**type**\:  :py:class:`DnxQoseaShowPolicyStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus>`
                                 
                                 .. attribute:: interface_status
                                 
                                 	Interface Status
-                                	**type**\:   :py:class:`DnxQoseaShowIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus>`
+                                	**type**\:  :py:class:`DnxQoseaShowIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus>`
                                 
                                 
 
@@ -1020,7 +1026,7 @@ class PlatformQos(Entity):
                                 .. attribute:: class_
                                 
                                 	QoS policy class
-                                	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_>`
+                                	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_>`
                                 
                                 
 
@@ -1053,89 +1059,89 @@ class PlatformQos(Entity):
                                     .. attribute:: level_one_class_name  <key>
                                     
                                     	QoS policy class name at level 1
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: level_two_class_name
                                     
                                     	QoS policy child class name at level 2
-                                    	**type**\:  str
+                                    	**type**\: str
                                     
                                     .. attribute:: config_max_rate
                                     
                                     	Configured maximum rate
-                                    	**type**\:   :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate>`
+                                    	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate>`
                                     
                                     .. attribute:: config_min_rate
                                     
                                     	Configured minimum rate
-                                    	**type**\:   :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate>`
+                                    	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate>`
                                     
                                     .. attribute:: config_queue_limit
                                     
                                     	Configured queue limit
-                                    	**type**\:   :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit>`
+                                    	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit>`
                                     
                                     .. attribute:: config_policer_average_rate
                                     
                                     	Configured policer average rate
-                                    	**type**\:   :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate>`
+                                    	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate>`
                                     
                                     .. attribute:: config_policer_peak_rate
                                     
                                     	Config policer peak rate
-                                    	**type**\:   :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate>`
+                                    	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate>`
                                     
                                     .. attribute:: config_policer_conform_burst
                                     
                                     	Configured policer conform burst
-                                    	**type**\:   :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst>`
+                                    	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst>`
                                     
                                     .. attribute:: config_policer_excess_burst
                                     
                                     	Configured policer excess burst
-                                    	**type**\:   :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst>`
+                                    	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst>`
                                     
                                     .. attribute:: conform_action
                                     
                                     	Conform action
-                                    	**type**\:   :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction>`
+                                    	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction>`
                                     
                                     .. attribute:: exceed_action
                                     
                                     	Exceed action
-                                    	**type**\:   :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction>`
+                                    	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction>`
                                     
                                     .. attribute:: violate_action
                                     
                                     	Violate action
-                                    	**type**\:   :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction>`
+                                    	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction>`
                                     
                                     .. attribute:: class_level
                                     
                                     	Class level
-                                    	**type**\:   :py:class:`DnxQoseaShowLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevel>`
+                                    	**type**\:  :py:class:`DnxQoseaShowLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevel>`
                                     
                                     .. attribute:: egress_queue_id
                                     
                                     	Egress Queue ID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: queue_type
                                     
                                     	Queue type
-                                    	**type**\:   :py:class:`DnxQoseaShowQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueue>`
+                                    	**type**\:  :py:class:`DnxQoseaShowQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueue>`
                                     
                                     .. attribute:: priority_level
                                     
                                     	Priority level
-                                    	**type**\:   :py:class:`DnxQoseaShowHpLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevel>`
+                                    	**type**\:  :py:class:`DnxQoseaShowHpLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevel>`
                                     
                                     .. attribute:: hardware_max_rate_kbps
                                     
                                     	Hardware maximum rate in kbps
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1144,7 +1150,7 @@ class PlatformQos(Entity):
                                     .. attribute:: hardware_min_rate_kbps
                                     
                                     	Hardware minimum rate in kbps
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1153,7 +1159,7 @@ class PlatformQos(Entity):
                                     .. attribute:: config_excess_bandwidth_percent
                                     
                                     	Configured excess bandwidth percentage
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1162,28 +1168,28 @@ class PlatformQos(Entity):
                                     .. attribute:: config_excess_bandwidth_unit
                                     
                                     	Configured excess bandwidth unit
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: hardware_excess_bandwidth_weight
                                     
                                     	Hardware excess bandwidth weight
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: network_min_bandwidth_kbps
                                     
                                     	Network minimum Bandwith
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: hardware_queue_limit_bytes
                                     
                                     	Hardware queue limit in bytes
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1192,7 +1198,7 @@ class PlatformQos(Entity):
                                     .. attribute:: hardware_queue_limit_microseconds
                                     
                                     	Hardware queue limit in microseconds
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1201,21 +1207,21 @@ class PlatformQos(Entity):
                                     .. attribute:: policer_bucket_id
                                     
                                     	PolicerBucketID
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: policer_stats_handle
                                     
                                     	PolicerStatsHandle
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: hardware_policer_average_rate_kbps
                                     
                                     	Hardware policer average in kbps
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
@@ -1224,43 +1230,43 @@ class PlatformQos(Entity):
                                     .. attribute:: hardware_policer_peak_rate_kbps
                                     
                                     	Hardware policer peak rate
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: hardware_policer_conform_burst_bytes
                                     
                                     	Hardware policer conform burst
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: hardware_policer_excess_burst_bytes
                                     
                                     	Hardware policer excess burst
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: ip_mark
                                     
                                     	IP mark
-                                    	**type**\: list of    :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.IpMark>`
+                                    	**type**\: list of  		 :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.IpMark>`
                                     
                                     .. attribute:: common_mark
                                     
                                     	Common mark
-                                    	**type**\: list of    :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.CommonMark>`
+                                    	**type**\: list of  		 :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.CommonMark>`
                                     
                                     .. attribute:: mpls_mark
                                     
                                     	MPLS mark
-                                    	**type**\: list of    :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.MplsMark>`
+                                    	**type**\: list of  		 :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.MplsMark>`
                                     
                                     .. attribute:: wred
                                     
                                     	WRED parameters
-                                    	**type**\: list of    :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred>`
+                                    	**type**\: list of  		 :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred>`
                                     
                                     
 
@@ -1386,14 +1392,14 @@ class PlatformQos(Entity):
                                         .. attribute:: policy_value
                                         
                                         	Policy value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                         
                                         
 
@@ -1428,14 +1434,14 @@ class PlatformQos(Entity):
                                         .. attribute:: policy_value
                                         
                                         	Policy value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                         
                                         
 
@@ -1470,14 +1476,14 @@ class PlatformQos(Entity):
                                         .. attribute:: policy_value
                                         
                                         	Policy value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                         
                                         
 
@@ -1512,14 +1518,14 @@ class PlatformQos(Entity):
                                         .. attribute:: policy_value
                                         
                                         	Policy value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                         
                                         
 
@@ -1554,14 +1560,14 @@ class PlatformQos(Entity):
                                         .. attribute:: policy_value
                                         
                                         	Policy value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                         
                                         
 
@@ -1596,14 +1602,14 @@ class PlatformQos(Entity):
                                         .. attribute:: policy_value
                                         
                                         	Policy value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                         
                                         
 
@@ -1638,14 +1644,14 @@ class PlatformQos(Entity):
                                         .. attribute:: policy_value
                                         
                                         	Policy value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                         
                                         
 
@@ -1680,12 +1686,12 @@ class PlatformQos(Entity):
                                         .. attribute:: action_type
                                         
                                         	Policer action type
-                                        	**type**\:   :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                        	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
                                         
                                         .. attribute:: mark
                                         
                                         	Action mark
-                                        	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction.Mark>`
+                                        	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction.Mark>`
                                         
                                         
 
@@ -1720,12 +1726,12 @@ class PlatformQos(Entity):
                                             .. attribute:: mark_type
                                             
                                             	Mark type
-                                            	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                            	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                             
                                             .. attribute:: mark_value
                                             
                                             	Mark value
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
@@ -1762,12 +1768,12 @@ class PlatformQos(Entity):
                                         .. attribute:: action_type
                                         
                                         	Policer action type
-                                        	**type**\:   :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                        	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
                                         
                                         .. attribute:: mark
                                         
                                         	Action mark
-                                        	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction.Mark>`
+                                        	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction.Mark>`
                                         
                                         
 
@@ -1802,12 +1808,12 @@ class PlatformQos(Entity):
                                             .. attribute:: mark_type
                                             
                                             	Mark type
-                                            	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                            	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                             
                                             .. attribute:: mark_value
                                             
                                             	Mark value
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
@@ -1844,12 +1850,12 @@ class PlatformQos(Entity):
                                         .. attribute:: action_type
                                         
                                         	Policer action type
-                                        	**type**\:   :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                        	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
                                         
                                         .. attribute:: mark
                                         
                                         	Action mark
-                                        	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction.Mark>`
+                                        	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction.Mark>`
                                         
                                         
 
@@ -1884,12 +1890,12 @@ class PlatformQos(Entity):
                                             .. attribute:: mark_type
                                             
                                             	Mark type
-                                            	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                            	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                             
                                             .. attribute:: mark_value
                                             
                                             	Mark value
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..65535
                                             
@@ -1926,12 +1932,12 @@ class PlatformQos(Entity):
                                         .. attribute:: mark_type
                                         
                                         	Mark type
-                                        	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                        	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                         
                                         .. attribute:: mark_value
                                         
                                         	Mark value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
@@ -1968,12 +1974,12 @@ class PlatformQos(Entity):
                                         .. attribute:: mark_type
                                         
                                         	Mark type
-                                        	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                        	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                         
                                         .. attribute:: mark_value
                                         
                                         	Mark value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
@@ -2010,12 +2016,12 @@ class PlatformQos(Entity):
                                         .. attribute:: mark_type
                                         
                                         	Mark type
-                                        	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                        	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                         
                                         .. attribute:: mark_value
                                         
                                         	Mark value
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
@@ -2052,48 +2058,48 @@ class PlatformQos(Entity):
                                         .. attribute:: wred_match_value
                                         
                                         	WRED match values
-                                        	**type**\:   :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue>`
+                                        	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue>`
                                         
                                         .. attribute:: config_min_threshold
                                         
                                         	Configured minimum threshold
-                                        	**type**\:   :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold>`
+                                        	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold>`
                                         
                                         .. attribute:: config_max_threshold
                                         
                                         	Configured maximum threshold
-                                        	**type**\:   :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold>`
+                                        	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold>`
                                         
                                         .. attribute:: wred_match_type
                                         
                                         	WREDMatchType
-                                        	**type**\:   :py:class:`DnxQoseaShowWred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWred>`
+                                        	**type**\:  :py:class:`DnxQoseaShowWred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWred>`
                                         
                                         .. attribute:: hardware_min_threshold_bytes
                                         
                                         	Hardware minimum threshold
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: hardware_max_threshold_bytes
                                         
                                         	Hardware maximum threshold
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
                                         .. attribute:: first_segment
                                         
                                         	First segment
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..65535
                                         
                                         .. attribute:: segment_size
                                         
                                         	Segment size
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..4294967295
                                         
@@ -2151,7 +2157,7 @@ class PlatformQos(Entity):
                                             .. attribute:: dnx_qosea_show_red_match_value
                                             
                                             	dnx qosea show red match value
-                                            	**type**\: list of    :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
+                                            	**type**\: list of  		 :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
                                             
                                             
 
@@ -2184,14 +2190,14 @@ class PlatformQos(Entity):
                                                 .. attribute:: range_start
                                                 
                                                 	Start value of a range
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
                                                 .. attribute:: range_end
                                                 
                                                 	End value of a range
-                                                	**type**\:  int
+                                                	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
@@ -2228,14 +2234,14 @@ class PlatformQos(Entity):
                                             .. attribute:: policy_value
                                             
                                             	Policy value
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: policy_unit
                                             
                                             	Policy unit
-                                            	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                            	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                             
                                             
 
@@ -2270,14 +2276,14 @@ class PlatformQos(Entity):
                                             .. attribute:: policy_value
                                             
                                             	Policy value
-                                            	**type**\:  int
+                                            	**type**\: int
                                             
                                             	**range:** 0..4294967295
                                             
                                             .. attribute:: policy_unit
                                             
                                             	Policy unit
-                                            	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                            	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                             
                                             
 
@@ -2312,21 +2318,21 @@ class PlatformQos(Entity):
                         .. attribute:: npu_id
                         
                         	NPU ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: interface_handle
                         
                         	InterfaceHandle
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: interface_bandwidth_kbps
                         
                         	Interface Bandwidth (in kbps)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -2335,45 +2341,45 @@ class PlatformQos(Entity):
                         .. attribute:: policy_name
                         
                         	Policy name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..64
                         
                         .. attribute:: total_number_of_classes
                         
                         	Number of Classes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: voq_base_address
                         
                         	VOQ base address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: voq_stats_handle
                         
                         	VOQ stats handle
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: stats_accounting_type
                         
                         	QoS Statistics Accounting Type
-                        	**type**\:   :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum>`
+                        	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum>`
                         
                         .. attribute:: policy_status
                         
                         	Policy Status
-                        	**type**\:   :py:class:`DnxQoseaShowPolicyStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus>`
+                        	**type**\:  :py:class:`DnxQoseaShowPolicyStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus>`
                         
                         .. attribute:: interface_status
                         
                         	Interface Status
-                        	**type**\:   :py:class:`DnxQoseaShowIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus>`
+                        	**type**\:  :py:class:`DnxQoseaShowIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus>`
                         
                         
 
@@ -2424,7 +2430,7 @@ class PlatformQos(Entity):
                         .. attribute:: class_
                         
                         	QoS policy class
-                        	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_>`
+                        	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_>`
                         
                         
 
@@ -2457,89 +2463,89 @@ class PlatformQos(Entity):
                             .. attribute:: level_one_class_name  <key>
                             
                             	QoS policy class name at level 1
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: level_two_class_name
                             
                             	QoS policy child class name at level 2
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: config_max_rate
                             
                             	Configured maximum rate
-                            	**type**\:   :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate>`
+                            	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate>`
                             
                             .. attribute:: config_min_rate
                             
                             	Configured minimum rate
-                            	**type**\:   :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate>`
+                            	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate>`
                             
                             .. attribute:: config_queue_limit
                             
                             	Configured queue limit
-                            	**type**\:   :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit>`
+                            	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit>`
                             
                             .. attribute:: config_policer_average_rate
                             
                             	Configured policer average rate
-                            	**type**\:   :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate>`
+                            	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate>`
                             
                             .. attribute:: config_policer_peak_rate
                             
                             	Config policer peak rate
-                            	**type**\:   :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate>`
+                            	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate>`
                             
                             .. attribute:: config_policer_conform_burst
                             
                             	Configured policer conform burst
-                            	**type**\:   :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst>`
+                            	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst>`
                             
                             .. attribute:: config_policer_excess_burst
                             
                             	Configured policer excess burst
-                            	**type**\:   :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst>`
+                            	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst>`
                             
                             .. attribute:: conform_action
                             
                             	Conform action
-                            	**type**\:   :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction>`
+                            	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction>`
                             
                             .. attribute:: exceed_action
                             
                             	Exceed action
-                            	**type**\:   :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction>`
+                            	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction>`
                             
                             .. attribute:: violate_action
                             
                             	Violate action
-                            	**type**\:   :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction>`
+                            	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction>`
                             
                             .. attribute:: class_level
                             
                             	Class level
-                            	**type**\:   :py:class:`DnxQoseaShowLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevel>`
+                            	**type**\:  :py:class:`DnxQoseaShowLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevel>`
                             
                             .. attribute:: egress_queue_id
                             
                             	Egress Queue ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: queue_type
                             
                             	Queue type
-                            	**type**\:   :py:class:`DnxQoseaShowQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueue>`
+                            	**type**\:  :py:class:`DnxQoseaShowQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueue>`
                             
                             .. attribute:: priority_level
                             
                             	Priority level
-                            	**type**\:   :py:class:`DnxQoseaShowHpLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevel>`
+                            	**type**\:  :py:class:`DnxQoseaShowHpLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevel>`
                             
                             .. attribute:: hardware_max_rate_kbps
                             
                             	Hardware maximum rate in kbps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2548,7 +2554,7 @@ class PlatformQos(Entity):
                             .. attribute:: hardware_min_rate_kbps
                             
                             	Hardware minimum rate in kbps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2557,7 +2563,7 @@ class PlatformQos(Entity):
                             .. attribute:: config_excess_bandwidth_percent
                             
                             	Configured excess bandwidth percentage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2566,28 +2572,28 @@ class PlatformQos(Entity):
                             .. attribute:: config_excess_bandwidth_unit
                             
                             	Configured excess bandwidth unit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hardware_excess_bandwidth_weight
                             
                             	Hardware excess bandwidth weight
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: network_min_bandwidth_kbps
                             
                             	Network minimum Bandwith
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hardware_queue_limit_bytes
                             
                             	Hardware queue limit in bytes
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2596,7 +2602,7 @@ class PlatformQos(Entity):
                             .. attribute:: hardware_queue_limit_microseconds
                             
                             	Hardware queue limit in microseconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2605,21 +2611,21 @@ class PlatformQos(Entity):
                             .. attribute:: policer_bucket_id
                             
                             	PolicerBucketID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: policer_stats_handle
                             
                             	PolicerStatsHandle
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: hardware_policer_average_rate_kbps
                             
                             	Hardware policer average in kbps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -2628,43 +2634,43 @@ class PlatformQos(Entity):
                             .. attribute:: hardware_policer_peak_rate_kbps
                             
                             	Hardware policer peak rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hardware_policer_conform_burst_bytes
                             
                             	Hardware policer conform burst
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hardware_policer_excess_burst_bytes
                             
                             	Hardware policer excess burst
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: ip_mark
                             
                             	IP mark
-                            	**type**\: list of    :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.IpMark>`
+                            	**type**\: list of  		 :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.IpMark>`
                             
                             .. attribute:: common_mark
                             
                             	Common mark
-                            	**type**\: list of    :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.CommonMark>`
+                            	**type**\: list of  		 :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.CommonMark>`
                             
                             .. attribute:: mpls_mark
                             
                             	MPLS mark
-                            	**type**\: list of    :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.MplsMark>`
+                            	**type**\: list of  		 :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.MplsMark>`
                             
                             .. attribute:: wred
                             
                             	WRED parameters
-                            	**type**\: list of    :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred>`
+                            	**type**\: list of  		 :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred>`
                             
                             
 
@@ -2790,14 +2796,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -2832,14 +2838,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -2874,14 +2880,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -2916,14 +2922,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -2958,14 +2964,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -3000,14 +3006,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -3042,14 +3048,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -3084,12 +3090,12 @@ class PlatformQos(Entity):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\:   :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
                                 
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction.Mark>`
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction.Mark>`
                                 
                                 
 
@@ -3124,12 +3130,12 @@ class PlatformQos(Entity):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                    	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                     
                                     .. attribute:: mark_value
                                     
                                     	Mark value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -3166,12 +3172,12 @@ class PlatformQos(Entity):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\:   :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
                                 
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction.Mark>`
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction.Mark>`
                                 
                                 
 
@@ -3206,12 +3212,12 @@ class PlatformQos(Entity):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                    	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                     
                                     .. attribute:: mark_value
                                     
                                     	Mark value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -3248,12 +3254,12 @@ class PlatformQos(Entity):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\:   :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
                                 
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction.Mark>`
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction.Mark>`
                                 
                                 
 
@@ -3288,12 +3294,12 @@ class PlatformQos(Entity):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                    	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                     
                                     .. attribute:: mark_value
                                     
                                     	Mark value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -3330,12 +3336,12 @@ class PlatformQos(Entity):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                 
                                 .. attribute:: mark_value
                                 
                                 	Mark value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -3372,12 +3378,12 @@ class PlatformQos(Entity):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                 
                                 .. attribute:: mark_value
                                 
                                 	Mark value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -3414,12 +3420,12 @@ class PlatformQos(Entity):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                 
                                 .. attribute:: mark_value
                                 
                                 	Mark value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -3456,48 +3462,48 @@ class PlatformQos(Entity):
                                 .. attribute:: wred_match_value
                                 
                                 	WRED match values
-                                	**type**\:   :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue>`
+                                	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue>`
                                 
                                 .. attribute:: config_min_threshold
                                 
                                 	Configured minimum threshold
-                                	**type**\:   :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold>`
+                                	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold>`
                                 
                                 .. attribute:: config_max_threshold
                                 
                                 	Configured maximum threshold
-                                	**type**\:   :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold>`
+                                	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold>`
                                 
                                 .. attribute:: wred_match_type
                                 
                                 	WREDMatchType
-                                	**type**\:   :py:class:`DnxQoseaShowWred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWred>`
+                                	**type**\:  :py:class:`DnxQoseaShowWred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWred>`
                                 
                                 .. attribute:: hardware_min_threshold_bytes
                                 
                                 	Hardware minimum threshold
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: hardware_max_threshold_bytes
                                 
                                 	Hardware maximum threshold
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: first_segment
                                 
                                 	First segment
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: segment_size
                                 
                                 	Segment size
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -3555,7 +3561,7 @@ class PlatformQos(Entity):
                                     .. attribute:: dnx_qosea_show_red_match_value
                                     
                                     	dnx qosea show red match value
-                                    	**type**\: list of    :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
+                                    	**type**\: list of  		 :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
                                     
                                     
 
@@ -3588,14 +3594,14 @@ class PlatformQos(Entity):
                                         .. attribute:: range_start
                                         
                                         	Start value of a range
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: range_end
                                         
                                         	End value of a range
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
@@ -3632,14 +3638,14 @@ class PlatformQos(Entity):
                                     .. attribute:: policy_value
                                     
                                     	Policy value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                    	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                     
                                     
 
@@ -3674,14 +3680,14 @@ class PlatformQos(Entity):
                                     .. attribute:: policy_value
                                     
                                     	Policy value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                    	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                     
                                     
 
@@ -3716,7 +3722,7 @@ class PlatformQos(Entity):
                 .. attribute:: interface
                 
                 	QoS interface names
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -3749,22 +3755,24 @@ class PlatformQos(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	The name of the interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: qos_direction
                     
                     	The interface direction on which QoS is applied to
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: policy_details
                     
                     	Policy Details
-                    	**type**\:   :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.PolicyDetails>`
+                    	**type**\:  :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.PolicyDetails>`
                     
                     .. attribute:: classes
                     
                     	QoS list of class names
-                    	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes>`
+                    	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes>`
                     
                     
 
@@ -3809,21 +3817,21 @@ class PlatformQos(Entity):
                         .. attribute:: npu_id
                         
                         	NPU ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: interface_handle
                         
                         	InterfaceHandle
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: interface_bandwidth_kbps
                         
                         	Interface Bandwidth (in kbps)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -3832,45 +3840,45 @@ class PlatformQos(Entity):
                         .. attribute:: policy_name
                         
                         	Policy name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..64
                         
                         .. attribute:: total_number_of_classes
                         
                         	Number of Classes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..65535
                         
                         .. attribute:: voq_base_address
                         
                         	VOQ base address
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: voq_stats_handle
                         
                         	VOQ stats handle
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: stats_accounting_type
                         
                         	QoS Statistics Accounting Type
-                        	**type**\:   :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum>`
+                        	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum>`
                         
                         .. attribute:: policy_status
                         
                         	Policy Status
-                        	**type**\:   :py:class:`DnxQoseaShowPolicyStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus>`
+                        	**type**\:  :py:class:`DnxQoseaShowPolicyStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus>`
                         
                         .. attribute:: interface_status
                         
                         	Interface Status
-                        	**type**\:   :py:class:`DnxQoseaShowIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus>`
+                        	**type**\:  :py:class:`DnxQoseaShowIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus>`
                         
                         
 
@@ -3921,7 +3929,7 @@ class PlatformQos(Entity):
                         .. attribute:: class_
                         
                         	QoS policy class
-                        	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_>`
+                        	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_>`
                         
                         
 
@@ -3954,89 +3962,89 @@ class PlatformQos(Entity):
                             .. attribute:: level_one_class_name  <key>
                             
                             	QoS policy class name at level 1
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: level_two_class_name
                             
                             	QoS policy child class name at level 2
-                            	**type**\:  str
+                            	**type**\: str
                             
                             .. attribute:: config_max_rate
                             
                             	Configured maximum rate
-                            	**type**\:   :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate>`
+                            	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate>`
                             
                             .. attribute:: config_min_rate
                             
                             	Configured minimum rate
-                            	**type**\:   :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate>`
+                            	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate>`
                             
                             .. attribute:: config_queue_limit
                             
                             	Configured queue limit
-                            	**type**\:   :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit>`
+                            	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit>`
                             
                             .. attribute:: config_policer_average_rate
                             
                             	Configured policer average rate
-                            	**type**\:   :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate>`
+                            	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate>`
                             
                             .. attribute:: config_policer_peak_rate
                             
                             	Config policer peak rate
-                            	**type**\:   :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate>`
+                            	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate>`
                             
                             .. attribute:: config_policer_conform_burst
                             
                             	Configured policer conform burst
-                            	**type**\:   :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst>`
+                            	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst>`
                             
                             .. attribute:: config_policer_excess_burst
                             
                             	Configured policer excess burst
-                            	**type**\:   :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst>`
+                            	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst>`
                             
                             .. attribute:: conform_action
                             
                             	Conform action
-                            	**type**\:   :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction>`
+                            	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction>`
                             
                             .. attribute:: exceed_action
                             
                             	Exceed action
-                            	**type**\:   :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction>`
+                            	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction>`
                             
                             .. attribute:: violate_action
                             
                             	Violate action
-                            	**type**\:   :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction>`
+                            	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction>`
                             
                             .. attribute:: class_level
                             
                             	Class level
-                            	**type**\:   :py:class:`DnxQoseaShowLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevel>`
+                            	**type**\:  :py:class:`DnxQoseaShowLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevel>`
                             
                             .. attribute:: egress_queue_id
                             
                             	Egress Queue ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: queue_type
                             
                             	Queue type
-                            	**type**\:   :py:class:`DnxQoseaShowQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueue>`
+                            	**type**\:  :py:class:`DnxQoseaShowQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueue>`
                             
                             .. attribute:: priority_level
                             
                             	Priority level
-                            	**type**\:   :py:class:`DnxQoseaShowHpLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevel>`
+                            	**type**\:  :py:class:`DnxQoseaShowHpLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevel>`
                             
                             .. attribute:: hardware_max_rate_kbps
                             
                             	Hardware maximum rate in kbps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -4045,7 +4053,7 @@ class PlatformQos(Entity):
                             .. attribute:: hardware_min_rate_kbps
                             
                             	Hardware minimum rate in kbps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -4054,7 +4062,7 @@ class PlatformQos(Entity):
                             .. attribute:: config_excess_bandwidth_percent
                             
                             	Configured excess bandwidth percentage
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -4063,28 +4071,28 @@ class PlatformQos(Entity):
                             .. attribute:: config_excess_bandwidth_unit
                             
                             	Configured excess bandwidth unit
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hardware_excess_bandwidth_weight
                             
                             	Hardware excess bandwidth weight
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: network_min_bandwidth_kbps
                             
                             	Network minimum Bandwith
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hardware_queue_limit_bytes
                             
                             	Hardware queue limit in bytes
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4093,7 +4101,7 @@ class PlatformQos(Entity):
                             .. attribute:: hardware_queue_limit_microseconds
                             
                             	Hardware queue limit in microseconds
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4102,21 +4110,21 @@ class PlatformQos(Entity):
                             .. attribute:: policer_bucket_id
                             
                             	PolicerBucketID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: policer_stats_handle
                             
                             	PolicerStatsHandle
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: hardware_policer_average_rate_kbps
                             
                             	Hardware policer average in kbps
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -4125,43 +4133,43 @@ class PlatformQos(Entity):
                             .. attribute:: hardware_policer_peak_rate_kbps
                             
                             	Hardware policer peak rate
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hardware_policer_conform_burst_bytes
                             
                             	Hardware policer conform burst
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: hardware_policer_excess_burst_bytes
                             
                             	Hardware policer excess burst
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: ip_mark
                             
                             	IP mark
-                            	**type**\: list of    :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.IpMark>`
+                            	**type**\: list of  		 :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.IpMark>`
                             
                             .. attribute:: common_mark
                             
                             	Common mark
-                            	**type**\: list of    :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.CommonMark>`
+                            	**type**\: list of  		 :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.CommonMark>`
                             
                             .. attribute:: mpls_mark
                             
                             	MPLS mark
-                            	**type**\: list of    :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.MplsMark>`
+                            	**type**\: list of  		 :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.MplsMark>`
                             
                             .. attribute:: wred
                             
                             	WRED parameters
-                            	**type**\: list of    :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred>`
+                            	**type**\: list of  		 :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred>`
                             
                             
 
@@ -4287,14 +4295,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -4329,14 +4337,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -4371,14 +4379,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -4413,14 +4421,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -4455,14 +4463,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -4497,14 +4505,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -4539,14 +4547,14 @@ class PlatformQos(Entity):
                                 .. attribute:: policy_value
                                 
                                 	Policy value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                 
                                 
 
@@ -4581,12 +4589,12 @@ class PlatformQos(Entity):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\:   :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
                                 
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction.Mark>`
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction.Mark>`
                                 
                                 
 
@@ -4621,12 +4629,12 @@ class PlatformQos(Entity):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                    	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                     
                                     .. attribute:: mark_value
                                     
                                     	Mark value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -4663,12 +4671,12 @@ class PlatformQos(Entity):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\:   :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
                                 
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction.Mark>`
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction.Mark>`
                                 
                                 
 
@@ -4703,12 +4711,12 @@ class PlatformQos(Entity):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                    	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                     
                                     .. attribute:: mark_value
                                     
                                     	Mark value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -4745,12 +4753,12 @@ class PlatformQos(Entity):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\:   :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
                                 
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction.Mark>`
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction.Mark>`
                                 
                                 
 
@@ -4785,12 +4793,12 @@ class PlatformQos(Entity):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                    	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                     
                                     .. attribute:: mark_value
                                     
                                     	Mark value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
@@ -4827,12 +4835,12 @@ class PlatformQos(Entity):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                 
                                 .. attribute:: mark_value
                                 
                                 	Mark value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -4869,12 +4877,12 @@ class PlatformQos(Entity):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                 
                                 .. attribute:: mark_value
                                 
                                 	Mark value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -4911,12 +4919,12 @@ class PlatformQos(Entity):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\:   :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
                                 
                                 .. attribute:: mark_value
                                 
                                 	Mark value
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
@@ -4953,48 +4961,48 @@ class PlatformQos(Entity):
                                 .. attribute:: wred_match_value
                                 
                                 	WRED match values
-                                	**type**\:   :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue>`
+                                	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue>`
                                 
                                 .. attribute:: config_min_threshold
                                 
                                 	Configured minimum threshold
-                                	**type**\:   :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold>`
+                                	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold>`
                                 
                                 .. attribute:: config_max_threshold
                                 
                                 	Configured maximum threshold
-                                	**type**\:   :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold>`
+                                	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold>`
                                 
                                 .. attribute:: wred_match_type
                                 
                                 	WREDMatchType
-                                	**type**\:   :py:class:`DnxQoseaShowWred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWred>`
+                                	**type**\:  :py:class:`DnxQoseaShowWred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWred>`
                                 
                                 .. attribute:: hardware_min_threshold_bytes
                                 
                                 	Hardware minimum threshold
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: hardware_max_threshold_bytes
                                 
                                 	Hardware maximum threshold
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: first_segment
                                 
                                 	First segment
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
                                 .. attribute:: segment_size
                                 
                                 	Segment size
-                                	**type**\:  int
+                                	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
@@ -5052,7 +5060,7 @@ class PlatformQos(Entity):
                                     .. attribute:: dnx_qosea_show_red_match_value
                                     
                                     	dnx qosea show red match value
-                                    	**type**\: list of    :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
+                                    	**type**\: list of  		 :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
                                     
                                     
 
@@ -5085,14 +5093,14 @@ class PlatformQos(Entity):
                                         .. attribute:: range_start
                                         
                                         	Start value of a range
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
                                         .. attribute:: range_end
                                         
                                         	End value of a range
-                                        	**type**\:  int
+                                        	**type**\: int
                                         
                                         	**range:** 0..255
                                         
@@ -5129,14 +5137,14 @@ class PlatformQos(Entity):
                                     .. attribute:: policy_value
                                     
                                     	Policy value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                    	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                     
                                     
 
@@ -5171,14 +5179,14 @@ class PlatformQos(Entity):
                                     .. attribute:: policy_value
                                     
                                     	Policy value
-                                    	**type**\:  int
+                                    	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\:   :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                    	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
                                     
                                     
 
@@ -5213,7 +5221,7 @@ class PlatformQos(Entity):
                 .. attribute:: remote_interface
                 
                 	QoS remote interface names
-                	**type**\: list of    :py:class:`RemoteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface>`
+                	**type**\: list of  		 :py:class:`RemoteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface>`
                 
                 
 
@@ -5246,47 +5254,49 @@ class PlatformQos(Entity):
                     .. attribute:: interface_name  <key>
                     
                     	The name of the remote interface
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: policy_name
                     
                     	Policy Name
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 0..64
                     
                     .. attribute:: virtual_output_queue_statistics_handle
                     
                     	Virtual output queue statistics handle
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: interface_handle
                     
                     	Interface Handle
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_virtual_output_queues
                     
                     	Number of Virtual Output Queues
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: number_of_classes
                     
                     	Number of Classes
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: remote_class
                     
                     	Remote Class array
-                    	**type**\: list of    :py:class:`RemoteClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass>`
+                    	**type**\: list of  		 :py:class:`RemoteClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass>`
                     
                     
 
@@ -5331,28 +5341,28 @@ class PlatformQos(Entity):
                         .. attribute:: class_name
                         
                         	Class Name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..64
                         
                         .. attribute:: class_id
                         
                         	Class ID
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: cos_q
                         
                         	Class of Service Queue
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: queue_limit
                         
                         	Default/Configured queue limit in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5361,7 +5371,7 @@ class PlatformQos(Entity):
                         .. attribute:: hardware_queue_limit
                         
                         	Hardware queue limit in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -5370,12 +5380,12 @@ class PlatformQos(Entity):
                         .. attribute:: wred
                         
                         	Default/Configured WRED profiles
-                        	**type**\: list of    :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.Wred>`
+                        	**type**\: list of  		 :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.Wred>`
                         
                         .. attribute:: hw_wred
                         
                         	Hardware WRED profiles
-                        	**type**\: list of    :py:class:`HwWred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.HwWred>`
+                        	**type**\: list of  		 :py:class:`HwWred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.HwWred>`
                         
                         
 
@@ -5419,21 +5429,21 @@ class PlatformQos(Entity):
                             .. attribute:: min_threshold
                             
                             	Minimum Threshold
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: max_threshold
                             
                             	Maximum Threshold
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: drop_probability
                             
                             	Drop Probability
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
@@ -5472,21 +5482,21 @@ class PlatformQos(Entity):
                             .. attribute:: min_threshold
                             
                             	Minimum Threshold
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: max_threshold
                             
                             	Maximum Threshold
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: drop_probability
                             
                             	Drop Probability
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             

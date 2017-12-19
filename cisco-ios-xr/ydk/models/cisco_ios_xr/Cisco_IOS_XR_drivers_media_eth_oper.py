@@ -3018,17 +3018,17 @@ class EthernetInterface(Entity):
     .. attribute:: statistics
     
     	Ethernet controller statistics table
-    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics>`
+    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics>`
     
     .. attribute:: interfaces
     
     	Ethernet controller info table
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces>`
+    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces>`
     
     .. attribute:: berts
     
     	Ethernet controller BERT table
-    	**type**\:   :py:class:`Berts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts>`
+    	**type**\:  :py:class:`Berts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts>`
     
     
 
@@ -3072,7 +3072,7 @@ class EthernetInterface(Entity):
         .. attribute:: statistic
         
         	Ethernet statistics information
-        	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics.Statistic>`
+        	**type**\: list of  		 :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics.Statistic>`
         
         
 
@@ -3106,390 +3106,392 @@ class EthernetInterface(Entity):
             .. attribute:: interface_name  <key>
             
             	The name of the interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: received_total_bytes
             
             	Total octets of all frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_good_bytes
             
             	Total octets of all good frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_frames
             
             	All frames, good or bad
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received8021q_frames
             
             	All 802.1Q frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_pause_frames
             
             	All pause frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_unknown_opcodes
             
             	Unsupported MAC Control frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total64_octet_frames
             
             	All 64 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_octet_frames_from65_to127
             
             	All 65\-127 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_octet_frames_from128_to255
             
             	All 128\-255 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_octet_frames_from256_to511
             
             	All 256\-511 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_octet_frames_from512_to1023
             
             	All 512\-1023 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_octet_frames_from1024_to1518
             
             	All 1024\-1518 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_octet_frames_from1519_to_max
             
             	All > 1518 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_good_frames
             
             	Received Good Frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_unicast_frames
             
             	Received unicast Frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_multicast_frames
             
             	Received multicast Frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_broadcast_frames
             
             	Received broadcast Frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: number_of_buffer_overrun_packets_dropped
             
             	Drops due to buffer overrun
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: number_of_aborted_packets_dropped
             
             	Drops due to packet abort
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: numberof_invalid_vlan_id_packets_dropped
             
             	Drops due to invalid VLAN id
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: invalid_dest_mac_drop_packets
             
             	Drops due to the destination MAC not matching
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: invalid_encap_drop_packets
             
             	Drops due to the encapsulation or ether type not matching
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: number_of_miscellaneous_packets_dropped
             
             	Any other drops not counted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dropped_giant_packets_greaterthan_mru
             
             	Good frames > MRU, dropped
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dropped_ether_stats_undersize_pkts
             
             	Good frames < 64 Octet, dropped
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dropped_jabbers_packets_greaterthan_mru
             
             	Bad Frames > MRU, dropped
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dropped_ether_stats_fragments
             
             	Bad Frames < 64 Octet, dropped
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dropped_packets_with_crc_align_errors
             
             	Frames 64 \- MRU with CRC error
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: ether_stats_collisions
             
             	All collision events
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: symbol_errors
             
             	Symbol errors
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dropped_miscellaneous_error_packets
             
             	Any other errors not counted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: rfc2819_ether_stats_oversized_pkts
             
             	RFC2819 etherStatsOversizedPkts
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: rfc2819_ether_stats_jabbers
             
             	RFC2819 etherStatsJabbers
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: rfc2819_ether_stats_crc_align_errors
             
             	RFC2819 etherStatsCRCAlignErrors
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: rfc3635dot3_stats_alignment_errors
             
             	RFC3635 dot3StatsAlignmentErrors
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: total_bytes_transmitted
             
             	Total octets of all frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: total_good_bytes_transmitted
             
             	Total octets of all good frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: total_frames_transmitted
             
             	All frames, good or bad
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted8021q_frames
             
             	All 802.1Q frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_pause_frames
             
             	All pause frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total64_octet_frames
             
             	All 64 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_octet_frames_from65_to127
             
             	All 65\-127 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_octet_frames_from128_to255
             
             	All 128\-255 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_octet_frames_from256_to511
             
             	All 256\-511 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_octet_frames_from512_to1023
             
             	All 512\-1023 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_octet_frames_from1024_to1518
             
             	All 1024\-1518 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_octet_frames_from1518_to_max
             
             	All > 1518 Octet Frame Count
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_good_frames
             
             	Transmitted Good Frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_unicast_frames
             
             	Transmitted unicast Frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_multicast_frames
             
             	Transmitted multicast Frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_broadcast_frames
             
             	Transmitted broadcast Frames
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: buffer_underrun_packet_drops
             
             	Drops due to buffer underrun
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: aborted_packet_drops
             
             	Drops due to packet abort
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: uncounted_dropped_frames
             
             	Any other drops not counted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: miscellaneous_output_errors
             
             	Any other errors not counted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -3635,7 +3637,7 @@ class EthernetInterface(Entity):
         .. attribute:: interface
         
         	Ethernet controller information
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface>`
         
         
 
@@ -3669,37 +3671,39 @@ class EthernetInterface(Entity):
             .. attribute:: interface_name  <key>
             
             	The name of the interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: phy_info
             
             	PHY information
-            	**type**\:   :py:class:`PhyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo>`
+            	**type**\:  :py:class:`PhyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo>`
             
             .. attribute:: layer1_info
             
             	Layer 1 information
-            	**type**\:   :py:class:`Layer1Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info>`
+            	**type**\:  :py:class:`Layer1Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info>`
             
             .. attribute:: mac_info
             
             	MAC Layer information
-            	**type**\:   :py:class:`MacInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo>`
+            	**type**\:  :py:class:`MacInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo>`
             
             .. attribute:: transport_info
             
             	Transport state information
-            	**type**\:   :py:class:`TransportInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.TransportInfo>`
+            	**type**\:  :py:class:`TransportInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.TransportInfo>`
             
             .. attribute:: admin_state
             
             	Port Administrative State
-            	**type**\:   :py:class:`EthernetPortEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetPortEnable>`
+            	**type**\:  :py:class:`EthernetPortEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetPortEnable>`
             
             .. attribute:: oper_state_up
             
             	Port Operational state \- TRUE if up
-            	**type**\:  bool
+            	**type**\: bool
             
             
 
@@ -3757,32 +3761,32 @@ class EthernetInterface(Entity):
                 .. attribute:: phy_details
                 
                 	Details about the PHY
-                	**type**\:   :py:class:`PhyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails>`
+                	**type**\:  :py:class:`PhyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails>`
                 
                 .. attribute:: fec_details
                 
                 	Forward Error Correction information
-                	**type**\:   :py:class:`FecDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails>`
+                	**type**\:  :py:class:`FecDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails>`
                 
                 .. attribute:: media_type
                 
                 	Port media type
-                	**type**\:   :py:class:`EthernetMedia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetMedia>`
+                	**type**\:  :py:class:`EthernetMedia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetMedia>`
                 
                 .. attribute:: phy_present
                 
                 	Presence of PHY
-                	**type**\:   :py:class:`EtherPhyPresent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPhyPresent>`
+                	**type**\:  :py:class:`EtherPhyPresent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPhyPresent>`
                 
                 .. attribute:: loopback
                 
                 	Port operational loopback
-                	**type**\:   :py:class:`EthernetLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopback>`
+                	**type**\:  :py:class:`EthernetLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopback>`
                 
                 .. attribute:: extended_loopback
                 
                 	Port operational extended loopback
-                	**type**\: list of    :py:class:`ExtendedLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback>`
+                	**type**\: list of  		 :py:class:`ExtendedLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback>`
                 
                 
 
@@ -3831,89 +3835,89 @@ class EthernetInterface(Entity):
                     .. attribute:: lane_field_validity
                     
                     	Digital Optical Monitoring (per lane information) validity
-                    	**type**\:   :py:class:`LaneFieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity>`
+                    	**type**\:  :py:class:`LaneFieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity>`
                     
                     .. attribute:: dig_opt_mon_alarm_thresholds
                     
                     	Digital Optical Monitoring alarm thresholds
-                    	**type**\:   :py:class:`DigOptMonAlarmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds>`
+                    	**type**\:  :py:class:`DigOptMonAlarmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds>`
                     
                     .. attribute:: dig_opt_mon_alarms
                     
                     	Digital Optical Monitoring alarms
-                    	**type**\:   :py:class:`DigOptMonAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms>`
+                    	**type**\:  :py:class:`DigOptMonAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms>`
                     
                     .. attribute:: vendor
                     
                     	Name of the port optics manufacturer
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: vendor_part_number
                     
                     	Part number for the port optics
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: vendor_serial_number
                     
                     	Serial number for the port optics
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: transceiver_temperature
                     
                     	The temperature of the transceiver (mDegrees C)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: transceiver_voltage
                     
                     	The input voltage to the transceiver (mV)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: transceiver_tx_power
                     
                     	The transceiver transmit laser power (uW)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: transceiver_rx_power
                     
                     	The transceiver receive optical power (uW)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: transceiver_tx_bias
                     
                     	The laser bias of the transceiver (uA)
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: optics_wavelength
                     
                     	Wavelength of the optics being used in nm \* 1000
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: optics_type
                     
                     	Optics module type
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: revision_number
                     
                     	Module revision number
-                    	**type**\:  str
+                    	**type**\: str
                     
                     .. attribute:: lane
                     
                     	Digital Optical Monitoring (per lane information)
-                    	**type**\: list of    :py:class:`Lane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane>`
+                    	**type**\: list of  		 :py:class:`Lane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane>`
                     
                     
 
@@ -3984,28 +3988,28 @@ class EthernetInterface(Entity):
                         .. attribute:: wavelength_valid
                         
                         	The wavelength 'per lane' field is valid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: transmit_power_valid
                         
                         	The transmit power 'per lane' field is valid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: receive_power_valid
                         
                         	The receive power 'per lane' field is valid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: laser_bias_valid
                         
                         	The laser bias 'per lane' field is valid
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -4046,145 +4050,145 @@ class EthernetInterface(Entity):
                         .. attribute:: field_validity
                         
                         	Field validity
-                        	**type**\:   :py:class:`FieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity>`
+                        	**type**\:  :py:class:`FieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity>`
                         
                         .. attribute:: transceiver_temperature_alarm_high
                         
                         	Transceiver high temperature alarm threshold (mDegrees C)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: transceiver_temperature_warning_high
                         
                         	Transceiver high temperature warning threshold (mDegrees C)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: transceiver_temperature_warning_low
                         
                         	Transceiver low temperature warning threshold (mDegrees C)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: transceiver_temperature_alarm_low
                         
                         	Transceiver low temperature alarm threshold (mDegrees C)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: transceiver_voltage_alarm_high
                         
                         	Transceiver high voltage alarm threshold (mV)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: transceiver_voltage_warning_high
                         
                         	Transceiver high voltage warning threshold (mV)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: transceiver_voltage_warning_low
                         
                         	Transceiver low voltage warning threshold (mV)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: transceiver_voltage_alarm_low
                         
                         	Transceiver low voltage alarm threshold (mV)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: laser_bias_alarm_high
                         
                         	Laser bias high alarm threshold (uA)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: laser_bias_warning_high
                         
                         	Laser bias high warning threshold (uA)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: laser_bias_warning_low
                         
                         	Laser bias low warning threshold (uA)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: laser_bias_alarm_low
                         
                         	Laser bias low alarm threshold (uA)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_transmit_power_alarm_high
                         
                         	High optical transmit power alarm threshold (uW)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_transmit_power_warning_high
                         
                         	High optical transmit power warning threshold (uW)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_transmit_power_warning_low
                         
                         	Low optical transmit power warning threshold (uW)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_transmit_power_alarm_low
                         
                         	Low optical transmit power alarm threshold (uW)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_receive_power_alarm_high
                         
                         	High optical receive power alarm threshold (uW)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_receive_power_warning_high
                         
                         	High optical receive power warning threshold (uW)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_receive_power_warning_low
                         
                         	Low optical receive power warning threshold (uW)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_receive_power_alarm_low
                         
                         	Low optical receive power alarm threshold (uW)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4262,35 +4266,35 @@ class EthernetInterface(Entity):
                             .. attribute:: temperature_valid
                             
                             	The temperature fields are valid
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: voltage_valid
                             
                             	The voltage fields are valid
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: laser_bias_valid
                             
                             	The laser bias fields are valid
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: transmit_power_valid
                             
                             	The transmit power fields are valid
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
                             .. attribute:: receive_power_valid
                             
                             	The receive power fields are valid
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
                             
@@ -4333,27 +4337,27 @@ class EthernetInterface(Entity):
                         .. attribute:: transceiver_temperature
                         
                         	Transceiver Temperature Alarm
-                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                        	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                         
                         .. attribute:: transceiver_voltage
                         
                         	Transceiver Voltage Alarm
-                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                        	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                         
                         .. attribute:: transmit_laser_power
                         
                         	Transmit Laser Power Alarm
-                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                        	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                         
                         .. attribute:: received_laser_power
                         
                         	Received Optical Power Alarm
-                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                        	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                         
                         .. attribute:: laser_bias_current
                         
                         	Laser Bias Current Alarm
-                        	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                        	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                         
                         
 
@@ -4395,40 +4399,40 @@ class EthernetInterface(Entity):
                         .. attribute:: dig_opt_mon_alarm
                         
                         	Digital Optical Monitoring alarms
-                        	**type**\:   :py:class:`DigOptMonAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm>`
+                        	**type**\:  :py:class:`DigOptMonAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm>`
                         
                         .. attribute:: center_wavelength
                         
                         	Center Wavelength (nm\*1000)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: transmit_laser_power
                         
                         	Transmit Laser Power (dBm\*1000)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: received_laser_power
                         
                         	Received Optical Power (dBm\*1000)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: laser_bias_current
                         
                         	Laser Bias Current (uAmps)
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: lane_id
                         
                         	Numerical identifier for this lane
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -4476,17 +4480,17 @@ class EthernetInterface(Entity):
                             .. attribute:: transmit_laser_power
                             
                             	Transmit Laser Power Alarm
-                            	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                            	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                             
                             .. attribute:: received_laser_power
                             
                             	Received Optical Power Alarm
-                            	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                            	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                             
                             .. attribute:: laser_bias_current
                             
                             	Laser Bias Current Alarm
-                            	**type**\:   :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                            	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                             
                             
 
@@ -4523,19 +4527,19 @@ class EthernetInterface(Entity):
                     .. attribute:: fec
                     
                     	Port operational FEC type
-                    	**type**\:   :py:class:`EthernetFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFec>`
+                    	**type**\:  :py:class:`EthernetFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFec>`
                     
                     .. attribute:: corrected_codeword_count
                     
                     	Corrected codeword error count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: uncorrected_codeword_count
                     
                     	Uncorrected codeword error count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4574,14 +4578,14 @@ class EthernetInterface(Entity):
                     .. attribute:: level
                     
                     	Level
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: loopback
                     
                     	Port operational loopback
-                    	**type**\:   :py:class:`EthernetLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopback>`
+                    	**type**\:  :py:class:`EthernetLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopback>`
                     
                     
 
@@ -4616,77 +4620,77 @@ class EthernetInterface(Entity):
                 .. attribute:: autoneg
                 
                 	Port autonegotiation configuration settings
-                	**type**\:   :py:class:`Autoneg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg>`
+                	**type**\:  :py:class:`Autoneg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg>`
                 
                 .. attribute:: current_alarms
                 
                 	Current alarms
-                	**type**\:   :py:class:`CurrentAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms>`
+                	**type**\:  :py:class:`CurrentAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms>`
                 
                 .. attribute:: previous_alarms
                 
                 	Previous alarms
-                	**type**\:   :py:class:`PreviousAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms>`
+                	**type**\:  :py:class:`PreviousAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms>`
                 
                 .. attribute:: error_counts
                 
                 	Statistics for detected errors
-                	**type**\:   :py:class:`ErrorCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts>`
+                	**type**\:  :py:class:`ErrorCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts>`
                 
                 .. attribute:: ber_monitoring
                 
                 	BER monitoring details
-                	**type**\:   :py:class:`BerMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring>`
+                	**type**\:  :py:class:`BerMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring>`
                 
                 .. attribute:: opd_monitoring
                 
                 	OPD monitoring details
-                	**type**\:   :py:class:`OpdMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring>`
+                	**type**\:  :py:class:`OpdMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring>`
                 
                 .. attribute:: pfc_info
                 
                 	Priority flow control information
-                	**type**\:   :py:class:`PfcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo>`
+                	**type**\:  :py:class:`PfcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo>`
                 
                 .. attribute:: link_state
                 
                 	Link state
-                	**type**\:   :py:class:`EtherLinkState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLinkState>`
+                	**type**\:  :py:class:`EtherLinkState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLinkState>`
                 
                 .. attribute:: led_state
                 
                 	State of the LED
-                	**type**\:   :py:class:`EtherLedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLedState>`
+                	**type**\:  :py:class:`EtherLedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLedState>`
                 
                 .. attribute:: speed
                 
                 	Port operational speed
-                	**type**\:   :py:class:`EthernetSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeed>`
+                	**type**\:  :py:class:`EthernetSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeed>`
                 
                 .. attribute:: duplex
                 
                 	Port operational duplexity
-                	**type**\:   :py:class:`EthernetDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplex>`
+                	**type**\:  :py:class:`EthernetDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplex>`
                 
                 .. attribute:: flowcontrol
                 
                 	Port operational flow control
-                	**type**\:   :py:class:`EtherFlowcontrol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrol>`
+                	**type**\:  :py:class:`EtherFlowcontrol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrol>`
                 
                 .. attribute:: ipg
                 
                 	Port operational inter\-packet\-gap
-                	**type**\:   :py:class:`EthernetIpg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetIpg>`
+                	**type**\:  :py:class:`EthernetIpg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetIpg>`
                 
                 .. attribute:: laser_squelch_enabled
                 
                 	Laser Squelch \- TRUE if enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: bandwidth_utilization
                 
                 	Bandwidth utilization (hundredths of a percent)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -4695,7 +4699,7 @@ class EthernetInterface(Entity):
                 .. attribute:: bandwidth
                 
                 	Port operational bandwidth
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4781,43 +4785,43 @@ class EthernetInterface(Entity):
                     .. attribute:: autoneg_enabled
                     
                     	TRUE if autonegotiation is enabled
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: mask
                     
                     	Validity mask\: 0x1 speed, 0x2 duplex, 0x4 flowcontrol, 0x8 fec
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: speed
                     
                     	Restricted speed (if relevant bit is set in mask)
-                    	**type**\:   :py:class:`EthernetSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeed>`
+                    	**type**\:  :py:class:`EthernetSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeed>`
                     
                     .. attribute:: duplex
                     
                     	Restricted duplex (if relevant bit is set in mask)
-                    	**type**\:   :py:class:`EthernetDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplex>`
+                    	**type**\:  :py:class:`EthernetDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplex>`
                     
                     .. attribute:: flowcontrol
                     
                     	Restricted flowcontrol (if relevant bit is set in mask)
-                    	**type**\:   :py:class:`EtherFlowcontrol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrol>`
+                    	**type**\:  :py:class:`EtherFlowcontrol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrol>`
                     
                     .. attribute:: config_override
                     
                     	If true, configuration overrides negotiated settings.  If false, negotiated settings in effect
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: fec
                     
                     	Restricted FEC (if revelevant bit is set in mask)
-                    	**type**\:   :py:class:`EthernetFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFec>`
+                    	**type**\:  :py:class:`EthernetFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFec>`
                     
                     
 
@@ -4862,52 +4866,52 @@ class EthernetInterface(Entity):
                     .. attribute:: received_loss_of_signal_alarm
                     
                     	Received Loss of Signal
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: pcs_loss_of_block_lock_alarm
                     
                     	PCS Loss of Block Lock
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: local_fault_alarm
                     
                     	Local Fault
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: remote_fault_alarm
                     
                     	Remote Fault
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: sd_ber_alarm
                     
                     	SD BER
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: sf_ber_alarm
                     
                     	SF BER
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: loss_of_synchronization_data_alarm
                     
                     	Loss of Synchronization Data
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: hi_ber_alarm
                     
                     	Hi BER
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: squelch_alarm
                     
                     	Squelch
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: rx_opd_alarm
                     
                     	Rx OPD Alarm
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     
 
@@ -4958,52 +4962,52 @@ class EthernetInterface(Entity):
                     .. attribute:: received_loss_of_signal_alarm
                     
                     	Received Loss of Signal
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: pcs_loss_of_block_lock_alarm
                     
                     	PCS Loss of Block Lock
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: local_fault_alarm
                     
                     	Local Fault
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: remote_fault_alarm
                     
                     	Remote Fault
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: sd_ber_alarm
                     
                     	SD BER
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: sf_ber_alarm
                     
                     	SF BER
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: loss_of_synchronization_data_alarm
                     
                     	Loss of Synchronization Data
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: hi_ber_alarm
                     
                     	Hi BER
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: squelch_alarm
                     
                     	Squelch
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     .. attribute:: rx_opd_alarm
                     
                     	Rx OPD Alarm
-                    	**type**\:   :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
                     
 
@@ -5054,14 +5058,14 @@ class EthernetInterface(Entity):
                     .. attribute:: sync_header_errors
                     
                     	Sync\-header error count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: pcsbip_errors
                     
                     	PCS BIP error count
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -5098,12 +5102,12 @@ class EthernetInterface(Entity):
                     .. attribute:: settings
                     
                     	The BER monitoring settings to be applied
-                    	**type**\:   :py:class:`Settings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings>`
+                    	**type**\:  :py:class:`Settings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings>`
                     
                     .. attribute:: supported
                     
                     	Whether or not BER monitoring is supported
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -5143,35 +5147,35 @@ class EthernetInterface(Entity):
                         .. attribute:: signal_degrade_threshold
                         
                         	BER threshold for signal to degrade
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: signal_degrade_alarm
                         
                         	Report alarm to indicate signal degrade
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: signal_fail_threshold
                         
                         	BER threshold for signal to fail
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: signal_fail_alarm
                         
                         	Report alarm to indicate signal failure
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: signal_remote_fault
                         
                         	Whether drivers should signal remote faults
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -5214,12 +5218,12 @@ class EthernetInterface(Entity):
                     .. attribute:: settings
                     
                     	The OPD monitoring settings to be applied
-                    	**type**\:   :py:class:`Settings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings>`
+                    	**type**\:  :py:class:`Settings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings>`
                     
                     .. attribute:: supported
                     
                     	Whether or not OPD monitoring is supported
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
@@ -5259,14 +5263,14 @@ class EthernetInterface(Entity):
                         .. attribute:: received_optical_power_degrade_threshold_set
                         
                         	Rx\-OPD alarm threshold set?
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
                         .. attribute:: received_optical_power_degrade_threshold
                         
                         	Rx\-OPD alarm threshold value
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
                         
@@ -5303,26 +5307,26 @@ class EthernetInterface(Entity):
                     .. attribute:: priority_flowcontrol
                     
                     	Port operational priority flow control
-                    	**type**\:   :py:class:`EtherPfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPfc>`
+                    	**type**\:  :py:class:`EtherPfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPfc>`
                     
                     .. attribute:: priority_enabled_bitmap
                     
                     	Priority bitmap
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..255
                     
                     .. attribute:: rx_frame
                     
                     	RX Frame counts
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: tx_frame
                     
                     	TX Frame counts
-                    	**type**\:  list of int
+                    	**type**\: list of int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -5363,36 +5367,40 @@ class EthernetInterface(Entity):
                 .. attribute:: unicast_mac_filters
                 
                 	Port unicast MAC filter information
-                	**type**\:   :py:class:`UnicastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters>`
+                	**type**\:  :py:class:`UnicastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters>`
                 
                 .. attribute:: multicast_mac_filters
                 
                 	Port multicast MAC filter information
-                	**type**\:   :py:class:`MulticastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters>`
+                	**type**\:  :py:class:`MulticastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters>`
                 
                 .. attribute:: mtu
                 
                 	Port operational MTU
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: mru
                 
                 	Port operational MRU
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: burned_in_mac_address
                 
                 	Port Burned\-In MAC address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: operational_mac_address
                 
                 	Port operational MAC address
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 
 
@@ -5441,7 +5449,9 @@ class EthernetInterface(Entity):
                     .. attribute:: unicast_mac_address
                     
                     	MAC addresses in the unicast ingress destination MAC filter
-                    	**type**\:  list of str
+                    	**type**\: list of str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     
 
@@ -5474,12 +5484,12 @@ class EthernetInterface(Entity):
                     .. attribute:: multicast_promiscuous
                     
                     	Whether the port is in multicast promiscuous mode
-                    	**type**\:  bool
+                    	**type**\: bool
                     
                     .. attribute:: multicast_mac_address
                     
                     	MAC addresses in the multicast ingress destination MAC filter
-                    	**type**\: list of    :py:class:`MulticastMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress>`
+                    	**type**\: list of  		 :py:class:`MulticastMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress>`
                     
                     
 
@@ -5515,12 +5525,16 @@ class EthernetInterface(Entity):
                         .. attribute:: mac_address
                         
                         	MAC address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: mask
                         
                         	Mask for this MAC address
-                        	**type**\:  str
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         
 
@@ -5555,17 +5569,17 @@ class EthernetInterface(Entity):
                 .. attribute:: maintenance_mode_enabled
                 
                 	Maintenance Mode \- TRUE if enabled
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: ains_status
                 
                 	AINS Soak status
-                	**type**\:   :py:class:`EtherAinsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherAinsStatus>`
+                	**type**\:  :py:class:`EtherAinsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherAinsStatus>`
                 
                 .. attribute:: total_duration
                 
                 	Total duration (seconds) of AINS soak timer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5574,7 +5588,7 @@ class EthernetInterface(Entity):
                 .. attribute:: remaining_duration
                 
                 	Remaining duration (seconds) of AINS soak timer
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
@@ -5617,7 +5631,7 @@ class EthernetInterface(Entity):
         .. attribute:: bert
         
         	Ethernet BERT information
-        	**type**\: list of    :py:class:`Bert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert>`
+        	**type**\: list of  		 :py:class:`Bert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert>`
         
         
 
@@ -5651,17 +5665,19 @@ class EthernetInterface(Entity):
             .. attribute:: interface_name  <key>
             
             	The name of the interface
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: bert_status
             
             	Current test status
-            	**type**\:   :py:class:`BertStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert.BertStatus>`
+            	**type**\:  :py:class:`BertStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert.BertStatus>`
             
             .. attribute:: time_left
             
             	Remaining time for this test in seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -5670,7 +5686,7 @@ class EthernetInterface(Entity):
             .. attribute:: port_bert_interval
             
             	Port BERT interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -5715,55 +5731,55 @@ class EthernetInterface(Entity):
                 .. attribute:: bert_state_enabled
                 
                 	State
-                	**type**\:  bool
+                	**type**\: bool
                 
                 .. attribute:: data_availability
                 
                 	Flag indicating available data
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: receive_count
                 
                 	Receive count (if 0x1 set in flag)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: transmit_count
                 
                 	Transmit count (if 0x2 set in flag)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: receive_errors
                 
                 	Received errors (if 0x4 set in flag)
-                	**type**\:  int
+                	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: error_type
                 
                 	Bit, block or frame error
-                	**type**\:   :py:class:`EthernetBertErrCnt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertErrCnt>`
+                	**type**\:  :py:class:`EthernetBertErrCnt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertErrCnt>`
                 
                 .. attribute:: test_pattern
                 
                 	Test pattern
-                	**type**\:   :py:class:`EthernetBertPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertPattern>`
+                	**type**\:  :py:class:`EthernetBertPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertPattern>`
                 
                 .. attribute:: device_under_test
                 
                 	Device being tested
-                	**type**\:   :py:class:`EthernetDev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDev>`
+                	**type**\:  :py:class:`EthernetDev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDev>`
                 
                 .. attribute:: interface_device
                 
                 	Interface being tested
-                	**type**\:   :py:class:`EthernetDevIf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevIf>`
+                	**type**\:  :py:class:`EthernetDevIf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevIf>`
                 
                 
 

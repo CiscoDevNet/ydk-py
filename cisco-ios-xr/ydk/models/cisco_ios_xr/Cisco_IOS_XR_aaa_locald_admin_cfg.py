@@ -52,7 +52,7 @@ class Aaa(Entity):
     .. attribute:: usernames
     
     	Configure local username
-    	**type**\:   :py:class:`Usernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames>`
+    	**type**\:  :py:class:`Usernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames>`
     
     
 
@@ -86,7 +86,7 @@ class Aaa(Entity):
         .. attribute:: username
         
         	Admin Username
-        	**type**\: list of    :py:class:`Username <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username>`
+        	**type**\: list of  		 :py:class:`Username <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username>`
         
         
 
@@ -120,17 +120,17 @@ class Aaa(Entity):
             .. attribute:: name  <key>
             
             	Username
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: usergroup_under_usernames
             
             	Specify the usergroup to which this admin user belongs
-            	**type**\:   :py:class:`UsergroupUnderUsernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
+            	**type**\:  :py:class:`UsergroupUnderUsernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
             
             .. attribute:: secret
             
             	Specify the secret for the admin user
-            	**type**\:   :py:class:`Secret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.Secret>`
+            	**type**\:  :py:class:`Secret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.Secret>`
             
             
 
@@ -175,7 +175,7 @@ class Aaa(Entity):
                 .. attribute:: usergroup_under_username
                 
                 	Name of the usergroup
-                	**type**\: list of    :py:class:`UsergroupUnderUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername>`
+                	**type**\: list of  		 :py:class:`UsergroupUnderUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername>`
                 
                 
 
@@ -208,7 +208,9 @@ class Aaa(Entity):
                     .. attribute:: name  <key>
                     
                     	Name of the usergroup
-                    	**type**\:  str
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     
 
@@ -241,22 +243,28 @@ class Aaa(Entity):
                 .. attribute:: type
                 
                 	Password type
-                	**type**\:   :py:class:`AaaAdminPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.AaaAdminPassword>`
+                	**type**\:  :py:class:`AaaAdminPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.AaaAdminPassword>`
                 
                 .. attribute:: secret5
                 
                 	The user's secret password
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (!.+)\|([^!].+)
                 
                 .. attribute:: secret8
                 
                 	Type 8 password
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (!.+)\|([^!].+)
                 
                 .. attribute:: secret9
                 
                 	Type 9 password
-                	**type**\:  str
+                	**type**\: str
+                
+                	**pattern:** (!.+)\|([^!].+)
                 
                 
 

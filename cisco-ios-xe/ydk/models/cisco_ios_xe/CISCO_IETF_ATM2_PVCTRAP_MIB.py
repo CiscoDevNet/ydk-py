@@ -18,7 +18,7 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
     .. attribute:: atmcurrentlyfailingpvcltable
     
     	A table indicating all VCLs for which there is an active row in the atmVclTable having an atmVclConnKind value of `pvc' and an atmVclOperStatus with a value other than `up'
-    	**type**\:   :py:class:`Atmcurrentlyfailingpvcltable <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB.CISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable>`
+    	**type**\:  :py:class:`Atmcurrentlyfailingpvcltable <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB.CISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable>`
     
     
 
@@ -55,7 +55,7 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
         .. attribute:: atmcurrentlyfailingpvclentry
         
         	Each entry in this table represents a VCL for which the atmVclRowStatus is `active', the atmVclConnKind is `pvc', and the atmVclOperStatus is other than `up'
-        	**type**\: list of    :py:class:`Atmcurrentlyfailingpvclentry <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB.CISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry>`
+        	**type**\: list of  		 :py:class:`Atmcurrentlyfailingpvclentry <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB.CISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry>`
         
         
 
@@ -91,7 +91,7 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             .. attribute:: ifindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -100,7 +100,7 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             .. attribute:: atmvclvpi  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4095
             
@@ -109,7 +109,7 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             .. attribute:: atmvclvci  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..65535
             
@@ -118,14 +118,14 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             .. attribute:: atmcurrentlyfailingpvcltimestamp
             
             	The time at which this PVCL began to fail
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: atmpreviouslyfailedpvcltimestamp
             
             	The time at which this PVCL began to fail during the PVC Notification interval
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             

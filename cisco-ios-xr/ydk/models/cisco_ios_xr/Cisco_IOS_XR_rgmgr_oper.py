@@ -26,7 +26,7 @@ class RedundancyGroupManager(Entity):
     .. attribute:: controllers
     
     	Redundancy group manager data
-    	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_oper.RedundancyGroupManager.Controllers>`
+    	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_oper.RedundancyGroupManager.Controllers>`
     
     
 
@@ -60,7 +60,7 @@ class RedundancyGroupManager(Entity):
         .. attribute:: controller
         
         	Display redundancy group by controller name
-        	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_oper.RedundancyGroupManager.Controllers.Controller>`
+        	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_oper.RedundancyGroupManager.Controllers.Controller>`
         
         
 
@@ -94,48 +94,56 @@ class RedundancyGroupManager(Entity):
             .. attribute:: controller_name  <key>
             
             	Controller name
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: multi_router_aps_group_number
             
             	Configured interchassis redundancy group number
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: controller_name_xr
             
             	Name of controller being backed up
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: controller_handle
             
             	Handle of controller being backed up
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: backup_interface_name
             
             	Backup interface name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             
             .. attribute:: backup_interface_handle
             
             	Backup interface handle
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: backup_interface_next_hop_ip_address
             
             	Backup interface next hop IP address
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: inter_chassis_group_state
             
             	Configured interchassis redundancy group state
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 0..64
             

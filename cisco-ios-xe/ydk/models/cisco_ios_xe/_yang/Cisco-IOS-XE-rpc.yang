@@ -3,6 +3,10 @@ module Cisco-IOS-XE-rpc {
   prefix ios-xe-rpc;
 
 
+  import ietf-inet-types {
+    prefix inet;
+  }
+
   organization "Cisco Systems";
 
   contact
@@ -16,6 +20,14 @@ module Cisco-IOS-XE-rpc {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-28 {
+    description
+      "Added the force option to the reload RPC";
+  }
+  revision 2017-07-13 {
+    description 
+      "Added service sd-avc CLI";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -33,7 +45,7 @@ module Cisco-IOS-XE-rpc {
 
   rpc switch {
     input {
-      leaf switch-number {
+      leaf _switch-number {
         mandatory true;
         type uint8 {
           range "1..9";
@@ -86,7 +98,10 @@ module Cisco-IOS-XE-rpc {
           leaf interface {
             description 
 	      "Select an interface to configure";
-            type string;
+            type string {
+              pattern "[A-Za-z]([\w/.-]+)";
+            }
+
           }
         }
       }
@@ -98,6 +113,12 @@ module Cisco-IOS-XE-rpc {
   rpc reload {
     description 
       "Halt and perform a cold restart";
+    input {
+      leaf force {
+        description "Force a restart even if there is unsaved config";
+        type boolean;
+      }
+    }
     output {
       uses cisco-xe-rpc-output; 
     }
@@ -136,4 +157,81 @@ module Cisco-IOS-XE-rpc {
       uses cisco-xe-rpc-output; 
     }
   }
+  rpc service {
+    description "SD-AVC service management";
+    input {
+      container sd-avc {
+        choice sd-avc-choice {
+          mandatory true;
+          case activate-case {
+            leaf activate {
+              type empty;
+            }
+          }
+          case configure-case {
+            container configure {
+              container gateway {
+                leaf interface {
+                  type string; 
+                }
+                leaf service-ip {
+                  type inet:ipv4-address; 
+                }
+                leaf activate {
+                  type empty;
+                }
+              }
+            }
+          }
+          case connect-case {
+            leaf connect {
+              type empty;
+            }
+          }
+          case help-case {
+            leaf help {
+              type empty;
+            }
+          }
+          case deactivate-case {
+            leaf deactivate {
+              type empty;
+            }
+          }
+          case install-case {
+            container install {
+              leaf package {
+                type string;
+              }
+            }
+          }
+          case status-case {
+            leaf status {
+             type empty;
+            }
+          }
+          case unconfigure-case {
+            leaf unconfigure {
+              type empty;
+            }
+          }
+          case uninstall-case {
+            leaf uninstall {
+              type empty;
+            }
+          } 
+          case upgrade-case {
+            container upgrade {
+              leaf package {
+                type string;
+              }
+            }
+          }
+        }
+      }
+    }
+    output {
+      uses cisco-xe-rpc-output;
+    }
+  } 
 }

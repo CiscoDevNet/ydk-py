@@ -25,52 +25,52 @@ class CISCOPROCESSMIB(Entity):
     .. attribute:: cpmcpuhistory
     
     	
-    	**type**\:   :py:class:`Cpmcpuhistory <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuhistory>`
+    	**type**\:  :py:class:`Cpmcpuhistory <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuhistory>`
     
     .. attribute:: cpmcputotaltable
     
     	A table of overall CPU statistics
-    	**type**\:   :py:class:`Cpmcputotaltable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable>`
+    	**type**\:  :py:class:`Cpmcputotaltable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable>`
     
     .. attribute:: cpmcoretable
     
     	A table of per\-Core statistics
-    	**type**\:   :py:class:`Cpmcoretable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcoretable>`
+    	**type**\:  :py:class:`Cpmcoretable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcoretable>`
     
     .. attribute:: cpmprocesstable
     
     	A table of generic information on all active processes on this device
-    	**type**\:   :py:class:`Cpmprocesstable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable>`
+    	**type**\:  :py:class:`Cpmprocesstable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable>`
     
     .. attribute:: cpmprocessextrevtable
     
     	This table contains information that may or may not be available on all cisco devices. It contains additional objects for the more general cpmProcessTable. This object deprecates  cpmProcessExtTable
-    	**type**\:   :py:class:`Cpmprocessextrevtable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable>`
+    	**type**\:  :py:class:`Cpmprocessextrevtable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable>`
     
     .. attribute:: cpmcputhresholdtable
     
     	This table contains the information about the thresholding values for CPU , configured by the user
-    	**type**\:   :py:class:`Cpmcputhresholdtable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputhresholdtable>`
+    	**type**\:  :py:class:`Cpmcputhresholdtable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputhresholdtable>`
     
     .. attribute:: cpmcpuhistorytable
     
     	A list of CPU utilization history entries
-    	**type**\:   :py:class:`Cpmcpuhistorytable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuhistorytable>`
+    	**type**\:  :py:class:`Cpmcpuhistorytable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuhistorytable>`
     
     .. attribute:: cpmcpuprocesshistorytable
     
     	A list of process history entries. This table contains CPU utilization of processes which crossed the  cpmCPUHistoryThreshold
-    	**type**\:   :py:class:`Cpmcpuprocesshistorytable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuprocesshistorytable>`
+    	**type**\:  :py:class:`Cpmcpuprocesshistorytable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuprocesshistorytable>`
     
     .. attribute:: cpmthreadtable
     
     	This table contains generic information about POSIX threads in the device
-    	**type**\:   :py:class:`Cpmthreadtable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmthreadtable>`
+    	**type**\:  :py:class:`Cpmthreadtable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmthreadtable>`
     
     .. attribute:: cpmvirtualprocesstable
     
     	This table contains information about virtual processes in a virtual machine
-    	**type**\:   :py:class:`Cpmvirtualprocesstable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmvirtualprocesstable>`
+    	**type**\:  :py:class:`Cpmvirtualprocesstable <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmvirtualprocesstable>`
     
     
 
@@ -149,14 +149,14 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmcpuhistorythreshold
         
         	The user  configured value of this object gives the minimum percent CPU utilization of a process in the last cpmCPUMonInterval duration required to be a  member of history table. When this object is changed the new value will have effect in the next interval
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..100
         
         .. attribute:: cpmcpuhistorysize
         
         	A value configured by the user which specifies the number of reports in the history table.  A report contains set of processes which crossed the cpmCPUHistoryThreshold  in the last cpmCPUMonInterval along with  the time at which this report is created, total and interrupt CPU utilizations.  When this object is changed the new value will have effect in the next interval
-        	**type**\:  int
+        	**type**\: int
         
         	**range:** 1..4294967295
         
@@ -194,7 +194,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmcputotalentry
         
         	Overall information about the CPU load. Entries in this table come and go as CPUs are added and removed from the system
-        	**type**\: list of    :py:class:`Cpmcputotalentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
+        	**type**\: list of  		 :py:class:`Cpmcputotalentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
         
         
 
@@ -230,21 +230,21 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotalindex  <key>
             
             	An index that uniquely represents a CPU (or group of CPUs) whose CPU load information is reported by a row in this table. This index is assigned arbitrarily by the engine and is not saved over reboots
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: cpmcputotalphysicalindex
             
             	The entPhysicalIndex of the physical entity for which the CPU statistics in this entry are maintained. The physical entity can be a CPU chip, a group of CPUs, a CPU card etc. The exact type of this entity is described by its entPhysicalVendorType value. If the CPU statistics in this entry correspond to more than one physical entity (or to no physical entity), or if the entPhysicalTable is not supported on the SNMP agent, the value of this object must be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: cpmcputotal5sec
             
             	The overall CPU busy percentage in the last 5 second period. This object obsoletes the busyPer object from  the OLD\-CISCO\-SYSTEM\-MIB. This object is deprecated by cpmCPUTotal5secRev which has the changed range of value (0..100)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -253,7 +253,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotal1min
             
             	The overall CPU busy percentage in the last 1 minute period. This object obsoletes the avgBusy1 object from  the OLD\-CISCO\-SYSTEM\-MIB. This object is deprecated by cpmCPUTotal1minRev which has the changed range of value (0..100)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -262,7 +262,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotal5min
             
             	The overall CPU busy percentage in the last 5 minute period. This object deprecates the avgBusy5 object from  the OLD\-CISCO\-SYSTEM\-MIB. This object is deprecated by cpmCPUTotal5minRev which has the changed range  of value (0..100)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -271,7 +271,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotal5secrev
             
             	The overall CPU busy percentage in the last 5 second period. This object deprecates the object cpmCPUTotal5sec  and increases the value range to (0..100). This object is deprecated by cpmCPUTotalMonIntervalValue
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -282,7 +282,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotal1minrev
             
             	The overall CPU busy percentage in the last 1 minute period. This object deprecates the object cpmCPUTotal1min  and increases the value range to (0..100)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -291,7 +291,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotal5minrev
             
             	The overall CPU busy percentage in the last 5 minute period. This object deprecates the object cpmCPUTotal5min  and increases the value range to (0..100)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -300,7 +300,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumoninterval
             
             	CPU usage monitoring interval. The value of this object in seconds indicates the how often the  CPU utilization is calculated and monitored
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -309,7 +309,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotalmonintervalvalue
             
             	The overall CPU busy percentage in the last cpmCPUMonInterval period.  This object deprecates the object cpmCPUTotal5secRev
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -318,7 +318,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpuinterruptmonintervalvalue
             
             	The overall CPU busy percentage in the interrupt context in the last cpmCPUMonInterval period
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -327,7 +327,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemoryused
             
             	The overall CPU wide system memory which is currently under use
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -336,7 +336,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemoryfree
             
             	The overall CPU wide system memory which is currently free
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -345,7 +345,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemorykernelreserved
             
             	The overall CPU wide system memory which is reserved for kernel usage
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -354,7 +354,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemorylowest
             
             	The lowest free memory that has been recorded since device has booted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -363,7 +363,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemoryusedovrflw
             
             	This object represents the upper 32\-bit of cpmCPUMemoryUsed. This object needs to be supported only when the value of cpmCPUMemoryUsed exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -372,7 +372,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemoryhcused
             
             	The overall CPU wide system memory which is currently under use. This object is a 64\-bit version of cpmCPUMemoryUsed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -381,7 +381,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemoryfreeovrflw
             
             	This object represents the upper 32\-bit of cpmCPUMemoryFree. This object needs to be supported only when the value of cpmCPUMemoryFree exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -390,7 +390,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemoryhcfree
             
             	The overall CPU wide system memory which is currently free. This object is a 64\-bit version of cpmCPUMemoryFree
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -399,7 +399,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemorykernelreservedovrflw
             
             	This object represents the upper 32\-bit of cpmCPUMemoryKernelReserved. This object needs  to be supported only when the value of  cpmCPUMemoryKernelReserved exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -408,7 +408,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemoryhckernelreserved
             
             	The overall CPU wide system memory which is reserved for kernel usage. This object is a 64\-bit version of cpmCPUMemoryKernelReserved
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -417,7 +417,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemorylowestovrflw
             
             	This object represents the upper 32\-bit of cpmCPUMemoryLowest. This object needs to be supported only when the value of cpmCPUMemoryLowest exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -426,7 +426,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemoryhclowest
             
             	The lowest free memory that has been recorded since device has booted. This object is a 64\-bit version of cpmCPUMemoryLowest
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -435,7 +435,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpuloadavg1min
             
             	The overall CPU load Average in the last 1 minute period
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -444,7 +444,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpuloadavg5min
             
             	The overall CPU load Average in the last 5 minutes period
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -453,7 +453,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpuloadavg15min
             
             	The overall CPU load Average in the last 15 minutes period
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -462,21 +462,21 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpumemorycommitted
             
             	The overall CPU wide system memory which is currently Committed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmcpumemorycommittedovrflw
             
             	This object represents the upper 32\-bit of cpmCPUMemoryCommitted. This object needs to be supported only when the value of cpmCPUMemoryCommitted exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmcpumemoryhccommitted
             
             	The overall CPU wide system memory which is currently committed. This object is a 64\-bit version of cpmCPUMemoryCommitted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -568,7 +568,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmcoreentry
         
         	Overall information about the Core load. Entries in this table could come and go as Cores go online or offline
-        	**type**\: list of    :py:class:`Cpmcoreentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcoretable.Cpmcoreentry>`
+        	**type**\: list of  		 :py:class:`Cpmcoreentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcoretable.Cpmcoreentry>`
         
         
 
@@ -603,7 +603,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -612,42 +612,42 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcoreindex  <key>
             
             	An index that uniquely represents a Core (or group of Cores) whose Core load information is reported by a row in this table. This index is assigned arbitrarily by the engine and is not saved over reboots
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmcorephysicalindex
             
             	The entCorePhysicalIndex of the physical entity for which the Core statistics in this entry are maintained. The physical entity can be a CPU chip, a group of CPUs, a CPU card etc. The exact type of this entity is described by its entPhysicalVendorType value. If the Core statistics in this entry correspond to more than one physical entity (or to no physical entity), or if the entPhysicalTable is not supported on the SNMP agent, the value of this object must be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2147483647
             
             .. attribute:: cpmcore5sec
             
             	The overall Core busy percentage in the last 5 second period
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
             .. attribute:: cpmcore1min
             
             	The overall Core busy percentage in the last 1 minute period
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
             .. attribute:: cpmcore5min
             
             	The overall Core busy percentage in the last 5 minute period
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
             .. attribute:: cpmcoreloadavg1min
             
             	The overall Core load Average in the last 1 minute period
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -656,7 +656,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcoreloadavg5min
             
             	The overall Core load Average in the last 5 minutes period
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -665,7 +665,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcoreloadavg15min
             
             	The overall Core load Average in the last 15 minutes period
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -720,7 +720,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmprocessentry
         
         	Generic information about an active process on this device. Entries in this table come and go as processes are  created and destroyed by the device
-        	**type**\: list of    :py:class:`Cpmprocessentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry>`
+        	**type**\: list of  		 :py:class:`Cpmprocessentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry>`
         
         
 
@@ -756,7 +756,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -765,21 +765,21 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocesspid  <key>
             
             	This object contains the process ID. cpmTimeCreated should be checked against the last time it was polled, and if it has changed the PID has been reused and the entire entry should be polled again
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmprocessname
             
             	The name associated with this process. If the name is longer than 32 characters, it will be truncated to the first 31 characters, and a `\*' will be appended as the last character to imply this is a truncated process name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: cpmprocessusecs
             
             	Average elapsed CPU time in microseconds when the process was active. This object is deprecated by cpmProcessAverageUSecs
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -790,14 +790,14 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocesstimecreated
             
             	The time when the process was created. The process ID and the time when the process was created, uniquely  identifies a process
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmprocessaverageusecs
             
             	Average elapsed CPU time in microseconds when the process was active. This object deprecates the object cpmProcessuSecs
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -806,7 +806,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextmemallocated
             
             	The sum of all the dynamically allocated memory that this process has received from the system. This includes memory that may have been returned. The sum of freed memory is provided by cpmProcExtMemFreed. This object is deprecated by cpmProcExtMemAllocatedRev
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -817,7 +817,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextmemfreed
             
             	The sum of all memory that this process has returned to the system. This object is deprecated by  cpmProcExtMemFreedRev
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -828,7 +828,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextinvoked
             
             	The number of times since cpmTimeCreated that the process has been invoked. This object is deprecated by cpmProcExtInvokedRev
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -837,7 +837,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextruntime
             
             	The amount of CPU time the process has used, in microseconds. This object is deprecated by cpmProcExtRuntimeRev
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -848,7 +848,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextutil5sec
             
             	This object provides a general idea of how busy a process caused the processor to be over a 5  second period. It is determined as a weighted  decaying average of the current idle time over  the longest idle time. Note that this information  should be used as an estimate only. This object is  deprecated by cpmProcExtUtil5SecRev which has the  changed range of value (0..100)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -857,7 +857,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextutil1min
             
             	This object provides a general idea of how busy a process caused the processor to be over a 1  minute period. It is determined as a weighted  decaying average of the current idle time over the  longest idle time. Note that this information  should be used as an estimate only. This object is  deprecated by cpmProcExtUtil1MinRev which has the changed range of value (0..100)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -866,7 +866,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextutil5min
             
             	This object provides a general idea of how busy a process caused the processor to be over a 5  minute period. It is determined as a weighted  decaying average of the current idle time over  the longest idle time. Note that this information  should be used as an estimate only. This object is deprecated by cpmProcExtUtil5MinRev which has the changed range of value (0..100)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -875,7 +875,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextpriority
             
             	The priority level at which the process is running. This object is deprecated by cpmProcExtPriorityRev
-            	**type**\:   :py:class:`Cpmprocextpriority <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry.Cpmprocextpriority>`
+            	**type**\:  :py:class:`Cpmprocextpriority <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry.Cpmprocextpriority>`
             
             	**status**\: deprecated
             
@@ -974,7 +974,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmprocessextreventry
         
         	An entry containing additional information for a particular process. This object deprecates  cpmProcessExtEntry
-        	**type**\: list of    :py:class:`Cpmprocessextreventry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry>`
+        	**type**\: list of  		 :py:class:`Cpmprocessextreventry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry>`
         
         
 
@@ -1010,7 +1010,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -1019,7 +1019,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocesspid  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1028,7 +1028,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextmemallocatedrev
             
             	The sum of all the dynamically allocated memory that this process has received from the system. This includes memory that may have been returned. The sum of freed memory is provided by cpmProcExtMemFreedRev. This object deprecates cpmProcExtMemAllocated
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1037,7 +1037,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextmemfreedrev
             
             	The sum of all memory that this process has returned to the system. This object  deprecates  cpmProcExtMemFreed
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1046,14 +1046,14 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextinvokedrev
             
             	The number of times since cpmTimeCreated that the process has been invoked. This object  deprecates cpmProcExtInvoked
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmprocextruntimerev
             
             	The amount of CPU time the process has used, in microseconds. This object deprecates cpmProcExtRuntime
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1062,7 +1062,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextutil5secrev
             
             	This object provides a general idea of how busy a process caused the processor to be over a 5  second period. It is determined as a weighted  decaying average of the current idle time over  the longest idle time. Note that this information  should be used as an estimate only. This object deprecates cpmProcExtUtil5Sec and increases the  value range to (0..100)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -1071,7 +1071,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextutil1minrev
             
             	This object provides a general idea of how busy a process caused the processor to be over a 1  minute period. It is determined as a weighted  decaying average of the current idle time over the  longest idle time. Note that this information  should be used as an estimate only. This object  deprecates cpmProcExtUtil1Min and increases the value range to (0..100)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -1080,7 +1080,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextutil5minrev
             
             	This object provides a general idea of how busy a process caused the processor to be over a 5  minute period. It is determined as a weighted  decaying average of the current idle time over  the longest idle time. Note that this information  should be used as an estimate only. This object deprecates cpmProcExtUtil5Min and increases the value range to (0..100)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -1089,48 +1089,48 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextpriorityrev
             
             	The priority level at  which the process is running. This object deprecates  cpmProcExtPriority
-            	**type**\:   :py:class:`Cpmprocextpriorityrev <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry.Cpmprocextpriorityrev>`
+            	**type**\:  :py:class:`Cpmprocextpriorityrev <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry.Cpmprocextpriorityrev>`
             
             .. attribute:: cpmprocesstype
             
             	This indicates the kind of process in context
-            	**type**\:   :py:class:`Cpmprocesstype <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry.Cpmprocesstype>`
+            	**type**\:  :py:class:`Cpmprocesstype <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry.Cpmprocesstype>`
             
             .. attribute:: cpmprocessrespawn
             
             	This indicates whether respawn of a process is enabled or not. If enabled the process in context repawns after it has crashed/stopped
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..2
             
             .. attribute:: cpmprocessrespawncount
             
             	This indicates the number of times the process has respawned/restarted
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmprocessrespawnafterlastpatch
             
             	This indicates the number of times a process has restarted after the last patch is applied. This is to  determine the stability of the last patch
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmprocessmemorycore
             
             	This indicates the part of process memory to be dumped when a process crashes. The process  memory is used for debugging purposes to trace the  root cause of the crash. sparse        \- Some operating systems support minimal                 dump of process core like register                 info, partial stack, partial memory                 pages especially for critical process                 to facilitate faster process restart
-            	**type**\:   :py:class:`Cpmprocessmemorycore <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry.Cpmprocessmemorycore>`
+            	**type**\:  :py:class:`Cpmprocessmemorycore <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry.Cpmprocessmemorycore>`
             
             .. attribute:: cpmprocesslastrestartuser
             
             	This indicate the user that has last restarted the process or has taken running coredump of the process
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cpmprocesstextsegmentsize
             
             	This indicates the text memory of a process and all its shared objects
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1139,7 +1139,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocessdatasegmentsize
             
             	This indicates the data segment of a process and all its shared objects
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1148,7 +1148,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocessstacksize
             
             	This indicates the amount of stack memory used by the process
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1157,7 +1157,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocessdynamicmemorysize
             
             	This indicates the amount of dynamic memory being used by the process
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1166,7 +1166,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextmemallocatedrevovrflw
             
             	This object represents the upper 32\-bit of cpmProcExtMemAllocatedRev. This object needs to be supported only when the value of  cpmProcExtMemAllocatedRev exceeds 32\-bit,  otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1175,7 +1175,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocexthcmemallocatedrev
             
             	The sum of all the dynamically allocated memory that this process has received from the system. This includes memory that may have been returned. This object is a 64\-bit version of cpmProcExtMemAllocatedRev
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1184,7 +1184,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocextmemfreedrevovrflw
             
             	This object represents the upper 32\-bit of cpmProcExtMemFreedRev. This object needs to  be supported only when the value of cpmProcExtMemFreedRev exceeds 32\-bit,otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1193,7 +1193,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocexthcmemfreedrev
             
             	The sum of all memory that this process has returned to the system. This object is a 64\-bit version of cpmProcExtMemFreedRev
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1202,7 +1202,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocesstextsegmentsizeovrflw
             
             	This object represents the upper 32\-bit of cpmProcessTextSegmentSize. This object needs to be supported only when the value of  cpmProcessTextSegmentSize exceeds 32\-bit,  otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1211,7 +1211,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocesshctextsegmentsize
             
             	This indicates the text memory of a process and all its shared objects. This object is a 64\-bit version of cpmProcessTextSegmentSize
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1220,7 +1220,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocessdatasegmentsizeovrflw
             
             	This object represents the upper 32\-bit of cpmProcessDataSegmentSize. This object needs to be supported only when the value of  cpmProcessDataSegmentSize exceeds 32\-bit,  otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1229,7 +1229,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocesshcdatasegmentsize
             
             	This indicates the data segment of a process and all its shared objects.. This object is a 64\-bit version of cpmProcessDataSegmentSize
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1238,7 +1238,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocessstacksizeovrflw
             
             	This object represents the upper 32\-bit of cpmProcessStackSize. This object needs to be supported only when the value of cpmProcessStackSize exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1247,7 +1247,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocesshcstacksize
             
             	This indicates the amount of stack memory used by the process. This object is a 64\-bit version of cpmProcessStackSize
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1256,7 +1256,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocessdynamicmemorysizeovrflw
             
             	This object represents the upper 32\-bit of cpmProcessDynamicMemorySize. This object needs to be supported only when the value of  cpmProcessDynamicMemorySize exceeds 32\-bit,  otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1265,7 +1265,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocesshcdynamicmemorysize
             
             	This indicates the amount of dynamic memory being used by the process. This object is a 64\-bit version of cpmProcessDynamicMemorySize
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -1485,7 +1485,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmcputhresholdentry
         
         	An entry containing information about CPU thresholding parameters. cpmCPUTotalIndex identifies the CPU (or group of CPUs) for which this configuration applies
-        	**type**\: list of    :py:class:`Cpmcputhresholdentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputhresholdtable.Cpmcputhresholdentry>`
+        	**type**\: list of  		 :py:class:`Cpmcputhresholdentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputhresholdtable.Cpmcputhresholdentry>`
         
         
 
@@ -1522,7 +1522,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -1531,19 +1531,19 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputhresholdclass  <key>
             
             	Value of this object indicates the type of utilization, which is monitored. The total(1) indicates the total CPU utilization, interrupt(2) indicates the the CPU utilization in interrupt context and process(3) indicates the CPU utilization in the process level execution context
-            	**type**\:   :py:class:`Cpmcputhresholdclass <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputhresholdtable.Cpmcputhresholdentry.Cpmcputhresholdclass>`
+            	**type**\:  :py:class:`Cpmcputhresholdclass <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputhresholdtable.Cpmcputhresholdentry.Cpmcputhresholdclass>`
             
             .. attribute:: cpmcpurisingthresholdvalue
             
             	The percentage rising threshold value configured by the user. The value indicates,  if the percentage CPU utilization is equal to or above this value for cpmCPURisingThresholdPeriod duration  then send a cpmCPURisingThreshold notification to the NMS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
             .. attribute:: cpmcpurisingthresholdperiod
             
             	This is an observation interval. The value of this object indicates that  the CPU utilization should be above cpmCPURisingThresholdValue for this duration to send a  cpmCPURisingThreshold notification to the NMS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..4294967295
             
@@ -1552,14 +1552,14 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpufallingthresholdvalue
             
             	The percentage falling threshold value configured by the user. The value indicates, if the percentage  CPU utilization is equal to or below this value for  cpmCPUFallingThresholdPeriod duration then send a cpmCPUFallingThreshold notification  to the NMS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..100
             
             .. attribute:: cpmcpufallingthresholdperiod
             
             	This is an observation interval. The value of this object indicates that CPU utilization should be below cpmCPUFallingThresholdValue for this duration to send a  cpmCPURisingThreshold notification to the NMS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 5..4294967295
             
@@ -1568,7 +1568,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputhresholdentrystatus
             
             	The status of this table entry
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -1645,7 +1645,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmcpuhistoryentry
         
         	A historical sample of CPU utilization statistics. cpmCPUTotalIndex identifies the CPU (or group of CPUs) for which this history is collected.  When the cpmCPUHistorySize is reached the least recent entry is lost
-        	**type**\: list of    :py:class:`Cpmcpuhistoryentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuhistorytable.Cpmcpuhistoryentry>`
+        	**type**\: list of  		 :py:class:`Cpmcpuhistoryentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuhistorytable.Cpmcpuhistoryentry>`
         
         
 
@@ -1683,7 +1683,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -1692,21 +1692,21 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpuhistoryreportid  <key>
             
             	All the entries which are created at the same time will have same value for this object. When the configured threshold for being a part of History table is reached then the qualified processes become the part of history table. The entries which became the  part of history table at one instant will have the same value for this object. When this object reaches the max index value then it will wrap around
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmcpuhistoryreportsize
             
             	The number of process entries in a report. This object gives information about how many processes  became a part of history table at one instant
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmcpuhistorytotalutil
             
             	Total percentage of CPU utilization at cpmCPUHistoryCreated
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -1715,7 +1715,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpuhistoryinterruptutil
             
             	Percentage of CPU utilization in the interrupt context at cpmCPUHistoryCreated
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -1724,7 +1724,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpuhistorycreatedtime
             
             	Time stamp with respect to sysUpTime indicating the time at which this report is created
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1772,7 +1772,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmcpuprocesshistoryentry
         
         	A historical sample of process utilization statistics. The entries in this table will have corresponding entires in the cpmCPUHistoryTable. The entries in this table get deleted when the entry associated with this entry in the cpmCPUHistoryTable  gets deleted
-        	**type**\: list of    :py:class:`Cpmcpuprocesshistoryentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuprocesshistorytable.Cpmcpuprocesshistoryentry>`
+        	**type**\: list of  		 :py:class:`Cpmcpuprocesshistoryentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuprocesshistorytable.Cpmcpuprocesshistoryentry>`
         
         
 
@@ -1811,7 +1811,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -1820,7 +1820,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpuhistoryreportid  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1829,33 +1829,33 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcpuprocesshistoryindex  <key>
             
             	An index that uniquely identifies an entry in the cmpCPUProcessHistory table among those in the  same report. This index is between 1 to N,  where N is the cpmCPUHistoryReportSize
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
             .. attribute:: cpmcpuhistoryprocid
             
             	The process Id associated with this entry
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: cpmcpuhistoryprocname
             
             	The process name associated with this entry
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cpmcpuhistoryproccreated
             
             	The time when the process was created. The process ID and the time when the process was created, uniquely  identifies a process
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmcpuhistoryprocutil
             
             	The percentage CPU utilization of a process at cpmCPUHistoryCreatedTime
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -1906,7 +1906,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmthreadentry
         
         	An entry containing the general statistics of a POSIX thread
-        	**type**\: list of    :py:class:`Cpmthreadentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmthreadtable.Cpmthreadentry>`
+        	**type**\: list of  		 :py:class:`Cpmthreadentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmthreadtable.Cpmthreadentry>`
         
         
 
@@ -1941,7 +1941,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -1950,7 +1950,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocesspid  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1959,36 +1959,38 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmthreadid  <key>
             
             	This object contains the thread ID. ThreadID is Unique per process
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmthreadname
             
             	This object represents the name of the thread. Thread names need not be unique. Hence statistics  should be analyzed against thread ID
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: cpmthreadpriority
             
             	This object indicates the priority of a POSIX thread. The higher the number, the higher the priority of the  thread over other threads
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..63
             
             .. attribute:: cpmthreadstate
             
             	This object indicates the current state of a thread. Running state means that the thread is actively  consumig CPU. All the other states are just waiting  states. The valid states are\: other         \- Any other state apart from the listed                  ones. dead          \- Kernel is waiting to release the                  thread's resources. running       \- Actively running on a CPU. ready         \- Not running on a CPU, but is ready to                  run (one or more higher or equal                  priority threads are running). stopped       \- Suspended (SIGSTOP signal). send          \- Waiting for a server to receive                  a message. receive       \- Waiting for a client to send a message. reply         \- Waiting for a server to reply to a                  message. stack         \- Waiting for more stack to be allocated. waitpage      \- Waiting for process manager to                  resolve a fault on a page. sigsuspend    \- Suspended for a signal. sigwaitinfo   \- Waiting for a signal. nanosleep     \- Sleeping for a period of time. mutex         \- Waiting to acquire a mutex condvar       \- Waiting for a condition variable to be                  signalled. join          \- Waiting for the completion of another                  thread. intr          \- Waiting for an interrupt. sem           \- Waiting to acquire a semaphore
-            	**type**\:   :py:class:`Cpmthreadstate <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmthreadtable.Cpmthreadentry.Cpmthreadstate>`
+            	**type**\:  :py:class:`Cpmthreadstate <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmthreadtable.Cpmthreadentry.Cpmthreadstate>`
             
             .. attribute:: cpmthreadblockingprocess
             
             	This object identifies the process on which the current thread is blocked on. This points to the  cpmProcessTable of the process on which the thread  in context is blocked. This is valid only to threads which are either in send/reply states. For the  rest of the threads it is returned as 0.0
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
             .. attribute:: cpmthreadcpuutilization
             
             	This object provides a general idea on how busy the thread in context caused the processor to be
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -1997,7 +1999,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmthreadstacksize
             
             	This object indicates the stack size allocated to the thread in context
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2006,7 +2008,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmthreadstacksizeovrflw
             
             	This object represents the upper 32\-bit of cpmThreadStackSize. This object needs to be supported only when the value of cpmThreadStackSize exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2015,7 +2017,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmthreadhcstacksize
             
             	This object indicates the stack size allocated to the thread in context. This object is a 64\-bit version of cpmThreadStackSize
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -2215,7 +2217,7 @@ class CISCOPROCESSMIB(Entity):
         .. attribute:: cpmvirtualprocessentry
         
         	An entry containing the general statistics of a virtual process in a virtual machine
-        	**type**\: list of    :py:class:`Cpmvirtualprocessentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmvirtualprocesstable.Cpmvirtualprocessentry>`
+        	**type**\: list of  		 :py:class:`Cpmvirtualprocessentry <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmvirtualprocesstable.Cpmvirtualprocessentry>`
         
         
 
@@ -2250,7 +2252,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmcputotalindex  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..4294967295
             
@@ -2259,7 +2261,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmprocesspid  <key>
             
             	
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2268,21 +2270,21 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmvirtualprocessid  <key>
             
             	This object indicates the process ID of a virtual process. PID is unique only inside one address space. Virtual process PID should be considered along with  Parent process cpmProcessPID
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmvirtualprocessname
             
             	This object indicates the name of a virtual process. If the name is longer than 32 characters, it will be truncated to the first 31 characters, and a `\*' will be appended as the last character to imply this is a truncated process name
-            	**type**\:  str
+            	**type**\: str
             
             	**length:** 1..32
             
             .. attribute:: cpmvirtualprocessutil5sec
             
             	This indicates an estimated CPU utilization by a virtual process over the last 5 seconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -2291,7 +2293,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmvirtualprocessutil1min
             
             	This indicates an estimated CPU utilization by a virtual process over the last one minute
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -2300,7 +2302,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmvirtualprocessutil5min
             
             	This indicates an estimated CPU utilization by a virtual process over the last 5 minutes
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..100
             
@@ -2309,7 +2311,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmvirtualprocessmemallocated
             
             	This object indicates the memory allocated by the virtual process inside the address space of a  process running on Native OS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2318,7 +2320,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmvirtualprocessmemfreed
             
             	This object indicates the memory freed by the virtual process inside the address space of a process running  on Native OS
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2327,14 +2329,14 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmvirtualprocessinvokecount
             
             	The number of times a virtual process is invoked
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
             .. attribute:: cpmvirtualprocessruntime
             
             	The amount of CPU time a virtual process has used in microseconds
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2343,7 +2345,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmvirtualprocessmemallocatedovrflw
             
             	This object represents the upper 32\-bit of cpmVirtualProcessMemAllocated. This object  needs to be supported only when the value of cpmVirtualProcessMemAllocated exceeds 32\-bit, otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2352,7 +2354,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmvirtualprocesshcmemallocated
             
             	This object indicates the memory allocated by the virtual process inside the address space of a process running on Native OS. This object is a 64\-bit version of cpmVirtualProcessMemAllocated
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             
@@ -2361,7 +2363,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmvirtualprocessmemfreedovrflw
             
             	This object represents the upper 32\-bit of cpmVirtualProcessMemFreed. This object needs to be supported only when the value of  cpmVirtualProcessMemFreed exceeds 32\-bit,  otherwise this object value would be set to 0
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..4294967295
             
@@ -2370,7 +2372,7 @@ class CISCOPROCESSMIB(Entity):
             .. attribute:: cpmvirtualprocesshcmemfreed
             
             	This object indicates the memory freed by the virtual process inside the address space of a process running on Native OS.This object is a 64\-bit version of cpmVirtualProcessMemAllocated
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 0..18446744073709551615
             

@@ -25,7 +25,7 @@ class SubscriberAccounting(Entity):
     .. attribute:: nodes
     
     	Subscriber accounting operational data for a particular location
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes>`
+    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes>`
     
     
 
@@ -60,7 +60,7 @@ class SubscriberAccounting(Entity):
         .. attribute:: node
         
         	Location. For example, 0/1/CPU0
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node>`
+        	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node>`
         
         
 
@@ -94,22 +94,24 @@ class SubscriberAccounting(Entity):
             .. attribute:: node_id  <key>
             
             	The node id to filter on. For example, 0/1/CPU0
-            	**type**\:  str
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: subscriber_accounting_session_features
             
             	Subscriber accounting session feature data
-            	**type**\:   :py:class:`SubscriberAccountingSessionFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures>`
+            	**type**\:  :py:class:`SubscriberAccountingSessionFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures>`
             
             .. attribute:: subscriber_accounting_summary
             
             	Display subscriber accounting summary data
-            	**type**\:   :py:class:`SubscriberAccountingSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary>`
+            	**type**\:  :py:class:`SubscriberAccountingSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary>`
             
             .. attribute:: subscriber_accounting_flow_features
             
             	Subscriber accounting flow feature data
-            	**type**\:   :py:class:`SubscriberAccountingFlowFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures>`
+            	**type**\:  :py:class:`SubscriberAccountingFlowFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures>`
             
             
 
@@ -158,7 +160,7 @@ class SubscriberAccounting(Entity):
                 .. attribute:: subscriber_accounting_session_feature
                 
                 	Display accounting session features by unique subscriber label
-                	**type**\: list of    :py:class:`SubscriberAccountingSessionFeature <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature>`
+                	**type**\: list of  		 :py:class:`SubscriberAccountingSessionFeature <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature>`
                 
                 
 
@@ -192,14 +194,14 @@ class SubscriberAccounting(Entity):
                     .. attribute:: sub_label  <key>
                     
                     	Unique subscriber label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: session_feature_data
                     
                     	Accounting session feature display data
-                    	**type**\:   :py:class:`SessionFeatureData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData>`
+                    	**type**\:  :py:class:`SessionFeatureData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData>`
                     
                     
 
@@ -237,69 +239,69 @@ class SubscriberAccounting(Entity):
                         .. attribute:: unique_subscriber_label
                         
                         	Unique subscriber label used to identify the session
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: interface_handle
                         
                         	Handle of interface associated with the session
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: session_disconnected
                         
                         	True if session is disconnected
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: session_accounting_enabled_flag
                         
                         	True if session accounting is enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: session_accounting_method_list
                         
                         	Session accounting method list name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..256
                         
                         .. attribute:: session_accounting_periodic_interval
                         
                         	Session accounting periodic interval
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: session_accounting_aaa_trans_pending
                         
                         	Number of Session Accounting AAA transactions pending
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: session_accounting_aaa_request_failed
                         
                         	Number of Session Accounting AAA request failures
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: session_accounting_started
                         
                         	True if session accounting started
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: session_idle_timeout_enabled_flag
                         
                         	True if session idle timeout is enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: idle_timeout_value
                         
                         	Idle timeout value in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -308,7 +310,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: idle_timeout_threshold
                         
                         	Idle timeout threshold in minutes per packets
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -317,66 +319,66 @@ class SubscriberAccounting(Entity):
                         .. attribute:: idle_timeout_direction
                         
                         	Idle timeout direction
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..256
                         
                         .. attribute:: session_is_idle
                         
                         	True if session is idle
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: session_stats_changed_time
                         
                         	Last time session data was received
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: session_total_idle_time
                         
                         	Total time session has been idle
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: session_to_idle_count
                         
                         	Number of Session Idle AAA events
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: session_to_awake_count
                         
                         	Number of Session Awake AAA events
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: session_idle_to_aaa_trans_pending
                         
                         	Number of Session Idle AAA transactions pending
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: session_idle_to_aaa_request_failed
                         
                         	Number of Session Idle AAA request failures
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: session_timeout_enabled_flag
                         
                         	True if session timeout is enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: session_timeout_value
                         
                         	Session timeout value in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -385,7 +387,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: session_timeout_time_remaining
                         
                         	Number seconds remaining before session times out
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -394,7 +396,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: service_accounting_feature
                         
                         	List of service accounting features
-                        	**type**\: list of    :py:class:`ServiceAccountingFeature <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData.ServiceAccountingFeature>`
+                        	**type**\: list of  		 :py:class:`ServiceAccountingFeature <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature.SessionFeatureData.ServiceAccountingFeature>`
                         
                         
 
@@ -473,47 +475,47 @@ class SubscriberAccounting(Entity):
                             .. attribute:: service_accounting_enabled_flag
                             
                             	True if service accounting is enabled
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             .. attribute:: service_accounting_service_id
                             
                             	Service accounting service ID
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: service_accounting_method_list
                             
                             	Service accounting method list name
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 0..256
                             
                             .. attribute:: service_accounting_periodic_interval
                             
                             	Service accounting periodic interval
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_accounting_aaa_trans_pending
                             
                             	Number of Service Accounting AAA transactions pending for the service
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_accounting_aaa_request_failed
                             
                             	Number of Service Accounting AAA request failures for the service
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..4294967295
                             
                             .. attribute:: session_accounting_started
                             
                             	True if Service accounting started  for the service
-                            	**type**\:  bool
+                            	**type**\: bool
                             
                             
 
@@ -558,22 +560,22 @@ class SubscriberAccounting(Entity):
                 .. attribute:: aaa_counters
                 
                 	Accounting feature AAA summary counters
-                	**type**\:   :py:class:`AaaCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.AaaCounters>`
+                	**type**\:  :py:class:`AaaCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.AaaCounters>`
                 
                 .. attribute:: idle_timeout_counters
                 
                 	Accounting feature idle timeout summary counters
-                	**type**\:   :py:class:`IdleTimeoutCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.IdleTimeoutCounters>`
+                	**type**\:  :py:class:`IdleTimeoutCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.IdleTimeoutCounters>`
                 
                 .. attribute:: session_timeout_counters
                 
                 	Accounting feature session timeout summary counters
-                	**type**\:   :py:class:`SessionTimeoutCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionTimeoutCounters>`
+                	**type**\:  :py:class:`SessionTimeoutCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionTimeoutCounters>`
                 
                 .. attribute:: session_flow_counters
                 
                 	Accounting feature session context summary counters
-                	**type**\:   :py:class:`SessionFlowCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionFlowCounters>`
+                	**type**\:  :py:class:`SessionFlowCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingSummary.SessionFlowCounters>`
                 
                 
 
@@ -621,245 +623,245 @@ class SubscriberAccounting(Entity):
                     .. attribute:: flow_start
                     
                     	Number of Flow Start Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: flow_disconnect
                     
                     	Number of Flow Disconnect Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: session_accounting_start
                     
                     	Number of Session Accounting Start Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: session_accounting_stop
                     
                     	Number of Session Accounting Stop Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: session_accounting_update
                     
                     	Number of Session Accounting Update Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: service_accounting_start
                     
                     	Number of Service Accounting Start Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: service_accounting_stop
                     
                     	Number of Service Accounting Stop Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: service_accounting_update
                     
                     	Number of Service Accounting Update Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: flow_accounting_start
                     
                     	Number of Flow Accounting Start Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: flow_accounting_stop
                     
                     	Number of Flow Accounting Stop Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: flow_accounting_update
                     
                     	Number of Flow Accounting Update Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: accounting_callback
                     
                     	Number of Accounting Callbacks Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: session_acct_trans_pending
                     
                     	Number of Session Accounting transactions pending
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: session_acct_reqs_failed
                     
                     	Number of Session Accounting requests that failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: session_acct_out_of_sync
                     
                     	Number of Session Accounting sessions out of sync
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: session_idle_to_trans_pending
                     
                     	Number of Session Idle Timeout transactions pending
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: session_idle_to_reqs_failed
                     
                     	Number of Session Idle Timeout requests that failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: session_idle_to_out_of_sync
                     
                     	Number of Session Idle Timeout sessions out of sync
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: service_acct_trans_pending
                     
                     	Number of Service Accounting transactions pending
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: service_acct_reqs_failed
                     
                     	Number of Service Accounting requests that failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: service_acct_out_of_sync
                     
                     	Number of Service Accounting services out of sync
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: service_idle_to_trans_pending
                     
                     	Number of Service Idle Timeout transactions pending
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: service_idle_to_reqs_failed
                     
                     	Number of Service Idle Timeout requests that failed
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: service_idle_to_out_of_sync
                     
                     	Number of Service Idle Timeout services out of sync
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prepaid_start
                     
                     	Number of Prepaid Start Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prepaid_stop
                     
                     	Number of Prepaid Stop Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prepaid_accounting_start
                     
                     	Number of Prepaid Accounting Start Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prepaid_accounting_stop
                     
                     	Number of Prepaid Accounting Stop Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prepaid_volume_threshold_reached
                     
                     	Number of Prepaid Volume Threshold Reached Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prepaid_time_threshold_reached
                     
                     	Number of Prepaid Time Threshold Reached Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prepaid_quota_depleted
                     
                     	Number of Prepaid Quota Depleted Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prepaid_reauthorization
                     
                     	Number of Prepaid Authorization Requests Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: idle_timeout
                     
                     	Number of Idle Timeout Events Sent
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: idle_timeout_response_callback
                     
                     	Number of Idle Timeout Callbacks Received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: owned_resource_start
                     
                     	Number of Owned Resource Starts
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -962,56 +964,56 @@ class SubscriberAccounting(Entity):
                     .. attribute:: active_session_idle_timers
                     
                     	Number of Sessions with Idle Timeout Feature
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: idle_sessions
                     
                     	Number of Idle Sessions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: transitions_to_idle
                     
                     	Number of Sessions Transitions to Idle State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: transitions_to_awake
                     
                     	Number of Sessions Transitions to Awake State
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: active_flow_idle_timers
                     
                     	Number of Active Flow Idle Timers
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: expired_flow_idle_timers
                     
                     	Number of Flow Expired Idle Timers
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: active_prepaid_idle_timers
                     
                     	Number of Active Prepaid Idle Timers
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: expired_prepaid_idle_timers
                     
                     	Number of Expired Prepaid Idle Timers
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1061,14 +1063,14 @@ class SubscriberAccounting(Entity):
                     .. attribute:: active_session_timers
                     
                     	Number of Active Session Timers
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: expired_session_timers
                     
                     	Number of Expired Session Timers
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1106,35 +1108,35 @@ class SubscriberAccounting(Entity):
                     .. attribute:: active_sessions
                     
                     	Number of Active Sessions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: disconnected_sessions
                     
                     	Number of Disconnected Sessions
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: active_session_accounting_sessions
                     
                     	Number of Active Sessions with Accounting
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: active_flows
                     
                     	Number of Active Flows
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: quota_received
                     
                     	Number of flows for which Quota is received
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** 0..4294967295
                     
@@ -1177,7 +1179,7 @@ class SubscriberAccounting(Entity):
                 .. attribute:: subscriber_accounting_flow_feature
                 
                 	Display accounting flow features by unique subscriber label
-                	**type**\: list of    :py:class:`SubscriberAccountingFlowFeature <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature>`
+                	**type**\: list of  		 :py:class:`SubscriberAccountingFlowFeature <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature>`
                 
                 
 
@@ -1211,14 +1213,14 @@ class SubscriberAccounting(Entity):
                     .. attribute:: class_label  <key>
                     
                     	Unique subscriber class label
-                    	**type**\:  int
+                    	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: flow_feature_data
                     
                     	Accouting flow feature display data
-                    	**type**\:   :py:class:`FlowFeatureData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData>`
+                    	**type**\:  :py:class:`FlowFeatureData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_accounting_oper.SubscriberAccounting.Nodes.Node.SubscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature.FlowFeatureData>`
                     
                     
 
@@ -1256,58 +1258,58 @@ class SubscriberAccounting(Entity):
                         .. attribute:: flow_accounting_enabled_flag
                         
                         	True if flow accounting is enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: flow_idle_timeout_enabled_flag
                         
                         	True if flow idle timeout is enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: prepaid_enabled_flag
                         
                         	True if prepaid is enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: prepaid_reauth_timer_enabled
                         
                         	Flag to specify if absolute timeout for ervice is enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: prepaid_idle_timeout_enabled
                         
                         	Flag to specify if idle timeout for service is enabled
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: prepaid_final_unit
                         
                         	Prepaid final unit indication flag
-                        	**type**\:  bool
+                        	**type**\: bool
                         
                         .. attribute:: unique_class_label
                         
                         	Unique class label used to identify the flow
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: flow_direction
                         
                         	Direction of the flow. 0 = Ingress, 1 = Egress
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: flow_accounting_periodic_interval
                         
                         	Flow accounting periodic interval
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: flow_idle_timeout_value
                         
                         	Flow idle timeout value in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1316,7 +1318,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_time_quota
                         
                         	Current prepaid time quota in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1325,7 +1327,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_time_threshold
                         
                         	Current prepaid time threshold in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1334,14 +1336,14 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_total_time_quota
                         
                         	Total accumulated prepaid time quota
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: prepaid_volume_threshold
                         
                         	Current prepaid volume threshold in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1350,49 +1352,49 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_remaining_qt
                         
                         	The time remaing for QT timer to fire
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: prepaid_remaining_qat
                         
                         	The time remaing for quota absolute timer to fire
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: prepaid_remaining_qit
                         
                         	The time remaing for quota holding timer to fire 
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: prepaid_remaining_qtt
                         
                         	The time remaining for tariff timer to fire
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: prepaid_remaining_wheel
                         
                         	The time remaining for idle timer wheel to fire
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: prepaid_tariff_time
                         
                         	The absolute time at which the traffic switch will occur expressed in UNIX time
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: prepaid_idle_timeout_value
                         
                         	Prepaid idle timeout value in seconds
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
@@ -1401,28 +1403,28 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_reauth_timeout_value
                         
                         	The time at which the re\-authorization will occur
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: prepaid_ccfh
                         
                         	Prepaid CCFH flag
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: prepaid_result_code
                         
                         	Prepaid authorization operation result code
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: prepaid_volumei_quota
                         
                         	Current prepaid input volume quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1431,7 +1433,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_volumeo_quota
                         
                         	Current prepaid output volume quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1440,7 +1442,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_volumeb_quota
                         
                         	Current prepaid total volume quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1449,7 +1451,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_total_volumei_quota
                         
                         	Total accumulated input volume quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1458,7 +1460,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_total_volumeo_quota
                         
                         	Total accumulated output volume quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1467,7 +1469,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_total_volumeb_quota
                         
                         	Total accumulated total volume quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1476,7 +1478,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_volume_usedi_quota
                         
                         	Accumulated input volume used quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1485,7 +1487,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_volume_usedo_quota
                         
                         	Accumulated output volume used quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1494,7 +1496,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_volume_refi_quota
                         
                         	Accumulated input volume reference quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1503,7 +1505,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_volume_refo_quota
                         
                         	Accumulated output volume reference quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1512,7 +1514,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_volume_refb_quota
                         
                         	Accumulated bi\-directional volume reference quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1521,7 +1523,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_volume_newi_quota
                         
                         	Newly arrvied input volume quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1530,7 +1532,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_volume_newo_quota
                         
                         	Newly arrvied output volume quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1539,7 +1541,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_volume_newb_quota
                         
                         	Newly arrvied bi\-directional volume quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1548,7 +1550,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_tariff_volumei_quota
                         
                         	Total accumulated prepaid pre\-tarrif input volume quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1557,7 +1559,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_tariff_volumeo_quota
                         
                         	Total accumulated prepaid pre\-tarrif output volume quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1566,7 +1568,7 @@ class SubscriberAccounting(Entity):
                         .. attribute:: prepaid_tariff_volumeb_quota
                         
                         	Total accumulated prepaid pre\-tarrif total volume quota in bytes
-                        	**type**\:  int
+                        	**type**\: int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1575,35 +1577,35 @@ class SubscriberAccounting(Entity):
                         .. attribute:: flow_accounting_method_list_name
                         
                         	Flow accounting method list name
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..256
                         
                         .. attribute:: prepaid_cfg
                         
                         	Prepaid Config
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..256
                         
                         .. attribute:: prepaid_time_state
                         
                         	Prepaid time state machine state
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..256
                         
                         .. attribute:: prepaid_volume_state
                         
                         	Prepaid volume state machine state
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..256
                         
                         .. attribute:: prepaid_charging_rule
                         
                         	Prepaid charging rule name string
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 0..256
                         

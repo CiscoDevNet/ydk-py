@@ -53,12 +53,12 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
     .. attribute:: ikepolmaptable
     
     	The IPSec Phase\-1 Internet Key Exchange Tunnel to Policy Mapping Table. There is one entry in this table for each active IPSec Phase\-1 Tunnel
-    	**type**\:   :py:class:`Ikepolmaptable <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ikepolmaptable>`
+    	**type**\:  :py:class:`Ikepolmaptable <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ikepolmaptable>`
     
     .. attribute:: ipsecpolmaptable
     
     	The IPSec Phase\-2 Tunnel to Policy Mapping Table. There is one entry in this table for each active IPSec Phase\-2 Tunnel
-    	**type**\:   :py:class:`Ipsecpolmaptable <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable>`
+    	**type**\:  :py:class:`Ipsecpolmaptable <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable>`
     
     
 
@@ -100,7 +100,7 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
         .. attribute:: ikepolmapentry
         
         	Each entry contains the attributes associated with mapping an active IPSec Phase\-1 IKE Tunnel to it's configured Policy definition
-        	**type**\: list of    :py:class:`Ikepolmapentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ikepolmaptable.Ikepolmapentry>`
+        	**type**\: list of  		 :py:class:`Ikepolmapentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ikepolmaptable.Ikepolmapentry>`
         
         
 
@@ -136,14 +136,14 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             .. attribute:: ikepolmaptunindex  <key>
             
             	The index of the IPSec Phase\-1 Tunnel to Policy Map Table.  The value of the index is the number used to represent this IPSec Phase\-1 Tunnel in the IPSec MIB (ikeTunIndex in the ikeTunnelTable)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: ikepolmappolicynum
             
             	The number of the locally defined ISAKMP policy used to establish the IPSec IKE Phase\-1 Tunnel. This is the number which was used on the crypto command. For example, if the configuration command was\:   ==>  crypto isakmp policy 15  then the value of this object would be 15. If ISAKMP was not used to establish this tunnel, then the value of this object will be zero
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
@@ -183,7 +183,7 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
         .. attribute:: ipsecpolmapentry
         
         	Each entry contains the attributes associated with mapping an active IPSec Phase\-2 Tunnel to its configured Policy definition
-        	**type**\: list of    :py:class:`Ipsecpolmapentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry>`
+        	**type**\: list of  		 :py:class:`Ipsecpolmapentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_POLICY_MAP_MIB.CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry>`
         
         
 
@@ -219,31 +219,31 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             .. attribute:: ipsecpolmaptunindex  <key>
             
             	The index of the IPSec Phase\-2 Tunnel to Policy Map Table. The value of the index is the number used to represent this IPSec Phase\-2 Tunnel in the IPSec MIB (ipSecTunIndex in the ipSecTunnelTable)
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: ipsecpolmapcryptomapname
             
             	The value of this object should be the name of  the IPSec Policy (cryptomap) as assigned by the  operator while configuring the policy of  the IPSec traffic.  For instance, on an IOS router, the if the command entered to configure the IPSec policy was   ==>  crypto map ftpPolicy 10 ipsec\-isakmp  then the value of this object would be 'ftpPolicy'
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: ipsecpolmapcryptomapnum
             
             	The value of this object should be the priority of the IPSec Policy (cryptomap) assigned by the  operator while configuring the policy of  this IPSec tunnel.  For instance, on an IOS router, the if the command entered to configure the IPSec policy was   ==>  crypto map ftpPolicy 10 ipsec\-isakmp  then the value of this object would be 10
-            	**type**\:  int
+            	**type**\: int
             
             	**range:** 1..2147483647
             
             .. attribute:: ipsecpolmapaclstring
             
             	The value of this object is the number or the name of the access control string (ACL)  that caused this IPSec tunnel to be established.   The ACL that causes an IPSec tunnel  to be established is referenced by the   cryptomap of the tunnel.   The ACL identifies the traffic that requires  protection as defined by the policy.   For instance, the ACL that requires FTP  traffic between local subnet 172.16.14.0 and a  remote subnet 172.16.16.0 to be protected  is defined as   ==>access\-list 101 permit tcp 172.16.14.0 0.0.0.255                   172.16.16.0 0.0.0.255 eq ftp   When this command causes an IPSec tunnel to be   established, the object 'ipSecPolMapAclString'   assumes the string value '101'.   If the ACL is a named list such as   ==> ip access\-list standard myAcl        permit 172.16.16.8 0.0.0.0   then the value of this MIB element corresponding to    IPSec tunnel that was created by this ACL would   be 'myAcl'
-            	**type**\:  str
+            	**type**\: str
             
             .. attribute:: ipsecpolmapacestring
             
             	The value of this object is the access control  entry (ACE) within the ACL that caused this IPSec  tunnel to be established.   For instance, if an ACL defines access for two traffic streams (FTP and SNMP) as follows\:  access\-list 101 permit tcp 172.16.14.0 0.0.0.255                  172.16.16.0 0.0.0.255 eq ftp access\-list 101 permit udp 172.16.14.0 0.0.0.255                  host 172.16.16.1 eq 161   When associated with an IPSec policy, the second element of the ACL gives rise to an IPSec tunnel in the wake of SNMP traffic. The value of the object 'ipSecPolMapAceString' for the IPSec tunnel would be then the string 'access\-list 101 permit udp 172.16.14.0 0.0.0.255                  host 172.16.16.1 eq 161'
-            	**type**\:  str
+            	**type**\: str
             
             
 

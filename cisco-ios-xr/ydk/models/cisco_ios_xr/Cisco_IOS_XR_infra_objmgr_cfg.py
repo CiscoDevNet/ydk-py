@@ -705,12 +705,12 @@ class ObjectGroup(Entity):
     .. attribute:: port
     
     	Port object group
-    	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port>`
+    	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port>`
     
     .. attribute:: network
     
     	Network object group
-    	**type**\:   :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network>`
+    	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network>`
     
     
 
@@ -749,7 +749,7 @@ class ObjectGroup(Entity):
         .. attribute:: udf_objects
         
         	Table of port objects groups
-        	**type**\:   :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects>`
+        	**type**\:  :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects>`
         
         
 
@@ -783,7 +783,7 @@ class ObjectGroup(Entity):
             .. attribute:: udf_object
             
             	Port object group
-            	**type**\: list of    :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject>`
+            	**type**\: list of  		 :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject>`
             
             
 
@@ -817,29 +817,29 @@ class ObjectGroup(Entity):
                 .. attribute:: object_name  <key>
                 
                 	Port object group name \- maximum 64 characters
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..64
                 
                 .. attribute:: operators
                 
                 	Table of port operators
-                	**type**\:   :py:class:`Operators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.Operators>`
+                	**type**\:  :py:class:`Operators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.Operators>`
                 
                 .. attribute:: nested_groups
                 
                 	Table of nested port object groups
-                	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups>`
+                	**type**\:  :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups>`
                 
                 .. attribute:: port_ranges
                 
                 	Table of port range addresses
-                	**type**\:   :py:class:`PortRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.PortRanges>`
+                	**type**\:  :py:class:`PortRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.PortRanges>`
                 
                 .. attribute:: description
                 
                 	Up to 100 characters describing this object
-                	**type**\:  str
+                	**type**\: str
                 
                 	**length:** 1..100
                 
@@ -892,7 +892,7 @@ class ObjectGroup(Entity):
                     .. attribute:: operator
                     
                     	op class
-                    	**type**\: list of    :py:class:`Operator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator>`
+                    	**type**\: list of  		 :py:class:`Operator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator>`
                     
                     
 
@@ -925,23 +925,19 @@ class ObjectGroup(Entity):
                         .. attribute:: operator_type  <key>
                         
                         	operation for ports
-                        	**type**\:   :py:class:`PortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.PortOperator>`
+                        	**type**\:  :py:class:`PortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.PortOperator>`
                         
                         .. attribute:: port  <key>
                         
                         	Port number
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.Port>`
+                        		**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.Port>`
                         
+                        		**type**\: int
                         
-                        ----
-                        	**type**\:  int
+                        			**range:** 0..65535
                         
-                        	**range:** 0..65535
-                        
-                        
-                        ----
                         
 
                         """
@@ -975,7 +971,7 @@ class ObjectGroup(Entity):
                     .. attribute:: nested_group
                     
                     	nested object group
-                    	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
+                    	**type**\: list of  		 :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
                     
                     
 
@@ -1008,7 +1004,7 @@ class ObjectGroup(Entity):
                         .. attribute:: nested_group_name  <key>
                         
                         	Name of a nested object group
-                        	**type**\:  str
+                        	**type**\: str
                         
                         	**length:** 1..64
                         
@@ -1043,7 +1039,7 @@ class ObjectGroup(Entity):
                     .. attribute:: port_range
                     
                     	Match only packets on a given port range
-                    	**type**\: list of    :py:class:`PortRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange>`
+                    	**type**\: list of  		 :py:class:`PortRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange>`
                     
                     
 
@@ -1076,33 +1072,25 @@ class ObjectGroup(Entity):
                         .. attribute:: start_port  <key>
                         
                         	Port number
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:   :py:class:`StartPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.StartPort>`
+                        		**type**\:  :py:class:`StartPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.StartPort>`
                         
+                        		**type**\: int
                         
-                        ----
-                        	**type**\:  int
+                        			**range:** 0..65535
                         
-                        	**range:** 0..65535
-                        
-                        
-                        ----
                         .. attribute:: end_port  <key>
                         
                         	Port number
-                        	**type**\: one of the below types:
+                        	**type**\: union of the below types:
                         
-                        	**type**\:   :py:class:`EndPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.EndPort>`
+                        		**type**\:  :py:class:`EndPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.EndPort>`
                         
+                        		**type**\: int
                         
-                        ----
-                        	**type**\:  int
+                        			**range:** 0..65535
                         
-                        	**range:** 0..65535
-                        
-                        
-                        ----
                         
 
                         """
@@ -1136,12 +1124,12 @@ class ObjectGroup(Entity):
         .. attribute:: ipv6
         
         	IPv6 object group
-        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6>`
+        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6>`
         
         .. attribute:: ipv4
         
         	IPv4 object group
-        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4>`
+        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4>`
         
         
 
@@ -1180,7 +1168,7 @@ class ObjectGroup(Entity):
             .. attribute:: udf_objects
             
             	Table of ipv6 object groups
-            	**type**\:   :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects>`
+            	**type**\:  :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects>`
             
             
 
@@ -1214,7 +1202,7 @@ class ObjectGroup(Entity):
                 .. attribute:: udf_object
                 
                 	IPv6 object group
-                	**type**\: list of    :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject>`
+                	**type**\: list of  		 :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject>`
                 
                 
 
@@ -1248,34 +1236,34 @@ class ObjectGroup(Entity):
                     .. attribute:: object_name  <key>
                     
                     	IPv6 object group name \- maximum 64 characters
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: nested_groups
                     
                     	Table of nested ipv6 object groups
-                    	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups>`
+                    	**type**\:  :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups>`
                     
                     .. attribute:: address_ranges
                     
                     	Table of ipv6 address ranges
-                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges>`
+                    	**type**\:  :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges>`
                     
                     .. attribute:: addresses
                     
                     	Table of ipv6 addresses
-                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses>`
+                    	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses>`
                     
                     .. attribute:: hosts
                     
                     	Table of ipv6 host addresses
-                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts>`
+                    	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts>`
                     
                     .. attribute:: description
                     
                     	Up to 100 characters describing this object
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..100
                     
@@ -1333,7 +1321,7 @@ class ObjectGroup(Entity):
                         .. attribute:: nested_group
                         
                         	nested object group
-                        	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
+                        	**type**\: list of  		 :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
                         
                         
 
@@ -1366,7 +1354,7 @@ class ObjectGroup(Entity):
                             .. attribute:: nested_group_name  <key>
                             
                             	Enter the name of a nested object group
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..64
                             
@@ -1401,7 +1389,7 @@ class ObjectGroup(Entity):
                         .. attribute:: address_range
                         
                         	Range of host addresses
-                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange>`
+                        	**type**\: list of  		 :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange>`
                         
                         
 
@@ -1434,29 +1422,29 @@ class ObjectGroup(Entity):
                             .. attribute:: start_address  <key>
                             
                             	IPv6 address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: end_address  <key>
                             
                             	IPv6 address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             
 
                             """
@@ -1490,7 +1478,7 @@ class ObjectGroup(Entity):
                         .. attribute:: address
                         
                         	IPv6 address
-                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address>`
+                        	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address>`
                         
                         
 
@@ -1523,20 +1511,20 @@ class ObjectGroup(Entity):
                             .. attribute:: prefix  <key>
                             
                             	IPv6 prefix x\:x\:\:x/y
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: prefix_length  <key>
                             
                             	Prefix of the IP Address
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..128
                             
@@ -1573,7 +1561,7 @@ class ObjectGroup(Entity):
                         .. attribute:: host
                         
                         	A single host address
-                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host>`
+                        	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host>`
                         
                         
 
@@ -1606,16 +1594,16 @@ class ObjectGroup(Entity):
                             .. attribute:: host_address  <key>
                             
                             	host ipv6 address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             
 
                             """
@@ -1647,7 +1635,7 @@ class ObjectGroup(Entity):
             .. attribute:: udf_objects
             
             	Table of ipv4 object groups
-            	**type**\:   :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects>`
+            	**type**\:  :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects>`
             
             
 
@@ -1681,7 +1669,7 @@ class ObjectGroup(Entity):
                 .. attribute:: udf_object
                 
                 	IPv4 object group
-                	**type**\: list of    :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject>`
+                	**type**\: list of  		 :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject>`
                 
                 
 
@@ -1715,34 +1703,34 @@ class ObjectGroup(Entity):
                     .. attribute:: object_name  <key>
                     
                     	IPv4 object group name \- maximum 64 characters
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..64
                     
                     .. attribute:: nested_groups
                     
                     	Table of nested ipv4 object groups
-                    	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups>`
+                    	**type**\:  :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups>`
                     
                     .. attribute:: address_ranges
                     
                     	Table of ipv4 host address ranges
-                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges>`
+                    	**type**\:  :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges>`
                     
                     .. attribute:: addresses
                     
                     	Table of addresses
-                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses>`
+                    	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses>`
                     
                     .. attribute:: hosts
                     
                     	Table of host addresses
-                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts>`
+                    	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts>`
                     
                     .. attribute:: description
                     
                     	Up to 100 characters describing this object
-                    	**type**\:  str
+                    	**type**\: str
                     
                     	**length:** 1..100
                     
@@ -1800,7 +1788,7 @@ class ObjectGroup(Entity):
                         .. attribute:: nested_group
                         
                         	Nested object group
-                        	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
+                        	**type**\: list of  		 :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
                         
                         
 
@@ -1833,7 +1821,7 @@ class ObjectGroup(Entity):
                             .. attribute:: nested_group_name  <key>
                             
                             	Nested object group
-                            	**type**\:  str
+                            	**type**\: str
                             
                             	**length:** 1..64
                             
@@ -1868,7 +1856,7 @@ class ObjectGroup(Entity):
                         .. attribute:: address_range
                         
                         	Range of host addresses
-                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange>`
+                        	**type**\: list of  		 :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange>`
                         
                         
 
@@ -1901,29 +1889,29 @@ class ObjectGroup(Entity):
                             .. attribute:: start_address  <key>
                             
                             	IPv4 address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: end_address  <key>
                             
                             	IPv4 address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             
 
                             """
@@ -1957,7 +1945,7 @@ class ObjectGroup(Entity):
                         .. attribute:: address
                         
                         	IPv4 address
-                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address>`
+                        	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address>`
                         
                         
 
@@ -1990,20 +1978,20 @@ class ObjectGroup(Entity):
                             .. attribute:: prefix  <key>
                             
                             	IPv4 address/prefix
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             .. attribute:: prefix_length  <key>
                             
                             	Prefix of the IP Address
-                            	**type**\:  int
+                            	**type**\: int
                             
                             	**range:** 0..32
                             
@@ -2040,7 +2028,7 @@ class ObjectGroup(Entity):
                         .. attribute:: host
                         
                         	A single host address
-                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host>`
+                        	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host>`
                         
                         
 
@@ -2073,16 +2061,16 @@ class ObjectGroup(Entity):
                             .. attribute:: host_address  <key>
                             
                             	Host ipv4 address
-                            	**type**\: one of the below types:
+                            	**type**\: union of the below types:
                             
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            ----
-                            	**type**\:  str
+                            		**type**\: str
                             
+                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            ----
                             
 
                             """

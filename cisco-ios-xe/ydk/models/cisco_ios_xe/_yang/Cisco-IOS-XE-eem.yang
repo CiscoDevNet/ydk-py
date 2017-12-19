@@ -33,6 +33,11 @@ module Cisco-IOS-XE-eem {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-08-03 {
+    description
+      "Add event time full support";
+  }
+
   revision 2017-04-13 {
     description
       "Add event track";
@@ -56,6 +61,62 @@ module Cisco-IOS-XE-eem {
       enum "le";
       enum "lt";
       enum "ne";
+    }
+  }
+
+  grouping eem-timer-cron-group {
+    leaf maxrun {
+      description
+        "Maximum runtime of applet";
+      type uint32 {
+        range "0..31536000";
+      }
+    }
+    leaf name {
+      description
+        "Timer name string";
+      type string;
+    }
+    leaf ratelimit {
+      description
+        "seconds[.milliseconds] value";
+      type uint32 {
+        range "0..31536000";
+      }
+    }
+    leaf cron-entry {
+      description
+        "Cron entry for cron timer";
+      type string;
+    }
+  }
+
+  grouping eem-timer-common-group {
+    leaf maxrun {
+      description
+        "Maximum runtime of applet";
+      type uint32 {
+        range "0..31536000";
+      }
+    }
+    leaf name {
+      description
+        "Timer name string";
+      type string;
+    }
+    leaf ratelimit {
+      description
+        "Limit trigger to once per given time period";
+      type uint32 {
+        range "0..31536000";
+      }
+    }
+    leaf time {
+      description
+        "Time period for watchdog / countdown / absolute timer";
+      type uint32 {
+        range "1..2085978494";
+      }
     }
   }
 
@@ -148,55 +209,25 @@ module Cisco-IOS-XE-eem {
           container timer {
             description
               "Timer event";
+            container absolute  {
+              description
+                "Absolute timer event";
+              uses eem-timer-common-group;
+            }
+            container countdown {
+              description
+                "Countdown timer event";
+              uses eem-timer-common-group;
+            }
+            container cron {
+              description
+                "cron timer event";
+              uses eem-timer-cron-group;
+            }
             container watchdog {
               description
                 "Watchdog timer event";
-              container name {
-                description
-                  "Name of the timer";
-                list timer-name {
-                  key "timer-name";
-                  leaf timer-name {
-                    type string;
-                  }
-                  container time {
-                    description
-                      "Time period for watchdog / countdown / absolute timer";
-                    list time-in-seconds {
-                      key "time-in-seconds";
-                      leaf time-in-seconds {
-                        description
-                          "Enter seconds[.milliseconds] value";
-                        type uint32 {
-                          range "1..2085978494";
-                        }
-                      }
-                      container maxrun {
-                        description
-                          "Maximum runtime of applet";
-                        list timer-in-seconds {
-                          key "timer-in-seconds";
-                          leaf timer-in-seconds {
-                            description
-                              "Enter seconds[.milliseconds] value";
-                            type uint32 {
-                              range "0..31536000";
-                            }
-                          }
-                          leaf ratelimit {
-                            description 
-                              "Limit trigger to once per given time period.
-                               Enter seconds[.milliseconds] value";
-                            type uint32 {
-                               range "0..31536000";
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
+              uses eem-timer-common-group;
             }
           } 
 
